@@ -3,7 +3,7 @@
 Host: 4 vCPU, 15.7 GB RAM, no GPU, ~10 GB disk free after models. Python 3.12.3 (system `/usr/bin/python3.12`; uv's python downloads come from blocked github.com). Venv `.venv` via `uv`. Pins: `harness/requirements.lock.txt` (139 packages); versions/model revisions also in `harness/state/budget.json`.
 
 ## Key versions
-torch 2.14.1+cpu, torchaudio 2.11.0+cpu, faster-whisper 1.2.1 (ctranslate2 4.8.2), av 16.1.0 (must be <17), transformers 5.19.0, numpy 2.5.3, demucs 4.1.0, ctc-forced-aligner 1.0.2 (PyPI; not used, see below). All 33 requested packages installed; zero pip failures.
+torch 2.14.1+cpu, torchaudio 2.11.0+cpu, faster-whisper 1.2.1 (ctranslate2 4.8.2), av 16.1.0 (must be <17), transformers 5.19.0, numpy 2.5.3, demucs 4.1.0, ctc-forced-aligner 1.0.2 (PyPI; not used, see below). All requested packages are installed, including speechbrain 1.1.1, torchmetrics[audio] 1.9.0 (pesq 0.0.4, pystoi 0.4.1) and camel-tools 1.6.0, which an earlier revision of this report omitted (added after the G0 verifier flagged the gap). Optional `manim` is not installed. Lock file: `harness/requirements.lock.txt`.
 
 ## apt / ffmpeg
 task-spooler (`tsp`), sox, jq, parallel, tesseract-ocr(+ara), fonts-dejavu-core, libraqm0 installed.
@@ -11,7 +11,7 @@ task-spooler (`tsp`), sox, jq, parallel, tesseract-ocr(+ara), fonts-dejavu-core,
 - static ffmpeg 7.0.2 (imageio-ffmpeg wheel, johnvansickle): libx264, libx265, libvmaf, ebur128, loudnorm, sidechaincompress; no libsvtav1. Symlinked as `tools/bin/ffmpeg-vmaf` (git-ignored). Use it only for VMAF scoring.
 
 ## Models (data/models/, revisions in budget.json "models")
-faster-whisper-large-v3 (Systran), faster-whisper-large-v3-turbo (mobiuslabsgmbh), mms-300m-1130-forced-aligner (safetensors only), bge-m3 (pytorch_model.bin + tokenizer, no onnx; loads in sentence-transformers, dim 1024), demucs-htdemucs.
+faster-whisper-large-v3 (Systran), faster-whisper-large-v3-turbo (mobiuslabsgmbh), mms-300m-1130-forced-aligner (safetensors only), bge-m3 (pytorch_model.bin + tokenizer, no onnx; loads in sentence-transformers, dim 1024), demucs-htdemucs, ecapa-voxceleb (speechbrain/spkrec-ecapa-voxceleb@0f99f2d0, 192-d embeddings verified on CPU), camel_data (CAMeL Tools Egyptian morphology DB `morphology-db-egy-r13`, use `CAMELTOOLS_DATA=data/models/camel_data`; analyzer verified). Other camel-tools data packs not fetched (not needed). All limitations are recorded in budget.json "limitations" and reported by the G0 checker (`limitations_documented`, `environment_complete`).
 
 ## Blocked / workarounds
 - **Demucs**: dl.fbaipublicfiles.com blocked. Using HF safetensors mirror `AEmotionStudio/htdemucs-models` (converted from the official htdemucs checkpoint; strict state-dict load OK; speech clip separates fully into vocals). Weights are NOT hash-verified against upstream. Loader: `harness/lib/demucs_local.py`.

@@ -70,7 +70,12 @@
     {
       "name": "limitations_documented",
       "pass": true,
-      "detail": "documented limitations (not silent passes): fbaipublicfiles_blocked -> htdemucs from HF mirror AEmotionStudio/htdemucs-models (harn; remotion_chrome_download_blocked -> use preinstalled headless shell /opt/pw-browsers/chromium_he; github_blocked_push_denied -> pip/npm from PyPI/npm registry only; commit locally, never p; system_ffmpeg_no_libvmaf -> static ffmpeg 7.0.2 from imageio-ffmpeg has libvmaf (budget.; render_budget_over_cpu_only -> P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftsha"
+      "detail": "documented limitations (not silent passes): demucs_official_weights -> HF safetensors mirror AEmotionStudio/htdemucs-models via har; torchaudio_mms_fa_bundle -> MahmoudAshraf/mms-300m-1130-forced-aligner (HF) via harness/; system_ffmpeg_libvmaf -> static ffmpeg 7.0.2 from imageio-ffmpeg linked at tools/bin/; remotion_chrome_download -> --browser-executable under /opt/pw-browsers/chromium_headles; camel_tools_data_partial -> only morphology-db-egy-r13 fetched into data/models/camel_da; manim_optional -> not installed"
+    },
+    {
+      "name": "environment_complete",
+      "pass": true,
+      "detail": "all 6 models and 32 python packages present; documented limitations (budget.json, workarounds in place): demucs_official_weights, torchaudio_mms_fa_bundle, system_ffmpeg_libvmaf, remotion_chrome_download, camel_tools_data_partial, manim_optional"
     },
     {
       "name": "gates_registered",
@@ -78,5 +83,5 @@
       "detail": "14/14 gate modules"
     }
   ],
-  "created": "2026-10-07T13:56:10Z"
+  "created": "2026-10-07T14:00:05Z"
 }

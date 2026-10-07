@@ -22,6 +22,38 @@ def _load(ctx, rel, default=None):
     return ctx.common.read_json(ctx.p(*rel.split("/")), default)
 
 
+# 03 section P0.3 lists; model dir name -> plan item.  Python names are import names.
+REQ_MODELS = {"faster-whisper-large-v3": "Whisper large-v3", "faster-whisper-large-v3-turbo": "Whisper large-v3-turbo",
+              "mms-300m-1130-forced-aligner": "MMS forced aligner", "bge-m3": "BAAI/bge-m3", "demucs-htdemucs": "Demucs htdemucs",
+              "ecapa-voxceleb": "ECAPA speaker model"}
+REQ_PY = ["faster_whisper", "ctc_forced_aligner", "torch", "torchaudio", "silero_vad", "librosa", "soundfile", "pyloudnorm", "parselmouth",
+          "demucs", "speechbrain", "torchmetrics", "FlagEmbedding", "sentence_transformers", "faiss", "hdbscan", "networkx", "rapidfuzz",
+          "camel_tools", "pyarabic", "pydantic", "jsonschema", "bs4", "lxml", "playwright", "numpy", "pandas", "pyarrow", "PIL", "cv2",
+          "skimage", "pedalboard"]
+
+
+def _env_check(ctx, budget):
+    """Fail on any missing plan item. Documented limitations (budget.json 'limitations') are listed in the detail, never hidden."""
+    lims = (budget or {}).get("limitations") or []
+    missing = []
+    for d, label in REQ_MODELS.items():
+        if not os.path.exists(ctx.p("data", "models", d, ".done")):
+            missing.append("model " + label)
+    py = ctx.p(".venv", "bin", "python")
+    if os.path.exists(py):
+        code = "import importlib,sys\nfor m in sys.argv[1:]:\n    try: importlib.import_module(m)\n    except Exception as e: print(m)\n"
+        rc, o = ctx.run([py, "-I", "-W", "ignore", "-c", code] + REQ_PY, timeout=300)
+        missing += ["python " + m for m in o.split() if m in REQ_PY]
+        if rc != 0:
+            missing.append("venv probe failed rc=%s" % rc)
+    else:
+        missing.append(".venv missing")
+    ids = [l.get("id") for l in lims]
+    return C("environment_complete", not missing,
+             ("all %d models and %d python packages present" % (len(REQ_MODELS), len(REQ_PY)) if not missing else "MISSING: " + ", ".join(missing))
+             + "; documented limitations (budget.json, workarounds in place): %s" % (", ".join(ids) if ids else "none"))
+
+
 def check(ctx):
     out = []
     # 1 layout
@@ -41,6 +73,36 @@ def check(ctx):
         out.append(C("setup_idempotent_marker", clean and idem,
                      f"reports/perf/setup_last.txt: last run clean={clean}, shows skipped (already-done) sections={idem}"
                      if txt else "reports/perf/setup_last.txt missing: run harness/setup.sh twice and read its report"))
+
+    # 2b studio (Node) + fonts bootstrap lives in setup.sh and its last full run reports both sections (03 section P0.3)
+    shtxt = open(sh, encoding="utf-8").read() if os.path.isfile(sh) else ""
+    has_secs = all(k in shtxt for k in ("sec_node()", "sec_fonts()", "npm ci", "fetch_fonts.sh"))
+    last = open(rep, encoding="utf-8", errors="replace").read() if os.path.exists(rep) else ""
+    ran = "== node ==" in last and "== fonts ==" in last
+    out.append(C("setup_sh_node_fonts_sections", has_secs and ran,
+                 f"setup.sh has node (npm ci) + fonts sections={has_secs}; last full run reported both={ran}"))
+    studio = ctx.p("studio")
+    lock = os.path.join(studio, "package-lock.json")
+    rc_s, o_s = ctx.run(["python3", ctx.p("harness", "lib", "record_studio.py")], timeout=60)
+    out.append(C("studio_deps_installed", os.path.isfile(lock) and rc_s == 0,
+                 "studio/node_modules matches exact pins in package.json/package-lock.json" if rc_s == 0
+                 else "studio deps missing or differ from pins: " + " | ".join(l for l in o_s.splitlines() if "PIN MISMATCH" in l)[:200]
+                 + " (run harness/setup.sh node)"))
+    pyx = ctx.p(".venv", "bin", "python")
+    rc_f, o_f = ctx.run([pyx if os.path.exists(pyx) else "python3", ctx.p("harness", "lib", "check_fonts.py")], timeout=60)
+    out.append(C("studio_fonts_present", rc_f == 0, (o_f.strip().splitlines() or [""])[-1][:240]))
+    # browser: the preinstalled headless shell is a documented limitation (Remotion's own Chrome host is blocked), never a silent pass
+    cfg = ""
+    try:
+        cfg = open(os.path.join(studio, "remotion.config.ts"), encoding="utf-8").read()
+    except OSError:
+        pass
+    mb = re.search(r"HEADLESS_SHELL\s*=\s*'([^']+)'", cfg)
+    lim_ids = [x.get("id") for x in ((_load(ctx, "harness/state/budget.json") or {}).get("limitations") or []) if isinstance(x, dict)]
+    br_ok = bool(mb and os.access(mb.group(1), os.X_OK)) and "remotion_chrome_download_blocked" in lim_ids
+    out.append(C("studio_browser_documented", br_ok,
+                 f"Remotion uses preinstalled {mb.group(1) if mb else '<unset>'} (executable={bool(mb and os.access(mb.group(1), os.X_OK))}); "
+                 f"documented limitation remotion_chrome_download_blocked={'remotion_chrome_download_blocked' in lim_ids}"))
 
     # 3 dc works
     rc, o = ctx.dc("state", "brief", timeout=60)
@@ -149,6 +211,9 @@ def check(ctx):
     out.append(C("limitations_documented", ok_lim,
                  "documented limitations (not silent passes): " + "; ".join(f"{x['id']} -> {x['workaround'][:60]}" for x in lim)
                  if ok_lim else "budget.json limitations missing or malformed (each needs id, what, workaround)"))
+
+    # 10b environment completeness: every plan-listed model and python package is present, or is a documented limitation
+    out.append(_env_check(ctx, b))
 
     # 11 gates registered
     nogate = [g for g in GATES if not os.path.exists(ctx.p("harness", "gates", "g%02d%s.py" % (int(re.match(r"G(\d+)", g).group(1)), g[len(re.match(r"G\d+", g).group(0)):])))]

@@ -13,3 +13,7 @@ def update(**kv):
             else: d[k] = v
         tmp = P.with_suffix(".tmp"); tmp.write_text(json.dumps(d, indent=2, ensure_ascii=False, sort_keys=True) + "\n"); os.replace(tmp, P)
     return d
+
+
+def read():
+    return json.loads(P.read_text()) if P.exists() and P.read_text().strip() else {}

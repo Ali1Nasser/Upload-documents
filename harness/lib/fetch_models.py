@@ -20,9 +20,36 @@ MODELS = {
                           "1_Pooling/*", "modules.json", "sentence_bert_config.json", "config_sentence_transformers.json",
                           "colbert_linear.pt", "sparse_linear.pt"],
                    ignore=["onnx/*", "imgs/*", "*.md", "long.jpg"]),
+    # speaker embeddings (speechbrain EncoderClassifier.from_hparams(source=<this dir>)); used by P3 diarisation/speaker checks
+    "ecapa-voxceleb": dict(repos=["speechbrain/spkrec-ecapa-voxceleb"], ignore=["*.md", "example*.wav"]),
 }
 
+# non-HF data packs: name -> fetcher function (registered below)
+def fetch_camel_data(name):
+    """CAMeL Tools Egyptian morphology DB (GitHub release asset; reachable through the proxy). Use with
+    CAMELTOOLS_DATA=data/models/camel_data."""
+    import subprocess, shutil
+    dest = M / "camel_data"; done = dest / ".done"
+    if done.exists():
+        print(f"[skip] {name}", flush=True); return True
+    dest.mkdir(parents=True, exist_ok=True)
+    exe = Path(sys.executable).parent / "camel_data"
+    t = time.time()
+    r = subprocess.run([str(exe), "-i", "morphology-db-egy-r13"], env={**os.environ, "CAMELTOOLS_DATA": str(dest)},
+                       capture_output=True, text=True)
+    ok = r.returncode == 0 and (dest / "data" / "morphology_db" / "calima-egy-r13").exists()
+    if ok:
+        done.write_text(json.dumps({"package": "morphology-db-egy-r13", "version": "from catalogue.json (camel-tools 1.6.0)",
+                                    "seconds": round(time.time() - t, 1)}))
+    print(f"[{'ok  ' if ok else 'fail'}] {name}", flush=True)
+    return ok
+
+CUSTOM = {"camel-data": fetch_camel_data}
+
+
 def fetch(name):
+    if name in CUSTOM:
+        return CUSTOM[name](name)
     spec = MODELS[name]
     dest = M / name
     done = dest / ".done"
@@ -46,7 +73,7 @@ def fetch(name):
     return False
 
 if __name__ == "__main__":
-    names = sys.argv[1:] or list(MODELS)
+    names = sys.argv[1:] or (list(MODELS) + list(CUSTOM))
     M.mkdir(parents=True, exist_ok=True)
     res = {n: fetch(n) for n in names}
     print(json.dumps(res))

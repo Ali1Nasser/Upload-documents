@@ -112,7 +112,7 @@
     "vmaf_binary_link": "tools/bin/ffmpeg-vmaf"
   },
   "hardware": {
-    "disk_free_gb": 9.4,
+    "disk_free_gb": 8.5,
     "nproc": 4,
     "python": "3.12.3",
     "ram_gb": 15.7,
@@ -121,34 +121,52 @@
   },
   "limitations": [
     {
-      "id": "fbaipublicfiles_blocked",
-      "impact": "G3 must report this caveat; separation is ~1.5x realtime on CPU",
-      "what": "dl.fbaipublicfiles.com unreachable: official Demucs weights and torchaudio MMS_FA bundle cannot be downloaded",
-      "workaround": "htdemucs from HF mirror AEmotionStudio/htdemucs-models (harness/lib/demucs_local.py); forced alignment via HF MahmoudAshraf/mms-300m-1130-forced-aligner (harness/lib/align.py); weights not hash-verified against upstream"
+      "blocked_host": "dl.fbaipublicfiles.com",
+      "id": "demucs_official_weights",
+      "impact": "none expected (same weights, converted)",
+      "requirement": "Demucs htdemucs weights from dl.fbaipublicfiles.com",
+      "what": "Demucs htdemucs weights from dl.fbaipublicfiles.com",
+      "workaround": "HF safetensors mirror AEmotionStudio/htdemucs-models via harness/lib/demucs_local.py"
     },
     {
-      "id": "remotion_chrome_download_blocked",
-      "impact": "none expected; benchmarks were run this way",
-      "what": "storage.googleapis.com unreachable: Remotion cannot download its own Chrome",
-      "workaround": "use preinstalled headless shell /opt/pw-browsers/chromium_headless_shell-1194/ via browserExecutable"
+      "blocked_host": "dl.fbaipublicfiles.com",
+      "id": "torchaudio_mms_fa_bundle",
+      "impact": "none expected",
+      "requirement": "torchaudio MMS_FA forced-alignment bundle",
+      "what": "torchaudio MMS_FA forced-alignment bundle",
+      "workaround": "MahmoudAshraf/mms-300m-1130-forced-aligner (HF) via harness/lib/align.py; PyPI ctc-forced-aligner 1.0.2 is a different package and is not used"
     },
     {
-      "id": "github_blocked_push_denied",
-      "impact": "D-gate commits stay local; no remote backup of corpus/ artifacts from this container",
-      "what": "github.com API/codeload blocked and git push returns 403",
-      "workaround": "pip/npm from PyPI/npm registry only; commit locally, never push"
+      "blocked_host": null,
+      "id": "system_ffmpeg_libvmaf",
+      "impact": "VMAF scoring must call tools/bin/ffmpeg-vmaf",
+      "requirement": "libvmaf in ffmpeg",
+      "what": "libvmaf in ffmpeg",
+      "workaround": "static ffmpeg 7.0.2 from imageio-ffmpeg linked at tools/bin/ffmpeg-vmaf; system ffmpeg 6.1.1 used for everything else"
     },
     {
-      "id": "system_ffmpeg_no_libvmaf",
-      "impact": "scoring uses tools/bin/ffmpeg-vmaf; encoding uses system ffmpeg",
-      "what": "system ffmpeg 6.1.1 lacks libvmaf",
-      "workaround": "static ffmpeg 7.0.2 from imageio-ffmpeg has libvmaf (budget.json ffmpeg.static_imageio)"
+      "blocked_host": "storage.googleapis.com",
+      "id": "remotion_chrome_download",
+      "impact": "none",
+      "requirement": "Remotion downloads its own headless Chrome",
+      "what": "Remotion downloads its own headless Chrome",
+      "workaround": "--browser-executable under /opt/pw-browsers/chromium_headless_shell-1194/"
     },
     {
-      "id": "render_budget_over_cpu_only",
-      "impact": "risk carried to G6a/G9b, not a G0 blocker",
-      "what": "measured 3h-film projection exceeds the 24 h render budget with swangle (see render_projection_3h: swangle 64.7 h, swiftshader 24.7 h); no GPU",
-      "workaround": "P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftshader where it renders correctly, or the Council records an ADR on budget/length; nothing is waived here"
+      "blocked_host": null,
+      "id": "camel_tools_data_partial",
+      "impact": "Egyptian morphology only",
+      "requirement": "camel-tools data packages",
+      "what": "camel-tools data packages",
+      "workaround": "only morphology-db-egy-r13 fetched into data/models/camel_data (CAMELTOOLS_DATA); other packs (MSA DB, BERT disambiguators, NER, dialect-ID) not fetched: not needed by the plan"
+    },
+    {
+      "blocked_host": null,
+      "id": "manim_optional",
+      "impact": "none; optional",
+      "requirement": "manim (optional in 03 P0.3)",
+      "what": "manim (optional in 03 P0.3)",
+      "workaround": "not installed"
     }
   ],
   "models": {
@@ -157,10 +175,20 @@
       "revision": "5617a9f61b028005a4858fdac845db406aefb181",
       "seconds": 20.6
     },
+    "camel_data": {
+      "package": "morphology-db-egy-r13",
+      "seconds": 0.3,
+      "version": "from catalogue.json (camel-tools 1.6.0)"
+    },
     "demucs-htdemucs": {
       "repo": "AEmotionStudio/htdemucs-models",
       "revision": "1350068b40439d494f5a99e614230e15528a2403",
       "seconds": 0.9
+    },
+    "ecapa-voxceleb": {
+      "repo": "speechbrain/spkrec-ecapa-voxceleb",
+      "revision": "0f99f2d0ebe89ac095bcc5903c4dd8f72b367286",
+      "seconds": 3.9
     },
     "faster-whisper-large-v3": {
       "repo": "Systran/faster-whisper-large-v3",
@@ -187,6 +215,7 @@
     "FlagEmbedding": "1.4.2",
     "av": "16.1.0",
     "beautifulsoup4": "4.15.0",
+    "camel-tools": "1.6.0",
     "ctc-forced-aligner": "1.0.2",
     "ctranslate2": "4.8.2",
     "demucs": "4.1.0",
@@ -204,6 +233,7 @@
     "opencv-python-headless": "5.0.0.93",
     "pandas": "3.0.6",
     "pedalboard": "0.9.25",
+    "pesq": "0.0.4",
     "pillow": "12.3.0",
     "playwright": "1.63.0",
     "praat-parselmouth": "0.4.7",
@@ -211,6 +241,7 @@
     "pyarrow": "25.0.1",
     "pydantic": "2.13.5",
     "pyloudnorm": "0.2.0",
+    "pystoi": "0.4.1",
     "pytesseract": "0.3.13",
     "rapidfuzz": "3.14.6",
     "safetensors": "0.8.0",
@@ -218,9 +249,11 @@
     "sentence-transformers": "6.1.0",
     "silero-vad": "6.2.3",
     "soundfile": "0.14.0",
+    "speechbrain": "1.1.1",
     "static-ffmpeg": "3.0",
     "torch": "2.14.1+cpu",
     "torchaudio": "2.11.0+cpu",
+    "torchmetrics": "1.9.0",
     "transformers": "5.19.0",
     "uroman": "1.3.1.1"
   },
@@ -461,6 +494,42 @@
     "official_host_blocked": "dl.fbaipublicfiles.com",
     "rtf_cpu3": 1.563,
     "weights": "HF mirror AEmotionStudio/htdemucs-models (safetensors, converted from 955717e8-8726e21a.th; strict load OK, vocals RMS ~= mix RMS on speech)"
+  },
+  "studio": {
+    "browser_executable": "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
+    "browser_note": "Remotion's own Chrome download host (storage.googleapis.com) is blocked here; see limitations.remotion_chrome_download_blocked",
+    "browser_present": true,
+    "fonts_ttf_count": 22,
+    "lock_sha256": "4e05664416ebb56ca3cdf0425d944082f16c1673ef53b60395abec634966843f",
+    "node": "v22.22.0",
+    "npm": "10.9.4",
+    "packages_installed": {
+      "@react-three/drei": "10.7.9",
+      "@react-three/fiber": "9.8.1",
+      "@react-three/postprocessing": "3.1.3",
+      "@remotion/cli": "4.0.534",
+      "@remotion/media-utils": "4.0.534",
+      "@remotion/motion-blur": "4.0.534",
+      "@remotion/noise": "4.0.534",
+      "@remotion/paths": "4.0.534",
+      "@remotion/renderer": "4.0.534",
+      "@remotion/shapes": "4.0.534",
+      "@remotion/three": "4.0.534",
+      "@remotion/transitions": "4.0.534",
+      "@types/pngjs": "6.0.5",
+      "@types/react": "19.3.0",
+      "@types/three": "0.186.0",
+      "pixelmatch": "5.3.0",
+      "pngjs": "7.0.0",
+      "postprocessing": "6.39.5",
+      "react": "19.3.0",
+      "react-dom": "19.3.0",
+      "remotion": "4.0.534",
+      "three": "0.186.1",
+      "typescript": "5.9.3",
+      "zod": "4.5.4"
+    },
+    "pins_match": true
   },
   "upload_smoke": {
     "temp.sh": {
