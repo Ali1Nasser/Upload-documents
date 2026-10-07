@@ -160,6 +160,26 @@
       "glob": "corpus/canon/contradictions.json",
       "schema": "canon_contradictions",
       "format": "json"
+    },
+    {
+      "glob": "corpus/canon/knowledge_index.jsonl",
+      "schema": "knowledge_index",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/crash_course_steps.jsonl",
+      "schema": "crash_course_step",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/hub_items.jsonl",
+      "schema": "hub_item",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/hub_shots.jsonl",
+      "schema": "hub_shot",
+      "format": "jsonl"
     }
   ]
 }
