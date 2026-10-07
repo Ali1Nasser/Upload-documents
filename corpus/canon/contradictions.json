@@ -1,0 +1,199 @@
+{
+  "v": 1,
+  "generated_by": "dc corpus canon",
+  "note": "Preserved, never silently fixed; Council rules (ADR-008).",
+  "counts": {
+    "contradiction": 13,
+    "info": 2
+  },
+  "items": [
+    {
+      "kind": "artifact_none",
+      "where": "§8 CH-00 line 523",
+      "detail": "Artifact: 'none — this is the hook.' while §15 requires a named artifact for every chapter",
+      "refs": [
+        "CH-00",
+        "§15"
+      ],
+      "severity": "contradiction",
+      "id": "K001"
+    },
+    {
+      "kind": "prediction_none",
+      "where": "§8 CH-01 line 551",
+      "detail": "Prediction: none (§15 needs >= 1 prediction per act; checked per act below)",
+      "refs": [
+        "CH-01"
+      ],
+      "severity": "contradiction",
+      "id": "K002"
+    },
+    {
+      "kind": "artifact_none",
+      "where": "§8 CH-03 line 608",
+      "detail": "Artifact: 'none.' while §15 requires a named artifact for every chapter",
+      "refs": [
+        "CH-03",
+        "§15"
+      ],
+      "severity": "contradiction",
+      "id": "K003"
+    },
+    {
+      "kind": "artifact_none",
+      "where": "§8 CH-24 line 1201",
+      "detail": "Artifact: 'none — this is context.' while §15 requires a named artifact for every chapter",
+      "refs": [
+        "CH-24",
+        "§15"
+      ],
+      "severity": "contradiction",
+      "id": "K004"
+    },
+    {
+      "kind": "prediction_none",
+      "where": "§8 CH-36 line 1545",
+      "detail": "Prediction: none (§15 needs >= 1 prediction per act; checked per act below)",
+      "refs": [
+        "CH-36"
+      ],
+      "severity": "contradiction",
+      "id": "K005"
+    },
+    {
+      "kind": "act_without_prediction",
+      "where": "Act Close",
+      "detail": "no prediction in CH-36",
+      "refs": [
+        "CH-36"
+      ],
+      "severity": "contradiction",
+      "id": "K006"
+    },
+    {
+      "kind": "act_names_differ",
+      "where": "§7 table 'Act' column vs §7 'Act rhythm' sentence",
+      "detail": "table acts ['AI', 'Analytics', 'Big data', 'Close', 'Craft', 'Domain', 'Ground Zero', 'Orientation', 'Platform', 'Python', 'SQL', 'Ship', 'Systems'] (13); rhythm acts ['Orientation', 'Ground Zero', 'Python', 'SQL', 'Analytics', 'Craft & Systems', 'Platform', 'Big data', 'Domain', 'AI', 'Ship'] (11)",
+      "refs": [
+        "§7"
+      ],
+      "severity": "contradiction",
+      "id": "K007"
+    },
+    {
+      "kind": "3d_scene_without_p19",
+      "where": "§9.1 CH-01",
+      "detail": "§9.1 permits a 3D scene in CH-01 but its §8 Patterns line does not declare P19 (P01 · P20 · P13)",
+      "refs": [
+        "CH-01"
+      ],
+      "severity": "contradiction",
+      "id": "K008"
+    },
+    {
+      "kind": "3d_scene_without_p19",
+      "where": "§9.1 CH-25",
+      "detail": "§9.1 permits a 3D scene in CH-25 but its §8 Patterns line does not declare P19 (P02 · P03 · P04 · P18 · P22)",
+      "refs": [
+        "CH-25"
+      ],
+      "severity": "contradiction",
+      "id": "K009"
+    },
+    {
+      "kind": "3d_scene_without_p19",
+      "where": "§9.1 CH-36",
+      "detail": "§9.1 permits a 3D scene in CH-36 but its §8 Patterns line does not declare P19 (P20 · P01)",
+      "refs": [
+        "CH-36"
+      ],
+      "severity": "contradiction",
+      "id": "K010"
+    },
+    {
+      "kind": "ambiguous_label",
+      "where": "§5.2 'Operator totals: A = 250, B = 150'",
+      "detail": "the figures are OK-only totals; all-status totals are A = 250, B = 450. Label on screen must say 'successful'.",
+      "refs": [
+        "§5.2",
+        "§6.19",
+        "CH-00",
+        "CH-27"
+      ],
+      "severity": "contradiction",
+      "id": "K011"
+    },
+    {
+      "kind": "count_mismatch",
+      "where": "§12.2 heading",
+      "detail": "heading says 'seven gaps' but the table has 10 rows",
+      "refs": [
+        "§12.2"
+      ],
+      "severity": "contradiction",
+      "id": "K012"
+    },
+    {
+      "kind": "label_sets_differ",
+      "severity": "info",
+      "where": "§8 On-screen labels EN vs AR",
+      "detail": "31 of 37 chapters list fewer AR than EN labels (EN 162, AR 121). Most missing ones are technical or numeric labels kept Latin per §0.3, but some carry English explanatory words (e.g. CH-03 EN '1 byte = 8 bits = 256 values' and 'UTF-8' have no AR entry). The Arabic typographer decides per label.",
+      "refs": [
+        "CH-02",
+        "CH-03",
+        "CH-04",
+        "CH-05",
+        "CH-06",
+        "CH-07",
+        "CH-08",
+        "CH-09",
+        "CH-10",
+        "CH-11",
+        "CH-12",
+        "CH-13",
+        "CH-14",
+        "CH-15",
+        "CH-16",
+        "CH-17",
+        "CH-19",
+        "CH-20",
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-24",
+        "CH-25",
+        "CH-26",
+        "CH-27",
+        "CH-28",
+        "CH-29",
+        "CH-30",
+        "CH-32",
+        "CH-34",
+        "CH-35"
+      ],
+      "id": "K013"
+    },
+    {
+      "kind": "policy_differs",
+      "where": "NotebookLM P00 visual rules vs master §9.1",
+      "detail": "P00 allows 3D in three places only (الـ3D مسموح في تلات أماكن بس: RAM مقابل disk (الجزء 02)، والـcluster (الجزء 18)، ومساحة الـembeddings (الجزء 23) — والباقي 2D.); master §9.1 permits six (CPU/memory/disk, HDFS, Spark executors, embeddings, architecture, atlas)",
+      "refs": [
+        "P00",
+        "§9.1",
+        "P19"
+      ],
+      "severity": "contradiction",
+      "id": "K014"
+    },
+    {
+      "kind": "t5_timestamp_wrap",
+      "severity": "info",
+      "where": "T5 CH-32 line 622",
+      "detail": "timestamps are mm:ss without hours and wrap at 60:00; unwrapped (+3600 s) in cues_70m05.json#ar_lines_t5",
+      "refs": [
+        "T5"
+      ],
+      "id": "K015"
+    }
+  ]
+}

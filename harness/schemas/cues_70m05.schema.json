@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:cues_70m05",
+  "title": "corpus/canon/cues_70m05.json (DA_SCENES + DA_CAPTIONS_EN from the editable standalone HTMLs)",
+  "type": "object",
+  "required": [
+    "v",
+    "sources",
+    "scenes",
+    "captions",
+    "counts"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "label",
+          "path",
+          "file_id",
+          "n_scenes",
+          "n_captions"
+        ],
+        "properties": {}
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "start_ms",
+          "end_ms"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "start_ms": {
+            "type": "integer"
+          },
+          "end_ms": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "captions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "i",
+          "start_ms",
+          "end_ms",
+          "text",
+          "chapter"
+        ],
+        "properties": {
+          "i": {
+            "type": "integer"
+          },
+          "start_ms": {
+            "type": "integer"
+          },
+          "end_ms": {
+            "type": "integer"
+          },
+          "text": {
+            "type": "string"
+          },
+          "chapter": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object"
+    }
+  }
+}

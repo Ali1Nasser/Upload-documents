@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_glossary",
+  "title": "corpus/canon/glossary.json (master.md §0.3 + §10 + §8 term chips + NotebookLM terms)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "first_mention_gloss",
+    "always_english",
+    "pronunciation",
+    "register_ar",
+    "register_en",
+    "term_chips",
+    "terms"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "first_mention_gloss": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term",
+          "gloss_ar"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "gloss_ar": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "always_english": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "never_translate": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pronunciation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term",
+          "say_ar"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "say_ar": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "register_ar": {
+      "type": "string"
+    },
+    "register_en": {
+      "type": "string"
+    },
+    "term_chips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term",
+          "kind",
+          "count",
+          "chapters"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "term",
+              "code",
+              "number",
+              "label_en",
+              "label_ar"
+            ]
+          },
+          "count": {
+            "type": "integer"
+          },
+          "chapters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term",
+          "kind",
+          "source"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "nblm_terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "term",
+          "meaning_ar",
+          "part"
+        ],
+        "properties": {
+          "term": {
+            "type": "string"
+          },
+          "meaning_ar": {
+            "type": "string"
+          },
+          "part": {
+            "type": "string",
+            "pattern": "^P\\d\\d$"
+          }
+        }
+      }
+    }
+  }
+}

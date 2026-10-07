@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_data_contract",
+  "title": "corpus/canon/data_contract.json (master.md §5.2 + §6)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "sections",
+    "facts",
+    "receipts",
+    "derived",
+    "checks"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "sections": {
+      "type": "array"
+    },
+    "facts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "section",
+          "kind",
+          "chapters",
+          "value",
+          "numbers",
+          "unit",
+          "context",
+          "line"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^d:\\d+(\\.\\d+)?:\\d+$"
+          },
+          "section": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "bold",
+              "code",
+              "plain",
+              "table_row"
+            ]
+          },
+          "chapters": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^CH-\\d\\d$"
+            }
+          },
+          "value": {
+            "type": [
+              "string",
+              "array"
+            ]
+          },
+          "numbers": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "context": {
+            "type": "string"
+          },
+          "line": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "operator",
+          "amount_egp",
+          "status"
+        ],
+        "properties": {}
+      }
+    },
+    "derived": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "what",
+          "expr",
+          "computed",
+          "stated",
+          "ok"
+        ],
+        "properties": {
+          "ok": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

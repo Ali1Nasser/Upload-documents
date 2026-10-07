@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_motion",
+  "title": "corpus/canon/motion.json (master.md §3)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "moves",
+    "explanatory_range_ms"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "moves": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "move",
+          "duration",
+          "duration_ms",
+          "loop",
+          "use"
+        ],
+        "properties": {
+          "move": {
+            "type": "string"
+          },
+          "duration": {
+            "type": "string"
+          },
+          "duration_ms": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "loop": {
+            "type": "boolean"
+          },
+          "use": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "explanatory_range_ms": {
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

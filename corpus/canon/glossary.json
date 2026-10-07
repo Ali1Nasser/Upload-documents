@@ -1,0 +1,6386 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "rule": "Explain the term in Egyptian Arabic the first time it appears; then use the original term naturally, in Latin script, inside Arabic sentences.",
+  "first_mention_gloss": [
+    {
+      "term": "partition",
+      "gloss_ar": "جزء مقسّم من الداتا",
+      "line": 1584
+    },
+    {
+      "term": "offset",
+      "gloss_ar": "المكان اللي الـconsumer وصل له",
+      "line": 1585
+    },
+    {
+      "term": "lineage",
+      "gloss_ar": "مسار الداتا من المصدر للنتيجة",
+      "line": 1586
+    },
+    {
+      "term": "idempotency",
+      "gloss_ar": "إن تكرار نفس الطلب ما يعملش أثر زيادة",
+      "line": 1587
+    },
+    {
+      "term": "context window",
+      "gloss_ar": "حجم السياق اللي الـmodel شايفه مرة واحدة",
+      "line": 1588
+    },
+    {
+      "term": "grain",
+      "gloss_ar": "الصف الواحد بيمثّل إيه بالظبط",
+      "line": 1589
+    },
+    {
+      "term": "fan-out",
+      "gloss_ar": "إن الصفوف الخارجة أكتر من الداخلة",
+      "line": 1590
+    },
+    {
+      "term": "sargable",
+      "gloss_ar": "إن الشرط ينفع يستخدم الـindex",
+      "line": 1591
+    },
+    {
+      "term": "skew",
+      "gloss_ar": "إن key واحد شايل أغلب الداتا",
+      "line": 1592
+    },
+    {
+      "term": "backfill",
+      "gloss_ar": "إعادة معالجة تاريخ قديم",
+      "line": 1593
+    },
+    {
+      "term": "SLO",
+      "gloss_ar": "الهدف المتفق عليه لمستوى الخدمة",
+      "line": 1594
+    },
+    {
+      "term": "RPO / RTO",
+      "gloss_ar": "قد إيه داتا مقبول تضيع / قد إيه وقت مقبول للاسترداد",
+      "line": 1595
+    },
+    {
+      "term": "leakage",
+      "gloss_ar": "إن معلومة من المستقبل دخلت التدريب",
+      "line": 1596
+    },
+    {
+      "term": "groundedness",
+      "gloss_ar": "إن الإجابة مستندة على المصدر فعلاً",
+      "line": 1597
+    },
+    {
+      "term": "guardrail",
+      "gloss_ar": "الطبقة اللي بتمنع الفعل الخطر قبل ما يحصل",
+      "line": 1598
+    }
+  ],
+  "always_english": [
+    "SQL",
+    "Python",
+    "Java",
+    "Linux",
+    "Git",
+    "Docker",
+    "Kubernetes",
+    "API",
+    "HTTP",
+    "JSON",
+    "ETL / ELT",
+    "ODS / ADS",
+    "HDFS",
+    "Hadoop",
+    "Spark",
+    "Kafka",
+    "Airflow",
+    "dbt",
+    "ML",
+    "AI",
+    "LLM",
+    "RAG",
+    "Transformer",
+    "embedding",
+    "vector database",
+    "query",
+    "schema",
+    "table",
+    "row",
+    "column",
+    "index",
+    "join",
+    "partition",
+    "offset",
+    "consumer",
+    "producer",
+    "pipeline",
+    "dashboard",
+    "deployment",
+    "test",
+    "bug",
+    "cache",
+    "retry",
+    "timeout",
+    "commit",
+    "branch",
+    "merge",
+    "container",
+    "endpoint",
+    "token"
+  ],
+  "pronunciation": [
+    {
+      "term": "SQL",
+      "say_ar": "إس كيو إل",
+      "note": null,
+      "line": 1606
+    },
+    {
+      "term": "API",
+      "say_ar": "إيه بي آي",
+      "note": null,
+      "line": 1607
+    },
+    {
+      "term": "ETL",
+      "say_ar": "إي تي إل",
+      "note": null,
+      "line": 1608
+    },
+    {
+      "term": "ODS",
+      "say_ar": "أو دي إس",
+      "note": null,
+      "line": 1609
+    },
+    {
+      "term": "ADS",
+      "say_ar": "إيه دي إس",
+      "note": null,
+      "line": 1610
+    },
+    {
+      "term": "HDFS",
+      "say_ar": "إتش دي إف إس",
+      "note": null,
+      "line": 1611
+    },
+    {
+      "term": "RAG",
+      "say_ar": "راج",
+      "note": "first mention: Retrieval-Augmented Generation",
+      "line": 1612
+    },
+    {
+      "term": "LLM",
+      "say_ar": "إل إل إم",
+      "note": null,
+      "line": 1613
+    },
+    {
+      "term": "CI/CD",
+      "say_ar": "سي آي سي دي",
+      "note": null,
+      "line": 1614
+    },
+    {
+      "term": "IAM",
+      "say_ar": "آي إيه إم",
+      "note": null,
+      "line": 1615
+    },
+    {
+      "term": "JSON",
+      "say_ar": "جيسون",
+      "note": null,
+      "line": 1616
+    },
+    {
+      "term": "p95",
+      "say_ar": "بي خمسة وتسعين",
+      "note": null,
+      "line": 1617
+    }
+  ],
+  "register_ar": "Natural Egyptian, clear, calm, professional. Use إحنا and خلّينا نشوف and ببساطة where they help. No heavy Modern Standard Arabic. No exaggerated slang. Numbers are spoken naturally in Egyptian but displayed as Western digits.",
+  "register_en": "Plain, direct, unhurried. Short sentences. No hype, no \"imagine that…\", no rhetorical questions that are not real prediction prompts. Say the number, then pause for half a beat before the next sentence — the pause is where the viewer reads the screen.",
+  "never_translate": [
+    "code",
+    "commands",
+    "identifiers",
+    "table and column names",
+    "product names",
+    "acronyms",
+    "thresholds",
+    "file names"
+  ],
+  "never_translate_rule": "Explain them in Egyptian Arabic the first time they appear, then use the original term naturally.",
+  "term_chips": [
+    {
+      "term": "--crit",
+      "kind": "term",
+      "count": 4,
+      "chapters": [
+        "CH-02",
+        "CH-16",
+        "CH-22",
+        "CH-33"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "66.67 %",
+      "kind": "number",
+      "count": 4,
+      "chapters": [
+        "CH-00",
+        "CH-27",
+        "CH-36"
+      ],
+      "where": [
+        "label_ar",
+        "label_en",
+        "shot"
+      ]
+    },
+    {
+      "term": "WHERE",
+      "kind": "code",
+      "count": 3,
+      "chapters": [
+        "CH-09",
+        "CH-11"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "order_total()",
+      "kind": "code",
+      "count": 3,
+      "chapters": [
+        "CH-06",
+        "CH-09"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "Cairo",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-00"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "DELETE",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "FLOAT",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-01"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "TRIM",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-15"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "a",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "answer the question",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-36"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "b",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "explicit deny wins",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-20",
+        "CH-34"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "get the rows",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-36"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "make them trustworthy",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-36"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "pip install",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-07",
+        "CH-34"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "pwd",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "requirements.txt",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "outcome",
+        "shot"
+      ]
+    },
+    {
+      "term": "rows surviving",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-11"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "stack frame",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "label_ar",
+        "label_en"
+      ]
+    },
+    {
+      "term": "stage 4 / 9",
+      "kind": "code",
+      "count": 2,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_en",
+        "shot"
+      ]
+    },
+    {
+      "term": "transaction_id",
+      "kind": "term",
+      "count": 2,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "الصفوف الباقية",
+      "kind": "label_ar",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-11"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "جاوب على السؤال",
+      "kind": "label_ar",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-36"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "خليها موثوقة",
+      "kind": "label_ar",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-36"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "هات الصفوف",
+      "kind": "label_ar",
+      "count": 2,
+      "chapters": [
+        "CH-00",
+        "CH-36"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "--ember",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "--ok",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "--violet",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "/home/user/shopflow/data/orders.csv",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "0.165 → 0.227",
+      "kind": "number",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "1 byte = 8 bits = 256 values",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "1 insert = 2 writes",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "1 machine → 2 data → 3 systems → 4 platform → 5 domain → 6 AI → 7 evidence",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-01"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "1 الجهاز ← 2 الداتا ← 3 الأنظمة ← 4 المنصة ← 5 المجال ← 6 الـAI ← 7 الدليل",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-01"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "11 spellings → 7 → 5 + 1 blank",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "11 كتابة ← 5 عملاء + واحد فاضي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "14 → 13 → 11 → 2 → 2 → 2 → 2 → 2 → 1",
+      "kind": "number",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "15 rows · 8 defects",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "15 صف · 8 عيوب",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "18 cells → 6",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "18 خلية ← 6",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "216 rows → 72",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "3 pages vs 12 500",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "3 صفحات مقابل 12 500",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "4 / 6 = 66.67 %",
+      "kind": "number",
+      "count": 1,
+      "chapters": [
+        "CH-00"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "5 s vs 57 s",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "5 ثوانٍ مقابل 57",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "6 1 2 3 4 5 8 9",
+      "kind": "number",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "696 weights",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "696 وزن",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "7 matched · 1 amount · 1 missing · 1 extra · 1 duplicate",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "7 متطابقين",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "ALL() ignores the filter",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "CHECK",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "COPY . .",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "DENSE_RANK",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "FK",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "INSERT",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "LIMIT",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "outcome"
+      ]
+    },
+    {
+      "term": "LIMIT 1",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "NOT IN",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "NOT NULL",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "NULL = NULL",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "NULL = NULL ← غير معروف",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "NULL = NULL → unknown",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "No such file or directory",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "outcome"
+      ]
+    },
+    {
+      "term": "O(1) average",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "O(n) membership",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "ODS · DW · ADS · mart",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "PARTITION BY tier ORDER BY revenue DESC",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "PROPER",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "RAM — volatile",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "RAM — مؤقتة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "RANK",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "RAWEXPORT",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "ROW_NUMBER",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "RPO / RTO",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "SIGKILL",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "SIGTERM",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "SIGTERM → SIGKILL",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "SUM",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "UNIQUE",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "UTF-8",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "WHERE DATE(event_time) = …",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "WHERE is your cheapest win",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "absolute path",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "accuracy 99 % — caught 0",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "active / failed",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "alias born here",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "allowlist · read-only role · row cap · EXPLAIN preflight · audit",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "amount DECIMAL(18,4)",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-01"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "as-was, not as-is",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "at-least-once + idempotent sink",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "atomic · consistent · isolated · durable",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "authenticated ≠ authorized",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "available_time",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "base / ours / theirs",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "baseline MAE 65.50",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "batch_id",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "behaviour unchanged",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "block · replica · rack",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "blocked at retrieval",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "branch taken",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "café",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "cairo",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-00"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "cat orders.csv \\| grep FAILED \\| wc -l",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "cd data",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "chunk · index · rerank · cite",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "cohesion",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "comparisons",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "completed ≠ proven",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-35"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "completeness · uniqueness · validity · timeliness · consistency · accuracy",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-21"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "contrast 21.00 : 1",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "coupling",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "coverage 95 %",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "crossover depends on the engine",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "customer.id",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "customer_id",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "customers LEFT JOIN orders",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "cycle detected",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "d_model 8 · 2 heads",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "data disappears when the program stops",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "decision · rejected alternative · consequence",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "decode",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "dedupe with ROW_NUMBER, not RANK",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "def f(x, acc=[])",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "dirty / non-repeatable / phantom",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "disk — persistent",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "disk — دائمة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "estimated vs actual",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "event_time",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "event_time ≠ ingestion_time",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "execute",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "expected vs actual",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "fan-out: 6 → 15",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "fetch",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "filter context",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "finally",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "for",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "foreign key",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "frame",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "freshness SLO ≤ 5 min",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "frontier",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "git is refusing to guess",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "git مش بيخمّن",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "grain",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "handshake",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "inactive → starting → active → failed",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "ingestion_time",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "journalctl",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "k = 1",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "lag = last available − last processed",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "lazy until an action",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "leak: future · derived · grouped",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "load factor",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "loss",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "lr > 0.35 → diverges",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "ls",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "mean moves · median does not",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "memory (RSS)",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "metadata only",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "model MAE 7.33",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "n per arm for 80 % power",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "name → address",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "name → value",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "narrow vs wide",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "net + €66.00 — three faults cancelling",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "no cycles",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "non-additive",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "nonlinearity",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "offset",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "one correlation id",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "one row at a time",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "one row per ___?",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "one straggler",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "one-to-many",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "open the test set once",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "openapi.yaml",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "outcome"
+      ]
+    },
+    {
+      "term": "order 1007 → customer 9 (missing)",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "order within a partition",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "orders.csv",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "orders.csv: No such file or directory",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "orders.customer_id",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "owner · group · other",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "p = …",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "p95 ↑ · errors flat",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "page reads",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "partition",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "precision · recall · F1",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "price = 100",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "primary key",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "problem → model → visual → example → predict → break → fix → callback → artifact",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "processing_time",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "publish blocked by gate",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "python -m venv",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "qty = 3",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "quarantine, with a reason",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-21"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "queue 289 · p95 1 160 ms",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "r w x",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "raw → clean → seed → queries → model → report",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-35"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "read bottom-up",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "read the log bottom-up",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "red → green → refactor",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "referential integrity",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "refunded",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-21"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "relative path",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "release blocked",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "replaces, not narrows",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "residual stream",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "retry 2 / 3",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "return",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "revenue",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "row sum = 1.000",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "rows examined, not ms",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "run it twice → same counts",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "same object",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "same transaction_id",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "shopflow_clean.csv",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "outcome"
+      ]
+    },
+    {
+      "term": "shortest path = 13",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "shuffle = network",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "stage boundary = shuffle",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "state",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "stdin / stdout / stderr",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "still current / replaced / historical",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "temperature · top-p",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "test_order_total",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "the first pipeline you will ever write",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "threshold = £",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "total",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "train / validation / test",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "train ↓ test ↑",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "try / except / else / finally",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "validate → transform → load",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-21"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "verify, don't assume",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "victim",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "visited",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "wait-for cycle",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "warm 3.6× faster",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "wc -l orders.csv",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "what did you reject, and why?",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-35"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "where did the delay start?",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "w·x + b",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "é",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "shot"
+      ]
+    },
+    {
+      "term": "أحمر ← أخضر ← إعادة هيكلة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-09"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "أول pipeline هتكتبه في حياتك",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "إدخال واحد = كتابتين",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "اتمنع عند الاسترجاع",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "اسم ← عنوان",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "اسم ← قيمة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "افتح الاختبار مرة واحدة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "اقرا الـlog من تحت لفوق",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الأساس",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الإزاحة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الإصدار متوقف",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الإطار",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "التأخر = آخر متاح − آخر معالج",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "التباين 21.00 : 1",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "التدريب ينزل · الاختبار يطلع",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الترابط",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الترتيب الصح",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الترتيب داخل الـpartition",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-26"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "التغطية 95٪",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "التماسك",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "التيار المتبقي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الجبهة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الحالة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الحبيبة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الحرارة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الخسارة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الداتا بتختفي لما البرنامج يقف",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الدقة 99٪ — مسك صفر",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الرفض الصريح بيكسب",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-34"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "السلوك ما اتغيّرش",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الصافي بيكدب",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الصفوف المفحوصة مش الملّي ثانية",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الضحية",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الطزاجة ≤ 5 دقايق",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "العتبة = فلوس",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-30"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "العيّنة مش الحقيقة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الـalias بيتولد هنا",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الـshuffle = شبكة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الفرع اللي اتنفذ",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-06"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "القسم",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "المالك · المجموعة · الباقي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-05"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "المتوسط بيتحرك · الوسيط لأ",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-16"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "المتوقع مقابل الحقيقي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "المزارة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "المقارنات",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "الميل",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "النشر متوقف بسبب البوابة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "النموذج",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "بلوك · نسخة · رف",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "بيستبدل، مش بيضيّق",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تحقّق ← حوّل ← حمّل",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-21"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تحقّق، ما تفترضش",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-07"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تدريب / تحقق / اختبار",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-29"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تضخّم الصفوف: 6 ← 15",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-12"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تقديري مقابل فعلي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-14"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تكامل مرجعي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "تنفيذ",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "جلب",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "حجر صحي، ومعاه السبب",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-21"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "حدّ المرحلة = shuffle",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "خطوة 4 / 9",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "خلّصت ≠ أثبتّ",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-35"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "دور للقراءة فقط",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "دورة انتظار",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "دورة مكتشَفة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "ذرّي · متّسق · معزول · دائم",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-13"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "رفضت إيه، وليه؟",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-35"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "زي ما كان، مش زي ما هو",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "سقف صفوف",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "سياق الفلتر",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-17"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "شغّلها مرتين ← نفس الأعداد",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "صف واحد في المرة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "صف واحد لكل إيه؟",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-11"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "غير قابل للجمع",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-23"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "فقدان مقبول / زمن استرداد",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-28"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "فك",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "قائمة مسموح",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-33"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "قراءات الصفحات",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-02"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "قرار · بديل مرفوض · نتيجة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-18"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "كسول لحد الـaction",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "لا خطية",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "لسه حالي / اتستبدل / تاريخي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-24"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "متأخر واحد",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-25"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مجموع الصف = 1.000",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-32"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مجموع مرجّح",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مسار مطلق",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مسار نسبي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-04"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مصافحة",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "معامل التحميل",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-19"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "معدل تعلّم كبير ← تشتّت",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مفتاح أساسي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "مفتاح خارجي",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "من غير أي error",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "من غير دورات",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-22"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "موثَّق ≠ مصرَّح له",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-20"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "نفس الـobject",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-08"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "نفس رقم العملية",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "واحد لمتعدد",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-10"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "وقت الحدث ≠ وقت الوصول",
+      "kind": "label_ar",
+      "count": 1,
+      "chapters": [
+        "CH-27"
+      ],
+      "where": [
+        "label_ar"
+      ]
+    },
+    {
+      "term": "€3 853.50",
+      "kind": "number",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "€3 948.50 correct",
+      "kind": "term",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "€4 177.00 — no error",
+      "kind": "label_en",
+      "count": 1,
+      "chapters": [
+        "CH-15"
+      ],
+      "where": [
+        "label_en"
+      ]
+    },
+    {
+      "term": "∂loss/∂w",
+      "kind": "code",
+      "count": 1,
+      "chapters": [
+        "CH-31"
+      ],
+      "where": [
+        "label_en"
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "term": "partition",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "offset",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "lineage",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "idempotency",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "context window",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "grain",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "fan-out",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "sargable",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "skew",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "backfill",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "SLO",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "RPO",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "RTO",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "leakage",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "groundedness",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "guardrail",
+      "kind": "glossed",
+      "source": "§10.1"
+    },
+    {
+      "term": "SQL",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Python",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Java",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Linux",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Git",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Docker",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Kubernetes",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "API",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "HTTP",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "JSON",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "ETL",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "ELT",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "ODS",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "ADS",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "HDFS",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Hadoop",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Spark",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Kafka",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Airflow",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "dbt",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "ML",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "AI",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "LLM",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "RAG",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "Transformer",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "embedding",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "vector database",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "query",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "schema",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "table",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "row",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "column",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "index",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "join",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "consumer",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "producer",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "pipeline",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "dashboard",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "deployment",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "test",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "bug",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "cache",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "retry",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "timeout",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "commit",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "branch",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "merge",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "container",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "endpoint",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "token",
+      "kind": "always_english",
+      "source": "§10.2"
+    },
+    {
+      "term": "CI/CD",
+      "kind": "acronym",
+      "source": "§10.3"
+    },
+    {
+      "term": "IAM",
+      "kind": "acronym",
+      "source": "§10.3"
+    },
+    {
+      "term": "p95",
+      "kind": "acronym",
+      "source": "§10.3"
+    },
+    {
+      "term": "--crit",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "WHERE",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "order_total()",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "Cairo",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "DELETE",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "FLOAT",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "TRIM",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "a",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "answer the question",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "b",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "explicit deny wins",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "get the rows",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "make them trustworthy",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "pip install",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "pwd",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "requirements.txt",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "rows surviving",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "stack frame",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "stage 4 / 9",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "transaction_id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "--ember",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "--ok",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "--violet",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "/home/user/shopflow/data/orders.csv",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "1 byte = 8 bits = 256 values",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "1 insert = 2 writes",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "696 weights",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "ALL() ignores the filter",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "CHECK",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "COPY . .",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "DENSE_RANK",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "FK",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "INSERT",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "LIMIT",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "LIMIT 1",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "NOT IN",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "NOT NULL",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "NULL = NULL",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "NULL = NULL → unknown",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "O(1) average",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "O(n) membership",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "PROPER",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "RAM — volatile",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "RANK",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "RAWEXPORT",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "ROW_NUMBER",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "RPO / RTO",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "SIGKILL",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "SIGTERM",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "SIGTERM → SIGKILL",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "SUM",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "UNIQUE",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "UTF-8",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "WHERE DATE(event_time) = …",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "WHERE is your cheapest win",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "absolute path",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "active / failed",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "alias born here",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "amount DECIMAL(18,4)",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "as-was, not as-is",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "authenticated ≠ authorized",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "available_time",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "base / ours / theirs",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "baseline MAE 65.50",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "batch_id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "behaviour unchanged",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "blocked at retrieval",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "branch taken",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "café",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "cd data",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "cohesion",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "comparisons",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "completed ≠ proven",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "coupling",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "coverage 95 %",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "customer.id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "customer_id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "cycle detected",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "decode",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "def f(x, acc=[])",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "dirty / non-repeatable / phantom",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "disk — persistent",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "estimated vs actual",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "event_time",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "event_time ≠ ingestion_time",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "execute",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "expected vs actual",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "fetch",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "filter context",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "finally",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "for",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "foreign key",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "frame",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "frontier",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "handshake",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "ingestion_time",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "journalctl",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "k = 1",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "lag = last available − last processed",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "load factor",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "loss",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "lr > 0.35 → diverges",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "ls",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "memory (RSS)",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "metadata only",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "model MAE 7.33",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "name → address",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "name → value",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "narrow vs wide",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "no cycles",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "non-additive",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "nonlinearity",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "one correlation id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "one straggler",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "one-to-many",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "openapi.yaml",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "order 1007 → customer 9 (missing)",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "orders.csv",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "orders.customer_id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "p = …",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "page reads",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "price = 100",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "primary key",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "processing_time",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "python -m venv",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "qty = 3",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "r w x",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "read bottom-up",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "referential integrity",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "refunded",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "relative path",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "release blocked",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "replaces, not narrows",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "residual stream",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "retry 2 / 3",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "return",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "revenue",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "row sum = 1.000",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "same object",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "same transaction_id",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "shopflow_clean.csv",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "shortest path = 13",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "shuffle = network",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "stage boundary = shuffle",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "state",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "stdin / stdout / stderr",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "still current / replaced / historical",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "temperature · top-p",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "test_order_total",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "threshold = £",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "total",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "train / validation / test",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "try / except / else / finally",
+      "kind": "chip_code",
+      "source": "§8"
+    },
+    {
+      "term": "verify, don't assume",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "victim",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "visited",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "wait-for cycle",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "warm 3.6× faster",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "wc -l orders.csv",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "w·x + b",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "é",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "€3 948.50 correct",
+      "kind": "chip_term",
+      "source": "§8"
+    },
+    {
+      "term": "∂loss/∂w",
+      "kind": "chip_code",
+      "source": "§8"
+    }
+  ],
+  "nblm_terms": [
+    {
+      "term": "progressive reveal",
+      "meaning_ar": "بنبني الرسمة طبقة طبقة بدل ما نرميها كلها مرة واحدة",
+      "part": "P01"
+    },
+    {
+      "term": "transport",
+      "meaning_ar": "أزرار تشغيل ووقف وخطوة لقدام وورا لأي process",
+      "part": "P01"
+    },
+    {
+      "term": "failure-first",
+      "meaning_ar": "بنشوف الحاجة وهي بايظة قبل ما نفهم الحل",
+      "part": "P01"
+    },
+    {
+      "term": "callback",
+      "meaning_ar": "الرجوع لحاجة اتشرحت قبل كده عشان نربط",
+      "part": "P01"
+    },
+    {
+      "term": "artifact",
+      "meaning_ar": "ناتج ملموس تقدر تعرضه: repo، test، تقرير",
+      "part": "P01"
+    },
+    {
+      "term": "idempotency",
+      "meaning_ar": "إن تكرار نفس الطلب ما يعملش أثر زيادة",
+      "part": "P01"
+    },
+    {
+      "term": "process",
+      "meaning_ar": "برنامج شغال دلوقتي وليه ميموري خاصة",
+      "part": "P02"
+    },
+    {
+      "term": "encoding",
+      "meaning_ar": "الاتفاق على أنهي bytes تعني أنهي حرف",
+      "part": "P02"
+    },
+    {
+      "term": "absolute path",
+      "meaning_ar": "مسار بيبدأ من الجذر `/`",
+      "part": "P02"
+    },
+    {
+      "term": "relative path",
+      "meaning_ar": "مسار بيبدأ من المكان اللي إنت فيه",
+      "part": "P02"
+    },
+    {
+      "term": "stdin / stdout / stderr",
+      "meaning_ar": "قناة الدخول، قناة النتيجة، قناة الأخطاء",
+      "part": "P02"
+    },
+    {
+      "term": "pipe `|",
+      "meaning_ar": "توصيل output أمر بـinput اللي بعده",
+      "part": "P02"
+    },
+    {
+      "term": "PATH",
+      "meaning_ar": "قائمة الفولدرات اللي الـshell بيدوّر فيها على الأوامر",
+      "part": "P02"
+    },
+    {
+      "term": "permission class",
+      "meaning_ar": "owner أو group أو other — الـkernel بيقف عند أول واحد ينطبق",
+      "part": "P03"
+    },
+    {
+      "term": "umask",
+      "meaning_ar": "قناع بيتشال من الصلاحيات الافتراضية للملفات الجديدة",
+      "part": "P03"
+    },
+    {
+      "term": "PID",
+      "meaning_ar": "رقم الـprocess",
+      "part": "P03"
+    },
+    {
+      "term": "signal",
+      "meaning_ar": "رسالة للـprocess: اقفل بأدب، اقفل غصب، اقرا إعداداتك تاني",
+      "part": "P03"
+    },
+    {
+      "term": "SGID على فولدر",
+      "meaning_ar": "الملفات الجديدة بتورث جروب الفولدر",
+      "part": "P03"
+    },
+    {
+      "term": "symlink",
+      "meaning_ar": "اختصار لملف تاني",
+      "part": "P03"
+    },
+    {
+      "term": "unit",
+      "meaning_ar": "تعريف خدمة لـsystemd",
+      "part": "P04"
+    },
+    {
+      "term": "crash loop",
+      "meaning_ar": "خدمة بتقع وترجع وتقع تاني",
+      "part": "P04"
+    },
+    {
+      "term": "journal",
+      "meaning_ar": "سجل لوجات مركزي لكل الخدمات",
+      "part": "P04"
+    },
+    {
+      "term": "cron expression",
+      "meaning_ar": "خمس خانات بتقول إمتى المهمة تشتغل",
+      "part": "P04"
+    },
+    {
+      "term": "LVM",
+      "meaning_ar": "طبقة بتخلّي الأقراص مرنة وتكبر وهي شغالة",
+      "part": "P04"
+    },
+    {
+      "term": "fstab",
+      "meaning_ar": "جدول الـmounts اللي بتحصل مع الإقلاع",
+      "part": "P04"
+    },
+    {
+      "term": "exit code",
+      "meaning_ar": "رقم بيقول المهمة نجحت (0) ولا فشلت",
+      "part": "P04"
+    },
+    {
+      "term": "binding",
+      "meaning_ar": "ربط اسم بقيمة",
+      "part": "P05"
+    },
+    {
+      "term": "accumulator",
+      "meaning_ar": "متغير بيجمع نتيجة عبر لفّات اللوب",
+      "part": "P05"
+    },
+    {
+      "term": "stack frame",
+      "meaning_ar": "المساحة اللي function بتشتغل فيها وتختفي بعد الـreturn",
+      "part": "P05"
+    },
+    {
+      "term": "LEGB",
+      "meaning_ar": "ترتيب البحث عن الأسماء: Local, Enclosing, Global, Built-in",
+      "part": "P05"
+    },
+    {
+      "term": "hashing",
+      "meaning_ar": "تحويل القيمة لمكان مباشر — سبب سرعة set وdict",
+      "part": "P05"
+    },
+    {
+      "term": "venv",
+      "meaning_ar": "بيئة معزولة لمكتبات مشروع واحد",
+      "part": "P05"
+    },
+    {
+      "term": "aliasing",
+      "meaning_ar": "اسمين لنفس الـobject",
+      "part": "P06"
+    },
+    {
+      "term": "mutable default",
+      "meaning_ar": "قيمة افتراضية قابلة للتعديل بتتعمل مرة واحدة",
+      "part": "P06"
+    },
+    {
+      "term": "generator",
+      "meaning_ar": "function بترجّع عنصر عنصر بـyield",
+      "part": "P06"
+    },
+    {
+      "term": "stack unwinding",
+      "meaning_ar": "الـexception بتشيل الـframes لحد ما حد يمسكها",
+      "part": "P06"
+    },
+    {
+      "term": "decorator",
+      "meaning_ar": "غلاف بيضيف سلوك لـfunction",
+      "part": "P06"
+    },
+    {
+      "term": "context manager",
+      "meaning_ar": "`with` بيضمن التجهيز والتنضيف",
+      "part": "P06"
+    },
+    {
+      "term": "three-way merge",
+      "meaning_ar": "دمج بيقارن الأساس ونسختك ونسخة زميلك",
+      "part": "P06"
+    },
+    {
+      "term": "vectorization",
+      "meaning_ar": "حساب على العمود كله مرة واحدة بدل صف صف",
+      "part": "P07"
+    },
+    {
+      "term": "transform",
+      "meaning_ar": "نتيجة لكل صف بنفس شكل الجدول الأصلي",
+      "part": "P07"
+    },
+    {
+      "term": "fan-out في merge",
+      "meaning_ar": "الصفوف الخارجة أكتر من الداخلة بسبب مفتاح مكرر",
+      "part": "P07"
+    },
+    {
+      "term": "N+1",
+      "meaning_ar": "query للأب وN query للأبناء",
+      "part": "P07"
+    },
+    {
+      "term": "upsert",
+      "meaning_ar": "حدّث لو موجود، ضيف لو مش موجود",
+      "part": "P07"
+    },
+    {
+      "term": "watermark",
+      "meaning_ar": "آخر قيمة اتحمّلت عشان المرة الجاية تجيب الجديد بس",
+      "part": "P07"
+    },
+    {
+      "term": "savepoint",
+      "meaning_ar": "نقطة رجوع جزئية جوه transaction",
+      "part": "P07"
+    },
+    {
+      "term": "primary key",
+      "meaning_ar": "العمود اللي بيعرّف الصف",
+      "part": "P08"
+    },
+    {
+      "term": "foreign key",
+      "meaning_ar": "عمود بيشاور على صف في جدول تاني",
+      "part": "P08"
+    },
+    {
+      "term": "referential integrity",
+      "meaning_ar": "مفيش مفتاح بيشاور على حاجة مش موجودة",
+      "part": "P08"
+    },
+    {
+      "term": "normalization",
+      "meaning_ar": "تنظيم الداتا عشان كل معلومة تتكتب مرة واحدة",
+      "part": "P08"
+    },
+    {
+      "term": "logical order",
+      "meaning_ar": "ترتيب التنفيذ الحقيقي للـclauses",
+      "part": "P08"
+    },
+    {
+      "term": "grain",
+      "meaning_ar": "الصف الواحد بيمثّل إيه بالظبط",
+      "part": "P08"
+    },
+    {
+      "term": "partition key",
+      "meaning_ar": "المفتاح اللي بيحدد الداتا تتخزن فين في Cassandra",
+      "part": "P08"
+    },
+    {
+      "term": "fan-out",
+      "meaning_ar": "الصفوف الخارجة من الـjoin أكتر من الداخلة",
+      "part": "P09"
+    },
+    {
+      "term": "anti join / semi join",
+      "meaning_ar": "اللي ما لوش مطابق / اللي ليه مطابق من غير تكرار",
+      "part": "P09"
+    },
+    {
+      "term": "correlated subquery",
+      "meaning_ar": "subquery بتتنفذ مع كل صف بره",
+      "part": "P09"
+    },
+    {
+      "term": "window function",
+      "meaning_ar": "حساب عبر مجموعة صفوف من غير ما تنهار",
+      "part": "P09"
+    },
+    {
+      "term": "partition / frame",
+      "meaning_ar": "حدود المجموعة / الصفوف اللي الـfunction شايفاها دلوقتي",
+      "part": "P09"
+    },
+    {
+      "term": "CTE",
+      "meaning_ar": "query مؤقتة ليها اسم جوه الـquery",
+      "part": "P09"
+    },
+    {
+      "term": "three-valued logic",
+      "meaning_ar": "TRUE وFALSE وUNKNOWN",
+      "part": "P09"
+    },
+    {
+      "term": "lost update",
+      "meaning_ar": "تحديث بيتكتب فوق تحديث تاني ويضيّعه",
+      "part": "P09"
+    },
+    {
+      "term": "MVCC",
+      "meaning_ar": "كل قارئ بيشوف نسخة ثابتة من الداتا",
+      "part": "P09"
+    },
+    {
+      "term": "deadlock / victim",
+      "meaning_ar": "دورة انتظار / الـsession اللي الـdatabase بتقتلها",
+      "part": "P09"
+    },
+    {
+      "term": "seek / scan",
+      "meaning_ar": "مشية نازلة في الشجرة / قراية كل الصفحات",
+      "part": "P10"
+    },
+    {
+      "term": "selectivity",
+      "meaning_ar": "الـquery بترجّع نسبة قد إيه من الجدول",
+      "part": "P10"
+    },
+    {
+      "term": "sargable",
+      "meaning_ar": "فلتر المحرك يقدر يستخدم معاه الـindex",
+      "part": "P10"
+    },
+    {
+      "term": "covering index",
+      "meaning_ar": "index فيه كل الأعمدة المطلوبة",
+      "part": "P10"
+    },
+    {
+      "term": "leftmost prefix",
+      "meaning_ar": "الـcomposite بيشتغل من أول عمود",
+      "part": "P10"
+    },
+    {
+      "term": "estimated vs actual",
+      "meaning_ar": "عدد الصفوف المتوقع مقابل الحقيقي في الـplan",
+      "part": "P10"
+    },
+    {
+      "term": "statistics",
+      "meaning_ar": "معلومات المخطِّط عن توزيع الداتا",
+      "part": "P10"
+    },
+    {
+      "term": "MPP / shared-nothing",
+      "meaning_ar": "معالجة متوازية على nodes مستقلة",
+      "part": "P10"
+    },
+    {
+      "term": "distribution key",
+      "meaning_ar": "العمود اللي بيحدد الصف يروح أنهي node",
+      "part": "P10"
+    },
+    {
+      "term": "partition pruning",
+      "meaning_ar": "الـquery بتتجاهل الـpartitions اللي مش محتاجاها",
+      "part": "P10"
+    },
+    {
+      "term": "applied steps",
+      "meaning_ar": "لستة خطوات تنضيف متسجلة تتعاد",
+      "part": "P11"
+    },
+    {
+      "term": "mean / median",
+      "meaning_ar": "المتوسط / الوسيط (القيمة اللي في النص)",
+      "part": "P11"
+    },
+    {
+      "term": "IQR",
+      "meaning_ar": "المدى بين الربع الأول والتالت",
+      "part": "P11"
+    },
+    {
+      "term": "sampling distribution",
+      "meaning_ar": "توزيع متوسطات العيّنات المتكررة",
+      "part": "P11"
+    },
+    {
+      "term": "confidence interval",
+      "meaning_ar": "نطاق مبني بإجراء بيصيب بنسبة معروفة",
+      "part": "P11"
+    },
+    {
+      "term": "p-value",
+      "meaning_ar": "احتمال تشوف فرق كده لو مفيش أثر حقيقي",
+      "part": "P11"
+    },
+    {
+      "term": "power",
+      "meaning_ar": "فرصة إنك تكتشف أثر موجود فعلاً",
+      "part": "P11"
+    },
+    {
+      "term": "filter context",
+      "meaning_ar": "الصفوف اللي عايشة تحت الفلاتر الحالية",
+      "part": "P11"
+    },
+    {
+      "term": "measure",
+      "meaning_ar": "معادلة بتتحسب حسب السياق",
+      "part": "P11"
+    },
+    {
+      "term": "encoding",
+      "meaning_ar": "الطريقة اللي الرقم بيترسم بيها (موضع، طول، لون)",
+      "part": "P11"
+    },
+    {
+      "term": "coupling",
+      "meaning_ar": "قد إيه الأجزاء متربطة ببعض",
+      "part": "P12"
+    },
+    {
+      "term": "cohesion",
+      "meaning_ar": "قد إيه الجزء الواحد مركّز على شغلانة واحدة",
+      "part": "P12"
+    },
+    {
+      "term": "dependency inversion",
+      "meaning_ar": "الكود يعتمد على interface مش على تفاصيل",
+      "part": "P12"
+    },
+    {
+      "term": "composition",
+      "meaning_ar": "الـobject عنده object تاني بدل ما يورثه",
+      "part": "P12"
+    },
+    {
+      "term": "value object",
+      "meaning_ar": "object بيتعرّف بقيمته ومش بيتغير",
+      "part": "P12"
+    },
+    {
+      "term": "ADR",
+      "meaning_ar": "ورقة قرار: اخترنا إيه ورفضنا إيه وهيكلّف إيه",
+      "part": "P12"
+    },
+    {
+      "term": "load factor",
+      "meaning_ar": "نسبة امتلاء الـhash table",
+      "part": "P12"
+    },
+    {
+      "term": "frontier / visited",
+      "meaning_ar": "اللي مستني يتزار / اللي اتزار خلاص",
+      "part": "P12"
+    },
+    {
+      "term": "topological sort",
+      "meaning_ar": "ترتيب يحترم كل الاعتماديات",
+      "part": "P12"
+    },
+    {
+      "term": "DNS",
+      "meaning_ar": "دليل بيحوّل الاسم لعنوان",
+      "part": "P13"
+    },
+    {
+      "term": "TCP handshake",
+      "meaning_ar": "اتفاق بداية الاتصال",
+      "part": "P13"
+    },
+    {
+      "term": "TLS",
+      "meaning_ar": "تشفير وإثبات هوية السيرفر",
+      "part": "P13"
+    },
+    {
+      "term": "idempotency",
+      "meaning_ar": "تكرار نفس الطلب ما يغيّرش النتيجة تاني",
+      "part": "P13"
+    },
+    {
+      "term": "pagination",
+      "meaning_ar": "تقسيم النتايج صفحات",
+      "part": "P13"
+    },
+    {
+      "term": "authentication / authorization",
+      "meaning_ar": "إنت مين / مسموح لك بإيه",
+      "part": "P13"
+    },
+    {
+      "term": "RBAC",
+      "meaning_ar": "صلاحيات حسب الدور",
+      "part": "P13"
+    },
+    {
+      "term": "IDOR",
+      "meaning_ar": "توصل لحاجة مش بتاعتك بتغيير الـid",
+      "part": "P13"
+    },
+    {
+      "term": "injection",
+      "meaning_ar": "الـinput بيتنفذ ككود",
+      "part": "P13"
+    },
+    {
+      "term": "rate limiting",
+      "meaning_ar": "حد أقصى لعدد الطلبات في فترة",
+      "part": "P13"
+    },
+    {
+      "term": "JVM / bytecode",
+      "meaning_ar": "الماكينة الافتراضية اللي بتشغّل Java / الكود المترجم ليها",
+      "part": "P14"
+    },
+    {
+      "term": "wrapper class",
+      "meaning_ar": "نسخة object من النوع البسيط",
+      "part": "P14"
+    },
+    {
+      "term": "try-with-resources",
+      "meaning_ar": "block بيقفل الـresources لوحده",
+      "part": "P14"
+    },
+    {
+      "term": "PreparedStatement",
+      "meaning_ar": "جملة SQL متجهزة بـparameters",
+      "part": "P14"
+    },
+    {
+      "term": "connection pool",
+      "meaning_ar": "مخزن اتصالات جاهزة بتتسلف وترجع",
+      "part": "P14"
+    },
+    {
+      "term": "@Transactional",
+      "meaning_ar": "الـmethod كلها transaction واحدة",
+      "part": "P14"
+    },
+    {
+      "term": "N+1",
+      "meaning_ar": "query للأب + query لكل ابن",
+      "part": "P14"
+    },
+    {
+      "term": "GIL",
+      "meaning_ar": "قفل بيخلّي thread واحد ينفّذ في Python",
+      "part": "P14"
+    },
+    {
+      "term": "saga",
+      "meaning_ar": "خطوات موزعة لكل واحدة عملية عكسية",
+      "part": "P14"
+    },
+    {
+      "term": "validate",
+      "meaning_ar": "تتأكد إن الداتا سليمة قبل ما تحوّلها",
+      "part": "P15"
+    },
+    {
+      "term": "quarantine",
+      "meaning_ar": "جدول للصفوف الفاشلة ومعاها سببها",
+      "part": "P15"
+    },
+    {
+      "term": "ETL / ELT",
+      "meaning_ar": "تحوّل قبل التحميل / تحمّل وتحوّل جوه الـwarehouse",
+      "part": "P15"
+    },
+    {
+      "term": "DAG",
+      "meaning_ar": "graph موجّه من غير دورات",
+      "part": "P15"
+    },
+    {
+      "term": "operator / task",
+      "meaning_ar": "قالب شغل / نسخة منه في DAG",
+      "part": "P15"
+    },
+    {
+      "term": "XCom",
+      "meaning_ar": "رسايل صغيرة بين الـtasks",
+      "part": "P15"
+    },
+    {
+      "term": "idempotent",
+      "meaning_ar": "تشغيلها مرتين = تشغيلها مرة",
+      "part": "P15"
+    },
+    {
+      "term": "backfill",
+      "meaning_ar": "إعادة تشغيل لتواريخ فاتت",
+      "part": "P15"
+    },
+    {
+      "term": "quality gate",
+      "meaning_ar": "بوابة بتمنع النشر لو الفحص فشل",
+      "part": "P15"
+    },
+    {
+      "term": "sensor",
+      "meaning_ar": "task بتستنى شرط يتحقق",
+      "part": "P15"
+    },
+    {
+      "term": "ODS / DW / ADS / mart",
+      "meaning_ar": "طبقة قريبة من المصدر / مخزن مدمج بتاريخ / طبقة جاهزة للتحليل / جزء لمجال معيّن",
+      "part": "P16"
+    },
+    {
+      "term": "fact / dimension",
+      "meaning_ar": "جدول الأحداث والأرقام / جدول الوصف",
+      "part": "P16"
+    },
+    {
+      "term": "grain",
+      "meaning_ar": "الصف الواحد في الـfact بيمثل إيه",
+      "part": "P16"
+    },
+    {
+      "term": "surrogate key",
+      "meaning_ar": "مفتاح داخلي للـwarehouse",
+      "part": "P16"
+    },
+    {
+      "term": "semi-additive",
+      "meaning_ar": "بيتجمع على بعض الأبعاد بس (مش الوقت)",
+      "part": "P16"
+    },
+    {
+      "term": "slice / dice",
+      "meaning_ar": "تثبيت بُعد واحد / تثبيت كذا بُعد",
+      "part": "P16"
+    },
+    {
+      "term": "roll up / drill down",
+      "meaning_ar": "تطلع لمستوى أعم / تنزل لتفاصيل",
+      "part": "P16"
+    },
+    {
+      "term": "SCD Type 2",
+      "meaning_ar": "صف جديد لكل تغيير عشان التاريخ يتحفظ",
+      "part": "P16"
+    },
+    {
+      "term": "late-arriving dimension",
+      "meaning_ar": "الـfact وصل قبل وصفه",
+      "part": "P16"
+    },
+    {
+      "term": "lineage",
+      "meaning_ar": "خريطة الرقم جه منين",
+      "part": "P16"
+    },
+    {
+      "term": "DataCube",
+      "meaning_ar": "منصة Huawei للتحليل والتقارير على داتا ضخمة",
+      "part": "P17"
+    },
+    {
+      "term": "MSISDN",
+      "meaning_ar": "رقم الموبايل كمعرّف للمشترك",
+      "part": "P17"
+    },
+    {
+      "term": "counter / measurement",
+      "meaning_ar": "رقم خام / رقم محسوب منه",
+      "part": "P17"
+    },
+    {
+      "term": "cumulative / gauge / derived",
+      "meaning_ar": "عدّاد بيزيد / قيمة لحظية / معادلة",
+      "part": "P17"
+    },
+    {
+      "term": "ARPU",
+      "meaning_ar": "متوسط الإيراد لكل مشترك نشط",
+      "part": "P17"
+    },
+    {
+      "term": "float adequacy",
+      "meaning_ar": "هل رصيد الوكيل كفاية لشغله اليومي",
+      "part": "P17"
+    },
+    {
+      "term": "post-load reconciliation",
+      "meaning_ar": "مطابقة المصدر بالهدف بعد التحميل",
+      "part": "P17"
+    },
+    {
+      "term": "data openness",
+      "meaning_ar": "فتح الداتا بدرجات وصلاحيات",
+      "part": "P17"
+    },
+    {
+      "term": "data steward",
+      "meaning_ar": "اللي بينفّذ قواعد الجودة ويراقبها",
+      "part": "P17"
+    },
+    {
+      "term": "PII masking",
+      "meaning_ar": "إخفاء البيانات الشخصية",
+      "part": "P17"
+    },
+    {
+      "term": "block / replica / rack",
+      "meaning_ar": "قطعة من الملف / نسخة منها / دولاب أجهزة",
+      "part": "P18"
+    },
+    {
+      "term": "NameNode / DataNode",
+      "meaning_ar": "صاحب الخريطة / اللي شايل الداتا",
+      "part": "P18"
+    },
+    {
+      "term": "YARN",
+      "meaning_ar": "موزّع موارد الـcluster",
+      "part": "P18"
+    },
+    {
+      "term": "data locality",
+      "meaning_ar": "تشغيل الحساب جنب الداتا",
+      "part": "P18"
+    },
+    {
+      "term": "shuffle",
+      "meaning_ar": "نقل الداتا بين الأجهزة حسب الـkey",
+      "part": "P18"
+    },
+    {
+      "term": "combiner",
+      "meaning_ar": "تجميع محلي قبل الـshuffle",
+      "part": "P18"
+    },
+    {
+      "term": "lazy evaluation",
+      "meaning_ar": "مفيش تنفيذ لحد ما action تتنادي",
+      "part": "P18"
+    },
+    {
+      "term": "narrow / wide",
+      "meaning_ar": "من غير نقل / محتاج shuffle",
+      "part": "P18"
+    },
+    {
+      "term": "stage",
+      "meaning_ar": "جزء من الـDAG بين shuffleين",
+      "part": "P18"
+    },
+    {
+      "term": "skew",
+      "meaning_ar": "key واحد واخد أغلب الداتا",
+      "part": "P18"
+    },
+    {
+      "term": "salting",
+      "meaning_ar": "تقسيم الـkey الحامي بلاحقة عشوائية",
+      "part": "P18"
+    },
+    {
+      "term": "broadcast join",
+      "meaning_ar": "نسخ الجدول الصغير لكل الأجهزة",
+      "part": "P18"
+    },
+    {
+      "term": "topic / partition",
+      "meaning_ar": "قناة الأحداث / جزء مترتب منها",
+      "part": "P19"
+    },
+    {
+      "term": "offset",
+      "meaning_ar": "رقم مكان الرسالة في الـpartition",
+      "part": "P19"
+    },
+    {
+      "term": "consumer group",
+      "meaning_ar": "مجموعة بتتقاسم الـpartitions",
+      "part": "P19"
+    },
+    {
+      "term": "rebalance",
+      "meaning_ar": "إعادة توزيع الـpartitions",
+      "part": "P19"
+    },
+    {
+      "term": "ISR",
+      "meaning_ar": "النسخ اللي ملحّقة على القائد",
+      "part": "P19"
+    },
+    {
+      "term": "lag",
+      "meaning_ar": "قد إيه الـconsumer متأخر",
+      "part": "P19"
+    },
+    {
+      "term": "DLQ",
+      "meaning_ar": "طابور للرسايل اللي بتفشل على طول",
+      "part": "P19"
+    },
+    {
+      "term": "schema registry",
+      "meaning_ar": "حارس بيرفض تغييرات الـschema المكسّرة",
+      "part": "P19"
+    },
+    {
+      "term": "event / ingestion / processing / available time",
+      "meaning_ar": "إمتى حصل / وصل / اتعالج / بقى متاح",
+      "part": "P19"
+    },
+    {
+      "term": "ODS (TO-) / ADS (TA-)",
+      "meaning_ar": "طبقة قريبة من المصدر / طبقة منطق البيزنس",
+      "part": "P19"
+    },
+    {
+      "term": "enrichment",
+      "meaning_ar": "إضافة بيانات مرجعية للحدث",
+      "part": "P19"
+    },
+    {
+      "term": "multi-tenancy",
+      "meaning_ar": "دول كتير على منصة واحدة معزولين",
+      "part": "P19"
+    },
+    {
+      "term": "reconciliation",
+      "meaning_ar": "إثبات إن نظامين متفقين سجل بسجل",
+      "part": "P20"
+    },
+    {
+      "term": "break / mismatch",
+      "meaning_ar": "فرق بين الدفترين",
+      "part": "P20"
+    },
+    {
+      "term": "transposition",
+      "meaning_ar": "رقمين متبدّلين (الفرق بيتقسم على 9)",
+      "part": "P20"
+    },
+    {
+      "term": "SIT / OAT / CAT",
+      "meaning_ar": "اختبار تكامل / قبول المجموعة / قبول الدولة",
+      "part": "P20"
+    },
+    {
+      "term": "LLD",
+      "meaning_ar": "المواصفة التفصيلية",
+      "part": "P20"
+    },
+    {
+      "term": "aging partition test",
+      "meaning_ar": "اختبار إن الداتا القديمة بتتمسح في ميعادها",
+      "part": "P20"
+    },
+    {
+      "term": "k-anonymity",
+      "meaning_ar": "كل صف متشابه مع k−1 صف على الأقل",
+      "part": "P20"
+    },
+    {
+      "term": "suppression",
+      "meaning_ar": "حذف القيم اللي بتفضح صف لوحده",
+      "part": "P20"
+    },
+    {
+      "term": "AML / CFT / PEP",
+      "meaning_ar": "مكافحة غسيل الأموال / تمويل الإرهاب / أشخاص معرّضين سياسياً",
+      "part": "P20"
+    },
+    {
+      "term": "RPO / RTO",
+      "meaning_ar": "أقصى داتا ممكن تضيع / أقصى وقت توقف",
+      "part": "P20"
+    },
+    {
+      "term": "tenant isolation",
+      "meaning_ar": "عزل داتا كل دولة",
+      "part": "P20"
+    },
+    {
+      "term": "feature / label",
+      "meaning_ar": "مدخل / الإجابة المطلوبة",
+      "part": "P21"
+    },
+    {
+      "term": "baseline",
+      "meaning_ar": "أبسط حل معقول تقارن بيه",
+      "part": "P21"
+    },
+    {
+      "term": "MAE",
+      "meaning_ar": "متوسط الخطأ المطلق",
+      "part": "P21"
+    },
+    {
+      "term": "train / validation / test",
+      "meaning_ar": "تعلّم / ضبط / حكم نهائي",
+      "part": "P21"
+    },
+    {
+      "term": "leakage",
+      "meaning_ar": "معلومة من الإجابة أو المستقبل دخلت التدريب",
+      "part": "P21"
+    },
+    {
+      "term": "grouped split",
+      "meaning_ar": "التقسيم بالمجموعة مش بالصف",
+      "part": "P21"
+    },
+    {
+      "term": "ensemble",
+      "meaning_ar": "متوسط نماذج كتير",
+      "part": "P21"
+    },
+    {
+      "term": "precision / recall",
+      "meaning_ar": "من اللي قلت عليهم آه، كام صح / من اللي آه فعلاً، مسكت كام",
+      "part": "P21"
+    },
+    {
+      "term": "threshold",
+      "meaning_ar": "الحد اللي فوقه بنقول آه",
+      "part": "P21"
+    },
+    {
+      "term": "overfitting",
+      "meaning_ar": "حفظ الضوضاء بدل النمط",
+      "part": "P21"
+    },
+    {
+      "term": "regularization",
+      "meaning_ar": "عقوبة بتمنع النموذج يعقّد نفسه",
+      "part": "P21"
+    },
+    {
+      "term": "neuron",
+      "meaning_ar": "مجموع مرجّح + activation",
+      "part": "P22"
+    },
+    {
+      "term": "activation",
+      "meaning_ar": "الانحناءة اللي بتكسر الخطية",
+      "part": "P22"
+    },
+    {
+      "term": "loss",
+      "meaning_ar": "قد إيه التنبؤ غلط",
+      "part": "P22"
+    },
+    {
+      "term": "gradient",
+      "meaning_ar": "ميل الـloss بالنسبة لوزن",
+      "part": "P22"
+    },
+    {
+      "term": "backpropagation",
+      "meaning_ar": "حساب الـgradients بالعكس بقاعدة السلسلة",
+      "part": "P22"
+    },
+    {
+      "term": "learning rate",
+      "meaning_ar": "حجم الخطوة",
+      "part": "P22"
+    },
+    {
+      "term": "token",
+      "meaning_ar": "قطعة نص",
+      "part": "P22"
+    },
+    {
+      "term": "embedding",
+      "meaning_ar": "vector بيمثل الـtoken",
+      "part": "P22"
+    },
+    {
+      "term": "Q / K / V",
+      "meaning_ar": "السؤال / المفتاح / القيمة",
+      "part": "P22"
+    },
+    {
+      "term": "causal mask",
+      "meaning_ar": "منع النظر للمستقبل",
+      "part": "P22"
+    },
+    {
+      "term": "residual stream",
+      "meaning_ar": "التيار اللي كل block بيقرا منه ويكتب فيه",
+      "part": "P22"
+    },
+    {
+      "term": "temperature / top-p",
+      "meaning_ar": "فرد التوزيع / قص ديله",
+      "part": "P22"
+    },
+    {
+      "term": "hallucination",
+      "meaning_ar": "رد مقنع وغلط",
+      "part": "P22"
+    },
+    {
+      "term": "grounding",
+      "meaning_ar": "ربط الرد بمصادر حقيقية",
+      "part": "P22"
+    },
+    {
+      "term": "embedding",
+      "meaning_ar": "vector بيمثل معنى نص",
+      "part": "P23"
+    },
+    {
+      "term": "cosine similarity",
+      "meaning_ar": "قد إيه اتجاهين قريبين",
+      "part": "P23"
+    },
+    {
+      "term": "BM25 / dense / hybrid",
+      "meaning_ar": "بحث بالكلمات / بالمعنى / الاتنين",
+      "part": "P23"
+    },
+    {
+      "term": "HNSW",
+      "meaning_ar": "فهرس تقريبي سريع للـvectors",
+      "part": "P23"
+    },
+    {
+      "term": "chunk",
+      "meaning_ar": "قطعة من مستند",
+      "part": "P23"
+    },
+    {
+      "term": "reranker",
+      "meaning_ar": "نموذج بيعيد ترتيب المرشحين",
+      "part": "P23"
+    },
+    {
+      "term": "recall@k / MRR / nDCG",
+      "meaning_ar": "مقاييس جودة الاسترجاع",
+      "part": "P23"
+    },
+    {
+      "term": "groundedness / faithfulness",
+      "meaning_ar": "الإجابة ملتزمة بالمصادر",
+      "part": "P23"
+    },
+    {
+      "term": "prompt injection",
+      "meaning_ar": "نص بيحاول يغيّر تعليمات النموذج",
+      "part": "P23"
+    },
+    {
+      "term": "tool calling",
+      "meaning_ar": "النموذج بيطلب تشغيل أداة",
+      "part": "P23"
+    },
+    {
+      "term": "ReAct",
+      "meaning_ar": "تفكير وفعل بالتناوب",
+      "part": "P23"
+    },
+    {
+      "term": "allowlist",
+      "meaning_ar": "قائمة المسموح بس",
+      "part": "P23"
+    },
+    {
+      "term": "human-in-the-loop",
+      "meaning_ar": "إنسان بيوافق على الخطوات الحساسة",
+      "part": "P23"
+    },
+    {
+      "term": "image / container",
+      "meaning_ar": "قالب / نسخة شغالة منه",
+      "part": "P24"
+    },
+    {
+      "term": "layer cache",
+      "meaning_ar": "إعادة استخدام الطبقات اللي ما اتغيرتش",
+      "part": "P24"
+    },
+    {
+      "term": "volume",
+      "meaning_ar": "تخزين بيعيش بعد الـcontainer",
+      "part": "P24"
+    },
+    {
+      "term": "CI/CD",
+      "meaning_ar": "بناء واختبار ونشر أوتوماتيك",
+      "part": "P24"
+    },
+    {
+      "term": "health check",
+      "meaning_ar": "فحص بيقول الخدمة سليمة ولا لأ",
+      "part": "P24"
+    },
+    {
+      "term": "rollback",
+      "meaning_ar": "الرجوع للنسخة اللي قبل",
+      "part": "P24"
+    },
+    {
+      "term": "blue/green · canary",
+      "meaning_ar": "تبديل بين بيئتين · تجربة على نسبة صغيرة",
+      "part": "P24"
+    },
+    {
+      "term": "explicit deny",
+      "meaning_ar": "رفض صريح بيكسب أي سماح",
+      "part": "P24"
+    },
+    {
+      "term": "logs / metrics / traces",
+      "meaning_ar": "حصل إيه / قد إيه / الوقت راح فين",
+      "part": "P24"
+    },
+    {
+      "term": "correlation id",
+      "meaning_ar": "رقم بيربط request عبر الخدمات",
+      "part": "P24"
+    },
+    {
+      "term": "saturation",
+      "meaning_ar": "المورد وصل لآخره",
+      "part": "P24"
+    },
+    {
+      "term": "runbook",
+      "meaning_ar": "خطوات مكتوبة للتعامل مع حادث",
+      "part": "P24"
+    },
+    {
+      "term": "artifact chain",
+      "meaning_ar": "ملفات كل واحد متولّد من اللي قبله",
+      "part": "P25"
+    },
+    {
+      "term": "evidence",
+      "meaning_ar": "حاجة حد غريب يقدر يشغّلها ويتأكد منها",
+      "part": "P25"
+    },
+    {
+      "term": "trade-off",
+      "meaning_ar": "التمن اللي دفعته في اختيار",
+      "part": "P25"
+    },
+    {
+      "term": "STAR",
+      "meaning_ar": "موقف · مطلوب · فعل · نتيجة",
+      "part": "P25"
+    },
+    {
+      "term": "capstone",
+      "meaning_ar": "مشروع ختامي لكل فرع",
+      "part": "P25"
+    },
+    {
+      "term": "green / red flag",
+      "meaning_ar": "علامة مطمئنة / مقلقة في الإنترفيو",
+      "part": "P25"
+    }
+  ]
+}

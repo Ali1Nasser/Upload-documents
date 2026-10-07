@@ -1,0 +1,975 @@
+{
+  "v": 1,
+  "generated_by": "dc corpus canon",
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/patterns.py",
+    "file_id": "f:b311beaaaf93"
+  },
+  "renderers": [
+    {
+      "kind": "reveal",
+      "fn": "p_reveal",
+      "line": 37,
+      "doc": null,
+      "banner": "P01 progressive reveal",
+      "patterns": [
+        "P01"
+      ],
+      "params_required": [
+        "layers"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "step": {
+          "_expr": "max(0.5, (dur - 1.2) / max(1, n))"
+        },
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 4
+    },
+    {
+      "kind": "flow",
+      "fn": "p_flow",
+      "line": 77,
+      "doc": null,
+      "banner": null,
+      "patterns": [],
+      "params_required": [
+        "nodes"
+      ],
+      "params_optional": {
+        "edges": [],
+        "fail": {},
+        "nh": 92,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "nw": 250,
+        "order": {
+          "_expr": "[n['id'] for n in s['nodes']]"
+        },
+        "step": {
+          "_expr": "max(0.32, (dur - 1.6) / max(1, len(order)))"
+        },
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 31
+    },
+    {
+      "kind": "rows",
+      "fn": "p_rows",
+      "line": 157,
+      "doc": null,
+      "banner": "P10/P21 table + funnel",
+      "patterns": [
+        "P10",
+        "P21"
+      ],
+      "params_required": [
+        "cols",
+        "rows"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "rail": "الصفوف الباقية",
+        "stages": [],
+        "step": {
+          "_expr": "max(0.6, (dur - 1.4) / max(1, len(stages) or 1))"
+        },
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 5
+    },
+    {
+      "kind": "funnel",
+      "fn": "p_funnel",
+      "line": 235,
+      "doc": null,
+      "banner": "P21 standalone funnel",
+      "patterns": [
+        "P21"
+      ],
+      "params_required": [
+        "stages"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "step": {
+          "_expr": "max(0.3, (dur - 1.2) / n)"
+        },
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 5
+    },
+    {
+      "kind": "terminal",
+      "fn": "p_terminal",
+      "line": 263,
+      "doc": null,
+      "banner": "P09 terminal",
+      "patterns": [
+        "P09"
+      ],
+      "params_required": [
+        "lines"
+      ],
+      "params_optional": {
+        "cps": 26.0,
+        "host": "shopflow@ubuntu: ~/shopflow",
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "t0": 0.35,
+        "title": null
+      },
+      "shots_using": 8
+    },
+    {
+      "kind": "code",
+      "fn": "p_code",
+      "line": 303,
+      "doc": null,
+      "banner": "P08/P03 code trace",
+      "patterns": [
+        "P08",
+        "P03"
+      ],
+      "params_required": [
+        "code"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "state_title": "State",
+        "step": {
+          "_expr": "max(0.45, (dur - 1.2) / max(1, len(steps) or 1))"
+        },
+        "steps": [],
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 8
+    },
+    {
+      "kind": "matrix",
+      "fn": "p_matrix",
+      "line": 352,
+      "doc": null,
+      "banner": "P07 matrix / heatmap",
+      "patterns": [
+        "P07"
+      ],
+      "params_required": [
+        "m"
+      ],
+      "params_optional": {
+        "cellstep": 0.012,
+        "collabels": [],
+        "fmt": "%.2f",
+        "mask": null,
+        "mask_t": 1000000000.0,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "rowlabels": [],
+        "rowsum": null,
+        "side": null,
+        "sub": null,
+        "sum_t": 1.0,
+        "sumfmt": "sum %.3f",
+        "title": null,
+        "wfrac": 0.52
+      },
+      "shots_using": 8
+    },
+    {
+      "kind": "timeline",
+      "fn": "p_timeline",
+      "line": 399,
+      "doc": null,
+      "banner": "P13 timeline",
+      "patterns": [
+        "P13"
+      ],
+      "params_required": [
+        "events"
+      ],
+      "params_optional": {
+        "dy": 0,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "step": {
+          "_expr": "max(0.3, (dur - 1.5) / max(1, len(ev)))"
+        },
+        "sub": null,
+        "sweep": null,
+        "title": null,
+        "zig": true
+      },
+      "shots_using": 14
+    },
+    {
+      "kind": "split",
+      "fn": "p_split",
+      "line": 430,
+      "doc": null,
+      "banner": "P05 before / after",
+      "patterns": [
+        "P05"
+      ],
+      "params_required": [
+        "left",
+        "right",
+        "verdict"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 31
+    },
+    {
+      "kind": "star",
+      "fn": "p_star",
+      "line": 459,
+      "doc": null,
+      "banner": "P15 star schema",
+      "patterns": [
+        "P15"
+      ],
+      "params_required": [
+        "dims"
+      ],
+      "params_optional": {
+        "fact": {
+          "label": "fact_transaction",
+          "sub": "grain: transaction"
+        },
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "rx": 560,
+        "ry": 245,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 2
+    },
+    {
+      "kind": "bars",
+      "fn": "p_bars",
+      "line": 493,
+      "doc": null,
+      "banner": "bars (P22/P12/skew)",
+      "patterns": [
+        "P22",
+        "P12"
+      ],
+      "params_required": [
+        "bars",
+        "threshold"
+      ],
+      "params_optional": {
+        "horiz": false,
+        "max": null,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "step": 0.1,
+        "sub": null,
+        "th_t": 0.9,
+        "title": null
+      },
+      "shots_using": 9
+    },
+    {
+      "kind": "lines",
+      "fn": "p_lines",
+      "line": 536,
+      "doc": null,
+      "banner": "line chart",
+      "patterns": [],
+      "params_required": [
+        "ax",
+        "ay",
+        "series"
+      ],
+      "params_optional": {
+        "draw": 0.9,
+        "marks": [],
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 5
+    },
+    {
+      "kind": "tree",
+      "fn": "p_tree",
+      "line": 576,
+      "doc": null,
+      "banner": "P10/P14 tree",
+      "patterns": [
+        "P10",
+        "P14"
+      ],
+      "params_required": [
+        "nodes"
+      ],
+      "params_optional": {
+        "nh": 74,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "nw": 250,
+        "step": {
+          "_expr": "max(0.3, (dur - 1.3) / max(1, len(nodes)))"
+        },
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 5
+    },
+    {
+      "kind": "log",
+      "fn": "p_log",
+      "line": 612,
+      "doc": null,
+      "banner": "Kafka log / offsets (P03)",
+      "patterns": [
+        "P03"
+      ],
+      "params_required": [
+        "parts"
+      ],
+      "params_optional": {
+        "adv_t": 1.4,
+        "cname": "consumer offset",
+        "cw": 62,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "prod_d": 1.6,
+        "prod_t": 1.0,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 2
+    },
+    {
+      "kind": "board",
+      "fn": "p_board",
+      "line": 650,
+      "doc": null,
+      "banner": "P16 risk board",
+      "patterns": [
+        "P16"
+      ],
+      "params_required": [
+        "cols"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 7
+    },
+    {
+      "kind": "predict",
+      "fn": "p_predict",
+      "line": 678,
+      "doc": null,
+      "banner": "P17 prediction",
+      "patterns": [
+        "P17"
+      ],
+      "params_required": [
+        "a",
+        "q"
+      ],
+      "params_optional": {
+        "a_t": {
+          "_expr": "dur * 0.62"
+        },
+        "beat_t": 1.6,
+        "tag": "توقّع قبل ما تشوف"
+      },
+      "shots_using": 4
+    },
+    {
+      "kind": "counter",
+      "fn": "p_counter",
+      "line": 706,
+      "doc": null,
+      "banner": "P22 big counter",
+      "patterns": [
+        "P22"
+      ],
+      "params_required": [
+        "formula",
+        "items"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 20
+    },
+    {
+      "kind": "chips",
+      "fn": "p_chips",
+      "line": 731,
+      "doc": null,
+      "banner": "chips / enumeration",
+      "patterns": [],
+      "params_required": [
+        "items"
+      ],
+      "params_optional": {
+        "cols": 2,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "step": 0.16,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 8
+    },
+    {
+      "kind": "quote",
+      "fn": "p_quote",
+      "line": 759,
+      "doc": null,
+      "banner": "big statement",
+      "patterns": [],
+      "params_required": [
+        "by",
+        "q"
+      ],
+      "params_optional": {
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "size": 52
+      },
+      "shots_using": 1
+    },
+    {
+      "kind": "scatter",
+      "fn": "p_scatter",
+      "line": 773,
+      "doc": null,
+      "banner": "scatter / embedding space",
+      "patterns": [],
+      "params_required": [
+        "ax",
+        "ay",
+        "pts"
+      ],
+      "params_optional": {
+        "fit": [],
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "query": [],
+        "r": 8,
+        "side": [],
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 2
+    },
+    {
+      "kind": "net",
+      "fn": "p_net",
+      "line": 811,
+      "doc": null,
+      "banner": "neural net",
+      "patterns": [],
+      "params_required": [
+        "layers"
+      ],
+      "params_optional": {
+        "back_label": "backpropagation — الـgradients راجعة",
+        "back_t": 1000000000.0,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 2
+    },
+    {
+      "kind": "pool",
+      "fn": "p_pool",
+      "line": 854,
+      "doc": null,
+      "banner": "pool / queue (P11)",
+      "patterns": [
+        "P11"
+      ],
+      "params_required": [],
+      "params_optional": {
+        "cap": 10,
+        "m_t": 1.5,
+        "metrics": [],
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "plabel": "connection pool",
+        "q_t": 1.1,
+        "qlabel": "queue",
+        "queue": 0,
+        "sub": null,
+        "title": null,
+        "used": 10
+      },
+      "shots_using": 1
+    },
+    {
+      "kind": "ledger",
+      "fn": "p_ledger",
+      "line": 891,
+      "doc": null,
+      "banner": "reconciliation ledger",
+      "patterns": [],
+      "params_required": [
+        "a",
+        "b"
+      ],
+      "params_optional": {
+        "classes": [],
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 2
+    },
+    {
+      "kind": "cube",
+      "fn": "p_cube",
+      "line": 926,
+      "doc": null,
+      "banner": "OLAP cube",
+      "patterns": [],
+      "params_required": [
+        "dice"
+      ],
+      "params_optional": {
+        "axes": [],
+        "dice_t": 1000000000.0,
+        "drill_t": 1000000000.0,
+        "n": 3,
+        "note": null,
+        "note_color": null,
+        "note_t": null,
+        "ops": [],
+        "size": 136,
+        "slice": 0,
+        "slice_t": 1000000000.0,
+        "sub": null,
+        "title": null
+      },
+      "shots_using": 1
+    },
+    {
+      "kind": "steps",
+      "fn": "p_steps",
+      "line": 978,
+      "doc": null,
+      "banner": "P02 step transport",
+      "patterns": [
+        "P02"
+      ],
+      "params_required": [
+        "frames"
+      ],
+      "params_optional": {
+        "hold": {
+          "_expr": "max(0.55, (dur - t0 - 0.5) / n)"
+        },
+        "max": null,
+        "mode": "bars",
+        "sub": null,
+        "t0": 0.45,
+        "title": null
+      },
+      "shots_using": 15
+    }
+  ],
+  "counts": {
+    "renderers": 25,
+    "film_shots": 200,
+    "story_beats": 200,
+    "film_shots_with_unresolved": 0,
+    "film_chapters": 37
+  },
+  "story": {
+    "patterns": {
+      "P01": {
+        "id": "P01",
+        "title": "Progressive layer reveal",
+        "how": "Never show a full architecture at once. Build it one layer at a time, in data-flow order:",
+        "teaches": [],
+        "chapters": []
+      },
+      "P02": {
+        "id": "P02",
+        "title": "Step transport",
+        "how": "Any process with an order gets play / pause / next / back / reset / speed, visible on screen as a transport bar, with a step counter (stage 4 / 9). The current state stays on screen at every step; the viewer must never have to remember the previous frame.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P03": {
+        "id": "P03",
+        "title": "State made visible",
+        "how": "Anything internal that controls behaviour is drawn beside the thing it controls, not described:",
+        "teaches": [],
+        "chapters": []
+      },
+      "P04": {
+        "id": "P04",
+        "title": "Live parameter experiment",
+        "how": "One control changes one number; the picture redraws immediately and the outcome is measured on screen.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P05": {
+        "id": "P05",
+        "title": "Before / after split screen",
+        "how": "| Left | Right |",
+        "teaches": [],
+        "chapters": []
+      },
+      "P06": {
+        "id": "P06",
+        "title": "Data moving on edges",
+        "how": "Dots, packets or marching dashed lines travel along the arrows. Used everywhere data physically moves: ETL, HTTP, Kafka events, HDFS block replication, Spark shuffle, JDBC round trips, retrieval, tool calls.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P07": {
+        "id": "P07",
+        "title": "Matrix / heatmap",
+        "how": "Grid with per-cell colour intensity. Used for: table data, attention scores, embeddings, confusion matrix, correlation, data-quality grids, the residual stream.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P08": {
+        "id": "P08",
+        "title": "Code trace",
+        "how": "The current source line highlights while variables, stack frames, heap objects and output update beside it. Reference arrows point at identity, not equality — two names pointing at one object share one arrow head.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P09": {
+        "id": "P09",
+        "title": "Terminal simulation",
+        "how": "The command types character by character, then output appears, then the filesystem / process / network state visibly changes. Errors are shown and read, not skipped.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P10": {
+        "id": "P10",
+        "title": "Plan and lineage tree",
+        "how": "Query as an operator tree: scan → filter → join → aggregate → sort → output, with row counts flowing upward and fan-out named when rows-out exceeds rows-in. Column lineage draws source column → transformation → result column, and lists separately the columns read but not returned.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P11": {
+        "id": "P11",
+        "title": "Architecture topology with failure injection",
+        "how": "Components carry capacity, utilisation and health. Then one component is failed on purpose, and the film follows: propagation → retry → timeout → queue build-up → circuit breaker → shed → recovery.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P12": {
+        "id": "P12",
+        "title": "Dashboard plus cause-and-effect",
+        "how": "When a metric moves — success rate, p95, lag, freshness, mismatch count, error rate — the cause is visible in the same frame, on the other side of the screen. A dashboard alone is a picture; a dashboard with its cause is a lesson.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P13": {
+        "id": "P13",
+        "title": "Timeline",
+        "how": "A horizontal time axis with named events. Used for: transaction lifecycle, NRT freshness, SLA windows, test phases, deployment, incident reconstruction, project evolution.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P14": {
+        "id": "P14",
+        "title": "Decision tree",
+        "how": "One question at a time, answered on screen, narrowing to a choice. Used for: picking a store family, batch vs stream, ETL vs ELT, index or not, model family.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P15": {
+        "id": "P15",
+        "title": "Star schema and cube",
+        "how": "Fact in the centre, dimensions around it. Animate join, slice, dice, drill-down, roll-up. The cube is translucent; slicing removes a plane, dicing selects a sub-cube, drill-down subdivides a cell.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P16": {
+        "id": "P16",
+        "title": "Risk and dependency board",
+        "how": "Kanban cards: risk · dependency · impact · owner · status · mitigation. Used in the D&IM, DR and delivery chapters.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P17": {
+        "id": "P17",
+        "title": "Prediction before reveal",
+        "how": "Before the animation runs, the film asks the viewer one question and pauses on it for 2–3 seconds with a visible beat marker. Then it plays, then it puts expected vs actual side by side. This is the single highest-retention device in the film — use it at least once per act.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P18": {
+        "id": "P18",
+        "title": "Failure-first",
+        "how": "The canonical arc, and the reason this curriculum works:",
+        "teaches": [],
+        "chapters": []
+      },
+      "P19": {
+        "id": "P19",
+        "title": "3D, only where depth is the point",
+        "how": "Permitted: HDFS block placement and replication, cluster topology, embedding space, the curriculum atlas, CPU↔memory↔disk movement, architecture evolution.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P20": {
+        "id": "P20",
+        "title": "Callback and zoom-out",
+        "how": "Every act ends by zooming out to the same architecture diagram and lighting up the component the viewer can now explain. The diagram is one asset reused eight times; it is the film's spine made visible.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P21": {
+        "id": "P21",
+        "title": "Row-count funnel",
+        "how": "Beneath any multi-stage data operation, a bar per stage showing how many rows survived it. 14 → 13 → 11 → 2 is a sentence. This single device explains grain, filtering, joins and fan-out better than any prose.",
+        "teaches": [],
+        "chapters": []
+      },
+      "P22": {
+        "id": "P22",
+        "title": "Cost counter beside every move",
+        "how": "Comparisons, swaps, page reads, network bytes, milliseconds, rows examined — counted on screen as the operation runs, not summarised at the end in a complexity table.",
+        "teaches": [],
+        "chapters": []
+      }
+    },
+    "stats": {
+      "chapters": 37,
+      "beats": 200,
+      "patterns_used": 22,
+      "locked_sec": 4205,
+      "spread": {
+        "P01": 8,
+        "P02": 14,
+        "P03": 11,
+        "P04": 9,
+        "P05": 16,
+        "P06": 4,
+        "P07": 5,
+        "P08": 5,
+        "P09": 3,
+        "P10": 4,
+        "P11": 6,
+        "P12": 8,
+        "P13": 10,
+        "P14": 5,
+        "P15": 2,
+        "P16": 2,
+        "P17": 6,
+        "P18": 22,
+        "P19": 3,
+        "P20": 3,
+        "P21": 9,
+        "P22": 11
+      }
+    },
+    "figures": {
+      "receipts": [
+        [
+          "T1",
+          "A",
+          "120",
+          "OK"
+        ],
+        [
+          "T2",
+          "A",
+          "80",
+          "OK"
+        ],
+        [
+          "T3",
+          "B",
+          "200",
+          "FAILED"
+        ],
+        [
+          "T4",
+          "A",
+          "50",
+          "OK"
+        ],
+        [
+          "T5",
+          "B",
+          "150",
+          "OK"
+        ],
+        [
+          "T6",
+          "B",
+          "100",
+          "FAILED"
+        ]
+      ],
+      "receipt_stats": {
+        "n": 6,
+        "ok": 4,
+        "rate": 66.67,
+        "success_total": 400,
+        "A_ok": 250,
+        "B_ok": 150,
+        "A_all": 250,
+        "B_all": 450,
+        "basis": "ok only — reproduces §5.2 (A=250, B=150); all-status gives B=450"
+      },
+      "reconcile": [
+        [
+          "€3 948.50 cleaned total",
+          "CH-15",
+          "gold €3 098.30 + silver €850.20 in CH-11"
+        ],
+        [
+          "€3 853.50",
+          "CH-15",
+          "€3 948.50 − €95.00 (order 1009's blank quantity read as zero)"
+        ],
+        [
+          "order 1007 → customer 9",
+          "CH-10",
+          "the row INNER JOIN drops in CH-12 and the gate flags in CH-21"
+        ],
+        [
+          "66.67 %",
+          "CH-00",
+          "the recomputed rate in CH-27"
+        ]
+      ],
+      "contract": [
+        [
+          "transaction_id",
+          "STRING /",
+          "UUID    unique event id; the natural dedupe key"
+        ],
+        [
+          "event_time",
+          "TIMESTAMPTZ      when",
+          "the business event happened; drives partitions and windows"
+        ],
+        [
+          "sender_id",
+          "STRING (masked)",
+          "paying party; never a raw MSISDN in analytics"
+        ],
+        [
+          "receiver_id",
+          "STRING (masked)",
+          "receiving party"
+        ],
+        [
+          "service_type",
+          "ENUM             CASH_IN",
+          "| CASH_OUT | TRANSFER | PAYMENT"
+        ],
+        [
+          "amount",
+          "DECIMAL(18,4)    money",
+          "— never FLOAT; binary floats cannot represent 0.10"
+        ],
+        [
+          "fee",
+          "DECIMAL(18,4)    reconciles",
+          "against the fee schedule"
+        ],
+        [
+          "status",
+          "ENUM             SUCCESS",
+          "| FAILED | PENDING | REVERSED"
+        ],
+        [
+          "channel",
+          "ENUM             USSD",
+          "| APP | AGENT | API"
+        ],
+        [
+          "agent_id",
+          "STRING NULL",
+          "retail agent; genuinely NULL for app-to-app, not 'UNKNOWN'"
+        ],
+        [
+          "region",
+          "STRING           business",
+          "geography; a dimension, not a fact attribute"
+        ],
+        [
+          "source_system",
+          "STRING           producer",
+          "id; needed for reconciliation and blame"
+        ],
+        [
+          "ingestion_time",
+          "TIMESTAMPTZ      platform",
+          "arrival; event_time ≠ ingestion_time is the late-data problem"
+        ],
+        [
+          "batch_id",
+          "STRING           idempotency",
+          "and reconciliation unit; one batch = one atomic publish"
+        ]
+      ],
+      "constructed": [
+        "A classifier that always predicts *no* on a problem with **1 %** positives scores **99 %** accuracy and catches **zero** cases (CH-30).",
+        "Linear search over 16 sorted items: up to **16** comparisons; binary search: **4** (log₂ 16) (CH-19).",
+        "Membership over **10 000** items: a list walks up to 10 000; a set answers in one hop on average (CH-07).",
+        "`4 / 6 = 66.67 %` and the receipts' totals (CH-00, CH-27)."
+      ]
+    }
+  },
+  "story_vs_master_beat_title_diffs": 1
+}

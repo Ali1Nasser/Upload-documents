@@ -7,6 +7,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 # Rule 11: python that reads extracted (untrusted) files runs isolated (-I). Re-exec once for those commands.
 if len(sys.argv) > 1 and sys.argv[1] == "ingest" and not sys.flags.isolated and os.environ.get("DC_NO_ISOLATE") != "1":
     os.execv(sys.executable, [sys.executable, "-I", os.path.abspath(__file__), *sys.argv[1:]])
+# P2.2: `corpus canon` parses untrusted archive text (stdlib only). Re-exec once, isolated.
+if (len(sys.argv) > 2 and sys.argv[1] == "corpus" and sys.argv[2] == "canon" and not sys.flags.isolated
+        and os.environ.get("DC_NO_ISOLATE") != "1"):
+    os.execv(sys.executable, [sys.executable, "-I", os.path.abspath(__file__), *sys.argv[1:]])
 sys.path.insert(0, HERE)
 
 from dclib import cli  # noqa: E402

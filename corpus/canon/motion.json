@@ -1,0 +1,100 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "moves": [
+    {
+      "move": "fade",
+      "duration": "160 ms",
+      "duration_ms": 160,
+      "loop": false,
+      "use": "something becomes relevant",
+      "line": 213
+    },
+    {
+      "move": "rise",
+      "duration": "240 ms",
+      "duration_ms": 240,
+      "loop": false,
+      "use": "a layer arrives",
+      "line": 214
+    },
+    {
+      "move": "slide-in",
+      "duration": "240 ms",
+      "duration_ms": 240,
+      "loop": false,
+      "use": "a panel enters from the side it belongs on",
+      "line": 215
+    },
+    {
+      "move": "pop",
+      "duration": "90 ms",
+      "duration_ms": 90,
+      "loop": false,
+      "use": "a value changed in place",
+      "line": 216
+    },
+    {
+      "move": "pulse",
+      "duration": "700 ms loop",
+      "duration_ms": 700,
+      "loop": true,
+      "use": "this is alive / still running",
+      "line": 217
+    },
+    {
+      "move": "glow",
+      "duration": "240 ms",
+      "duration_ms": 240,
+      "loop": false,
+      "use": "this is the current subject",
+      "line": 218
+    },
+    {
+      "move": "shake",
+      "duration": "160 ms",
+      "duration_ms": 160,
+      "loop": false,
+      "use": "this was rejected",
+      "line": 219
+    },
+    {
+      "move": "marching dashes",
+      "duration": "1.2 s loop",
+      "duration_ms": 1200,
+      "loop": true,
+      "use": "a continuous flow",
+      "line": 220
+    },
+    {
+      "move": "path draw",
+      "duration": "420 ms",
+      "duration_ms": 420,
+      "loop": false,
+      "use": "a route is being established",
+      "line": 221
+    },
+    {
+      "move": "spin",
+      "duration": "700 ms",
+      "duration_ms": 700,
+      "loop": false,
+      "use": "a retry",
+      "line": 222
+    }
+  ],
+  "rules": [
+    "Explanatory transitions: 160–700 ms. Slower loops only for genuinely ongoing processes (streaming, replication, heartbeat, background consumer, monitoring).",
+    "The rule that governs all of it: motion must reveal causality. If you can remove an animation and lose no understanding, remove it.",
+    "Reduced-motion variant: every scene must have a meaningful first frame and a meaningful final frame, so a static-frame version of the whole film still teaches. Build it; it is also your thumbnail set and your slide deck."
+  ],
+  "explanatory_range_ms": [
+    160,
+    700
+  ],
+  "parameter_feedback_max_ms": 400
+}

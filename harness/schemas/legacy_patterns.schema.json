@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:legacy_patterns",
+  "title": "corpus/canon/legacy_patterns.json (film/patterns.py renderers via ast)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "renderers",
+    "counts"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "renderers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "fn",
+          "line",
+          "params_required",
+          "params_optional",
+          "patterns"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "fn": {
+            "type": "string"
+          },
+          "line": {
+            "type": "integer"
+          },
+          "params_required": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "params_optional": {
+            "type": "object"
+          },
+          "patterns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object"
+    }
+  }
+}

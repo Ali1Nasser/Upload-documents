@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_spec",
+  "title": "corpus/canon/spec.json (master.md §0.3, §1, §11, §13.3, §15)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "format",
+    "typography",
+    "colour_tokens",
+    "qa_gate_15"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "format": {
+      "type": "array"
+    },
+    "typography": {
+      "type": "array"
+    },
+    "colour_tokens": {
+      "type": "array"
+    },
+    "qa_gate_15": {
+      "type": "object"
+    },
+    "captions_accessibility": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "honest_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,1158 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "domains": [
+    {
+      "domain": "Foundations",
+      "topics": [
+        "CPU",
+        "fetch-decode-execute",
+        "RAM vs storage",
+        "binary",
+        "bytes",
+        "ASCII/Unicode/UTF-8",
+        "what a program is",
+        "what an OS does",
+        "files",
+        "extensions",
+        "directories",
+        "absolute vs relative paths",
+        "processes"
+      ],
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "chapters_raw": "CH-03, CH-04",
+      "line": 1649
+    },
+    {
+      "domain": "Terminal & Linux I",
+      "topics": [
+        "shell as a REPL",
+        "the twelve-command working set",
+        "stdin/stdout/stderr",
+        "redirection",
+        "pipes",
+        "PATH",
+        "environment variables",
+        "reading errors",
+        "editors",
+        "package managers",
+        "verification rituals"
+      ],
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "chapters_raw": "CH-04, CH-07",
+      "line": 1650
+    },
+    {
+      "domain": "Linux II / operations",
+      "topics": [
+        "users and groups",
+        "permissions and ownership",
+        "sudo",
+        "processes and signals",
+        "systemd units and states",
+        "journald",
+        "cron and scheduling",
+        "disks",
+        "mounts",
+        "LVM",
+        "networking tools",
+        "SSH keys",
+        "firewalls",
+        "hardening",
+        "ulimit/umask",
+        "resource limits",
+        "troubleshooting method",
+        "filesystem hierarchy",
+        "boot process"
+      ],
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "chapters_raw": "CH-05, CH-34",
+      "line": 1651
+    },
+    {
+      "domain": "Python core",
+      "topics": [
+        "values",
+        "variables",
+        "types",
+        "conversion",
+        "control flow",
+        "boolean logic",
+        "loops and loop control",
+        "functions",
+        "parameters",
+        "returns",
+        "scope and LEGB",
+        "the call stack",
+        "strings and f-strings",
+        "comprehensions"
+      ],
+      "chapters": [
+        "CH-06"
+      ],
+      "chapters_raw": "CH-06",
+      "line": 1652
+    },
+    {
+      "domain": "Python structures & data",
+      "topics": [
+        "list",
+        "dict",
+        "set",
+        "tuple",
+        "nesting",
+        "choosing by operation cost",
+        "files",
+        "CSV",
+        "JSON",
+        "context managers",
+        "modules",
+        "packages",
+        "pip",
+        "venv",
+        "`requirements.txt`",
+        "project layout"
+      ],
+      "chapters": [
+        "CH-07"
+      ],
+      "chapters_raw": "CH-07",
+      "line": 1653
+    },
+    {
+      "domain": "Python state & depth",
+      "topics": [
+        "references and aliasing",
+        "mutability",
+        "stack vs heap",
+        "the mutable default",
+        "generators and laziness",
+        "memory bounding",
+        "chunking",
+        "exceptions and unwinding",
+        "`try/except/else/finally`",
+        "decorators",
+        "the GIL",
+        "MRO",
+        "`__slots__`"
+      ],
+      "chapters": [
+        "CH-08"
+      ],
+      "chapters_raw": "CH-08",
+      "line": 1654
+    },
+    {
+      "domain": "pandas",
+      "topics": [
+        "Series and DataFrame",
+        "filter",
+        "clean",
+        "validate",
+        "groupby split-apply-combine",
+        "merge and the duplication trap",
+        "reshaping",
+        "vectorisation vs row loops",
+        "memory"
+      ],
+      "chapters": [
+        "CH-08",
+        "CH-15"
+      ],
+      "chapters_raw": "CH-08, CH-15",
+      "line": 1655
+    },
+    {
+      "domain": "Testing & version control",
+      "topics": [
+        "assert",
+        "pytest",
+        "fixtures",
+        "red-green-refactor",
+        "unit vs integration vs acceptance",
+        "test doubles",
+        "coverage and its limits",
+        "property and contract testing",
+        "tracebacks",
+        "hypothesis-driven debugging",
+        "commits",
+        "branches",
+        "merges",
+        "conflicts",
+        "three-way merge",
+        "rebase",
+        "remotes",
+        "pull requests",
+        "review",
+        "reflog"
+      ],
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "chapters_raw": "CH-09, CH-18, CH-34",
+      "line": 1656
+    },
+    {
+      "domain": "Relational model",
+      "topics": [
+        "tables",
+        "rows",
+        "columns",
+        "types",
+        "primary and foreign keys",
+        "1:1 / 1:N / M:N",
+        "referential integrity",
+        "constraints",
+        "normalization 1NF–3NF and BCNF",
+        "denormalization trade-offs",
+        "ERD",
+        "views and materialized views"
+      ],
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "chapters_raw": "CH-10, CH-23",
+      "line": 1657
+    },
+    {
+      "domain": "SQL querying",
+      "topics": [
+        "SELECT/FROM/WHERE",
+        "filtering",
+        "sorting",
+        "LIMIT",
+        "DISTINCT",
+        "aggregation",
+        "GROUP BY",
+        "HAVING",
+        "logical execution order",
+        "grain",
+        "all join types",
+        "anti and semi joins",
+        "fan-out",
+        "subqueries",
+        "CTEs and recursion",
+        "set operations",
+        "window functions and frames",
+        "gaps-and-islands",
+        "CASE",
+        "casting",
+        "NULL three-valued logic",
+        "DDL/DML/DQL/DCL/TCL",
+        "INSERT/UPDATE/DELETE/MERGE",
+        "upsert"
+      ],
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "chapters_raw": "CH-11, CH-12",
+      "line": 1658
+    },
+    {
+      "domain": "Transactions",
+      "topics": [
+        "ACID",
+        "BEGIN/COMMIT/ROLLBACK",
+        "isolation levels",
+        "dirty/non-repeatable/phantom/write skew",
+        "locks",
+        "2PL",
+        "deadlock and victim selection",
+        "MVCC",
+        "DELETE vs TRUNCATE vs DROP and their dialect differences"
+      ],
+      "chapters": [
+        "CH-13"
+      ],
+      "chapters_raw": "CH-13",
+      "line": 1659
+    },
+    {
+      "domain": "Performance",
+      "topics": [
+        "the tuning workflow",
+        "EXPLAIN",
+        "scan types",
+        "estimated vs actual rows",
+        "B-tree structure and node splits",
+        "clustered vs secondary",
+        "composite and leftmost-prefix",
+        "covering",
+        "partial",
+        "selectivity",
+        "sargability",
+        "join strategies",
+        "statistics and stale plans",
+        "write amplification",
+        "partitioning and pruning",
+        "connection pooling",
+        "N+1",
+        "batching",
+        "honest benchmarking"
+      ],
+      "chapters": [
+        "CH-14"
+      ],
+      "chapters_raw": "CH-14",
+      "line": 1660
+    },
+    {
+      "domain": "Database families & dialects",
+      "topics": [
+        "relational vs document vs key-value vs wide-column vs graph vs time-series vs vector",
+        "when to choose each",
+        "MySQL vs PostgreSQL portability traps",
+        "columnar stores",
+        "CarbonData / GaussDB positioning",
+        "lakehouse formats"
+      ],
+      "chapters": [
+        "CH-10",
+        "CH-23",
+        "CH-24"
+      ],
+      "chapters_raw": "CH-10, CH-23, CH-24",
+      "line": 1661
+    },
+    {
+      "domain": "Analytics",
+      "topics": [
+        "tidy data",
+        "spreadsheet cleaning",
+        "applied-step transformation (Power Query, M)",
+        "descriptive statistics",
+        "distributions",
+        "probability and Bayes",
+        "sampling and the CLT",
+        "confidence intervals",
+        "hypothesis tests and p-values",
+        "A/B design",
+        "power and sample size",
+        "correlation vs causation",
+        "semantic models",
+        "measures and filter context",
+        "DAX-style evaluation",
+        "time intelligence",
+        "report design",
+        "encodings and perception",
+        "accessibility checks"
+      ],
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "chapters_raw": "CH-15, CH-16, CH-17",
+      "line": 1662
+    },
+    {
+      "domain": "Software craft",
+      "topics": [
+        "clean code",
+        "cohesion and coupling",
+        "classes and encapsulation",
+        "composition vs inheritance",
+        "interfaces",
+        "polymorphism",
+        "SOLID",
+        "dependency injection",
+        "patterns as answers (factory, strategy, observer, repository, adapter)",
+        "refactoring and smells",
+        "DRY/KISS/YAGNI",
+        "technical debt",
+        "semantic versioning",
+        "reading unfamiliar code",
+        "call graphs",
+        "code review",
+        "acceptance criteria",
+        "ADRs",
+        "documentation"
+      ],
+      "chapters": [
+        "CH-18"
+      ],
+      "chapters_raw": "CH-18",
+      "line": 1663
+    },
+    {
+      "domain": "DSA",
+      "topics": [
+        "Big-O and amortised cost",
+        "arrays and dynamic arrays",
+        "linked structures",
+        "stacks",
+        "queues",
+        "deques",
+        "hash tables and load factor",
+        "trees and BSTs",
+        "AVL rotations",
+        "heaps and priority queues",
+        "graphs and representations",
+        "BFS",
+        "DFS",
+        "topological sort",
+        "shortest paths",
+        "union-find",
+        "sorting",
+        "searching",
+        "recursion",
+        "two pointers",
+        "sliding window",
+        "greedy",
+        "backtracking",
+        "dynamic programming"
+      ],
+      "chapters": [
+        "CH-19"
+      ],
+      "chapters_raw": "CH-19",
+      "line": 1664
+    },
+    {
+      "domain": "Systems & the web",
+      "topics": [
+        "IP",
+        "ports",
+        "packets",
+        "TCP handshake and acknowledgements",
+        "UDP",
+        "DNS",
+        "TLS and certificates",
+        "HTTP methods",
+        "status codes",
+        "headers",
+        "caching",
+        "CORS",
+        "JSON",
+        "REST resource modelling",
+        "statelessness",
+        "idempotency",
+        "validation and error contracts",
+        "pagination",
+        "rate limiting",
+        "versioning",
+        "OpenAPI",
+        "routing",
+        "serialization",
+        "background jobs",
+        "hashing and salted passwords",
+        "sessions",
+        "JWT",
+        "OAuth2/OIDC",
+        "roles and permissions",
+        "least privilege",
+        "OWASP set",
+        "injection",
+        "XSS",
+        "CSRF",
+        "broken access control",
+        "secrets management",
+        "threat modelling"
+      ],
+      "chapters": [
+        "CH-20"
+      ],
+      "chapters_raw": "CH-20",
+      "line": 1665
+    },
+    {
+      "domain": "Java / backend depth",
+      "topics": [
+        "JVM and bytecode",
+        "classes and records",
+        "collections",
+        "generics",
+        "streams",
+        "exceptions",
+        "try-with-resources",
+        "JDBC lifecycle",
+        "PreparedStatement as an injection barrier",
+        "connection pools",
+        "transaction boundaries",
+        "JPA vs JDBC",
+        "controller/service/repository layering",
+        "Spring request flow",
+        "concurrency basics",
+        "caching strategies"
+      ],
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "chapters_raw": "CH-14 (pool), CH-20 (layering & injection), CH-35 (branch B1)",
+      "line": 1666
+    },
+    {
+      "domain": "Data engineering",
+      "topics": [
+        "ETL vs ELT",
+        "landing and staging",
+        "data formats (CSV, JSON, Parquet, Avro, ORC)",
+        "compression",
+        "schema and contracts",
+        "validation",
+        "six quality dimensions",
+        "idempotency",
+        "incremental loads",
+        "CDC",
+        "batch vs streaming",
+        "DAG authoring",
+        "operators",
+        "sensors",
+        "retries and backoff",
+        "backfills",
+        "partitioning",
+        "lineage",
+        "catalog",
+        "data observability",
+        "reconciliation",
+        "dbt-style tested transformations",
+        "SLAs"
+      ],
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "chapters_raw": "CH-21, CH-22, CH-23, CH-28",
+      "line": 1667
+    },
+    {
+      "domain": "Warehousing & OLAP",
+      "topics": [
+        "ODS",
+        "staging",
+        "warehouse",
+        "marts",
+        "facts and dimensions",
+        "grain",
+        "star and snowflake",
+        "SCD types",
+        "additive vs non-additive measures",
+        "hierarchies",
+        "slice",
+        "dice",
+        "drill-down",
+        "roll-up",
+        "pivot",
+        "logical vs physical models",
+        "DataCube platform architecture",
+        "openness",
+        "governance",
+        "metadata",
+        "ownership",
+        "lifecycle",
+        "KPI dashboards",
+        "scheduling and distribution"
+      ],
+      "chapters": [
+        "CH-23"
+      ],
+      "chapters_raw": "CH-23",
+      "line": 1668
+    },
+    {
+      "domain": "Big data",
+      "topics": [
+        "distributed storage and processing",
+        "HDFS NameNode and DataNodes",
+        "blocks",
+        "replication",
+        "rack awareness",
+        "YARN",
+        "MapReduce map-shuffle-reduce",
+        "the ecosystem (Hive, HBase, Sqoop, Flume, Oozie, ZooKeeper, Tez, Ambari) with honest verdicts",
+        "Spark driver and executors",
+        "RDD/DataFrame",
+        "lazy evaluation",
+        "transformations vs actions",
+        "DAG",
+        "stages",
+        "tasks",
+        "shuffle",
+        "partitions",
+        "skew",
+        "broadcast joins",
+        "caching",
+        "Catalyst",
+        "Structured Streaming",
+        "small-files problem"
+      ],
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "chapters_raw": "CH-24, CH-25",
+      "line": 1669
+    },
+    {
+      "domain": "Streaming",
+      "topics": [
+        "producers",
+        "brokers",
+        "topics",
+        "partitions",
+        "offsets",
+        "consumer groups",
+        "rebalancing",
+        "lag",
+        "ordering scope",
+        "delivery semantics",
+        "exactly-once as a path property",
+        "duplicates",
+        "DLQ",
+        "Avro and schema registry",
+        "compatibility",
+        "event time vs processing time",
+        "windows and watermarks"
+      ],
+      "chapters": [
+        "CH-26"
+      ],
+      "chapters_raw": "CH-26",
+      "line": 1670
+    },
+    {
+      "domain": "Mobile Money / D&IM",
+      "topics": [
+        "mobile money core",
+        "source of record",
+        "DBUS/Kafka ingestion",
+        "ODS/ADS layering",
+        "central and country flows",
+        "NRT freshness SLO",
+        "report SLAs",
+        "SFTP/FTPS delivery windows",
+        "retention and partition aging",
+        "data quality checks",
+        "reconciliation 1VS2 / 2VS3",
+        "the four break classes",
+        "OAT and CAT acceptance testing",
+        "five-phase test methodology",
+        "risk and dependency boards",
+        "RPO/RTO and DR failover",
+        "multi-tenancy and country isolation",
+        "RBAC/ACL",
+        "desensitisation",
+        "AML/CFT/PEP and GDPR vocabulary"
+      ],
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "chapters_raw": "CH-27, CH-28",
+      "line": 1671
+    },
+    {
+      "domain": "Machine learning",
+      "topics": [
+        "problem formulation",
+        "supervised vs unsupervised",
+        "features and labels",
+        "baselines",
+        "train/validation/test",
+        "leakage",
+        "scaling and encoding",
+        "linear and logistic regression",
+        "decision trees",
+        "random forests",
+        "boosting",
+        "kNN",
+        "SVM",
+        "k-means",
+        "PCA",
+        "loss",
+        "gradient descent",
+        "accuracy/precision/recall/F1",
+        "confusion matrix",
+        "ROC-AUC",
+        "MSE",
+        "cross-validation",
+        "class imbalance",
+        "thresholds",
+        "bias and variance",
+        "regularization",
+        "hyperparameter tuning",
+        "error analysis",
+        "interpretability",
+        "experiment tracking"
+      ],
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "chapters_raw": "CH-29, CH-30",
+      "line": 1672
+    },
+    {
+      "domain": "Deep learning",
+      "topics": [
+        "perceptrons and MLPs",
+        "activations",
+        "forward pass",
+        "loss",
+        "backpropagation",
+        "optimizers",
+        "initialization",
+        "dropout",
+        "batch normalization",
+        "learning curves",
+        "CPU/GPU/tensors",
+        "CNNs and pooling",
+        "RNNs",
+        "LSTM/GRU",
+        "gradient clipping",
+        "autoencoders",
+        "VAEs",
+        "GANs",
+        "diffusion",
+        "responsible generative workflows"
+      ],
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "chapters_raw": "CH-31 (+ CH-30 for curves; generative families named in CH-31's end card)",
+      "line": 1673
+    },
+    {
+      "domain": "NLP & Transformers",
+      "topics": [
+        "tokenisation and BPE",
+        "vocabulary",
+        "BoW and TF-IDF",
+        "word embeddings",
+        "sequence-to-sequence",
+        "attention",
+        "scaled dot-product",
+        "Q/K/V",
+        "multi-head",
+        "positional encoding",
+        "causal masking",
+        "residual stream",
+        "encoder-decoder vs decoder-only",
+        "pretraining and fine-tuning",
+        "autoregressive generation",
+        "context window",
+        "temperature",
+        "top-p",
+        "hallucination",
+        "knowledge cutoff",
+        "cost"
+      ],
+      "chapters": [
+        "CH-32"
+      ],
+      "chapters_raw": "CH-32",
+      "line": 1674
+    },
+    {
+      "domain": "Retrieval & agents",
+      "topics": [
+        "embeddings and similarity metrics",
+        "vector indexes (flat, IVF, HNSW)",
+        "chunking and metadata",
+        "lexical vs dense vs hybrid",
+        "fusion",
+        "reranking",
+        "context assembly",
+        "citations",
+        "recall@k",
+        "MRR",
+        "nDCG",
+        "groundedness",
+        "faithfulness",
+        "answer correctness",
+        "prompt injection",
+        "access control at the retrieval layer",
+        "exfiltration",
+        "PII in citations",
+        "structured output",
+        "tool calling",
+        "deterministic workflows",
+        "ReAct",
+        "agent state and memory",
+        "human-in-the-loop",
+        "guardrails",
+        "safe text-to-SQL (allowlist, read-only role, AST validation, single statement, row and time caps, EXPLAIN preflight, audit)",
+        "agent evaluation",
+        "LLMOps",
+        "cost",
+        "latency",
+        "caching",
+        "drift"
+      ],
+      "chapters": [
+        "CH-33"
+      ],
+      "chapters_raw": "CH-33",
+      "line": 1675
+    },
+    {
+      "domain": "Ship & operate",
+      "topics": [
+        "images and layers",
+        "layer cache",
+        "Dockerfile order",
+        "registries",
+        "multi-stage builds",
+        "Compose",
+        "12-factor config",
+        "CI",
+        "CD",
+        "deployment strategies",
+        "rollback",
+        "cloud compute/storage/network",
+        "IAM and policy precedence",
+        "cost",
+        "managed services",
+        "IaC orientation",
+        "structured logging",
+        "metrics",
+        "tracing",
+        "correlation",
+        "SLI/SLO/error budgets",
+        "alerting design",
+        "incident response",
+        "postmortems",
+        "load testing",
+        "failure drills",
+        "on-call"
+      ],
+      "chapters": [
+        "CH-34"
+      ],
+      "chapters_raw": "CH-34",
+      "line": 1676
+    },
+    {
+      "domain": "Evidence & career",
+      "topics": [
+        "the artifact chain and lineage",
+        "README a stranger can run",
+        "architecture diagrams",
+        "ADRs with rejected alternatives",
+        "the five-minute defence",
+        "completion vs proof",
+        "portfolio publication",
+        "specialisation branches",
+        "interview technique"
+      ],
+      "chapters": [
+        "CH-35",
+        "CH-36"
+      ],
+      "chapters_raw": "CH-35, CH-36",
+      "line": 1677
+    }
+  ],
+  "gaps": [
+    {
+      "gap": "Power BI / Power Query / DAX",
+      "closed_in": [
+        "CH-15",
+        "CH-17"
+      ],
+      "closed_in_raw": "CH-15, CH-17",
+      "line": 1683
+    },
+    {
+      "gap": "Inferential statistics",
+      "closed_in": [
+        "CH-16"
+      ],
+      "closed_in_raw": "CH-16",
+      "line": 1684
+    },
+    {
+      "gap": "Git workflow and merge",
+      "closed_in": [
+        "CH-09"
+      ],
+      "closed_in_raw": "CH-09",
+      "line": 1685
+    },
+    {
+      "gap": "Security and governance mechanics",
+      "closed_in": [
+        "CH-20",
+        "CH-28",
+        "CH-34"
+      ],
+      "closed_in_raw": "CH-20, CH-28, CH-34",
+      "line": 1686
+    },
+    {
+      "gap": "Hadoop ecosystem tooling",
+      "closed_in": [
+        "CH-24"
+      ],
+      "closed_in_raw": "CH-24",
+      "line": 1687
+    },
+    {
+      "gap": "Mobile Money / D&IM",
+      "closed_in": [
+        "CH-27",
+        "CH-28"
+      ],
+      "closed_in_raw": "CH-27, CH-28",
+      "line": 1688
+    },
+    {
+      "gap": "Acceptance and performance testing",
+      "closed_in": [
+        "CH-09",
+        "CH-28",
+        "CH-34"
+      ],
+      "closed_in_raw": "CH-09 (gate), CH-28 (OAT/CAT), CH-34 (load)",
+      "line": 1689
+    },
+    {
+      "gap": "Week-0 environment setup",
+      "closed_in": [
+        "CH-04",
+        "CH-07"
+      ],
+      "closed_in_raw": "CH-04, CH-07",
+      "line": 1690
+    },
+    {
+      "gap": "Containers and cloud",
+      "closed_in": [
+        "CH-34"
+      ],
+      "closed_in_raw": "CH-34",
+      "line": 1691
+    },
+    {
+      "gap": "ML fundamentals from zero",
+      "closed_in": [
+        "CH-29",
+        "CH-31"
+      ],
+      "closed_in_raw": "CH-29, CH-31",
+      "line": 1692
+    }
+  ],
+  "primers": [
+    {
+      "q": "what is data work",
+      "chapters": [
+        "CH-00"
+      ]
+    },
+    {
+      "q": "what is a table/row/column/key",
+      "chapters": [
+        "CH-10"
+      ]
+    },
+    {
+      "q": "what is code",
+      "chapters": [
+        "CH-06"
+      ]
+    },
+    {
+      "q": "what is a database",
+      "chapters": [
+        "CH-10"
+      ]
+    },
+    {
+      "q": "why is the answer never in one table",
+      "chapters": [
+        "CH-12"
+      ]
+    },
+    {
+      "q": "why is finding one row slow",
+      "chapters": [
+        "CH-14"
+      ]
+    },
+    {
+      "q": "what if two people change the same thing",
+      "chapters": [
+        "CH-13"
+      ]
+    },
+    {
+      "q": "what is an algorithm",
+      "chapters": [
+        "CH-19"
+      ]
+    },
+    {
+      "q": "why Python",
+      "chapters": [
+        "CH-06"
+      ]
+    },
+    {
+      "q": "what is a dataframe",
+      "chapters": [
+        "CH-08"
+      ]
+    },
+    {
+      "q": "what is memory",
+      "chapters": [
+        "CH-03",
+        "CH-08"
+      ]
+    },
+    {
+      "q": "what is a statistic",
+      "chapters": [
+        "CH-16"
+      ]
+    },
+    {
+      "q": "why can't you trust one number",
+      "chapters": [
+        "CH-16"
+      ]
+    },
+    {
+      "q": "why is real data broken",
+      "chapters": [
+        "CH-15"
+      ]
+    },
+    {
+      "q": "why record steps not results",
+      "chapters": [
+        "CH-15"
+      ]
+    },
+    {
+      "q": "what is a data model / measure",
+      "chapters": [
+        "CH-17"
+      ]
+    },
+    {
+      "q": "what is a report for",
+      "chapters": [
+        "CH-17"
+      ]
+    },
+    {
+      "q": "what is version control",
+      "chapters": [
+        "CH-09"
+      ]
+    },
+    {
+      "q": "what is a container",
+      "chapters": [
+        "CH-34"
+      ]
+    },
+    {
+      "q": "what is the cloud",
+      "chapters": [
+        "CH-34"
+      ]
+    },
+    {
+      "q": "why protect data about people",
+      "chapters": [
+        "CH-28"
+      ]
+    },
+    {
+      "q": "AI vs ML vs DL",
+      "chapters": [
+        "CH-29"
+      ]
+    },
+    {
+      "q": "how can a computer tell two sentences mean the same",
+      "chapters": [
+        "CH-33"
+      ]
+    },
+    {
+      "q": "what is a language model",
+      "chapters": [
+        "CH-32"
+      ]
+    },
+    {
+      "q": "when is data actually big",
+      "chapters": [
+        "CH-24"
+      ]
+    },
+    {
+      "q": "batch vs stream",
+      "chapters": [
+        "CH-26"
+      ]
+    },
+    {
+      "q": "what is a pipeline",
+      "chapters": [
+        "CH-21"
+      ]
+    },
+    {
+      "q": "what is an OS / why the terminal",
+      "chapters": [
+        "CH-04",
+        "CH-05"
+      ]
+    },
+    {
+      "q": "why Java",
+      "chapters": [
+        "CH-20"
+      ]
+    },
+    {
+      "q": "what is mobile money / reconciliation",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ]
+    },
+    {
+      "q": "what is a portfolio",
+      "chapters": [
+        "CH-35"
+      ]
+    }
+  ],
+  "stated": {
+    "gaps": 7,
+    "primers": 31
+  },
+  "chapters_without_domain": [
+    "CH-00",
+    "CH-01",
+    "CH-02"
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:legacy_shot",
+  "title": "corpus/canon/legacy_shots.jsonl record (film/scenes_*.py via ast; dacamp/story.json beats)",
+  "type": "object",
+  "required": [
+    "v",
+    "id",
+    "source",
+    "chapter",
+    "i",
+    "kind",
+    "title",
+    "data",
+    "unresolved",
+    "src"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^LG:(film|story):CH-\\d\\d:\\d\\d$"
+    },
+    "source": {
+      "enum": [
+        "film",
+        "story"
+      ]
+    },
+    "chapter": {
+      "type": "string",
+      "pattern": "^CH-\\d\\d$"
+    },
+    "i": {
+      "type": "integer"
+    },
+    "kind": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "data": {
+      "type": "object"
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "error"
+        ],
+        "properties": {}
+      }
+    },
+    "src": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        },
+        "line": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

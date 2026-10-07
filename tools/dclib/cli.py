@@ -5,7 +5,7 @@ import sys
 from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
-    "audio": "P3", "asr": "P3", "corpus": "P2", "visual": "P2", "graph": "P4", "story": "P5", "spec": "P7/P8",
+    "audio": "P3", "asr": "P3", "visual": "P2", "graph": "P4", "story": "P5", "spec": "P7/P8",
     "render": "P6/P9", "sound": "P11", "qa": "P9", "deliver": "P14", "dag": "P0 (later)",
 }
 
@@ -79,6 +79,10 @@ def build():
         if name == "probe":
             s.add_argument("--timeout", type=int, default=3600, help="per-file decode timeout (s)")
         s.set_defaults(fn=f"ingest.cmd_{name}")
+
+    # corpus (P2): group and subcommands live in corpus_cli.py
+    from . import corpus_cli
+    corpus_cli.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():

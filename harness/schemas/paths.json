@@ -80,6 +80,86 @@
       "glob": "harness/state/progress.json",
       "schema": "progress",
       "format": "json"
+    },
+    {
+      "glob": "corpus/canon/chapters.json",
+      "schema": "canon_chapters",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/data_contract.json",
+      "schema": "canon_data_contract",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/glossary.json",
+      "schema": "canon_glossary",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/coverage_index.json",
+      "schema": "canon_coverage",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/assets_registry.json",
+      "schema": "canon_assets",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/patterns.json",
+      "schema": "canon_patterns",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/scene_contract.json",
+      "schema": "canon_scene_contract",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/motion.json",
+      "schema": "canon_motion",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/spec.json",
+      "schema": "canon_spec",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/nblm_scenes.jsonl",
+      "schema": "nblm_scene",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/nblm_parts.json",
+      "schema": "nblm_parts",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/cues_70m05.json",
+      "schema": "cues_70m05",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/legacy_shots.jsonl",
+      "schema": "legacy_shot",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/legacy_patterns.json",
+      "schema": "legacy_patterns",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/scripts.json",
+      "schema": "canon_scripts",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/canon/contradictions.json",
+      "schema": "canon_contradictions",
+      "format": "json"
     }
   ]
 }

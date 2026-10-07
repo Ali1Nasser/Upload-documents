@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:nblm_parts",
+  "title": "corpus/canon/nblm_parts.json (T3 per-part numbers/terms/map/questions + P00 intro)",
+  "type": "object",
+  "required": [
+    "v",
+    "parts"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "parts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "part",
+          "title",
+          "src"
+        ],
+        "properties": {
+          "part": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "src": {
+            "type": "object",
+            "required": [
+              "path",
+              "file_id"
+            ],
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "file_id": {
+                "type": "string",
+                "pattern": "^f:[0-9a-f]{12}$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

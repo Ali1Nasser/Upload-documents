@@ -1,0 +1,3444 @@
+{
+  "v": 1,
+  "generated_by": "dc corpus canon",
+  "scripts": [
+    {
+      "id": "T1",
+      "name": "master.md — production bible v70:05",
+      "lang": [
+        "en",
+        "ar-EG"
+      ],
+      "runtime": "70:05",
+      "role": "trunk canon",
+      "files": [
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "file_id": "f:eb7d84352f69",
+          "copies": 43,
+          "bytes": 245702,
+          "words_en": 8751,
+          "words_ar": 6753
+        }
+      ],
+      "lineage": {
+        "supersedes": "T1-old",
+        "identical_copies_elsewhere": [
+          "T5 DA_Camp_Unified_Illustrative_Video_Master_EN_AR.md"
+        ]
+      },
+      "chapters": {
+        "CH-00": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 498,
+          "en_line": 518,
+          "ar_line": 521,
+          "words_en": 168,
+          "words_ar": 138
+        },
+        "CH-01": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 527,
+          "en_line": 546,
+          "ar_line": 549,
+          "words_en": 178,
+          "words_ar": 150
+        },
+        "CH-02": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 555,
+          "en_line": 575,
+          "ar_line": 578,
+          "words_en": 198,
+          "words_ar": 164
+        },
+        "CH-03": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 584,
+          "en_line": 603,
+          "ar_line": 606,
+          "words_en": 178,
+          "words_ar": 153
+        },
+        "CH-04": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 612,
+          "en_line": 631,
+          "ar_line": 634,
+          "words_en": 205,
+          "words_ar": 162
+        },
+        "CH-05": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 640,
+          "en_line": 659,
+          "ar_line": 662,
+          "words_en": 210,
+          "words_ar": 162
+        },
+        "CH-06": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 668,
+          "en_line": 687,
+          "ar_line": 690,
+          "words_en": 198,
+          "words_ar": 138
+        },
+        "CH-07": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 696,
+          "en_line": 714,
+          "ar_line": 717,
+          "words_en": 193,
+          "words_ar": 157
+        },
+        "CH-08": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 723,
+          "en_line": 742,
+          "ar_line": 745,
+          "words_en": 212,
+          "words_ar": 167
+        },
+        "CH-09": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 751,
+          "en_line": 770,
+          "ar_line": 773,
+          "words_en": 227,
+          "words_ar": 176
+        },
+        "CH-10": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 779,
+          "en_line": 798,
+          "ar_line": 801,
+          "words_en": 201,
+          "words_ar": 168
+        },
+        "CH-11": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 807,
+          "en_line": 826,
+          "ar_line": 829,
+          "words_en": 256,
+          "words_ar": 204
+        },
+        "CH-12": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 835,
+          "en_line": 855,
+          "ar_line": 858,
+          "words_en": 243,
+          "words_ar": 198
+        },
+        "CH-13": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 864,
+          "en_line": 883,
+          "ar_line": 886,
+          "words_en": 198,
+          "words_ar": 157
+        },
+        "CH-14": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 892,
+          "en_line": 912,
+          "ar_line": 915,
+          "words_en": 350,
+          "words_ar": 267
+        },
+        "CH-15": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 921,
+          "en_line": 940,
+          "ar_line": 943,
+          "words_en": 248,
+          "words_ar": 190
+        },
+        "CH-16": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 949,
+          "en_line": 968,
+          "ar_line": 971,
+          "words_en": 236,
+          "words_ar": 183
+        },
+        "CH-17": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 977,
+          "en_line": 996,
+          "ar_line": 999,
+          "words_en": 222,
+          "words_ar": 169
+        },
+        "CH-18": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1005,
+          "en_line": 1024,
+          "ar_line": 1027,
+          "words_en": 239,
+          "words_ar": 185
+        },
+        "CH-19": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1033,
+          "en_line": 1052,
+          "ar_line": 1055,
+          "words_en": 240,
+          "words_ar": 188
+        },
+        "CH-20": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1061,
+          "en_line": 1081,
+          "ar_line": 1084,
+          "words_en": 263,
+          "words_ar": 190
+        },
+        "CH-21": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1090,
+          "en_line": 1110,
+          "ar_line": 1113,
+          "words_en": 237,
+          "words_ar": 181
+        },
+        "CH-22": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1119,
+          "en_line": 1139,
+          "ar_line": 1142,
+          "words_en": 249,
+          "words_ar": 186
+        },
+        "CH-23": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1148,
+          "en_line": 1168,
+          "ar_line": 1171,
+          "words_en": 266,
+          "words_ar": 210
+        },
+        "CH-24": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1177,
+          "en_line": 1196,
+          "ar_line": 1199,
+          "words_en": 237,
+          "words_ar": 178
+        },
+        "CH-25": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1205,
+          "en_line": 1224,
+          "ar_line": 1227,
+          "words_en": 258,
+          "words_ar": 184
+        },
+        "CH-26": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1233,
+          "en_line": 1253,
+          "ar_line": 1256,
+          "words_en": 271,
+          "words_ar": 188
+        },
+        "CH-27": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1262,
+          "en_line": 1282,
+          "ar_line": 1285,
+          "words_en": 245,
+          "words_ar": 179
+        },
+        "CH-28": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1291,
+          "en_line": 1311,
+          "ar_line": 1314,
+          "words_en": 281,
+          "words_ar": 220
+        },
+        "CH-29": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1320,
+          "en_line": 1340,
+          "ar_line": 1343,
+          "words_en": 262,
+          "words_ar": 189
+        },
+        "CH-30": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1349,
+          "en_line": 1369,
+          "ar_line": 1372,
+          "words_en": 246,
+          "words_ar": 208
+        },
+        "CH-31": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1378,
+          "en_line": 1398,
+          "ar_line": 1401,
+          "words_en": 255,
+          "words_ar": 196
+        },
+        "CH-32": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1407,
+          "en_line": 1427,
+          "ar_line": 1430,
+          "words_en": 256,
+          "words_ar": 195
+        },
+        "CH-33": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1436,
+          "en_line": 1456,
+          "ar_line": 1459,
+          "words_en": 295,
+          "words_ar": 221
+        },
+        "CH-34": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1465,
+          "en_line": 1485,
+          "ar_line": 1488,
+          "words_en": 296,
+          "words_ar": 210
+        },
+        "CH-35": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1494,
+          "en_line": 1513,
+          "ar_line": 1516,
+          "words_en": 282,
+          "words_ar": 215
+        },
+        "CH-36": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "line": 1522,
+          "en_line": 1540,
+          "ar_line": 1543,
+          "words_en": 152,
+          "words_ar": 127
+        }
+      }
+    },
+    {
+      "id": "T1-old",
+      "name": "earlier master split in partA..partF",
+      "lang": [
+        "en",
+        "ar-EG"
+      ],
+      "runtime": "59:30 (catalog lineage)",
+      "role": "lineage diff only",
+      "files": [
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partA.md",
+          "file_id": "f:7c27d955deeb",
+          "copies": 10,
+          "bytes": 29568,
+          "words": 5050
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "file_id": "f:28c60ee748a7",
+          "copies": 10,
+          "bytes": 42417,
+          "words": 6367
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "file_id": "f:155e7db5488f",
+          "copies": 10,
+          "bytes": 47110,
+          "words": 6812
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "file_id": "f:086614305fa0",
+          "copies": 10,
+          "bytes": 46761,
+          "words": 6733
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "file_id": "f:44221e2ad2b7",
+          "copies": 10,
+          "bytes": 41611,
+          "words": 5972
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partF.md",
+          "file_id": "f:99d7a0b7e078",
+          "copies": 10,
+          "bytes": 31278,
+          "words": 4811
+        }
+      ],
+      "lineage": {
+        "version_of": "T1",
+        "computed_runtime_s": 3570,
+        "chapters_identical_en": 27,
+        "chapters_identical_ar": 26
+      },
+      "chapters": {
+        "CH-00": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 9,
+          "words_en": 169,
+          "words_ar": 138,
+          "sim_en_vs_T1": 0.9852,
+          "sim_ar_vs_T1": 0.9855,
+          "dur_s": 95,
+          "dur_s_T1": 95,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-01": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 38,
+          "words_en": 178,
+          "words_ar": 150,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 105,
+          "dur_s_T1": 105,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-02": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 66,
+          "words_en": 198,
+          "words_ar": 164,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 100,
+          "dur_s_T1": 100,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-03": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 95,
+          "words_en": 178,
+          "words_ar": 153,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 85,
+          "dur_s_T1": 85,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-04": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 123,
+          "words_en": 204,
+          "words_ar": 160,
+          "sim_en_vs_T1": 0.9927,
+          "sim_ar_vs_T1": 0.9876,
+          "dur_s": 85,
+          "dur_s_T1": 100,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-05": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 151,
+          "words_en": 210,
+          "words_ar": 162,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 100,
+          "dur_s_T1": 100,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-06": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 179,
+          "words_en": 198,
+          "words_ar": 138,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 95,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-07": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 207,
+          "words_en": 193,
+          "words_ar": 157,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 85,
+          "dur_s_T1": 95,
+          "shots": 4,
+          "shots_T1": 4
+        },
+        "CH-08": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 234,
+          "words_en": 212,
+          "words_ar": 167,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 100,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-09": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "line": 262,
+          "words_en": 227,
+          "words_ar": 176,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 110,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-10": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 1,
+          "words_en": 201,
+          "words_ar": 168,
+          "sim_en_vs_T1": 0.995,
+          "sim_ar_vs_T1": 0.994,
+          "dur_s": 80,
+          "dur_s_T1": 95,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-11": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 29,
+          "words_en": 225,
+          "words_ar": 181,
+          "sim_en_vs_T1": 0.8981,
+          "sim_ar_vs_T1": 0.8831,
+          "dur_s": 95,
+          "dur_s_T1": 120,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-12": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 57,
+          "words_en": 218,
+          "words_ar": 175,
+          "sim_en_vs_T1": 0.9284,
+          "sim_ar_vs_T1": 0.9115,
+          "dur_s": 110,
+          "dur_s_T1": 115,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-13": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 86,
+          "words_en": 198,
+          "words_ar": 157,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 95,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-14": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 114,
+          "words_en": 278,
+          "words_ar": 215,
+          "sim_en_vs_T1": 0.7134,
+          "sim_ar_vs_T1": 0.6805,
+          "dur_s": 110,
+          "dur_s_T1": 165,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-15": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 143,
+          "words_en": 210,
+          "words_ar": 162,
+          "sim_en_vs_T1": 0.7904,
+          "sim_ar_vs_T1": 0.75,
+          "dur_s": 85,
+          "dur_s_T1": 120,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-16": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 171,
+          "words_en": 236,
+          "words_ar": 183,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 100,
+          "dur_s_T1": 110,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-17": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 199,
+          "words_en": 222,
+          "words_ar": 169,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 90,
+          "dur_s_T1": 105,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-18": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 227,
+          "words_en": 239,
+          "words_ar": 185,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 115,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-19": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "line": 255,
+          "words_en": 240,
+          "words_ar": 188,
+          "sim_en_vs_T1": 0.9875,
+          "sim_ar_vs_T1": 0.9894,
+          "dur_s": 95,
+          "dur_s_T1": 115,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-20": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 1,
+          "words_en": 263,
+          "words_ar": 190,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 115,
+          "dur_s_T1": 125,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-21": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 30,
+          "words_en": 237,
+          "words_ar": 181,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 115,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-22": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 59,
+          "words_en": 248,
+          "words_ar": 186,
+          "sim_en_vs_T1": 0.9899,
+          "sim_ar_vs_T1": 0.9892,
+          "dur_s": 100,
+          "dur_s_T1": 120,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-23": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 88,
+          "words_en": 266,
+          "words_ar": 210,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 110,
+          "dur_s_T1": 125,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-24": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 117,
+          "words_en": 237,
+          "words_ar": 178,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 90,
+          "dur_s_T1": 115,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-25": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 145,
+          "words_en": 258,
+          "words_ar": 184,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 120,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-26": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 173,
+          "words_en": 271,
+          "words_ar": 188,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 90,
+          "dur_s_T1": 130,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-27": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 202,
+          "words_en": 245,
+          "words_ar": 179,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 100,
+          "dur_s_T1": 115,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-28": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "line": 231,
+          "words_en": 281,
+          "words_ar": 220,
+          "sim_en_vs_T1": 0.9964,
+          "sim_ar_vs_T1": 0.9955,
+          "dur_s": 105,
+          "dur_s_T1": 130,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-29": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 1,
+          "words_en": 262,
+          "words_ar": 189,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 100,
+          "dur_s_T1": 125,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-30": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 30,
+          "words_en": 246,
+          "words_ar": 208,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 0.9952,
+          "dur_s": 95,
+          "dur_s_T1": 115,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-31": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 59,
+          "words_en": 255,
+          "words_ar": 196,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 120,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-32": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 88,
+          "words_en": 256,
+          "words_ar": 195,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 105,
+          "dur_s_T1": 120,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-33": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 117,
+          "words_en": 295,
+          "words_ar": 221,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 110,
+          "dur_s_T1": 140,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-34": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 146,
+          "words_en": 296,
+          "words_ar": 210,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 105,
+          "dur_s_T1": 140,
+          "shots": 6,
+          "shots_T1": 6
+        },
+        "CH-35": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 175,
+          "words_en": 282,
+          "words_ar": 215,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 95,
+          "dur_s_T1": 135,
+          "shots": 5,
+          "shots_T1": 5
+        },
+        "CH-36": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "line": 203,
+          "words_en": 152,
+          "words_ar": 127,
+          "sim_en_vs_T1": 1.0,
+          "sim_ar_vs_T1": 1.0,
+          "dur_s": 70,
+          "dur_s_T1": 75,
+          "shots": 4,
+          "shots_T1": 4
+        }
+      }
+    },
+    {
+      "id": "T2",
+      "name": "Unified Egyptian narration (25 parts)",
+      "lang": [
+        "ar-EG"
+      ],
+      "runtime": "~117 min (P00 table)",
+      "role": "semantic map for S4",
+      "files": [
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "file_id": "f:ffe2a3f6229c",
+          "copies": 10,
+          "bytes": 191189,
+          "words": 19432,
+          "narration_words": 15271
+        }
+      ],
+      "lineage": {
+        "derived_from": "T3 (narration lines of the 351 scenes)"
+      },
+      "parts": {
+        "P01": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 41
+        },
+        "P02": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 96
+        },
+        "P03": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 147
+        },
+        "P04": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 202
+        },
+        "P05": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 261
+        },
+        "P06": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 308
+        },
+        "P07": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 367
+        },
+        "P08": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 426
+        },
+        "P09": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 485
+        },
+        "P10": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 556
+        },
+        "P11": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 627
+        },
+        "P12": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 698
+        },
+        "P13": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 765
+        },
+        "P14": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 820
+        },
+        "P15": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 887
+        },
+        "P16": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 958
+        },
+        "P17": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1021
+        },
+        "P18": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1088
+        },
+        "P19": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1159
+        },
+        "P20": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1230
+        },
+        "P21": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1301
+        },
+        "P22": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1360
+        },
+        "P23": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1431
+        },
+        "P24": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1502
+        },
+        "P25": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+          "line": 1557
+        }
+      }
+    },
+    {
+      "id": "T3",
+      "name": "NotebookLM source set: 25 parts + unified master",
+      "lang": [
+        "ar-EG"
+      ],
+      "role": "visual directions for Deep-Dives",
+      "files": [
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Master_Full_Egyptian.md",
+          "file_id": "f:21c5545b28a0",
+          "copies": 10,
+          "bytes": 489553
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_01_of_25_Journey_and_Visual_Language.md",
+          "file_id": "f:3d64b9389516",
+          "copies": 10,
+          "bytes": 21402
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_02_of_25_Machine_Files_Terminal.md",
+          "file_id": "f:2eaec1dafa10",
+          "copies": 10,
+          "bytes": 18923
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_03_of_25_Linux_Admin_I.md",
+          "file_id": "f:c88f520bb96b",
+          "copies": 10,
+          "bytes": 19334
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_04_of_25_Linux_Admin_II_Operations.md",
+          "file_id": "f:03fb5ccf73e0",
+          "copies": 10,
+          "bytes": 19922
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_05_of_25_Python_I_Values_to_Collections.md",
+          "file_id": "f:66766820e5c9",
+          "copies": 10,
+          "bytes": 17316
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_06_of_25_Python_II_State_Errors_Tests_Git.md",
+          "file_id": "f:e14c3cdd7044",
+          "copies": 10,
+          "bytes": 21194
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_07_of_25_Python_for_Data_pandas_and_Databases.md",
+          "file_id": "f:235b789d6287",
+          "copies": 10,
+          "bytes": 23642
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_08_of_25_SQL_I_Relational_Model_and_Query_Pipeline.md",
+          "file_id": "f:cf9ecee38dc7",
+          "copies": 10,
+          "bytes": 20169
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_09_of_25_SQL_II_Joins_Windows_NULL_Transactions.md",
+          "file_id": "f:f22699991521",
+          "copies": 10,
+          "bytes": 27526
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_10_of_25_SQL_III_Indexes_Plans_Tuning_Dialects.md",
+          "file_id": "f:eee9f712a452",
+          "copies": 10,
+          "bytes": 24409
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_11_of_25_Analytics_Dirty_Data_Statistics_Reporting.md",
+          "file_id": "f:12d4211b95d2",
+          "copies": 10,
+          "bytes": 21774
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_12_of_25_Software_Craft_OOP_Patterns_DSA.md",
+          "file_id": "f:ec76619e8976",
+          "copies": 10,
+          "bytes": 21081
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_13_of_25_Systems_Web_APIs_Security.md",
+          "file_id": "f:dda13582c9ae",
+          "copies": 10,
+          "bytes": 15978
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_14_of_25_Backend_Depth_Java_JDBC_Spring_Concurrency.md",
+          "file_id": "f:a3a06bf42bc9",
+          "copies": 10,
+          "bytes": 23175
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_15_of_25_ETL_DAGs_Airflow_Idempotency_Quality.md",
+          "file_id": "f:dae882c99ebb",
+          "copies": 10,
+          "bytes": 20317
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_16_of_25_Warehouse_Star_Schema_OLAP_SCD.md",
+          "file_id": "f:6280994b5d84",
+          "copies": 10,
+          "bytes": 19325
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_17_of_25_Huawei_DataCube_Mobile_Money_Reporting.md",
+          "file_id": "f:c1c84bae6c7c",
+          "copies": 10,
+          "bytes": 28912
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_18_of_25_Hadoop_HDFS_YARN_MapReduce_and_Spark.md",
+          "file_id": "f:7464d544919f",
+          "copies": 10,
+          "bytes": 24475
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_19_of_25_Kafka_Streaming_and_NRT_Transaction_Journey.md",
+          "file_id": "f:30eb9a2464a7",
+          "copies": 10,
+          "bytes": 25446
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_20_of_25_Reconciliation_DIM_Testing_Governance_DR.md",
+          "file_id": "f:5c75238adcf9",
+          "copies": 10,
+          "bytes": 25243
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_21_of_25_Machine_Learning_Baseline_Leakage_Evaluation.md",
+          "file_id": "f:1a2ea711c10a",
+          "copies": 10,
+          "bytes": 16876
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_22_of_25_Deep_Learning_NLP_Transformers_LLMs.md",
+          "file_id": "f:e288cee98034",
+          "copies": 10,
+          "bytes": 19867
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_23_of_25_Embeddings_RAG_and_Guarded_Agents.md",
+          "file_id": "f:4a787279e6bb",
+          "copies": 10,
+          "bytes": 21367
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_24_of_25_Ship_It_Docker_CICD_Cloud_Observability.md",
+          "file_id": "f:fd3d1519c0e7",
+          "copies": 10,
+          "bytes": 17742
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_25_of_25_Evidence_Portfolio_Career_and_Close.md",
+          "file_id": "f:165a8353f070",
+          "copies": 10,
+          "bytes": 22393
+        }
+      ],
+      "lineage": {
+        "unified_is_superset": true,
+        "see": "corpus/canon/nblm_parts.json"
+      },
+      "parts": {
+        "P01": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_01_of_25_Journey_and_Visual_Language.md",
+          "file_id": "f:3d64b9389516",
+          "scenes": 12,
+          "narration_words": 783
+        },
+        "P02": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_02_of_25_Machine_Files_Terminal.md",
+          "file_id": "f:2eaec1dafa10",
+          "scenes": 11,
+          "narration_words": 739
+        },
+        "P03": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_03_of_25_Linux_Admin_I.md",
+          "file_id": "f:c88f520bb96b",
+          "scenes": 12,
+          "narration_words": 664
+        },
+        "P04": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_04_of_25_Linux_Admin_II_Operations.md",
+          "file_id": "f:03fb5ccf73e0",
+          "scenes": 13,
+          "narration_words": 654
+        },
+        "P05": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_05_of_25_Python_I_Values_to_Collections.md",
+          "file_id": "f:66766820e5c9",
+          "scenes": 10,
+          "narration_words": 561
+        },
+        "P06": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_06_of_25_Python_II_State_Errors_Tests_Git.md",
+          "file_id": "f:e14c3cdd7044",
+          "scenes": 13,
+          "narration_words": 718
+        },
+        "P07": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_07_of_25_Python_for_Data_pandas_and_Databases.md",
+          "file_id": "f:235b789d6287",
+          "scenes": 13,
+          "narration_words": 700
+        },
+        "P08": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_08_of_25_SQL_I_Relational_Model_and_Query_Pipeline.md",
+          "file_id": "f:cf9ecee38dc7",
+          "scenes": 13,
+          "narration_words": 678
+        },
+        "P09": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_09_of_25_SQL_II_Joins_Windows_NULL_Transactions.md",
+          "file_id": "f:f22699991521",
+          "scenes": 16,
+          "narration_words": 875
+        },
+        "P10": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_10_of_25_SQL_III_Indexes_Plans_Tuning_Dialects.md",
+          "file_id": "f:eee9f712a452",
+          "scenes": 16,
+          "narration_words": 625
+        },
+        "P11": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_11_of_25_Analytics_Dirty_Data_Statistics_Reporting.md",
+          "file_id": "f:12d4211b95d2",
+          "scenes": 16,
+          "narration_words": 630
+        },
+        "P12": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_12_of_25_Software_Craft_OOP_Patterns_DSA.md",
+          "file_id": "f:ec76619e8976",
+          "scenes": 15,
+          "narration_words": 618
+        },
+        "P13": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_13_of_25_Systems_Web_APIs_Security.md",
+          "file_id": "f:dda13582c9ae",
+          "scenes": 12,
+          "narration_words": 393
+        },
+        "P14": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_14_of_25_Backend_Depth_Java_JDBC_Spring_Concurrency.md",
+          "file_id": "f:a3a06bf42bc9",
+          "scenes": 15,
+          "narration_words": 580
+        },
+        "P15": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_15_of_25_ETL_DAGs_Airflow_Idempotency_Quality.md",
+          "file_id": "f:dae882c99ebb",
+          "scenes": 16,
+          "narration_words": 545
+        },
+        "P16": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_16_of_25_Warehouse_Star_Schema_OLAP_SCD.md",
+          "file_id": "f:6280994b5d84",
+          "scenes": 14,
+          "narration_words": 503
+        },
+        "P17": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_17_of_25_Huawei_DataCube_Mobile_Money_Reporting.md",
+          "file_id": "f:c1c84bae6c7c",
+          "scenes": 15,
+          "narration_words": 600
+        },
+        "P18": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_18_of_25_Hadoop_HDFS_YARN_MapReduce_and_Spark.md",
+          "file_id": "f:7464d544919f",
+          "scenes": 16,
+          "narration_words": 617
+        },
+        "P19": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_19_of_25_Kafka_Streaming_and_NRT_Transaction_Journey.md",
+          "file_id": "f:30eb9a2464a7",
+          "scenes": 16,
+          "narration_words": 657
+        },
+        "P20": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_20_of_25_Reconciliation_DIM_Testing_Governance_DR.md",
+          "file_id": "f:5c75238adcf9",
+          "scenes": 16,
+          "narration_words": 595
+        },
+        "P21": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_21_of_25_Machine_Learning_Baseline_Leakage_Evaluation.md",
+          "file_id": "f:1a2ea711c10a",
+          "scenes": 13,
+          "narration_words": 460
+        },
+        "P22": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_22_of_25_Deep_Learning_NLP_Transformers_LLMs.md",
+          "file_id": "f:e288cee98034",
+          "scenes": 16,
+          "narration_words": 544
+        },
+        "P23": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_23_of_25_Embeddings_RAG_and_Guarded_Agents.md",
+          "file_id": "f:4a787279e6bb",
+          "scenes": 16,
+          "narration_words": 505
+        },
+        "P24": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_24_of_25_Ship_It_Docker_CICD_Cloud_Observability.md",
+          "file_id": "f:fd3d1519c0e7",
+          "scenes": 12,
+          "narration_words": 407
+        },
+        "P25": {
+          "file": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_25_of_25_Evidence_Portfolio_Career_and_Close.md",
+          "file_id": "f:165a8353f070",
+          "scenes": 14,
+          "narration_words": 620
+        }
+      }
+    },
+    {
+      "id": "T4",
+      "name": "28-min V2 cut (21 chapters) + 24-min cut",
+      "lang": [
+        "ar-EG"
+      ],
+      "runtime": "28:00 / 24:00",
+      "role": "alternate phrasing, condensed explanations",
+      "files": [
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_Narration_Egyptian_Arabic_V2.md",
+          "file_id": "f:4ea22bbf74b0",
+          "copies": 13,
+          "bytes": 27703,
+          "words": 3228,
+          "chapters": [
+            {
+              "line": 9,
+              "title": "01. The Journey + Visual Language"
+            },
+            {
+              "line": 24,
+              "title": "02. Ground Zero: Machine, Files & Linux"
+            },
+            {
+              "line": 39,
+              "title": "03. Python Execution: From Values to Functions"
+            },
+            {
+              "line": 54,
+              "title": "04. Python State, Testing & Git"
+            },
+            {
+              "line": 69,
+              "title": "05. Relational Data & SQL"
+            },
+            {
+              "line": 84,
+              "title": "06. SQL Engineering Depth"
+            },
+            {
+              "line": 99,
+              "title": "07. Software Craft & DSA"
+            },
+            {
+              "line": 114,
+              "title": "08. Systems, HTTP, APIs & Security"
+            },
+            {
+              "line": 129,
+              "title": "09. ETL / ELT + DAG Orchestration"
+            },
+            {
+              "line": 144,
+              "title": "10. Data Platform + Huawei DataCube"
+            },
+            {
+              "line": 159,
+              "title": "11. Hadoop: HDFS, YARN & MapReduce"
+            },
+            {
+              "line": 174,
+              "title": "12. Spark: DAGs, Stages, Partitions & Skew"
+            },
+            {
+              "line": 189,
+              "title": "13. Kafka & Near-Real-Time Streaming"
+            },
+            {
+              "line": 204,
+              "title": "14. Mobile Money / D&IM / NRT Journey"
+            },
+            {
+              "line": 219,
+              "title": "15. Reconciliation, Quality, Governance & DR"
+            },
+            {
+              "line": 234,
+              "title": "16. Analytics, Statistics & Semantic Reporting"
+            },
+            {
+              "line": 249,
+              "title": "17. Machine Learning: Baseline → Model → Evidence"
+            },
+            {
+              "line": 264,
+              "title": "18. Deep Learning, NLP & Transformers"
+            },
+            {
+              "line": 279,
+              "title": "19. Embeddings, Retrieval & RAG"
+            },
+            {
+              "line": 294,
+              "title": "20. Guarded Agents & Tool Calling"
+            },
+            {
+              "line": 309,
+              "title": "21. SHIP IT: ShopFlow → Portfolio Evidence"
+            }
+          ]
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_V2_Production_Pack.zip.d/DA_Camp_24min_Narration_Egyptian_Arabic.md",
+          "file_id": "f:78b1080d3bb2",
+          "copies": 10,
+          "bytes": 25927,
+          "words": 2850,
+          "chapters": [
+            {
+              "line": 7,
+              "title": "01. From Zero to Data & AI Engineering"
+            },
+            {
+              "line": 22,
+              "title": "02. Ground Zero: Computer, Files & Linux"
+            },
+            {
+              "line": 37,
+              "title": "03. Programming Foundations with Python"
+            },
+            {
+              "line": 52,
+              "title": "04. Relational Data & SQL"
+            },
+            {
+              "line": 67,
+              "title": "05. SQL at Engineering Depth"
+            },
+            {
+              "line": 82,
+              "title": "06. ETL / ELT: Moving Data Reliably"
+            },
+            {
+              "line": 97,
+              "title": "07. ODS, Warehouse & Data Mart"
+            },
+            {
+              "line": 112,
+              "title": "08. Star Schema, Dimensions & OLAP"
+            },
+            {
+              "line": 127,
+              "title": "09. Hadoop: Distributed Storage & Compute"
+            },
+            {
+              "line": 142,
+              "title": "10. Spark: Fast Distributed Processing"
+            },
+            {
+              "line": 157,
+              "title": "11. Kafka & Near-Real-Time Data"
+            },
+            {
+              "line": 172,
+              "title": "12. Huawei DataCube Architecture"
+            },
+            {
+              "line": 187,
+              "title": "13. Mobile Money: End-to-End Example"
+            },
+            {
+              "line": 202,
+              "title": "14. Quality, Reconciliation & Governance"
+            },
+            {
+              "line": 217,
+              "title": "15. Analytics, Semantic Models & Reporting"
+            },
+            {
+              "line": 232,
+              "title": "16. ML & AI: Learn in the Right Order"
+            },
+            {
+              "line": 247,
+              "title": "17. RAG, Tools & Guarded Agents"
+            },
+            {
+              "line": 262,
+              "title": "18. Ship It: Evidence, Portfolio & Next Branch"
+            }
+          ]
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_V2_Integration_Notes.md",
+          "file_id": "f:f6ecbb16d192",
+          "copies": 12,
+          "bytes": 1906,
+          "words": 252,
+          "chapters": []
+        }
+      ],
+      "lineage": {
+        "expanded_into": "T1 (master §13.1: 'expanded here from 28 to 70:05')"
+      }
+    },
+    {
+      "id": "T5",
+      "name": "Claude film Arabic narration script",
+      "lang": [
+        "ar-EG"
+      ],
+      "role": "likely script for S2 (confirm with ASR)",
+      "files": [
+        {
+          "path": "ClaudeAndOthers.zip.d/Claude.zip.d/Claude/Folder 1/DA_Camp_Narration_Script_AR.md",
+          "file_id": "f:231405de2403",
+          "copies": 8,
+          "bytes": 78137,
+          "words": 8444,
+          "chapters": {
+            "CH-00": {
+              "line": 10,
+              "n_lines": 10,
+              "words": 138,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-01": {
+              "line": 26,
+              "n_lines": 12,
+              "words": 150,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-02": {
+              "line": 44,
+              "n_lines": 13,
+              "words": 164,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-03": {
+              "line": 63,
+              "n_lines": 10,
+              "words": 153,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-04": {
+              "line": 79,
+              "n_lines": 12,
+              "words": 162,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-05": {
+              "line": 97,
+              "n_lines": 11,
+              "words": 162,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-06": {
+              "line": 114,
+              "n_lines": 10,
+              "words": 138,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-07": {
+              "line": 130,
+              "n_lines": 12,
+              "words": 157,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-08": {
+              "line": 148,
+              "n_lines": 11,
+              "words": 167,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-09": {
+              "line": 165,
+              "n_lines": 13,
+              "words": 176,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-10": {
+              "line": 184,
+              "n_lines": 11,
+              "words": 168,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-11": {
+              "line": 201,
+              "n_lines": 14,
+              "words": 204,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-12": {
+              "line": 221,
+              "n_lines": 15,
+              "words": 198,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-13": {
+              "line": 242,
+              "n_lines": 13,
+              "words": 157,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-14": {
+              "line": 261,
+              "n_lines": 18,
+              "words": 267,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-15": {
+              "line": 285,
+              "n_lines": 13,
+              "words": 190,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-16": {
+              "line": 304,
+              "n_lines": 13,
+              "words": 183,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-17": {
+              "line": 323,
+              "n_lines": 13,
+              "words": 169,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-18": {
+              "line": 342,
+              "n_lines": 13,
+              "words": 185,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-19": {
+              "line": 361,
+              "n_lines": 14,
+              "words": 188,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-20": {
+              "line": 381,
+              "n_lines": 13,
+              "words": 190,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-21": {
+              "line": 400,
+              "n_lines": 15,
+              "words": 181,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-22": {
+              "line": 421,
+              "n_lines": 13,
+              "words": 186,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-23": {
+              "line": 440,
+              "n_lines": 15,
+              "words": 210,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-24": {
+              "line": 461,
+              "n_lines": 12,
+              "words": 178,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-25": {
+              "line": 479,
+              "n_lines": 13,
+              "words": 184,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-26": {
+              "line": 498,
+              "n_lines": 14,
+              "words": 188,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-27": {
+              "line": 518,
+              "n_lines": 13,
+              "words": 179,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-28": {
+              "line": 537,
+              "n_lines": 15,
+              "words": 220,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-29": {
+              "line": 558,
+              "n_lines": 15,
+              "words": 189,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-30": {
+              "line": 579,
+              "n_lines": 15,
+              "words": 208,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-31": {
+              "line": 600,
+              "n_lines": 12,
+              "words": 196,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-32": {
+              "line": 618,
+              "n_lines": 14,
+              "words": 195,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-33": {
+              "line": 638,
+              "n_lines": 16,
+              "words": 221,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-34": {
+              "line": 660,
+              "n_lines": 15,
+              "words": 210,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-35": {
+              "line": 681,
+              "n_lines": 17,
+              "words": 215,
+              "sim_vs_T1_plain": 1.0
+            },
+            "CH-36": {
+              "line": 704,
+              "n_lines": 9,
+              "words": 127,
+              "sim_vs_T1_plain": 1.0
+            }
+          },
+          "timed_lines": 487,
+          "timed_lines_stated": 487,
+          "chapters_identical_to_T1_plain": 37,
+          "timed_lines_in": "corpus/canon/cues_70m05.json#ar_lines_t5"
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "file_id": "f:eb7d84352f69",
+          "copies": 43,
+          "bytes": 245702,
+          "read_from": "ClaudeAndOthers.zip.d/Claude.zip.d/Claude/Folder 1/DA_Camp_Unified_Illustrative_Video_Master_EN_AR.md",
+          "words": 36826,
+          "identical_to": "T1"
+        }
+      ],
+      "lineage": {
+        "chapters_follow": "T1 CH-00..CH-36 headings"
+      }
+    },
+    {
+      "id": "T6",
+      "name": "TTS-cleaned chapter scripts (ElevenLabs pack, arabic_voice_package, dacamp/tts)",
+      "lang": [
+        "en",
+        "ar-EG"
+      ],
+      "role": "speech-clean text for forced alignment",
+      "files": [
+        {
+          "group": "elevenlabs_en",
+          "files": 37,
+          "words": 8751,
+          "chapter_lang_pairs": 37,
+          "identical_to_T1": 37,
+          "identical_to_T1_plain": 37
+        },
+        {
+          "group": "elevenlabs_ar",
+          "files": 37,
+          "words": 6753,
+          "chapter_lang_pairs": 37,
+          "identical_to_T1": 37,
+          "identical_to_T1_plain": 37
+        },
+        {
+          "group": "arabic_voice_package",
+          "files": 74,
+          "words": 15504,
+          "chapter_lang_pairs": 74,
+          "identical_to_T1": 74,
+          "identical_to_T1_plain": 74
+        },
+        {
+          "group": "dacamp_tts",
+          "files": 39,
+          "words": 6753,
+          "chapter_lang_pairs": 37,
+          "identical_to_T1": 18,
+          "identical_to_T1_plain": 37
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/chapter_manifest.csv",
+          "file_id": "f:4135f943b8d7",
+          "copies": 13,
+          "rows": 37,
+          "columns": [
+            "chapter",
+            "title",
+            "timecode",
+            "english_chars",
+            "arabic_chars"
+          ]
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/chapter_voice_timing.csv",
+          "file_id": "f:f760bf196d89",
+          "copies": 22,
+          "rows": 37,
+          "columns": [
+            "chapter",
+            "title",
+            "start_sec",
+            "end_sec",
+            "target_duration_sec",
+            "ar_word_count",
+            "en_word_count",
+            "expected_audio_filename"
+          ],
+          "ar_words": 6753,
+          "en_words": 8751
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_ENGLISH_TTS.txt",
+          "file_id": "f:2008ba258886",
+          "copies": 12,
+          "words": 8751
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_EGYPTIAN_ARABIC_TTS.txt",
+          "file_id": "f:80108badb690",
+          "copies": 13,
+          "words": 6753
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_70m05_ENGLISH_Chaptered_Reference.txt",
+          "file_id": "f:79e185ede4f4",
+          "copies": 10,
+          "words": 9158
+        },
+        {
+          "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_70m05_EGYPTIAN_ARABIC_Chaptered_Reference.txt",
+          "file_id": "f:54a7aa970381",
+          "copies": 10,
+          "words": 7160
+        }
+      ],
+      "lineage": {
+        "tts_clean_of": "T1",
+        "stated_words": {
+          "ar": 6753,
+          "en": 8751
+        },
+        "T1_words": {
+          "ar": 6753,
+          "en": 8751
+        }
+      },
+      "chapters": {
+        "CH-00": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-00_EN.txt"
+            ],
+            "words": 168,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-00_AR.txt"
+            ],
+            "words": 138,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-00_0.txt"
+            ],
+            "words": 138,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-00_EN.txt"
+            ],
+            "words": 168,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-00_0.txt"
+            ],
+            "words": 138,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-01": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-01_EN.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-01_AR.txt"
+            ],
+            "words": 150,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-01_0.txt"
+            ],
+            "words": 150,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-01_EN.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-01_0.txt"
+            ],
+            "words": 150,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-02": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-02_EN.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-02_AR.txt"
+            ],
+            "words": 164,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-02_0.txt"
+            ],
+            "words": 164,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-02_EN.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-02_0.txt"
+            ],
+            "words": 164,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-03": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-03_EN.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-03_AR.txt"
+            ],
+            "words": 153,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-03_AR.txt"
+            ],
+            "words": 153,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-03_EN.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-03_0.txt"
+            ],
+            "words": 153,
+            "sim_vs_T1": 0.9935,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-04": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-04_EN.txt"
+            ],
+            "words": 205,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-04_AR.txt"
+            ],
+            "words": 162,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-04_AR.txt"
+            ],
+            "words": 162,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-04_EN.txt"
+            ],
+            "words": 205,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-04_0.txt"
+            ],
+            "words": 162,
+            "sim_vs_T1": 0.9877,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-05": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-05_EN.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-05_AR.txt"
+            ],
+            "words": 162,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-05_AR.txt"
+            ],
+            "words": 162,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-05_EN.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-05_0.txt"
+            ],
+            "words": 162,
+            "sim_vs_T1": 0.963,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-06": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-06_EN.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-06_AR.txt"
+            ],
+            "words": 138,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-06_0.txt"
+            ],
+            "words": 138,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-06_EN.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-06_0.txt"
+            ],
+            "words": 138,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-07": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-07_EN.txt"
+            ],
+            "words": 193,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-07_AR.txt"
+            ],
+            "words": 157,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-07_AR.txt"
+            ],
+            "words": 157,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-07_EN.txt"
+            ],
+            "words": 193,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-07_0.txt"
+            ],
+            "words": 157,
+            "sim_vs_T1": 0.9809,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-08": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-08_EN.txt"
+            ],
+            "words": 212,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-08_AR.txt"
+            ],
+            "words": 167,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-08_AR.txt"
+            ],
+            "words": 167,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-08_EN.txt"
+            ],
+            "words": 212,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-08_0.txt"
+            ],
+            "words": 167,
+            "sim_vs_T1": 0.994,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-09": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-09_EN.txt"
+            ],
+            "words": 227,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-09_AR.txt"
+            ],
+            "words": 176,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-09_0.txt"
+            ],
+            "words": 176,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-09_EN.txt"
+            ],
+            "words": 227,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-09_0.txt"
+            ],
+            "words": 176,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-10": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-10_EN.txt"
+            ],
+            "words": 201,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-10_AR.txt"
+            ],
+            "words": 168,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-10_AR.txt"
+            ],
+            "words": 168,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-10_EN.txt"
+            ],
+            "words": 201,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-10_0.txt"
+            ],
+            "words": 168,
+            "sim_vs_T1": 0.9702,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-11": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-11_EN.txt"
+            ],
+            "words": 256,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-11_AR.txt"
+            ],
+            "words": 204,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-11_AR.txt"
+            ],
+            "words": 204,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-11_EN.txt"
+            ],
+            "words": 256,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-11_0.txt"
+            ],
+            "words": 204,
+            "sim_vs_T1": 0.9118,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-12": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-12_EN.txt"
+            ],
+            "words": 243,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-12_AR.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-12_AR.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-12_EN.txt"
+            ],
+            "words": 243,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-12_0.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 0.9444,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-13": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-13_EN.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-13_AR.txt"
+            ],
+            "words": 157,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-13_0.txt"
+            ],
+            "words": 157,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-13_EN.txt"
+            ],
+            "words": 198,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-13_0.txt"
+            ],
+            "words": 157,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-14": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-14_EN.txt"
+            ],
+            "words": 350,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-14_AR.txt"
+            ],
+            "words": 267,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-14_AR.txt"
+            ],
+            "words": 267,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-14_EN.txt"
+            ],
+            "words": 350,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-14_0.txt",
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-14_1.txt"
+            ],
+            "words": 267,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-15": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-15_EN.txt"
+            ],
+            "words": 248,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-15_AR.txt"
+            ],
+            "words": 190,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-15_AR.txt"
+            ],
+            "words": 190,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-15_EN.txt"
+            ],
+            "words": 248,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-15_0.txt"
+            ],
+            "words": 190,
+            "sim_vs_T1": 0.9895,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-16": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-16_EN.txt"
+            ],
+            "words": 236,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-16_AR.txt"
+            ],
+            "words": 183,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-16_AR.txt"
+            ],
+            "words": 183,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-16_EN.txt"
+            ],
+            "words": 236,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-16_0.txt"
+            ],
+            "words": 183,
+            "sim_vs_T1": 0.9945,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-17": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-17_EN.txt"
+            ],
+            "words": 222,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-17_AR.txt"
+            ],
+            "words": 169,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-17_AR.txt"
+            ],
+            "words": 169,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-17_EN.txt"
+            ],
+            "words": 222,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-17_0.txt"
+            ],
+            "words": 169,
+            "sim_vs_T1": 0.9941,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-18": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-18_EN.txt"
+            ],
+            "words": 239,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-18_AR.txt"
+            ],
+            "words": 185,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-18_0.txt"
+            ],
+            "words": 185,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-18_EN.txt"
+            ],
+            "words": 239,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-18_0.txt"
+            ],
+            "words": 185,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-19": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-19_EN.txt"
+            ],
+            "words": 240,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-19_AR.txt"
+            ],
+            "words": 188,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-19_AR.txt"
+            ],
+            "words": 188,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-19_EN.txt"
+            ],
+            "words": 240,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-19_0.txt"
+            ],
+            "words": 188,
+            "sim_vs_T1": 0.9894,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-20": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-20_EN.txt"
+            ],
+            "words": 263,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-20_AR.txt"
+            ],
+            "words": 190,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-20_AR.txt"
+            ],
+            "words": 190,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-20_EN.txt"
+            ],
+            "words": 263,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-20_0.txt"
+            ],
+            "words": 190,
+            "sim_vs_T1": 0.9789,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-21": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-21_EN.txt"
+            ],
+            "words": 237,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-21_AR.txt"
+            ],
+            "words": 181,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-21_0.txt"
+            ],
+            "words": 181,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-21_EN.txt"
+            ],
+            "words": 237,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-21_0.txt"
+            ],
+            "words": 181,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-22": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-22_EN.txt"
+            ],
+            "words": 249,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-22_AR.txt"
+            ],
+            "words": 186,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-22_0.txt"
+            ],
+            "words": 186,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-22_EN.txt"
+            ],
+            "words": 249,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-22_0.txt"
+            ],
+            "words": 186,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-23": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-23_EN.txt"
+            ],
+            "words": 266,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-23_AR.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-23_0.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-23_EN.txt"
+            ],
+            "words": 266,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-23_0.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-24": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-24_EN.txt"
+            ],
+            "words": 237,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-24_AR.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-24_0.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-24_EN.txt"
+            ],
+            "words": 237,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-24_0.txt"
+            ],
+            "words": 178,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-25": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-25_EN.txt"
+            ],
+            "words": 258,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-25_AR.txt"
+            ],
+            "words": 184,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-25_0.txt"
+            ],
+            "words": 184,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-25_EN.txt"
+            ],
+            "words": 258,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-25_0.txt"
+            ],
+            "words": 184,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-26": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-26_EN.txt"
+            ],
+            "words": 271,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-26_AR.txt"
+            ],
+            "words": 188,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-26_0.txt"
+            ],
+            "words": 188,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-26_EN.txt"
+            ],
+            "words": 271,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-26_0.txt"
+            ],
+            "words": 188,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-27": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-27_EN.txt"
+            ],
+            "words": 245,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-27_AR.txt"
+            ],
+            "words": 179,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-27_0.txt"
+            ],
+            "words": 179,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-27_EN.txt"
+            ],
+            "words": 245,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-27_0.txt"
+            ],
+            "words": 179,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-28": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-28_EN.txt"
+            ],
+            "words": 281,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-28_AR.txt"
+            ],
+            "words": 220,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-28_AR.txt"
+            ],
+            "words": 220,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-28_EN.txt"
+            ],
+            "words": 281,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-28_0.txt"
+            ],
+            "words": 220,
+            "sim_vs_T1": 0.9955,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-29": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-29_EN.txt"
+            ],
+            "words": 262,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-29_AR.txt"
+            ],
+            "words": 189,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-29_0.txt"
+            ],
+            "words": 189,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-29_EN.txt"
+            ],
+            "words": 262,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-29_0.txt"
+            ],
+            "words": 189,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-30": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-30_EN.txt"
+            ],
+            "words": 246,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-30_AR.txt"
+            ],
+            "words": 208,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-30_AR.txt"
+            ],
+            "words": 208,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-30_EN.txt"
+            ],
+            "words": 246,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-30_0.txt"
+            ],
+            "words": 208,
+            "sim_vs_T1": 0.9952,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-31": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-31_EN.txt"
+            ],
+            "words": 255,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-31_AR.txt"
+            ],
+            "words": 196,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-31_0.txt"
+            ],
+            "words": 196,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-31_EN.txt"
+            ],
+            "words": 255,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-31_0.txt"
+            ],
+            "words": 196,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-32": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-32_EN.txt"
+            ],
+            "words": 256,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-32_AR.txt"
+            ],
+            "words": 195,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-32_0.txt"
+            ],
+            "words": 195,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-32_EN.txt"
+            ],
+            "words": 256,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-32_0.txt"
+            ],
+            "words": 195,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-33": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-33_EN.txt"
+            ],
+            "words": 295,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-33_AR.txt"
+            ],
+            "words": 221,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-33_AR.txt"
+            ],
+            "words": 221,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-33_EN.txt"
+            ],
+            "words": 295,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-33_0.txt",
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-33_1.txt"
+            ],
+            "words": 221,
+            "sim_vs_T1": 0.9864,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-34": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-34_EN.txt"
+            ],
+            "words": 296,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-34_AR.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-34_AR.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-34_EN.txt"
+            ],
+            "words": 296,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-34_0.txt"
+            ],
+            "words": 210,
+            "sim_vs_T1": 0.9905,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-35": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-35_EN.txt"
+            ],
+            "words": 282,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-35_AR.txt"
+            ],
+            "words": 215,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-35_AR.txt"
+            ],
+            "words": 215,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-35_EN.txt"
+            ],
+            "words": 282,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-35_0.txt"
+            ],
+            "words": 215,
+            "sim_vs_T1": 0.9953,
+            "sim_vs_T1_plain": 1.0
+          }
+        },
+        "CH-36": {
+          "elevenlabs_en:en": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part1.zip.d/ElevenLab/DA_Camp_70m05_ElevenLabs_Voice_Pack/elevenlabs_da_camp_70m05/chapters_en/CH-36_EN.txt"
+            ],
+            "words": 152,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "elevenlabs_ar:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-36_AR.txt"
+            ],
+            "words": 127,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:ar": {
+            "files": [
+              "Chatgpt.zip.d/Chatgpt_part2.zip.d/Folder 2/arabic_voice_package/arabic_voice_package/CH-36_AR.txt"
+            ],
+            "words": 127,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "arabic_voice_package:en": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/CH-36_EN.txt"
+            ],
+            "words": 152,
+            "sim_vs_T1": 1.0,
+            "sim_vs_T1_plain": 1.0
+          },
+          "dacamp_tts:ar": {
+            "files": [
+              "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-36_0.txt"
+            ],
+            "words": 127,
+            "sim_vs_T1": 0.9528,
+            "sim_vs_T1_plain": 1.0
+          }
+        }
+      }
+    },
+    {
+      "id": "T7",
+      "name": "Merged 'visual video masters'",
+      "lang": [
+        "ar-EG",
+        "en"
+      ],
+      "role": "visual ideas; Arabic phrasing of the patterns",
+      "files": [
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_NotebookLM_Visual_Video_Master_Egyptian_Arabic.md",
+          "file_id": "f:70c414bdf474",
+          "copies": 19,
+          "bytes": 1763820,
+          "words": 213426,
+          "headings": 3945,
+          "lang": "ar-EG"
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_Merged_Video_Master_Source.md",
+          "file_id": "f:8aac5a1cae9e",
+          "copies": 12,
+          "bytes": 1791607,
+          "words": 216665,
+          "headings": 3971,
+          "lang": "en+ar-EG"
+        },
+        {
+          "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_NotebookLM_Visual_Video_Master.md",
+          "file_id": "f:096be55b0385",
+          "copies": 8,
+          "bytes": 1786238,
+          "words": 216940,
+          "headings": 3745,
+          "lang": "en+ar-EG"
+        }
+      ],
+      "lineage": {
+        "unified_into": "T1 (master §13.1)"
+      }
+    }
+  ],
+  "trunk_script": "T1"
+}

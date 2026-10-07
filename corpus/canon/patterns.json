@@ -1,0 +1,590 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "patterns": [
+    {
+      "id": "P01",
+      "title": "Progressive layer reveal",
+      "definition": "Never show a full architecture at once. Build it one layer at a time, in data-flow order:",
+      "text": "Never show a full architecture at once. Build it one layer at a time, in data-flow order:\n\n```\nSources  →  Integration / ETL  →  Storage  →  Analytics  →  Consumers\n```\n\nEach layer fades up only after the previous one has done something visible. Used for: DataCube, the Mobile Money platform, the capstone, the RAG pipeline, the HTTP path.",
+      "rules": [],
+      "used_for": [
+        "DataCube",
+        "the Mobile Money platform",
+        "the capstone",
+        "the RAG pipeline",
+        "the HTTP path"
+      ],
+      "line": 109,
+      "diagram": "Sources  →  Integration / ETL  →  Storage  →  Analytics  →  Consumers",
+      "chapters": [
+        "CH-00",
+        "CH-01",
+        "CH-10",
+        "CH-21",
+        "CH-23",
+        "CH-27",
+        "CH-33",
+        "CH-36"
+      ],
+      "chapter_count": 8
+    },
+    {
+      "id": "P02",
+      "title": "Step transport",
+      "definition": "Any process with an order gets play / pause / next / back / reset / speed, visible on screen as a transport bar, with a step counter (`stage 4 / 9`). The current state stays on screen at every step; the viewer must never have to remember the previous frame.",
+      "text": "Any process with an order gets **play / pause / next / back / reset / speed**, visible on screen as a transport bar, with a step counter (`stage 4 / 9`). The current state stays on screen at every step; the viewer must never have to remember the previous frame.\nUsed for: sorting, BFS/DFS, SQL logical execution, MapReduce, Spark stages, Kafka consumption, RAG retrieval, the agent loop, the Transformer.",
+      "rules": [],
+      "used_for": [
+        "sorting",
+        "BFS/DFS",
+        "SQL logical execution",
+        "MapReduce",
+        "Spark stages",
+        "Kafka consumption",
+        "RAG retrieval",
+        "the agent loop",
+        "the Transformer"
+      ],
+      "line": 118,
+      "chapters": [
+        "CH-03",
+        "CH-06",
+        "CH-09",
+        "CH-11",
+        "CH-12",
+        "CH-15",
+        "CH-19",
+        "CH-22",
+        "CH-24",
+        "CH-25",
+        "CH-26",
+        "CH-31",
+        "CH-32",
+        "CH-33"
+      ],
+      "chapter_count": 14
+    },
+    {
+      "id": "P03",
+      "title": "State made visible",
+      "definition": "Anything internal that controls behaviour is drawn beside the thing it controls, not described:",
+      "text": "Anything internal that controls behaviour is **drawn beside the thing it controls**, not described:\nstack · heap · call frames · queue · frontier · visited set · offset pointer · partition boundary · connection pool occupancy · retry budget · lock table · residual stream · context-window budget · cache · filter context.\nRule: never say \"the offset advanced\". Show a marker moving along a log.",
+      "rules": [
+        "never say \"the offset advanced\". Show a marker moving along a log."
+      ],
+      "used_for": [],
+      "line": 122,
+      "items": [
+        "stack",
+        "heap",
+        "call frames",
+        "queue",
+        "frontier",
+        "visited set",
+        "offset pointer",
+        "partition boundary",
+        "connection pool occupancy",
+        "retry budget",
+        "lock table",
+        "residual stream",
+        "context-window budget",
+        "cache",
+        "filter context"
+      ],
+      "chapters": [
+        "CH-03",
+        "CH-04",
+        "CH-06",
+        "CH-08",
+        "CH-12",
+        "CH-13",
+        "CH-19",
+        "CH-25",
+        "CH-26",
+        "CH-31",
+        "CH-32"
+      ],
+      "chapter_count": 11
+    },
+    {
+      "id": "P04",
+      "title": "Live parameter experiment",
+      "definition": "One control changes one number; the picture redraws immediately and the outcome is measured on screen.",
+      "text": "One control changes one number; the picture redraws immediately and the outcome is measured on screen.\nlearning rate · k in kNN · chunk size · pool size · Spark partition count · arrival rate · temperature · top-p · isolation level · replication factor · retention days · sample size.\nRule: **every parameter change must produce a visible consequence within 400 ms.**",
+      "rules": [
+        "every parameter change must produce a visible consequence within 400 ms."
+      ],
+      "used_for": [],
+      "line": 127,
+      "items": [
+        "learning rate",
+        "k in kNN",
+        "chunk size",
+        "pool size",
+        "Spark partition count",
+        "arrival rate",
+        "temperature",
+        "top-p",
+        "isolation level",
+        "replication factor",
+        "retention days",
+        "sample size"
+      ],
+      "chapters": [
+        "CH-08",
+        "CH-13",
+        "CH-14",
+        "CH-16",
+        "CH-25",
+        "CH-29",
+        "CH-30",
+        "CH-31",
+        "CH-32"
+      ],
+      "chapter_count": 9
+    },
+    {
+      "id": "P05",
+      "title": "Before / after split screen",
+      "definition": "",
+      "text": "| Left | Right |\n|---|---|\n| spreadsheet filter | SQL `WHERE` |\n| full table scan | index seek |\n| normalized | denormalized |\n| healthy pipeline | failed pipeline |\n| raw export | cleaned export |\n| unsafe agent | guarded agent |\n| cold connection | warm connection |\n| one partition | balanced partitions |",
+      "rules": [],
+      "used_for": [],
+      "line": 132,
+      "table": {
+        "header": [
+          "Left",
+          "Right"
+        ],
+        "rows": [
+          [
+            "spreadsheet filter",
+            "SQL `WHERE`"
+          ],
+          [
+            "full table scan",
+            "index seek"
+          ],
+          [
+            "normalized",
+            "denormalized"
+          ],
+          [
+            "healthy pipeline",
+            "failed pipeline"
+          ],
+          [
+            "raw export",
+            "cleaned export"
+          ],
+          [
+            "unsafe agent",
+            "guarded agent"
+          ],
+          [
+            "cold connection",
+            "warm connection"
+          ],
+          [
+            "one partition",
+            "balanced partitions"
+          ]
+        ]
+      },
+      "chapters": [
+        "CH-07",
+        "CH-08",
+        "CH-09",
+        "CH-10",
+        "CH-12",
+        "CH-14",
+        "CH-15",
+        "CH-17",
+        "CH-18",
+        "CH-19",
+        "CH-20",
+        "CH-28",
+        "CH-29",
+        "CH-30",
+        "CH-34",
+        "CH-35"
+      ],
+      "chapter_count": 16
+    },
+    {
+      "id": "P06",
+      "title": "Data moving on edges",
+      "definition": "Dots, packets or marching dashed lines travel along the arrows. Used everywhere data physically moves: ETL, HTTP, Kafka events, HDFS block replication, Spark shuffle, JDBC round trips, retrieval, tool calls.",
+      "text": "Dots, packets or marching dashed lines travel along the arrows. Used everywhere data physically moves: ETL, HTTP, Kafka events, HDFS block replication, Spark shuffle, JDBC round trips, retrieval, tool calls.\nRule: **an arrow that never carries a moving mark is decoration — delete it or animate it.**",
+      "rules": [
+        "an arrow that never carries a moving mark is decoration — delete it or animate it."
+      ],
+      "used_for": [
+        "ETL",
+        "HTTP",
+        "Kafka events",
+        "HDFS block replication",
+        "Spark shuffle",
+        "JDBC round trips",
+        "retrieval",
+        "tool calls"
+      ],
+      "line": 144,
+      "chapters": [
+        "CH-04",
+        "CH-20",
+        "CH-24",
+        "CH-27"
+      ],
+      "chapter_count": 4
+    },
+    {
+      "id": "P07",
+      "title": "Matrix / heatmap",
+      "definition": "Grid with per-cell colour intensity. Used for: table data, attention scores, embeddings, confusion matrix, correlation, data-quality grids, the residual stream.",
+      "text": "Grid with per-cell colour intensity. Used for: table data, attention scores, embeddings, confusion matrix, correlation, data-quality grids, the residual stream.",
+      "rules": [],
+      "used_for": [
+        "table data",
+        "attention scores",
+        "embeddings",
+        "confusion matrix",
+        "correlation",
+        "data-quality grids",
+        "the residual stream"
+      ],
+      "line": 148,
+      "chapters": [
+        "CH-16",
+        "CH-17",
+        "CH-30",
+        "CH-31",
+        "CH-32"
+      ],
+      "chapter_count": 5
+    },
+    {
+      "id": "P08",
+      "title": "Code trace",
+      "definition": "The current source line highlights while variables, stack frames, heap objects and output update beside it. Reference arrows point at identity, not equality — two names pointing at one object share one arrow head.",
+      "text": "The current source line highlights while variables, stack frames, heap objects and output update beside it. Reference arrows point at **identity**, not equality — two names pointing at one object share one arrow head.",
+      "rules": [],
+      "used_for": [],
+      "line": 151,
+      "chapters": [
+        "CH-06",
+        "CH-08",
+        "CH-09",
+        "CH-18",
+        "CH-31"
+      ],
+      "chapter_count": 5
+    },
+    {
+      "id": "P09",
+      "title": "Terminal simulation",
+      "definition": "The command types character by character, then output appears, then the filesystem / process / network state visibly changes. Errors are shown and read, not skipped.",
+      "text": "The command types character by character, then output appears, then the filesystem / process / network state visibly changes. Errors are shown and read, not skipped.",
+      "rules": [],
+      "used_for": [],
+      "line": 154,
+      "chapters": [
+        "CH-04",
+        "CH-05",
+        "CH-07"
+      ],
+      "chapter_count": 3
+    },
+    {
+      "id": "P10",
+      "title": "Plan and lineage tree",
+      "definition": "Query as an operator tree: scan → filter → join → aggregate → sort → output, with row counts flowing upward and fan-out named when rows-out exceeds rows-in. Column lineage draws source column → transformation → result column, and lists separately the columns read but not returned.",
+      "text": "Query as an operator tree: scan → filter → join → aggregate → sort → output, with **row counts flowing upward** and fan-out named when rows-out exceeds rows-in. Column lineage draws source column → transformation → result column, and lists separately the columns **read but not returned**.",
+      "rules": [],
+      "used_for": [],
+      "line": 157,
+      "chapters": [
+        "CH-11",
+        "CH-14",
+        "CH-23",
+        "CH-35"
+      ],
+      "chapter_count": 4
+    },
+    {
+      "id": "P11",
+      "title": "Architecture topology with failure injection",
+      "definition": "Components carry capacity, utilisation and health. Then one component is failed on purpose, and the film follows: propagation → retry → timeout → queue build-up → circuit breaker → shed → recovery.",
+      "text": "Components carry capacity, utilisation and health. Then one component is failed on purpose, and the film follows: propagation → retry → timeout → queue build-up → circuit breaker → shed → recovery.",
+      "rules": [],
+      "used_for": [],
+      "line": 160,
+      "chapters": [
+        "CH-05",
+        "CH-13",
+        "CH-20",
+        "CH-22",
+        "CH-33",
+        "CH-34"
+      ],
+      "chapter_count": 6
+    },
+    {
+      "id": "P12",
+      "title": "Dashboard plus cause-and-effect",
+      "definition": "When a metric moves — success rate, p95, lag, freshness, mismatch count, error rate — the cause is visible in the same frame, on the other side of the screen. A dashboard alone is a picture; a dashboard with its cause is a lesson.",
+      "text": "When a metric moves — success rate, p95, lag, freshness, mismatch count, error rate — **the cause is visible in the same frame**, on the other side of the screen. A dashboard alone is a picture; a dashboard with its cause is a lesson.",
+      "rules": [],
+      "used_for": [],
+      "line": 163,
+      "chapters": [
+        "CH-05",
+        "CH-14",
+        "CH-16",
+        "CH-17",
+        "CH-21",
+        "CH-26",
+        "CH-27",
+        "CH-34"
+      ],
+      "chapter_count": 8
+    },
+    {
+      "id": "P13",
+      "title": "Timeline",
+      "definition": "A horizontal time axis with named events. Used for: transaction lifecycle, NRT freshness, SLA windows, test phases, deployment, incident reconstruction, project evolution.",
+      "text": "A horizontal time axis with named events. Used for: transaction lifecycle, NRT freshness, SLA windows, test phases, deployment, incident reconstruction, project evolution.",
+      "rules": [],
+      "used_for": [
+        "transaction lifecycle",
+        "NRT freshness",
+        "SLA windows",
+        "test phases",
+        "deployment",
+        "incident reconstruction",
+        "project evolution"
+      ],
+      "line": 166,
+      "chapters": [
+        "CH-01",
+        "CH-05",
+        "CH-09",
+        "CH-13",
+        "CH-20",
+        "CH-22",
+        "CH-26",
+        "CH-27",
+        "CH-28",
+        "CH-34"
+      ],
+      "chapter_count": 10
+    },
+    {
+      "id": "P14",
+      "title": "Decision tree",
+      "definition": "One question at a time, answered on screen, narrowing to a choice. Used for: picking a store family, batch vs stream, ETL vs ELT, index or not, model family.",
+      "text": "One question at a time, answered on screen, narrowing to a choice. Used for: picking a store family, batch vs stream, ETL vs ELT, index or not, model family.",
+      "rules": [],
+      "used_for": [
+        "picking a store family",
+        "batch vs stream",
+        "ETL vs ELT",
+        "index or not",
+        "model family"
+      ],
+      "line": 169,
+      "chapters": [
+        "CH-07",
+        "CH-10",
+        "CH-18",
+        "CH-21",
+        "CH-30"
+      ],
+      "chapter_count": 5
+    },
+    {
+      "id": "P15",
+      "title": "Star schema and cube",
+      "definition": "Fact in the centre, dimensions around it. Animate join, slice, dice, drill-down, roll-up. The cube is translucent; slicing removes a plane, dicing selects a sub-cube, drill-down subdivides a cell.",
+      "text": "Fact in the centre, dimensions around it. Animate join, slice, dice, drill-down, roll-up. The cube is translucent; slicing removes a plane, dicing selects a sub-cube, drill-down subdivides a cell.",
+      "rules": [],
+      "used_for": [],
+      "line": 172,
+      "chapters": [
+        "CH-17",
+        "CH-23"
+      ],
+      "chapter_count": 2
+    },
+    {
+      "id": "P16",
+      "title": "Risk and dependency board",
+      "definition": "Kanban cards: risk · dependency · impact · owner · status · mitigation. Used in the D&IM, DR and delivery chapters.",
+      "text": "Kanban cards: risk · dependency · impact · owner · status · mitigation. Used in the D&IM, DR and delivery chapters.",
+      "rules": [],
+      "used_for": [],
+      "line": 175,
+      "items": [
+        "Kanban cards: risk",
+        "dependency",
+        "impact",
+        "owner",
+        "status",
+        "mitigation. Used in the D&IM, DR and delivery chapters"
+      ],
+      "chapters": [
+        "CH-28",
+        "CH-35"
+      ],
+      "chapter_count": 2
+    },
+    {
+      "id": "P17",
+      "title": "Prediction before reveal",
+      "definition": "Before the animation runs, the film asks the viewer one question and pauses on it for 2–3 seconds with a visible beat marker. Then it plays, then it puts expected vs actual side by side. This is the single highest-retention device in the film — use it at least once per act.",
+      "text": "Before the animation runs, the film asks the viewer one question and pauses on it for 2–3 seconds with a visible beat marker. Then it plays, then it puts **expected vs actual** side by side. This is the single highest-retention device in the film — use it at least once per act.",
+      "rules": [],
+      "used_for": [],
+      "line": 178,
+      "chapters": [
+        "CH-00",
+        "CH-02",
+        "CH-11",
+        "CH-15",
+        "CH-16",
+        "CH-29"
+      ],
+      "chapter_count": 6
+    },
+    {
+      "id": "P18",
+      "title": "Failure-first",
+      "definition": "The canonical arc, and the reason this curriculum works:",
+      "text": "The canonical arc, and the reason this curriculum works:\n\n```\nlooks correct → reveal the hidden defect → trace it → isolate the root cause\n   → fix it → re-run the SAME scene → prove recovery\n```\n\nEvery major mechanism is met **twice**: once working, once broken.",
+      "rules": [],
+      "used_for": [],
+      "line": 181,
+      "diagram": "looks correct → reveal the hidden defect → trace it → isolate the root cause\n   → fix it → re-run the SAME scene → prove recovery",
+      "chapters": [
+        "CH-04",
+        "CH-05",
+        "CH-08",
+        "CH-09",
+        "CH-10",
+        "CH-12",
+        "CH-13",
+        "CH-14",
+        "CH-15",
+        "CH-18",
+        "CH-20",
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-24",
+        "CH-25",
+        "CH-26",
+        "CH-27",
+        "CH-28",
+        "CH-29",
+        "CH-33",
+        "CH-34"
+      ],
+      "chapter_count": 22
+    },
+    {
+      "id": "P19",
+      "title": "3D, only where depth is the point",
+      "definition": "Permitted: HDFS block placement and replication, cluster topology, embedding space, the curriculum atlas, CPU↔memory↔disk movement, architecture evolution.",
+      "text": "Permitted: HDFS block placement and replication, cluster topology, embedding space, the curriculum atlas, CPU↔memory↔disk movement, architecture evolution.\nForbidden: definitions, syntax, tables, anything already clearer flat.\n**The test:** a 3D shot must *fail* as a static 2D frame before 3D is justified.",
+      "rules": [
+        "a 3D shot must fail as a static 2D frame before 3D is justified."
+      ],
+      "used_for": [],
+      "line": 191,
+      "permitted": [
+        "HDFS block placement and replication",
+        "cluster topology",
+        "embedding space",
+        "the curriculum atlas",
+        "CPU↔memory↔disk movement",
+        "architecture evolution"
+      ],
+      "forbidden": [
+        "definitions",
+        "syntax",
+        "tables",
+        "anything already clearer flat"
+      ],
+      "chapters": [
+        "CH-03",
+        "CH-24",
+        "CH-33"
+      ],
+      "chapter_count": 3
+    },
+    {
+      "id": "P20",
+      "title": "Callback and zoom-out",
+      "definition": "Every act ends by zooming out to the same architecture diagram and lighting up the component the viewer can now explain. The diagram is one asset reused eight times; it is the film's spine made visible.",
+      "text": "Every act ends by zooming out to the **same** architecture diagram and lighting up the component the viewer can now explain. The diagram is one asset reused eight times; it is the film's spine made visible.",
+      "rules": [],
+      "used_for": [],
+      "line": 196,
+      "chapters": [
+        "CH-01",
+        "CH-35",
+        "CH-36"
+      ],
+      "chapter_count": 3
+    },
+    {
+      "id": "P21",
+      "title": "Row-count funnel",
+      "definition": "Beneath any multi-stage data operation, a bar per stage showing how many rows survived it. `14 → 13 → 11 → 2` is a sentence. This single device explains grain, filtering, joins and fan-out better than any prose.",
+      "text": "Beneath any multi-stage data operation, a bar per stage showing **how many rows survived it**. `14 → 13 → 11 → 2` is a sentence. This single device explains grain, filtering, joins and fan-out better than any prose.",
+      "rules": [],
+      "used_for": [],
+      "line": 199,
+      "chapters": [
+        "CH-00",
+        "CH-06",
+        "CH-11",
+        "CH-12",
+        "CH-15",
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "chapter_count": 9
+    },
+    {
+      "id": "P22",
+      "title": "Cost counter beside every move",
+      "definition": "Comparisons, swaps, page reads, network bytes, milliseconds, rows examined — counted on screen as the operation runs, not summarised at the end in a complexity table.",
+      "text": "Comparisons, swaps, page reads, network bytes, milliseconds, rows examined — counted on screen as the operation runs, not summarised at the end in a complexity table.",
+      "rules": [],
+      "used_for": [],
+      "line": 202,
+      "chapters": [
+        "CH-03",
+        "CH-07",
+        "CH-14",
+        "CH-16",
+        "CH-19",
+        "CH-24",
+        "CH-25",
+        "CH-29",
+        "CH-30",
+        "CH-32",
+        "CH-34"
+      ],
+      "chapter_count": 11
+    }
+  ]
+}

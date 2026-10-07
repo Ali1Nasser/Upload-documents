@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_contradictions",
+  "title": "corpus/canon/contradictions.json (preserved source contradictions; Council rules, ADR-008)",
+  "type": "object",
+  "required": [
+    "v",
+    "items",
+    "counts"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "severity",
+          "where",
+          "detail",
+          "refs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^K\\d{3}$"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "contradiction",
+              "gap",
+              "info"
+            ]
+          },
+          "where": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "counts": {
+      "type": "object"
+    }
+  }
+}

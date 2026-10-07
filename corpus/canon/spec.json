@@ -1,0 +1,284 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "format": [
+    {
+      "setting": "Resolution",
+      "value": "1920 × 1080 (master); 1280 × 720 acceptable fallback",
+      "why": "Diagrams carry small labels; 720p is the floor at which a 12 px on-screen term stays legible",
+      "line": 55
+    },
+    {
+      "setting": "Aspect",
+      "value": "16 : 9",
+      "why": "Every layout in §8 is composed for it",
+      "line": 56
+    },
+    {
+      "setting": "Frame rate",
+      "value": "30 fps master · 10 fps acceptable for a low-cost render",
+      "why": "Motion here is explanatory, not cinematic",
+      "line": 57
+    },
+    {
+      "setting": "Video codec",
+      "value": "H.264, CRF 18–20",
+      "why": "",
+      "line": 58
+    },
+    {
+      "setting": "Audio",
+      "value": "AAC 192 kbps, −16 LUFS integrated, true peak ≤ −1 dBTP",
+      "why": "Spoken-word loudness standard",
+      "line": 59
+    },
+    {
+      "setting": "Ambient bed",
+      "value": "−30 LUFS, no melody, no percussion",
+      "why": "It must never compete with a number being read out",
+      "line": 60
+    },
+    {
+      "setting": "Chapter markers",
+      "value": "one per chapter from §7",
+      "why": "Lets a viewer jump to \"Kafka\" without scrubbing",
+      "line": 61
+    },
+    {
+      "setting": "Subtitle files",
+      "value": ".vtt` in both languages, plus burned-in captions on the Arabic cut",
+      "why": "",
+      "line": 62
+    },
+    {
+      "setting": "Safe area",
+      "value": "5 % margin; nothing load-bearing in the outer 64 px",
+      "why": "",
+      "line": 63
+    }
+  ],
+  "typography": [
+    {
+      "role": "Chapter title",
+      "english_cut": "Geometric sans, 700",
+      "arabic_cut": "Cairo / IBM Plex Sans Arabic, 700",
+      "size_floor": "44 px",
+      "line": 69
+    },
+    {
+      "role": "On-screen explanatory label",
+      "english_cut": "Sans, 600",
+      "arabic_cut": "Cairo, 600",
+      "size_floor": "22 px",
+      "line": 70
+    },
+    {
+      "role": "Technical term chip",
+      "english_cut": "Mono, 500",
+      "arabic_cut": "Mono (Latin, LTR inside RTL text)",
+      "size_floor": "18 px",
+      "line": 71
+    },
+    {
+      "role": "Code, SQL, terminal",
+      "english_cut": "Mono, 400–500",
+      "arabic_cut": "same — never restyled",
+      "size_floor": "20 px",
+      "line": 72
+    },
+    {
+      "role": "Number readout",
+      "english_cut": "Mono, 700, tabular figures",
+      "arabic_cut": "same",
+      "size_floor": "28 px",
+      "line": 73
+    },
+    {
+      "role": "Caption",
+      "english_cut": "Sans, 500",
+      "arabic_cut": "Cairo, 500",
+      "size_floor": "30 px",
+      "line": 74
+    }
+  ],
+  "colour_tokens": [
+    {
+      "token": "--ground",
+      "light": "#F6F8F5",
+      "dark": "#0D1117",
+      "meaning__never_reused_for_anything_else": "page ground",
+      "line": 84
+    },
+    {
+      "token": "--panel",
+      "light": "#FFFFFF",
+      "dark": "#161B22",
+      "meaning__never_reused_for_anything_else": "a surface that holds a diagram",
+      "line": 85
+    },
+    {
+      "token": "--ink",
+      "light": "#141A1F",
+      "dark": "#E6EDF3",
+      "meaning__never_reused_for_anything_else": "primary text",
+      "line": 86
+    },
+    {
+      "token": "--ink-2",
+      "light": "#4E5A63",
+      "dark": "#9FB0BD",
+      "meaning__never_reused_for_anything_else": "secondary text",
+      "line": 87
+    },
+    {
+      "token": "--ink-3",
+      "light": "#6B7A85",
+      "dark": "#7D8C99",
+      "meaning__never_reused_for_anything_else": "labels, axes",
+      "line": 88
+    },
+    {
+      "token": "--signal",
+      "light": "#00846F",
+      "dark": "#37D8FF",
+      "meaning__never_reused_for_anything_else": "**the thing currently being explained**",
+      "line": 89
+    },
+    {
+      "token": "--ok",
+      "light": "#1B8A4B",
+      "dark": "#3FD98A",
+      "meaning__never_reused_for_anything_else": "passed, matched, committed, healthy",
+      "line": 90
+    },
+    {
+      "token": "--warn",
+      "light": "#B26A00",
+      "dark": "#FFB84D",
+      "meaning__never_reused_for_anything_else": "degraded, lagging, stale",
+      "line": 91
+    },
+    {
+      "token": "--crit",
+      "light": "#B3261E",
+      "dark": "#FF6B63",
+      "meaning__never_reused_for_anything_else": "failed, dropped, denied, breached",
+      "line": 92
+    },
+    {
+      "token": "--violet",
+      "light": "#7C5CFF",
+      "dark": "#A88CFF",
+      "meaning__never_reused_for_anything_else": "the partition / group / scope boundary",
+      "line": 93
+    },
+    {
+      "token": "--ember",
+      "light": "#D2451E",
+      "dark": "#FF7A59",
+      "meaning__never_reused_for_anything_else": "the frame or window a function can see",
+      "line": 94
+    },
+    {
+      "token": "--line",
+      "light": "#D6DDD8",
+      "dark": "#2A323B",
+      "meaning__never_reused_for_anything_else": "structure",
+      "line": 95
+    }
+  ],
+  "rendering_both_cuts": "Build the timeline once. The narration track and the explanatory-label layer are the only two things that swap. Lock picture before either VO is recorded — if a frame changes after recording, both languages must be re-timed and the two cuts will drift.",
+  "language_layers": [
+    {
+      "layer": "Frames, timing, motion, colour",
+      "en": "identical",
+      "ar": "identical"
+    },
+    {
+      "layer": "Narration audio",
+      "en": "English VO",
+      "ar": "Egyptian-Arabic VO"
+    },
+    {
+      "layer": "On-screen **technical** labels (`SELECT`, `offset`, `partition`, `p95`, `ODS`)",
+      "en": "Latin, unchanged",
+      "ar": "Latin, unchanged"
+    },
+    {
+      "layer": "On-screen **explanatory** labels (\"rows surviving\", \"this is the bug\")",
+      "en": "English",
+      "ar": "Egyptian Arabic, RTL"
+    },
+    {
+      "layer": "Burned-in captions",
+      "en": "English",
+      "ar": "Egyptian Arabic"
+    },
+    {
+      "layer": "Numbers",
+      "en": "identical",
+      "ar": "identical (Western digits)"
+    }
+  ],
+  "captions_accessibility": [
+    "Two `.vtt` files — `en.vtt` and `ar-EG.vtt` — aligned to the same timeline.",
+    "Burned-in Egyptian-Arabic captions on the Arabic cut, RTL, bottom, with a 60 %-opacity plate behind them so they survive a busy diagram.",
+    "Latin technical terms inside Arabic captions stay LTR — wrap them so bidirectional rendering does not reverse `SELECT *` or `p95`.",
+    "Every scene has a text equivalent of its current state, e.g. \"INNER JOIN, step 3 of 6. Four of five left rows match.\" This is also the audio-description script and the alt text for any still exported from the film.",
+    "Reduced-motion cut: a version where each scene holds its meaningful first and final frame. Narration unchanged. This doubles as the slide deck.",
+    "Contrast: 4.5 : 1 text, 3 : 1 meaningful non-text marks, verified with the real relative-luminance formula, not by eye.",
+    "Never encode meaning in colour alone — pair every colour with a shape, a label or a position. The four break classes in CH-28 carry icons as well as colours.",
+    "No essential label below 22 px at 1080p.",
+    "Chapter markers in the container so a viewer can jump directly to a domain."
+  ],
+  "qa_gate_15": {
+    "content": [
+      "Every chapter in §7 exists in §8 with both narration tracks written.",
+      "Every topic in §12.1 appears in at least one chapter.",
+      "Every number on screen traces to §6. No exceptions.",
+      "Every chapter declares at least one pattern from §2.",
+      "Every chapter has a failure beat, a callback and a named artifact.",
+      "At least one prediction prompt per act."
+    ],
+    "visual": [
+      "No static bullet list anywhere a pattern was specified.",
+      "Every arrow carries a moving mark, or has been deleted.",
+      "Every metric that moves has its cause in the same frame.",
+      "Only the six permitted 3D scenes are 3D, each with a written justification.",
+      "Asset A-01 appears at the end of every act and is identical each time.",
+      "Every scene has a meaningful first frame and a meaningful final frame."
+    ],
+    "language": [
+      "No code, command, identifier, table name, product name, acronym or number translated.",
+      "Every glossed term in §10.1 is glossed on first appearance only.",
+      "Latin terms inside Arabic captions render LTR and are not reversed.",
+      "The Arabic register is natural Egyptian — no heavy MSA, no exaggerated slang."
+    ],
+    "technical": [
+      "English and Arabic cuts have identical frame counts and chapter boundaries.",
+      "Runtime ≥ 30 : 00 for every cut shipped.",
+      "Audio at −16 LUFS, true peak ≤ −1 dBTP; ambient bed at −30 LUFS.",
+      "Both `.vtt` files align to the timeline; Arabic captions burned in on the Arabic cut.",
+      "Contrast measured, not estimated: 4.5 : 1 text, 3 : 1 meaningful non-text.",
+      "No essential label below 22 px at 1080p.",
+      "Chapter markers present in the container."
+    ],
+    "honesty": [
+      "CH-02 states once that the simulations are teaching models, not live systems.",
+      "CH-35's completion-versus-proof distinction is not undercut by a certificate end card.",
+      "The \"Carbon database\" ambiguity is named in CH-23, not merged away.",
+      "Version-sensitive claims live in an end card with a verification date, not in narration."
+    ]
+  },
+  "honest_limits": [
+    "Nothing in this film was executed during its writing. The numbers in §6 are carried from the working labs in the sources, which computed rather than asserted them. If a figure is re-derived during production and differs, update §6 and re-render rather than quietly using a different number in one cut.",
+    "The visual simulations teach the shape of real output. They are not connected to a real database, cluster, cloud account or model. Say so on screen once, in CH-02, and never again.",
+    "\"Carbon database\" remains ambiguous in the underlying job context — Apache CarbonData (a columnar format on HDFS queried through Spark SQL) and GaussDB/openGauss (a PostgreSQL-family RDBMS) are different products. CH-23 teaches the transferable core — columnar layout, sort columns, segments and compaction, partition pruning, predicate pushdown, plan reading — which is correct for either, and names the ambiguity rather than merging them.",
+    "Version-sensitive claims (which release is current, which feature exists) are deliberately absent from the narration. Put them in an end card with a verification date, because they go stale and narration cannot be patched.",
+    "Completion is not proof. The film says this in CH-35 and the production must not undercut it with a certificate at the end."
+  ]
+}

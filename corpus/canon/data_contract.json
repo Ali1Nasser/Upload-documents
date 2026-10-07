@@ -1,0 +1,2081 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "sections": [
+    {
+      "section": "6.1",
+      "title": "The dirty export (ShopFlow `RAWEXPORT`)",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "line": 342
+    },
+    {
+      "section": "6.2",
+      "title": "Applied-step order",
+      "chapters": [
+        "CH-15"
+      ],
+      "line": 348
+    },
+    {
+      "section": "6.3",
+      "title": "The SQL funnel",
+      "chapters": [
+        "CH-11"
+      ],
+      "line": 356
+    },
+    {
+      "section": "6.4",
+      "title": "Fan-out",
+      "chapters": [
+        "CH-12"
+      ],
+      "line": 366
+    },
+    {
+      "section": "6.5",
+      "title": "Index vs scan",
+      "chapters": [
+        "CH-14"
+      ],
+      "line": 369
+    },
+    {
+      "section": "6.6",
+      "title": "Connection pool and the digital twin",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "line": 376
+    },
+    {
+      "section": "6.7",
+      "title": "Docker layer cache",
+      "chapters": [
+        "CH-34"
+      ],
+      "line": 380
+    },
+    {
+      "section": "6.8",
+      "title": "IAM policy evaluation",
+      "chapters": [
+        "CH-34"
+      ],
+      "line": 383
+    },
+    {
+      "section": "6.9",
+      "title": "Masking and k-anonymity",
+      "chapters": [
+        "CH-28"
+      ],
+      "line": 386
+    },
+    {
+      "section": "6.10",
+      "title": "Reconciliation",
+      "chapters": [
+        "CH-28"
+      ],
+      "line": 389
+    },
+    {
+      "section": "6.11",
+      "title": "Testing gate",
+      "chapters": [
+        "CH-09",
+        "CH-34"
+      ],
+      "line": 392
+    },
+    {
+      "section": "6.12",
+      "title": "Statistics",
+      "chapters": [
+        "CH-16"
+      ],
+      "line": 395
+    },
+    {
+      "section": "6.13",
+      "title": "Report accessibility",
+      "chapters": [
+        "CH-17"
+      ],
+      "line": 398
+    },
+    {
+      "section": "6.14",
+      "title": "Algorithms",
+      "chapters": [
+        "CH-19"
+      ],
+      "line": 401
+    },
+    {
+      "section": "6.15",
+      "title": "Spark",
+      "chapters": [
+        "CH-25"
+      ],
+      "line": 404
+    },
+    {
+      "section": "6.16",
+      "title": "Machine learning",
+      "chapters": [
+        "CH-29",
+        "CH-31"
+      ],
+      "line": 407
+    },
+    {
+      "section": "6.17",
+      "title": "Transformer",
+      "chapters": [
+        "CH-32"
+      ],
+      "line": 410
+    },
+    {
+      "section": "6.18",
+      "title": "Retrieval",
+      "chapters": [
+        "CH-33"
+      ],
+      "line": 414
+    },
+    {
+      "section": "6.19",
+      "title": "NilePay receipts",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "line": 418
+    },
+    {
+      "section": "6.20",
+      "title": "Constructed illustrations — arithmetic, not measurements",
+      "chapters": [],
+      "line": 421
+    },
+    {
+      "section": "6.21",
+      "title": "Cross-chapter reconciliations — show these on screen",
+      "chapters": [],
+      "line": 428
+    }
+  ],
+  "facts": [
+    {
+      "id": "d:6.1:1",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1001–1014",
+      "numbers": [
+        1001,
+        1014
+      ],
+      "unit": null,
+      "context": "One dataset, one keyspace: order ids 1001–1014.",
+      "line": 343
+    },
+    {
+      "id": "d:6.1:2",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "8 cleaning defects",
+      "numbers": [
+        8
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:3",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1008",
+      "numbers": [
+        1008
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:4",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1009",
+      "numbers": [
+        1009
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:5",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1013",
+      "numbers": [
+        1013
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:6",
+      "section": "6.1",
+      "kind": "code",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "03/02/2026",
+      "numbers": [
+        3,
+        2,
+        2026
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:7",
+      "section": "6.1",
+      "kind": "code",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "2026-02-03",
+      "numbers": [
+        2026,
+        2,
+        3
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:8",
+      "section": "6.1",
+      "kind": "code",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "18,50",
+      "numbers": [
+        18,
+        50
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:9",
+      "section": "6.1",
+      "kind": "code",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1 650.00",
+      "numbers": [
+        1650.0
+      ],
+      "unit": null,
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:10",
+      "section": "6.1",
+      "kind": "plain",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "15",
+      "numbers": [
+        15
+      ],
+      "unit": "rows",
+      "context": "15 rows, 8 cleaning defects: a duplicated row (1008), customer names with stray spaces and inconsistent case, mixed date formats (`03/02/2026` beside `2026-02-03`), mixed channel case (`WEB`, `APP`), a comma decimal (`18,50`), a space as a thousands separator ",
+      "line": 344
+    },
+    {
+      "id": "d:6.1:11",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "14 rows",
+      "numbers": [
+        14
+      ],
+      "unit": "rows",
+      "context": "Cleaning yields 14 rows.",
+      "line": 345
+    },
+    {
+      "id": "d:6.1:12",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1007",
+      "numbers": [
+        1007
+      ],
+      "unit": null,
+      "context": "Two further defects survive cleaning — they are not formatting problems, they are domain problems, and they are what the quality gate in CH-21 finds: order 1007 points at customer 9, who does not exist;",
+      "line": 346
+    },
+    {
+      "id": "d:6.1:13",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "9",
+      "numbers": [
+        9
+      ],
+      "unit": null,
+      "context": "Two further defects survive cleaning — they are not formatting problems, they are domain problems, and they are what the quality gate in CH-21 finds: order 1007 points at customer 9, who does not exist;",
+      "line": 346
+    },
+    {
+      "id": "d:6.1:14",
+      "section": "6.1",
+      "kind": "bold",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "1010",
+      "numbers": [
+        1010
+      ],
+      "unit": null,
+      "context": "order 1010 carries the out-of-domain status `refunded`.",
+      "line": 346
+    },
+    {
+      "id": "d:6.2:1",
+      "section": "6.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-15"
+      ],
+      "value": [
+        "documented order",
+        "€3 948.50",
+        "correct"
+      ],
+      "header": [
+        "Step order",
+        "Result",
+        "Why"
+      ],
+      "numbers": [
+        3948.5
+      ],
+      "unit": "EUR",
+      "context": "Applied-step order",
+      "line": 351
+    },
+    {
+      "id": "d:6.2:2",
+      "section": "6.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-15"
+      ],
+      "value": [
+        "filter after group-by",
+        "€4 177.00",
+        "no error raised at all — the dangerous one"
+      ],
+      "header": [
+        "Step order",
+        "Result",
+        "Why"
+      ],
+      "numbers": [
+        4177.0
+      ],
+      "unit": "EUR",
+      "context": "Applied-step order",
+      "line": 352
+    },
+    {
+      "id": "d:6.2:3",
+      "section": "6.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-15"
+      ],
+      "value": [
+        "type before normalising separators",
+        "€2 148.00",
+        "two nulls written silently"
+      ],
+      "header": [
+        "Step order",
+        "Result",
+        "Why"
+      ],
+      "numbers": [
+        2148.0
+      ],
+      "unit": "EUR",
+      "context": "Applied-step order",
+      "line": 353
+    },
+    {
+      "id": "d:6.2:4",
+      "section": "6.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-15"
+      ],
+      "value": [
+        "blank quantity treated as zero",
+        "€3 853.50",
+        "the 95.00 the policy is worth"
+      ],
+      "header": [
+        "Step order",
+        "Result",
+        "Why"
+      ],
+      "numbers": [
+        3853.5,
+        95.0
+      ],
+      "unit": "EUR",
+      "context": "Applied-step order",
+      "line": 354
+    },
+    {
+      "id": "d:6.3:1",
+      "section": "6.3",
+      "kind": "code",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "SELECT c.tier, SUM(o.total) AS revenue FROM orders o JOIN customers c ON c.id = o.customer_id WHERE o.status = 'delivered' GROUP BY c.tier HAVING SUM(o.total) > 300 ORDER BY revenue DESC LIMIT 1",
+      "numbers": [
+        300,
+        1
+      ],
+      "unit": null,
+      "context": "`SELECT c.tier, SUM(o.total) AS revenue FROM orders o JOIN customers c ON c.id = o.customer_id WHERE o.status = 'delivered' GROUP BY c.tier HAVING SUM(o.total) > 300 ORDER BY revenue DESC LIMIT 1`",
+      "line": 357
+    },
+    {
+      "id": "d:6.3:2",
+      "section": "6.3",
+      "kind": "bold",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "14 → 13 → 11 → 2 → 2 → 2 → 2 → 2 → 1",
+      "numbers": [
+        14,
+        13,
+        11,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1
+      ],
+      "unit": null,
+      "context": "Rows surviving each of the nine logical stages: 14 → 13 → 11 → 2 → 2 → 2 → 2 → 2 → 1.",
+      "line": 358
+    },
+    {
+      "id": "d:6.3:3",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "1007",
+      "numbers": [
+        1007
+      ],
+      "unit": null,
+      "context": "- JOIN drops order 1007 (customer 9 does not exist): 14 → 13.",
+      "line": 359
+    },
+    {
+      "id": "d:6.3:4",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "9",
+      "numbers": [
+        9
+      ],
+      "unit": null,
+      "context": "- JOIN drops order 1007 (customer 9 does not exist): 14 → 13.",
+      "line": 359
+    },
+    {
+      "id": "d:6.3:5",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "14",
+      "numbers": [
+        14
+      ],
+      "unit": null,
+      "context": "- JOIN drops order 1007 (customer 9 does not exist): 14 → 13.",
+      "line": 359
+    },
+    {
+      "id": "d:6.3:6",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "13",
+      "numbers": [
+        13
+      ],
+      "unit": null,
+      "context": "- JOIN drops order 1007 (customer 9 does not exist): 14 → 13.",
+      "line": 359
+    },
+    {
+      "id": "d:6.3:7",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "1004",
+      "numbers": [
+        1004
+      ],
+      "unit": null,
+      "context": "- WHERE drops `cancelled` 1004 and `refunded` 1010: 13 → 11.",
+      "line": 360
+    },
+    {
+      "id": "d:6.3:8",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "1010",
+      "numbers": [
+        1010
+      ],
+      "unit": null,
+      "context": "- WHERE drops `cancelled` 1004 and `refunded` 1010: 13 → 11.",
+      "line": 360
+    },
+    {
+      "id": "d:6.3:9",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "13",
+      "numbers": [
+        13
+      ],
+      "unit": null,
+      "context": "- WHERE drops `cancelled` 1004 and `refunded` 1010: 13 → 11.",
+      "line": 360
+    },
+    {
+      "id": "d:6.3:10",
+      "section": "6.3",
+      "kind": "plain",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "11",
+      "numbers": [
+        11
+      ],
+      "unit": null,
+      "context": "- WHERE drops `cancelled` 1004 and `refunded` 1010: 13 → 11.",
+      "line": 360
+    },
+    {
+      "id": "d:6.3:11",
+      "section": "6.3",
+      "kind": "bold",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "gold €3 098.30",
+      "numbers": [
+        3098.3
+      ],
+      "unit": "EUR",
+      "context": "- GROUP BY yields two tiers: gold €3 098.30, silver €850.20.",
+      "line": 361
+    },
+    {
+      "id": "d:6.3:12",
+      "section": "6.3",
+      "kind": "bold",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "silver €850.20",
+      "numbers": [
+        850.2
+      ],
+      "unit": "EUR",
+      "context": "- GROUP BY yields two tiers: gold €3 098.30, silver €850.20.",
+      "line": 361
+    },
+    {
+      "id": "d:6.3:13",
+      "section": "6.3",
+      "kind": "code",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "HAVING > 300",
+      "numbers": [
+        300
+      ],
+      "unit": null,
+      "context": "Both clear `HAVING > 300`.",
+      "line": 361
+    },
+    {
+      "id": "d:6.3:14",
+      "section": "6.3",
+      "kind": "code",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "LIMIT 1",
+      "numbers": [
+        1
+      ],
+      "unit": null,
+      "context": "- `LIMIT 1` returns gold.",
+      "line": 362
+    },
+    {
+      "id": "d:6.3:15",
+      "section": "6.3",
+      "kind": "bold",
+      "chapters": [
+        "CH-11",
+        "CH-15"
+      ],
+      "value": "gold + silver = €3 948.50 — exactly the cleaned total from CH-15.",
+      "numbers": [
+        3948.5
+      ],
+      "unit": "EUR",
+      "context": "- gold + silver = €3 948.50 — exactly the cleaned total from CH-15. Show this sum on screen;",
+      "line": 363
+    },
+    {
+      "id": "d:6.4:1",
+      "section": "6.4",
+      "kind": "bold",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "6 customers in, 15 rows out",
+      "numbers": [
+        6,
+        15
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.4:2",
+      "section": "6.4",
+      "kind": "plain",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "4",
+      "numbers": [
+        4
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.4:3",
+      "section": "6.4",
+      "kind": "plain",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "3",
+      "numbers": [
+        3
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.4:4",
+      "section": "6.4",
+      "kind": "plain",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "4",
+      "numbers": [
+        4
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.4:5",
+      "section": "6.4",
+      "kind": "plain",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "2",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.4:6",
+      "section": "6.4",
+      "kind": "plain",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "1",
+      "numbers": [
+        1
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.4:7",
+      "section": "6.4",
+      "kind": "plain",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "1",
+      "numbers": [
+        1
+      ],
+      "unit": null,
+      "context": "`customers LEFT JOIN orders`: 6 customers in, 15 rows out (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null row · Sara 1 null row).",
+      "line": 367
+    },
+    {
+      "id": "d:6.5:1",
+      "section": "6.5",
+      "kind": "bold",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "1 000 000 rows",
+      "numbers": [
+        1000000
+      ],
+      "unit": "rows",
+      "context": "Over 1 000 000 rows, a three-level B-tree reaches one row in 3 page reads;",
+      "line": 370
+    },
+    {
+      "id": "d:6.5:2",
+      "section": "6.5",
+      "kind": "bold",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "3 page reads",
+      "numbers": [
+        3
+      ],
+      "unit": "page reads",
+      "context": "Over 1 000 000 rows, a three-level B-tree reaches one row in 3 page reads;",
+      "line": 370
+    },
+    {
+      "id": "d:6.5:3",
+      "section": "6.5",
+      "kind": "bold",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "12 500 pages",
+      "numbers": [
+        12500
+      ],
+      "unit": "pages",
+      "context": "the full scan reads 12 500 pages.",
+      "line": 370
+    },
+    {
+      "id": "d:6.6:1",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "67 req/s",
+      "numbers": [
+        67
+      ],
+      "unit": "req/s",
+      "context": "Pool lab: capacity = pool ÷ service time = 67 req/s.",
+      "line": 377
+    },
+    {
+      "id": "d:6.6:2",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "260 req/s",
+      "numbers": [
+        260
+      ],
+      "unit": "req/s",
+      "context": "At 260 req/s against that pool: a 289-deep queue, p95 wait 1 160 ms, borrow timeouts shedding load.",
+      "line": 377
+    },
+    {
+      "id": "d:6.6:3",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "289-deep",
+      "numbers": [
+        289
+      ],
+      "unit": "queue depth",
+      "context": "At 260 req/s against that pool: a 289-deep queue, p95 wait 1 160 ms, borrow timeouts shedding load.",
+      "line": 377
+    },
+    {
+      "id": "d:6.6:4",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "1 160 ms",
+      "numbers": [
+        1160
+      ],
+      "unit": "ms",
+      "context": "At 260 req/s against that pool: a 289-deep queue, p95 wait 1 160 ms, borrow timeouts shedding load.",
+      "line": 377
+    },
+    {
+      "id": "d:6.6:5",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "25 req/s",
+      "numbers": [
+        25
+      ],
+      "unit": "req/s",
+      "context": "Digital-twin lab: at 25 req/s, 100 % success and p95 150 ms;",
+      "line": 378
+    },
+    {
+      "id": "d:6.6:6",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "150 ms",
+      "numbers": [
+        150
+      ],
+      "unit": "ms",
+      "context": "Digital-twin lab: at 25 req/s, 100 % success and p95 150 ms;",
+      "line": 378
+    },
+    {
+      "id": "d:6.6:7",
+      "section": "6.6",
+      "kind": "bold",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "200 req/s",
+      "numbers": [
+        200
+      ],
+      "unit": "req/s",
+      "context": "at 200 req/s a queue forms and latency degrades before the error rate does — that sentence is the lesson, and it returns in CH-34's incident.",
+      "line": 378
+    },
+    {
+      "id": "d:6.6:8",
+      "section": "6.6",
+      "kind": "plain",
+      "chapters": [
+        "CH-14",
+        "CH-34"
+      ],
+      "value": "100",
+      "numbers": [
+        100
+      ],
+      "unit": "%",
+      "context": "Digital-twin lab: at 25 req/s, 100 % success and p95 150 ms;",
+      "line": 378
+    },
+    {
+      "id": "d:6.7:1",
+      "section": "6.7",
+      "kind": "bold",
+      "chapters": [
+        "CH-34"
+      ],
+      "value": "5 s",
+      "numbers": [
+        5
+      ],
+      "unit": "s",
+      "context": "Editing a source line with the documented layer order costs 5 s.",
+      "line": 381
+    },
+    {
+      "id": "d:6.7:2",
+      "section": "6.7",
+      "kind": "bold",
+      "chapters": [
+        "CH-34"
+      ],
+      "value": "57 s",
+      "numbers": [
+        57
+      ],
+      "unit": "s",
+      "context": ".` above `pip install` makes the same edit cost 57 s.",
+      "line": 381
+    },
+    {
+      "id": "d:6.9:1",
+      "section": "6.9",
+      "kind": "bold",
+      "chapters": [
+        "CH-28"
+      ],
+      "value": "k = 1",
+      "numbers": [
+        1
+      ],
+      "unit": null,
+      "context": "Masking every direct identifier leaves k = 1 and nine unique rows.",
+      "line": 387
+    },
+    {
+      "id": "d:6.9:2",
+      "section": "6.9",
+      "kind": "bold",
+      "chapters": [
+        "CH-28"
+      ],
+      "value": "k ≥ 2",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "Only suppression reaches k ≥ 2.",
+      "line": 387
+    },
+    {
+      "id": "d:6.10:1",
+      "section": "6.10",
+      "kind": "bold",
+      "chapters": [
+        "CH-28"
+      ],
+      "value": "7 matched · 1 amount mismatch of −36 (divisible by 9 → a transposition) · 1 only-in-switch · 1 only-in-ledger · 1 duplicate.",
+      "numbers": [
+        7,
+        1,
+        -36,
+        9,
+        1,
+        1,
+        1
+      ],
+      "unit": null,
+      "context": "Switch file against core ledger: 7 matched · 1 amount mismatch of −36 (divisible by 9 → a transposition) · 1 only-in-switch · 1 only-in-ledger · 1 duplicate. Net difference + €66.00 — three unrelated faults that partly cancel.",
+      "line": 390
+    },
+    {
+      "id": "d:6.10:2",
+      "section": "6.10",
+      "kind": "bold",
+      "chapters": [
+        "CH-28"
+      ],
+      "value": "+ €66.00",
+      "numbers": [
+        66.0
+      ],
+      "unit": "EUR",
+      "context": "Switch file against core ledger: 7 matched · 1 amount mismatch of −36 (divisible by 9 → a transposition) · 1 only-in-switch · 1 only-in-ledger · 1 duplicate. Net difference + €66.00 — three unrelated faults that partly cancel.",
+      "line": 390
+    },
+    {
+      "id": "d:6.11:1",
+      "section": "6.11",
+      "kind": "bold",
+      "chapters": [
+        "CH-09",
+        "CH-34"
+      ],
+      "value": "500 ms",
+      "numbers": [
+        500
+      ],
+      "unit": "ms",
+      "context": "A p95 gate at 500 ms passes at 355 ms and fails at 675 ms under regression.",
+      "line": 393
+    },
+    {
+      "id": "d:6.11:2",
+      "section": "6.11",
+      "kind": "bold",
+      "chapters": [
+        "CH-09",
+        "CH-34"
+      ],
+      "value": "355 ms",
+      "numbers": [
+        355
+      ],
+      "unit": "ms",
+      "context": "A p95 gate at 500 ms passes at 355 ms and fails at 675 ms under regression.",
+      "line": 393
+    },
+    {
+      "id": "d:6.11:3",
+      "section": "6.11",
+      "kind": "bold",
+      "chapters": [
+        "CH-09",
+        "CH-34"
+      ],
+      "value": "675 ms",
+      "numbers": [
+        675
+      ],
+      "unit": "ms",
+      "context": "A p95 gate at 500 ms passes at 355 ms and fails at 675 ms under regression.",
+      "line": 393
+    },
+    {
+      "id": "d:6.12:1",
+      "section": "6.12",
+      "kind": "bold",
+      "chapters": [
+        "CH-16"
+      ],
+      "value": "95 %",
+      "numbers": [
+        95
+      ],
+      "unit": "%",
+      "context": "The counted confidence-interval coverage converges on 95 %.",
+      "line": 396
+    },
+    {
+      "id": "d:6.12:2",
+      "section": "6.12",
+      "kind": "code",
+      "chapters": [
+        "CH-16"
+      ],
+      "value": "tCrit(29, .05) = 2.0452",
+      "numbers": [
+        29,
+        2.0452
+      ],
+      "unit": null,
+      "context": "Checked against published tables: `tCrit(29, .05) = 2.0452` · `tCrit(9, .05) = 2.2622` · `tP(2.086, 20) = 0.0500` · `normCdf(1.96) = 0.975000`.",
+      "line": 396
+    },
+    {
+      "id": "d:6.12:3",
+      "section": "6.12",
+      "kind": "code",
+      "chapters": [
+        "CH-16"
+      ],
+      "value": "tCrit(9, .05) = 2.2622",
+      "numbers": [
+        9,
+        2.2622
+      ],
+      "unit": null,
+      "context": "Checked against published tables: `tCrit(29, .05) = 2.0452` · `tCrit(9, .05) = 2.2622` · `tP(2.086, 20) = 0.0500` · `normCdf(1.96) = 0.975000`.",
+      "line": 396
+    },
+    {
+      "id": "d:6.12:4",
+      "section": "6.12",
+      "kind": "code",
+      "chapters": [
+        "CH-16"
+      ],
+      "value": "tP(2.086, 20) = 0.0500",
+      "numbers": [
+        2.086,
+        20,
+        0.05
+      ],
+      "unit": null,
+      "context": "Checked against published tables: `tCrit(29, .05) = 2.0452` · `tCrit(9, .05) = 2.2622` · `tP(2.086, 20) = 0.0500` · `normCdf(1.96) = 0.975000`.",
+      "line": 396
+    },
+    {
+      "id": "d:6.12:5",
+      "section": "6.12",
+      "kind": "code",
+      "chapters": [
+        "CH-16"
+      ],
+      "value": "normCdf(1.96) = 0.975000",
+      "numbers": [
+        1.96,
+        0.975
+      ],
+      "unit": null,
+      "context": "Checked against published tables: `tCrit(29, .05) = 2.0452` · `tCrit(9, .05) = 2.2622` · `tP(2.086, 20) = 0.0500` · `normCdf(1.96) = 0.975000`.",
+      "line": 396
+    },
+    {
+      "id": "d:6.13:1",
+      "section": "6.13",
+      "kind": "bold",
+      "chapters": [
+        "CH-17"
+      ],
+      "value": "21.00 : 1",
+      "numbers": [
+        21.0,
+        1
+      ],
+      "unit": "ratio",
+      "context": "White on black returns exactly 21.00 : 1.",
+      "line": 399
+    },
+    {
+      "id": "d:6.14:1",
+      "section": "6.14",
+      "kind": "bold",
+      "chapters": [
+        "CH-19"
+      ],
+      "value": "13",
+      "numbers": [
+        13
+      ],
+      "unit": null,
+      "context": "Dijkstra's shortest path on the demo graph costs 13.",
+      "line": 402
+    },
+    {
+      "id": "d:6.14:2",
+      "section": "6.14",
+      "kind": "bold",
+      "chapters": [
+        "CH-19"
+      ],
+      "value": "height 3",
+      "numbers": [
+        3
+      ],
+      "unit": null,
+      "context": "An AVL tree stays height 3 after ascending inserts.",
+      "line": 402
+    },
+    {
+      "id": "d:6.14:3",
+      "section": "6.14",
+      "kind": "plain",
+      "chapters": [
+        "CH-19"
+      ],
+      "value": "1",
+      "numbers": [
+        1
+      ],
+      "unit": null,
+      "context": "Training error at k = 1 is zero by construction — which is why leave-one-out error is shown beside it.",
+      "line": 402
+    },
+    {
+      "id": "d:6.15:1",
+      "section": "6.15",
+      "kind": "plain",
+      "chapters": [
+        "CH-25"
+      ],
+      "value": "200",
+      "numbers": [
+        200
+      ],
+      "unit": null,
+      "context": "One hot key makes a 200-task stage wait on a single straggler;",
+      "line": 405
+    },
+    {
+      "id": "d:6.16:1",
+      "section": "6.16",
+      "kind": "bold",
+      "chapters": [
+        "CH-29",
+        "CH-31"
+      ],
+      "value": "7.33 vs 65.50 MAE",
+      "numbers": [
+        7.33,
+        65.5
+      ],
+      "unit": null,
+      "context": "The fitted line beats the baseline 7.33 vs 65.50 MAE on held-out data.",
+      "line": 408
+    },
+    {
+      "id": "d:6.16:2",
+      "section": "6.16",
+      "kind": "bold",
+      "chapters": [
+        "CH-29",
+        "CH-31"
+      ],
+      "value": "0.35",
+      "numbers": [
+        0.35
+      ],
+      "unit": null,
+      "context": "Gradient descent diverges above a learning rate of about 0.35 — because the arithmetic diverges, not because it was scripted to.",
+      "line": 408
+    },
+    {
+      "id": "d:6.17:1",
+      "section": "6.17",
+      "kind": "code",
+      "chapters": [
+        "CH-32"
+      ],
+      "value": "d_model 8 · 2 heads · d_head 4 · d_ff 16 · one block · 696 weights",
+      "numbers": [
+        8,
+        2,
+        4,
+        16,
+        696
+      ],
+      "unit": null,
+      "context": "`d_model 8 · 2 heads · d_head 4 · d_ff 16 · one block · 696 weights`, every one of them multiplied on screen.",
+      "line": 411
+    },
+    {
+      "id": "d:6.17:2",
+      "section": "6.17",
+      "kind": "bold",
+      "chapters": [
+        "CH-32"
+      ],
+      "value": "every row sums to exactly 1.000",
+      "numbers": [
+        1.0
+      ],
+      "unit": null,
+      "context": "After the mask the attention grid is visibly lower-triangular and every row sums to exactly 1.000.",
+      "line": 412
+    },
+    {
+      "id": "d:6.18:1",
+      "section": "6.18",
+      "kind": "bold",
+      "chapters": [
+        "CH-33"
+      ],
+      "value": "0.165",
+      "numbers": [
+        0.165
+      ],
+      "unit": null,
+      "context": "Without expansion the top hit is a roadmap section at 0.165 — confident, wrong, weak.",
+      "line": 416
+    },
+    {
+      "id": "d:6.18:2",
+      "section": "6.18",
+      "kind": "bold",
+      "chapters": [
+        "CH-33"
+      ],
+      "value": "0.227",
+      "numbers": [
+        0.227
+      ],
+      "unit": null,
+      "context": "With synonym expansion the idempotency section jumps to 0.227 and takes the top slot.",
+      "line": 416
+    },
+    {
+      "id": "d:6.19:1",
+      "section": "6.19",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "66.67 %",
+      "numbers": [
+        66.67
+      ],
+      "unit": "%",
+      "context": "Success rate 66.67 %;",
+      "line": 419
+    },
+    {
+      "id": "d:6.19:2",
+      "section": "6.19",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "400 EGP",
+      "numbers": [
+        400
+      ],
+      "unit": "EGP",
+      "context": "successful total 400 EGP;",
+      "line": 419
+    },
+    {
+      "id": "d:6.19:3",
+      "section": "6.19",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "250",
+      "numbers": [
+        250
+      ],
+      "unit": null,
+      "context": "A = 250, B = 150.",
+      "line": 419
+    },
+    {
+      "id": "d:6.19:4",
+      "section": "6.19",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "150",
+      "numbers": [
+        150
+      ],
+      "unit": null,
+      "context": "A = 250, B = 150.",
+      "line": 419
+    },
+    {
+      "id": "d:6.20:1",
+      "section": "6.20",
+      "kind": "bold",
+      "chapters": [
+        "CH-30"
+      ],
+      "value": "1 %",
+      "numbers": [
+        1
+      ],
+      "unit": "%",
+      "context": "- A classifier that always predicts no on a problem with 1 % positives scores 99 % accuracy and catches zero cases (CH-30).",
+      "line": 423
+    },
+    {
+      "id": "d:6.20:2",
+      "section": "6.20",
+      "kind": "bold",
+      "chapters": [
+        "CH-30"
+      ],
+      "value": "99 %",
+      "numbers": [
+        99
+      ],
+      "unit": "%",
+      "context": "- A classifier that always predicts no on a problem with 1 % positives scores 99 % accuracy and catches zero cases (CH-30).",
+      "line": 423
+    },
+    {
+      "id": "d:6.20:3",
+      "section": "6.20",
+      "kind": "bold",
+      "chapters": [],
+      "value": "16",
+      "numbers": [
+        16
+      ],
+      "unit": "comparisons",
+      "context": "- Linear search over 16 sorted items: up to 16 comparisons;",
+      "line": 424
+    },
+    {
+      "id": "d:6.20:4",
+      "section": "6.20",
+      "kind": "bold",
+      "chapters": [
+        "CH-19"
+      ],
+      "value": "4",
+      "numbers": [
+        4
+      ],
+      "unit": null,
+      "context": "binary search: 4 (log₂ 16) (CH-19).",
+      "line": 424
+    },
+    {
+      "id": "d:6.20:5",
+      "section": "6.20",
+      "kind": "plain",
+      "chapters": [],
+      "value": "16",
+      "numbers": [
+        16
+      ],
+      "unit": null,
+      "context": "- Linear search over 16 sorted items: up to 16 comparisons;",
+      "line": 424
+    },
+    {
+      "id": "d:6.20:6",
+      "section": "6.20",
+      "kind": "plain",
+      "chapters": [
+        "CH-19"
+      ],
+      "value": "16",
+      "numbers": [
+        16
+      ],
+      "unit": null,
+      "context": "binary search: 4 (log₂ 16) (CH-19).",
+      "line": 424
+    },
+    {
+      "id": "d:6.20:7",
+      "section": "6.20",
+      "kind": "bold",
+      "chapters": [],
+      "value": "10 000",
+      "numbers": [
+        10000
+      ],
+      "unit": "items",
+      "context": "- Membership over 10 000 items: a list walks up to 10 000;",
+      "line": 425
+    },
+    {
+      "id": "d:6.20:8",
+      "section": "6.20",
+      "kind": "plain",
+      "chapters": [],
+      "value": "10 000",
+      "numbers": [
+        10000
+      ],
+      "unit": null,
+      "context": "- Membership over 10 000 items: a list walks up to 10 000;",
+      "line": 425
+    },
+    {
+      "id": "d:6.20:9",
+      "section": "6.20",
+      "kind": "code",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "4 / 6 = 66.67 %",
+      "numbers": [
+        4,
+        6,
+        66.67
+      ],
+      "unit": "%",
+      "context": "- `4 / 6 = 66.67 %` and the receipts' totals (CH-00, CH-27).",
+      "line": 426
+    },
+    {
+      "id": "d:6.21:1",
+      "section": "6.21",
+      "kind": "table_row",
+      "chapters": [
+        "CH-11",
+        "CH-15"
+      ],
+      "value": [
+        "€3 948.50 cleaned total",
+        "CH-15",
+        "gold €3 098.30 + silver €850.20 in CH-11"
+      ],
+      "header": [
+        "Figure",
+        "First seen",
+        "Must equal"
+      ],
+      "numbers": [
+        3948.5,
+        3098.3,
+        850.2
+      ],
+      "unit": "EUR",
+      "context": "Cross-chapter reconciliations — show these on screen",
+      "line": 431
+    },
+    {
+      "id": "d:6.21:2",
+      "section": "6.21",
+      "kind": "table_row",
+      "chapters": [
+        "CH-15"
+      ],
+      "value": [
+        "€3 853.50",
+        "CH-15",
+        "€3 948.50 − €95.00 (order 1009's blank quantity read as zero)"
+      ],
+      "header": [
+        "Figure",
+        "First seen",
+        "Must equal"
+      ],
+      "numbers": [
+        3853.5,
+        3948.5,
+        95.0,
+        1009
+      ],
+      "unit": "EUR",
+      "context": "Cross-chapter reconciliations — show these on screen",
+      "line": 432
+    },
+    {
+      "id": "d:6.21:3",
+      "section": "6.21",
+      "kind": "table_row",
+      "chapters": [
+        "CH-10",
+        "CH-12",
+        "CH-21"
+      ],
+      "value": [
+        "order 1007 → customer 9",
+        "CH-10",
+        "the row INNER JOIN drops in CH-12 and the gate flags in CH-21"
+      ],
+      "header": [
+        "Figure",
+        "First seen",
+        "Must equal"
+      ],
+      "numbers": [
+        1007,
+        9
+      ],
+      "unit": null,
+      "context": "Cross-chapter reconciliations — show these on screen",
+      "line": 433
+    },
+    {
+      "id": "d:6.21:4",
+      "section": "6.21",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "66.67 %",
+        "CH-00",
+        "the recomputed rate in CH-27"
+      ],
+      "header": [
+        "Figure",
+        "First seen",
+        "Must equal"
+      ],
+      "numbers": [
+        66.67
+      ],
+      "unit": null,
+      "context": "Cross-chapter reconciliations — show these on screen",
+      "line": 434
+    },
+    {
+      "id": "d:5.2:1",
+      "section": "5.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "T1",
+        "A",
+        "120",
+        "OK"
+      ],
+      "header": [
+        "id",
+        "operator",
+        "amount (EGP)",
+        "status"
+      ],
+      "numbers": [
+        120
+      ],
+      "unit": "EGP",
+      "context": "NilePay receipt T1",
+      "line": 287
+    },
+    {
+      "id": "d:5.2:2",
+      "section": "5.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "T2",
+        "A",
+        "80",
+        "OK"
+      ],
+      "header": [
+        "id",
+        "operator",
+        "amount (EGP)",
+        "status"
+      ],
+      "numbers": [
+        80
+      ],
+      "unit": "EGP",
+      "context": "NilePay receipt T2",
+      "line": 288
+    },
+    {
+      "id": "d:5.2:3",
+      "section": "5.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "T3",
+        "B",
+        "200",
+        "FAILED"
+      ],
+      "header": [
+        "id",
+        "operator",
+        "amount (EGP)",
+        "status"
+      ],
+      "numbers": [
+        200
+      ],
+      "unit": "EGP",
+      "context": "NilePay receipt T3",
+      "line": 289
+    },
+    {
+      "id": "d:5.2:4",
+      "section": "5.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "T4",
+        "A",
+        "50",
+        "OK"
+      ],
+      "header": [
+        "id",
+        "operator",
+        "amount (EGP)",
+        "status"
+      ],
+      "numbers": [
+        50
+      ],
+      "unit": "EGP",
+      "context": "NilePay receipt T4",
+      "line": 290
+    },
+    {
+      "id": "d:5.2:5",
+      "section": "5.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "T5",
+        "B",
+        "150",
+        "OK"
+      ],
+      "header": [
+        "id",
+        "operator",
+        "amount (EGP)",
+        "status"
+      ],
+      "numbers": [
+        150
+      ],
+      "unit": "EGP",
+      "context": "NilePay receipt T5",
+      "line": 291
+    },
+    {
+      "id": "d:5.2:6",
+      "section": "5.2",
+      "kind": "table_row",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": [
+        "T6",
+        "B",
+        "100",
+        "FAILED"
+      ],
+      "header": [
+        "id",
+        "operator",
+        "amount (EGP)",
+        "status"
+      ],
+      "numbers": [
+        100
+      ],
+      "unit": "EGP",
+      "context": "NilePay receipt T6",
+      "line": 292
+    },
+    {
+      "id": "d:5.2:7",
+      "section": "5.2",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "66.67 %",
+      "numbers": [
+        66.67
+      ],
+      "unit": "%",
+      "context": "Success rate = 4 / 6 = 66.67 %.",
+      "line": 294
+    },
+    {
+      "id": "d:5.2:8",
+      "section": "5.2",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "400 EGP",
+      "numbers": [
+        400
+      ],
+      "unit": "EGP",
+      "context": "Successful total = 400 EGP.",
+      "line": 294
+    },
+    {
+      "id": "d:5.2:9",
+      "section": "5.2",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "250",
+      "numbers": [
+        250
+      ],
+      "unit": "EGP",
+      "context": "Operator totals: A = 250, B = 150.",
+      "line": 294
+    },
+    {
+      "id": "d:5.2:10",
+      "section": "5.2",
+      "kind": "bold",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "150",
+      "numbers": [
+        150
+      ],
+      "unit": "EGP",
+      "context": "Operator totals: A = 250, B = 150.",
+      "line": 294
+    }
+  ],
+  "receipts": [
+    {
+      "id": "T1",
+      "operator": "A",
+      "amount_egp": 120,
+      "status": "OK"
+    },
+    {
+      "id": "T2",
+      "operator": "A",
+      "amount_egp": 80,
+      "status": "OK"
+    },
+    {
+      "id": "T3",
+      "operator": "B",
+      "amount_egp": 200,
+      "status": "FAILED"
+    },
+    {
+      "id": "T4",
+      "operator": "A",
+      "amount_egp": 50,
+      "status": "OK"
+    },
+    {
+      "id": "T5",
+      "operator": "B",
+      "amount_egp": 150,
+      "status": "OK"
+    },
+    {
+      "id": "T6",
+      "operator": "B",
+      "amount_egp": 100,
+      "status": "FAILED"
+    }
+  ],
+  "derived": {
+    "success_rate_pct": 66.67,
+    "successful_total_egp": 400,
+    "operator_ok_totals_egp": {
+      "A": 250,
+      "B": 150
+    },
+    "operator_all_totals_egp": {
+      "A": 250,
+      "B": 450
+    }
+  },
+  "checks": [
+    {
+      "what": "§5.2 success rate",
+      "expr": "4 / 6",
+      "computed": 66.67,
+      "stated": 66.67,
+      "ok": true
+    },
+    {
+      "what": "§5.2 successful total",
+      "expr": "sum(amount where OK)",
+      "computed": 400,
+      "stated": 400,
+      "ok": true
+    },
+    {
+      "what": "§5.2 operator A (OK only)",
+      "expr": "sum A OK",
+      "computed": 250,
+      "stated": 250,
+      "ok": true
+    },
+    {
+      "what": "§5.2 operator B (OK only)",
+      "expr": "sum B OK",
+      "computed": 150,
+      "stated": 150,
+      "ok": true
+    },
+    {
+      "what": "§6.3/§6.21 gold + silver",
+      "expr": "3098.30 + 850.20",
+      "computed": 3948.5,
+      "stated": 3948.5,
+      "ok": true
+    },
+    {
+      "what": "§6.2/§6.21 blank quantity as zero",
+      "expr": "3948.50 - 95.00",
+      "computed": 3853.5,
+      "stated": 3853.5,
+      "ok": true
+    },
+    {
+      "what": "§6.4 fan-out rows",
+      "expr": "4+3+4+2+1+1",
+      "computed": 15,
+      "stated": 15,
+      "ok": true
+    },
+    {
+      "what": "§6.20 binary search",
+      "expr": "log2(16)",
+      "computed": 4,
+      "stated": 4,
+      "ok": true
+    },
+    {
+      "what": "§6.10 transposition",
+      "expr": "-36 % 9 == 0",
+      "computed": true,
+      "stated": true,
+      "ok": true
+    },
+    {
+      "what": "§6.3 funnel JOIN",
+      "expr": "14 - 1 (order 1007)",
+      "computed": 13,
+      "stated": 13,
+      "ok": true
+    },
+    {
+      "what": "§6.3 funnel WHERE",
+      "expr": "13 - 2 (1004 cancelled, 1010 refunded)",
+      "computed": 11,
+      "stated": 11,
+      "ok": true
+    },
+    {
+      "what": "§6.17 attention heads",
+      "expr": "d_model 8 = 2 heads x d_head 4",
+      "computed": 8,
+      "stated": 8,
+      "ok": true
+    }
+  ]
+}

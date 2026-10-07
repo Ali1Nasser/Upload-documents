@@ -1,0 +1,2470 @@
+{
+  "v": 1,
+  "generated_by": "dc corpus canon",
+  "parts": [
+    {
+      "part": 0,
+      "title": "DA Camp × NilePay — الماستر الموحّد الكامل (صورة + حركة + سرد + أرقام)",
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Master_Full_Egyptian.md",
+        "file_id": "f:21c5545b28a0",
+        "copies": 10,
+        "bytes": 489553
+      },
+      "header": [
+        "لغة السرد: مصري عامّي واضح، والمصطلحات التقنية والكود بالإنجليزي.",
+        "الأبطال الثابتين: ShopFlow (العمود الفقري الهندسي) · NilePay (خدمة Mobile Money مصرية خيالية — العمود الفقري للمجال).",
+        "المصدر: الماستر المصري 70:05 (CH-00 → CH-36) + الـV2 (21 فصل) + ماستر NotebookLM (Part A/B/C/D/E) + الـcorpus المرجعي (~200 ألف كلمة) — متوحّدين ومتقسّمين على 25 جزء.",
+        "الملف ده إيه؟ كل مشهد بالكامل: 🎬 على الشاشة · 🎞️ الحركة · 🎙️ السرد — ومعاهم لكل جزء: الأرقام الثابتة، والمصطلحات، وخريطة الجزء، وأسئلة الإنترفيو. ملفات الأجزاء الـ25 هي نفس المحتوى ده بالحرف، ومضاف لكل واحد تعليمات الإخراج وPrompt جاهز لـNotebookLM."
+      ],
+      "parts_table": [
+        {
+          "part": 1,
+          "title": "الرحلة واللغة البصرية: هنتعلم إزاي، وهنتفرج على إيه",
+          "scenes": 12,
+          "words": 783,
+          "duration_min": 6
+        },
+        {
+          "part": 2,
+          "title": "الجهاز والملفات والـTerminal: من الـbyte لأول pipeline",
+          "scenes": 11,
+          "words": 739,
+          "duration_min": 6
+        },
+        {
+          "part": 3,
+          "title": "Linux Admin I: الصلاحيات والمستخدمين والعمليات والحزم",
+          "scenes": 12,
+          "words": 664,
+          "duration_min": 5
+        },
+        {
+          "part": 4,
+          "title": "Linux Admin II: الخدمات واللوجات والديسك والـSSH والأمان — ليلة العطل",
+          "scenes": 13,
+          "words": 654,
+          "duration_min": 5
+        },
+        {
+          "part": 5,
+          "title": "Python I: من القيمة للـfunction، والـcollections والملفات والبيئات",
+          "scenes": 10,
+          "words": 561,
+          "duration_min": 4
+        },
+        {
+          "part": 6,
+          "title": "Python II: الـstate والذاكرة والأخطاء والـdecorators والاختبارات وGit",
+          "scenes": 13,
+          "words": 718,
+          "duration_min": 6
+        },
+        {
+          "part": 7,
+          "title": "Python للداتا: pandas، والاتصال بالـdatabase، والـETL والـpools والاختبارات",
+          "scenes": 13,
+          "words": 700,
+          "duration_min": 5
+        },
+        {
+          "part": 8,
+          "title": "SQL I: ليه database؟ الـrelational model، والـnormalization، وخط تشغيل الـquery، وسؤال الـgrain",
+          "scenes": 13,
+          "words": 678,
+          "duration_min": 5
+        },
+        {
+          "part": 9,
+          "title": "SQL II: الـjoins والـfan-out، والـwindows، والـCTEs، ومنطق الـNULL، والـtransactions والـdeadlock",
+          "scenes": 16,
+          "words": 875,
+          "duration_min": 7
+        },
+        {
+          "part": 10,
+          "title": "SQL III: الـindexes، وقراءة الـplan، وحلقة الـtuning، والـdialects (MySQL · PostgreSQL · CarbonData · GaussDB)، وSQL على داتا ضخمة",
+          "scenes": 16,
+          "words": 625,
+          "duration_min": 5
+        },
+        {
+          "part": 11,
+          "title": "Analytics: الداتا البايظة والـapplied steps، والإحصاء (من المتوسط للـA/B)، والـsemantic model والتقرير",
+          "scenes": 16,
+          "words": 630,
+          "duration_min": 5
+        },
+        {
+          "part": 12,
+          "title": "Software Craft وDSA: الـcoupling والـcohesion، الـSOLID، الـOOP والـdesign patterns، الـrefactoring والـreview، والـalgorithms كعمليات بتتعدّ",
+          "scenes": 15,
+          "words": 618,
+          "duration_min": 5
+        },
+        {
+          "part": 13,
+          "title": "Systems والويب: من الـDNS للـdatabase، الـHTTP والـstatus codes، عقد الـAPI بـFastAPI، والهوية والأمان (IDOR والـinjection)",
+          "scenes": 12,
+          "words": 393,
+          "duration_min": 3
+        },
+        {
+          "part": 14,
+          "title": "Backend بالعمق: ليه Java؟ الـcollections والـstreams، الـJDBC والـtransactions، الـconnection pool، Spring Boot بطبقاته، والـconcurrency والـsaga",
+          "scenes": 15,
+          "words": 580,
+          "duration_min": 4
+        },
+        {
+          "part": 15,
+          "title": "ETL والـDAGs: التحقق قبل التحويل، أبعاد الجودة الست، الـquarantine، Airflow من جوه، والـretry اللي بيضاعف الصفوف وعلاجه بالـidempotency",
+          "scenes": 16,
+          "words": 545,
+          "duration_min": 4
+        },
+        {
+          "part": 16,
+          "title": "الـWarehouse: الطبقات (ODS · DW · ADS · marts)، الـstar schema والـgrain، الـcube وعملياته، الـmeasures الغير قابلة للجمع، الـSCD، والـqueries التحليلية",
+          "scenes": 14,
+          "words": 503,
+          "duration_min": 4
+        },
+        {
+          "part": 17,
+          "title": "Huawei DataCube وتقارير Mobile Money: المصادر والطبقات، اختيار الـstorage، بناء الموديل في خمس مراحل، الـ24 KPI، الـETL، مصمم التقارير، الـopenness، والـgovernance",
+          "scenes": 15,
+          "words": 600,
+          "duration_min": 5
+        },
+        {
+          "part": 18,
+          "title": "Big Data: Hadoop (HDFS · YARN · MapReduce · الـecosystem) وSpark (الكسل، الـstages، الـpartitions، الـshuffle، الـskew، وPySpark)",
+          "scenes": 16,
+          "words": 617,
+          "duration_min": 5
+        },
+        {
+          "part": 19,
+          "title": "Kafka والـstreaming، ورحلة معاملة Mobile Money واحدة: الـoffsets والـlag والـdelivery، أربع ساعات لكل محطة، ومعمارية Nextgen D&IM وتدفقاتها الأربعة",
+          "scenes": 16,
+          "words": 657,
+          "duration_min": 5
+        },
+        {
+          "part": 20,
+          "title": "الـReconciliation واختبارات D&IM والـGovernance والـDR: أربع أنواع فروق، ليه الإجمالي الصافي بيكدب، خطة الاختبار الخماسية وT1–T4، اختبارات الـNRT، الـk-anonymity، الأمان، الـRPO/RTO، وعزل الدول",
+          "scenes": 16,
+          "words": 595,
+          "duration_min": 5
+        },
+        {
+          "part": 21,
+          "title": "Machine Learning: من سؤال بيزنس وbaseline، للـsplit والـleakage، لعائلات النماذج، والتقييم الأمين (precision · recall · العتبة · الـcross-validation · bias/variance)",
+          "scenes": 13,
+          "words": 460,
+          "duration_min": 4
+        },
+        {
+          "part": 22,
+          "title": "Deep Learning والـTransformers: من neuron بالإيد للـbackpropagation، ومن النص للـtokens للـattention للـtoken الجاي، ومفاهيم الـLLM والـprompting",
+          "scenes": 16,
+          "words": 544,
+          "duration_min": 4
+        },
+        {
+          "part": 23,
+          "title": "Embeddings والـRAG والـAgents: المعنى كموضع، الـpipeline ومراحل فشلها، الـvocabulary mismatch بالأرقام، «الاسترجاع query مش إذن»، والـagent loop بحراسة طبقتين — لحد ShopFlow AI Analyst",
+          "scenes": 16,
+          "words": 505,
+          "duration_min": 4
+        },
+        {
+          "part": 24,
+          "title": "SHIP IT: الـcontainers وحساب الـlayer cache، docker-compose لـShopFlow، بوابة الـCI/CD والـrollback، الـIAM، الإشارات التلاتة، وحادث متشغّل بالأدلة",
+          "scenes": 12,
+          "words": 407,
+          "duration_min": 3
+        },
+        {
+          "part": 25,
+          "title": "الدليل والكارير والختام: سلسلة الـartifacts، «خلّصت ≠ أثبتّ»، دفاع الخمس دقايق، الإنترفيو، خطة المذاكرة، الفروع الستة، والمعمار كله منوّر",
+          "scenes": 14,
+          "words": 620,
+          "duration_min": 5
+        }
+      ],
+      "rules": [
+        {
+          "rule": "Failure-first",
+          "text": "كل فكرة كبيرة بتتعرض وهي بتبوظ الأول، وبعدين الإصلاح."
+        },
+        {
+          "rule": "توقّع قبل الإجابة",
+          "text": "السؤال بيظهر، وقفة، وبعدين الإجابة."
+        },
+        {
+          "rule": "الـstate ظاهر",
+          "text": "عدّادات، funnels لعدد الصفوف، heatmaps، timelines — مفيش صندوق أسود."
+        },
+        {
+          "rule": "Callbacks",
+          "text": "نفس الأرقام بترجع (1007 → 9 · €3,948.50 · 66.67%) عشان تثبت إنها داتا واحدة."
+        },
+        {
+          "rule": "الحركة",
+          "text": "160–700 ms؛ الـ3D مسموح في تلات أماكن بس: RAM مقابل disk (الجزء 02)، والـcluster (الجزء 18)، ومساحة الـembeddings (الجزء 23) — والباقي 2D."
+        },
+        {
+          "rule": "الأرقام",
+          "text": "من عقد الداتا بس — ممنوع اختراع رقم وقت الرسم."
+        }
+      ],
+      "totals": {
+        "scenes": 351,
+        "words": 15271,
+        "duration_min": 117
+      },
+      "counted_scenes": 351
+    },
+    {
+      "part": 1,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_01_of_25_Journey_and_Visual_Language.md",
+        "file_id": "f:3d64b9389516",
+        "copies": 10,
+        "bytes": 21402
+      },
+      "one_liner": "الشغلانة كلها تلات حركات: هات الصفوف، خليها موثوقة، جاوب على السؤال. وفي الجزء ده بنتعلم خريطة الرحلة، والعقد اللي بيربط كل الأمثلة ببعض، واللغة البصرية اللي هنقرا بيها كل مشهد جاي.",
+      "outcomes": "فهم الـ7 مراحل، مشروعين ماشيين معانا للآخر (ShopFlow وNilePay)، الـ14 field الثابتين، وقالب الـ9 خطوات اللي كل مفهوم بيمشي فيه.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، وامشي على المشاهد بنفس الترتيب اللي تحت.",
+        "كل مشهد ليه خانة **«على الشاشة»**: ارسمها diagram أو حركة أو جدول بيتبني قدام المشاهد. ممنوع slide فيها bullets وخلاص.",
+        "استخدم **السرد** المكتوب تحت كل مشهد حرفياً قدر الإمكان. لو الوقت ضيق اختصر الجُمل، لكن ما تشيلش ولا فكرة ولا رقم.",
+        "ما تحذفش ولا مشهد، وخصوصاً مشهد العطل (failure) ومشهد التوقع (prediction).",
+        "استخدم الأرقام المكتوبة في الملف بس. ما تخترعش رقم.",
+        "ما تترجمش: الكود، الأوامر، أسماء الجداول والأعمدة، أسماء المنتجات، الاختصارات. اشرحها بالمصري أول مرة وبعدين استخدمها زي ما هي.",
+        "في مشهد التوقع: اسأل المشاهد، اسكت ثانيتين، وبعدين اعرض «المتوقع مقابل الحقيقي».",
+        "آخر الفيديو ارجع لرسمة المعمار الكبيرة ونوّر الحتة اللي اتشرحت."
+      ],
+      "numbers": [
+        "عمليات NilePay الست:",
+        "نسبة النجاح = 4 / 6 = 66.67 % · الإجمالي الناجح = 400 EGP · A = 250 · B = 150.",
+        "عقد الـ14 field:",
+        "`transaction_id` (STRING/UUID — مفتاح منع التكرار الطبيعي) · `event_time` (TIMESTAMPTZ — وقت الحدث؛ بيحدد الـpartitions والـwindows) · `sender_id` (masked — عمرنا ما نحط MSISDN خام في التحليل) · `receiver_id` (masked) · `service_type` (CASH_IN | CASH_OUT | TRANSFER | PAYMENT) · `amount` (DECIMAL(18,4) — أبداً مش FLOAT) · `fee` (DECIMAL(18,4) — بيتطابق مع جدول الرسوم) · `status` (SUCCESS | FAILED | PENDING | REVERSED) · `channel` (USSD | APP | AGENT | API) · `agent_id` (NULL فعلاً في app-to-app، مش 'UNKNOWN') · `region` (dimension مش fact attribute) · `source_system` (مين أنتج الحدث — مهم للـreconciliation) · `ingestion_time` (وقت الوصول للمنصة؛ الفرق عن event_time = مشكلة الداتا المتأخرة) · `batch_id` (وحدة الـidempotency والـreconciliation؛ batch واحدة = نشر ذرّي واحد)."
+      ],
+      "numbers_tables": [
+        {
+          "header": [
+            "id",
+            "operator",
+            "amount (EGP)",
+            "status"
+          ],
+          "rows": [
+            [
+              "T1",
+              "A",
+              "120",
+              "OK"
+            ],
+            [
+              "T2",
+              "A",
+              "80",
+              "OK"
+            ],
+            [
+              "T3",
+              "B",
+              "200",
+              "FAILED"
+            ],
+            [
+              "T4",
+              "A",
+              "50",
+              "OK"
+            ],
+            [
+              "T5",
+              "B",
+              "150",
+              "OK"
+            ],
+            [
+              "T6",
+              "B",
+              "100",
+              "FAILED"
+            ]
+          ]
+        }
+      ],
+      "terms": [
+        {
+          "term": "progressive reveal",
+          "meaning_ar": "بنبني الرسمة طبقة طبقة بدل ما نرميها كلها مرة واحدة"
+        },
+        {
+          "term": "transport",
+          "meaning_ar": "أزرار تشغيل ووقف وخطوة لقدام وورا لأي process"
+        },
+        {
+          "term": "failure-first",
+          "meaning_ar": "بنشوف الحاجة وهي بايظة قبل ما نفهم الحل"
+        },
+        {
+          "term": "callback",
+          "meaning_ar": "الرجوع لحاجة اتشرحت قبل كده عشان نربط"
+        },
+        {
+          "term": "artifact",
+          "meaning_ar": "ناتج ملموس تقدر تعرضه: repo، test، تقرير"
+        },
+        {
+          "term": "idempotency",
+          "meaning_ar": "إن تكرار نفس الطلب ما يعملش أثر زيادة"
+        }
+      ],
+      "map": {
+        "prediction": "4 من 6 نجحوا → النسبة كام؟ (66.67 %)",
+        "failure": "نفس المدينة مكتوبة 3 مرات فبقت 3 مدن؛ و`FLOAT` للفلوس.",
+        "fix": "`TRIM` وتوحيد الكتابة؛ و`DECIMAL(18,4)`.",
+        "callback_next": "الست عمليات هترجع في الجزء 19 (رحلة transaction واحدة).",
+        "artifact": "صف بلاطات الدليل (فاضي دلوقتي) + كارت قالب الـ9 خطوات."
+      },
+      "questions": [
+        "ليه `amount` بيتخزن `DECIMAL` مش `FLOAT`؟",
+        "إيه الفرق بين `event_time` و`ingestion_time`، وليه يهمنا؟",
+        "إيه هي التلات حركات اللي كل أدوات الداتا بتعملها؟",
+        "ليه بنشوف كل ميكانيزم «شغال» و«بايظ»؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس. امشي على المشاهد من 1 لـ12 بالترتيب ومن غير ما تشيل ولا مشهد. كل مشهد ارسم اللي مكتوب في «على الشاشة» كـdiagram أو جدول بيتبني، مش bullets. استخدم السرد المكتوب حرفياً قدر الإمكان، وسيب المصطلحات التقنية بالإنجليزي. اعرض جدول NilePay بالأرقام بالظبط، واسأل سؤال التوقع قبل ما تقول 66.67%. اختم بقالب الـ9 خطوات واتفاق الأمانة.",
+      "title": "الرحلة واللغة البصرية: هنتعلم إزاي، وهنتفرج على إيه",
+      "narration_words": 783,
+      "scene_count": 12,
+      "unified_identical_scenes": 12
+    },
+    {
+      "part": 2,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_02_of_25_Machine_Files_Terminal.md",
+        "file_id": "f:2eaec1dafa10",
+        "copies": 10,
+        "bytes": 18923
+      },
+      "one_liner": "الكمبيوتر بيعمل حاجة واحدة بسرعة رهيبة، والداتا عايشة في مكانين سرعتهم مختلفة جداً، والملف مجرد bytes ليها اسم، والـterminal حوار بتشوف فيه الـstate وهي بتتغير — وأول pipeline في حياتك هو سطر واحد فيه `|`.",
+      "outcomes": "fetch-decode-execute، RAM مقابل disk، الـbyte والـencoding، الـpath المطلق والنسبي، 12 أمر أساسي، الـredirection والـpipes، وأول repo ليك.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، وامشي على المشاهد بالترتيب.",
+        "كل مشهد ارسم «على الشاشة» كـdiagram أو terminal بيتكتب حرف حرف أو شجرة ملفات بتتحرك — مش bullets.",
+        "استخدم السرد المكتوب حرفياً قدر الإمكان. اختصر الكلام لو لازم، ما تشيلش أفكار أو أرقام.",
+        "ما تحذفش مشهد العطل (`No such file or directory`) ولا مشهد التوقع.",
+        "الأوامر تتكتب زي ما هي بالإنجليزي، وتتشرح بالمصري.",
+        "الأرقام المسموح بيها هي اللي هنا بس."
+      ],
+      "numbers": [
+        "byte = 8 bits = 256 قيمة.",
+        "`café` = 4 حروف = 5 bytes في UTF-8 (الـ`é` = 2 bytes).",
+        "الحركة التعليمية: 160–700 ms؛ خطوة الـCPU في المحاكاة 700 ms."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "process",
+          "meaning_ar": "برنامج شغال دلوقتي وليه ميموري خاصة"
+        },
+        {
+          "term": "encoding",
+          "meaning_ar": "الاتفاق على أنهي bytes تعني أنهي حرف"
+        },
+        {
+          "term": "absolute path",
+          "meaning_ar": "مسار بيبدأ من الجذر `/`"
+        },
+        {
+          "term": "relative path",
+          "meaning_ar": "مسار بيبدأ من المكان اللي إنت فيه"
+        },
+        {
+          "term": "stdin / stdout / stderr",
+          "meaning_ar": "قناة الدخول، قناة النتيجة، قناة الأخطاء"
+        },
+        {
+          "term": "pipe `|",
+          "meaning_ar": "توصيل output أمر بـinput اللي بعده"
+        },
+        {
+          "term": "PATH",
+          "meaning_ar": "قائمة الفولدرات اللي الـshell بيدوّر فيها على الأوامر"
+        }
+      ],
+      "map": {
+        "prediction": "`café` كام byte؟ (5) · الملف موجود ليه الأمر فشل؟",
+        "failure": "`No such file or directory` و`UnicodeDecodeError`.",
+        "fix": "`pwd` ومسار صحيح؛ فتح الملف بالـencoding الصح.",
+        "callback_next": "الـpipe هيرجع في الجزء 15 كـDAG في Airflow؛ فرق RAM/disk هيرجع في الـgenerators (الجزء 06) والـindexes (الجزء 10).",
+        "artifact": "ShopFlow repo فيه README وأول commit."
+      },
+      "questions": [
+        "ليه برنامج بيشتغل على ملف صغير ويقع على ملف كبير؟",
+        "إيه الفرق بين `>` و`>>`؟ وإمتى تستخدم `2>/dev/null`؟",
+        "`cd -` بيعمل إيه؟ و`mkdir -p` بيحل أنهي مشكلة؟",
+        "أمر «مش موجود» مع إنك نزّلته — تبص فين الأول؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ11 بالترتيب. ارسم الـterminal وهو بيتكتب ولوحة الـstate بتتغير جنبه، وارسم الـpipe كأنابيب الداتا بتجري فيها. اعرض مشهد 3D للـRAM والـdisk مع عدّاد الـlatency. اسأل سؤال التوقع عن `café` قبل ما تقول 5 bytes، واعرض رسالة `No such file or directory` وبعدها `pwd` كحل. سيب كل الأوامر بالإنجليزي واشرحها بالمصري.",
+      "title": "الجهاز والملفات والـTerminal: من الـbyte لأول pipeline",
+      "narration_words": 739,
+      "scene_count": 11,
+      "unified_identical_scenes": 11
+    },
+    {
+      "part": 3,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_03_of_25_Linux_Admin_I.md",
+        "file_id": "f:c88f520bb96b",
+        "copies": 10,
+        "bytes": 19334
+      },
+      "one_liner": "أغلب منصات الداتا شغالة على Linux، فالفرق بين إنك تخمّن وإنك تعرف في ليلة عطل بيبدأ من هنا: مين مسموح له يعمل إيه، مين شغال دلوقتي، وإزاي تركّب وتدوّر وتقرا.",
+      "outcomes": "قراءة `rwx` والأرقام 644/755/700، `umask`، إدارة users وgroups، الـprocesses والـsignals، `apt` و`dpkg`، أدوات البحث والقراءة، وأساسيات الشبكة والأرشفة والمساحة.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، وامشي على المشاهد بالترتيب.",
+        "ارسم الصلاحيات كتلات أشخاص (owner / group / other) بياخدوا أو بيخسروا مفاتيح r-w-x، والـprocesses كجدول متوصّل بعدّادات CPU وميموري.",
+        "استخدم السرد المكتوب حرفياً قدر الإمكان، وما تشيلش ولا أمر ولا رقم.",
+        "مشهد العطل (`Permission denied`) لازم يظهر، وبعده طريق التشخيص قبل الأمر اللي بيصلّح.",
+        "الأوامر تفضل بالإنجليزي وتتشرح بالمصري."
+      ],
+      "numbers": [
+        "r = 4، w = 2، x = 1؛ 644 / 755 / 700 / 777.",
+        "umask 022 → ملفات 644 وفولدرات 755؛ umask 077 → ملفات 600.",
+        "root UID = 0. الـsignals: SIGTERM 15، SIGKILL 9، SIGHUP 1.",
+        "nice من ‎-20 (أعلى أولوية) لـ19 (أقل).",
+        "partition فوق 80% = يستاهل تبص."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "permission class",
+          "meaning_ar": "owner أو group أو other — الـkernel بيقف عند أول واحد ينطبق"
+        },
+        {
+          "term": "umask",
+          "meaning_ar": "قناع بيتشال من الصلاحيات الافتراضية للملفات الجديدة"
+        },
+        {
+          "term": "PID",
+          "meaning_ar": "رقم الـprocess"
+        },
+        {
+          "term": "signal",
+          "meaning_ar": "رسالة للـprocess: اقفل بأدب، اقفل غصب، اقرا إعداداتك تاني"
+        },
+        {
+          "term": "SGID على فولدر",
+          "meaning_ar": "الملفات الجديدة بتورث جروب الفولدر"
+        },
+        {
+          "term": "symlink",
+          "meaning_ar": "اختصار لملف تاني"
+        }
+      ],
+      "map": {
+        "prediction": "زوّدت صلاحية للجروب وما حصلش حاجة — ليه؟ (إنت المالك).",
+        "failure": "`./hello.sh: Permission denied` · `usermod -G` من غير `-a` · `SIGKILL` بيسيب ملف نصّه متكتب.",
+        "fix": "`ls -l` ثم `chmod +x` · `usermod -aG` · `SIGTERM` الأول.",
+        "callback_next": "الـsignals هترجع في retries الـtasks (الجزء 15)؛ اللوجات في الجزء 04.",
+        "artifact": "lab الفولدر المشترك + صفحة أوامر شخصية."
+      },
+      "questions": [
+        "إيه معنى 755؟ وليه 777 تقريباً عمرها ما بتكون الحل؟",
+        "إيه الفرق بين `apt remove` و`apt purge`؟",
+        "ليه تبدأ بـ`kill -15` قبل `kill -9`؟",
+        "إمتى تستخدم `locate` وإمتى `find`؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ12. ارسم الصلاحيات كتلات أشخاص بمفاتيح r-w-x والـkernel بيسأل بالترتيب، وارسم جدول الـprocesses متوصل بعدّادات. اعرض رسالة `Permission denied` وبعدها التشخيص بـ`ls -l` ثم الحل. اشرح الأرقام 644 و755 و700 بالجمع قدام المشاهد. خلّي كل الأوامر بالإنجليزي واشرحها بالمصري، وما تشيلش ولا أمر.",
+      "title": "Linux Admin I: الصلاحيات والمستخدمين والعمليات والحزم",
+      "narration_words": 664,
+      "scene_count": 12,
+      "unified_identical_scenes": 12
+    },
+    {
+      "part": 4,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_04_of_25_Linux_Admin_II_Operations.md",
+        "file_id": "f:03fb5ccf73e0",
+        "copies": 10,
+        "bytes": 19922
+      },
+      "one_liner": "أول سؤال وإنت on call مش «إيه اللي باظ»، هو «إيه اللي باظ الأول». الجزء ده بيعلّمك تشوف الخدمات واللوجات والديسك والشبكة والأمان كنظام واحد، وتمشي من العرض للسبب.",
+      "outcomes": "`systemctl` و`journalctl` وunit file بإيدك، أماكن اللوجات وتحليلها، cron، الديسك وLVM وfstab، SSH بالمفاتيح، UFW، أدوات الأمان والمراقبة، أساسيات bash scripting، وrunbook صفحة واحدة.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "ارسم الخدمات كـunits حالتها بتتغير (`inactive → starting → active → failed`)، والـlog كـtimeline بيتقرا من تحت لفوق.",
+        "في كل مشهد عطل: اعرض طريق التشخيص الأول، وبعدين الأمر اللي بيصلّح.",
+        "السرد حرفياً قدر الإمكان، وما تشيلش أوامر أو أرقام."
+      ],
+      "numbers": [
+        "`RestartSec=5` · backup يومي `0 2   *` ومسح الأقدم من 7 أيام.",
+        "load `0.15, 0.12, 0.10` = متوسط 1 / 5 / 15 دقيقة؛ load 1.0 على 4 cores ≈ 25%.",
+        "LVM: volume 10G ثم +5G. SSH في المثال على port 2222. صلاحيات ملفات المفاتيح 600.",
+        "`GRUB_TIMEOUT=5`."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "unit",
+          "meaning_ar": "تعريف خدمة لـsystemd"
+        },
+        {
+          "term": "crash loop",
+          "meaning_ar": "خدمة بتقع وترجع وتقع تاني"
+        },
+        {
+          "term": "journal",
+          "meaning_ar": "سجل لوجات مركزي لكل الخدمات"
+        },
+        {
+          "term": "cron expression",
+          "meaning_ar": "خمس خانات بتقول إمتى المهمة تشتغل"
+        },
+        {
+          "term": "LVM",
+          "meaning_ar": "طبقة بتخلّي الأقراص مرنة وتكبر وهي شغالة"
+        },
+        {
+          "term": "fstab",
+          "meaning_ar": "جدول الـmounts اللي بتحصل مع الإقلاع"
+        },
+        {
+          "term": "exit code",
+          "meaning_ar": "رقم بيقول المهمة نجحت (0) ولا فشلت"
+        }
+      ],
+      "map": {
+        "prediction": "الـunit فاشلة — الحل عندها؟ (لأ، السبب upstream).",
+        "failure": "crash loop، ديسك مليان بأعراض متفرقة، port مقفول، SSH مرفوض، fstab غلط.",
+        "fix": "اقرا الـlog من تحت، `df -h`/`du`، `ss` ثم `ufw`، صلاحيات 600، `mount -a` قبل الـreboot.",
+        "callback_next": "الـsignals والـretries في Airflow (الجزء 15)، والـincident flow في الجزء 24.",
+        "artifact": "runbook فرز صفحة واحدة + سكريبت backup مجدول."
+      },
+      "questions": [
+        "ليه أول سؤال on call هو «إيه اللي باظ الأول»؟",
+        "إيه الفرق بين `restart` و`reload`؟",
+        "`0 8-17   1-5` معناها إيه؟",
+        "المساحة فاضية والكتابة فاشلة — تشك في إيه؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ13 بالترتيب. ارسم الخدمات كـunits بحالات بتتغير، وسلسلة الاعتماديات بالعكس لحد أول فشل، والـlog بيتقرا من تحت لفوق. في كل عطل اعرض التشخيص قبل الحل. اشرح cron بالخمس خانات وأمثلتها، وLVM كمكعبات فوق بعض. خلّي الأوامر بالإنجليزي واختم بصفحة الـrunbook.",
+      "title": "Linux Admin II: الخدمات واللوجات والديسك والـSSH والأمان — ليلة العطل",
+      "narration_words": 654,
+      "scene_count": 13,
+      "unified_identical_scenes": 13
+    },
+    {
+      "part": 5,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_05_of_25_Python_I_Values_to_Collections.md",
+        "file_id": "f:66766820e5c9",
+        "copies": 10,
+        "bytes": 17316
+      },
+      "one_liner": "لو قدرت تتوقع قيمة المتغيرات والخطوة الجاية قبل ما تدوس Run، إنت بتبني mental model حقيقي — وده أهم من أي syntax trick.",
+      "outcomes": "الـvariable كاسم مربوط بقيمة، الـcontrol flow كمؤشر، الـfunction كـstack frame، اختيار الـcollection بتكلفة العملية، الملفات وCSV وJSON، والـvenv و`requirements.txt`.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "ارسم «code trace»: السطر الحالي منوّر، وجنبه لوحة stack/heap فيها الأسماء بأسهم للقيم، والـoutput بيتحدّث.",
+        "الأسهم معناها **هوية** (نفس الـobject)، مش مساواة.",
+        "السرد حرفياً قدر الإمكان، وما تشيلش أي مثال أو رقم."
+      ],
+      "numbers": [
+        "membership في list من 10,000 عنصر = لحد 10,000 مقارنة؛ في set = خطوة واحدة في المتوسط.",
+        "نفس الفحص جوه loop على 10,000 صف = الفرق بين «تانيتين» و«خمس دقايق» (توضيح بالمقياس، مش قياس).",
+        "تصنيف العملاء: VIP ≥ 10,000 · Gold ≥ 5,000 · Silver ≥ 1,000 · Bronze أقل.",
+        "خصم افتراضي: 100 → 100؛ خصم 15% → 85. خصم 10% في الـcomprehension.",
+        "5 orders، 3 منهم delivered."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "binding",
+          "meaning_ar": "ربط اسم بقيمة"
+        },
+        {
+          "term": "accumulator",
+          "meaning_ar": "متغير بيجمع نتيجة عبر لفّات اللوب"
+        },
+        {
+          "term": "stack frame",
+          "meaning_ar": "المساحة اللي function بتشتغل فيها وتختفي بعد الـreturn"
+        },
+        {
+          "term": "LEGB",
+          "meaning_ar": "ترتيب البحث عن الأسماء: Local, Enclosing, Global, Built-in"
+        },
+        {
+          "term": "hashing",
+          "meaning_ar": "تحويل القيمة لمكان مباشر — سبب سرعة set وdict"
+        },
+        {
+          "term": "venv",
+          "meaning_ar": "بيئة معزولة لمكتبات مشروع واحد"
+        }
+      ],
+      "map": {
+        "prediction": "الـtotal قبل آخر لفة؛ أنهي لوب يخلص الأول (list ولا set).",
+        "failure": "الـaccumulator جوه اللوب؛ جهاز من غير venv.",
+        "fix": "الـaccumulator برّه؛ venv + `requirements.txt`.",
+        "callback_next": "عدّاد التكلفة هيرجع في الـDSA (الجزء 12)، و`order_total()` هيتعمل لها test (الجزء 06).",
+        "artifact": "`requirements.txt` مثبّت + سكريبتات ShopFlow الأولى."
+      },
+      "questions": [
+        "الفرق بين list وtuple وset وdict؟ وإمتى تستخدم كل واحد؟",
+        "ليه `x in set` أسرع من `x in list`؟",
+        "`*args` و`**kwargs` بيستقبلوا إيه؟",
+        "ليه `set()` مش `{}` للـset الفاضية؟",
+        "إيه اللي بيحصل لو function ما رجّعتش قيمة؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ10. استخدم code trace: السطر منوّر وجنبه لوحة أسماء بأسهم للقيم وstack frames بتطلع وتنزل. اعرض split screen للـlist والـset مع عدّاد المقارنات. اسأل سؤالين التوقع قبل الإجابة. خلّي الكود بالإنجليزي واشرحه بالمصري، وما تشيلش أي كارت من كروت الإنترفيو.",
+      "title": "Python I: من القيمة للـfunction، والـcollections والملفات والبيئات",
+      "narration_words": 561,
+      "scene_count": 10,
+      "unified_identical_scenes": 10
+    },
+    {
+      "part": 6,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_06_of_25_Python_II_State_Errors_Tests_Git.md",
+        "file_id": "f:e14c3cdd7044",
+        "copies": 10,
+        "bytes": 21194
+      },
+      "one_liner": "ده الفرق بين حد بيقرا Python وحد قادر يعمل debug: تشوف الأسهم مش الكود، تفهم ليه الـexception بتفكّ الـstack، تكتب test بيفشل الأول، وتخلّي Git ذاكرة المشروع.",
+      "outcomes": "aliasing والـmutable default، shallow مقابل deep copy، الـgenerators والذاكرة الثابتة، الـexceptions وcustom exceptions، الـdecorators والـcontext managers، red-green-refactor، قراءة الـtraceback، وPR مدموج بعد conflict.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "ارسم لوحة stack/heap: اسمين بيشاوروا على object واحد = سهمين لنفس الرأس.",
+        "اعرض كل عطل وهو بيحصل (الـtest الأحمر، الذاكرة اللي بتطلع لحد ما الـprocess تتقتل، الـconflict) وبعدين الإصلاح.",
+        "السرد حرفياً قدر الإمكان، وما تشيلش أمثلة الكود أو الأرقام."
+      ],
+      "numbers": [
+        "list لمليون مربع ≈ 8 MB؛ generator ≈ 100 bytes.",
+        "`lru_cache(maxsize=128)` · `retry(max_attempts=3, delay=2.0)` · `load_in_batches(batch_size=5000)` · `page_size=1000` · فلتر `threshold=500`.",
+        "`send()`: 10 → 10.0، 20 → 15.0، 30 → 20.0.",
+        "HTTP: ValidationError 400 · InsufficientStock 409 · PaymentFailed 402 · غير متوقع 500.",
+        "shallow copy: الأصل بيبقى 3 orders بدل 2.",
+        "gate: pytest أخضر ≥ 90%، ≥ 10 commits، 3 برامج، 1 مهمة debug."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "aliasing",
+          "meaning_ar": "اسمين لنفس الـobject"
+        },
+        {
+          "term": "mutable default",
+          "meaning_ar": "قيمة افتراضية قابلة للتعديل بتتعمل مرة واحدة"
+        },
+        {
+          "term": "generator",
+          "meaning_ar": "function بترجّع عنصر عنصر بـyield"
+        },
+        {
+          "term": "stack unwinding",
+          "meaning_ar": "الـexception بتشيل الـframes لحد ما حد يمسكها"
+        },
+        {
+          "term": "decorator",
+          "meaning_ar": "غلاف بيضيف سلوك لـfunction"
+        },
+        {
+          "term": "context manager",
+          "meaning_ar": "`with` بيضمن التجهيز والتنضيف"
+        },
+        {
+          "term": "three-way merge",
+          "meaning_ar": "دمج بيقارن الأساس ونسختك ونسخة زميلك"
+        }
+      ],
+      "map": {
+        "prediction": "b بقت إيه بعد ما ضفت لـa؟ · أنهي سطر في الـtraceback هو السبب؟",
+        "failure": "الـmutable default، الـOOM من list كبيرة، الـtest الأحمر، الـmerge conflict، except بيبلع الأخطاء.",
+        "fix": "`None` كافتراضي، generator، red→green، حل المنطقة يدوياً، exceptions محددة + log.",
+        "callback_next": "الـgenerators والـcontext managers هيبقوا أساس الـETL في الجزء 07؛ الـretry في Airflow (الجزء 15).",
+        "artifact": "loader بميموري ثابتة + PR مدموج فيه test وconflict محلول."
+      },
+      "questions": [
+        "الفرق بين `is` و`==`؟ وبين shallow وdeep copy؟",
+        "ليه `def f(x, acc=[])` خطر؟",
+        "إمتى الـgenerator مش الاختيار الصح؟",
+        "اكتب decorator بيقيس وقت التنفيذ — وليه `functools.wraps`؟",
+        "`__exit__` بيعمل إيه لو حصل exception؟",
+        "ليه بنكتب الـtest ونشوفه بيفشل الأول؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ13. ارسم لوحة stack/heap بأسهم الهوية، وsplit screen للـlist والـgenerator وعمود الميموري. اعرض الـtest الأحمر كفريم ثابت قبل الأخضر، واقرا الـtraceback من تحت لفوق، وارسم الـconflict بمناطق base/ours/theirs. اسأل أسئلة التوقع قبل الإجابات. خلّي الكود بالإنجليزي واشرحه بالمصري.",
+      "title": "Python II: الـstate والذاكرة والأخطاء والـdecorators والاختبارات وGit",
+      "narration_words": 718,
+      "scene_count": 13,
+      "unified_identical_scenes": 13
+    },
+    {
+      "part": 7,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_07_of_25_Python_for_Data_pandas_and_Databases.md",
+        "file_id": "f:235b789d6287",
+        "copies": 10,
+        "bytes": 23642
+      },
+      "one_liner": "pandas هو SQL جوه Python: فلتر، وgroup، وjoin — بس بقواعد أداء مختلفة. والكلام مع الـdatabase من Python ليه أربع طرق، وكل طريقة ليها مكانها وفخاخها.",
+      "outcomes": "إنشاء واستكشاف DataFrame، `iloc` مقابل `loc`، `agg` / `transform` / `filter` / `apply`، الـmerge وفخ التكرار و`validate` و`indicator`، تنضيف الداتا، الأداء (vectorize، dtypes، chunks)، raw drivers وSQLAlchemy وpandas، الـbulk loads والـupsert والـwatermark، إعدادات الـpool، الـtransactions والـsavepoints، واختبار كود الـdatabase.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "ارسم الـDataFrame كجدول حي: الفلتر بيطفي صفوف، الـgroupby بيلم صفوف في buckets، الـmerge بيطابق مفاتيح وعدّاد صفوف قبل وبعد.",
+        "اعرض عطل الـmerge (الصفوف بتتضاعف) بأرقام قبل/بعد.",
+        "السرد حرفياً قدر الإمكان، وما تشيلش الأرقام أو أسماء الـparameters."
+      ],
+      "numbers": [
+        "تحميل 10K صف: INSERT فردي ~60 s · executemany ~2 s · multi-row VALUES ~0.5 s · LOAD DATA INFILE ~0.1 s · to_sql ~3 s. لـ1M: ساعات · ~3 min · ~50 s · ~10 s · ~5 min.",
+        "فتح اتصال بدون pool ≈ 10–50 ms؛ MySQL max_connections الافتراضي 151؛ 4 × (10 + 20) = 120.",
+        "pool: size 5 (مقترح 5–20)، overflow 10 (مقترح ×2)، timeout 30 s، recycle 1800 s < wait_timeout 8 h، checkout > 100 ms = كبّر.",
+        "int64 = 8 bytes → int8/int16 = 1–2 bytes؛ category لو < 50% unique؛ `chunksize=100_000`.",
+        "تنضيف: امسح عمود ناقص فوق 50%؛ z-score > 3 = قيمة شاذة.",
+        "test: 2 × 999 = 1998.0؛ 4 صفوف → 2 صالحين."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "vectorization",
+          "meaning_ar": "حساب على العمود كله مرة واحدة بدل صف صف"
+        },
+        {
+          "term": "transform",
+          "meaning_ar": "نتيجة لكل صف بنفس شكل الجدول الأصلي"
+        },
+        {
+          "term": "fan-out في merge",
+          "meaning_ar": "الصفوف الخارجة أكتر من الداخلة بسبب مفتاح مكرر"
+        },
+        {
+          "term": "N+1",
+          "meaning_ar": "query للأب وN query للأبناء"
+        },
+        {
+          "term": "upsert",
+          "meaning_ar": "حدّث لو موجود، ضيف لو مش موجود"
+        },
+        {
+          "term": "watermark",
+          "meaning_ar": "آخر قيمة اتحمّلت عشان المرة الجاية تجيب الجديد بس"
+        },
+        {
+          "term": "savepoint",
+          "meaning_ar": "نقطة رجوع جزئية جوه transaction"
+        }
+      ],
+      "map": {
+        "prediction": "بعد الـmerge — عدد الصفوف هيزيد ولا لأ؟",
+        "failure": "مفتاح مكرر بيضاعف الصفوف؛ N+1؛ inserts فردية؛ dropna على كل حاجة.",
+        "fix": "`validate` + `indicator`؛ eager loading؛ bulk + upsert؛ تنضيف بقرارات موثقة.",
+        "callback_next": "نفس فخ التكرار هيرجع في SQL (fan-out، الجزء 09)؛ الـwatermark والـupsert أساس الـidempotency (الجزء 15).",
+        "artifact": "`clean.py` بميموري محدودة + ETL صغير بتقرير أرقام + test suite للـdatabase."
+      },
+      "questions": [
+        "الفرق بين `iloc` و`loc`؟ وبين `agg` و`transform` و`filter` و`apply`؟",
+        "إزاي تمسك merge بيضاعف الصفوف قبل ما يوصل للتقرير؟",
+        "ليه `iterrows()` بطيء، وإيه البديل؟",
+        "قارن raw driver وSQLAlchemy Core وORM و`read_sql`.",
+        "ليه الـpool مهم؟ وإزاي تحسب حجمه؟",
+        "إمتى تستخدم savepoint؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ13. ارسم الـDataFrame كجدول حي والـgroupby كصفوف بتروح لـbuckets، واعرض عطل الـmerge بعدّاد صفوف قبل/بعد. اعرض سباق الـbulk load بالأرقام بالظبط، والـpool كاتصالات بتتسلّف وترجع. خلّي الكود بالإنجليزي واشرحه بالمصري، وما تشيلش أي جدول مقارنة.",
+      "title": "Python للداتا: pandas، والاتصال بالـdatabase، والـETL والـpools والاختبارات",
+      "narration_words": 700,
+      "scene_count": 13,
+      "unified_identical_scenes": 13
+    },
+    {
+      "part": 8,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_08_of_25_SQL_I_Relational_Model_and_Query_Pipeline.md",
+        "file_id": "f:cf9ecee38dc7",
+        "copies": 10,
+        "bytes": 20169
+      },
+      "one_liner": "الـdatabase هي نفس الشبكة بتاعة الـspreadsheet بتلات إضافات (أنواع، ومفاتيح، وconstraints)، والـSQL مش بتشتغل بالترتيب اللي بتكتبها بيه — وأهم سؤال قبل أي query: صف واحد لكل إيه؟",
+      "outcomes": "entities وkeys والعلاقات، الـconstraints كقواعد بيزنس، التطبيع 1NF–3NF، عائلات الأوامر، أساسيات SELECT وWHERE وGROUP BY، ترتيب التنفيذ المنطقي التسعاوي، الـgrain، وإمتى تختار NoSQL.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "ارسم الـspreadsheet وهو بيتحول لجدول database بنفس الصفوف. وكل clause في SQL لازم ينوّر الصفوف أو الأعمدة اللي بيغيّرها.",
+        "تحت أي عملية متعددة المراحل ارسم **funnel لعدد الصفوف الباقية** — دي أهم أداة في الجزء.",
+        "استخدم الأرقام الموجودة هنا بس (14 ← 13 ← 11 ← 2 … ← 1، وgold وsilver).",
+        "السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـquery:",
+        "```sql",
+        "SELECT c.tier, SUM(o.total) AS revenue",
+        "FROM orders o JOIN customers c ON c.id = o.customer_id",
+        "WHERE o.status = 'delivered'",
+        "GROUP BY c.tier",
+        "HAVING SUM(o.total) > 300",
+        "ORDER BY revenue DESC",
+        "LIMIT 1",
+        "```",
+        "الترتيب المكتوب مترقّم بترتيب التنفيذ: 6 1 2 3 4 5 8 9.",
+        "الـfunnel: 14 → 13 → 11 → 2 → 2 → 2 → 2 → 2 → 1.",
+        "JOIN بيشيل order 1007 (customer 9 مش موجود)؛ WHERE بيشيل 1004 (`cancelled`) و1010 (`refunded`).",
+        "gold €3,098.30 + silver €850.20 = €3,948.50؛ `LIMIT 1` → gold.",
+        "keyspace الطلبات في ShopFlow: 1001–1014.",
+        "Redis session TTL 3600 s؛ Cassandra replication factor 3."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "primary key",
+          "meaning_ar": "العمود اللي بيعرّف الصف"
+        },
+        {
+          "term": "foreign key",
+          "meaning_ar": "عمود بيشاور على صف في جدول تاني"
+        },
+        {
+          "term": "referential integrity",
+          "meaning_ar": "مفيش مفتاح بيشاور على حاجة مش موجودة"
+        },
+        {
+          "term": "normalization",
+          "meaning_ar": "تنظيم الداتا عشان كل معلومة تتكتب مرة واحدة"
+        },
+        {
+          "term": "logical order",
+          "meaning_ar": "ترتيب التنفيذ الحقيقي للـclauses"
+        },
+        {
+          "term": "grain",
+          "meaning_ar": "الصف الواحد بيمثّل إيه بالظبط"
+        },
+        {
+          "term": "partition key",
+          "meaning_ar": "المفتاح اللي بيحدد الداتا تتخزن فين في Cassandra"
+        }
+      ],
+      "map": {
+        "prediction": "أنهي صف هيترفض؟ · `LIMIT 1` وفّر شغل؟",
+        "failure": "الكتابة المتزامنة على الملف؛ الصف اليتيم 1007؛ الـalias في WHERE؛ SUM على grain غلط.",
+        "fix": "constraints + FK؛ HAVING أو CTE؛ نكتب الـgrain فوق كل query.",
+        "callback_next": "1007 هيتشال في الهدوء من INNER JOIN (الجزء 09)، والإجمالي €3,948.50 هيرجع في التنضيف (الجزء 11).",
+        "artifact": "ERD + DDL + حزمة ست queries بالـgrain."
+      },
+      "questions": [
+        "الفرق بين WHERE وHAVING؟",
+        "اشرح 1NF و2NF و3NF.",
+        "الفرق بين UNION وUNION ALL؟",
+        "ليه `WHERE revenue > 300` بتفشل؟",
+        "رتّب مراحل التنفيذ المنطقي التسعة.",
+        "إمتى تختار MongoDB أو Redis أو Cassandra بدل PostgreSQL؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ13. ارسم الـspreadsheet بيتحول لجدول، والـconstraints كحيطان بترفض صفوف بأسبابها، والـnormalization كجدول بيتقص. أهم مشهد: شريط الـ9 مراحل مع funnel الأرقام 14←13←11←2←1 وجمع gold وsilver = 3,948.50. اسأل سؤالين التوقع قبل الإجابة. خلّي الـSQL بالإنجليزي.",
+      "title": "SQL I: ليه database؟ الـrelational model، والـnormalization، وخط تشغيل الـquery، وسؤال الـgrain",
+      "narration_words": 678,
+      "scene_count": 13,
+      "unified_identical_scenes": 13
+    },
+    {
+      "part": 9,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_09_of_25_SQL_II_Joins_Windows_NULL_Transactions.md",
+        "file_id": "f:f22699991521",
+        "copies": 10,
+        "bytes": 27526
+      },
+      "one_liner": "الإجابة عمرها ما بتكون في جدول واحد — والـjoin ممكن يشيل صفوف في الهدوء أو يضاعفها في الهدوء؛ والـwindow بتحسب من غير ما تنهار الصفوف؛ والـNULL مش قيمة؛ والـtransaction وعد «كله أو ولا حاجة».",
+      "outcomes": "ست أشكال للـjoin، الـfan-out وعلاجه، الـself join، الـsubqueries (correlated وnon-correlated، وEXISTS مقابل IN)، الـwindow functions والـframes، ROW_NUMBER وRANK وDENSE_RANK، الـCTEs والـrecursive CTE، الـdedupe، الـgaps & islands، منطق الـNULL التلاتي، الـACID، الـlost update، قرص الـisolation، الـMVCC، الـdeadlock، وDELETE/TRUNCATE/DROP.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "كل join يترسم **صف قصاد صف بمؤشر واحد** بيمشي على الجدولين، والصف اللي بيتشال بيختفي قدام العين.",
+        "تحت كل join ارسم **funnel لعدد الصفوف** (داخل ← خارج). لو الخارج أكتر من الداخل اكتب كلمة **fan-out** بالأحمر.",
+        "الـwindow: حدود الـpartition بلون بنفسجي، والـframe بلون برتقالي بيزحف صف بصف.",
+        "الـtransactions: خطين زمن متوازيين (Session A فوق وSession B تحت).",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـorphan: order 1007 → customer 9 (مش موجود) — INNER JOIN بيشيله في الهدوء.",
+        "الـfan-out: `customers LEFT JOIN orders` = 6 → 15 (Amara 4 · Ravi 3 · Lena 4 · Yuki 2 · Tom 1 null · Sara 1 null). Amara بتتعد 4 مرات.",
+        "التعادل: iPhone 4.8 (1/1/1) · MacBook 4.8 (2/1/1) · AirPods 4.5 (3/3/2) · iPad 4.3 (4/4/3).",
+        "moving average: 7 أيام (`6 PRECEDING` + الصف الحالي)؛ recursive CTE لشهور 2024 = 12 صف.",
+        "الـlost update: الرصيد الابتدائي 500؛ المتوقع `500 + a + b`، والمكتوب `500 + b`.",
+        "الـisolation defaults: PostgreSQL/Oracle = READ COMMITTED · MySQL InnoDB = REPEATABLE READ.",
+        "`lock_timeout = '5s'`."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "fan-out",
+          "meaning_ar": "الصفوف الخارجة من الـjoin أكتر من الداخلة"
+        },
+        {
+          "term": "anti join / semi join",
+          "meaning_ar": "اللي ما لوش مطابق / اللي ليه مطابق من غير تكرار"
+        },
+        {
+          "term": "correlated subquery",
+          "meaning_ar": "subquery بتتنفذ مع كل صف بره"
+        },
+        {
+          "term": "window function",
+          "meaning_ar": "حساب عبر مجموعة صفوف من غير ما تنهار"
+        },
+        {
+          "term": "partition / frame",
+          "meaning_ar": "حدود المجموعة / الصفوف اللي الـfunction شايفاها دلوقتي"
+        },
+        {
+          "term": "CTE",
+          "meaning_ar": "query مؤقتة ليها اسم جوه الـquery"
+        },
+        {
+          "term": "three-valued logic",
+          "meaning_ar": "TRUE وFALSE وUNKNOWN"
+        },
+        {
+          "term": "lost update",
+          "meaning_ar": "تحديث بيتكتب فوق تحديث تاني ويضيّعه"
+        },
+        {
+          "term": "MVCC",
+          "meaning_ar": "كل قارئ بيشوف نسخة ثابتة من الداتا"
+        },
+        {
+          "term": "deadlock / victim",
+          "meaning_ar": "دورة انتظار / الـsession اللي الـdatabase بتقتلها"
+        }
+      ],
+      "map": {
+        "prediction": "ست عملاء داخلين، كام صف خارج؟ · الاتنين كتبوا، الرصيد كام؟",
+        "failure": "1007 بيختفي في الهدوء؛ fan-out 6 → 15؛ LEFT بقى INNER؛ NOT IN مع NULL؛ lost update؛ deadlock.",
+        "fix": "LEFT JOIN عشان تشوف؛ جمّع قبل ما توصّل أو EXISTS؛ الشرط في ON؛ NOT EXISTS؛ update ذري أو FOR UPDATE؛ ترتيب ثابت للـlocks وretry.",
+        "callback_next": "الـquery الصح لسه ممكن تبقى بطيئة — الجزء 10 (الـindexes والـEXPLAIN). والـorphan 1007 هيمسكه الـquality gate في الجزء 15.",
+        "artifact": "dedupe CTE + checkout transaction مع regression test."
+      },
+      "questions": [
+        "اشرح أنواع الـjoins، وهات تقرير «العملاء اللي ما اشتروش».",
+        "إيه هو الـfan-out وإزاي تمنعه؟",
+        "الفرق بين ROW_NUMBER وRANK وDENSE_RANK؟ وأنهي واحد للـdedupe؟",
+        "هات تاني أعلى مرتب بتلات طرق.",
+        "ليه `NOT IN` مع NULL بترجّع ولا صف؟",
+        "اشرح ACID ومستويات الـisolation، وإيه الـdefault في PostgreSQL وMySQL؟",
+        "إيه هو الـdeadlock وإزاي تمنعه؟",
+        "الفرق بين DELETE وTRUNCATE وDROP؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. ارسم كل join صف قصاد صف بمؤشر، وorder 1007 وهو بيختفي في الـINNER. أهم مشهدين: fan-out من 6 لـ15 (Amara أربع مرات)، وخطين زمن للـlost update على رصيد 500 والـdeadlock كدايرة انتظار. اعرض جدول ROW_NUMBER وRANK وDENSE_RANK بالتعادل، وقرص الـisolation. اسأل سؤالين التوقع قبل الإجابة. خلّي الـSQL بالإنجليزي.",
+      "title": "SQL II: الـjoins والـfan-out، والـwindows، والـCTEs، ومنطق الـNULL، والـtransactions والـdeadlock",
+      "narration_words": 875,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 10,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_10_of_25_SQL_III_Indexes_Plans_Tuning_Dialects.md",
+        "file_id": "f:eee9f712a452",
+        "copies": 10,
+        "bytes": 24409
+      },
+      "one_liner": "الـquery الصح ممكن تبقى بطيئة؛ والـtuning منهج مش ردّ فعل: baseline بعدد الصفوف، plan، فرضية واحدة، تغيير واحد، قياس — وكل index ليه تمن بتدفعه على كل كتابة للأبد.",
+      "outcomes": "حلقة الـtuning، الـB-tree والـseek مقابل الـscan، الـselectivity، أنواع الـindexes (composite وcovering وpartial وexpression وfull-text)، الـsargability، قراءة EXPLAIN، الـstatistics، التمن اللي بتدفعه، الـconnection pool، التمن anti-patterns، فروق MySQL وPostgreSQL، CarbonData وGaussDB، وSQL على داتا ضخمة.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "**العدّاد دايماً بعدد الصفحات أو الصفوف المفحوصة، مش بالملّي ثانية.** اكتب ده على الشاشة.",
+        "الـscan والـseek على شاشة مقسومة نصين طول مشهد 3.",
+        "نقطة العبور في الـselectivity ترسمها **شريط مظلّل مكتوب عليه «بتعتمد على المحرك»**، مش نسبة ثابتة.",
+        "الـplan يترسم شجرة operators، وجنب كل operator رقمين: estimated وactual.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "baseline: 12,500 صفحة عشان عميل واحد.",
+        "1,000,000 صف: B-tree بتلات مستويات = 3 page reads مقابل 12,500 للـscan؛ ×10 صفوف ≈ +1 مستوى.",
+        "نقطة العبور في الـselectivity: بتعتمد على المحرك (مش نسبة ثابتة).",
+        "index واحد ← كل `INSERT` = 2 كتابات؛ اتنين ← 3.",
+        "الـpool: capacity 67 req/s؛ الحمل 260 req/s ← طابور 289 وp95 wait 1,160 ms.",
+        "composite: `(department, salary)` · `(customer_id, order_date)` · `(a, b, created_at)`.",
+        "«ما تعملش index» على جداول أقل من 1,000 صف.",
+        "GaussDB: `PARALLEL(4)` · partitions `p_2024_q1`–`p_2024_q4`.",
+        "sampling: `RAND() < 0.01` · `BERNOULLI(1)` / `SYSTEM(1)`؛ batches بدل 10 مليون صف مرة واحدة."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "seek / scan",
+          "meaning_ar": "مشية نازلة في الشجرة / قراية كل الصفحات"
+        },
+        {
+          "term": "selectivity",
+          "meaning_ar": "الـquery بترجّع نسبة قد إيه من الجدول"
+        },
+        {
+          "term": "sargable",
+          "meaning_ar": "فلتر المحرك يقدر يستخدم معاه الـindex"
+        },
+        {
+          "term": "covering index",
+          "meaning_ar": "index فيه كل الأعمدة المطلوبة"
+        },
+        {
+          "term": "leftmost prefix",
+          "meaning_ar": "الـcomposite بيشتغل من أول عمود"
+        },
+        {
+          "term": "estimated vs actual",
+          "meaning_ar": "عدد الصفوف المتوقع مقابل الحقيقي في الـplan"
+        },
+        {
+          "term": "statistics",
+          "meaning_ar": "معلومات المخطِّط عن توزيع الداتا"
+        },
+        {
+          "term": "MPP / shared-nothing",
+          "meaning_ar": "معالجة متوازية على nodes مستقلة"
+        },
+        {
+          "term": "distribution key",
+          "meaning_ar": "العمود اللي بيحدد الصف يروح أنهي node"
+        },
+        {
+          "term": "partition pruning",
+          "meaning_ar": "الـquery بتتجاهل الـpartitions اللي مش محتاجاها"
+        }
+      ],
+      "map": {
+        "prediction": "الـquery بترجّع نص الجدول — index ولا scan؟",
+        "failure": "12,500 صفحة لعميل واحد؛ function على عمود متفهرس؛ estimated بعيد عن actual؛ الكتابة بقت مضاعفة؛ طابور 289 في الـpool.",
+        "fix": "B-tree seek؛ range بدل function؛ statistics؛ index بحساب؛ pool على قد الحمل.",
+        "callback_next": "الجزء 11 بيبدأ من الناحية التانية: الداتا نفسها بايظة. والـpool والـp95 هيرجعوا في الـincident بتاع الجزء 24.",
+        "artifact": "tuning note + checklist الـ30 ثانية."
+      },
+      "questions": [
+        "ليه بنقيس بالصفوف المفحوصة مش بالوقت؟",
+        "اشرح الـleftmost prefix، وصمّم index لـ`WHERE a=? AND b=? ORDER BY created_at DESC`.",
+        "إيه هو الـcovering index والـpartial index؟",
+        "ليه `WHERE YEAR(created_at) = 2024` بطيئة وإزاي تصلحها؟",
+        "الـestimated والـactual مختلفين جداً — تعمل إيه؟",
+        "إمتى ما تعملش index؟",
+        "قارن MySQL وPostgreSQL وCarbonData.",
+        "إزاي تختار distribution key في GaussDB؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. العدّاد دايماً بعدد الصفحات مش بالوقت. أهم مشاهد: شاشة مقسومة 12,500 صفحة مقابل 3 page reads على مليون صف، والـselectivity slider بشريط «بتعتمد على المحرك»، والـplan بالـestimated والـactual، والـpool (67 مقابل 260، طابور 289). اعرض جدول MySQL وPostgreSQL وCarbonData، وGaussDB كـcoordinator وdata nodes. اسأل سؤال التوقع قبل الإجابة. خلّي الـSQL بالإنجليزي.",
+      "title": "SQL III: الـindexes، وقراءة الـplan، وحلقة الـtuning، والـdialects (MySQL · PostgreSQL · CarbonData · GaussDB)، وSQL على داتا ضخمة",
+      "narration_words": 625,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 11,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_11_of_25_Analytics_Dirty_Data_Statistics_Reporting.md",
+        "file_id": "f:12d4211b95d2",
+        "copies": 10,
+        "bytes": 21774
+      },
+      "one_liner": "الداتا الحقيقية بايظة، وترتيب خطوات التنضيف بيغيّر الإجابة من غير error؛ ورقم واحد عمره ما بيوصف داتا؛ والـmeasure دالة في سياق الفلتر — وتعريف واحد لكل KPI.",
+      "outcomes": "كتالوج عيوب الداتا، TRIM وPROPER، «سجّل الخطوات مش النتيجة»، أثر ترتيب الخطوات، الـprobability الأساسية، المتوسط مقابل الوسيط، شكل التوزيع، الـsampling distribution، الـconfidence interval، الـhypothesis test والـA/B والـpower، الـsemantic model والـfilter context، `ALL()`، الـtime intelligence، اختيار الـencoding، والتباين.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "الـgrid بتاع `RAWEXPORT` يفضل ظاهر في مشاهد 1–6، وكل عيب يتعلّم عليه باسمه لحظة ما يتلاقى.",
+        "الأرقام الأربعة للإجمالي (3,948.50 · 4,177.00 · 2,148.00 · 3,853.50) تظهر جنب بعض على لوحة واحدة.",
+        "في الإحصاء: الـslider والعدّادات تتحرك قدام العين؛ الـintervals اللي فاتت القيمة الحقيقية تتلوّن أحمر وما تتخبّاش.",
+        "في التقرير: نفس الـmeasure تحت تلات حالات slicer.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "`RAWEXPORT`: 15 صف، 8 عيوب، orders 1001–1014؛ المكرر 1008؛ الكمية الفاضية 1009؛ الاسم الفاضي 1013.",
+        "بعد التنضيف: 14 صف. الأسماء: 11 → 7 → 5 + 1 فاضي.",
+        "الإجمالي: الترتيب الموثّق €3,948.50 · الفلتر بعد الـgroup-by €4,177.00 (من غير error) · الـtype قبل تنضيف الفواصل €2,148.00 (قيمتين null) · الكمية الفاضية = صفر €3,853.50.",
+        "3,948.50 − 95.00 = 3,853.50 · 3,098.30 + 850.20 = 3,948.50.",
+        "عيبين بعد التنضيف: 1007 → 9 و1010 `refunded`.",
+        "السلة: €90 → €600؛ المجتمع 5,000 طلب؛ 100 interval؛ التغطية 95%؛ الـpower 80%.",
+        "`tCrit(29, .05) = 2.0452` · `tCrit(9, .05) = 2.2622` · `tP(2.086, 20) = 0.0500` · `normCdf(1.96) = 0.975000`.",
+        "الـstar: 384 صف fact؛ 6 × 12 encoding؛ التباين 21.00 : 1، وألوان تحت 3 : 1."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "applied steps",
+          "meaning_ar": "لستة خطوات تنضيف متسجلة تتعاد"
+        },
+        {
+          "term": "mean / median",
+          "meaning_ar": "المتوسط / الوسيط (القيمة اللي في النص)"
+        },
+        {
+          "term": "IQR",
+          "meaning_ar": "المدى بين الربع الأول والتالت"
+        },
+        {
+          "term": "sampling distribution",
+          "meaning_ar": "توزيع متوسطات العيّنات المتكررة"
+        },
+        {
+          "term": "confidence interval",
+          "meaning_ar": "نطاق مبني بإجراء بيصيب بنسبة معروفة"
+        },
+        {
+          "term": "p-value",
+          "meaning_ar": "احتمال تشوف فرق كده لو مفيش أثر حقيقي"
+        },
+        {
+          "term": "power",
+          "meaning_ar": "فرصة إنك تكتشف أثر موجود فعلاً"
+        },
+        {
+          "term": "filter context",
+          "meaning_ar": "الصفوف اللي عايشة تحت الفلاتر الحالية"
+        },
+        {
+          "term": "measure",
+          "meaning_ar": "معادلة بتتحسب حسب السياق"
+        },
+        {
+          "term": "encoding",
+          "meaning_ar": "الطريقة اللي الرقم بيترسم بيها (موضع، طول، لون)"
+        }
+      ],
+      "map": {
+        "prediction": "بدّل خطوتين — الإجمالي هيتغير؟",
+        "failure": "4,177.00 بـpipeline أخضر؛ 2,148.00 بـnulls صامتة؛ المتوسط اللي سلة واحدة بتحركه؛ نسبة الإجمالي 100%؛ SPLY بيقارن الفترة بنفسها.",
+        "fix": "ترتيب خطوات موثّق؛ الوسيط والشكل؛ الـpower والـn قبل التجربة؛ `ALL()`؛ تعريف KPI واحد.",
+        "callback_next": "1007 و1010 هيمسكهم الـquality gate (الجزء 15)؛ الـstar schema بالتفصيل في الجزء 16.",
+        "artifact": "dashboard + experiment memo."
+      },
+      "questions": [
+        "عدّ عيوب الداتا اللي ممكن تلاقيها في export، وإزاي تكتشف كل واحد.",
+        "ليه «سجّل الخطوات مش النتيجة»؟",
+        "إمتى الوسيط أحسن من المتوسط؟",
+        "اشرح الـconfidence interval من غير ما تقول «95% احتمال إن القيمة جواه».",
+        "إيه اللي لازم تحدده قبل A/B test؟",
+        "ليه «% من الإجمالي» بترجّع 100%، وإزاي تصلحها؟",
+        "ليه اللون ما ينفعش للكمية؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. ارسم grid الـ15 صف والتمن عيوب بأساميهم، والأسماء 11←7←5+1. أهم لحظة: تبديل خطوتين يحوّل 3,948.50 لـ4,177.00 والـpipeline أخضر، ولوحة الأرقام الأربعة. في الإحصاء: سلة من 90 لـ600 والمتوسط بيجري والوسيط ثابت، و100 interval والعدّاد على 95%. في التقرير: نفس الـmeasure بتلات قيم، وفخ الـ100%، والتباين 21:1. اسأل سؤال التوقع قبل الإجابة.",
+      "title": "Analytics: الداتا البايظة والـapplied steps، والإحصاء (من المتوسط للـA/B)، والـsemantic model والتقرير",
+      "narration_words": 630,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 12,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_12_of_25_Software_Craft_OOP_Patterns_DSA.md",
+        "file_id": "f:ec76619e8976",
+        "copies": 10,
+        "bytes": 21081
+      },
+      "one_liner": "الـcraft هو الفرق بين كود شغال النهارده ونظام حد يقدر يغيّره السنة الجاية؛ والـalgorithms بتتحس لما تعدّ عملياتها — والـcontainer هو اللي بيعرّف الـalgorithm.",
+      "outcomes": "الـcoupling والـcohesion بالقياس، الـSOLID كأوجاع، الـOOP بأعمدته الأربعة وأدوات الـclass، ست design patterns ليها لازمة في الداتا، الـrefactoring الآمن، الـreview والـADR، قراءة كود مش بتاعك، الـBig-O كعدّاد، الـhash table والـload factor، الـtrees والـheaps، BFS وDFS وDijkstra، والـtopological sort.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "الـcoupling يتشاف: call graph بينوّر كل ملف بيتلمس.",
+        "الـrefactoring على شريط tests: أخضر، أخضر، أحمر ← رجوع.",
+        "أي algorithm يترسم ومعاه **عدّاد عمليات** ظاهر، والـcontainer (queue / stack / priority queue) مرسوم جنب الـgraph.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "طلب تغيير واحد ← 6 ملفات قبل التقسيم ← 1 بعده.",
+        "linear 16 مقارنة مقابل binary 4 (log₂ 16) على 16 عنصر؛ المنحنيين عند 1,000,000.",
+        "HashMap: load factor 0.75 ← السعة ×2؛ الـbucket يتحول tree بعد 8 (Java 8+).",
+        "AVL: ارتفاع 3 بعد إدخالات تصاعدية.",
+        "Dijkstra: أرخص طريق = 13.",
+        "خصم الـPremium 10%؛ الـsegments: VIP ≥ 10,000 · Gold ≥ 5,000 · Silver ≥ 1,000 · Bronze."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "coupling",
+          "meaning_ar": "قد إيه الأجزاء متربطة ببعض"
+        },
+        {
+          "term": "cohesion",
+          "meaning_ar": "قد إيه الجزء الواحد مركّز على شغلانة واحدة"
+        },
+        {
+          "term": "dependency inversion",
+          "meaning_ar": "الكود يعتمد على interface مش على تفاصيل"
+        },
+        {
+          "term": "composition",
+          "meaning_ar": "الـobject عنده object تاني بدل ما يورثه"
+        },
+        {
+          "term": "value object",
+          "meaning_ar": "object بيتعرّف بقيمته ومش بيتغير"
+        },
+        {
+          "term": "ADR",
+          "meaning_ar": "ورقة قرار: اخترنا إيه ورفضنا إيه وهيكلّف إيه"
+        },
+        {
+          "term": "load factor",
+          "meaning_ar": "نسبة امتلاء الـhash table"
+        },
+        {
+          "term": "frontier / visited",
+          "meaning_ar": "اللي مستني يتزار / اللي اتزار خلاص"
+        },
+        {
+          "term": "topological sort",
+          "meaning_ar": "ترتيب يحترم كل الاعتماديات"
+        }
+      ],
+      "map": {
+        "prediction": "التغيير ده هيلمس كام ملف؟ · أنهي container هيلاقي أقل عدد خطوات؟",
+        "failure": "6 ملفات لتغيير واحد؛ refactor كسر test؛ شجرة مش متوازنة؛ edge بتقفل دورة.",
+        "fix": "تقسيم على المسؤوليات؛ interface + injection؛ خطوات صغيرة ورجوع؛ AVL؛ cycle detection.",
+        "callback_next": "الـtopological sort والدورة = قلب الـorchestrator (الجزء 15)؛ الـRepository والـFactory بيرجعوا في Java وSpring (الجزء 14).",
+        "artifact": "feature في كود غريب + call graph + test + ADR."
+      },
+      "questions": [
+        "اشرح الـcoupling والـcohesion بمثال.",
+        "اشرح حرف من SOLID كوجع حقيقي.",
+        "أعمدة الـOOP الأربعة؟ وإمتى composition أحسن من inheritance؟",
+        "إمتى تستخدم Repository وStrategy وObserver في pipeline داتا؟",
+        "إزاي HashMap بتشتغل من جوه؟",
+        "ليه BFS بيلاقي أقل عدد خطوات وDFS لأ؟",
+        "إيه علاقة الـtopological sort بـAirflow؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ15. ارسم الـcall graph وهو بينوّر 6 ملفات وبعدين ملف واحد، والـrefactor على شريط tests أخضر أخضر أحمر. اعرض أعمدة الـOOP والـpatterns الست كوجع وحل. في الـDSA: عدّادين 16 مقابل 4، والـhash table والـload factor 0.75، وBFS وDFS وDijkstra كل واحد جنبه الـcontainer بتاعه لحد تكلفة 13، والدورة اللي بتكسر الـtopological sort. خلّي الكود بالإنجليزي.",
+      "title": "Software Craft وDSA: الـcoupling والـcohesion، الـSOLID، الـOOP والـdesign patterns، الـrefactoring والـreview، والـalgorithms كعمليات بتتعدّ",
+      "narration_words": 618,
+      "scene_count": 15,
+      "unified_identical_scenes": 15
+    },
+    {
+      "part": 13,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_13_of_25_Systems_Web_APIs_Security.md",
+        "file_id": "f:dda13582c9ae",
+        "copies": 10,
+        "bytes": 15978
+      },
+      "one_liner": "كل نداء بيعدّي DNS وTCP وTLS وHTTP قبل ما يوصل للكود؛ والـstatus code بيقولك مين اللي يصلّح؛ والـAPI عقد مكتوب؛ و«إنت داخل؟» غير «دي بتاعتك؟».",
+      "outcomes": "DNS وIP وports، TCP وTLS، ليه الـconnection الدافي أسرع، تشريح الـrequest، الـmethods وPUT مقابل PATCH، الـstatus codes كمسؤوليات، عقد الـAPI (validation · errors · pagination · idempotency · versioning · OpenAPI)، FastAPI بطبقات، authn مقابل authz وRBAC وleast privilege، الـIDOR، الـinjection، الـsecrets، الـrate limiting.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "رحلة الـrequest ترسمها **packets بتتحرك على edges** بين browser وDNS وservice وdatabase.",
+        "الـrequest نفسه **waterfall timeline** وكل مرحلة ليها طول بيتقاس.",
+        "الـexploit يتعرض الأول باللون الأحمر، وبعدين الإصلاح ونفس الـrequest بيترفض باللون الأخضر.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "حوالي 14 hop للـpackets.",
+        "الـconnection الدافي أسرع 3.6 مرة من البارد.",
+        "الـstatus codes: 400 · 401 · 403 · 404 · 429 · 500 · 502 · 504.",
+        "FastAPI: `pool_size=10` · `limit` 1–50 (by-category) و1–100 (top products) · uvicorn port 8000 · versioning `/api/v1`.",
+        "orders في المثال من keyspace ShopFlow (1001–1014)."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "DNS",
+          "meaning_ar": "دليل بيحوّل الاسم لعنوان"
+        },
+        {
+          "term": "TCP handshake",
+          "meaning_ar": "اتفاق بداية الاتصال"
+        },
+        {
+          "term": "TLS",
+          "meaning_ar": "تشفير وإثبات هوية السيرفر"
+        },
+        {
+          "term": "idempotency",
+          "meaning_ar": "تكرار نفس الطلب ما يغيّرش النتيجة تاني"
+        },
+        {
+          "term": "pagination",
+          "meaning_ar": "تقسيم النتايج صفحات"
+        },
+        {
+          "term": "authentication / authorization",
+          "meaning_ar": "إنت مين / مسموح لك بإيه"
+        },
+        {
+          "term": "RBAC",
+          "meaning_ar": "صلاحيات حسب الدور"
+        },
+        {
+          "term": "IDOR",
+          "meaning_ar": "توصل لحاجة مش بتاعتك بتغيير الـid"
+        },
+        {
+          "term": "injection",
+          "meaning_ar": "الـinput بيتنفذ ككود"
+        },
+        {
+          "term": "rate limiting",
+          "meaning_ar": "حد أقصى لعدد الطلبات في فترة"
+        }
+      ],
+      "map": {
+        "prediction": "401 ولا 403؟ · لو غيّرت الرقم في الـURL هيحصل إيه؟",
+        "failure": "packet ضايعة؛ connection بارد؛ IDOR؛ injection؛ طوفان طلبات.",
+        "fix": "TCP؛ connection reuse؛ فحص ملكية؛ parameters؛ rate limit.",
+        "callback_next": "نفس الطبقات (controller ← service ← repository ← pool) بـJava وSpring في الجزء 14؛ والـIAM precedence في الجزء 24؛ والـagents الآمنة في الجزء 23.",
+        "artifact": "API spec + security tests."
+      },
+      "questions": [
+        "إيه اللي بيحصل من ساعة ما تكتب URL لحد ما الصفحة تظهر؟",
+        "الفرق بين 401 و403؟ و502 و504؟",
+        "PUT مقابل PATCH؟",
+        "صمّم `GET /items` بـfiltering وpagination.",
+        "إزاي تمنع SQL injection؟",
+        "إيه هو الـIDOR وإزاي تمنعه؟",
+        "رتّب كود الـbackend: router / service / repository — ليه؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ12. ارسم الـpackets بتتحرك في حوالي 14 hop، والمصافحات، والدافي أسرع 3.6 مرة. افرز الـstatus codes على «مين يصلّح». اعرض الـAPI بـFastAPI بطبقاته. أهم مشهد: تغيير الرقم في الـURL وقراية order مش بتاعك بالأحمر، وبعدين فحص الملكية ونفس الطلب بيترفض بالأخضر. وبعده الـinjection والإصلاح بالـparameters. خلّي الكود بالإنجليزي.",
+      "title": "Systems والويب: من الـDNS للـdatabase، الـHTTP والـstatus codes، عقد الـAPI بـFastAPI، والهوية والأمان (IDOR والـinjection)",
+      "narration_words": 393,
+      "scene_count": 12,
+      "unified_identical_scenes": 12
+    },
+    {
+      "part": 14,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_14_of_25_Backend_Depth_Java_JDBC_Spring_Concurrency.md",
+        "file_id": "f:a3a06bf42bc9",
+        "copies": 10,
+        "bytes": 23175
+      },
+      "one_liner": "الـrequest بيعدّي طبقات لحد الـdatabase وراجع؛ وJava بتديك typing صارم وthreads حقيقية وأداء للـproduction — بشرط تقفل الـresources، وتستخدم parameters، وتحترم الـpool، وتعرف تعمل rollback حتى لما مفيش database واحدة.",
+      "outcomes": "ليه Java ومقارنتها بـPython، gotchas الأساسيات (== مقابل equals، Integer cache، String)، الـcollections، الـStreams ≈ pandas، الـJDBC خطوة بخطوة، try-with-resources وPreparedStatement، الـtransaction اليدوية، HikariCP، Spring Boot (Entity · JpaRepository · Service · RestController)، الـGlobalExceptionHandler، الـN+1، الـconcurrency في Python (threads · processes · asyncio والـGIL)، والـsaga.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "العمود الفقري البصري: **رحلة request** بتعدّي Controller ← Service ← Repository ← Connection Pool ← DB ← Response، والطبقة اللي بنتكلم عنها بتنوّر.",
+        "كل مقارنة (Python/Java، String/StringBuilder/StringBuffer، threading/multiprocessing/asyncio) تتعرض جدول جنب بعض.",
+        "الـtransaction والـsaga يترسموا كخطوات بتتقدم وبعدين بترجع (rollback / compensation).",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "نفس الشغلانة: ≈ 20 سطر Python مقابل 80+ Java؛ Python للـETL أقل من ~10 مليون صف.",
+        "Integer cache: −128 لـ127 (`127 == 127` true · `128 == 128` false).",
+        "JDBC: `localhost:3306/shopflow` · batch كل 1000 صف.",
+        "HikariCP: max 10 · min idle 5 · connectionTimeout 30000 ms · idleTimeout 600000 · maxLifetime 1800000.",
+        "Spring: `BigDecimal` precision 12 scale 2 · `batchUpdate` 100 · `/api/v1/customers`.",
+        "الأخطاء: 404 (not found) · 409 (duplicate email) · 500.",
+        "Python: `ThreadPoolExecutor(max_workers=10)` · aiomysql pool 5–10.",
+        "partitioningBy عند LTV 5000."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "JVM / bytecode",
+          "meaning_ar": "الماكينة الافتراضية اللي بتشغّل Java / الكود المترجم ليها"
+        },
+        {
+          "term": "wrapper class",
+          "meaning_ar": "نسخة object من النوع البسيط"
+        },
+        {
+          "term": "try-with-resources",
+          "meaning_ar": "block بيقفل الـresources لوحده"
+        },
+        {
+          "term": "PreparedStatement",
+          "meaning_ar": "جملة SQL متجهزة بـparameters"
+        },
+        {
+          "term": "connection pool",
+          "meaning_ar": "مخزن اتصالات جاهزة بتتسلف وترجع"
+        },
+        {
+          "term": "@Transactional",
+          "meaning_ar": "الـmethod كلها transaction واحدة"
+        },
+        {
+          "term": "N+1",
+          "meaning_ar": "query للأب + query لكل ابن"
+        },
+        {
+          "term": "GIL",
+          "meaning_ar": "قفل بيخلّي thread واحد ينفّذ في Python"
+        },
+        {
+          "term": "saga",
+          "meaning_ar": "خطوات موزعة لكل واحدة عملية عكسية"
+        }
+      ],
+      "map": {
+        "prediction": "`Integer 128 == 128`؟ · الـparallel stream على لستة صغيرة أسرع؟",
+        "failure": "اتصال مفتوح؛ injection بـStatement؛ سباق على آخر قطعة؛ pool exhausted؛ N+1؛ فشل في service تالتة.",
+        "fix": "try-with-resources؛ PreparedStatement؛ UPDATE بشرط `stock >= ?`؛ pool بإعدادات؛ fetch join؛ saga.",
+        "callback_next": "الـpipeline نفسها ومين يشغّلها وإمتى — الجزء 15.",
+        "artifact": "Spring Boot CRUD + JDBC repository + tests."
+      },
+      "questions": [
+        "قارن Python وJava لشغل الداتا.",
+        "`==` مقابل `equals`؟ وليه `Integer 128 == 128` false؟",
+        "String مقابل StringBuilder مقابل StringBuffer؟",
+        "اشرح خطوات JDBC وليه PreparedStatement.",
+        "إزاي تعمل transaction في JDBC؟ وفي Spring؟",
+        "اشرح طبقات Spring Boot والـGlobalExceptionHandler.",
+        "threading مقابل multiprocessing مقابل asyncio؟",
+        "إيه هو الـsaga pattern؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ15. خلّي رحلة الـrequest (Controller ← Service ← Repository ← Pool ← DB) ظاهرة والطبقة الحالية منوّرة. اعرض جدول Python مقابل Java، وفخ Integer 127 مقابل 128، والـStreams جنب pandas. أهم مشاهد: الـtransaction اللي بترجع بالـrollback وخصم المخزون بشرط، والـpool بعشرة connections لحد ما يخلص، والـsaga والعمليات العكسية بالعكس. خلّي الكود بالإنجليزي.",
+      "title": "Backend بالعمق: ليه Java؟ الـcollections والـstreams، الـJDBC والـtransactions، الـconnection pool، Spring Boot بطبقاته، والـconcurrency والـsaga",
+      "narration_words": 580,
+      "scene_count": 15,
+      "unified_identical_scenes": 15
+    },
+    {
+      "part": 15,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_15_of_25_ETL_DAGs_Airflow_Idempotency_Quality.md",
+        "file_id": "f:dae882c99ebb",
+        "copies": 10,
+        "bytes": 20317
+      },
+      "one_liner": "اتحقق قبل ما تحوّل، وحط الفاشل في quarantine بسببه؛ والـorchestrator وعد بترتيب من غير دورات — والـretry ما بيبقاش آمن غير لو الـtask idempotent، والـgate هو اللي بيقرر تنشر ولا لأ.",
+      "outcomes": "رحلة السجل، فحوص الـvalidation السبعة، أبعاد الجودة الست، العيبين الحقيقيين، الـquarantine، ETL مقابل ELT، الـDAG وترتيبه، معمارية Airflow ومفاهيمه، كود DAG حقيقي، الفشل وأحفاده، الـretry والتكرار، الـidempotency، الـbackfill، الـgate، الـsensors والـbranching والـTaskFlow، وأفضل الممارسات والاختبارات.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "سجل واحد يتحرك على الـpipeline كلها ومعاه label عند كل محطة.",
+        "أبعاد الجودة الست تترسم **ست عدادات (gauges)** محسوبة من الصفوف الحقيقية.",
+        "الـDAG يترسم graph؛ لما task تفشل، **أحفادها بس** يتلوّنوا، والفرع التاني يفضل أخضر.",
+        "تحت الـretry اعرض **عدد الصفوف** وهو بيتضاعف، وبعد الإصلاح وهو ثابت.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـ14 صف المنضّفين بيفشلوا في 2 فحوص: 1007 → 9 (orphan) و1010 `refunded`.",
+        "7 فحوص validation · 6 أبعاد جودة.",
+        "`default_args`: retries 3 · retry_delay 5 min · execution_timeout 1 h.",
+        "schedule `'0 6   *'` · start_date 2024-01-01 · `catchup=False` · `max_active_runs=1`.",
+        "الجودة: 0 orders CRITICAL · AOV < 10 WARNING · 0 customers CRITICAL.",
+        "`retry 2 / 3` ← الصفوف ×2؛ بعد الـidempotency: نفس العدد.",
+        "FileSensor كل 5 min لحد 1 h؛ SqlSensor 300 / 7200؛ SLA 2 h.",
+        "`DagBag import_errors` = 0."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "validate",
+          "meaning_ar": "تتأكد إن الداتا سليمة قبل ما تحوّلها"
+        },
+        {
+          "term": "quarantine",
+          "meaning_ar": "جدول للصفوف الفاشلة ومعاها سببها"
+        },
+        {
+          "term": "ETL / ELT",
+          "meaning_ar": "تحوّل قبل التحميل / تحمّل وتحوّل جوه الـwarehouse"
+        },
+        {
+          "term": "DAG",
+          "meaning_ar": "graph موجّه من غير دورات"
+        },
+        {
+          "term": "operator / task",
+          "meaning_ar": "قالب شغل / نسخة منه في DAG"
+        },
+        {
+          "term": "XCom",
+          "meaning_ar": "رسايل صغيرة بين الـtasks"
+        },
+        {
+          "term": "idempotent",
+          "meaning_ar": "تشغيلها مرتين = تشغيلها مرة"
+        },
+        {
+          "term": "backfill",
+          "meaning_ar": "إعادة تشغيل لتواريخ فاتت"
+        },
+        {
+          "term": "quality gate",
+          "meaning_ar": "بوابة بتمنع النشر لو الفحص فشل"
+        },
+        {
+          "term": "sensor",
+          "meaning_ar": "task بتستنى شرط يتحقق"
+        }
+      ],
+      "map": {
+        "prediction": "الداتا نضيفة — كام فحص هيفشل؟ · الـretry نجح — الأعداد صح؟",
+        "failure": "1007 و1010؛ task فشلت؛ retry ضاعف الصفوف؛ backfill كان هيدوس على النهارده؛ أعداد مش متطابقة.",
+        "fix": "quarantine بسبب؛ الأحفاد بس بيقفوا؛ batch_id + delete-insert؛ نافذة محمية؛ gate قبل النشر.",
+        "callback_next": "الداتا بتتحمّل فين وبأي شكل — الـwarehouse والـstar schema في الجزء 16.",
+        "artifact": "DAG بفحوص جودة وlineage."
+      },
+      "questions": [
+        "إيه هو الـDAG في Airflow، وإيه مكوناته؟",
+        "عدّ أبعاد الجودة الست.",
+        "ليه الـretry خطر، وإزاي تخلّي task idempotent؟",
+        "ETL ولا ELT — بتختار إزاي؟",
+        "إيه فايدة XCom، وليه ما تعدّيش فيه داتا كبيرة؟",
+        "إيه هو الـsensor، وليه `mode='reschedule'`؟",
+        "إزاي تختبر DAG؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. خلّي سجل واحد يمشي الـpipeline كلها، والست عدادات للجودة، والعيبين 1007 و1010 بيتحطوا في quarantine بسببهم. ارسم الـDAG والـtask الفاشلة وأحفادها بس بيتلونوا. أهم مشهد: retry بينجح وعدد الصفوف بيتضاعف، وبعدين batch_id وdelete-insert والعدد ثابت، والـgate اللي بيوقف النشر. اسأل سؤالين التوقع قبل الإجابة. خلّي الكود بالإنجليزي.",
+      "title": "ETL والـDAGs: التحقق قبل التحويل، أبعاد الجودة الست، الـquarantine، Airflow من جوه، والـretry اللي بيضاعف الصفوف وعلاجه بالـidempotency",
+      "narration_words": 545,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 16,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_16_of_25_Warehouse_Star_Schema_OLAP_SCD.md",
+        "file_id": "f:6280994b5d84",
+        "copies": 10,
+        "bytes": 19325
+      },
+      "one_liner": "الـwarehouse طبقات كل واحدة ليها شغلانة؛ وجوّاه fact على grain معلن وdimensions بتوصف؛ والـcube group-by تلف حواليه — بس متوسط المتوسطات غلط، والماضي لازم يتربط بحالته ساعتها مش النهارده.",
+      "outcomes": "ODS وDW وADS والـmarts، ليه نفصل OLTP عن OLAP، الـfact والـgrain والـsurrogate keys، الـhierarchies، أنواع الـmeasures الأربعة، slice/dice/roll-up/drill-down/pivot، الـAOV الغير قابل للجمع، SCD Type 1 وType 2 والـlate-arriving dimension، جداول الـaggregates، خطوات تحميل الـwarehouse، RFM وYoY والـaffinity والـanomaly، والـlineage بالعكس.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "الطبقات تظهر **progressive reveal** طبقة طبقة من المصدر للمستهلك.",
+        "الـstar يتبني: الـfact في النص، والـdimensions بتتلزق حواليه، والـgrain مكتوب على كارت الـfact.",
+        "الـcube شفاف وبيتقلب؛ عدد الخلايا وعدد الصفوف ورا كل خلية ظاهرين طول الوقت.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "roll up شهر ← ربع: 18 → 6 خلايا؛ الصفوف ورا كل خلية 12 → 36.",
+        "drill down على خلية: 216 → 72 صف.",
+        "`dim_date`: من 2020-01-01 لـ2030-12-31، مفتاح `YYYYMMDD`.",
+        "SCD2: `expiration_date = '9999-12-31'`.",
+        "تحميل الـfact: `page_size=1000`؛ delete-then-insert لكل تاريخ.",
+        "RFM: `NTILE(5)`؛ affinity: `HAVING >= 5`؛ anomaly: window 28 يوم، z > 2 ANOMALY، z > 1.5 WARNING."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "ODS / DW / ADS / mart",
+          "meaning_ar": "طبقة قريبة من المصدر / مخزن مدمج بتاريخ / طبقة جاهزة للتحليل / جزء لمجال معيّن"
+        },
+        {
+          "term": "fact / dimension",
+          "meaning_ar": "جدول الأحداث والأرقام / جدول الوصف"
+        },
+        {
+          "term": "grain",
+          "meaning_ar": "الصف الواحد في الـfact بيمثل إيه"
+        },
+        {
+          "term": "surrogate key",
+          "meaning_ar": "مفتاح داخلي للـwarehouse"
+        },
+        {
+          "term": "semi-additive",
+          "meaning_ar": "بيتجمع على بعض الأبعاد بس (مش الوقت)"
+        },
+        {
+          "term": "slice / dice",
+          "meaning_ar": "تثبيت بُعد واحد / تثبيت كذا بُعد"
+        },
+        {
+          "term": "roll up / drill down",
+          "meaning_ar": "تطلع لمستوى أعم / تنزل لتفاصيل"
+        },
+        {
+          "term": "SCD Type 2",
+          "meaning_ar": "صف جديد لكل تغيير عشان التاريخ يتحفظ"
+        },
+        {
+          "term": "late-arriving dimension",
+          "meaning_ar": "الـfact وصل قبل وصفه"
+        },
+        {
+          "term": "lineage",
+          "meaning_ar": "خريطة الرقم جه منين"
+        }
+      ],
+      "map": {
+        "prediction": "متوسط الربع = متوسط متوسطات الشهور؟",
+        "failure": "تحليل على الـproduction؛ متوسط المتوسطات؛ الماضي اتربط بحالة النهارده؛ dimension وصلت متأخر؛ تعديل معادلة الـKPI بدل سببه.",
+        "fix": "warehouse منفصل؛ إجمالي على إجمالي؛ SCD2؛ lineage بالعكس.",
+        "callback_next": "نفس الأفكار على منصة حقيقية: Huawei DataCube وتقارير Mobile Money في الجزء 17.",
+        "artifact": "star ERD + DDL + حزمة queries + lineage."
+      },
+      "questions": [
+        "الفرق بين ODS وDW وdata mart؟",
+        "إيه هو الـgrain، وإيه grain الـfact_sales هنا؟",
+        "additive وsemi-additive وnon-additive — مثال لكل واحد.",
+        "اشرح slice وdice وroll up وdrill down.",
+        "SCD Type 1 مقابل Type 2؟",
+        "ليه surrogate key؟",
+        "اكتب YoY growth وRFM segmentation."
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ14. اكشف الطبقات طبقة طبقة، وابني الـstar والـgrain مكتوب على الـfact. أهم مشهد: cube شفاف بيلف — roll up من 18 خلية لـ6، وdrill down من 216 صف لـ72 — وبعده متوسط المتوسطات بيتشطب. اعرض الـSCD2 كـtimeline للعميل، والـRFM والـYoY والـanomaly، والـlineage بالعكس. اسأل سؤال التوقع قبل الإجابة. خلّي الـSQL بالإنجليزي.",
+      "title": "الـWarehouse: الطبقات (ODS · DW · ADS · marts)، الـstar schema والـgrain، الـcube وعملياته، الـmeasures الغير قابلة للجمع، الـSCD، والـqueries التحليلية",
+      "narration_words": 503,
+      "scene_count": 14,
+      "unified_identical_scenes": 14
+    },
+    {
+      "part": 17,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_17_of_25_Huawei_DataCube_Mobile_Money_Reporting.md",
+        "file_id": "f:c1c84bae6c7c",
+        "copies": 10,
+        "bytes": 28912
+      },
+      "one_liner": "DataCube بتحوّل داتا تشغيل Mobile Money الخام لرؤية بيزنس مفهومة: مصادر كتير ← ETL كل ربع ساعة ← ODS وwarehouse وmarts وcube ← تقارير وdashboards وAPIs — وحواليها governance وopenness بصلاحيات.",
+      "outcomes": "المنصة ومصادرها، ODS مقابل DW مقابل Mart، اختيار الـstorage (GaussDB · Hive · HBase · HDFS · Redis · Kafka)، الموديل المنطقي والفيزيائي، المراحل الخمس، star schema الـMobile Money، الـcounters والـmeasurements، الـ24 KPI، الـETL بالتفصيل، تصميم تقرير في سبع خطوات، قراءة تقرير يومي، الـopenness والصلاحيات، والـgovernance والـmasking.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "معمارية DataCube تتكشف **طبقة طبقة** (progressive reveal): sources ← ETL ← storage ← analytics & reporting.",
+        "التقرير اليومي يترسم جدول حقيقي بيتملى صف صف، والإجمالي بيتجمع قدام العين.",
+        "الـmasking يتعرض before/after على نفس السطر.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "50+ مصدر؛ المعاملات كل 15 min · الوكلا كل ساعة · المشتركين يومي؛ التقرير 06:00.",
+        "`amount DECIMAL(18,2)`؛ grain = صف لكل معاملة.",
+        "counters: 15,000 معاملة · $500K ← متوسط $33.33 · نجاح 97%.",
+        "commission = fee × 0.60 · net revenue = fee × 0.40.",
+        "التقرير اليومي 2024-01-15: الإجمالي 125,847 معاملة · $4,200,000 · رسوم $185,000 · متوسط $33.37 · 97.3% (والتفاصيل في جدول المشهد 11).",
+        "المناطق: 40% / 20% / 18% / 13% / 9% ($73.8K / $36.9K / $34.3K / $24.6K / $15.3K)؛ tiles +5.2% · +3.8% · +4.1% · −0.2%.",
+        "الشبكة: القاهرة 1,245 / 580 GB / 99.1% / 0.3% · الإسكندرية 856 / 412 GB / 98.8% / 0.4% · الجيزة 432 / 231 GB / 97.5% / 0.8%.",
+        "active agents خلال 7 أيام؛ active subscribers 30 يوم.",
+        "الاحتفاظ: ODS 7–30 يوم · fact 1–2 سنة · aggregates 2–5 · archive 7–10؛ لوجز 2+ سنين.",
+        "الفحوص: amount 0 < x < 10M · freshness < 2 h · score ≥ 80% · AES-256 · TLS 1.2+.",
+        "الـmasking: `256781234567` ← `**-**-4567`."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "DataCube",
+          "meaning_ar": "منصة Huawei للتحليل والتقارير على داتا ضخمة"
+        },
+        {
+          "term": "MSISDN",
+          "meaning_ar": "رقم الموبايل كمعرّف للمشترك"
+        },
+        {
+          "term": "counter / measurement",
+          "meaning_ar": "رقم خام / رقم محسوب منه"
+        },
+        {
+          "term": "cumulative / gauge / derived",
+          "meaning_ar": "عدّاد بيزيد / قيمة لحظية / معادلة"
+        },
+        {
+          "term": "ARPU",
+          "meaning_ar": "متوسط الإيراد لكل مشترك نشط"
+        },
+        {
+          "term": "float adequacy",
+          "meaning_ar": "هل رصيد الوكيل كفاية لشغله اليومي"
+        },
+        {
+          "term": "post-load reconciliation",
+          "meaning_ar": "مطابقة المصدر بالهدف بعد التحميل"
+        },
+        {
+          "term": "data openness",
+          "meaning_ar": "فتح الداتا بدرجات وصلاحيات"
+        },
+        {
+          "term": "data steward",
+          "meaning_ar": "اللي بينفّذ قواعد الجودة ويراقبها"
+        },
+        {
+          "term": "PII masking",
+          "meaning_ar": "إخفاء البيانات الشخصية"
+        }
+      ],
+      "map": {
+        "prediction": "البيانات دي تتخزن في أنهي تقنية؟ · متوسط الإجمالي = متوسط المتوسطات؟",
+        "failure": "كود خدمة مكتوب بكذا شكل؛ المصدر والهدف مش متطابقين؛ PII مكشوفة؛ staging بيكبر للأبد.",
+        "fix": "standardization؛ post-load reconciliation؛ masking وRBAC؛ lifecycle وpurge.",
+        "callback_next": "DataCube مبنية على Hadoop — الـHDFS والـYARN وSpark من جوه في الجزء 18؛ والمعاملة اللحظية في رحلة الـNRT في الجزء 19.",
+        "artifact": "تقرير مبني + ETL متابع + governance audit."
+      },
+      "questions": [
+        "اشرح طبقات DataCube من المصدر للتقرير.",
+        "قارن ODS وDW وData Mart.",
+        "إمتى HBase وإمتى Hive وإمتى GaussDB؟",
+        "إيه الفرق بين الموديل المنطقي والفيزيائي؟",
+        "عدّ KPIs لـMobile Money في كل عائلة، واكتب معادلة ARPU.",
+        "إيه اللي بيحصل في post-load reconciliation؟",
+        "إزاي تتعامل مع الـPII في التقارير؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ15. اكشف معمارية DataCube طبقة طبقة، واعرض جدول ODS/DW/Mart وشجرة اختيار الـstorage. أهم مشاهد: الـstar بتاع Mobile Money، والـ24 KPI بمعادلاتها، والـETL وتوحيد الأكواد وقسمة 60/40، وجدول التقرير اليومي 2024-01-15 بيتملى لحد إجمالي 125,847 معاملة و4.2 مليون. وفي الآخر الـmasking before/after. خلّي المصطلحات والكود بالإنجليزي.",
+      "title": "Huawei DataCube وتقارير Mobile Money: المصادر والطبقات، اختيار الـstorage، بناء الموديل في خمس مراحل، الـ24 KPI، الـETL، مصمم التقارير، الـopenness، والـgovernance",
+      "narration_words": 600,
+      "scene_count": 15,
+      "unified_identical_scenes": 15
+    },
+    {
+      "part": 18,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_18_of_25_Hadoop_HDFS_YARN_MapReduce_and_Spark.md",
+        "file_id": "f:7464d544919f",
+        "copies": 10,
+        "bytes": 24475
+      },
+      "one_liner": "لما الداتا تكبر عن جهاز، قسّمها وكررها وودّي الحساب ليها؛ والـshuffle هو اللحظة الغالية — وSpark غيّر التنفيذ مش الشكل: كسول، بيقطّع عند كل shuffle، والـpartition وحدة الشغل، والـskew مشكلة توزيع مش سعة.",
+      "outcomes": "إمتى الداتا تبقى big، تاريخ Hadoop وSpark، الـblocks والـreplication والـracks، الـNameNode والـDataNodes، فشل node وإعادة النسخ، YARN والـqueues والـdata locality، MapReduce والـcombiner، الـecosystem بحكم أمين، معمل التثبيت والأوامر، Spark مقابل MapReduce، الـlazy evaluation، narrow مقابل wide، الـCatalyst والـplan، الـpartitions، الـskew وعلاجه، وPySpark عملي.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "**الـ3D مسموح هنا بس في مشاهد الـcluster** (مشاهد 2–4): الـracks والـblocks وهي بتطير. باقي الجزء 2D.",
+        "الـshuffle يترسم **شبكة ظاهرة** بين الأجهزة وعدّاد bytes عليها.",
+        "الـskew: 200 عمود task، كلهم يخلصوا وواحد بس يفضل طالع.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "block 128 MB · replication 3 · ملف 1 GB ← 8 blocks ← 24 نسخة.",
+        "heartbeat timeout الافتراضي 10 min 30 s.",
+        "YARN queues: default 40% (max 60%) · production 40% (max 80%).",
+        "MapReduce counters: 10,000 → 50,000 → 5,000؛ WordCount: `hadoop 1 · hello 2 · world 1`.",
+        "Spark لحد ~100× أسرع في الذاكرة و~10× على الـdisk.",
+        "ports: 9000 (fs) · 9870 · 8088 · 8080 · 4040 · 18080 · ZooKeeper 2181 · Kafka 9092.",
+        "نسخ: Hadoop 3.3.6 · Spark 3.5.x · Hive 3.1.3 · HBase 2.5.7 · Kafka 3.6.1.",
+        "الـskew: stage بـ200 task وواحدة متأخرة؛ `shuffle.partitions = 200`؛ executor 4g · 2 cores.",
+        "تاريخ: Hadoop 2006 · Spark 2009."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "block / replica / rack",
+          "meaning_ar": "قطعة من الملف / نسخة منها / دولاب أجهزة"
+        },
+        {
+          "term": "NameNode / DataNode",
+          "meaning_ar": "صاحب الخريطة / اللي شايل الداتا"
+        },
+        {
+          "term": "YARN",
+          "meaning_ar": "موزّع موارد الـcluster"
+        },
+        {
+          "term": "data locality",
+          "meaning_ar": "تشغيل الحساب جنب الداتا"
+        },
+        {
+          "term": "shuffle",
+          "meaning_ar": "نقل الداتا بين الأجهزة حسب الـkey"
+        },
+        {
+          "term": "combiner",
+          "meaning_ar": "تجميع محلي قبل الـshuffle"
+        },
+        {
+          "term": "lazy evaluation",
+          "meaning_ar": "مفيش تنفيذ لحد ما action تتنادي"
+        },
+        {
+          "term": "narrow / wide",
+          "meaning_ar": "من غير نقل / محتاج shuffle"
+        },
+        {
+          "term": "stage",
+          "meaning_ar": "جزء من الـDAG بين shuffleين"
+        },
+        {
+          "term": "skew",
+          "meaning_ar": "key واحد واخد أغلب الداتا"
+        },
+        {
+          "term": "salting",
+          "meaning_ar": "تقسيم الـkey الحامي بلاحقة عشوائية"
+        },
+        {
+          "term": "broadcast join",
+          "meaning_ar": "نسخ الجدول الصغير لكل الأجهزة"
+        }
+      ],
+      "map": {
+        "prediction": "لو DataNode مات، الملف هيتقري؟ · الـstage واقفة — نضيف أجهزة؟",
+        "failure": "node بتموت؛ shuffle غالي؛ partitions غلط؛ task واحدة متأخرة.",
+        "fix": "replication وre-replication؛ combiner وreduceByKey؛ عدد partitions مظبوط؛ repartition / salting / broadcast.",
+        "callback_next": "الداتا مش بتستنى batch — Kafka والـstreaming ورحلة معاملة NilePay في الجزء 19.",
+        "artifact": "PySpark daily job + معامل Hadoop."
+      },
+      "questions": [
+        "اشرح الـHDFS: blocks وreplication وrack awareness.",
+        "إيه اللي بيحصل لما DataNode يقع؟",
+        "مكونات YARN؟",
+        "اشرح MapReduce، والـcombiner، والـspeculative execution.",
+        "Spark مقابل MapReduce؟ RDD مقابل DataFrame؟",
+        "إيه اللي بيسبب shuffle، وليه غالي؟",
+        "إيه هو الـskew وإزاي تعالجه؟",
+        "Hive internal مقابل external؟ partitioning مقابل bucketing؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. استخدم 3D بس في مشاهد الـcluster: blocks بـ128 MB بتطير لـDataNodes بتلات نسخ، وnode بتموت والملف لسه بيتقري. ارسم الـshuffle كشبكة ظاهرة. في Spark: DAG بيتبني ومفيش تنفيذ لحد الـaction، والـstages بتتقطع عند الـshuffles، وأهم مشهد: 200 task وواحدة بس متأخرة (skew) وتلات إصلاحات. اعرض جدول Spark مقابل MapReduce. خلّي الكود بالإنجليزي.",
+      "title": "Big Data: Hadoop (HDFS · YARN · MapReduce · الـecosystem) وSpark (الكسل، الـstages، الـpartitions، الـshuffle، الـskew، وPySpark)",
+      "narration_words": 617,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 19,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_19_of_25_Kafka_Streaming_and_NRT_Transaction_Journey.md",
+        "file_id": "f:30eb9a2464a7",
+        "copies": 10,
+        "bytes": 25446
+      },
+      "one_liner": "Kafka مش database؛ ده log مترتب جوه كل partition، والـlag أنفع رقم عندك، والـexactly-once خاصية للمسار كله؛ ومعاملة واحدة برقم ثابت بتعدّي Kafka وODS وADS لحد التقرير — بأربع ساعات مختلفة عند كل محطة.",
+      "outcomes": "batch مقابل stream، الـlog والـpartitions والـoffsets، ترتيب جوه الـpartition، الـconsumer groups والـrebalance، الـreplication والـISR والـacks، الـlag وسببه، التسليم والتكرار والـDLQ، الـschema evolution، أوامر Kafka وStructured Streaming، رحلة معاملة NilePay، الساعات الأربعة، الـODS (TO-) والـADS (TA-)، مسار الـNRT ومسار الـbatch، مكونات Nextgen D&IM، التدفقات الأربعة، و«يوم في حياة معاملة».",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "الـtopic يترسم **partitions أفقية** عليها offsets مترقمة، ومؤشر الـconsumer بيمشي عليها.",
+        "الـlag وسببه في **نفس اللقطة** (الشاشة نصين).",
+        "من مشهد 10 لآخر الجزء: **رقم عملية واحد ثابت** بيظهر في كل محطة، وأربع ساعات بتتختم عند كل hop على خط زمن.",
+        "مكونات D&IM تتعرض **بالوظيفة الأول وبعدين اسم المنتج** — مش كل الأسامي مرة واحدة.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "`lag = last available − last processed`؛ الـfreshness SLO ≤ 5 min.",
+        "Structured Streaming: port 9092 · topic `order_events` · watermark 10 min · window 5 min · trigger 1 min.",
+        "NRT tables: T1 (raw) · T4 (dimension ← Redis) · T2 (processed)؛ ODS = `TO-` · ADS = `TA-`.",
+        "D&IM: 13 دولة · 13 tenant/بيئة · Kafka ≤ 10,000 TPS · API Gateway 10,000 TPS · HDFS 352 TB (11 × 3) · API حد أقصى 1,000 record.",
+        "المواعيد: DQ1 كل 15 min · batch 02:00 · compliance قبل 03:00 · SFTP 02:00–05:00.",
+        "SLAs: 70 s–3 min central · 70 s–5 min local · 5–15 min API.",
+        "الفواتير: T1–T6 · 4/6 = 66.67% · 400 EGP · A 250 · B 150."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "topic / partition",
+          "meaning_ar": "قناة الأحداث / جزء مترتب منها"
+        },
+        {
+          "term": "offset",
+          "meaning_ar": "رقم مكان الرسالة في الـpartition"
+        },
+        {
+          "term": "consumer group",
+          "meaning_ar": "مجموعة بتتقاسم الـpartitions"
+        },
+        {
+          "term": "rebalance",
+          "meaning_ar": "إعادة توزيع الـpartitions"
+        },
+        {
+          "term": "ISR",
+          "meaning_ar": "النسخ اللي ملحّقة على القائد"
+        },
+        {
+          "term": "lag",
+          "meaning_ar": "قد إيه الـconsumer متأخر"
+        },
+        {
+          "term": "DLQ",
+          "meaning_ar": "طابور للرسايل اللي بتفشل على طول"
+        },
+        {
+          "term": "schema registry",
+          "meaning_ar": "حارس بيرفض تغييرات الـschema المكسّرة"
+        },
+        {
+          "term": "event / ingestion / processing / available time",
+          "meaning_ar": "إمتى حصل / وصل / اتعالج / بقى متاح"
+        },
+        {
+          "term": "ODS (TO-) / ADS (TA-)",
+          "meaning_ar": "طبقة قريبة من المصدر / طبقة منطق البيزنس"
+        },
+        {
+          "term": "enrichment",
+          "meaning_ar": "إضافة بيانات مرجعية للحدث"
+        },
+        {
+          "term": "multi-tenancy",
+          "meaning_ar": "دول كتير على منصة واحدة معزولين"
+        }
+      ],
+      "map": {
+        "prediction": "حدثين لنفس الحساب في partitions مختلفة — هيتعالجوا بالترتيب؟ · الـconsumer وقع قبل الـcommit — هيحصل إيه؟",
+        "failure": "ترتيب مكسور؛ rebalance بيهز الـlatency؛ lag من sink بطيء؛ duplicate بعد crash؛ schema مكسّرة؛ الطزاجة عدّت 5 دقايق.",
+        "fix": "نفس الـkey؛ مراقبة الـlag مع سببه؛ at-least-once + idempotent sink؛ DLQ؛ registry؛ الأختام الأربعة بتحدد الـhop.",
+        "callback_next": "إزاي نثبت إن الأنظمة متفقة على نفس الفلوس — الـreconciliation والاختبارات والـDR في الجزء 20.",
+        "artifact": "خريطة رحلة معاملة بأربع ساعات لكل hop + topic شغال + streaming job."
+      },
+      "questions": [
+        "Kafka مش database — ليه؟",
+        "الترتيب مضمون فين؟ وإزاي تضمن ترتيب أحداث حساب واحد؟",
+        "إيه هو الـlag، وإزاي تعرف سببه؟",
+        "اشرح at-least-once وexactly-once، وليه الـsink لازم يبقى idempotent؟",
+        "الفرق بين event time وprocessing time؟",
+        "قارن مسار الـNRT ومسار الـbatch في DataCube.",
+        "إزاي 13 دولة بيتعزلوا على نفس المنصة؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. ارسم الـtopic كـpartitions أفقية بـoffsets ومؤشر consumer، والـlag وسببه في نفس الشاشة، والـcrash قبل الـcommit والتكرار. من مشهد 10: رقم عملية واحد ثابت بيعدّي كل المحطات وأربع أختام وقت عند كل hop. اعرض مكونات D&IM بالوظيفة الأول وبعدين المنتج، والتدفقات الأربعة، ويوم المعاملة. اختم بنفس الرقم في الـdashboard ورجوع الفواتير الست و66.67%. خلّي المصطلحات بالإنجليزي.",
+      "title": "Kafka والـstreaming، ورحلة معاملة Mobile Money واحدة: الـoffsets والـlag والـdelivery، أربع ساعات لكل محطة، ومعمارية Nextgen D&IM وتدفقاتها الأربعة",
+      "narration_words": 657,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 20,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_20_of_25_Reconciliation_DIM_Testing_Governance_DR.md",
+        "file_id": "f:5c75238adcf9",
+        "copies": 10,
+        "bytes": 25243
+      },
+      "one_liner": "الـreconciliation إنك تثبت إن نظامين متفقين على نفس الفلوس سجل بسجل — لأن الإجمالي الصافي بيخبّي أعطال بتلغي بعض؛ والاختبار بدليل مش بكلمة «نجح»؛ وإخفاء الاسم بداية الحماية؛ والـDR رقمين بتقيسهم مش بتكتبهم.",
+      "outcomes": "الـ3 ledgers وسيناريوهات 1VS2 و2VS3، أنواع الفروق الأربعة، ليه الصافي بيكدب، سيناريوهات الـreconciliation في D&IM، مراحل الاختبار الخمسة، مصفوفة T1–T4، اختبارات الـNRT، الـk-anonymity والـDDS، طبقات الأمان والـcompliance، الـacceptance والـrisk board، الـDR والـRPO/RTO، عزل الدول، والمتطلبات الغير وظيفية.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "الـreconciliation تترسم **ميزان / دفترين جنب بعض** والسجلات بتتطابق صف قصاد صف؛ كل نوع فرق بيروح لطابوره.",
+        "الإجمالي الصافي يظهر وبعدين **يتشطب**.",
+        "الـk-anonymity: جدول الصفوف والـk بيتحسب قدام العين بعد كل خطوة.",
+        "الـDR: موقع بيقع، وساعة إيقاف بتقيس RPO وRTO.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـreconciliation: 7 متطابقين · فرق مبلغ −36 (÷9 = transposition) · 1 missing · 1 extra · 1 duplicate · صافي + €66.00.",
+        "k-anonymity: 9 صفوف · k = 1 ← التعميم لسه وحيد ← الـsuppression k ≥ 2.",
+        "سيناريوهات D&IM: سلسلة 8 نقط · 4 أنواع exceptions.",
+        "RPO: Kafka In < 3 min · Kafka Out < 10 min · Batch < 30 min · Metadata < 15 min · الكل < 30 min؛ RTO < 60 min؛ PO+8 (≤ يوم) · PO+14 (< 60 min)؛ 99.99%.",
+        "NFRs والأرقام في مشهد 15 (13 دولة · 352 TB · 3,154 FTPS · 95/150 تقرير · 17 NRT table …).",
+        "التشفير: AES 128/192/256 · HMAC-SHA256 · TLS 1.2."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "reconciliation",
+          "meaning_ar": "إثبات إن نظامين متفقين سجل بسجل"
+        },
+        {
+          "term": "break / mismatch",
+          "meaning_ar": "فرق بين الدفترين"
+        },
+        {
+          "term": "transposition",
+          "meaning_ar": "رقمين متبدّلين (الفرق بيتقسم على 9)"
+        },
+        {
+          "term": "SIT / OAT / CAT",
+          "meaning_ar": "اختبار تكامل / قبول المجموعة / قبول الدولة"
+        },
+        {
+          "term": "LLD",
+          "meaning_ar": "المواصفة التفصيلية"
+        },
+        {
+          "term": "aging partition test",
+          "meaning_ar": "اختبار إن الداتا القديمة بتتمسح في ميعادها"
+        },
+        {
+          "term": "k-anonymity",
+          "meaning_ar": "كل صف متشابه مع k−1 صف على الأقل"
+        },
+        {
+          "term": "suppression",
+          "meaning_ar": "حذف القيم اللي بتفضح صف لوحده"
+        },
+        {
+          "term": "AML / CFT / PEP",
+          "meaning_ar": "مكافحة غسيل الأموال / تمويل الإرهاب / أشخاص معرّضين سياسياً"
+        },
+        {
+          "term": "RPO / RTO",
+          "meaning_ar": "أقصى داتا ممكن تضيع / أقصى وقت توقف"
+        },
+        {
+          "term": "tenant isolation",
+          "meaning_ar": "عزل داتا كل دولة"
+        }
+      ],
+      "map": {
+        "prediction": "الإجمالي الصافي بيقول إيه؟",
+        "failure": "−36 transposition؛ missing؛ extra؛ duplicate؛ late؛ k = 1 بعد إخفاء الاسم؛ موقع بيقع؛ query عابر للدول.",
+        "fix": "مطابقة على مستوى السجل وطوابير بأسباب؛ suppression؛ DR متقاس + reconciliation بعد الرجوع؛ عزل.",
+        "callback_next": "من إننا نثبت الماضي لإننا نتوقع الجاي — الـMachine Learning في الجزء 21.",
+        "artifact": "reconciliation report + acceptance-test pack + DR drill + risk board."
+      },
+      "questions": [
+        "ليه المطابقة على الإجمالي الصافي مش reconciliation؟",
+        "أنواع الفروق الأربعة، وإيه اللي يدلّك إن الفرق transposition؟",
+        "اشرح 1VS2 و2VS3.",
+        "اشرح مراحل الاختبار الخمسة، والفرق بين OAT وCAT.",
+        "إزاي تختبر data accuracy لتقرير ADS؟",
+        "إيه اختبارات الـNRT الأساسية؟",
+        "ليه إخفاء الاسم مش كفاية؟",
+        "عرّف RPO وRTO، وإزاي تثبتهم؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. ارسم دفترين والسجلات بتتطابق: 7 متطابقين، وفرق −36 بيتقسم على 9، وmissing وextra وduplicate كل واحد لطابوره، وبعدين الصافي +66 بيتشطب. اعرض مراحل الاختبار الخمسة ومصفوفة T1–T4 واختبارات الـNRT. أهم مشهدين كمان: الـk من 1 لـ2 بالـsuppression، وموقع بيقع وساعة بتقيس RPO أقل من 30 دقيقة وRTO أقل من 60. اسأل سؤال التوقع قبل الإجابة. خلّي المصطلحات بالإنجليزي.",
+      "title": "الـReconciliation واختبارات D&IM والـGovernance والـDR: أربع أنواع فروق، ليه الإجمالي الصافي بيكدب، خطة الاختبار الخماسية وT1–T4، اختبارات الـNRT، الـk-anonymity، الأمان، الـRPO/RTO، وعزل الدول",
+      "narration_words": 595,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 21,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_21_of_25_Machine_Learning_Baseline_Leakage_Evaluation.md",
+        "file_id": "f:1a2ea711c10a",
+        "copies": 10,
+        "bytes": 16876
+      },
+      "one_liner": "الـML بيبدأ بسؤال وbaseline مش بـalgorithm؛ والحكم على النموذج بداتا ما شافهاش؛ والـleakage بيعمل انتصارات كدابة؛ والدقة بتكدب مع الداتا الغير متوازنة؛ والعتبة قرار بيزنس.",
+      "outcomes": "AI مقابل ML مقابل DL، الـfeatures والـlabels، supervised وunsupervised، الـbaseline، الـfit والـloss، train/validation/test، تلات أنواع leakage، الـgrouped split، عائلات النماذج الأربعة (وكمان SVM وclustering وPCA)، صفوف لكل parameter، الـconfusion matrix وprecision وrecall وF1 وROC-AUC، العتبة بالفلوس، الـcross-validation بالمجموعات، الـbias والـvariance والـregularization، وسجل التجربة.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "التلاتين بيت **نقط ظاهرة**، والخط المضبوط **بيلف لمكانه** قدام العين.",
+        "رقمين الـMAE (65.50 و7.33) ظاهرين جنب بعض كل ما يتذكروا.",
+        "العتبة slider عليه **تكلفة بالفلوس** بتتغير.",
+        "الـtest set عليه **قفل** ما بيتفتحش غير مرة واحدة.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "baseline MAE 65.50 · النموذج MAE 7.33 على held-out · 30 بيت.",
+        "classifier: 1% إيجابي ← accuracy 99% ← مسك 0.",
+        "kNN: k = 1 ← خطأ تدريب صفر بالبناء.",
+        "bias/variance: الدرجة 9 بتـoverfit أكتر من 3.",
+        "(للجزء الجاي) gradient descent بيتباعد فوق learning rate حوالي 0.35."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "feature / label",
+          "meaning_ar": "مدخل / الإجابة المطلوبة"
+        },
+        {
+          "term": "baseline",
+          "meaning_ar": "أبسط حل معقول تقارن بيه"
+        },
+        {
+          "term": "MAE",
+          "meaning_ar": "متوسط الخطأ المطلق"
+        },
+        {
+          "term": "train / validation / test",
+          "meaning_ar": "تعلّم / ضبط / حكم نهائي"
+        },
+        {
+          "term": "leakage",
+          "meaning_ar": "معلومة من الإجابة أو المستقبل دخلت التدريب"
+        },
+        {
+          "term": "grouped split",
+          "meaning_ar": "التقسيم بالمجموعة مش بالصف"
+        },
+        {
+          "term": "ensemble",
+          "meaning_ar": "متوسط نماذج كتير"
+        },
+        {
+          "term": "precision / recall",
+          "meaning_ar": "من اللي قلت عليهم آه، كام صح / من اللي آه فعلاً، مسكت كام"
+        },
+        {
+          "term": "threshold",
+          "meaning_ar": "الحد اللي فوقه بنقول آه"
+        },
+        {
+          "term": "overfitting",
+          "meaning_ar": "حفظ الضوضاء بدل النمط"
+        },
+        {
+          "term": "regularization",
+          "meaning_ar": "عقوبة بتمنع النموذج يعقّد نفسه"
+        }
+      ],
+      "map": {
+        "prediction": "أنهي score كداب؟ · دقة 99% — كويس؟",
+        "failure": "تلات leaks؛ بصّات كتير على الـtest؛ 99% ومسك صفر؛ folds بتقسم المجموعة؛ overfitting.",
+        "fix": "grouped split؛ test مرة واحدة؛ precision/recall/F1؛ عتبة بالفلوس؛ grouped CV؛ regularization.",
+        "callback_next": "لما الـfeatures نفسها لازم تتعلم — الـneural networks والـTransformers في الجزء 22.",
+        "artifact": "experiment record."
+      },
+      "questions": [
+        "ليه تبدأ بـbaseline؟",
+        "عدّ أنواع الـleakage التلاتة بمثال لكل واحد.",
+        "ليه الـtest set يتفتح مرة واحدة؟",
+        "إمتى precision أهم من recall والعكس؟",
+        "ليه الدقة بتضلل مع الداتا الغير متوازنة؟",
+        "اشرح bias وvariance.",
+        "إمتى random forest أو boosting أحسن من linear؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ13. ابدأ بالـbaseline بـMAE 65.50، وبعدين 30 نقطة والخط المضبوط بيلف لمكانه ويسجل 7.33 على داتا محجوزة. أهم مشاهد: تلات leaks بيدّوا scores كدابة، والـgrouped split، وclassifier دقته 99% ومسك صفر في الـconfusion matrix، والعتبة بتكلفة بالفلوس، ومنحنى التدريب والاختبار وهو بيفترق. اسأل سؤالين التوقع قبل الإجابة. خلّي المصطلحات بالإنجليزي.",
+      "title": "Machine Learning: من سؤال بيزنس وbaseline، للـsplit والـleakage، لعائلات النماذج، والتقييم الأمين (precision · recall · العتبة · الـcross-validation · bias/variance)",
+      "narration_words": 460,
+      "scene_count": 13,
+      "unified_identical_scenes": 13
+    },
+    {
+      "part": 22,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_22_of_25_Deep_Learning_NLP_Transformers_LLMs.md",
+        "file_id": "f:e288cee98034",
+        "copies": 10,
+        "bytes": 19867
+      },
+      "one_liner": "الـneuron مجموع مرجّح وبعده انحناءة، والتدريب لوب: forward ← loss ← gradient ← خطوة صغيرة؛ والـTransformer بيحوّل النص tokens وvectors، وكل token بيسأل الباقيين مين يهمه — والنتيجة توزيع على الـtoken الجاي، مش إجابة.",
+      "outcomes": "الـneuron والـactivation، الطبقة وعدّ الـparameters، الـloss والـchain rule والـbackprop، الـlearning rate، الـtokens (BPE/WordPiece)، الـembeddings والـposition، Q/K/V والـscaled dot-product، الـcausal mask والـsoftmax، الـmulti-head والـresidual stream، الـsampling بالـtemperature والـtop-p، مفاهيم الـLLM (context window · hallucination · grounding · pretraining/fine-tuning · decoder-only)، الـprompting، واستخدام LLM في التحليل.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "**كل رقم ظاهر:** الـneuron بيتحسب قدام العين، والـTransformer الصغير (696 وزن) كل ضربة فيه مرسومة.",
+        "الـattention grid **heatmap**؛ بعد الـmask يبان مثلث سفلي، وجنب كل صف مجموعه = **1.000**.",
+        "الـresidual stream يترسم heatmap لوحده بتقرا منه وبتكتب فيه كل block.",
+        "الـtemperature والـtop-p sliders بيحركوا التوزيع لايف.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـlearning rate بيتشتت فوق ≈ 0.35.",
+        "مثال عدّ الـparameters (حساب بالبناء): 3 ← 2 ← 1 = 8 + 3 = 11.",
+        "Transformer: `d_model 8 · 2 heads · d_head 4 · d_ff 16 · 1 block · 696 weights` · 14 مرحلة · كل صف attention = 1.000.",
+        "token ≈ 4 حروف ≈ ¾ كلمة؛ context window 4K–128K.",
+        "temperature: 0–0.3 للتحليل · 0.7+ للإبداع؛ InsightsGenerator 0.3.",
+        "اليوم: 156 طلب · 45,890.50 · AOV 294.17 · إلغاء 5.1%؛ الشذوذ: 50,000 مقابل 28,500."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "neuron",
+          "meaning_ar": "مجموع مرجّح + activation"
+        },
+        {
+          "term": "activation",
+          "meaning_ar": "الانحناءة اللي بتكسر الخطية"
+        },
+        {
+          "term": "loss",
+          "meaning_ar": "قد إيه التنبؤ غلط"
+        },
+        {
+          "term": "gradient",
+          "meaning_ar": "ميل الـloss بالنسبة لوزن"
+        },
+        {
+          "term": "backpropagation",
+          "meaning_ar": "حساب الـgradients بالعكس بقاعدة السلسلة"
+        },
+        {
+          "term": "learning rate",
+          "meaning_ar": "حجم الخطوة"
+        },
+        {
+          "term": "token",
+          "meaning_ar": "قطعة نص"
+        },
+        {
+          "term": "embedding",
+          "meaning_ar": "vector بيمثل الـtoken"
+        },
+        {
+          "term": "Q / K / V",
+          "meaning_ar": "السؤال / المفتاح / القيمة"
+        },
+        {
+          "term": "causal mask",
+          "meaning_ar": "منع النظر للمستقبل"
+        },
+        {
+          "term": "residual stream",
+          "meaning_ar": "التيار اللي كل block بيقرا منه ويكتب فيه"
+        },
+        {
+          "term": "temperature / top-p",
+          "meaning_ar": "فرد التوزيع / قص ديله"
+        },
+        {
+          "term": "hallucination",
+          "meaning_ar": "رد مقنع وغلط"
+        },
+        {
+          "term": "grounding",
+          "meaning_ar": "ربط الرد بمصادر حقيقية"
+        }
+      ],
+      "map": {
+        "prediction": "طبقتين من غير activation — هيعملوا إيه؟ · learning rate كبير — الـloss هتنزل أسرع؟",
+        "failure": "الطبقات بتنهار لخط؛ التدريب بيتشتت فوق 0.35؛ الـattention بتبص على المستقبل؛ الـLLM بيخمّن أرقام.",
+        "fix": "لا خطية؛ خطوة أصغر؛ causal mask؛ grounding وtools وvalidation.",
+        "callback_next": "إزاي نجيب للنموذج المعلومة الصح — embeddings والـRAG والـagents الآمنة في الجزء 23.",
+        "artifact": "notebook للـneuron والتدريب والـTransformer + prompt templates."
+      },
+      "questions": [
+        "ليه محتاجين activation غير خطية؟",
+        "اشرح الـbackpropagation في جملتين.",
+        "إيه اللي بيحصل لو الـlearning rate كبير؟",
+        "اشرح Q وK وV والـcausal mask.",
+        "الـtemperature والـtop-p بيعملوا إيه؟ وبيضيفوا معرفة؟",
+        "إيه الـhallucination وإزاي تقلله؟",
+        "zero-shot مقابل few-shot مقابل chain-of-thought؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. احسب neuron بالإيد وكل رقم ظاهر، وورّي الطبقات بتنهار لخط من غير activation، والـloss والـgradient بالعكس، والـlearning rate فوق 0.35 بيتشتت. في الـTransformer: tokens وheatmap عرضه 8، وQ/K/V، والـmask المثلث وكل صف مجموعه 1.000، والـresidual stream، وsliders الـtemperature والـtop-p. اختم بمفاهيم الـLLM والـprompting ومثال الـAnomalyExplainer. خلّي المصطلحات بالإنجليزي.",
+      "title": "Deep Learning والـTransformers: من neuron بالإيد للـbackpropagation، ومن النص للـtokens للـattention للـtoken الجاي، ومفاهيم الـLLM والـprompting",
+      "narration_words": 544,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 23,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_23_of_25_Embeddings_RAG_and_Guarded_Agents.md",
+        "file_id": "f:4a787279e6bb",
+        "copies": 10,
+        "bytes": 21367
+      },
+      "one_liner": "الـembedding بيحوّل المعنى لموضع؛ والـRAG pipeline كل مرحلة فيها بتفشل لوحدها — وأغلب الفشل في الاسترجاع؛ والصلاحيات مكانها قبل النموذج؛ والـagent لوب بهدف وأدوات وشرط توقف، وكل خطوة خطرة بتعدّي على طبقتين حماية مستقلتين.",
+      "outcomes": "الـembeddings والـcosine، lexical وdense وhybrid، فهارس الـvectors، الـRAG pipeline، حجم الـchunk، الـvocabulary mismatch (0.165 ← 0.227)، تخريب مرحلة، تقييم الـRAG، أمان الـRAG، RAG مقابل fine-tuning، agent مقابل chatbot، الـagent loop والـtool calling، agent من الصفر، الـNL2SQL، طبقات الحماية، فشل الـagents، وShopFlow AI Analyst.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "**مسموح 3D هنا بس في مساحة الـembeddings** (مشهد 1): نقطة الـquery بتتحرك وأقرب الجيران بينوّروا بدرجاتهم.",
+        "الـRAG pipeline يترسم محطات على خط، والداتا بتتحرك على الـedges؛ المحطة اللي بتفشل بتنوّر أحمر.",
+        "الـagent loop يترسم دايرة، وبوابة **policy check** قبل أي تنفيذ.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـvocabulary mismatch: roadmap 0.165 ← idempotency 0.227 (بعد التوسيع، والمرادفات وزنها أقل).",
+        "LangChain RAG: `chunk_size=1000` · `chunk_overlap=200` · `k=3`.",
+        "الـagent: `max_iterations=10` · `execute_sql` أول 100 صف (من الصفر) / 50 صف (AI Analyst) · temperature 0 · memory `k=10`.",
+        "الشذوذ: baseline 28 يوم · |z| > 2 anomaly · > 1.5 warning."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "embedding",
+          "meaning_ar": "vector بيمثل معنى نص"
+        },
+        {
+          "term": "cosine similarity",
+          "meaning_ar": "قد إيه اتجاهين قريبين"
+        },
+        {
+          "term": "BM25 / dense / hybrid",
+          "meaning_ar": "بحث بالكلمات / بالمعنى / الاتنين"
+        },
+        {
+          "term": "HNSW",
+          "meaning_ar": "فهرس تقريبي سريع للـvectors"
+        },
+        {
+          "term": "chunk",
+          "meaning_ar": "قطعة من مستند"
+        },
+        {
+          "term": "reranker",
+          "meaning_ar": "نموذج بيعيد ترتيب المرشحين"
+        },
+        {
+          "term": "recall@k / MRR / nDCG",
+          "meaning_ar": "مقاييس جودة الاسترجاع"
+        },
+        {
+          "term": "groundedness / faithfulness",
+          "meaning_ar": "الإجابة ملتزمة بالمصادر"
+        },
+        {
+          "term": "prompt injection",
+          "meaning_ar": "نص بيحاول يغيّر تعليمات النموذج"
+        },
+        {
+          "term": "tool calling",
+          "meaning_ar": "النموذج بيطلب تشغيل أداة"
+        },
+        {
+          "term": "ReAct",
+          "meaning_ar": "تفكير وفعل بالتناوب"
+        },
+        {
+          "term": "allowlist",
+          "meaning_ar": "قائمة المسموح بس"
+        },
+        {
+          "term": "human-in-the-loop",
+          "meaning_ar": "إنسان بيوافق على الخطوات الحساسة"
+        }
+      ],
+      "map": {
+        "prediction": "أعلى نتيجة للسؤال ده هتبقى صح؟",
+        "failure": "vocabulary mismatch؛ chunk مقطوع؛ index قديم؛ chunk ممنوع دخل الـcontext؛ `DELETE` متولد؛ لوب مالوش آخر.",
+        "fix": "توسيع موزون؛ trace ومعالجة؛ ACL عند الاسترجاع؛ allowlist + دور قراءة فقط؛ max_iterations وretry budget وescalation.",
+        "callback_next": "كل ده لازم يتشحن ويشتغل في production — Docker وCI/CD والـobservability في الجزء 24.",
+        "artifact": "RAG مقاس + agent محروس."
+      },
+      "questions": [
+        "إزاي الـembeddings بتقيس التشابه؟",
+        "ارسم الـRAG pipeline، وقول ممكن تفشل فين.",
+        "ليه أغلب فشل الـRAG في الاسترجاع؟",
+        "ليه فلتر الصلاحيات لازم قبل النموذج؟",
+        "RAG مقابل fine-tuning؟",
+        "agent مقابل chatbot؟ وإيه مكونات الـagent loop؟",
+        "إزاي تأمّن agent بيكتب SQL؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ16. ابدأ بمساحة embeddings تلاتية الأبعاد ونقطة query وجيرانها. ارسم الـRAG pipeline محطة محطة. أهم مشاهد: الترتيب بيتقلب من 0.165 لـ0.227 بعد توسيع الـquery، والـchunk الممنوع بيتصد عند الاسترجاع قبل النموذج، والـagent loop ببوابة policy، و`DELETE` متولد بيخبط في allowlist وبعدها دور قراءة فقط. اختم بـShopFlow AI Analyst. اسأل سؤال التوقع قبل الإجابة. خلّي الكود بالإنجليزي.",
+      "title": "Embeddings والـRAG والـAgents: المعنى كموضع، الـpipeline ومراحل فشلها، الـvocabulary mismatch بالأرقام، «الاسترجاع query مش إذن»، والـagent loop بحراسة طبقتين — لحد ShopFlow AI Analyst",
+      "narration_words": 505,
+      "scene_count": 16,
+      "unified_identical_scenes": 16
+    },
+    {
+      "part": 24,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_24_of_25_Ship_It_Docker_CICD_Cloud_Observability.md",
+        "file_id": "f:fd3d1519c0e7",
+        "copies": 10,
+        "bytes": 17742
+      },
+      "one_liner": "الـcontainer بيسفّر البيئة مع الكود، وترتيب الـDockerfile قرار اقتصادي؛ والـdeploy ما بيخلصش غير بـhealth check وrollback؛ والرفض الصريح بيكسب؛ والحادث بيتحل بالأدلة من تلات إشارات — والناتج تقرير وrunbook، مش restart.",
+      "outcomes": "الـpackaging والـconfig، image/layer/container/volume/network، حساب الـcache (5 مقابل 57 ثانية)، docker-compose لخمس خدمات، بوابة الـCI وطبقات الاختبار، الـrollback وblue/green وcanary، الـIAM precedence، الـlogs والـmetrics والـtraces والـcorrelation id، الـdigital twin، حادث p95 بـerror rate ثابت، سلسلة التحقيق، إضافات الـproduction والـscaling، والـemployability gate.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "الـlayers تترسم طوب فوق بعض؛ الطوبة اللي بتتبني من جديد بتنوّر وعدّاد الثواني ظاهر.",
+        "الـpipeline شريط محطات، والـtest الفاشل بيقفل البوابة **ومكتوب اسمه وسببه**.",
+        "الـIAM يترسم **evaluation trace** بكل statement اتستشار.",
+        "الـincident: تلات لوحات (logs · metrics · traces) مربوطين بـcorrelation id واحد.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "الـlayer cache: 5 s (ترتيب موثّق) مقابل 57 s (`COPY . .` فوق `pip install`).",
+        "compose: MySQL 3306 · PostgreSQL 5432 · Airflow 8080 · python-api 8000 · java 8081→8080 · agent 8002→8000؛ Airflow 2.7.0 · MySQL 8.0 · Postgres 14 · compose 3.8.",
+        "الاختبار: 10 assertions · بوابة p95 500 ms (تعدّي عند 355 وتفشل عند 675).",
+        "الـtwin: 25 req/s ← 100% وp95 150 ms؛ 200 req/s ← طابور.",
+        "الـpool (callback): 67 مقابل 260 req/s ← طابور 289 · p95 1,160 ms.",
+        "IAM: explicit deny → allow → implicit deny."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "image / container",
+          "meaning_ar": "قالب / نسخة شغالة منه"
+        },
+        {
+          "term": "layer cache",
+          "meaning_ar": "إعادة استخدام الطبقات اللي ما اتغيرتش"
+        },
+        {
+          "term": "volume",
+          "meaning_ar": "تخزين بيعيش بعد الـcontainer"
+        },
+        {
+          "term": "CI/CD",
+          "meaning_ar": "بناء واختبار ونشر أوتوماتيك"
+        },
+        {
+          "term": "health check",
+          "meaning_ar": "فحص بيقول الخدمة سليمة ولا لأ"
+        },
+        {
+          "term": "rollback",
+          "meaning_ar": "الرجوع للنسخة اللي قبل"
+        },
+        {
+          "term": "blue/green · canary",
+          "meaning_ar": "تبديل بين بيئتين · تجربة على نسبة صغيرة"
+        },
+        {
+          "term": "explicit deny",
+          "meaning_ar": "رفض صريح بيكسب أي سماح"
+        },
+        {
+          "term": "logs / metrics / traces",
+          "meaning_ar": "حصل إيه / قد إيه / الوقت راح فين"
+        },
+        {
+          "term": "correlation id",
+          "meaning_ar": "رقم بيربط request عبر الخدمات"
+        },
+        {
+          "term": "saturation",
+          "meaning_ar": "المورد وصل لآخره"
+        },
+        {
+          "term": "runbook",
+          "meaning_ar": "خطوات مكتوبة للتعامل مع حادث"
+        }
+      ],
+      "map": {
+        "prediction": "نقل `COPY . .` هيكلّف كام؟ · p95 طالع والأخطاء ثابتة — bug؟",
+        "failure": "57 ثانية كل build؛ test فاشل؛ deploy فيه regression؛ wildcard admin متوقع يسمح؛ مورد متشبع.",
+        "fix": "ترتيب layers؛ بوابة بتوقف؛ health check وrollback؛ قراءة الـtrace؛ سلسلة التحقيق وrunbook.",
+        "callback_next": "إزاي تحوّل كل ده لدليل يشوفه صاحب الشغل — الجزء 25.",
+        "artifact": "compose شغال + pipeline ببوابة + incident report + runbook."
+      },
+      "questions": [
+        "image مقابل container؟ وليه ترتيب الـDockerfile مهم؟",
+        "اشرح مراحل CI/CD، وليه الـrollback جزء من الـdeploy.",
+        "ترتيب تقييم الـIAM؟",
+        "logs وmetrics وtraces — كل واحد بيجاوب على إيه؟",
+        "p95 طالع والـerror rate ثابت — تفكر في إيه؟",
+        "إيه اللي ناقص عشان مشروعك يبقى production-ready؟",
+        "لو الحمل زاد 10 مرات تعمل إيه؟"
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ12. ارسم الـlayers طوب وعدّاد 5 ثواني مقابل 57، وdocker-compose بخدماته على الشبكة. أهم مشاهد: test فاشل بيوقف الـrelease ومكتوب ليه، والـhealth check والـrollback والساعة ظاهرة، والـIAM trace والـdeny بيكسب، وتلات لوحات logs وmetrics وtraces بـcorrelation id واحد، والحادث: p95 طالع والأخطاء ثابتة، وسلسلة التحقيق لحد الـrunbook. اسأل سؤالين التوقع قبل الإجابة. خلّي الكود بالإنجليزي.",
+      "title": "SHIP IT: الـcontainers وحساب الـlayer cache، docker-compose لـShopFlow، بوابة الـCI/CD والـrollback، الـIAM، الإشارات التلاتة، وحادث متشغّل بالأدلة",
+      "narration_words": 407,
+      "scene_count": 12,
+      "unified_identical_scenes": 12
+    },
+    {
+      "part": 25,
+      "src": {
+        "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_25_of_25_Evidence_Portfolio_Career_and_Close.md",
+        "file_id": "f:165a8353f070",
+        "copies": 10,
+        "bytes": 22393
+      },
+      "one_liner": "اللي بتطلع بيه مش شهادة — ده سلسلة أدلة حد غريب يقدر يشغّلها؛ والدفاع خمس دقايق أصعب جزء فيهم الـtrade-offs؛ والشغلانة إنك تبقى الشخص اللي بيسأل «لو اشتغل مرتين؟» و«صف لكل إيه؟».",
+      "outcomes": "الـartifact chain، اختبار السلسلة، completion مقابل proof، أنواع الدليل، checklist الـportfolio، دفاع الخمس دقايق وقرارات المعمار، الإنترفيو (قبل · أثناء · جمل تقنية · STAR)، الـgreen والـred flags، أولويات وخطط المذاكرة، الأدوات والمواقع والشهادات والكتب، الفروع الستة، والختام الكامل.",
+      "directing": [
+        "اعمل الفيديو من الملف ده بس، والمشاهد بالترتيب.",
+        "سلسلة الـartifacts ترسمها **lineage** (أسهم من كل artifact للي بعده)، وتغيير خلية واحدة بيحرّك الكل.",
+        "«خلّصت» و«أثبتّ» **عدّادين منفصلين** عمرهم ما يتجمعوا.",
+        "الختام: المعمار (A-01) منوّر كله، وكل مكوّن بينبض مرة بترتيب ما اتعلّم ورقم جزئه جنبه.",
+        "آخر لقطة كارت الجملة التلاتية، ويفضل ثابت.",
+        "استخدم الأرقام الموجودة هنا بس. السرد حرفياً قدر الإمكان."
+      ],
+      "numbers": [
+        "13 artifact في السلسلة؛ الدفاع 5 دقايق بـ4 أقسام.",
+        "ShopFlow: 5 خدمات · API :8000 · agent :8002 · 15+ تقنية · 12 أسبوع · 65+ سؤال.",
+        "STAR: 5–7 قصص.",
+        "SQL ≈ 60% من تركيز إنترفيو الـDA؛ الأولويات 35 / 25 / 20 / 10 / 10.",
+        "الخطط: 12 أسبوع × 6 ساعات/يوم · أو ~15 ساعة/أسبوع (2–3 ساعات يومياً + 3–4 السبت).",
+        "قبل الإنترفيو: أسبوعين × 5 مسائل SQL يومياً ← أسبوع mocks.",
+        "JDK 17+؛ الفواتير: 66.67%."
+      ],
+      "numbers_tables": [],
+      "terms": [
+        {
+          "term": "artifact chain",
+          "meaning_ar": "ملفات كل واحد متولّد من اللي قبله"
+        },
+        {
+          "term": "evidence",
+          "meaning_ar": "حاجة حد غريب يقدر يشغّلها ويتأكد منها"
+        },
+        {
+          "term": "trade-off",
+          "meaning_ar": "التمن اللي دفعته في اختيار"
+        },
+        {
+          "term": "STAR",
+          "meaning_ar": "موقف · مطلوب · فعل · نتيجة"
+        },
+        {
+          "term": "capstone",
+          "meaning_ar": "مشروع ختامي لكل فرع"
+        },
+        {
+          "term": "green / red flag",
+          "meaning_ar": "علامة مطمئنة / مقلقة في الإنترفيو"
+        }
+      ],
+      "map": {
+        "prediction": "غيّرت خلية — السلسلة هتتحرك؟",
+        "failure": "folder مش سلسلة؛ خلّصت من غير ما تثبت؛ دفاع من غير trade-offs؛ حفظ من غير فهم.",
+        "fix": "lineage حقيقي؛ أدلة قابلة للتشغيل؛ «رفضت إيه وليه» لكل مربع؛ جمل من شغل حقيقي.",
+        "callback_next": "السلسلة كلها رجعت لنقطة البداية — علبة الفواتير وسؤال بيزنس.",
+        "artifact": "portfolio بأدلة + دفاع خمس دقايق + خطة مذاكرة."
+      },
+      "questions": [
+        "احكي مشروعك في خمس دقايق بالأربع أقسام.",
+        "لكل مكوّن في مشروعك: إيه البديل اللي رفضته وليه؟",
+        "ليه فصلت OLTP عن OLAP؟ وليه PostgreSQL للـwarehouse؟",
+        "إزاي خليت الـETL موثوقة؟",
+        "لو الحمل زاد 10 مرات؟",
+        "احكي قصة STAR عن bug لقيته وصلحته."
+      ],
+      "prompt": "اعمل فيديو Explainer باللهجة المصرية من المصدر ده بس، وامشي على المشاهد 1 لـ14. ارسم الـ13 artifact كـlineage، وغيّر خلية وخلّي السلسلة كلها تتحرك، وعدّادين «خلّصت» و«أثبتّ» منفصلين. اعرض دفاع الخمس دقايق، ونصايح الإنترفيو، والـgreen والـred flags، وpie الأولويات وخطط المذاكرة. الختام أهم حاجة: المعمار كله منوّر وكل مكوّن بينبض برقم جزئه، وحيطة الأعطال، ورجوع علبة الفواتير و66.67%، والكارت الأخير «هات الصفوف. خليها موثوقة. جاوب على السؤال.» ثابت في الآخر.",
+      "title": "الدليل والكارير والختام: سلسلة الـartifacts، «خلّصت ≠ أثبتّ»، دفاع الخمس دقايق، الإنترفيو، خطة المذاكرة، الفروع الستة، والمعمار كله منوّر",
+      "narration_words": 620,
+      "scene_count": 14,
+      "unified_identical_scenes": 14
+    }
+  ]
+}

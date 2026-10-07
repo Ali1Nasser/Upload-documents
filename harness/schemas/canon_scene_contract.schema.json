@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_scene_contract",
+  "title": "corpus/canon/scene_contract.json (master.md §4)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "beats",
+    "worked_example"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "object",
+        "required": [
+          "n",
+          "beat"
+        ],
+        "properties": {
+          "n": {
+            "type": "integer"
+          },
+          "beat": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "worked_example": {
+      "type": "object"
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

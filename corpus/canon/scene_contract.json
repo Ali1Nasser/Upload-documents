@@ -1,0 +1,116 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "beats": [
+    {
+      "n": 1,
+      "beat": "problem"
+    },
+    {
+      "n": 2,
+      "beat": "mental model"
+    },
+    {
+      "n": 3,
+      "beat": "progressive visual"
+    },
+    {
+      "n": 4,
+      "beat": "small worked example with real numbers"
+    },
+    {
+      "n": 5,
+      "beat": "prediction or parameter the viewer controls"
+    },
+    {
+      "n": 6,
+      "beat": "failure"
+    },
+    {
+      "n": 7,
+      "beat": "fix"
+    },
+    {
+      "n": 8,
+      "beat": "callback to something already learned"
+    },
+    {
+      "n": 9,
+      "beat": "the artifact it produces"
+    }
+  ],
+  "worked_example": {
+    "topic": "indexes",
+    "rows": [
+      {
+        "beat": "problem",
+        "on_screen": "a lookup reads 12 500 pages to find one customer; the counter is visible",
+        "numbers": [
+          "12 500"
+        ],
+        "line": 252
+      },
+      {
+        "beat": "mental model",
+        "on_screen": "\"instead of reading every row, I want a shortcut\" — a book with an index",
+        "numbers": [],
+        "line": 253
+      },
+      {
+        "beat": "visual",
+        "on_screen": "full table scan: pages stream past, counter climbing to 12 500",
+        "numbers": [
+          "12 500"
+        ],
+        "line": 254
+      },
+      {
+        "beat": "example",
+        "on_screen": "the same lookup, a three-level B-tree, **3 page reads** over 1 000 000 rows",
+        "numbers": [
+          "3",
+          "1 000 000"
+        ],
+        "line": 255
+      },
+      {
+        "beat": "control",
+        "on_screen": "a selectivity slider: few rows returned, the seek wins; most rows returned, the scan wins again",
+        "numbers": [],
+        "line": 256
+      },
+      {
+        "beat": "failure",
+        "on_screen": "every `INSERT` now writes twice — once to the table, once to the index",
+        "numbers": [],
+        "line": 257
+      },
+      {
+        "beat": "fix",
+        "on_screen": "index only the predicate the workload actually filters on",
+        "numbers": [],
+        "line": 258
+      },
+      {
+        "beat": "callback",
+        "on_screen": "back to CH-11's row-count funnel — fewer rows early is still the cheapest win",
+        "numbers": [],
+        "line": 259
+      },
+      {
+        "beat": "artifact",
+        "on_screen": "a tuning note: baseline in rows examined, one change, after, write cost accepted",
+        "numbers": [],
+        "line": 260
+      }
+    ]
+  },
+  "rules": [
+    "On-screen labels stay short. Narration carries the richness. Whenever the source uses a term — partition, dimension, offset, context window, idempotency, lineage, grain — place the term next to the object it names, not in a caption."
+  ],
+  "line": 232
+}

@@ -1,0 +1,293 @@
+{
+  "v": 1,
+  "source": {
+    "path": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+    "file_id": "f:eb7d84352f69"
+  },
+  "generated_by": "dc corpus canon",
+  "assets": [
+    {
+      "id": "A-01",
+      "asset": "The full platform architecture",
+      "built_in": [
+        "CH-01"
+      ],
+      "built_in_raw": "CH-01 (ghosted)",
+      "returns_in": [
+        "CH-36"
+      ],
+      "returns_in_raw": "end of every act; full brightness in CH-36",
+      "note": "The film's spine. Never redraw it differently.",
+      "is_3d": false,
+      "line": 1555
+    },
+    {
+      "id": "A-02",
+      "asset": "The ShopFlow dirty export — 15 rows, 8 defects",
+      "built_in": [
+        "CH-15"
+      ],
+      "built_in_raw": "CH-15",
+      "returns_in": [
+        "CH-21",
+        "CH-35"
+      ],
+      "returns_in_raw": "CH-21, CH-35",
+      "note": "Every defect keeps its name and position all film.",
+      "is_3d": false,
+      "line": 1556
+    },
+    {
+      "id": "A-03",
+      "asset": "The row-count funnel",
+      "built_in": [
+        "CH-00"
+      ],
+      "built_in_raw": "CH-00",
+      "returns_in": [
+        "CH-11",
+        "CH-12",
+        "CH-21",
+        "CH-23"
+      ],
+      "returns_in_raw": "CH-11, CH-12, CH-21, CH-23",
+      "note": "The single most reused device.",
+      "is_3d": false,
+      "line": 1557
+    },
+    {
+      "id": "A-04",
+      "asset": "The NilePay six receipts",
+      "built_in": [
+        "CH-00"
+      ],
+      "built_in_raw": "CH-00",
+      "returns_in": [
+        "CH-27",
+        "CH-36"
+      ],
+      "returns_in_raw": "CH-27, CH-36",
+      "note": "The emotional bookend.",
+      "is_3d": false,
+      "line": 1558
+    },
+    {
+      "id": "A-05",
+      "asset": "The nine-stage SQL pipeline strip",
+      "built_in": [
+        "CH-11"
+      ],
+      "built_in_raw": "CH-11",
+      "returns_in": [
+        "CH-12",
+        "CH-14"
+      ],
+      "returns_in_raw": "CH-12, CH-14",
+      "note": "Stages keep their colours.",
+      "is_3d": false,
+      "line": 1559
+    },
+    {
+      "id": "A-06",
+      "asset": "The star schema",
+      "built_in": [
+        "CH-23"
+      ],
+      "built_in_raw": "CH-23",
+      "returns_in": [
+        "CH-17",
+        "CH-27"
+      ],
+      "returns_in_raw": "CH-17 (as the model behind the report), CH-27",
+      "note": "Same dimensions throughout.",
+      "is_3d": false,
+      "line": 1560
+    },
+    {
+      "id": "A-07",
+      "asset": "The transport bar",
+      "built_in": [
+        "CH-02"
+      ],
+      "built_in_raw": "CH-02",
+      "returns_in": [],
+      "returns_in_raw": "every stepped scene",
+      "note": "Identical geometry every time.",
+      "is_3d": false,
+      "line": 1561
+    },
+    {
+      "id": "A-08",
+      "asset": "The stack-and-heap panel",
+      "built_in": [
+        "CH-06"
+      ],
+      "built_in_raw": "CH-06",
+      "returns_in": [
+        "CH-08",
+        "CH-19",
+        "CH-31"
+      ],
+      "returns_in_raw": "CH-08, CH-19, CH-31",
+      "note": "Arrows mean identity.",
+      "is_3d": false,
+      "line": 1562
+    },
+    {
+      "id": "A-09",
+      "asset": "The failure card",
+      "built_in": [
+        "CH-02"
+      ],
+      "built_in_raw": "CH-02",
+      "returns_in": [],
+      "returns_in_raw": "every failure beat",
+      "note": "symptom → evidence → root cause → fix → prevention.",
+      "is_3d": false,
+      "line": 1563
+    },
+    {
+      "id": "A-10",
+      "asset": "The evidence tile row",
+      "built_in": [
+        "CH-01"
+      ],
+      "built_in_raw": "CH-01",
+      "returns_in": [
+        "CH-09",
+        "CH-22",
+        "CH-34",
+        "CH-35"
+      ],
+      "returns_in_raw": "CH-09, CH-22, CH-34, CH-35",
+      "note": "Tiles fill in as the film proceeds.",
+      "is_3d": false,
+      "line": 1564
+    },
+    {
+      "id": "A-11",
+      "asset": "The DAG runner",
+      "built_in": [
+        "CH-22"
+      ],
+      "built_in_raw": "CH-22",
+      "returns_in": [
+        "CH-19",
+        "CH-34"
+      ],
+      "returns_in_raw": "CH-19 (topological order), CH-34",
+      "note": "Same node shapes as the graph lab.",
+      "is_3d": false,
+      "line": 1565
+    },
+    {
+      "id": "A-12",
+      "asset": "The embedding space (3D)",
+      "built_in": [
+        "CH-33"
+      ],
+      "built_in_raw": "CH-33",
+      "returns_in": [],
+      "returns_in_raw": "—",
+      "note": "One of only six permitted 3D scenes.",
+      "is_3d": true,
+      "line": 1566
+    },
+    {
+      "id": "A-13",
+      "asset": "The cluster (3D)",
+      "built_in": [
+        "CH-24"
+      ],
+      "built_in_raw": "CH-24",
+      "returns_in": [
+        "CH-25"
+      ],
+      "returns_in_raw": "CH-25",
+      "note": "Blocks, racks, executors share one visual system.",
+      "is_3d": true,
+      "line": 1567
+    },
+    {
+      "id": "A-14",
+      "asset": "The attention grid",
+      "built_in": [
+        "CH-32"
+      ],
+      "built_in_raw": "CH-32",
+      "returns_in": [],
+      "returns_in_raw": "—",
+      "note": "Lower-triangular after the mask; rows sum to 1.000.",
+      "is_3d": false,
+      "line": 1568
+    },
+    {
+      "id": "A-15",
+      "asset": "The reconciliation split screen",
+      "built_in": [
+        "CH-28"
+      ],
+      "built_in_raw": "CH-28",
+      "returns_in": [
+        "CH-27"
+      ],
+      "returns_in_raw": "CH-27 (preview)",
+      "note": "Four break-class queues, fixed colours.",
+      "is_3d": false,
+      "line": 1569
+    }
+  ],
+  "permitted_3d": [
+    {
+      "n": 1,
+      "chapters": [
+        "CH-03"
+      ],
+      "scene": "CPU ↔ memory ↔ disk",
+      "optional": false
+    },
+    {
+      "n": 2,
+      "chapters": [
+        "CH-24"
+      ],
+      "scene": "HDFS blocks and racks",
+      "optional": false
+    },
+    {
+      "n": 3,
+      "chapters": [
+        "CH-25"
+      ],
+      "scene": "executors and partitions",
+      "optional": false
+    },
+    {
+      "n": 4,
+      "chapters": [
+        "CH-33"
+      ],
+      "scene": "embedding space",
+      "optional": false
+    },
+    {
+      "n": 5,
+      "chapters": [
+        "CH-01",
+        "CH-36"
+      ],
+      "scene": "the architecture in depth",
+      "optional": false
+    },
+    {
+      "n": 6,
+      "chapters": [],
+      "scene": "the curriculum atlas as an end-card",
+      "optional": true
+    }
+  ],
+  "rules_3d": [
+    "Everything else is 2D. Each 3D shot must carry a one-line written justification in the production notes, per §2 P19.",
+    "---"
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:canon_chapters",
+  "title": "corpus/canon/chapters.json (master.md §7+§8)",
+  "type": "object",
+  "required": [
+    "v",
+    "source",
+    "chapters",
+    "totals"
+  ],
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "path",
+        "file_id"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "file_id": {
+          "type": "string",
+          "pattern": "^f:[0-9a-f]{12}$"
+        }
+      }
+    },
+    "chapters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title_en",
+          "start_ms",
+          "end_ms",
+          "dur_s",
+          "core",
+          "act",
+          "teaches",
+          "patterns",
+          "patterns_raw",
+          "shots",
+          "labels_en",
+          "labels_ar",
+          "narration_en",
+          "narration_ar",
+          "prediction",
+          "failure_beat",
+          "callback",
+          "artifact",
+          "line"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^CH-\\d\\d$"
+          },
+          "title_en": {
+            "type": "string"
+          },
+          "start_ms": {
+            "type": "integer"
+          },
+          "end_ms": {
+            "type": "integer"
+          },
+          "dur_s": {
+            "type": "integer"
+          },
+          "core": {
+            "type": "boolean"
+          },
+          "act": {
+            "type": "string"
+          },
+          "teaches": {
+            "type": "string"
+          },
+          "patterns": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^P\\d\\d$"
+            }
+          },
+          "patterns_raw": {
+            "type": "string"
+          },
+          "shots": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "id",
+                "n",
+                "t_from",
+                "t_to",
+                "t_from_ms",
+                "t_to_ms",
+                "beat",
+                "on_screen",
+                "motion",
+                "line"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^CH-\\d\\d-S\\d\\d$"
+                },
+                "n": {
+                  "type": "integer"
+                },
+                "t_from": {
+                  "type": "string"
+                },
+                "t_to": {
+                  "type": "string"
+                },
+                "t_from_ms": {
+                  "type": "integer"
+                },
+                "t_to_ms": {
+                  "type": "integer"
+                },
+                "beat": {
+                  "type": "string"
+                },
+                "on_screen": {
+                  "type": "string"
+                },
+                "motion": {
+                  "type": "string"
+                },
+                "on_screen_terms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "patterns": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^P\\d\\d$"
+                  }
+                },
+                "line": {
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "labels_en": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "labels_ar": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "narration_en": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narration_ar": {
+            "type": "string",
+            "minLength": 1
+          },
+          "narration_en_plain": {
+            "type": "string"
+          },
+          "narration_ar_plain": {
+            "type": "string"
+          },
+          "prediction": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "failure_beat": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "callback": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifact": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifact_none": {
+            "type": "boolean"
+          },
+          "prediction_none": {
+            "type": "boolean"
+          },
+          "callback_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "line": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "totals": {
+      "type": "object",
+      "required": [
+        "chapters",
+        "shots",
+        "runtime_s"
+      ],
+      "properties": {
+        "chapters": {
+          "type": "integer"
+        },
+        "shots": {
+          "type": "integer"
+        },
+        "runtime_s": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
