@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:audio_assets",
+  "title": "audio/assets.json (array of assets)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "v": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "audio_id": {
+        "type": "string",
+        "pattern": "^a:[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+      },
+      "file_id": {
+        "type": "string",
+        "pattern": "^f:[0-9a-f]{12}$"
+      },
+      "family": {
+        "type": "string",
+        "minLength": 1
+      },
+      "lang": {
+        "type": "string",
+        "enum": [
+          "ar-EG",
+          "en",
+          "mixed",
+          "none"
+        ]
+      },
+      "duration_ms": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "sr": {
+        "type": "integer",
+        "minimum": 8000
+      },
+      "channels": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "qa": {
+        "type": "object",
+        "properties": {
+          "lufs_i": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "lra": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tp_dbtp": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "speech_ratio": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "pauses": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "noise_floor_db": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "bandwidth_hz": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clipping": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "music_bed_score": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "speakers": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "dnsmos": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "utmos": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": []
+      },
+      "stems": {
+        "type": "object"
+      },
+      "script_ref": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "alignment": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "median_conf": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": []
+      },
+      "role": {
+        "type": "string",
+        "enum": [
+          "trunk",
+          "deep-dive",
+          "reference",
+          "unused"
+        ]
+      }
+    },
+    "required": [
+      "v",
+      "audio_id",
+      "file_id",
+      "family",
+      "duration_ms",
+      "role"
+    ]
+  }
+}

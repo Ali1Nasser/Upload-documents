@@ -1,0 +1,81 @@
+{
+  "v": 1,
+  "note": "Globs are repo-relative (fnmatch; ** matches any depth). format=jsonl validates every line. validate_written.py only acts on corpus/**.",
+  "rules": [
+    {
+      "glob": "corpus/catalog/files.jsonl",
+      "schema": "files",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/catalog/media.jsonl",
+      "schema": "media",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/catalog/quarantine.json",
+      "schema": "quarantine",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/audio/assets.json",
+      "schema": "audio_assets",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/transcripts/*.words.jsonl",
+      "schema": "words",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/sentences/*.jsonl",
+      "schema": "sentences",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/graph/nodes.jsonl",
+      "schema": "graph_node",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/graph/edges.jsonl",
+      "schema": "graph_edge",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/visual/assets.jsonl",
+      "schema": "visual_asset",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/edl/master_edl.v*.json",
+      "schema": "edl",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/edl/word_map.v*.jsonl",
+      "schema": "word_map",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/specs/*.json",
+      "schema": "scene_spec",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/render/jobs.jsonl",
+      "schema": "render_job",
+      "format": "jsonl"
+    },
+    {
+      "glob": "reports/qa/**/*.json",
+      "schema": "qa_report",
+      "format": "json"
+    },
+    {
+      "glob": "harness/state/progress.json",
+      "schema": "progress",
+      "format": "json"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:render_job",
+  "title": "render/jobs.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "job_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chapter": {
+      "type": "string"
+    },
+    "tier": {
+      "type": "string",
+      "enum": [
+        "bench",
+        "preview",
+        "final",
+        "plate",
+        "strip",
+        "contact"
+      ]
+    },
+    "frames": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "engine": {
+      "type": "string"
+    },
+    "cmd": {
+      "type": "string"
+    },
+    "tsp_id": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "done",
+        "failed",
+        "retry",
+        "cancelled"
+      ]
+    },
+    "attempts": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "mem_gb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "expected_gb": {
+      "type": "number",
+      "minimum": 0
+    },
+    "out": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": "string"
+    },
+    "qa": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "v",
+    "job_id",
+    "tier",
+    "status"
+  ]
+}

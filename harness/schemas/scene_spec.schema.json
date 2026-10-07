@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:scene_spec",
+  "title": "specs/<chapter>.json",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "chapter": {
+      "type": "string",
+      "pattern": "^(CH-\\d{2}|DD-P\\d{2}(-\\d+)?)$"
+    },
+    "edl_version": {
+      "type": "string",
+      "pattern": "^v\\d+$"
+    },
+    "fx_budget": {
+      "type": "object",
+      "properties": {
+        "hero_max_ratio": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
+      },
+      "required": []
+    },
+    "continuity": {
+      "type": "object"
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "pattern": "^(CH-\\d{2}|DD-P\\d{2}(-\\d+)?)-S\\d{2}$"
+          },
+          "sentences": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+            },
+            "minItems": 1
+          },
+          "intent": {
+            "type": "string"
+          },
+          "concepts": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"
+            }
+          },
+          "metaphor": {
+            "type": "string"
+          },
+          "layout": {
+            "type": "string"
+          },
+          "fx_tier": {
+            "type": "string",
+            "enum": [
+              "hero",
+              "standard",
+              "light",
+              "hold"
+            ]
+          },
+          "camera": {
+            "type": "object",
+            "properties": {
+              "move": {
+                "type": "string"
+              },
+              "ease": {
+                "type": "string"
+              },
+              "intensity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "required": []
+          },
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "component": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "props": {
+                  "type": "object"
+                },
+                "at": {
+                  "type": "object",
+                  "properties": {
+                    "word": {
+                      "type": "string",
+                      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+                    },
+                    "lead_frames": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 90
+                    }
+                  },
+                  "required": [
+                    "word",
+                    "lead_frames"
+                  ],
+                  "additionalProperties": false
+                },
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "component",
+                "props"
+              ],
+              "propertyNames": {
+                "not": {
+                  "enum": [
+                    "start",
+                    "end",
+                    "start_ms",
+                    "end_ms",
+                    "start_s",
+                    "end_s",
+                    "seconds",
+                    "time",
+                    "time_ms",
+                    "frame",
+                    "start_frame",
+                    "end_frame",
+                    "duration",
+                    "duration_ms",
+                    "duration_s"
+                  ]
+                }
+              }
+            },
+            "minItems": 1
+          },
+          "holds": {
+            "type": "array",
+            "items": {}
+          },
+          "sfx": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "cue": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "at": {
+                  "type": "object",
+                  "properties": {
+                    "word": {
+                      "type": "string",
+                      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+                    },
+                    "lead_frames": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 90
+                    }
+                  },
+                  "required": [
+                    "word",
+                    "lead_frames"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "required": [
+                "cue",
+                "at"
+              ],
+              "propertyNames": {
+                "not": {
+                  "enum": [
+                    "start",
+                    "end",
+                    "start_ms",
+                    "end_ms",
+                    "start_s",
+                    "end_s",
+                    "seconds",
+                    "time",
+                    "time_ms",
+                    "frame",
+                    "start_frame",
+                    "end_frame",
+                    "duration",
+                    "duration_ms",
+                    "duration_s"
+                  ]
+                }
+              }
+            }
+          },
+          "transition_out": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "frames": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "type"
+            ]
+          },
+          "data_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+            }
+          },
+          "legacy_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "scene_contract_beat": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "shot_id",
+          "sentences",
+          "intent",
+          "layers"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "v",
+    "chapter",
+    "edl_version",
+    "shots"
+  ]
+}

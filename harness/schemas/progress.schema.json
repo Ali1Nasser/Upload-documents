@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:progress",
+  "title": "harness/state/progress.json",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "phase": {
+      "type": "string",
+      "pattern": "^P\\d{1,2}$"
+    },
+    "gates": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^G\\d{1,2}[ab]?$"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "pending",
+              "running",
+              "pass",
+              "fail",
+              "waived"
+            ]
+          },
+          "report": {
+            "type": "string"
+          },
+          "adr": {
+            "type": "string"
+          },
+          "checked": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    },
+    "counters": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "updated": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "v",
+    "phase",
+    "gates",
+    "blockers",
+    "next_actions",
+    "updated"
+  ]
+}

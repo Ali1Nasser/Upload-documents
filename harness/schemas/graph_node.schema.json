@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:graph_node",
+  "title": "graph/nodes.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Source",
+        "Document",
+        "Section",
+        "AudioAsset",
+        "Sentence",
+        "IdeaUnit",
+        "Concept",
+        "Entity",
+        "DataFact",
+        "VisualAsset",
+        "Pattern",
+        "Component",
+        "Shot",
+        "Chapter",
+        "Act"
+      ]
+    },
+    "label_ar": {
+      "type": "string"
+    },
+    "label_en": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "def_ar": {
+      "type": "string"
+    },
+    "def_en": {
+      "type": "string"
+    },
+    "requires": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "v",
+    "id",
+    "type"
+  ]
+}

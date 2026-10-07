@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:media",
+  "title": "catalog/media.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "file_id": {
+      "type": "string",
+      "pattern": "^f:[0-9a-f]{12}$"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "audio",
+        "video"
+      ]
+    },
+    "duration_s": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "format": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "bit_rate": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "video": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "codec": {
+              "type": "string"
+            },
+            "width": {
+              "type": "integer"
+            },
+            "height": {
+              "type": "integer"
+            },
+            "fps": {
+              "type": "number"
+            },
+            "pix_fmt": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": []
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "audio": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "codec": {
+              "type": "string"
+            },
+            "sample_rate": {
+              "type": "integer"
+            },
+            "channels": {
+              "type": "integer"
+            }
+          },
+          "required": []
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "decode_errors": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "decode_ok": {
+      "type": "boolean"
+    },
+    "probe_ok": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "v",
+    "file_id",
+    "path",
+    "decode_errors",
+    "decode_ok"
+  ]
+}

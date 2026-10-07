@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:files",
+  "title": "catalog/files.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "file_id": {
+      "type": "string",
+      "pattern": "^f:[0-9a-f]{12}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "sha1": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "audio",
+        "video",
+        "image",
+        "text",
+        "doc",
+        "html",
+        "code",
+        "data",
+        "subtitle",
+        "font",
+        "log",
+        "wheel",
+        "other"
+      ]
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "canonical": {
+      "type": "string",
+      "minLength": 1
+    },
+    "archive_chain": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decode_ok": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "v",
+    "file_id",
+    "sha256",
+    "bytes",
+    "category",
+    "paths",
+    "canonical"
+  ]
+}

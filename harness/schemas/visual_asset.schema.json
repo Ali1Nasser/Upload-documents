@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:visual_asset",
+  "title": "visual/assets.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^v:[0-9a-f]{12}(@\\d+)?$"
+    },
+    "file_id": {
+      "type": "string",
+      "pattern": "^f:[0-9a-f]{12}$"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "slide",
+        "legacy_shot",
+        "hub_section",
+        "mermaid",
+        "code",
+        "py_pattern",
+        "png_scene",
+        "render_keyframe"
+      ]
+    },
+    "source": {
+      "type": "string"
+    },
+    "t_ms": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "caption_en": {
+      "type": "string"
+    },
+    "caption_ar": {
+      "type": "string"
+    },
+    "ocr": {
+      "type": "string"
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "layout": {
+      "type": "string"
+    },
+    "reusable_idea": {
+      "type": "string"
+    },
+    "reuse_mode": {
+      "type": "string",
+      "enum": [
+        "reference",
+        "data",
+        "do-not-use"
+      ]
+    },
+    "quality": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    }
+  },
+  "required": [
+    "v",
+    "asset_id",
+    "file_id",
+    "kind",
+    "reuse_mode"
+  ]
+}

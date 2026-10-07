@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:sentences",
+  "title": "sentences/<audio>.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sent_id": {
+      "type": "string",
+      "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+    },
+    "audio_id": {
+      "type": "string",
+      "pattern": "^a:[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+    },
+    "w_from": {
+      "type": "string",
+      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "w_to": {
+      "type": "string",
+      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "start_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "pause_before_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "gloss_en": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "claim",
+        "example",
+        "question",
+        "prediction",
+        "transition",
+        "recap"
+      ]
+    },
+    "numbers": {
+      "type": "array",
+      "items": {}
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "impact_words": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+      }
+    },
+    "idea_unit": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^iu:\\d{5}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "script_match": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "v",
+    "sent_id",
+    "audio_id",
+    "w_from",
+    "w_to",
+    "start_ms",
+    "end_ms",
+    "text",
+    "kind"
+  ]
+}

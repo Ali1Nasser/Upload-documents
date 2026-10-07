@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:quarantine",
+  "title": "catalog/quarantine.json",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "archive_chain": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "path",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "on_disk": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "policy": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "v",
+    "items"
+  ]
+}

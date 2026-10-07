@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:edl",
+  "title": "edl/master_edl.vN.json",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+$"
+    },
+    "fps": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sr": {
+      "type": "integer",
+      "minimum": 8000
+    },
+    "total_frames": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "vo_wav": {
+      "type": "string"
+    },
+    "vo_sha256": {
+      "type": "string"
+    },
+    "chapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(CH-\\d{2}|DD-P\\d{2}(-\\d+)?)$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "trunk",
+              "deep-dive"
+            ]
+          },
+          "title_ar": {
+            "type": "string"
+          },
+          "title_en": {
+            "type": "string"
+          },
+          "act": {
+            "type": "string"
+          },
+          "start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_frame": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "start_frame",
+          "end_frame"
+        ]
+      }
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "seg_id": {
+            "type": "string",
+            "pattern": "^seg-\\d{4,}$"
+          },
+          "chapter": {
+            "type": "string",
+            "pattern": "^(CH-\\d{2}|DD-P\\d{2}(-\\d+)?)$"
+          },
+          "audio_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^a:[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "src_in_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "src_out_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rec_in_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "rec_out_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sentences": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+            }
+          },
+          "fade_in_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "fade_out_ms": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "gain_db": {
+            "type": "number"
+          },
+          "eq": {},
+          "role": {
+            "type": "string",
+            "enum": [
+              "trunk",
+              "deep-dive",
+              "card",
+              "callback",
+              "bridge"
+            ]
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "seg_id",
+          "chapter",
+          "role",
+          "rec_in_frame",
+          "rec_out_frame"
+        ],
+        "if": {
+          "properties": {
+            "role": {
+              "not": {
+                "const": "card"
+              }
+            }
+          }
+        },
+        "then": {
+          "required": [
+            "audio_id",
+            "src_in_ms",
+            "src_out_ms",
+            "sentences"
+          ]
+        }
+      }
+    },
+    "word_map": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "v",
+    "version",
+    "fps",
+    "sr",
+    "total_frames",
+    "chapters",
+    "segments",
+    "word_map"
+  ]
+}

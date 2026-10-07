@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:graph_edge",
+  "title": "graph/edges.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "src": {
+      "type": "string",
+      "minLength": 3
+    },
+    "dst": {
+      "type": "string",
+      "minLength": 3
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "contains",
+        "version_of",
+        "says",
+        "about",
+        "requires",
+        "illustrates",
+        "states",
+        "contradicts",
+        "uses",
+        "anchored_to",
+        "duplicates",
+        "callback_to"
+      ]
+    },
+    "w": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "v",
+    "src",
+    "dst",
+    "type"
+  ]
+}
