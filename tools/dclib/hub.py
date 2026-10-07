@@ -65,27 +65,31 @@ _PART = re.compile(r"^(\d+[a-z]?) · ")
 
 
 def _with_next(f):
-    """(line, next_line) pairs over a binary file, one line of lookahead."""
-    prev = None
-    for raw in f:
-        if prev is not None:
-            yield prev, raw
-        prev = raw
-    if prev is not None:
-        yield prev, b""
+    """(line, next_line, next_non_blank_line) triples over a binary file (the file is read into memory once, about 45 MB)."""
+    lines = f.readlines()
+    nb = b""
+    nbs = [b""] * len(lines)
+    for i in range(len(lines) - 1, -1, -1):   # next non-blank line strictly after line i
+        nbs[i] = nb
+        if lines[i].strip():
+            nb = lines[i]
+    for i, raw in enumerate(lines):
+        yield raw, (lines[i + 1] if i + 1 < len(lines) else b""), nbs[i]
 
 
 def knowledge_sections(path=KNOW):
     """Stream the file once. Returns [{level,title,heading_path,part,line,byte_start,byte_end,chars}].
     Headings inside fenced code are ignored (the file embeds CSS/JS/MD payloads full of '#' lines).
-    The Linux guide in section 6 is pasted without fences, so shell comments (`# Schedule a command:`) look like H1 headings; a
-    level-1 line counts as a heading only when the next line is blank (real markdown headings are followed by a blank line)."""
+    The Linux guide in section 6 is pasted without fences, so shell comments (`# Schedule a command:`) look like H1 headings. A
+    level-1 line (other than line 1) counts as a heading only when it sits between blank lines AND the next non-blank line is not
+    another `#` line: a run of shell comments ("# Step 3: ..." then "# Step 4: ...", "# Exercise: ..." then "# Watch ...") is code,
+    while a real H1 ("# DA CAMP - SUPERSET ...") is followed by a quote or paragraph."""
     stack, fence, secs = [], None, []
     cur, off, lineno = None, 0, 0
     part = ""
     prev_blank = True
     with open(path, "rb") as f:
-        for raw, nxt in _with_next(f):
+        for raw, nxt, nxt_nb in _with_next(f):
             lineno += 1
             was_blank, prev_blank = prev_blank, not raw.strip()
             n = len(raw)
@@ -99,7 +103,7 @@ def knowledge_sections(path=KNOW):
                     fence = None
             elif fence is None:
                 h = _HEAD.match(body)
-                if h and (len(h.group(1)) > 1 or lineno == 1 or (was_blank and not nxt.strip())):
+                if h and (len(h.group(1)) > 1 or lineno == 1 or (was_blank and not nxt.strip() and not nxt_nb.lstrip().startswith(b"#"))):
                     level = len(h.group(1))
                     title = h.group(2).decode("utf-8", "replace")
                     if cur is not None:

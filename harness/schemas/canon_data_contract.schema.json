@@ -65,7 +65,8 @@
               "bold",
               "code",
               "plain",
-              "table_row"
+              "table_row",
+              "word"
             ]
           },
           "chapters": {

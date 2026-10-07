@@ -408,6 +408,86 @@
       "line": 346
     },
     {
+      "id": "d:6.1:15",
+      "section": "6.1",
+      "kind": "word",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "Eleven",
+      "numbers": [
+        11
+      ],
+      "unit": "spellings",
+      "context": "Eleven raw spellings collapse to seven after `TRIM` and to five named customers plus one blank after `PROPER`.",
+      "line": 345
+    },
+    {
+      "id": "d:6.1:16",
+      "section": "6.1",
+      "kind": "word",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "seven",
+      "numbers": [
+        7
+      ],
+      "unit": null,
+      "context": "Eleven raw spellings collapse to seven after `TRIM` and to five named customers plus one blank after `PROPER`.",
+      "line": 345
+    },
+    {
+      "id": "d:6.1:17",
+      "section": "6.1",
+      "kind": "word",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "five",
+      "numbers": [
+        5
+      ],
+      "unit": "customers",
+      "context": "Eleven raw spellings collapse to seven after `TRIM` and to five named customers plus one blank after `PROPER`.",
+      "line": 345
+    },
+    {
+      "id": "d:6.1:18",
+      "section": "6.1",
+      "kind": "word",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "one",
+      "numbers": [
+        1
+      ],
+      "unit": null,
+      "context": "Eleven raw spellings collapse to seven after `TRIM` and to five named customers plus one blank after `PROPER`.",
+      "line": 345
+    },
+    {
+      "id": "d:6.1:19",
+      "section": "6.1",
+      "kind": "word",
+      "chapters": [
+        "CH-15",
+        "CH-21"
+      ],
+      "value": "Two",
+      "numbers": [
+        2
+      ],
+      "unit": "defects",
+      "context": "Two further defects survive cleaning — they are not formatting problems, they are domain problems, and they are what the quality gate in CH-21 finds: order 1007 points at customer 9, who does not exist;",
+      "line": 346
+    },
+    {
       "id": "d:6.2:1",
       "section": "6.2",
       "kind": "table_row",
@@ -740,6 +820,52 @@
       "line": 363
     },
     {
+      "id": "d:6.3:16",
+      "section": "6.3",
+      "kind": "word",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "nine",
+      "numbers": [
+        9
+      ],
+      "unit": "stages",
+      "context": "Rows surviving each of the nine logical stages: 14 → 13 → 11 → 2 → 2 → 2 → 2 → 2 → 1.",
+      "line": 358
+    },
+    {
+      "id": "d:6.3:17",
+      "section": "6.3",
+      "kind": "word",
+      "chapters": [
+        "CH-11"
+      ],
+      "value": "two",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "- GROUP BY yields two tiers: gold €3 098.30, silver €850.20.",
+      "line": 361
+    },
+    {
+      "id": "d:6.3:18",
+      "section": "6.3",
+      "kind": "word",
+      "chapters": [
+        "CH-11",
+        "CH-15"
+      ],
+      "value": "two",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "it is the proof that the two chapters are one dataset.",
+      "line": 363
+    },
+    {
       "id": "d:6.4:1",
       "section": "6.4",
       "kind": "bold",
@@ -846,6 +972,21 @@
       "line": 367
     },
     {
+      "id": "d:6.4:8",
+      "section": "6.4",
+      "kind": "word",
+      "chapters": [
+        "CH-12"
+      ],
+      "value": "four",
+      "numbers": [
+        4
+      ],
+      "unit": null,
+      "context": "Label it fan-out, and show that a customer-level measure summed after this join is counted up to four times for Amara.",
+      "line": 367
+    },
+    {
       "id": "d:6.5:1",
       "section": "6.5",
       "kind": "bold",
@@ -889,6 +1030,96 @@
       "unit": "pages",
       "context": "the full scan reads 12 500 pages.",
       "line": 370
+    },
+    {
+      "id": "d:6.5:4",
+      "section": "6.5",
+      "kind": "word",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "three",
+      "numbers": [
+        3
+      ],
+      "unit": null,
+      "context": "Over 1 000 000 rows, a three-level B-tree reaches one row in 3 page reads;",
+      "line": 370
+    },
+    {
+      "id": "d:6.5:5",
+      "section": "6.5",
+      "kind": "word",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "ten",
+      "numbers": [
+        10
+      ],
+      "unit": null,
+      "context": "Tree height grows logarithmically — ten times the rows adds roughly one level, not ten times the work.",
+      "line": 370
+    },
+    {
+      "id": "d:6.5:6",
+      "section": "6.5",
+      "kind": "word",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "ten",
+      "numbers": [
+        10
+      ],
+      "unit": null,
+      "context": "Tree height grows logarithmically — ten times the rows adds roughly one level, not ten times the work.",
+      "line": 370
+    },
+    {
+      "id": "d:6.5:7",
+      "section": "6.5",
+      "kind": "word",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "two",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "Write cost is shown as arithmetic, not a benchmark: with one index, every `INSERT` performs two writes;",
+      "line": 373
+    },
+    {
+      "id": "d:6.5:8",
+      "section": "6.5",
+      "kind": "word",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "two",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "with two indexes, three.",
+      "line": 373
+    },
+    {
+      "id": "d:6.5:9",
+      "section": "6.5",
+      "kind": "word",
+      "chapters": [
+        "CH-14"
+      ],
+      "value": "three",
+      "numbers": [
+        3
+      ],
+      "unit": null,
+      "context": "with two indexes, three.",
+      "line": 373
     },
     {
       "id": "d:6.6:1",
@@ -1079,6 +1310,21 @@
       "line": 387
     },
     {
+      "id": "d:6.9:3",
+      "section": "6.9",
+      "kind": "word",
+      "chapters": [
+        "CH-28"
+      ],
+      "value": "nine",
+      "numbers": [
+        9
+      ],
+      "unit": "rows",
+      "context": "Masking every direct identifier leaves k = 1 and nine unique rows.",
+      "line": 387
+    },
+    {
       "id": "d:6.10:1",
       "section": "6.10",
       "kind": "bold",
@@ -1111,6 +1357,21 @@
         66.0
       ],
       "unit": "EUR",
+      "context": "Switch file against core ledger: 7 matched · 1 amount mismatch of −36 (divisible by 9 → a transposition) · 1 only-in-switch · 1 only-in-ledger · 1 duplicate. Net difference + €66.00 — three unrelated faults that partly cancel.",
+      "line": 390
+    },
+    {
+      "id": "d:6.10:3",
+      "section": "6.10",
+      "kind": "word",
+      "chapters": [
+        "CH-28"
+      ],
+      "value": "three",
+      "numbers": [
+        3
+      ],
+      "unit": null,
       "context": "Switch file against core ledger: 7 matched · 1 amount mismatch of −36 (divisible by 9 → a transposition) · 1 only-in-switch · 1 only-in-ledger · 1 duplicate. Net difference + €66.00 — three unrelated faults that partly cancel.",
       "line": 390
     },
@@ -1160,6 +1421,22 @@
       ],
       "unit": "ms",
       "context": "A p95 gate at 500 ms passes at 355 ms and fails at 675 ms under regression.",
+      "line": 393
+    },
+    {
+      "id": "d:6.11:4",
+      "section": "6.11",
+      "kind": "word",
+      "chapters": [
+        "CH-09",
+        "CH-34"
+      ],
+      "value": "Ten",
+      "numbers": [
+        10
+      ],
+      "unit": "assertions",
+      "context": "Ten assertions execute.",
       "line": 393
     },
     {
@@ -1304,6 +1581,21 @@
       "line": 402
     },
     {
+      "id": "d:6.14:4",
+      "section": "6.14",
+      "kind": "word",
+      "chapters": [
+        "CH-19"
+      ],
+      "value": "zero",
+      "numbers": [
+        0
+      ],
+      "unit": null,
+      "context": "Training error at k = 1 is zero by construction — which is why leave-one-out error is shown beside it.",
+      "line": 402
+    },
+    {
       "id": "d:6.15:1",
       "section": "6.15",
       "kind": "plain",
@@ -1352,6 +1644,22 @@
       "line": 408
     },
     {
+      "id": "d:6.16:3",
+      "section": "6.16",
+      "kind": "word",
+      "chapters": [
+        "CH-29",
+        "CH-31"
+      ],
+      "value": "Thirty",
+      "numbers": [
+        30
+      ],
+      "unit": "rows",
+      "context": "Thirty visible houses.",
+      "line": 408
+    },
+    {
       "id": "d:6.17:1",
       "section": "6.17",
       "kind": "code",
@@ -1384,6 +1692,21 @@
       "unit": null,
       "context": "After the mask the attention grid is visibly lower-triangular and every row sums to exactly 1.000.",
       "line": 412
+    },
+    {
+      "id": "d:6.17:3",
+      "section": "6.17",
+      "kind": "word",
+      "chapters": [
+        "CH-32"
+      ],
+      "value": "Fourteen",
+      "numbers": [
+        14
+      ],
+      "unit": "stages",
+      "context": "Fourteen steppable stages: tokenise → embed + position → LayerNorm → Q/K/V → scores → causal mask → softmax → weighted values → concat + project → residual → MLP → residual → unembed → sample.",
+      "line": 411
     },
     {
       "id": "d:6.18:1",
@@ -1480,6 +1803,22 @@
       "line": 419
     },
     {
+      "id": "d:6.19:5",
+      "section": "6.19",
+      "kind": "word",
+      "chapters": [
+        "CH-00",
+        "CH-27"
+      ],
+      "value": "six",
+      "numbers": [
+        6
+      ],
+      "unit": "rows",
+      "context": "The six rows in §5.2.",
+      "line": 419
+    },
+    {
       "id": "d:6.20:1",
       "section": "6.20",
       "kind": "bold",
@@ -1513,7 +1852,9 @@
       "id": "d:6.20:3",
       "section": "6.20",
       "kind": "bold",
-      "chapters": [],
+      "chapters": [
+        "CH-19"
+      ],
       "value": "16",
       "numbers": [
         16
@@ -1541,7 +1882,9 @@
       "id": "d:6.20:5",
       "section": "6.20",
       "kind": "plain",
-      "chapters": [],
+      "chapters": [
+        "CH-19"
+      ],
       "value": "16",
       "numbers": [
         16
@@ -1569,7 +1912,9 @@
       "id": "d:6.20:7",
       "section": "6.20",
       "kind": "bold",
-      "chapters": [],
+      "chapters": [
+        "CH-07"
+      ],
       "value": "10 000",
       "numbers": [
         10000
@@ -1582,7 +1927,9 @@
       "id": "d:6.20:8",
       "section": "6.20",
       "kind": "plain",
-      "chapters": [],
+      "chapters": [
+        "CH-07"
+      ],
       "value": "10 000",
       "numbers": [
         10000
@@ -1608,6 +1955,21 @@
       "unit": "%",
       "context": "- `4 / 6 = 66.67 %` and the receipts' totals (CH-00, CH-27).",
       "line": 426
+    },
+    {
+      "id": "d:6.20:10",
+      "section": "6.20",
+      "kind": "word",
+      "chapters": [
+        "CH-30"
+      ],
+      "value": "zero",
+      "numbers": [
+        0
+      ],
+      "unit": null,
+      "context": "- A classifier that always predicts no on a problem with 1 % positives scores 99 % accuracy and catches zero cases (CH-30).",
+      "line": 423
     },
     {
       "id": "d:6.21:1",
@@ -1714,6 +2076,27 @@
       "unit": null,
       "context": "Cross-chapter reconciliations — show these on screen",
       "line": 434
+    },
+    {
+      "id": "d:6.21:5",
+      "section": "6.21",
+      "kind": "word",
+      "chapters": [
+        "CH-00",
+        "CH-10",
+        "CH-11",
+        "CH-12",
+        "CH-15",
+        "CH-21",
+        "CH-27"
+      ],
+      "value": "two",
+      "numbers": [
+        2
+      ],
+      "unit": null,
+      "context": "If any of these fails to reconcile after a data change, the film is showing two datasets — stop and fix §6 before rendering.",
+      "line": 435
     },
     {
       "id": "d:5.2:1",

@@ -595,6 +595,31 @@ def parse_coverage(lines, sec, issues):
 SEC_CH = re.compile(r"— ((?:CH-\d\d(?:, )?)+)$")
 
 
+# Numbers spelled as words ("Eleven raw spellings", "four times", "zero by construction", "nine logical stages") are data-contract
+# numbers too. "one" is far too common in prose ("one dataset", "one row"), so it only counts when bold or after plus/exactly/only.
+WORD_NUMS = {w: i for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split())}
+WORD_NUMS.update({"thirty": 30, "forty": 40, "fifty": 50, "sixty": 60, "seventy": 70, "eighty": 80, "ninety": 90, "hundred": 100, "thousand": 1000})
+WORD_RX = re.compile(r"\b(" + "|".join(sorted(WORD_NUMS, key=len, reverse=True)) + r")\b", re.I)
+ONE_OK_RX = re.compile(r"\b(?:plus|exactly|only|just) one\b|\*\*one\b", re.I)
+
+
+def word_numbers_in(ln):
+    """[(start, end, surface, value)] for spelled-out numbers in a line, ignoring code spans and 'one' in ordinary prose."""
+    masked = re.sub(r"`[^`]*`", lambda m: " " * len(m.group(0)), ln)
+    out = []
+    for m in WORD_RX.finditer(masked):
+        w = m.group(1).lower()
+        if w == "one" and not any(o.start() <= m.start() <= o.end() for o in ONE_OK_RX.finditer(masked)):
+            continue
+        if masked[m.end():m.end() + 1] == "-" and w in ("one",):   # one-per-customer, one-hop
+            continue
+        out.append((m.start(), m.end(), m.group(1), WORD_NUMS[w]))
+    return out
+
+
+
+
 def parse_data_contract(lines, sec, issues):
     facts, sections = [], []
     _, s6_0, s6_1 = sec["6"]
@@ -617,6 +642,15 @@ def parse_data_contract(lines, sec, issues):
                 facts.append({"id": f"d:{sid}:{n}", "section": sid, "kind": "table_row", "chapters": sorted(set(sec_ch) | set(chapters_in(" ".join(r)))),
                               "value": [strip_md(x) for x in r], "header": t["header"], "numbers": [x["value"] for x in nums],
                               "unit": "EUR" if "€" in " ".join(r) else None, "context": stitle, "line": ln})
+        def ch_of(ln, pos):
+            """Chapters for a number at pos: section chapters, plus the CH tags in its sentence. A bullet carries one trailing
+            '(CH-xx)' tag for the whole item, which a split at ';' or '. ' would lose, so bullets use the entire line."""
+            src = ln if ln.lstrip().startswith(("- ", "* ")) else sentence_around(ln, pos, 400)
+            got = sorted(set(sec_ch) | set(chapters_in(src)))
+            # a closing line of a cross-chapter section ("the film is showing two datasets") names no chapter itself:
+            # it concerns every chapter the section names
+            return got or sorted(set(chapters_in(" ".join(lines[j0:j1]))))
+
         for k in range(j0 + 1, j1):
             ln = lines[k]
             if (k + 1) in tbl_lines or not ln.strip() or ln.strip() == "---":
@@ -646,7 +680,7 @@ def parse_data_contract(lines, sec, issues):
                     elif "EGP" in inner:
                         unit = "EGP"
                     facts.append({"id": f"d:{sid}:{n}", "section": sid, "kind": kind,
-                                  "chapters": sorted(set(sec_ch) | set(chapters_in(sentence_around(ln, mm.start(), 400)))),
+                                  "chapters": ch_of(ln, mm.start()),
                                   "value": strip_md(inner), "numbers": [x["value"] for x in nums], "unit": unit,
                                   "context": sentence_around(ln, mm.start()), "line": k + 1})
             for x in numbers_in(ln):
@@ -655,9 +689,23 @@ def parse_data_contract(lines, sec, issues):
                 n += 1
                 end = x["pos"] + len(x["text"])
                 facts.append({"id": f"d:{sid}:{n}", "section": sid, "kind": "plain",
-                              "chapters": sorted(set(sec_ch) | set(chapters_in(sentence_around(ln, x["pos"], 400)))),
+                              "chapters": ch_of(ln, x["pos"]),
                               "value": x["text"], "numbers": [x["value"]], "unit": guess_unit(ln, x["pos"], end),
                               "context": sentence_around(ln, x["pos"]), "line": k + 1})
+        # spelled-out numbers, appended after the digit facts so existing fact ids stay stable
+        for k in range(j0 + 1, j1):
+            ln = lines[k]
+            if (k + 1) in tbl_lines or not ln.strip() or ln.strip() == "---":
+                continue
+            for a0, a1, surface, val in word_numbers_in(ln):
+                n += 1
+                unit = guess_unit(ln, a0, a1)
+                if unit is None:
+                    nxt = re.match(r"\W*\w+(\W+)", ln[a1:])
+                    if nxt:
+                        unit = guess_unit(ln, a1 + nxt.end(), a1 + nxt.end())
+                facts.append({"id": f"d:{sid}:{n}", "section": sid, "kind": "word", "chapters": ch_of(ln, a0),
+                              "value": surface, "numbers": [val], "unit": unit, "context": sentence_around(ln, a0), "line": k + 1})
     # §5.2 receipts T1..T6 + stated derived figures
     _, i0, i1 = sec["5.2"]
     rec = []

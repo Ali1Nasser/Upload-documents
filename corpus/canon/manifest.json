@@ -188,7 +188,7 @@
     },
     {
       "path": "tools/dclib/canon_md.py",
-      "sha256": "2ea8d388bc28071060d8814fadb456be601cd3311164ffe82c2c558e7ab00a3c"
+      "sha256": "63ad6411100b2cb8927442070d4f79242c52ffcf3b6a19df2f754659819d0adb"
     },
     {
       "path": "tools/dclib/canon_src.py",
@@ -199,7 +199,7 @@
       "sha256": "ec77bbcaea07d93bec388434affbb6f21f8c3d07d9d7978d3c0b529022aba1fe"
     }
   ],
-  "inputs_digest": "3bb6ab7a024e6a708c13fcb207ed587768d23611c63738df4cc2eebf5a033e04",
+  "inputs_digest": "4998824999845ac083a59395e2335fef381d6dffe838bbd7b95fd7b7477a9762",
   "outputs": [
     "corpus/canon/chapters.json",
     "corpus/canon/data_contract.json",
@@ -221,12 +221,12 @@
   "tool_versions": {
     "python": "3.13.16"
   },
-  "created": "2026-10-07T17:27:02Z",
+  "created": "2026-10-07T17:58:46Z",
   "extra": {
     "counts": {
       "chapters": 37,
       "shots": 200,
-      "data_facts": 103,
+      "data_facts": 127,
       "data_checks_ok": 12,
       "data_checks": 12,
       "glossary_gloss": 15,
@@ -266,19 +266,19 @@
         },
         {
           "path": "tools/dclib/hub.py",
-          "sha256": "971ae930c9c49204dc99077b98a09ccb0f1dd692751bccfb1a1b860b259eec55"
+          "sha256": "91ad9a7796ea06af83353433758fd1f429e238db581bce14cc26938eaf3b404c"
         }
       ],
-      "inputs_digest": "5b41a4d8ac96bfbccb2611e0dfd6ebf71990199abdc1aa3ff801ad6bf926d28e",
+      "inputs_digest": "62a9598aae09e89fc4b0ed291d901c343957771a948d317fbee157639c64c7fb",
       "outputs": [
         "corpus/canon/knowledge_index.jsonl"
       ],
       "tool_versions": {
         "python": "3.12.3"
       },
-      "created": "2026-10-07T15:21:42Z",
+      "created": "2026-10-07T17:57:08Z",
       "extra": {
-        "sections": 2207,
+        "sections": 2205,
         "file_bytes": 42286584,
         "gaps": 0,
         "first_byte": 0,
@@ -290,7 +290,7 @@
           "4 · Engine internals": 6,
           "4b · Traces": 18,
           "5 · Visual Crash Course — 79 animated steps": 84,
-          "6 · Lesson content — the fused union, readable": 849,
+          "6 · Lesson content — the fused union, readable": 847,
           "6b · The four authored lesson variants, verbatim": 5,
           "7 · Deep dives — teaching points and cases": 98,
           "8 · Assessment bank": 177,
@@ -638,7 +638,7 @@
         },
         {
           "path": "tools/dclib/canon_md.py",
-          "sha256": "2ea8d388bc28071060d8814fadb456be601cd3311164ffe82c2c558e7ab00a3c"
+          "sha256": "63ad6411100b2cb8927442070d4f79242c52ffcf3b6a19df2f754659819d0adb"
         },
         {
           "path": "tools/dclib/canon_src.py",
@@ -649,7 +649,7 @@
           "sha256": "ec77bbcaea07d93bec388434affbb6f21f8c3d07d9d7978d3c0b529022aba1fe"
         }
       ],
-      "inputs_digest": "3bb6ab7a024e6a708c13fcb207ed587768d23611c63738df4cc2eebf5a033e04",
+      "inputs_digest": "4998824999845ac083a59395e2335fef381d6dffe838bbd7b95fd7b7477a9762",
       "outputs": [
         "corpus/canon/chapters.json",
         "corpus/canon/data_contract.json",
@@ -671,12 +671,12 @@
       "tool_versions": {
         "python": "3.13.16"
       },
-      "created": "2026-10-07T17:27:02Z",
+      "created": "2026-10-07T17:58:46Z",
       "extra": {
         "counts": {
           "chapters": 37,
           "shots": 200,
-          "data_facts": 103,
+          "data_facts": 127,
           "data_checks_ok": 12,
           "data_checks": 12,
           "glossary_gloss": 15,

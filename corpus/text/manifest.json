@@ -8,10 +8,10 @@
     },
     {
       "path": "corpus/canon/knowledge_index.jsonl",
-      "sha256": "c3299127be4710943284b1849d76d3f6bf8cb309df85751c36ab489d97835b84"
+      "sha256": "ab506c011240f6c8e7f037afc902bc831042651d4461251fc28935210130b65b"
     }
   ],
-  "inputs_digest": "6fca9ac361f7251d97f4535f9e87fa1566700e4f7f9f0bc9310ff1799e3b70d4",
+  "inputs_digest": "a08ee8f56fcaaa62754b0215e8846143b6d5a1e1c39b3f2740f6140852d19b15",
   "outputs": [
     "corpus/text/docs.jsonl",
     "corpus/text/chunks.jsonl"
@@ -19,13 +19,13 @@
   "tool_versions": {
     "python": "3.12.3"
   },
-  "created": "2026-10-07T16:41:14Z",
+  "created": "2026-10-07T18:05:29Z",
   "extra": {
     "chunks": 15069,
     "docs": 339,
-    "bytes": 36411312,
+    "bytes": 36433716,
     "chunks_path": "corpus/text/chunks.jsonl",
-    "chunks_sha256": "ed61c760d0f160e84570b3e69b5c64c2fe8a27bd97bbce774d7fd0d92a8fcc2b",
+    "chunks_sha256": "ada31b64684791f4ba185fe8a55a3f45f967ff2aa0b35736597677b4d09a69c8",
     "in_git": true,
     "by_family": {
       "data-json-csv": {
@@ -66,7 +66,7 @@
       }
     },
     "knowledge": {
-      "sections": 2207,
+      "sections": 2205,
       "chunks": 6238,
       "payload_sections_cut": 31,
       "payload_chars_not_indexed": 34884401
@@ -86,10 +86,10 @@
         },
         {
           "path": "corpus/canon/knowledge_index.jsonl",
-          "sha256": "c3299127be4710943284b1849d76d3f6bf8cb309df85751c36ab489d97835b84"
+          "sha256": "ab506c011240f6c8e7f037afc902bc831042651d4461251fc28935210130b65b"
         }
       ],
-      "inputs_digest": "6fca9ac361f7251d97f4535f9e87fa1566700e4f7f9f0bc9310ff1799e3b70d4",
+      "inputs_digest": "a08ee8f56fcaaa62754b0215e8846143b6d5a1e1c39b3f2740f6140852d19b15",
       "outputs": [
         "corpus/text/docs.jsonl",
         "corpus/text/chunks.jsonl"
@@ -97,13 +97,13 @@
       "tool_versions": {
         "python": "3.12.3"
       },
-      "created": "2026-10-07T16:41:14Z",
+      "created": "2026-10-07T18:05:29Z",
       "extra": {
         "chunks": 15069,
         "docs": 339,
-        "bytes": 36411312,
+        "bytes": 36433716,
         "chunks_path": "corpus/text/chunks.jsonl",
-        "chunks_sha256": "ed61c760d0f160e84570b3e69b5c64c2fe8a27bd97bbce774d7fd0d92a8fcc2b",
+        "chunks_sha256": "ada31b64684791f4ba185fe8a55a3f45f967ff2aa0b35736597677b4d09a69c8",
         "in_git": true,
         "by_family": {
           "data-json-csv": {
@@ -144,7 +144,7 @@
           }
         },
         "knowledge": {
-          "sections": 2207,
+          "sections": 2205,
           "chunks": 6238,
           "payload_sections_cut": 31,
           "payload_chars_not_indexed": 34884401
