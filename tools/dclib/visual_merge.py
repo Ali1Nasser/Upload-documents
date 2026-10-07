@@ -28,6 +28,8 @@ BATCH_DIR = os.path.join(VIS, "batches")
 OUT = C.p("corpus", "visual", "assets.jsonl")
 OUT_DIR = C.p("corpus", "visual")
 REPORT = C.p("reports", "visual", "missing.md")
+RECAPTIONS = C.p("corpus", "visual", "recaptions.jsonl")   # pixel-verified overrides of vision captions (G2 verifier fix)
+OVERRIDE_KEYS = ["caption_en", "caption_ar", "concepts", "layout", "text_seen", "numbers_seen", "reusable_idea", "reuse_mode", "quality"]
 HUB_SHOTS = C.p("corpus", "canon", "hub_shots.jsonl")
 HUB_ITEMS = C.p("corpus", "canon", "hub_items.jsonl")
 LEGACY = C.p("corpus", "canon", "legacy_shots.jsonl")
@@ -175,6 +177,17 @@ def _vision_assets(report):
         row["foreign_ids"] = sorted(got - set(item_ids))
         row["status"] = "ok" if not row["missing_ids"] and row["lines"] >= row["items"] else "short"
         batch_rows.append(row)
+    # pixel-verified overrides: only the fields present in a recaption replace the batch caption's fields
+    over, report["recaption_unknown_ids"] = {}, []
+    if os.path.exists(RECAPTIONS):
+        for d in C.read_jsonl(RECAPTIONS):
+            over[d["asset_id"]] = d
+    for aid, d in over.items():
+        if aid not in images:
+            report["recaption_unknown_ids"].append(aid)
+        elif aid in caps:
+            caps[aid] = {**caps[aid], **{k: d[k] for k in OVERRIDE_KEYS if k in d}}
+    report["recaptions"] = len(over)
     report["batches"] = batch_rows
     report["repaired"] = repaired
     report["unparsable"] = bad
@@ -192,6 +205,8 @@ def _vision_assets(report):
                "reusable_idea": str(d.get("reusable_idea", "")), "reuse_mode": rm, "quality": _quality(d.get("quality")),
                "path": it["path"], "text_seen": str(d.get("text_seen", "")), "numbers_seen": [str(x) for x in d.get("numbers_seen") or []],
                "caption_src": "vision"}
+        if aid in over:
+            rec["reviewed"], rec["review_note"] = over[aid]["reviewed"], over[aid]["review_note"]
         if o.get("mean_conf") is not None:
             rec["ocr_conf"] = o["mean_conf"]
         if it.get("chapter"):
@@ -262,7 +277,7 @@ def _legacy_assets():
 
 # ------------------------------------------------------------------ command
 def _inputs():
-    paths = [IMAGES, OCR, HUB_SHOTS, HUB_ITEMS, LEGACY]
+    paths = [IMAGES, OCR, HUB_SHOTS, HUB_ITEMS, LEGACY, RECAPTIONS]
     for d in (BATCH_DIR, os.path.join(VIS, "captions")):
         if os.path.isdir(d):
             paths += [os.path.join(d, f) for f in sorted(os.listdir(d)) if f.endswith((".json", ".jsonl"))]
@@ -314,6 +329,8 @@ def _write_report(rep, counts, total, collisions):
          f"- caption batches: {len(rep['batches'])}; batches with a missing output or fewer lines than items: {len(short)}",
          f"- caption lines repaired (unescaped quotes inside a string): {len(rep['repaired'])}; unparsable even after repair: {len(rep['unparsable'])}",
          f"- images without a caption (not in the merged file): {len(rep['uncaptioned'])}",
+         f"- pixel-verified recaptions applied over the batch captions (corpus/visual/recaptions.jsonl): {rep.get('recaptions', 0)}; "
+         f"ids not in the image list: {len(rep.get('recaption_unknown_ids', []))}",
          f"- duplicate caption ids across batches (last wins): {len(rep['duplicate_caption_ids'])}",
          f"- asset_id collisions between sources (first kept): {len(collisions)}", ""]
     if short:
@@ -350,3 +367,5 @@ def register_visual(vs):
     s = vs.add_parser("merge", help="captions + HUB shots + legacy shots -> corpus/visual/assets.jsonl (+ reports/visual/missing.md)")
     s.add_argument("--force", action="store_true")
     s.set_defaults(fn="visual_merge.cmd_merge")
+    from . import visual_audit
+    visual_audit.register_audit(vs)

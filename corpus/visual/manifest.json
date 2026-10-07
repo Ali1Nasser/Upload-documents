@@ -23,6 +23,10 @@
       "sha256": "fa9dedde32863a0b6fa8c3c068ac459aa823b37791799bd6d78dc341264d8628"
     },
     {
+      "path": "corpus/visual/recaptions.jsonl",
+      "sha256": "f15b8a2604f4dbb7c25aef17bc1956ac57ead3f43c30cc0d7ab100a6e121f3f5"
+    },
+    {
       "path": "data/derived/visual/batches/batch_001.json",
       "sha256": "7f84b46f93954dc1016196cfd5b3e0205eba95b79b0e4e4f9ff7fb1f4bc3921a"
     },
@@ -279,7 +283,7 @@
       "sha256": "faa0fdb968e9d527aaa87eee1d0ffb1991df0e9904bb5358960bd984260abe4c"
     }
   ],
-  "inputs_digest": "e66eea3811cdcb9f521f334c3506a0841b6ceb7fe5ac34040316db10251d618c",
+  "inputs_digest": "7133289bf4a35f53b1f9811a951e0d8b3abb340a33cfa15bc3d1b755d3b4e116",
   "outputs": [
     "corpus/visual/assets.jsonl",
     "reports/visual/missing.md"
@@ -287,7 +291,7 @@
   "tool_versions": {
     "python": "3.12.3"
   },
-  "created": "2026-10-07T16:38:17Z",
+  "created": "2026-10-07T17:44:12Z",
   "extra": {
     "assets": 1303,
     "by_kind": {
@@ -327,6 +331,10 @@
         {
           "path": "corpus/canon/legacy_shots.jsonl",
           "sha256": "fa9dedde32863a0b6fa8c3c068ac459aa823b37791799bd6d78dc341264d8628"
+        },
+        {
+          "path": "corpus/visual/recaptions.jsonl",
+          "sha256": "f15b8a2604f4dbb7c25aef17bc1956ac57ead3f43c30cc0d7ab100a6e121f3f5"
         },
         {
           "path": "data/derived/visual/batches/batch_001.json",
@@ -585,7 +593,7 @@
           "sha256": "faa0fdb968e9d527aaa87eee1d0ffb1991df0e9904bb5358960bd984260abe4c"
         }
       ],
-      "inputs_digest": "e66eea3811cdcb9f521f334c3506a0841b6ceb7fe5ac34040316db10251d618c",
+      "inputs_digest": "7133289bf4a35f53b1f9811a951e0d8b3abb340a33cfa15bc3d1b755d3b4e116",
       "outputs": [
         "corpus/visual/assets.jsonl",
         "reports/visual/missing.md"
@@ -593,7 +601,7 @@
       "tool_versions": {
         "python": "3.12.3"
       },
-      "created": "2026-10-07T16:38:17Z",
+      "created": "2026-10-07T17:44:12Z",
       "extra": {
         "assets": 1303,
         "by_kind": {

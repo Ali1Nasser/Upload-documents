@@ -77,6 +77,34 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 3
+    },
+    "text_seen": {
+      "type": "string"
+    },
+    "numbers_seen": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "caption_src": {
+      "type": "string",
+      "enum": [
+        "vision",
+        "dom-text",
+        "source-text",
+        "legacy-data"
+      ]
+    },
+    "reviewed": {
+      "type": "string",
+      "enum": [
+        "pixels"
+      ],
+      "description": "set when corpus/visual/recaptions.jsonl overrides the batch caption after a pixel review"
+    },
+    "review_note": {
+      "type": "string"
     }
   },
   "required": [

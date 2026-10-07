@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:visual_recaption",
+  "title": "visual/recaptions.jsonl record: pixel-verified override of one vision caption (merged over the batch caption by `dc visual merge`)",
+  "type": "object",
+  "properties": {
+    "v": {"type": "integer", "minimum": 1},
+    "asset_id": {"type": "string", "pattern": "^v:[0-9a-f]{12}(@\\d+)?$"},
+    "caption_en": {"type": "string", "minLength": 20},
+    "caption_ar": {"type": "string", "minLength": 10},
+    "concepts": {"type": "array", "items": {"type": "string", "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"}},
+    "layout": {"type": "string"},
+    "text_seen": {"type": "string"},
+    "numbers_seen": {"type": "array", "items": {"type": "string"}},
+    "reusable_idea": {"type": "string"},
+    "reuse_mode": {"type": "string", "enum": ["reference", "data", "do-not-use"]},
+    "quality": {"type": "integer", "minimum": 1, "maximum": 5, "description": "librarian scale 1-5 (mapped to 0-3 by the merge)"},
+    "reviewed": {"type": "string", "enum": ["pixels"]},
+    "review_note": {"type": "string", "minLength": 10}
+  },
+  "required": ["v", "asset_id", "numbers_seen", "reviewed", "review_note"]
+}

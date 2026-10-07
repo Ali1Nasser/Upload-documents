@@ -4,6 +4,9 @@
  - 351 NotebookLM scenes parsed (plus the P00 intro record)
  - cues_70m05 imported (37 chapters, 637 caption cues)
  - 100 % of listed slides, PNG scenes and keyframes captioned and OCR'd (merged into corpus/visual/assets.jsonl, valid, unique ids)
+ - those captions are checked against the PIXELS (tools/dclib/visual_audit.py): no "blank / corrupted / illegible" caption on an image with
+   ink or text, and every numbers_seen entry is backed by text the caption author recorded (no OCR-noise numbers)
+ - canon numbers are faithful: comma thousands are never split ('1,250,000' stays one number) and no markdown table escape (\\|) survives
  - HUB harvest report written and its outputs present (2,207 knowledge sections tiling the file, 79 crash-course steps, 150 shots)
  - every unique md/txt/json/csv/srt/vtt/ass source distilled into chunks, with a retrieval index
  - corpus maps written: each file <= 300 words, every family mapped, built from the current chunks
@@ -70,6 +73,35 @@ def check(ctx):
     out.append(C("nblm_scenes_parsed", len(real) == EXPECT["nblm_scenes"] or len(sc) == EXPECT["nblm_scenes"] + 1,
                  f"{len(real)} scenes (+{len(sc) - len(real)} intro record); expected {EXPECT['nblm_scenes']}"))
 
+    # 2b canon numbers faithful, no markdown escapes
+    comma_rx = re.compile(r"\d{1,3}(?:,\d{3})+")
+    split_bad, checked_num = [], 0
+    for r in real:
+        text = " ".join(str(r.get(k, "")) for k in ("title", "on_screen", "animation", "narration")).translate(
+            str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789"))
+        nums = [str(n) for n in r.get("numbers", [])]
+        checked_num += len(nums)
+        stripped = comma_rx.sub(" ", text)          # text without comma-thousands groups
+        for g in comma_rx.findall(text):
+            for part in g.split(","):
+                if part in nums and not re.search(r"(?<![\d,.])" + re.escape(part) + r"(?![\d,])", stripped):
+                    split_bad.append(f"{r['scene_id']}:{g}")
+        for n in nums:                                # every listed number must come from the scene text
+            if n.replace("€", "").replace("$", "") not in text.replace("€", "").replace("$", "") and n not in text:
+                split_bad.append(f"{r['scene_id']}:{n} not in text")
+    def _has_escape(o):
+        if isinstance(o, str):
+            return "\\|" in o
+        if isinstance(o, dict):
+            return any(_has_escape(v) for v in o.values())
+        if isinstance(o, list):
+            return any(_has_escape(v) for v in o)
+        return False
+    esc = [f for f in ("chapters.json", "glossary.json") if _has_escape(cm.read_json(P("corpus", "canon", f), {}))]
+    out.append(C("canon_numbers_faithful", not split_bad and not esc,
+                 f"{checked_num} NotebookLM scene numbers checked against their scene text: {len(split_bad)} split or invented{' ' + str(split_bad[:3]) if split_bad else ''}; "
+                 f"markdown table escapes left in chapters.json/glossary.json: {len(esc)}"))
+
     # 3 cues
     cu = cm.read_json(P("corpus", "canon", "cues_70m05.json"), {}) or {}
     caps = cu.get("captions") or []
@@ -104,10 +136,18 @@ def check(ctx):
         if rule:
             verr = schema.validate_file(assets_p, rule, limit=3)
         miss = cm.p("reports", "visual", "missing.md")
+        from dclib import visual_audit
+        aud = visual_audit.audit(assets, ctx.root)
         out.append(C("visuals_captioned_ocr", not bad and not dup and not verr and os.path.exists(miss) and len(images) > 0,
                      "; ".join(f"{k} {v[1]}/{v[0]}" for k, v in sorted(kinds.items())) + f"; listed {len(images)}, in assets.jsonl {len(assets)} "
                      f"({dup} duplicate ids, {len(verr)} schema errors), missing-report {'present' if os.path.exists(miss) else 'MISSING'}"
                      + (f"; not captioned+OCR'd: {bad[:3]}" if bad else "")))
+        nrec = len(_jl(P("corpus", "visual", "recaptions.jsonl"))) if os.path.exists(P("corpus", "visual", "recaptions.jsonl")) else 0
+        out.append(C("visual_captions_match_pixels", not aud["blank_false"] and not aud["numbers_unsupported"] and not aud["ink_errors"] and aud["checked"] == len(images),
+                     f"{aud['checked']} vision captions audited against the images (ink threshold {visual_audit.INK_MIN}); 'blank/corrupt' claims {len(aud['blank_claims'])}, "
+                     f"of which contradicted by the pixels {len(aud['blank_false'])}{' ' + str([f['asset_id'] for f in aud['blank_false'][:3]]) if aud['blank_false'] else ''}; "
+                     f"numbers_seen not backed by any recorded text {len(aud['numbers_unsupported'])}{' ' + str(aud['numbers_unsupported'][:2]) if aud['numbers_unsupported'] else ''}; "
+                     f"unreadable images {len(aud['ink_errors'])}; pixel-verified recaptions in corpus/visual/recaptions.jsonl: {nrec}"))
     else:
         out.append(C("visuals_captioned_ocr", False, "images.jsonl / ocr.jsonl / corpus/visual/assets.jsonl missing: run dc visual list|ocr|batch, caption, then dc visual merge"))
 

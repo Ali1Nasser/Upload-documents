@@ -179,6 +179,14 @@
       "impact": "risk carried to G6a/G9b, not a G0 blocker",
       "what": "measured 3h-film projection exceeds the 24 h render budget with swangle (see render_projection_3h: swangle 64.7 h, swiftshader 24.7 h); no GPU",
       "workaround": "P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftshader where it renders correctly, or the Council records an ADR on budget/length; nothing is waived here"
+    },
+    {
+      "id": "vision_caption_audit_is_heuristic",
+      "blocked_host": null,
+      "requirement": "an independent vision model to re-caption every slide and keyframe",
+      "what": "No vision model is available in this container; captions come from LLM agents that view the images. The G2 check visual_captions_match_pixels is therefore a heuristic, not a second opinion: it rejects whole-image 'blank/corrupt/illegible' claims when the image has ink, OCR text or recorded text/numbers, and rejects numbers_seen entries that appear in no recorded text. It cannot catch a wrong but plausible caption.",
+      "impact": "752 vision captions: 54 low-quality ones and the 8 invented-number ones were re-captioned from the pixels (corpus/visual/recaptions.jsonl, 168 records); ~490 slide captions were re-checked on contact sheets; the 212 render_keyframe captions were checked only where the audit flagged numbers. Critic sampling in P8/P9 stays the real control.",
+      "workaround": "dc visual audit (reports/visual/audit.json); add a critic sample of vision captions in P8 (storyboard) before any caption drives a shot."
     }
   ],
   "models": {

@@ -13,6 +13,11 @@
       "detail": "351 scenes (+1 intro record); expected 351"
     },
     {
+      "name": "canon_numbers_faithful",
+      "pass": true,
+      "detail": "687 NotebookLM scene numbers checked against their scene text: 0 split or invented; markdown table escapes left in chapters.json/glossary.json: 0"
+    },
+    {
       "name": "cues_imported",
       "pass": true,
       "detail": "637 caption cues over 37 chapters; expected 637 over 37"
@@ -21,6 +26,11 @@
       "name": "visuals_captioned_ocr",
       "pass": true,
       "detail": "png_scene 21/21; render_keyframe 212/212; slide 519/519; listed 752, in assets.jsonl 1303 (0 duplicate ids, 0 schema errors), missing-report present"
+    },
+    {
+      "name": "visual_captions_match_pixels",
+      "pass": true,
+      "detail": "752 vision captions audited against the images (ink threshold 0.003); 'blank/corrupt' claims 0, of which contradicted by the pixels 0; numbers_seen not backed by any recorded text 0; unreadable images 0; pixel-verified recaptions in corpus/visual/recaptions.jsonl: 168"
     },
     {
       "name": "hub_harvest",
@@ -43,5 +53,5 @@
       "detail": "10/10 queries return the expected source in the top 3 (BM25 only (dense vectors not built); reports/retrieval_smoke.md"
     }
   ],
-  "created": "2026-10-07T16:49:33Z"
+  "created": "2026-10-07T17:44:46Z"
 }

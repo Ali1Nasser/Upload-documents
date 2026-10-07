@@ -48,6 +48,11 @@
       "format": "jsonl"
     },
     {
+      "glob": "corpus/visual/recaptions.jsonl",
+      "schema": "visual_recaption",
+      "format": "jsonl"
+    },
+    {
       "glob": "corpus/edl/master_edl.v*.json",
       "schema": "edl",
       "format": "json"
