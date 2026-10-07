@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:crash_course_step",
+  "title": "canon/crash_course_steps.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "step": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 79
+    },
+    "step_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phase": {
+      "type": "string"
+    },
+    "phase_title": {
+      "type": "string"
+    },
+    "real_life": {
+      "type": "string"
+    },
+    "intuition": {
+      "type": "string"
+    },
+    "what_moves": {
+      "type": "object"
+    },
+    "key_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data": {
+      "type": "object"
+    },
+    "quiz": {
+      "type": "object"
+    },
+    "canvas": {
+      "type": "object"
+    },
+    "source": {
+      "type": "object"
+    },
+    "concepts_guess": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    }
+  },
+  "required": [
+    "v",
+    "step",
+    "step_id",
+    "title",
+    "phase",
+    "what_moves",
+    "labels",
+    "data"
+  ]
+}

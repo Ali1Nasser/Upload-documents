@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:hub_shot",
+  "title": "canon/hub_shots.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^v:[0-9a-f]{12}$"
+    },
+    "build": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "section_title": {
+      "type": "string"
+    },
+    "dom_text_excerpt": {
+      "type": "string"
+    },
+    "n": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "width": {
+      "type": "integer"
+    },
+    "height": {
+      "type": "integer"
+    },
+    "png_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "build_file_id": {
+      "type": "string",
+      "pattern": "^f:[0-9a-f]{12}$"
+    }
+  },
+  "required": [
+    "v",
+    "asset_id",
+    "build",
+    "path",
+    "section_title",
+    "dom_text_excerpt"
+  ]
+}

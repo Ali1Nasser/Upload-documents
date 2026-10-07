@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:hub_item",
+  "title": "canon/hub_items.jsonl record",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "item_id": {
+      "type": "string",
+      "pattern": "^hub:[a-z0-9-]+:(mermaid|code|lab|section):\\d{4}$"
+    },
+    "build": {
+      "type": "string",
+      "enum": [
+        "vcc",
+        "lab-m12-ds",
+        "supreme-final2",
+        "nilepay-journey",
+        "fusion",
+        "unified"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "mermaid",
+        "code",
+        "lab",
+        "section"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "concepts_guess": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "chars": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "truncated": {
+      "type": "boolean"
+    },
+    "text_sha": {
+      "type": "string"
+    },
+    "dup_of": {
+      "type": "string",
+      "pattern": "^hub:"
+    }
+  },
+  "required": [
+    "v",
+    "item_id",
+    "build",
+    "kind",
+    "title",
+    "text",
+    "concepts_guess"
+  ]
+}
