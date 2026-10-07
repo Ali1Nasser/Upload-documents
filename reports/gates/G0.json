@@ -1,6 +1,6 @@
 {
   "gate": "G0",
-  "pass": false,
+  "pass": true,
   "checks": [
     {
       "name": "layout",
@@ -20,7 +20,7 @@
     {
       "name": "dc_state_brief",
       "pass": true,
-      "detail": "exit 0, 14 lines (max 25)"
+      "detail": "exit 0, 11 lines (max 25)"
     },
     {
       "name": "dc_time_helpers",
@@ -54,13 +54,13 @@
     },
     {
       "name": "benchmarks_recorded",
-      "pass": false,
-      "detail": "budget.json: render_s_per_frame=MISSING, asr_rtf=set"
+      "pass": true,
+      "detail": "budget.json: render_s_per_frame=set (render_bench: Bench2D c1=0.42s/f best c3=2.923fps, BenchGlow c1=0.868s/f best c3=1.154fps, BenchR3F c1=1.432s/f best c2=0.73fps); asr_rtf=set"
     },
     {
       "name": "upload_smoke_recorded",
-      "pass": false,
-      "detail": "budget.json upload_smoke: MISSING (a recorded failure is a P14 risk, not a G0 blocker)"
+      "pass": true,
+      "detail": "budget.json upload_smoke: {'temp.sh': True, 'x0.at': True} (a recorded failure is a P14 risk, not a G0 blocker)"
     },
     {
       "name": "raw_archives_present",
@@ -68,10 +68,15 @@
       "detail": "6/6 archives in data/raw with expected byte size"
     },
     {
+      "name": "limitations_documented",
+      "pass": true,
+      "detail": "documented limitations (not silent passes): fbaipublicfiles_blocked -> htdemucs from HF mirror AEmotionStudio/htdemucs-models (harn; remotion_chrome_download_blocked -> use preinstalled headless shell /opt/pw-browsers/chromium_he; github_blocked_push_denied -> pip/npm from PyPI/npm registry only; commit locally, never p; system_ffmpeg_no_libvmaf -> static ffmpeg 7.0.2 from imageio-ffmpeg has libvmaf (budget.; render_budget_over_cpu_only -> P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftsha"
+    },
+    {
       "name": "gates_registered",
       "pass": true,
       "detail": "14/14 gate modules"
     }
   ],
-  "created": "2026-10-07T13:05:37Z"
+  "created": "2026-10-07T13:56:10Z"
 }

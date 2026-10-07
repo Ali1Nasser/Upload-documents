@@ -115,10 +115,12 @@ def check(ctx):
     out.append(C("state_files", not errs and ok_types, "progress/decisions/budget/queue present and well-formed" if not errs and ok_types
                  else f"problems: {errs[:3]} types_ok={ok_types}"))
 
-    # 8 benchmarks
+    # 8 benchmarks: render numbers are derived from budget.json[render_bench] (3 compositions x concurrency 1/2/3, real runs)
     b = bud or {}
-    have = {k: bool(b.get(k)) for k in ("render_s_per_frame", "asr_rtf")}
-    out.append(C("benchmarks_recorded", all(have.values()), "budget.json: " + ", ".join(f"{k}={'set' if v else 'MISSING'}" for k, v in have.items())))
+    r_ok, r_detail, _ = ctx.common.render_bench_summary(b)
+    a_ok = bool(b.get("asr_rtf"))
+    out.append(C("benchmarks_recorded", r_ok and a_ok,
+                 f"budget.json: render_s_per_frame={'set' if r_ok else 'MISSING'} ({r_detail}); asr_rtf={'set' if a_ok else 'MISSING'}"))
 
     # 9 upload smoke test
     u = b.get("upload_smoke")
@@ -140,6 +142,13 @@ def check(ctx):
             bad_raw.append(r["archive"])
     out.append(C("raw_archives_present", not bad_raw, f"{len(rows) - len(bad_raw)}/{len(rows)} archives in data/raw with expected byte size"
                  + (f"; bad: {bad_raw}" if bad_raw else "")))
+
+    # 10b documented limitations: blocked hosts etc. must be recorded honestly, never silently passed
+    lim = b.get("limitations")
+    ok_lim = isinstance(lim, list) and len(lim) > 0 and all(isinstance(x, dict) and x.get("id") and x.get("what") and x.get("workaround") for x in lim)
+    out.append(C("limitations_documented", ok_lim,
+                 "documented limitations (not silent passes): " + "; ".join(f"{x['id']} -> {x['workaround'][:60]}" for x in lim)
+                 if ok_lim else "budget.json limitations missing or malformed (each needs id, what, workaround)"))
 
     # 11 gates registered
     nogate = [g for g in GATES if not os.path.exists(ctx.p("harness", "gates", "g%02d%s.py" % (int(re.match(r"G(\d+)", g).group(1)), g[len(re.match(r"G\d+", g).group(0)):])))]

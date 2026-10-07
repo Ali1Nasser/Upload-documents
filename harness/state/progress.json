@@ -3,9 +3,9 @@
   "phase": "P0",
   "gates": {
     "G0": {
-      "status": "fail",
+      "status": "pass",
       "report": "reports/gates/G0.json",
-      "checked": "2026-10-07T13:05:37Z"
+      "checked": "2026-10-07T13:56:10Z"
     },
     "G1": {
       "status": "fail",
@@ -57,10 +57,7 @@
   },
   "blockers": [],
   "next_actions": [
-    "P0.6: record Remotion render_s_per_frame (1080p, concurrency 1/2/3) into budget.json",
-    "P0.7: upload smoke test x0.at + temp.sh -> budget.json upload_smoke",
-    "P0.3: re-run harness/setup.sh so reports/perf/setup_last.txt shows an idempotent re-run",
     "P1.4: python3 tools/dc.py ingest probe (full decode of 121 media, ~15+ min; run when no benchmark is active)"
   ],
-  "updated": "2026-10-07T13:06:06Z"
+  "updated": "2026-10-07T13:56:10Z"
 }

@@ -40,4 +40,10 @@ for comp in ["Bench2D", "BenchGlow", "BenchR3F"]:
                                 "fps_throughput": round(fps, 3), "gross_fps": round(FRAMES / dt, 3), "mb": round(out.stat().st_size / 1e6, 2)}
         print(comp, conc, res[comp][str(conc)], flush=True)
         budget_io.update(**{KEY: {comp: dict(res[comp])}})
+if GL == "swangle":  # derived summary the gate/brief read (real numbers only; no estimates)
+    sys.path.insert(0, str(ROOT / "tools"))
+    from dclib import common
+    ok, detail, summ = common.render_bench_summary(json.loads(budget_io.P.read_text()))
+    if ok:
+        budget_io.update(render_s_per_frame={"gl": GL, "resolution": "1920x1080", "fps": 30, "source": "render_bench", **summ})
 print(json.dumps(res, indent=2))

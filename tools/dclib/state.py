@@ -60,7 +60,11 @@ def brief_lines():
     bud = C.read_json(os.path.join(C.STATE, "budget.json"), {}) or {}
     parts = []
     for k in ("render_s_per_frame", "asr_rtf", "upload_smoke"):
-        parts.append(f"{k}={'set' if bud.get(k) else 'unset'}")
+        isset = C.render_bench_ok(bud) if k == "render_s_per_frame" else bool(bud.get(k))
+        parts.append(f"{k}={'set' if isset else 'unset'}")
+    lim = bud.get("limitations")
+    if lim:
+        parts.append(f"limitations={len(lim)}")
     L.append("Budgets: " + " ".join(parts) + f" | keys={len(bud)}")
     q = C.read_json(os.path.join(C.STATE, "queue.json"), {}) or {}
     jobs = q.get("jobs", {})

@@ -154,3 +154,39 @@ def tool_versions(*names):
 def fail(msg, code=1):
     print(msg, file=sys.stderr)
     sys.exit(code)
+
+
+RENDER_COMPS = ("Bench2D", "BenchGlow", "BenchR3F")
+
+
+def render_bench_summary(bud):
+    """Derive the render_s_per_frame summary from budget['render_bench'] (the real measurements, 1080p30, swangle).
+    Returns (ok, detail, summary). ok only if all 3 compositions x concurrency 1/2/3 hold positive numbers.
+    A bare budget['render_s_per_frame'] dict is accepted only if it is the derived summary (same shape)."""
+    rb = (bud or {}).get("render_bench")
+    if not isinstance(rb, dict):
+        return False, "render_bench missing", None
+    summ, missing = {}, []
+    for comp in RENDER_COMPS:
+        row = rb.get(comp) or {}
+        cells = {}
+        for c in ("1", "2", "3"):
+            v = row.get(c) or {}
+            if not (isinstance(v.get("s_per_frame"), (int, float)) and v["s_per_frame"] > 0
+                    and isinstance(v.get("fps_throughput"), (int, float)) and v["fps_throughput"] > 0):
+                missing.append(f"{comp}@c{c}")
+            else:
+                cells[c] = v
+        if cells:
+            best = max(cells, key=lambda k: cells[k]["fps_throughput"])
+            summ[comp] = {"s_per_frame_c1": cells.get("1", {}).get("s_per_frame"),
+                          "best_concurrency": int(best), "best_fps": cells[best]["fps_throughput"],
+                          "best_s_per_frame_effective": round(1.0 / cells[best]["fps_throughput"], 3)}
+    if missing:
+        return False, "render_bench incomplete: " + ", ".join(missing), summ
+    return True, "render_bench: " + ", ".join(f"{k} c1={v['s_per_frame_c1']}s/f best c{v['best_concurrency']}={v['best_fps']}fps"
+                                              for k, v in summ.items()), summ
+
+
+def render_bench_ok(bud):
+    return render_bench_summary(bud)[0]

@@ -19,9 +19,7 @@
   [skip] faster-whisper-large-v3
   [skip] faster-whisper-large-v3-turbo
   [skip] mms-300m-1130-forced-aligner
-  [get ] demucs-htdemucs <- AEmotionStudio/htdemucs-models
-  Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 276.54it/s]
-  [ok  ] demucs-htdemucs AEmotionStudio/htdemucs-models@1350068b40439d494f5a99e614230e15528a2403 in 1s
+  [skip] demucs-htdemucs
   [skip] bge-m3
   {"faster-whisper-large-v3": true, "faster-whisper-large-v3-turbo": true, "mms-300m-1130-forced-aligner": true, "demucs-htdemucs": true, "bge-m3": true}
   demucs: official weights host dl.fbaipublicfiles.com is blocked; using HF mirror via harness/lib/demucs_local.py

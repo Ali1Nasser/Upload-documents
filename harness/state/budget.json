@@ -112,13 +112,45 @@
     "vmaf_binary_link": "tools/bin/ffmpeg-vmaf"
   },
   "hardware": {
-    "disk_free_gb": 9.6,
+    "disk_free_gb": 9.4,
     "nproc": 4,
     "python": "3.12.3",
     "ram_gb": 15.7,
     "ts_slots": 3,
     "tsp": "/usr/bin/tsp"
   },
+  "limitations": [
+    {
+      "id": "fbaipublicfiles_blocked",
+      "impact": "G3 must report this caveat; separation is ~1.5x realtime on CPU",
+      "what": "dl.fbaipublicfiles.com unreachable: official Demucs weights and torchaudio MMS_FA bundle cannot be downloaded",
+      "workaround": "htdemucs from HF mirror AEmotionStudio/htdemucs-models (harness/lib/demucs_local.py); forced alignment via HF MahmoudAshraf/mms-300m-1130-forced-aligner (harness/lib/align.py); weights not hash-verified against upstream"
+    },
+    {
+      "id": "remotion_chrome_download_blocked",
+      "impact": "none expected; benchmarks were run this way",
+      "what": "storage.googleapis.com unreachable: Remotion cannot download its own Chrome",
+      "workaround": "use preinstalled headless shell /opt/pw-browsers/chromium_headless_shell-1194/ via browserExecutable"
+    },
+    {
+      "id": "github_blocked_push_denied",
+      "impact": "D-gate commits stay local; no remote backup of corpus/ artifacts from this container",
+      "what": "github.com API/codeload blocked and git push returns 403",
+      "workaround": "pip/npm from PyPI/npm registry only; commit locally, never push"
+    },
+    {
+      "id": "system_ffmpeg_no_libvmaf",
+      "impact": "scoring uses tools/bin/ffmpeg-vmaf; encoding uses system ffmpeg",
+      "what": "system ffmpeg 6.1.1 lacks libvmaf",
+      "workaround": "static ffmpeg 7.0.2 from imageio-ffmpeg has libvmaf (budget.json ffmpeg.static_imageio)"
+    },
+    {
+      "id": "render_budget_over_cpu_only",
+      "impact": "risk carried to G6a/G9b, not a G0 blocker",
+      "what": "measured 3h-film projection exceeds the 24 h render budget with swangle (see render_projection_3h: swangle 64.7 h, swiftshader 24.7 h); no GPU",
+      "workaround": "P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftshader where it renders correctly, or the Council records an ADR on budget/length; nothing is waived here"
+    }
+  ],
   "models": {
     "bge-m3": {
       "repo": "BAAI/bge-m3",
@@ -396,6 +428,30 @@
         "total": 24.7
       }
     }
+  },
+  "render_s_per_frame": {
+    "Bench2D": {
+      "best_concurrency": 3,
+      "best_fps": 2.923,
+      "best_s_per_frame_effective": 0.342,
+      "s_per_frame_c1": 0.42
+    },
+    "BenchGlow": {
+      "best_concurrency": 3,
+      "best_fps": 1.154,
+      "best_s_per_frame_effective": 0.867,
+      "s_per_frame_c1": 0.868
+    },
+    "BenchR3F": {
+      "best_concurrency": 2,
+      "best_fps": 0.73,
+      "best_s_per_frame_effective": 1.37,
+      "s_per_frame_c1": 1.432
+    },
+    "fps": 30,
+    "gl": "swangle",
+    "resolution": "1920x1080",
+    "source": "render_bench (derived, measured)"
   },
   "separation": {
     "available": true,
