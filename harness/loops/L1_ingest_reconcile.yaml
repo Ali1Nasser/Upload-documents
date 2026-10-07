@@ -1,0 +1,18 @@
+# L1 Ingest-reconcile (docs/plan/02 section 6). Each iteration re-reads this file; thresholds live here, not in chat memory.
+id: L1
+name: Ingest-reconcile
+trigger: P1 start, or any G1 failure
+steps:
+  - dc ingest verify          # sha256 of data/raw vs docs/plan/inventory/archives.tsv
+  - dc ingest quarantine      # names only; assert 0 on disk
+  - dc ingest catalog         # sha1+sha256, canonical paths, reconcile report
+  - dc ingest probe           # ffprobe + decode-error count per unique audio/video (queued)
+  - dc ingest lineage
+  - dc gate check G1
+metric: missing_archives + unexplained_differences + unprobed_media   # logged to logs/loops/L1.jsonl each iteration
+pass_condition: "0 missing, 0 unexplained extras, all media probed, python3 tools/dc.py gate check G1 exits 0"
+max_iterations: 3
+no_progress_rule: same metric value on 2 consecutive iterations -> escalate
+escalation: "Ask the user to re-upload the missing archive; quote archive name and expected SHA-256 from archives.tsv"
+cadence: on demand (P1)
+log: logs/loops/L1.jsonl

@@ -1,0 +1,16 @@
+id: L4
+name: Preview-critic-fix
+trigger: per chapter in P9
+steps:
+  - dc render preview <CH>             # 960x540 @15 fps, lite FX, through the queue
+  - dc render contact-sheet <CH> ; dc render strip <CH>
+  - dc qa chapter <CH>                 # sync, static stretch, density, legibility, arabic, flicker
+  - critic scores the visual rubric (separate invocation)
+  - fix specs/components, then re-render
+metric: rubric_mean, rubric_min, sync_p95_ms, max_static_s
+pass_condition: "rubric mean >= 8.0 and no criterion < 6; sync p95 <= 100 ms; max static <= 4.0 s (holds excepted); <= 3 flashes/s"
+max_iterations: 3
+no_progress_rule: 2 rounds with no rubric_mean gain -> escalate
+escalation: "Council (Motion + Educator lenses)"
+cadence: per chapter
+log: logs/loops/L4.jsonl

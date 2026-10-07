@@ -1,0 +1,69 @@
+{
+  "v": 1,
+  "created": "2026-10-07T12:49:08Z",
+  "archives": [
+    {
+      "archive": "Chatgpt.zip",
+      "expected_sha256": "d79cda5bf0c0d2a5b0c36ecb25198c8ae0d2b54eb7970b6576b919ca704bda0e",
+      "bytes_expected": 673078178,
+      "present": true,
+      "actual_sha256": "d79cda5bf0c0d2a5b0c36ecb25198c8ae0d2b54eb7970b6576b919ca704bda0e",
+      "bytes_actual": 673078178,
+      "stat": "673078178:1791368550548484771",
+      "match": true
+    },
+    {
+      "archive": "ClaudeAndOthers.zip",
+      "expected_sha256": "d83a1122bd2fd5ad67c27f469affcf776a9c653e7e9288f2bf17fb6b3de68164",
+      "bytes_expected": 1308704061,
+      "present": true,
+      "actual_sha256": "d83a1122bd2fd5ad67c27f469affcf776a9c653e7e9288f2bf17fb6b3de68164",
+      "bytes_actual": 1308704061,
+      "stat": "1308704061:1791368571100485041",
+      "match": true
+    },
+    {
+      "archive": "LmArena.zip",
+      "expected_sha256": "d040306cc1b8e79c0a99cbce4bc83b0bf3361c72098b3239512b202d6b6ef3dc",
+      "bytes_expected": 508344726,
+      "present": true,
+      "actual_sha256": "d040306cc1b8e79c0a99cbce4bc83b0bf3361c72098b3239512b202d6b6ef3dc",
+      "bytes_actual": 508344726,
+      "stat": "508344726:1791368541196484648",
+      "match": true
+    },
+    {
+      "archive": "NotebookLM.zip",
+      "expected_sha256": "d730b77f33abf947e5cd13e2e9ee99ff5dd43480fcfa15067abd3b64c67381c8",
+      "bytes_expected": 961773480,
+      "present": true,
+      "actual_sha256": "d730b77f33abf947e5cd13e2e9ee99ff5dd43480fcfa15067abd3b64c67381c8",
+      "bytes_actual": 961773480,
+      "stat": "961773480:1791368557208484859",
+      "match": true
+    },
+    {
+      "archive": "DA_Camp_Videos_Files.zip",
+      "expected_sha256": "8c38e4f9c558a88111e320c109674a0bb1099c5778b4fd29dcca926853949d26",
+      "bytes_expected": 389293745,
+      "present": true,
+      "actual_sha256": "8c38e4f9c558a88111e320c109674a0bb1099c5778b4fd29dcca926853949d26",
+      "bytes_actual": 389293745,
+      "stat": "389293745:1791368536844484591",
+      "match": true
+    },
+    {
+      "archive": "DA_Camp_HUB.zip",
+      "expected_sha256": "b1db6d40d4b3498e5e716d53bd35a2db0b518ef388b8e5d7e1c1ffcf4eabd965",
+      "bytes_expected": 40600160,
+      "present": true,
+      "actual_sha256": "b1db6d40d4b3498e5e716d53bd35a2db0b518ef388b8e5d7e1c1ffcf4eabd965",
+      "bytes_actual": 40600160,
+      "stat": "40600160:1791368518884484354",
+      "match": true
+    }
+  ],
+  "all_match": true,
+  "matched": 6,
+  "total": 6
+}

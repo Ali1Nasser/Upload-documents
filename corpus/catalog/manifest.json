@@ -1,0 +1,143 @@
+{
+  "step": "lineage",
+  "cmd": "dc ingest lineage",
+  "inputs": [
+    {
+      "path": "corpus/catalog/files.jsonl",
+      "sha256": "aef8694f368ca87c1c18e3c4202ec1b67d7d37949e36b34a43a06e28612caa74"
+    }
+  ],
+  "inputs_digest": "5daf12e48b4823d6ed62ec4e94959e74ef7362fccbd4670c0a944f3142f981d5",
+  "outputs": [
+    "corpus/catalog/lineage.json"
+  ],
+  "tool_versions": {
+    "python": "3.13.16"
+  },
+  "created": "2026-10-07T12:57:46Z",
+  "extra": {
+    "master_versions": 7,
+    "runtimes": [
+      "59:30",
+      "70:05",
+      "unknown"
+    ],
+    "html_families": 19
+  },
+  "steps": {
+    "quarantine": {
+      "step": "quarantine",
+      "cmd": "dc ingest quarantine",
+      "inputs": [
+        {
+          "path": "docs/plan/inventory/full_inventory.tsv",
+          "sha256": "bbf8eea69b5f93c035c26cdb7e5ab0abaff2546299b5891581c209fd5b132de1"
+        }
+      ],
+      "inputs_digest": "ae913be048228a63788d98d93a572ab0d61875f238061c64129e06c5fda798e7",
+      "outputs": [
+        "corpus/catalog/quarantine.json"
+      ],
+      "tool_versions": {
+        "python": "3.13.16"
+      },
+      "created": "2026-10-07T12:48:54Z",
+      "extra": {
+        "items": 15,
+        "on_disk": 0
+      }
+    },
+    "verify": {
+      "step": "verify",
+      "cmd": "dc ingest verify",
+      "inputs": [
+        {
+          "path": "docs/plan/inventory/archives.tsv",
+          "sha256": "be8aa565fcbb1ec40545eaafeb0ab60c830911c80f3fbd1d1284c546ea3091bd"
+        },
+        {
+          "path": "data/raw/Chatgpt.zip",
+          "sha256": "d79cda5bf0c0d2a5b0c36ecb25198c8ae0d2b54eb7970b6576b919ca704bda0e"
+        },
+        {
+          "path": "data/raw/ClaudeAndOthers.zip",
+          "sha256": "d83a1122bd2fd5ad67c27f469affcf776a9c653e7e9288f2bf17fb6b3de68164"
+        },
+        {
+          "path": "data/raw/LmArena.zip",
+          "sha256": "d040306cc1b8e79c0a99cbce4bc83b0bf3361c72098b3239512b202d6b6ef3dc"
+        },
+        {
+          "path": "data/raw/NotebookLM.zip",
+          "sha256": "d730b77f33abf947e5cd13e2e9ee99ff5dd43480fcfa15067abd3b64c67381c8"
+        },
+        {
+          "path": "data/raw/DA_Camp_Videos_Files.zip",
+          "sha256": "8c38e4f9c558a88111e320c109674a0bb1099c5778b4fd29dcca926853949d26"
+        },
+        {
+          "path": "data/raw/DA_Camp_HUB.zip",
+          "sha256": "b1db6d40d4b3498e5e716d53bd35a2db0b518ef388b8e5d7e1c1ffcf4eabd965"
+        }
+      ],
+      "inputs_digest": "342cfe9787371c8e963ac2f3b0ef3bff0d8cdfc91e2d011e49d2d1b3bc77f7c6",
+      "outputs": [
+        "corpus/catalog/archives_verify.json"
+      ],
+      "tool_versions": {
+        "python": "3.13.16"
+      },
+      "created": "2026-10-07T12:49:08Z"
+    },
+    "catalog": {
+      "step": "catalog",
+      "cmd": "dc ingest catalog",
+      "inputs": [
+        {
+          "path": "data/extracted (tree: path+size+mtime)",
+          "sha256": "6c801bf2ed063c7ce6d2a407ee76ac867be1d763a9b6c94746163f0963ff52ce"
+        }
+      ],
+      "inputs_digest": "c1820f690479b471748074d024edebba7f9743f5f6a51277d908b9b6732a007e",
+      "outputs": [
+        "corpus/catalog/files.jsonl"
+      ],
+      "tool_versions": {
+        "python": "3.13.16"
+      },
+      "created": "2026-10-07T12:54:50Z",
+      "extra": {
+        "files": 5645,
+        "unique": 1119,
+        "seconds": 342.0
+      }
+    },
+    "lineage": {
+      "step": "lineage",
+      "cmd": "dc ingest lineage",
+      "inputs": [
+        {
+          "path": "corpus/catalog/files.jsonl",
+          "sha256": "aef8694f368ca87c1c18e3c4202ec1b67d7d37949e36b34a43a06e28612caa74"
+        }
+      ],
+      "inputs_digest": "5daf12e48b4823d6ed62ec4e94959e74ef7362fccbd4670c0a944f3142f981d5",
+      "outputs": [
+        "corpus/catalog/lineage.json"
+      ],
+      "tool_versions": {
+        "python": "3.13.16"
+      },
+      "created": "2026-10-07T12:57:46Z",
+      "extra": {
+        "master_versions": 7,
+        "runtimes": [
+          "59:30",
+          "70:05",
+          "unknown"
+        ],
+        "html_families": 19
+      }
+    }
+  }
+}

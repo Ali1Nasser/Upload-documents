@@ -1,0 +1,660 @@
+{
+  "v": 1,
+  "created": "2026-10-07T12:57:46Z",
+  "master_md": {
+    "versions": [
+      {
+        "file_id": "f:8aac5a1cae9e",
+        "canonical": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_Merged_Video_Master_Source.md",
+        "name": "DA_Camp_28min_Merged_Video_Master_Source.md",
+        "copies": 12,
+        "bytes": 1791607,
+        "runtime": null,
+        "headings": 3965
+      },
+      {
+        "file_id": "f:096be55b0385",
+        "canonical": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_NotebookLM_Visual_Video_Master.md",
+        "name": "DA_Camp_NotebookLM_Visual_Video_Master.md",
+        "copies": 8,
+        "bytes": 1786238,
+        "runtime": null,
+        "headings": 3739
+      },
+      {
+        "file_id": "f:70c414bdf474",
+        "canonical": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_NotebookLM_Visual_Video_Master_Egyptian_Arabic.md",
+        "name": "DA_Camp_NotebookLM_Visual_Video_Master_Egyptian_Arabic.md",
+        "copies": 19,
+        "bytes": 1763820,
+        "runtime": null,
+        "headings": 3939
+      },
+      {
+        "file_id": "f:7c27d955deeb",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partA.md",
+        "name": "partA.md",
+        "copies": 10,
+        "bytes": 29568,
+        "runtime": "59:30",
+        "headings": 63
+      },
+      {
+        "file_id": "f:21c5545b28a0",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Master_Full_Egyptian.md",
+        "name": "DA_Camp_00_Unified_Master_Full_Egyptian.md",
+        "copies": 10,
+        "bytes": 489553,
+        "runtime": null,
+        "headings": 529
+      },
+      {
+        "file_id": "f:0447633908ad",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/DELIVERY_NOTE.md",
+        "name": "DELIVERY_NOTE.md",
+        "copies": 1,
+        "bytes": 8728,
+        "runtime": "70:05",
+        "headings": 10
+      },
+      {
+        "file_id": "f:eb7d84352f69",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+        "name": "master.md",
+        "copies": 43,
+        "bytes": 245702,
+        "runtime": "70:05",
+        "headings": 127
+      }
+    ],
+    "by_runtime": {
+      "unknown": [
+        "DA_Camp_28min_Merged_Video_Master_Source.md",
+        "DA_Camp_NotebookLM_Visual_Video_Master.md",
+        "DA_Camp_NotebookLM_Visual_Video_Master_Egyptian_Arabic.md",
+        "DA_Camp_00_Unified_Master_Full_Egyptian.md"
+      ],
+      "59:30": [
+        "partA.md"
+      ],
+      "70:05": [
+        "DELIVERY_NOTE.md",
+        "master.md"
+      ]
+    },
+    "diff_summaries": [
+      {
+        "a": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partA.md",
+        "b": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+        "runtime_a": "59:30",
+        "runtime_b": "70:05",
+        "heading_similarity": 0.653,
+        "headings_a": 63,
+        "headings_b": 127,
+        "bytes_delta": 216134
+      }
+    ],
+    "canon_runtime": "70:05"
+  },
+  "narration_packs": {
+    "partA_F": [
+      {
+        "file_id": "f:7c27d955deeb",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partA.md",
+        "copies": 10,
+        "bytes": 29568
+      },
+      {
+        "file_id": "f:28c60ee748a7",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+        "copies": 10,
+        "bytes": 42417
+      },
+      {
+        "file_id": "f:155e7db5488f",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+        "copies": 10,
+        "bytes": 47110
+      },
+      {
+        "file_id": "f:086614305fa0",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+        "copies": 10,
+        "bytes": 46761
+      },
+      {
+        "file_id": "f:44221e2ad2b7",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+        "copies": 10,
+        "bytes": 41611
+      },
+      {
+        "file_id": "f:99d7a0b7e078",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partF.md",
+        "copies": 10,
+        "bytes": 31278
+      }
+    ],
+    "nblm_unified": [
+      {
+        "file_id": "f:21c5545b28a0",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Master_Full_Egyptian.md",
+        "copies": 10,
+        "bytes": 489553
+      },
+      {
+        "file_id": "f:ffe2a3f6229c",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_00_Unified_Narration_Egyptian.md",
+        "copies": 10,
+        "bytes": 191189
+      }
+    ],
+    "nblm_parts_25": [
+      {
+        "file_id": "f:3d64b9389516",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_01_of_25_Journey_and_Visual_Language.md",
+        "copies": 10,
+        "bytes": 21402
+      },
+      {
+        "file_id": "f:2eaec1dafa10",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_02_of_25_Machine_Files_Terminal.md",
+        "copies": 10,
+        "bytes": 18923
+      },
+      {
+        "file_id": "f:c88f520bb96b",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_03_of_25_Linux_Admin_I.md",
+        "copies": 10,
+        "bytes": 19334
+      },
+      {
+        "file_id": "f:03fb5ccf73e0",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_04_of_25_Linux_Admin_II_Operations.md",
+        "copies": 10,
+        "bytes": 19922
+      },
+      {
+        "file_id": "f:66766820e5c9",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_05_of_25_Python_I_Values_to_Collections.md",
+        "copies": 10,
+        "bytes": 17316
+      },
+      {
+        "file_id": "f:e14c3cdd7044",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_06_of_25_Python_II_State_Errors_Tests_Git.md",
+        "copies": 10,
+        "bytes": 21194
+      },
+      {
+        "file_id": "f:235b789d6287",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_07_of_25_Python_for_Data_pandas_and_Databases.md",
+        "copies": 10,
+        "bytes": 23642
+      },
+      {
+        "file_id": "f:cf9ecee38dc7",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_08_of_25_SQL_I_Relational_Model_and_Query_Pipeline.md",
+        "copies": 10,
+        "bytes": 20169
+      },
+      {
+        "file_id": "f:f22699991521",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_09_of_25_SQL_II_Joins_Windows_NULL_Transactions.md",
+        "copies": 10,
+        "bytes": 27526
+      },
+      {
+        "file_id": "f:eee9f712a452",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_10_of_25_SQL_III_Indexes_Plans_Tuning_Dialects.md",
+        "copies": 10,
+        "bytes": 24409
+      },
+      {
+        "file_id": "f:12d4211b95d2",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_11_of_25_Analytics_Dirty_Data_Statistics_Reporting.md",
+        "copies": 10,
+        "bytes": 21774
+      },
+      {
+        "file_id": "f:ec76619e8976",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_12_of_25_Software_Craft_OOP_Patterns_DSA.md",
+        "copies": 10,
+        "bytes": 21081
+      },
+      {
+        "file_id": "f:dda13582c9ae",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_13_of_25_Systems_Web_APIs_Security.md",
+        "copies": 10,
+        "bytes": 15978
+      },
+      {
+        "file_id": "f:a3a06bf42bc9",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_14_of_25_Backend_Depth_Java_JDBC_Spring_Concurrency.md",
+        "copies": 10,
+        "bytes": 23175
+      },
+      {
+        "file_id": "f:dae882c99ebb",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_15_of_25_ETL_DAGs_Airflow_Idempotency_Quality.md",
+        "copies": 10,
+        "bytes": 20317
+      },
+      {
+        "file_id": "f:6280994b5d84",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_16_of_25_Warehouse_Star_Schema_OLAP_SCD.md",
+        "copies": 10,
+        "bytes": 19325
+      },
+      {
+        "file_id": "f:c1c84bae6c7c",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_17_of_25_Huawei_DataCube_Mobile_Money_Reporting.md",
+        "copies": 10,
+        "bytes": 28912
+      },
+      {
+        "file_id": "f:7464d544919f",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_18_of_25_Hadoop_HDFS_YARN_MapReduce_and_Spark.md",
+        "copies": 10,
+        "bytes": 24475
+      },
+      {
+        "file_id": "f:30eb9a2464a7",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_19_of_25_Kafka_Streaming_and_NRT_Transaction_Journey.md",
+        "copies": 10,
+        "bytes": 25446
+      },
+      {
+        "file_id": "f:5c75238adcf9",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_20_of_25_Reconciliation_DIM_Testing_Governance_DR.md",
+        "copies": 10,
+        "bytes": 25243
+      },
+      {
+        "file_id": "f:1a2ea711c10a",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_21_of_25_Machine_Learning_Baseline_Leakage_Evaluation.md",
+        "copies": 10,
+        "bytes": 16876
+      },
+      {
+        "file_id": "f:e288cee98034",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_22_of_25_Deep_Learning_NLP_Transformers_LLMs.md",
+        "copies": 10,
+        "bytes": 19867
+      },
+      {
+        "file_id": "f:4a787279e6bb",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_23_of_25_Embeddings_RAG_and_Guarded_Agents.md",
+        "copies": 10,
+        "bytes": 21367
+      },
+      {
+        "file_id": "f:fd3d1519c0e7",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_24_of_25_Ship_It_Docker_CICD_Cloud_Observability.md",
+        "copies": 10,
+        "bytes": 17742
+      },
+      {
+        "file_id": "f:165a8353f070",
+        "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/uploads/DA_Camp_Part_25_of_25_Evidence_Portfolio_Career_and_Close.md",
+        "copies": 10,
+        "bytes": 22393
+      }
+    ],
+    "narration_named": [
+      {
+        "file_id": "f:4ea22bbf74b0",
+        "canonical": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_Narration_Egyptian_Arabic_V2.md",
+        "copies": 13,
+        "bytes": 27703
+      },
+      {
+        "file_id": "f:78b1080d3bb2",
+        "canonical": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_V2_Production_Pack.zip.d/DA_Camp_24min_Narration_Egyptian_Arabic.md",
+        "copies": 10,
+        "bytes": 25927
+      },
+      {
+        "file_id": "f:231405de2403",
+        "canonical": "ClaudeAndOthers.zip.d/Claude.zip.d/Claude/Folder 1/DA_Camp_Narration_Script_AR.md",
+        "copies": 8,
+        "bytes": 78137
+      }
+    ]
+  },
+  "html_families": {
+    "families": {
+      "01_esraa_ar_editable": [
+        {
+          "file_id": "f:07de55398d19",
+          "name": "01_Esraa_AR_EDITABLE_STANDALONE.html",
+          "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/01_Esraa_AR_EDITABLE_STANDALONE.html",
+          "bytes": 3179630,
+          "copies": 1
+        }
+      ],
+      "02_natural_ar_editable": [
+        {
+          "file_id": "f:0d761544fe9d",
+          "name": "02_Natural_AR_EDITABLE_STANDALONE.html",
+          "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/02_Natural_AR_EDITABLE_STANDALONE.html",
+          "bytes": 3067763,
+          "copies": 1
+        }
+      ],
+      "03_natural_en_editable": [
+        {
+          "file_id": "f:c35b3b414de3",
+          "name": "03_Natural_EN_EDITABLE_STANDALONE.html",
+          "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/03_Natural_EN_EDITABLE_STANDALONE.html",
+          "bytes": 3067764,
+          "copies": 1
+        }
+      ],
+      "da-camp-lab": [
+        {
+          "file_id": "f:68fac658efb2",
+          "name": "DA-Camp-Lab-DS.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Lab-DS.html",
+          "bytes": 4102028,
+          "copies": 7
+        },
+        {
+          "file_id": "f:9f4cc974d0a5",
+          "name": "DA-Camp-Lab.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Lab.html",
+          "bytes": 3660147,
+          "copies": 7
+        }
+      ],
+      "da-camp-lab-10": [
+        {
+          "file_id": "f:a43568d49941",
+          "name": "DA-Camp-Lab-10.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Lab-10.html",
+          "bytes": 3226479,
+          "copies": 7
+        }
+      ],
+      "da-camp-lab_m12": [
+        {
+          "file_id": "f:d198c9702a3b",
+          "name": "DA-Camp-Lab_M12-DS.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Lab_M12-DS.html",
+          "bytes": 4118535,
+          "copies": 7
+        },
+        {
+          "file_id": "f:c5fbb8f759ab",
+          "name": "DA-Camp-Lab_M12.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Lab_M12.html",
+          "bytes": 4111842,
+          "copies": 14
+        },
+        {
+          "file_id": "f:12aabaa03af8",
+          "name": "DA-Camp-Lab_M12_RC2.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Lab_M12_RC2.html",
+          "bytes": 4111839,
+          "copies": 14
+        }
+      ],
+      "da-camp-superset": [
+        {
+          "file_id": "f:7ad5ed89524e",
+          "name": "DA-Camp-Superset.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Superset.html",
+          "bytes": 4507685,
+          "copies": 7
+        }
+      ],
+      "da-camp-unified": [
+        {
+          "file_id": "f:607ef41a2985",
+          "name": "DA-Camp-Unified.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Unified.html",
+          "bytes": 18777429,
+          "copies": 7
+        }
+      ],
+      "da-camp-visual-crash-course": [
+        {
+          "file_id": "f:254e220ac75c",
+          "name": "DA-Camp-Visual-Crash-Course.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA-Camp-Visual-Crash-Course.html",
+          "bytes": 387284,
+          "copies": 7
+        }
+      ],
+      "da_camp_canonical_alpha": [
+        {
+          "file_id": "f:5358676ef218",
+          "name": "DA_Camp_CANONICAL_ALPHA.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA_Camp_CANONICAL_ALPHA.html",
+          "bytes": 3898715,
+          "copies": 7
+        }
+      ],
+      "da_camp_supreme": [
+        {
+          "file_id": "f:8a76e86dadf9",
+          "name": "DA_Camp_SUPREME_FINAL.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA_Camp_SUPREME_FINAL.html",
+          "bytes": 1012250,
+          "copies": 7
+        },
+        {
+          "file_id": "f:ee60575539b4",
+          "name": "DA_Camp_SUPREME_FINAL2.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA_Camp_SUPREME_FINAL2.html",
+          "bytes": 1013619,
+          "copies": 7
+        }
+      ],
+      "da_camp_ultimate_unified": [
+        {
+          "file_id": "f:af068151d2dd",
+          "name": "DA_Camp_Ultimate_Unified.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DA_Camp_Ultimate_Unified.html",
+          "bytes": 39646,
+          "copies": 7
+        }
+      ],
+      "dataeng_unified_ultimate": [
+        {
+          "file_id": "f:b801de38e22f",
+          "name": "DataEng_Unified_Ultimate.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DataEng_Unified_Ultimate.html",
+          "bytes": 313354,
+          "copies": 7
+        }
+      ],
+      "dhub_visual_learning_system": [
+        {
+          "file_id": "f:a6adc8b2e481",
+          "name": "DHUB_Visual_Learning_System.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/DHUB_Visual_Learning_System.html",
+          "bytes": 4970550,
+          "copies": 7
+        }
+      ],
+      "fusion": [
+        {
+          "file_id": "f:55d0b718324c",
+          "name": "FUSION-standalone.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/FUSION-standalone.html",
+          "bytes": 22846399,
+          "copies": 7
+        }
+      ],
+      "gallery": [
+        {
+          "file_id": "f:38cd28a113f1",
+          "name": "gallery.html",
+          "canonical": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA_Camp_NotebookLM/gallery.html",
+          "bytes": 5427994,
+          "copies": 1
+        }
+      ],
+      "glm": [
+        {
+          "file_id": "f:00b7b6d4812e",
+          "name": "GLM_standalone.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/GLM_standalone.html",
+          "bytes": 290625,
+          "copies": 7
+        }
+      ],
+      "gts": [
+        {
+          "file_id": "f:3018846f7590",
+          "name": "gts-standalone.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/gts-standalone.html",
+          "bytes": 3387760,
+          "copies": 7
+        }
+      ],
+      "nilepay-data-ai-study-journey": [
+        {
+          "file_id": "f:e4cc8c590014",
+          "name": "NilePay-Data-AI-Study-Journey.html",
+          "canonical": "DA_Camp_HUB.zip.d/DA Camp HUB/NilePay-Data-AI-Study-Journey.html",
+          "bytes": 4088569,
+          "copies": 7
+        }
+      ]
+    },
+    "same_content_different_names": [
+      {
+        "file_id": "f:c5fbb8f759ab",
+        "names": [
+          "DA-Camp-Lab_M12.html",
+          "baseline_M12_RC.html"
+        ]
+      },
+      {
+        "file_id": "f:12aabaa03af8",
+        "names": [
+          "DA-Camp-Lab_M12_RC2.html",
+          "DA-Camp-Lab_M12_RC2_DS.html"
+        ]
+      }
+    ],
+    "artifact_analysis_docs": [
+      {
+        "doc": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/DA_Camp_Artifact_Analysis.md",
+        "name": "DA_Camp_Artifact_Analysis.md",
+        "bytes": 30152,
+        "html_mentioned": [
+          "DA-Camp-Lab_M12-DS.html",
+          "DA-Camp-Lab_M12_RC2.html",
+          "DA_Camp_CANONICAL_ALPHA.html",
+          "DA_Camp_SUPREME_FINAL.html",
+          "DA_Camp_SUPREME_FINAL2.html",
+          "DA_Camp_Ultimate_Unified.html"
+        ]
+      },
+      {
+        "doc": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/DA_Camp_Artifact_Analysis_B.md",
+        "name": "DA_Camp_Artifact_Analysis_B.md",
+        "bytes": 23551,
+        "html_mentioned": [
+          "DA-Camp-Lab-10.html",
+          "DA-Camp-Lab-DS.html",
+          "DA-Camp-Lab.html",
+          "DA-Camp-Lab_M12-DS.html",
+          "DA-Camp-Lab_M12.html",
+          "DA-Camp-Lab_M12_RC2.html",
+          "DA-Camp-Superset.html",
+          "DA-Camp-Visual-Crash-Course.html",
+          "DA_Camp_CANONICAL_ALPHA.html",
+          "DA_Camp_Ultimate_Unified.html",
+          "DHUB_Visual_Learning_System.html",
+          "DataEng_Unified_Ultimate.html",
+          "GLM_standalone.html",
+          "NilePay-Data-AI-Study-Journey.html",
+          "gts-standalone.html"
+        ]
+      },
+      {
+        "doc": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/DA_Camp_Artifact_Analysis_C.md",
+        "name": "DA_Camp_Artifact_Analysis_C.md",
+        "bytes": 17747,
+        "html_mentioned": [
+          "DA-Camp-Lab.html",
+          "DA-Camp-Superset.html",
+          "DA-Camp-Unified.html",
+          "DA_Camp_Ultimate_Unified.html",
+          "FUSION-standalone.html",
+          "GLM_standalone.html",
+          "gts-standalone.html"
+        ]
+      },
+      {
+        "doc": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/DA_Camp_Artifact_Analysis_D.md",
+        "name": "DA_Camp_Artifact_Analysis_D.md",
+        "bytes": 23106,
+        "html_mentioned": [
+          "FUSION-standalone.html",
+          "NilePay-Data-AI-Study-Journey.html"
+        ]
+      },
+      {
+        "doc": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/DA_Camp_Artifact_Analysis_E.md",
+        "name": "DA_Camp_Artifact_Analysis_E.md",
+        "bytes": 13060,
+        "html_mentioned": [
+          "NilePay-Data-AI-Study-Journey.html"
+        ]
+      }
+    ]
+  },
+  "archive_parts": {
+    "Chatgpt_part1": {
+      "files": 209,
+      "bytes": 339714329,
+      "categories": {
+        "video": 7,
+        "doc": 16,
+        "subtitle": 2,
+        "text": 160,
+        "data": 3,
+        "image": 21
+      }
+    },
+    "Chatgpt_part2": {
+      "files": 336,
+      "bytes": 388787333,
+      "categories": {
+        "video": 8,
+        "data": 9,
+        "doc": 10,
+        "subtitle": 8,
+        "code": 5,
+        "text": 296
+      }
+    },
+    "NotebookLM_part1": {
+      "files": 58,
+      "bytes": 87059451,
+      "categories": {
+        "doc": 56,
+        "video": 2
+      }
+    },
+    "NotebookLM_part2": {
+      "files": 13,
+      "bytes": 459596419,
+      "categories": {
+        "video": 13
+      }
+    },
+    "NotebookLM_part3": {
+      "files": 12,
+      "bytes": 443405729,
+      "categories": {
+        "video": 12
+      }
+    }
+  }
+}

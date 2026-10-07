@@ -1,0 +1,14 @@
+id: L3
+name: Spec-lint-fix
+trigger: per chapter in P8
+steps:
+  - scene-director authors corpus/specs/<CH>.json
+  - dc spec lint <CH>                  # schema + coverage + density + data contract + terms on screen
+  - scene-director fixes lint findings (a different agent invocation grades; authors never grade their own work)
+metric: lint_findings_count            # logs/loops/L3.jsonl
+pass_condition: "dc spec lint clean for the chapter"
+max_iterations: 3
+no_progress_rule: 2 rounds with no reduction in findings -> escalate
+escalation: "story-editor + scene-director pair, then Council if still failing"
+cadence: per chapter
+log: logs/loops/L3.jsonl

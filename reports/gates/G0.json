@@ -1,0 +1,77 @@
+{
+  "gate": "G0",
+  "pass": false,
+  "checks": [
+    {
+      "name": "layout",
+      "pass": true,
+      "detail": "all 37 directories present"
+    },
+    {
+      "name": "setup_sh",
+      "pass": true,
+      "detail": "harness/setup.sh present and executable"
+    },
+    {
+      "name": "setup_idempotent_marker",
+      "pass": true,
+      "detail": "reports/perf/setup_last.txt: last run clean=True, shows skipped (already-done) sections=True"
+    },
+    {
+      "name": "dc_state_brief",
+      "pass": true,
+      "detail": "exit 0, 14 lines (max 25)"
+    },
+    {
+      "name": "dc_time_helpers",
+      "pass": true,
+      "detail": "ms2frame 1000 -> 30 (30), frame2ms 1 -> 33 (33), ms2frame 50 -> 2 (2, half-up)"
+    },
+    {
+      "name": "tsp_available",
+      "pass": true,
+      "detail": "task-spooler (tsp) on PATH"
+    },
+    {
+      "name": "schemas_present",
+      "pass": true,
+      "detail": "15/15 schemas, 15 path rules"
+    },
+    {
+      "name": "hooks_proven",
+      "pass": true,
+      "detail": "OK: 192 assertions passed (guard_bash allow/block/fail-open, validate_written block/allow/fail-open)"
+    },
+    {
+      "name": "settings_merged",
+      "pass": true,
+      "detail": "4/4 hooks wired, 4 deny rules present"
+    },
+    {
+      "name": "state_files",
+      "pass": true,
+      "detail": "progress/decisions/budget/queue present and well-formed"
+    },
+    {
+      "name": "benchmarks_recorded",
+      "pass": false,
+      "detail": "budget.json: render_s_per_frame=MISSING, asr_rtf=set"
+    },
+    {
+      "name": "upload_smoke_recorded",
+      "pass": false,
+      "detail": "budget.json upload_smoke: MISSING (a recorded failure is a P14 risk, not a G0 blocker)"
+    },
+    {
+      "name": "raw_archives_present",
+      "pass": true,
+      "detail": "6/6 archives in data/raw with expected byte size"
+    },
+    {
+      "name": "gates_registered",
+      "pass": true,
+      "detail": "14/14 gate modules"
+    }
+  ],
+  "created": "2026-10-07T13:05:37Z"
+}

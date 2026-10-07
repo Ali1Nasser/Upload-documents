@@ -1,0 +1,66 @@
+{
+  "v": 1,
+  "phase": "P0",
+  "gates": {
+    "G0": {
+      "status": "fail",
+      "report": "reports/gates/G0.json",
+      "checked": "2026-10-07T13:05:37Z"
+    },
+    "G1": {
+      "status": "fail",
+      "report": "reports/gates/G1.json",
+      "checked": "2026-10-07T13:03:01Z"
+    },
+    "G2": {
+      "status": "pending"
+    },
+    "G3": {
+      "status": "pending"
+    },
+    "G4": {
+      "status": "pending"
+    },
+    "G5": {
+      "status": "pending"
+    },
+    "G6a": {
+      "status": "pending"
+    },
+    "G6b": {
+      "status": "pending"
+    },
+    "G7": {
+      "status": "pending"
+    },
+    "G8": {
+      "status": "pending"
+    },
+    "G9a": {
+      "status": "pending"
+    },
+    "G9b": {
+      "status": "pending"
+    },
+    "G10a": {
+      "status": "pending"
+    },
+    "G10": {
+      "status": "pending"
+    }
+  },
+  "counters": {
+    "sentences": 0,
+    "idea_units": 0,
+    "shots": 0,
+    "frames_final": 0
+  },
+  "blockers": [],
+  "next_actions": [
+    "P0.6: record Remotion render_s_per_frame (1080p, concurrency 1/2/3) into budget.json",
+    "P0.7: upload smoke test x0.at + temp.sh -> budget.json upload_smoke",
+    "P0.3: re-run harness/setup.sh so reports/perf/setup_last.txt shows an idempotent re-run",
+    "P1.4: python3 tools/dc.py ingest probe (full decode of 121 media, ~15+ min; run when no benchmark is active)"
+  ],
+  "updated": "2026-10-07T13:06:06Z"
+}

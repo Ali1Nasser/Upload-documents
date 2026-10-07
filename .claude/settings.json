@@ -1,0 +1,101 @@
+{
+  "workflowSizeGuideline": "medium",
+  "subagentPromptCacheTtl": "1h",
+  "autoContinueAtUsageLimit": true,
+  "env": {
+    "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet",
+    "CLAUDE_CODE_WORKFLOW_MAX_CONCURRENT_AGENTS": "12",
+    "MAX_STRUCTURED_OUTPUT_RETRIES": "5",
+    "PYTHONNOUSERSITE": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Workflow",
+      "Bash(python3 tools/dc.py:*)",
+      "Bash(python3 -I tools/:*)",
+      "Bash(.venv/bin/python:*)",
+      "Bash(tsp:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ffprobe:*)",
+      "Bash(sox:*)",
+      "Bash(npx remotion:*)",
+      "Bash(npm:*)",
+      "Bash(node:*)",
+      "Bash(uv:*)",
+      "Bash(sha256sum:*)",
+      "Bash(du:*)",
+      "Bash(df:*)",
+      "Bash(nproc)",
+      "Bash(free:*)",
+      "Bash(git status:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(curl:*)",
+      "Read(./**)",
+      "Edit(./corpus/**)",
+      "Edit(./studio/**)",
+      "Edit(./tools/**)",
+      "Edit(./harness/**)",
+      "Edit(./reports/**)",
+      "Edit(./docs/decisions/**)",
+      "Edit(./docs/handoffs/**)",
+      "Edit(./docs/memory/**)",
+      "Edit(./delivery/**)",
+      "Edit(./.claude/agent-memory/**)",
+      "Edit(./.claude/workflows/**)"
+    ],
+    "deny": [
+      "Read(./data/quarantine/**)",
+      "Read(**/id_ed25519*)",
+      "Read(**/known_hosts)",
+      "Edit(./docs/plan/**)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/tools/dc.py state brief"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/harness/hooks/guard_bash.py"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/harness/hooks/validate_written.py"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR\"/tools/dc.py state snapshot --reason precompact"
+          }
+        ]
+      }
+    ]
+  }
+}

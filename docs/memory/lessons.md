@@ -1,0 +1,33 @@
+# Lessons (append-only pitfalls; newest at the bottom of each section)
+
+Format: one bullet per lesson, with the evidence or the file where it bites. Never delete; supersede with a new bullet.
+
+## From earlier attempts (docs/plan/01_SOURCE_RECON.md section 5)
+
+1. Arabic text must be shaped (HarfBuzz/raqm). Pillow without raqm draws disconnected letters. Noto Sans Arabic produced tofu for the em dash and Latin runs in one build; the merged IBM Plex Arabic fonts fixed it.
+2. The ChatGPT "Arabic" masters are picture-only: no Egyptian narration was ever voiced on them (HeyGen ran out of TTS minutes).
+3. S1 is the narration that matches the 70:05 picture. S2 (Esraa) is continuous talk not timed to the picture.
+4. Sandbox resets destroyed builds kept in build/-style folders that the snapshot excluded. Keep irreplaceable state in versioned paths (corpus/, harness/state/, docs/); regenerable output goes under data/.
+5. Two parallel 1080p encoders plus a frame cache tripped the OOM killer on 2 GB machines. Render in bounded batches through the queue (tsp, slots = nproc - 1).
+6. A merge bug once produced a 2 h 13 m file. Always verify video duration == audio duration per chapter and for the final film.
+7. master.md has internal contradictions (CH-00/03/24 "Artifact: none" while section 15 requires one per chapter; CH-36 has no prediction). Preserve and log them for the Council (ADR-008); never rewrite silently.
+8. Speech share for the TTS build was 0.75 (52:19 of speech in 70:05). Chapter durations came from narration at 125 wpm (AR) and 135 wpm (EN) plus a 5 s prediction pause.
+
+## Environment and network facts (measured 2026-10-07, this container: 4 vCPU, 15 GB RAM, no GPU, about 20 GB disk)
+
+9. Reachable: pypi.org, files.pythonhosted.org, registry.npmjs.org, download.pytorch.org, archive.ubuntu.com, huggingface.co plus its xet CDN us.aws.cdn.hf.co, raw.githubusercontent.com.
+10. Blocked: github.com API and codeload (no `pip install git+https://github...`), dl.fbaipublicfiles.com (Demucs weights and the torchaudio MMS_FA bundle are unavailable; use the HF mirrors), storage.googleapis.com (Remotion cannot download its own Chrome; use the preinstalled headless shell under /opt/pw-browsers/chromium_headless_shell-1194/), cdn-lfs.huggingface.co (huggingface_hub downloads still work through the xet bridge).
+11. `git push` from this container is denied (403). Commit locally only; never retry a push.
+12. System ffmpeg 6.1.1 has libx264 and libx265 but no libvmaf; scoring uses the static ffmpeg 7.0.2 from imageio-ffmpeg (tools/bin/ffmpeg-vmaf, see harness/state/budget.json).
+13. Disk is the tight resource (about 20 GB at start, about 11 GB after raw zips + extraction + models). The queue refuses jobs when free disk < expected + 3 GB; delete preview renders of approved chapters first, never data/raw.
+14. Sources are in data/raw/*.zip (SHA-256 verified) and data/extracted/<X>.zip.d/. The SSH key, known_hosts and .sudo_as_admin_successful members were never extracted (15 names in corpus/catalog/quarantine.json).
+
+## Harness lessons (P0)
+
+15. `ts` can be moreutils' timestamp tool, not task-spooler. tools/dclib/queue.py accepts `ts` only if its `-h` text says task-spooler; Ubuntu's package installs `tsp`.
+16. Time conversion is round-half-up in integer math (`(2*ms*fps + 1000) // 2000`); Python's round() is banker's rounding and drifts at x.5. Use only `dc time ms2frame|frame2ms`.
+17. Canonical path = shortest path, then lexicographic by code point. The recon inventory broke one length tie case-insensitively (DA-Camp-Lab_M12.html vs baseline_M12_RC.html); recorded in corpus/catalog/reconcile_explained.json. Do not "fix" it twice.
+18. Decoding all 121 unique media files takes on the order of 15+ minutes on 4 shared vCPUs (a 70 min 720p10 file decodes in about 2 minutes under load; 26.4 h of media in total). Run `dc ingest probe` only when no benchmark is running, or it distorts the timing numbers in budget.json.
+19. Hook scripts must strip heredoc bodies before looking for violations, otherwise writing a test file that contains `rm -rf /` through a heredoc is blocked. guard_bash.py tokenises with shlex and judges only real command segments; it fails open on any parse error.
+20. Several agents share one git worktree. Commit by explicit path (`git add <files>`), never `git add -A`, and never overwrite state files another agent owns (budget.json is written through harness/lib/budget_io.py with a lock).
+21. A gate with no checker yet stays `pending` (not `fail`) when checked; `dc gate check` is the only path to `pass`, and only an ADR can set `waived`.

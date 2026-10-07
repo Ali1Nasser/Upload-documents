@@ -1,0 +1,6 @@
+{
+  "v": 1,
+  "sha1": {
+    "c5fbb8f759ab0b9839c196145d574eb2afd6ffb2": "Same bytes under two names with equal path length (20 chars). Rule is shortest path, then lexicographic by code point: 'DA-Camp-Lab_M12.html' < 'baseline_M12_RC.html' because 'D' (0x44) sorts before 'b' (0x62). The recon inventory broke the tie differently (case-insensitive). Content and copy count are identical; only the canonical label differs. dc rule is authoritative."
+  }
+}

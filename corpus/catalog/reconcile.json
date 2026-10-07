@@ -1,0 +1,15 @@
+{
+  "v": 1,
+  "created": "2026-10-07T12:55:07Z",
+  "expected_unique": 1119,
+  "catalog_unique": 1119,
+  "expected_copies": 5645,
+  "catalog_files": 5645,
+  "missing": 0,
+  "extra": 0,
+  "copies_diff": 0,
+  "bytes_diff": 0,
+  "canonical_diff": 1,
+  "canonical_unexplained": 0,
+  "unexplained": 0
+}

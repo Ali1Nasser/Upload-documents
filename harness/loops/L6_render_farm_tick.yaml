@@ -1,0 +1,17 @@
+id: L6
+name: Render-farm tick
+trigger: during P9 and P12 (via /loop, self-paced)
+steps:
+  - dc render status                   # queue state
+  - restart failed jobs (dc render retry), maximum 2 retries each, fallback FX tier on retry 2
+  - disk check (dc q status); delete preview renders of approved chapters if free disk is low
+  - commit small manifests; append a line to logs/loops/L6.jsonl
+metric: chunks_done / chunks_total, failed_after_retries, disk_free_gb
+pass_condition: "queue empty and all chunks QA-passed (G9b)"
+max_iterations: null                   # time-boxed, not iteration-capped
+no_progress_rule: n/a (time-boxed)
+escalation: "render-ops -> Executive Producer"
+cadence_minutes: [10, 20]
+prompt_file: harness/loops/L6_prompt.md
+headless_ralph_mode: "while ! python3 tools/dc.py gate check G9b --quiet; do claude -p \"$(cat harness/loops/L6_prompt.md)\" --max-turns 40; done   # mechanical steps only"
+log: logs/loops/L6.jsonl

@@ -1,0 +1,150 @@
+# Production DAG (docs/plan/02 section 8.2). `dc dag status|next|run <node>` (later) executes it incrementally:
+# a node is skipped when the hashes of its inputs match its last successful run.
+# Edges: gate pass -> next node; fail -> loop node; waived -> next node plus a link to the ADR.
+version: 1
+nodes:
+  P0:
+    name: Bootstrap and harness
+    owner: harness-engineer
+    inputs: [docs/plan/, data/raw/]
+    outputs: [harness/setup.sh, harness/schemas/, harness/hooks/, harness/state/, tools/dc.py, .claude/settings.json, harness/state/budget.json]
+    gate: G0
+    loop: null
+    depends_on: []
+  P1:
+    name: Ingest and forensics
+    owner: archivist
+    inputs: [data/raw/*.zip, docs/plan/inventory/]
+    outputs: [data/extracted/, corpus/catalog/files.jsonl, corpus/catalog/media.jsonl, corpus/catalog/quarantine.json, corpus/catalog/lineage.json]
+    gate: G1
+    loop: L1
+    deadline: "2026-10-10T08:00:00Z (temp.sh links expire)"
+    depends_on: [P0]
+  P2:
+    name: Corpus distillation
+    owner: context-engineer
+    helpers: [visual-librarian, graph-engineer]
+    inputs: [corpus/catalog/, data/extracted/]
+    outputs: [corpus/text/chunks.jsonl, corpus/canon/, corpus/visual/assets.jsonl, corpus/maps/]
+    gate: G2
+    loop: null
+    depends_on: [P1]
+  P3:
+    name: Audio truth
+    owner: audio-forensics
+    helpers: [transcription-aligner]
+    inputs: [corpus/catalog/media.jsonl, data/extracted/, corpus/canon/]
+    outputs: [corpus/audio/assets.json, corpus/transcripts/, corpus/sentences/, reports/asr/calibration.md]
+    gate: G3
+    loop: L2
+    depends_on: [P1]
+  P4:
+    name: Semantic graph
+    owner: graph-engineer
+    helpers: [context-engineer]
+    inputs: [corpus/sentences/, corpus/canon/, corpus/visual/assets.jsonl]
+    outputs: [corpus/graph/nodes.jsonl, corpus/graph/edges.jsonl, reports/graph/]
+    gate: G4
+    loop: null
+    depends_on: [P2, P3]
+  P5:
+    name: ADR-001, EDL and audio lock
+    owner: story-editor
+    helpers: [council-chair]
+    inputs: [corpus/graph/, corpus/sentences/, corpus/audio/assets.json]
+    outputs: [docs/decisions/ADR-001-*.md, corpus/edl/master_edl.v1.json, corpus/edl/word_map.v1.jsonl, data/derived/audio/master_vo_v1.wav]
+    gate: G5
+    loop: null
+    fyi_user: "ADR-001 + 3-minute radio-edit sample"
+    depends_on: [P4]
+  P6:
+    name: Look-dev and Visual Bible freeze
+    owner: motion-engineer
+    helpers: [arabic-typographer, critic]
+    inputs: [docs/plan/04_VISUAL_BIBLE_V2.md]
+    outputs: [studio/src/tokens.ts, studio/public/fonts/, harness/schemas/components/, docs/decisions/ADR-002..005-*.md]
+    gate: G6a
+    loop: null
+    depends_on: [P0]
+  P7:
+    name: Component library and scene compiler
+    owner: motion-engineer
+    helpers: [arabic-typographer, critic]
+    inputs: [studio/src/tokens.ts, harness/schemas/components/]
+    outputs: [studio/src/components/, studio/src/spec/, reports/perf/components.json, reports/type/]
+    gate: G6b
+    loop: null
+    depends_on: [P6]
+  P8:
+    name: Semantic storyboard
+    owner: scene-director
+    helpers: [context-engineer, fact-checker, arabic-typographer, critic]
+    inputs: [corpus/edl/, corpus/packs/, corpus/rules/, studio/src/components/]
+    outputs: [corpus/specs/*.json, reports/facts/, reports/qa/storyboard/, reports/evals/]
+    gate: G7
+    loop: L3
+    global_loop: L5
+    depends_on: [P5, P7]
+  P9:
+    name: Previews, critique loops and pilot
+    owner: render-ops
+    helpers: [critic, sync-verifier, scene-director, motion-engineer]
+    inputs: [corpus/specs/, corpus/edl/, studio/]
+    outputs: [data/renders/preview/, reports/qa/preview/, reports/sync/]
+    gate: G8
+    loop: L4
+    global_loop: L5
+    fyi_user: "pilot chapter link (CH-33 + DD-P23)"
+    depends_on: [P8]
+  P10:
+    name: Hero plates
+    owner: motion-engineer
+    helpers: [genai-artist]
+    inputs: [corpus/specs/, studio/]
+    outputs: [studio/public/plates/]
+    gate: null
+    loop: null
+    optional: true
+    depends_on: [P9]
+  P11:
+    name: Sound design and mix
+    owner: sound-designer
+    inputs: [corpus/specs/, corpus/edl/, data/derived/audio/master_vo_v1.wav]
+    outputs: [data/derived/audio/mix/final_mix_v1.wav, docs/decisions/licenses.md, corpus/sfx_cues/]
+    gate: G9a
+    loop: null
+    depends_on: [P9]
+  P12:
+    name: Final render
+    owner: render-ops
+    inputs: [corpus/specs/, corpus/edl/, studio/, studio/public/plates/]
+    outputs: [data/renders/final/, corpus/render/jobs.jsonl]
+    gate: G9b
+    loop: L6
+    depends_on: [P9, P10]
+  P13:
+    name: Conform and full QC
+    owner: render-ops
+    helpers: [critic, sync-verifier]
+    inputs: [data/renders/final/, data/derived/audio/mix/final_mix_v1.wav]
+    outputs: [data/delivery/film_mezzanine.mp4, reports/qa/final/]
+    gate: G10a
+    loop: L7
+    depends_on: [P11, P12]
+  P14:
+    name: Encode ladder, upload, verify
+    owner: delivery-publisher
+    inputs: [data/delivery/film_mezzanine.mp4]
+    outputs: [delivery/links.json, delivery/DELIVERY_NOTE.md]
+    gate: G10
+    loop: L8
+    fyi_user: "final sizes and hosts (before P14)"
+    depends_on: [P13]
+  P15:
+    name: Archive and retrospective
+    owner: harness-engineer
+    inputs: [corpus/, reports/, docs/]
+    outputs: [docs/handoffs/FINAL.md, docs/memory/lessons.md]
+    gate: null
+    loop: null
+    depends_on: [P14]

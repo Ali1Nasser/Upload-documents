@@ -1,0 +1,14 @@
+id: L5
+name: Global coverage
+trigger: after P8 and again after P9
+steps:
+  - dc graph q coverage                # idea units, terms, numbers with no EDL sentence or no shot event
+  - turn each gap into a task for story-editor / scene-director
+  - fix, then re-run the query
+metric: uncovered_idea_units + uncovered_terms + uncovered_numbers
+pass_condition: "0 gaps (or an ADR waiver per gap); two consecutive rounds find nothing new"
+max_iterations: until two rounds find nothing new
+no_progress_rule: a round that finds the same gaps as the previous round -> escalate
+escalation: "Council"
+cadence: after P8, after P9
+log: logs/loops/L5.jsonl

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "note": "Globs are repo-relative (fnmatch; ** matches any depth). format=jsonl validates every line. validate_written.py only acts on corpus/**.",
+  "note": "Globs are repo-relative (** matches any depth); exclude = basename fnmatch patterns skipped. format=jsonl validates every line. validate_written.py only acts on corpus/**.",
   "rules": [
     {
       "glob": "corpus/catalog/files.jsonl",
@@ -60,7 +60,11 @@
     {
       "glob": "corpus/specs/*.json",
       "schema": "scene_spec",
-      "format": "json"
+      "format": "json",
+      "exclude": [
+        "manifest.json",
+        "_*.json"
+      ]
     },
     {
       "glob": "corpus/render/jobs.jsonl",

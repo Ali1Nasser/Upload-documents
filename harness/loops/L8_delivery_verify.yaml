@@ -1,0 +1,15 @@
+id: L8
+name: Delivery verify
+trigger: P14
+steps:
+  - dc deliver upload <file> --host x0.at|temp.sh
+  - dc deliver verify <file>           # re-download (x0.at: GET, temp.sh: POST) and compare SHA-256
+metric: sha256_matches / uploads
+pass_condition: "every upload re-downloaded and SHA-256 matched"
+max_iterations: 4                      # per upload
+backoff_seconds: [2, 4, 8, 16]
+no_progress_rule: n/a (backoff retries)
+escalation: "Report the failure to the user with the host's error message and the file's SHA-256"
+cadence: per upload
+hosts_allowed: [x0.at, temp.sh]        # enforced by harness/hooks/guard_bash.py
+log: logs/loops/L8.jsonl

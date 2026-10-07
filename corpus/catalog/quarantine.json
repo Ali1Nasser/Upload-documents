@@ -1,0 +1,83 @@
+{
+  "v": 1,
+  "created": "2026-10-07T12:48:54Z",
+  "items": [
+    {
+      "archive_chain": "ClaudeAndOthers.zip > LmArena.zip > workspace-01a10af3-b96f-7de5-81fb-6fdfa87be7c1.zip",
+      "path": ".sudo_as_admin_successful",
+      "reason": "sandbox leftover (.sudo_as_admin_successful); never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "ClaudeAndOthers.zip > LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".ssh/id_ed25519",
+      "reason": "ssh key material; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "ClaudeAndOthers.zip > LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".ssh/id_ed25519.pub",
+      "reason": "ssh key material; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "ClaudeAndOthers.zip > LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".ssh/known_hosts",
+      "reason": "ssh known_hosts; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "ClaudeAndOthers.zip > LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".sudo_as_admin_successful",
+      "reason": "sandbox leftover (.sudo_as_admin_successful); never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "DA_Camp_Videos_Files.zip",
+      "path": "DA Camp Videos Files/LMArena/Folder 1/.sudo_as_admin_successful",
+      "reason": "sandbox leftover (.sudo_as_admin_successful); never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "DA_Camp_Videos_Files.zip",
+      "path": "DA Camp Videos Files/LMArena/Folder 2/.ssh-id_ed25519",
+      "reason": "ssh key material; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "DA_Camp_Videos_Files.zip",
+      "path": "DA Camp Videos Files/LMArena/Folder 2/.ssh-known_hosts",
+      "reason": "ssh known_hosts; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "DA_Camp_Videos_Files.zip",
+      "path": "DA Camp Videos Files/LMArena/Folder 2/.ssh/id_ed25519.pub",
+      "reason": "ssh key material; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "DA_Camp_Videos_Files.zip",
+      "path": "DA Camp Videos Files/LMArena/Folder 2/.sudo_as_admin_successful",
+      "reason": "sandbox leftover (.sudo_as_admin_successful); never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "LmArena.zip > workspace-01a10af3-b96f-7de5-81fb-6fdfa87be7c1.zip",
+      "path": ".sudo_as_admin_successful",
+      "reason": "sandbox leftover (.sudo_as_admin_successful); never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".ssh/id_ed25519",
+      "reason": "ssh key material; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".ssh/id_ed25519.pub",
+      "reason": "ssh key material; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".ssh/known_hosts",
+      "reason": "ssh known_hosts; never extracted, read, indexed or uploaded"
+    },
+    {
+      "archive_chain": "LmArena.zip > workspace-01a10cc4-8dcc-726c-b371-bad542ee7ca0.zip",
+      "path": ".sudo_as_admin_successful",
+      "reason": "sandbox leftover (.sudo_as_admin_successful); never extracted, read, indexed or uploaded"
+    }
+  ],
+  "on_disk": 0,
+  "policy": "Skipped at extraction. Recorded by archive path and reason only; contents never read."
+}

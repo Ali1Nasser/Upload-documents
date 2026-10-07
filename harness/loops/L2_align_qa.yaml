@@ -1,0 +1,15 @@
+id: L2
+name: Align-QA
+trigger: per audio file in P3
+steps:
+  - dc asr transcribe <audio_id>
+  - dc asr align <audio_id>            # two aligners for scripted audio (ctc-forced-aligner + second method)
+  - dc audio qa <audio_id>             # confidence, cross-method agreement, script WER
+metric: median_word_conf, pct_words_agree_within_120ms   # per audio id, logged to logs/loops/L2.jsonl
+pass_condition: "scripted audio (S1/S3/S5): median word conf >= 0.80 and >= 95% of words agree within 120 ms across two aligners; S2/S4: median conf >= 0.75 (thresholds are G3's; never lowered without an ADR)"
+max_iterations: 3          # three variants only: model, VAD params, chunking
+variants_order: [model, vad_params, chunking]
+no_progress_rule: a variant that improves neither metric counts as no progress; two in a row -> escalate
+escalation: "Council (Audio & Sync lens)"
+cadence: per audio file, queued through tsp
+log: logs/loops/L2.jsonl

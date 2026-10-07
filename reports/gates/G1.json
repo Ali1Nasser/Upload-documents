@@ -1,0 +1,37 @@
+{
+  "gate": "G1",
+  "pass": false,
+  "checks": [
+    {
+      "name": "archives_sha256",
+      "pass": true,
+      "detail": "6/6 archives match inventory SHA-256"
+    },
+    {
+      "name": "unique_count_reconciled",
+      "pass": true,
+      "detail": "catalog 1119 unique vs inventory 1119 (contract 1119); missing 0, extra 0, canonical diffs 1 (unexplained 0); catalog fresh=True; see reports/gates/G1_reconcile.md"
+    },
+    {
+      "name": "files_jsonl_schema",
+      "pass": true,
+      "detail": "corpus/catalog/files.jsonl validates against files.schema.json"
+    },
+    {
+      "name": "quarantine_clean",
+      "pass": true,
+      "detail": "15 names listed in quarantine.json, 0 found on disk now (must be 0)"
+    },
+    {
+      "name": "media_decode_report",
+      "pass": false,
+      "detail": "corpus/catalog/media.jsonl missing: run `dc ingest probe` (P1 runs it fully)"
+    },
+    {
+      "name": "lineage_written",
+      "pass": true,
+      "detail": "master runtimes ['59:30', '70:05', 'unknown'], html families 19, narration groups ['narration_named', 'nblm_parts_25', 'nblm_unified', 'partA_F']"
+    }
+  ],
+  "created": "2026-10-07T13:03:01Z"
+}

@@ -1,0 +1,16 @@
+id: L7
+name: Final QC
+trigger: P13
+steps:
+  - full decode of the conformed film (0 errors)
+  - dc qa film                         # |video - audio| <= 1 frame, loudness, true peak
+  - dc qa sync                         # ASR alignment on 20 random 30 s windows vs EDL word map
+  - critic samples one frame every 30 s plus every chapter boundary
+  - dc gate check G10a
+metric: decode_errors, av_delta_frames, sync_median_ms, sync_p95_ms, lufs_i, tp_dbtp
+pass_condition: "G10a thresholds: 0 decode errors; |video-audio| <= 1 frame; sync median <= 40 ms and p95 <= 100 ms; -16 +-0.5 LUFS, TP <= -1.0 dBTP"
+max_iterations: 3
+no_progress_rule: 2 rounds with no improvement -> escalate
+escalation: "Council"
+cadence: P13 only
+log: logs/loops/L7.jsonl
