@@ -5,7 +5,7 @@
     "G0": {
       "status": "pass",
       "report": "reports/gates/G0.json",
-      "checked": "2026-10-07T14:00:05Z"
+      "checked": "2026-10-07T14:02:43Z"
     },
     "G1": {
       "status": "fail",
@@ -59,5 +59,5 @@
   "next_actions": [
     "P1.4: python3 tools/dc.py ingest probe (full decode of 121 media, ~15+ min; run when no benchmark is active)"
   ],
-  "updated": "2026-10-07T14:00:05Z"
+  "updated": "2026-10-07T14:02:43Z"
 }

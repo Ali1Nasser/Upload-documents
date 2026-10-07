@@ -99,10 +99,10 @@ def check(ctx):
         pass
     mb = re.search(r"HEADLESS_SHELL\s*=\s*'([^']+)'", cfg)
     lim_ids = [x.get("id") for x in ((_load(ctx, "harness/state/budget.json") or {}).get("limitations") or []) if isinstance(x, dict)]
-    br_ok = bool(mb and os.access(mb.group(1), os.X_OK)) and "remotion_chrome_download_blocked" in lim_ids
+    br_ok = bool(mb and os.access(mb.group(1), os.X_OK)) and "remotion_chrome_download" in lim_ids
     out.append(C("studio_browser_documented", br_ok,
                  f"Remotion uses preinstalled {mb.group(1) if mb else '<unset>'} (executable={bool(mb and os.access(mb.group(1), os.X_OK))}); "
-                 f"documented limitation remotion_chrome_download_blocked={'remotion_chrome_download_blocked' in lim_ids}"))
+                 f"documented limitation remotion_chrome_download={'remotion_chrome_download' in lim_ids}"))
 
     # 3 dc works
     rc, o = ctx.dc("state", "brief", timeout=60)

@@ -167,6 +167,18 @@
       "requirement": "manim (optional in 03 P0.3)",
       "what": "manim (optional in 03 P0.3)",
       "workaround": "not installed"
+    },
+    {
+      "id": "github_blocked_push_denied",
+      "impact": "D-gate commits stay local; no remote backup of corpus/ artifacts from this container",
+      "what": "github.com API/codeload blocked and git push returns 403",
+      "workaround": "pip/npm from PyPI/npm registry only; commit locally, never push"
+    },
+    {
+      "id": "render_budget_over_cpu_only",
+      "impact": "risk carried to G6a/G9b, not a G0 blocker",
+      "what": "measured 3h-film projection exceeds the 24 h render budget with swangle (see render_projection_3h: swangle 64.7 h, swiftshader 24.7 h); no GPU",
+      "workaround": "P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftshader where it renders correctly, or the Council records an ADR on budget/length; nothing is waived here"
     }
   ],
   "models": {
@@ -497,7 +509,7 @@
   },
   "studio": {
     "browser_executable": "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell",
-    "browser_note": "Remotion's own Chrome download host (storage.googleapis.com) is blocked here; see limitations.remotion_chrome_download_blocked",
+    "browser_note": "Remotion's own Chrome download host (storage.googleapis.com) is blocked here; see limitations.remotion_chrome_download",
     "browser_present": true,
     "fonts_ttf_count": 22,
     "lock_sha256": "4e05664416ebb56ca3cdf0425d944082f16c1673ef53b60395abec634966843f",

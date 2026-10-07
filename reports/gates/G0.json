@@ -18,6 +18,26 @@
       "detail": "reports/perf/setup_last.txt: last run clean=True, shows skipped (already-done) sections=True"
     },
     {
+      "name": "setup_sh_node_fonts_sections",
+      "pass": true,
+      "detail": "setup.sh has node (npm ci) + fonts sections=True; last full run reported both=True"
+    },
+    {
+      "name": "studio_deps_installed",
+      "pass": true,
+      "detail": "studio/node_modules matches exact pins in package.json/package-lock.json"
+    },
+    {
+      "name": "studio_fonts_present",
+      "pass": true,
+      "detail": "fonts: 22/22 ok, 8 licence files"
+    },
+    {
+      "name": "studio_browser_documented",
+      "pass": true,
+      "detail": "Remotion uses preinstalled /opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell (executable=True); documented limitation remotion_chrome_download=True"
+    },
+    {
       "name": "dc_state_brief",
       "pass": true,
       "detail": "exit 0, 11 lines (max 25)"
@@ -70,12 +90,12 @@
     {
       "name": "limitations_documented",
       "pass": true,
-      "detail": "documented limitations (not silent passes): demucs_official_weights -> HF safetensors mirror AEmotionStudio/htdemucs-models via har; torchaudio_mms_fa_bundle -> MahmoudAshraf/mms-300m-1130-forced-aligner (HF) via harness/; system_ffmpeg_libvmaf -> static ffmpeg 7.0.2 from imageio-ffmpeg linked at tools/bin/; remotion_chrome_download -> --browser-executable under /opt/pw-browsers/chromium_headles; camel_tools_data_partial -> only morphology-db-egy-r13 fetched into data/models/camel_da; manim_optional -> not installed"
+      "detail": "documented limitations (not silent passes): demucs_official_weights -> HF safetensors mirror AEmotionStudio/htdemucs-models via har; torchaudio_mms_fa_bundle -> MahmoudAshraf/mms-300m-1130-forced-aligner (HF) via harness/; system_ffmpeg_libvmaf -> static ffmpeg 7.0.2 from imageio-ffmpeg linked at tools/bin/; remotion_chrome_download -> --browser-executable under /opt/pw-browsers/chromium_headles; camel_tools_data_partial -> only morphology-db-egy-r13 fetched into data/models/camel_da; manim_optional -> not installed; github_blocked_push_denied -> pip/npm from PyPI/npm registry only; commit locally, never p; render_budget_over_cpu_only -> P6/P7 must keep R3F/glow shots rare, prefer 2D, use swiftsha"
     },
     {
       "name": "environment_complete",
       "pass": true,
-      "detail": "all 6 models and 32 python packages present; documented limitations (budget.json, workarounds in place): demucs_official_weights, torchaudio_mms_fa_bundle, system_ffmpeg_libvmaf, remotion_chrome_download, camel_tools_data_partial, manim_optional"
+      "detail": "all 6 models and 32 python packages present; documented limitations (budget.json, workarounds in place): demucs_official_weights, torchaudio_mms_fa_bundle, system_ffmpeg_libvmaf, remotion_chrome_download, camel_tools_data_partial, manim_optional, github_blocked_push_denied, render_budget_over_cpu_only"
     },
     {
       "name": "gates_registered",
@@ -83,5 +103,5 @@
       "detail": "14/14 gate modules"
     }
   ],
-  "created": "2026-10-07T14:00:05Z"
+  "created": "2026-10-07T14:02:43Z"
 }

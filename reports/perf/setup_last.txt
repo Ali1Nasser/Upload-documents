@@ -20,7 +20,7 @@
    "node": "v22.22.0",
    "pins_match": true,
    "browser_present": true,
-  browser: /opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell (preinstalled; LIMITATION remotion_chrome_download_blocked: storage.googleapis.com unreachable, documented in budget.json limitations)
+  browser: /opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell (preinstalled; LIMITATION remotion_chrome_download: storage.googleapis.com unreachable, documented in budget.json limitations)
   tsc --noEmit: ok
 == fonts ==
   google fonts already present (skip)
@@ -37,3 +37,39 @@
   {"faster-whisper-large-v3": true, "faster-whisper-large-v3-turbo": true, "mms-300m-1130-forced-aligner": true, "demucs-htdemucs": true, "bge-m3": true, "ecapa-voxceleb": true, "camel-data": true}
   demucs: official weights host dl.fbaipublicfiles.com is blocked; using HF mirror via harness/lib/demucs_local.py
 == verify ==
+  import ok   faster_whisper
+  import ok   torch
+  import ok   torchaudio
+  import ok   ctc_forced_aligner
+  import ok   uroman
+  import ok   silero_vad
+  import ok   librosa
+  import ok   soundfile
+  import ok   pyloudnorm
+  import ok   parselmouth
+  import ok   sentence_transformers
+  import ok   faiss
+  import ok   hdbscan
+  import ok   networkx
+  import ok   rapidfuzz
+  import ok   pyarabic
+  import ok   pydantic
+  import ok   jsonschema
+  import ok   bs4
+  import ok   lxml
+  import ok   numpy
+  import ok   pandas
+  import ok   pyarrow
+  import ok   PIL
+  import ok   cv2
+  import ok   skimage
+  import ok   pedalboard
+  import ok   pytesseract
+  import ok   huggingface_hub
+  import ok   onnxruntime
+  import ok   playwright
+  import ok   speechbrain
+  import ok   torchmetrics
+  import ok   camel_tools
+== summary ==
+  nothing missing

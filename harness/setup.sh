@@ -97,7 +97,7 @@ sec_node() {
   # browser: Remotion cannot fetch its own Chrome here, the config points at the preinstalled headless shell
   local br; br="$(sed -n "s/.*HEADLESS_SHELL *= *'\([^']*\)'.*/\1/p" "$STUDIO/remotion.config.ts" 2>/dev/null | head -1)"
   if [ -n "$br" ] && [ -x "$br" ]; then
-    say "  browser: $br (preinstalled; LIMITATION remotion_chrome_download_blocked: storage.googleapis.com unreachable, documented in budget.json limitations)"
+    say "  browser: $br (preinstalled; LIMITATION remotion_chrome_download: storage.googleapis.com unreachable, documented in budget.json limitations)"
   else
     miss "browser for Remotion: ${br:-<unset in remotion.config.ts>} not executable. Allow host storage.googleapis.com (Remotion Chrome) or install Playwright chromium_headless_shell under /opt/pw-browsers/"
   fi
