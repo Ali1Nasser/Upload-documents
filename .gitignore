@@ -1,0 +1,17 @@
+# large / regenerable / sensitive — never commit
+data/
+logs/*.log
+*.mp4
+*.mov
+*.wav
+*.m4a
+*.mp3
+*.flac
+*.zip
+*.tar.xz
+*.tar.gz
+node_modules/
+studio/out/
+.venv/
+__pycache__/
+*.pyc
