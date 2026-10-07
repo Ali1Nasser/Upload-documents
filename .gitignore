@@ -35,3 +35,5 @@ harness/state/*.lock
 .claude/settings.local.json
 .env
 *.tmp
+logs/*.out
+reports/perf/setup_partial.txt

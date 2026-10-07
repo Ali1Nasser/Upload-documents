@@ -1,28 +1,23 @@
 {
-  "step": "lineage",
-  "cmd": "dc ingest lineage",
+  "step": "quarantine",
+  "cmd": "dc ingest quarantine",
   "inputs": [
     {
-      "path": "corpus/catalog/files.jsonl",
-      "sha256": "aef8694f368ca87c1c18e3c4202ec1b67d7d37949e36b34a43a06e28612caa74"
+      "path": "docs/plan/inventory/full_inventory.tsv",
+      "sha256": "bbf8eea69b5f93c035c26cdb7e5ab0abaff2546299b5891581c209fd5b132de1"
     }
   ],
-  "inputs_digest": "5daf12e48b4823d6ed62ec4e94959e74ef7362fccbd4670c0a944f3142f981d5",
+  "inputs_digest": "ae913be048228a63788d98d93a572ab0d61875f238061c64129e06c5fda798e7",
   "outputs": [
-    "corpus/catalog/lineage.json"
+    "corpus/catalog/quarantine.json"
   ],
   "tool_versions": {
     "python": "3.13.16"
   },
-  "created": "2026-10-07T12:57:46Z",
+  "created": "2026-10-07T14:11:22Z",
   "extra": {
-    "master_versions": 7,
-    "runtimes": [
-      "59:30",
-      "70:05",
-      "unknown"
-    ],
-    "html_families": 19
+    "items": 15,
+    "on_disk": 0
   },
   "steps": {
     "quarantine": {
@@ -41,7 +36,7 @@
       "tool_versions": {
         "python": "3.13.16"
       },
-      "created": "2026-10-07T12:48:54Z",
+      "created": "2026-10-07T14:11:22Z",
       "extra": {
         "items": 15,
         "on_disk": 0
