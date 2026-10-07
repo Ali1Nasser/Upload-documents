@@ -95,7 +95,18 @@ def check(ctx):
         out.append(C("lineage_written", False, "corpus/catalog/lineage.json missing: run `dc ingest lineage`"))
     else:
         rts = set(lin.get("master_md", {}).get("by_runtime", {}))
-        ok = {"59:30", "70:05"} <= rts and bool(lin.get("html_families", {}).get("families")) and bool(lin.get("narration_packs", {}).get("partA_F"))
+        pack = lin.get("narration_packs", {}).get("partA_F", [])
+        ok = {"59:30", "70:05"} <= rts and bool(lin.get("html_families", {}).get("families")) and bool(pack)
+        # the 59:30 master is partA..partF together: its diff side must cover every part, byte for byte
+        want = sorted(p["canonical"] for p in pack)
+        d = [x for x in lin.get("master_md", {}).get("diff_summaries", []) if x.get("runtime_a") == "59:30"]
+        cover = bool(d) and sorted(d[0].get("a_files", [])) == want and len(want) == 6 \
+            and d[0].get("bytes_a") == sum(p["bytes"] for p in pack)
         out.append(C("lineage_written", ok, f"master runtimes {sorted(rts)}, html families {len(lin.get('html_families', {}).get('families', {}))}, "
                      f"narration groups {sorted(lin.get('narration_packs', {}))}"))
+        out.append(C("lineage_5930_covers_partA_F", cover,
+                     (f"59:30 diff side = {len(d[0].get('a_files', []))}/{len(want)} parts, {d[0].get('bytes_a')} B vs "
+                      f"{sum(p['bytes'] for p in pack)} B in partA..F; heading_similarity {d[0].get('heading_similarity')} "
+                      f"({d[0].get('headings_a')} vs {d[0].get('headings_b')} headings)") if d
+                     else "no 59:30 vs 70:05 diff summary: run `dc ingest lineage --force`"))
     return out

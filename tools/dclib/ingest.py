@@ -405,6 +405,25 @@ def cmd_lineage(args):
     by_rt = collections.defaultdict(list)
     for v in versions:
         by_rt[v["runtime"] or "unknown"].append(v["name"])
+    # A version can be split over several files (the 59:30 master is partA..partF; only partA carries the
+    # runtime line). Such a version is diffed as the concatenation of all its parts, in order.
+    pa_rx = re.compile(r"^(?P<dir>.*/)part(?P<k>[A-F])\.md$")
+
+    def composite(v):
+        m = pa_rx.match(v["canonical"])
+        if not m or m.group("k") != "A":
+            return None
+        parts = sorted((r for r in recs if (mm := pa_rx.match(r["canonical"])) and mm.group("dir") == m.group("dir")),
+                       key=lambda r: r["canonical"])
+        return parts if len(parts) > 1 else None
+
+    def side(v):
+        parts = composite(v)
+        if not parts:
+            return {"files": [v["canonical"]], "bytes": v["bytes"], "text": _read_text(v["canonical"])}
+        return {"files": [r["canonical"] for r in parts], "bytes": sum(r["bytes"] for r in parts),
+                "text": "\n".join(_read_text(r["canonical"]) for r in parts)}
+
     diffs = []
     runs = [v for v in versions if v["runtime"]]
     ref = {}
@@ -413,12 +432,15 @@ def cmd_lineage(args):
     rts = sorted(ref)
     for i in range(len(rts)):
         for j in range(i + 1, len(rts)):
-            a, b = ref[rts[i]], ref[rts[j]]
-            ha, hb = _headings(_read_text(a["canonical"])), _headings(_read_text(b["canonical"]))
+            sa, sb = side(ref[rts[i]]), side(ref[rts[j]])
+            ha, hb = _headings(sa["text"]), _headings(sb["text"])
             sm = difflib.SequenceMatcher(None, ha, hb, autojunk=False)
-            diffs.append({"a": a["canonical"], "b": b["canonical"], "runtime_a": rts[i], "runtime_b": rts[j],
+            la, lb = sa["text"].splitlines(), sb["text"].splitlines()
+            diffs.append({"a": sa["files"][0], "b": sb["files"][0], "a_files": sa["files"], "b_files": sb["files"],
+                          "runtime_a": rts[i], "runtime_b": rts[j],
                           "heading_similarity": round(sm.ratio(), 3), "headings_a": len(ha), "headings_b": len(hb),
-                          "bytes_delta": b["bytes"] - a["bytes"]})
+                          "line_quick_ratio": round(difflib.SequenceMatcher(None, la, lb, autojunk=False).quick_ratio(), 3),
+                          "bytes_a": sa["bytes"], "bytes_b": sb["bytes"], "bytes_delta": sb["bytes"] - sa["bytes"]})
     # 2. narration packs
     def grp(rx):
         return [{"file_id": r["file_id"], "canonical": r["canonical"], "copies": len(r["paths"]), "bytes": r["bytes"]}

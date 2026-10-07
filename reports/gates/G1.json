@@ -31,7 +31,12 @@
       "name": "lineage_written",
       "pass": true,
       "detail": "master runtimes ['59:30', '70:05', 'unknown'], html families 19, narration groups ['narration_named', 'nblm_parts_25', 'nblm_unified', 'partA_F']"
+    },
+    {
+      "name": "lineage_5930_covers_partA_F",
+      "pass": true,
+      "detail": "59:30 diff side = 6/6 parts, 238745 B vs 238745 B in partA..F; heading_similarity 0.984 (125 vs 127 headings)"
     }
   ],
-  "created": "2026-10-07T14:44:38Z"
+  "created": "2026-10-07T17:02:19Z"
 }

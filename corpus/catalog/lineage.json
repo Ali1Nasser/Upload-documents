@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "created": "2026-10-07T12:57:46Z",
+  "created": "2026-10-07T17:02:16Z",
   "master_md": {
     "versions": [
       {
@@ -86,12 +86,26 @@
       {
         "a": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partA.md",
         "b": "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+        "a_files": [
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partA.md",
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partB.md",
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partC.md",
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partD.md",
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partE.md",
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/DA Camp vedio narration/partF.md"
+        ],
+        "b_files": [
+          "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md"
+        ],
         "runtime_a": "59:30",
         "runtime_b": "70:05",
-        "heading_similarity": 0.653,
-        "headings_a": 63,
+        "heading_similarity": 0.984,
+        "headings_a": 125,
         "headings_b": 127,
-        "bytes_delta": 216134
+        "line_quick_ratio": 0.828,
+        "bytes_a": 238745,
+        "bytes_b": 245702,
+        "bytes_delta": 6957
       }
     ],
     "canon_runtime": "70:05"
