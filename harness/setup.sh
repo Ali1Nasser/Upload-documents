@@ -57,7 +57,7 @@ sec_python() {
   local pkgs=(faster-whisper ctc-forced-aligner uroman silero-vad librosa soundfile pyloudnorm praat-parselmouth
     sentence-transformers FlagEmbedding faiss-cpu hdbscan networkx rapidfuzz pyarabic pydantic jsonschema
     beautifulsoup4 lxml numpy pandas pyarrow pillow opencv-python-headless scikit-image pedalboard pytesseract
-    huggingface_hub onnxruntime playwright demucs imageio-ffmpeg static-ffmpeg)
+    huggingface_hub onnxruntime playwright demucs imageio-ffmpeg static-ffmpeg "av==16.1.0")  # av>=17 breaks faster-whisper (metadata_errors kw); keep last
   for p in "${pkgs[@]}"; do
     if "${PIP[@]}" "$p" >>logs/setup_python.log 2>&1 || { sleep 2; "${PIP[@]}" "$p" >>logs/setup_python.log 2>&1; }; then say "  ok   $p"
     else miss "pip $p (see logs/setup_python.log)"; fi
@@ -65,6 +65,7 @@ sec_python() {
   uv pip freeze --python "$VENV/bin/python" > harness/requirements.lock.txt 2>/dev/null
   say "  froze $(wc -l < harness/requirements.lock.txt) pins -> harness/requirements.lock.txt"
   touch "$stamp"
+  "$VENV/bin/python" harness/lib/record_env.py >/dev/null && say "  recorded ffmpeg caps / package versions -> harness/state/budget.json"
 }
 
 sec_models() {
@@ -74,7 +75,8 @@ sec_models() {
   say "  free disk: ${free} GB"
   [ "$free" -ge 6 ] || { miss "disk: need >=6 GB free for models"; return; }
   "$VENV/bin/python" harness/lib/fetch_models.py 2>&1 | tee -a logs/setup_models.log | sed 's/^/  /' | tee -a "$REPORT" || miss "some models failed (see logs/setup_models.log; hosts: huggingface.co, us.aws.cdn.hf.co)"
-  say "  demucs weights: dl.fbaipublicfiles.com is blocked here; see harness/state/budget.json separation"
+  say "  demucs: official weights host dl.fbaipublicfiles.com is blocked; using HF mirror via harness/lib/demucs_local.py"
+  "$VENV/bin/python" harness/lib/record_env.py >/dev/null
 }
 
 sec_verify() {

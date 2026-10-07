@@ -11,12 +11,15 @@ MODELS = {
     "faster-whisper-large-v3": dict(repos=["Systran/faster-whisper-large-v3"]),
     "faster-whisper-large-v3-turbo": dict(repos=["mobiuslabsgmbh/faster-whisper-large-v3-turbo",
                                                  "deepdml/faster-whisper-large-v3-turbo-ct2"]),
-    "mms-300m-1130-forced-aligner": dict(repos=["MahmoudAshraf/mms-300m-1130-forced-aligner"]),
+    "mms-300m-1130-forced-aligner": dict(repos=["MahmoudAshraf/mms-300m-1130-forced-aligner"], ignore=["pytorch_model.bin"]),  # safetensors only
+    # official dl.fbaipublicfiles.com is blocked; HF safetensors mirror (converted from 955717e8-8726e21a.th)
+    "demucs-htdemucs": dict(repos=["AEmotionStudio/htdemucs-models"],
+                            allow=["htdemucs.safetensors", "htdemucs_config.json", "LICENSE"]),
     "bge-m3": dict(repos=["BAAI/bge-m3"],
-                   allow=["*.json", "model.safetensors", "sentencepiece.bpe.model", "tokenizer.json",
+                   allow=["*.json", "pytorch_model.bin", "sentencepiece.bpe.model", "tokenizer.json",
                           "1_Pooling/*", "modules.json", "sentence_bert_config.json", "config_sentence_transformers.json",
                           "colbert_linear.pt", "sparse_linear.pt"],
-                   ignore=["onnx/*", "pytorch_model.bin", "imgs/*", "*.md", "long.jpg"]),
+                   ignore=["onnx/*", "imgs/*", "*.md", "long.jpg"]),
 }
 
 def fetch(name):

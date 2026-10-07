@@ -1,0 +1,230 @@
+{
+  "alignment": {
+    "impl": "harness/lib/align.py",
+    "model": "MahmoudAshraf/mms-300m-1130-forced-aligner (HF)",
+    "note": "PyPI ctc-forced-aligner 1.0.2 is a different package (ONNX/MMS_FA, needs blocked hosts); installed but not used",
+    "rtf": 0.413,
+    "start_diff_vs_whisper_s": {
+      "median": 0.05,
+      "p90": 0.33
+    }
+  },
+  "asr_bench_notes": {
+    "ctc_forced_aligner": {
+      "align_s": 24.8,
+      "impl": "harness/lib/align.py (HF MMS-300m + uroman + torchaudio forced_align)",
+      "load_s": 28.0,
+      "mean_score": 0.814,
+      "sample": [
+        {
+          "end": 1.54,
+          "score": 0.8006,
+          "start": 1.02,
+          "word": "الكمبيوتر"
+        },
+        {
+          "end": 1.96,
+          "score": 0.9473,
+          "start": 1.58,
+          "word": "بيعمل"
+        },
+        {
+          "end": 2.26,
+          "score": 0.8534,
+          "start": 2.0,
+          "word": "حاجة"
+        }
+      ],
+      "text_source": "faster-whisper turbo transcript of same clip",
+      "words_aligned": 112
+    },
+    "demucs": {
+      "seconds_for_60s": 93.8,
+      "weights": "HF mirror AEmotionStudio/htdemucs-models (safetensors)"
+    },
+    "faster-whisper-large-v3": {
+      "decode_s": 214.8,
+      "load_s": 45.0,
+      "segments": 14,
+      "voiced_s": 57.2,
+      "words": 115
+    },
+    "faster-whisper-large-v3-turbo": {
+      "decode_s": 63.2,
+      "load_s": 7.5,
+      "segments": 12,
+      "voiced_s": 57.2,
+      "words": 112
+    }
+  },
+  "asr_rtf": {
+    "ctc_forced_aligner": 0.413,
+    "demucs_htdemucs": 1.563,
+    "large-v3": 3.579752484957377,
+    "turbo": 1.0534873485565186
+  },
+  "asr_rtf_note": "int8, cpu_threads=3, 60 s Arabic clip (S2 @300s), vad on. Runs vary because Remotion benchmarks from another agent shared the 4 vCPUs; min = optimistic, max = planning figure. large-v3 is ~4-6x slower than turbo: use turbo for bulk ASR, large-v3 only for disputed segments.",
+  "asr_rtf_runs": {
+    "large-v3": [
+      6.23,
+      3.58
+    ],
+    "turbo": [
+      0.868,
+      1.053
+    ]
+  },
+  "ffmpeg": {
+    "note": "use ffmpeg_vmaf for libvmaf scoring; system ffmpeg for everything else unless it lacks the feature",
+    "static_imageio": {
+      "encoders": {
+        "libaom-av1": true,
+        "libsvtav1": false,
+        "libx264": true,
+        "libx265": true
+      },
+      "filters": {
+        "ebur128": true,
+        "libvmaf": true,
+        "loudnorm": true,
+        "sidechaincompress": true
+      },
+      "path": "/home/user/Upload-documents/.venv/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+      "version": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers"
+    },
+    "system": {
+      "encoders": {
+        "libaom-av1": true,
+        "libsvtav1": true,
+        "libx264": true,
+        "libx265": true
+      },
+      "filters": {
+        "ebur128": true,
+        "libvmaf": false,
+        "loudnorm": true,
+        "sidechaincompress": true
+      },
+      "path": "/usr/bin/ffmpeg",
+      "version": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+    },
+    "vmaf_binary": "/home/user/Upload-documents/.venv/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+    "vmaf_binary_link": "tools/bin/ffmpeg-vmaf"
+  },
+  "hardware": {
+    "disk_free_gb": 9.6,
+    "nproc": 4,
+    "python": "3.12.3",
+    "ram_gb": 15.7,
+    "ts_slots": 3,
+    "tsp": "/usr/bin/tsp"
+  },
+  "models": {
+    "bge-m3": {
+      "repo": "BAAI/bge-m3",
+      "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+      "seconds": 20.6
+    },
+    "demucs-htdemucs": {
+      "repo": "AEmotionStudio/htdemucs-models",
+      "revision": "1350068b40439d494f5a99e614230e15528a2403",
+      "seconds": 0.9
+    },
+    "faster-whisper-large-v3": {
+      "repo": "Systran/faster-whisper-large-v3",
+      "revision": "edaa852ec7e145841d8ffdb056a99866b5f0a478",
+      "seconds": 45.6
+    },
+    "faster-whisper-large-v3-turbo": {
+      "repo": "mobiuslabsgmbh/faster-whisper-large-v3-turbo",
+      "revision": "0a363e9161cbc7ed1431c9597a8ceaf0c4f78fcf",
+      "seconds": 25.0
+    },
+    "mms-300m-1130-forced-aligner": {
+      "repo": "MahmoudAshraf/mms-300m-1130-forced-aligner",
+      "revision": "49402e9577b1158620820667c218cd494cc44486",
+      "seconds": 19.5
+    }
+  },
+  "python_gotchas": [
+    "torchaudio.load needs torchcodec (not installed): use soundfile",
+    "av must be <17 (pinned 16.1.0) for faster-whisper 1.2.1",
+    "torch 2.14.1+cpu / torchaudio 2.11.0+cpu"
+  ],
+  "python_packages": {
+    "FlagEmbedding": "1.4.2",
+    "av": "16.1.0",
+    "beautifulsoup4": "4.15.0",
+    "ctc-forced-aligner": "1.0.2",
+    "ctranslate2": "4.8.2",
+    "demucs": "4.1.0",
+    "faiss-cpu": "1.15.1",
+    "faster-whisper": "1.2.1",
+    "hdbscan": "0.8.44",
+    "huggingface_hub": "1.33.0",
+    "imageio-ffmpeg": "0.6.0",
+    "jsonschema": "4.26.0",
+    "librosa": "1.0.0",
+    "lxml": "6.1.3",
+    "networkx": "3.6.1",
+    "numpy": "2.5.3",
+    "onnxruntime": "1.30.0",
+    "opencv-python-headless": "5.0.0.93",
+    "pandas": "3.0.6",
+    "pedalboard": "0.9.25",
+    "pillow": "12.3.0",
+    "playwright": "1.63.0",
+    "praat-parselmouth": "0.4.7",
+    "pyarabic": "0.6.15",
+    "pyarrow": "25.0.1",
+    "pydantic": "2.13.5",
+    "pyloudnorm": "0.2.0",
+    "pytesseract": "0.3.13",
+    "rapidfuzz": "3.14.6",
+    "safetensors": "0.8.0",
+    "scikit-image": "0.26.0",
+    "sentence-transformers": "6.1.0",
+    "silero-vad": "6.2.3",
+    "soundfile": "0.14.0",
+    "static-ffmpeg": "3.0",
+    "torch": "2.14.1+cpu",
+    "torchaudio": "2.11.0+cpu",
+    "transformers": "5.19.0",
+    "uroman": "1.3.1.1"
+  },
+  "render_bench": {
+    "Bench2D": {
+      "1": {
+        "fps_throughput": 2.381,
+        "gross_fps": 2.062,
+        "mb": 1.57,
+        "overhead_s": 10.17,
+        "s_per_frame": 0.42,
+        "wall_s": 72.76
+      }
+    }
+  },
+  "separation": {
+    "available": true,
+    "caveat": "weights not hash-verified against upstream; ~1.5x realtime on 3 threads (70-min file ~ 110 min), so separate only needed stems/segments",
+    "loader": "harness/lib/demucs_local.py",
+    "model": "htdemucs",
+    "official_host_blocked": "dl.fbaipublicfiles.com",
+    "rtf_cpu3": 1.563,
+    "weights": "HF mirror AEmotionStudio/htdemucs-models (safetensors, converted from 955717e8-8726e21a.th; strict load OK, vocals RMS ~= mix RMS on speech)"
+  },
+  "upload_smoke": {
+    "temp.sh": {
+      "ok": true,
+      "sha256": "01e5105f43fbebbb4679ff1fdbc30194828d7a2b84946fabfba7d2d63fd1497e",
+      "sha256_match": true,
+      "url": "https://temp.sh/HGdro/smoke.txt"
+    },
+    "x0.at": {
+      "ok": true,
+      "sha256": "01e5105f43fbebbb4679ff1fdbc30194828d7a2b84946fabfba7d2d63fd1497e",
+      "sha256_match": true,
+      "url": "https://x0.at/Dj4K.txt"
+    }
+  }
+}
