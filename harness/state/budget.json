@@ -201,6 +201,199 @@
         "overhead_s": 10.17,
         "s_per_frame": 0.42,
         "wall_s": 72.76
+      },
+      "2": {
+        "fps_throughput": 2.651,
+        "gross_fps": 2.26,
+        "mb": 1.57,
+        "overhead_s": 10.17,
+        "s_per_frame": 0.754,
+        "wall_s": 66.37
+      },
+      "3": {
+        "fps_throughput": 2.923,
+        "gross_fps": 2.453,
+        "mb": 1.57,
+        "overhead_s": 10.17,
+        "s_per_frame": 1.026,
+        "wall_s": 61.14
+      }
+    },
+    "BenchGlow": {
+      "1": {
+        "fps_throughput": 1.152,
+        "gross_fps": 1.058,
+        "mb": 3.27,
+        "overhead_s": 12.37,
+        "s_per_frame": 0.868,
+        "wall_s": 141.75
+      },
+      "2": {
+        "fps_throughput": 1.138,
+        "gross_fps": 1.047,
+        "mb": 3.27,
+        "overhead_s": 12.37,
+        "s_per_frame": 1.757,
+        "wall_s": 143.26
+      },
+      "3": {
+        "fps_throughput": 1.154,
+        "gross_fps": 1.061,
+        "mb": 3.27,
+        "overhead_s": 12.37,
+        "s_per_frame": 2.599,
+        "wall_s": 141.44
+      }
+    },
+    "BenchR3F": {
+      "1": {
+        "fps_throughput": 0.698,
+        "gross_fps": 0.674,
+        "mb": 20.16,
+        "overhead_s": 9.16,
+        "s_per_frame": 1.432,
+        "wall_s": 222.6
+      },
+      "2": {
+        "fps_throughput": 0.73,
+        "gross_fps": 0.704,
+        "mb": 20.05,
+        "overhead_s": 9.16,
+        "s_per_frame": 2.739,
+        "wall_s": 213.2
+      },
+      "3": {
+        "fps_throughput": 0.727,
+        "gross_fps": 0.701,
+        "mb": 19.94,
+        "overhead_s": 9.16,
+        "s_per_frame": 4.125,
+        "wall_s": 214.03
+      }
+    }
+  },
+  "render_bench_swiftshader": {
+    "Bench2D": {
+      "1": {
+        "fps_throughput": 7.328,
+        "gross_fps": 5.205,
+        "mb": 1.47,
+        "overhead_s": 8.48,
+        "s_per_frame": 0.136,
+        "wall_s": 28.82
+      },
+      "2": {
+        "fps_throughput": 8.777,
+        "gross_fps": 5.892,
+        "mb": 1.47,
+        "overhead_s": 8.48,
+        "s_per_frame": 0.228,
+        "wall_s": 25.46
+      },
+      "3": {
+        "fps_throughput": 9.875,
+        "gross_fps": 6.364,
+        "mb": 1.48,
+        "overhead_s": 8.48,
+        "s_per_frame": 0.304,
+        "wall_s": 23.57
+      }
+    },
+    "BenchGlow": {
+      "1": {
+        "fps_throughput": 4.159,
+        "gross_fps": 3.39,
+        "mb": 3.15,
+        "overhead_s": 8.42,
+        "s_per_frame": 0.24,
+        "wall_s": 44.25
+      },
+      "2": {
+        "fps_throughput": 5.586,
+        "gross_fps": 4.274,
+        "mb": 3.15,
+        "overhead_s": 8.42,
+        "s_per_frame": 0.358,
+        "wall_s": 35.09
+      },
+      "3": {
+        "fps_throughput": 5.524,
+        "gross_fps": 4.238,
+        "mb": 3.15,
+        "overhead_s": 8.42,
+        "s_per_frame": 0.543,
+        "wall_s": 35.39
+      }
+    },
+    "BenchR3F": {
+      "1": {
+        "fps_throughput": 0.862,
+        "gross_fps": 0.83,
+        "mb": 20.16,
+        "overhead_s": 7.9,
+        "s_per_frame": 1.16,
+        "wall_s": 180.68
+      },
+      "2": {
+        "fps_throughput": 0.934,
+        "gross_fps": 0.896,
+        "mb": 20.05,
+        "overhead_s": 7.9,
+        "s_per_frame": 2.141,
+        "wall_s": 167.41
+      },
+      "3": {
+        "fps_throughput": 0.963,
+        "gross_fps": 0.923,
+        "mb": 19.94,
+        "overhead_s": 7.9,
+        "s_per_frame": 3.114,
+        "wall_s": 162.55
+      }
+    }
+  },
+  "render_projection_3h": {
+    "budget_h": 24,
+    "frames": 324000,
+    "mix": "42.5% 2D, 42.5% glow, 15% R3F",
+    "swangle": {
+      "best_concurrency": {
+        "Bench2D": "3",
+        "BenchGlow": "3",
+        "BenchR3F": "2"
+      },
+      "fps": {
+        "Bench2D": 2.923,
+        "BenchGlow": 1.154,
+        "BenchR3F": 0.73
+      },
+      "hours": {
+        "2d": 13.1,
+        "all_2d": 30.8,
+        "all_glow": 78.0,
+        "glow": 33.1,
+        "r3f": 18.5,
+        "total": 64.7
+      }
+    },
+    "swiftshader": {
+      "best_concurrency": {
+        "Bench2D": "3",
+        "BenchGlow": "2",
+        "BenchR3F": "3"
+      },
+      "fps": {
+        "Bench2D": 9.875,
+        "BenchGlow": 5.586,
+        "BenchR3F": 0.963
+      },
+      "hours": {
+        "2d": 3.9,
+        "all_2d": 9.1,
+        "all_glow": 16.1,
+        "glow": 6.8,
+        "r3f": 14.0,
+        "total": 24.7
       }
     }
   },

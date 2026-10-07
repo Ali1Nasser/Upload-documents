@@ -1,0 +1,8 @@
+fonts/final/PlexAR-*.ttf = IBM Plex Sans Arabic + IBM Plex Sans (Latin), merged
+fonts/final/Mono-*.ttf   = IBM Plex Mono + IBM Plex Sans Arabic, merged
+Both also carry a small symbol subset (arrows, ✓ ✗ € …) from DejaVu Sans, rescaled to 1000 upm.
+
+IBM Plex: SIL Open Font License 1.1 — https://github.com/IBM/plex
+DejaVu Sans: Bitstream Vera / DejaVu license (free to use, modify and redistribute).
+The merge exists so one font can shape mixed Arabic + English + symbols in a single line,
+because Pillow does not fall back between fonts.
