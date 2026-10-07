@@ -1,6 +1,6 @@
 {
   "gate": "G1",
-  "pass": false,
+  "pass": true,
   "checks": [
     {
       "name": "archives_sha256",
@@ -24,8 +24,8 @@
     },
     {
       "name": "media_decode_report",
-      "pass": false,
-      "detail": "corpus/catalog/media.jsonl missing: run `dc ingest probe` (P1 runs it fully)"
+      "pass": true,
+      "detail": "121/121 unique audio/video probed; 3 flagged decode_ok=false; expected-corrupt v7_final flagged=True"
     },
     {
       "name": "lineage_written",
@@ -33,5 +33,5 @@
       "detail": "master runtimes ['59:30', '70:05', 'unknown'], html families 19, narration groups ['narration_named', 'nblm_parts_25', 'nblm_unified', 'partA_F']"
     }
   ],
-  "created": "2026-10-07T13:03:01Z"
+  "created": "2026-10-07T14:44:38Z"
 }
