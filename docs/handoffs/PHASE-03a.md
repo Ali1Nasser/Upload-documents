@@ -39,7 +39,7 @@ New commands (tools/dclib/{audio,asr,align,s2id,scripts,textnorm}.py, registered
 
 ## S4 ASR (queued, not finished)
 
-`dc asr submit-s4` queued 27 jobs, turbo, int8, 1 thread each, glossary initial_prompt, label `asr-S4:Pnn-turbo`, tsp ids 73-99 (longest first: P15=73, P18=74, P05=75, P03=76, P09=77, P01=78, P00=79, P00b=80, P19=81, P06=82, P11=83, P25=84, P10=85, P22=86, P08=87, P04=88, P24=89, P07=90, P14=91, P17=92, P21=93, P16=94, P20=95, P12=96, P13=97, P23=98, P02=99). Outputs: corpus/transcripts/a_S4_Pnn.asr.json (a_S4_P00b for render2); they validate against schemas/asr. Expected wall time 2-3 h while sharing the box. Re-run `dc asr submit-s4` to queue only the missing ones.
+`dc asr submit-s4` queued 27 jobs, turbo, int8, 1 thread each, glossary initial_prompt, label `asr-S4:Pnn-turbo`, tsp ids 73-99 (longest first: P15=73, P18=74, P05=75, P03=76, P09=77, P01=78, P00=79, P00b=80, P19=81, P06=82, P11=83, P25=84, P10=85, P22=86, P08=87, P04=88, P24=89, P07=90, P14=91, P17=92, P21=93, P16=94, P20=95, P12=96, P13=97, P23=98, P02=99). Outputs: corpus/transcripts/a_S4_Pnn.asr.json (a_S4_P00b for render2); they validate against schemas/asr. First two outputs (P05, P18) validated against the schema; measured RTF 1.31-1.36 at 1 thread, so about 5 slot-hours in total, roughly 1.7 h wall on an otherwise idle box. The S4 outputs are not committed (they arrive after this handoff); commit them with the P3b polish. Re-run `dc asr submit-s4` to queue only the missing ones.
 
 ## Open issues and next steps
 
