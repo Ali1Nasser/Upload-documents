@@ -1,4 +1,16 @@
 {
   "v": 1,
-  "jobs": {}
+  "jobs": {
+    "9": {
+      "label": "ingest-probe",
+      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py ingest probe",
+      "tsp_id": 9,
+      "status": "queued",
+      "mem_gb": 1.5,
+      "expected_gb": 0.0,
+      "engine": "",
+      "attempts": 1,
+      "submitted": "2026-10-07T14:15:15Z"
+    }
+  }
 }
