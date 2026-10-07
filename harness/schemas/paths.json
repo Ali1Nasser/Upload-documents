@@ -82,6 +82,41 @@
       "format": "json"
     },
     {
+      "glob": "corpus/canon/knowledge_index.jsonl",
+      "schema": "knowledge_index",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/crash_course_steps.jsonl",
+      "schema": "crash_course_step",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/hub_items.jsonl",
+      "schema": "hub_item",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/canon/hub_shots.jsonl",
+      "schema": "hub_shot",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/transcripts/*.asr.json",
+      "schema": "asr",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/transcripts/*.align.json",
+      "schema": "align_report",
+      "format": "json"
+    },
+    {
+      "glob": "corpus/audio/s2_script_id.json",
+      "schema": "s2_script_id",
+      "format": "json"
+    },
+    {
       "glob": "corpus/canon/chapters.json",
       "schema": "canon_chapters",
       "format": "json"
@@ -160,26 +195,6 @@
       "glob": "corpus/canon/contradictions.json",
       "schema": "canon_contradictions",
       "format": "json"
-    },
-    {
-      "glob": "corpus/canon/knowledge_index.jsonl",
-      "schema": "knowledge_index",
-      "format": "jsonl"
-    },
-    {
-      "glob": "corpus/canon/crash_course_steps.jsonl",
-      "schema": "crash_course_step",
-      "format": "jsonl"
-    },
-    {
-      "glob": "corpus/canon/hub_items.jsonl",
-      "schema": "hub_item",
-      "format": "jsonl"
-    },
-    {
-      "glob": "corpus/canon/hub_shots.jsonl",
-      "schema": "hub_shot",
-      "format": "jsonl"
     }
   ]
 }

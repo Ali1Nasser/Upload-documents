@@ -85,7 +85,8 @@ def guards(mem_gb, expected_gb, q):
     """Return (ok, reason). RAM: MemAvailable minus memory declared by jobs still waiting to start."""
     avail = C.mem_available_gb()
     if avail is not None:
-        pending = sum(j.get("mem_gb", 0) for j in q["jobs"].values() if j.get("status") == "queued")
+        # at most `slots` jobs can run at once, so only the largest `slots` queued jobs can ever be resident together
+        pending = sum(sorted((j.get("mem_gb", 0) for j in q["jobs"].values() if j.get("status") == "queued"), reverse=True)[:slots()])
         if avail - pending - mem_gb < MIN_FREE_RAM_GB:
             return False, (f"RAM guard: {avail:.1f} GB available - {pending:.1f} GB already promised to queued jobs "
                            f"- {mem_gb:.1f} GB for this job < {MIN_FREE_RAM_GB:.0f} GB floor")

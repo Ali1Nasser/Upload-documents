@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:s2_script_id",
+  "title": "audio/s2_script_id.json (which script S2 reads)",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "audio_id": {
+      "type": "string"
+    },
+    "best_reference": {
+      "type": "string"
+    },
+    "best_median_score": {
+      "type": "number"
+    },
+    "reads_same_script_as_s1": {
+      "type": "boolean"
+    },
+    "provisional_role": {
+      "type": "string",
+      "enum": [
+        "trunk",
+        "deep-dive",
+        "reference",
+        "unused"
+      ]
+    },
+    "comparison": {
+      "type": "object"
+    },
+    "audio_profile": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "v",
+    "audio_id",
+    "best_reference",
+    "best_median_score",
+    "reads_same_script_as_s1",
+    "provisional_role",
+    "comparison"
+  ]
+}

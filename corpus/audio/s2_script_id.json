@@ -1,0 +1,249 @@
+{
+  "v": 1,
+  "audio_id": "a:S2:ar-esraa",
+  "windows_s": [
+    {
+      "start_s": 300.0,
+      "dur_s": 180.0
+    },
+    {
+      "start_s": 2400.0,
+      "dur_s": 180.0
+    }
+  ],
+  "asr_words": [
+    308,
+    299
+  ],
+  "asr_sample": [
+    "الكمبيوتر بيعمل حاجة واحدة بسرعة رهيبة ومكررة بيجيب instruction بيفكها وينفزها بص على المؤشر وهو ماشي دي الماكينة كلها والداتة بتعيش في مكانين والفرق بينهم هو اللي هيحدد أغلب مشاكل الأداء اللي هتقابلك بعدين الرام سريعة وليها عنوين وبتنسى كل حاجة أول ما البرنامج يقف",
+    "أحفدها بس هما اللي تأثروا والفرع التاني كمل شغل لأن الجراف عارف مين كان معتمد على مين فعلا"
+  ],
+  "timeline_vs_s1": {
+    "matched_segments": 32,
+    "median_offset_ms": 465.0,
+    "min_ms": -2000,
+    "max_ms": 4800,
+    "within_1s": 21,
+    "offsets_ms": [
+      30,
+      950,
+      1150,
+      4800,
+      1840,
+      560,
+      420,
+      60,
+      1090,
+      2940,
+      150,
+      510,
+      550,
+      -2000,
+      80,
+      -680,
+      650,
+      730,
+      -680,
+      1440,
+      -680,
+      910,
+      -1270,
+      -300,
+      -190,
+      -260,
+      -1220,
+      -100,
+      680,
+      2600,
+      4040,
+      340
+    ]
+  },
+  "comparison": {
+    "master_s8_ar (S1 script)": [
+      {
+        "window": 0,
+        "segments": 31,
+        "median": 100.0,
+        "share_ge_80": 0.774,
+        "share_ge_90": 0.677,
+        "matched_chapters_or_relpos": [
+          "CH-03",
+          "CH-04"
+        ]
+      },
+      {
+        "window": 1,
+        "segments": 37,
+        "median": 93.5,
+        "share_ge_80": 0.757,
+        "share_ge_90": 0.568,
+        "matched_chapters_or_relpos": [
+          "CH-03",
+          "CH-22",
+          "CH-23"
+        ]
+      }
+    ],
+    "T5 Claude film script (DA_Camp_Narration_Script_AR.md)": [
+      {
+        "window": 0,
+        "segments": 31,
+        "median": 100.0,
+        "share_ge_80": 0.774,
+        "share_ge_90": 0.677,
+        "matched_chapters_or_relpos": [
+          0.074,
+          0.076,
+          0.079,
+          0.081,
+          0.082,
+          0.083,
+          0.085,
+          0.088,
+          0.089,
+          0.091,
+          0.092,
+          0.093
+        ]
+      },
+      {
+        "window": 1,
+        "segments": 37,
+        "median": 93.5,
+        "share_ge_80": 0.757,
+        "share_ge_90": 0.568,
+        "matched_chapters_or_relpos": [
+          0.077,
+          0.575,
+          0.576,
+          0.577,
+          0.578,
+          0.579,
+          0.58,
+          0.581,
+          0.583,
+          0.584,
+          0.586,
+          0.587
+        ]
+      }
+    ],
+    "T2 unified Egyptian narration": [
+      {
+        "window": 0,
+        "segments": 31,
+        "median": 100.0,
+        "share_ge_80": 0.71,
+        "share_ge_90": 0.645,
+        "matched_chapters_or_relpos": [
+          0.084,
+          0.087,
+          0.088,
+          0.089,
+          0.09,
+          0.092,
+          0.094,
+          0.095,
+          0.096,
+          0.097,
+          0.098,
+          0.099
+        ]
+      },
+      {
+        "window": 1,
+        "segments": 37,
+        "median": 93.5,
+        "share_ge_80": 0.757,
+        "share_ge_90": 0.568,
+        "matched_chapters_or_relpos": [
+          0.036,
+          0.121,
+          0.624,
+          0.625,
+          0.626,
+          0.628,
+          0.629,
+          0.63,
+          0.631,
+          0.632,
+          0.633,
+          0.641
+        ]
+      }
+    ],
+    "T4 28-min V2 narration": [
+      {
+        "window": 0,
+        "segments": 31,
+        "median": 49.1,
+        "share_ge_80": 0.0,
+        "share_ge_90": 0.0,
+        "matched_chapters_or_relpos": [
+          0.022,
+          0.056,
+          0.057,
+          0.074,
+          0.076,
+          0.092,
+          0.132,
+          0.142,
+          0.143,
+          0.149,
+          0.161,
+          0.169
+        ]
+      },
+      {
+        "window": 1,
+        "segments": 37,
+        "median": 50.0,
+        "share_ge_80": 0.0,
+        "share_ge_90": 0.0,
+        "matched_chapters_or_relpos": [
+          0.022,
+          0.023,
+          0.056,
+          0.057,
+          0.058,
+          0.076,
+          0.143,
+          0.161,
+          0.163,
+          0.17,
+          0.175,
+          0.191
+        ]
+      }
+    ]
+  },
+  "best_reference": "master_s8_ar (S1 script)",
+  "best_median_score": 96.8,
+  "reads_same_script_as_s1": true,
+  "audio_profile": {
+    "music_bed_score": 0.947,
+    "speech_ratio": 0.666,
+    "noise_floor_db": -31.6,
+    "pauses": 689,
+    "frame_rms_db_p05_p50_p95": [
+      -43.5,
+      -26.0,
+      -14.9
+    ],
+    "s1_for_comparison": {
+      "music_bed_score": 0.0,
+      "speech_ratio": 0.6658,
+      "noise_floor_db": -90.0,
+      "frame_rms_db_p05_p50_p95": [
+        -90.0,
+        -25.9,
+        -15.0
+      ]
+    }
+  },
+  "provisional_role": "reference",
+  "note": "Provisional only: ADR-001 decides roles. Score = rapidfuzz partial_ratio of each ASR segment (>= 25 folded chars) against the folded reference text.",
+  "created": "2026-10-07T16:09:38Z"
+}

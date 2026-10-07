@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:align_report",
+  "title": "transcripts/<audio>.align.json (per-chapter forced-alignment report)",
+  "type": "object",
+  "properties": {
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "audio_id": {
+      "type": "string",
+      "pattern": "^a:[A-Za-z0-9]+:[A-Za-z0-9._-]+$"
+    },
+    "method": {
+      "type": "string"
+    },
+    "words": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "median_conf": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "chapters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "chapter": {
+            "type": "string",
+            "pattern": "^CH-\\d\\d$"
+          },
+          "window_s": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "n_words": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "median_conf": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "words_outside_window": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "chapter",
+          "window_s",
+          "n_words",
+          "median_conf",
+          "words_outside_window"
+        ]
+      }
+    },
+    "flagged": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "boundary_overlaps": {
+      "type": "array"
+    }
+  },
+  "required": [
+    "v",
+    "audio_id",
+    "method",
+    "words",
+    "median_conf",
+    "chapters",
+    "flagged"
+  ]
+}

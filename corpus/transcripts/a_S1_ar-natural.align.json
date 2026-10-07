@@ -1,0 +1,963 @@
+{
+  "v": 1,
+  "audio_id": "a:S1:ar-natural",
+  "method": "mms_fa",
+  "words": 6644,
+  "median_conf": 0.8261,
+  "chapters": [
+    {
+      "chapter": "CH-00",
+      "window_s": [
+        0,
+        95
+      ],
+      "align_window_s": [
+        0.0,
+        93.19
+      ],
+      "n_words": 135,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-00_0.txt"
+      ],
+      "median_conf": 0.8352,
+      "p10_conf": 0.378,
+      "first_word_s": 0.98,
+      "last_word_s": 91.02,
+      "lead_in_s": 0.98,
+      "tail_s": 3.98,
+      "words_outside_window": 0,
+      "low_conf_words": 9,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-01",
+      "window_s": [
+        95,
+        200
+      ],
+      "align_window_s": [
+        93.19,
+        198.45
+      ],
+      "n_words": 143,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-01_0.txt"
+      ],
+      "median_conf": 0.7866,
+      "p10_conf": 0.4564,
+      "first_word_s": 96.04,
+      "last_word_s": 196.5,
+      "lead_in_s": 1.04,
+      "tail_s": 3.5,
+      "words_outside_window": 0,
+      "low_conf_words": 4,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-02",
+      "window_s": [
+        200,
+        300
+      ],
+      "align_window_s": [
+        198.45,
+        298.64
+      ],
+      "n_words": 162,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-02_0.txt"
+      ],
+      "median_conf": 0.8299,
+      "p10_conf": 0.4217,
+      "first_word_s": 200.96,
+      "last_word_s": 296.9,
+      "lead_in_s": 0.96,
+      "tail_s": 3.1,
+      "words_outside_window": 0,
+      "low_conf_words": 13,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-03",
+      "window_s": [
+        300,
+        385
+      ],
+      "align_window_s": [
+        298.64,
+        383.98
+      ],
+      "n_words": 150,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-03_0.txt"
+      ],
+      "median_conf": 0.8492,
+      "p10_conf": 0.4995,
+      "first_word_s": 300.82,
+      "last_word_s": 381.42,
+      "lead_in_s": 0.82,
+      "tail_s": 3.58,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-04",
+      "window_s": [
+        385,
+        485
+      ],
+      "align_window_s": [
+        383.98,
+        483.66
+      ],
+      "n_words": 159,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-04_0.txt"
+      ],
+      "median_conf": 0.787,
+      "p10_conf": 0.3605,
+      "first_word_s": 385.78,
+      "last_word_s": 481.54,
+      "lead_in_s": 0.78,
+      "tail_s": 3.46,
+      "words_outside_window": 0,
+      "low_conf_words": 11,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-05",
+      "window_s": [
+        485,
+        585
+      ],
+      "align_window_s": [
+        483.66,
+        585.0
+      ],
+      "n_words": 160,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-05_0.txt"
+      ],
+      "median_conf": 0.7747,
+      "p10_conf": 0.291,
+      "first_word_s": 485.7,
+      "last_word_s": 578.66,
+      "lead_in_s": 0.7,
+      "tail_s": 6.34,
+      "words_outside_window": 0,
+      "low_conf_words": 18,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-06",
+      "window_s": [
+        585,
+        680
+      ],
+      "align_window_s": [
+        585.0,
+        680.0
+      ],
+      "n_words": 135,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-06_0.txt"
+      ],
+      "median_conf": 0.8141,
+      "p10_conf": 0.4518,
+      "first_word_s": 585.6,
+      "last_word_s": 675.62,
+      "lead_in_s": 0.6,
+      "tail_s": 4.38,
+      "words_outside_window": 0,
+      "low_conf_words": 7,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-07",
+      "window_s": [
+        680,
+        775
+      ],
+      "align_window_s": [
+        680.0,
+        772.7
+      ],
+      "n_words": 155,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-07_0.txt"
+      ],
+      "median_conf": 0.803,
+      "p10_conf": 0.3167,
+      "first_word_s": 680.98,
+      "last_word_s": 769.34,
+      "lead_in_s": 0.98,
+      "tail_s": 5.66,
+      "words_outside_window": 0,
+      "low_conf_words": 11,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-08",
+      "window_s": [
+        775,
+        875
+      ],
+      "align_window_s": [
+        772.7,
+        873.42
+      ],
+      "n_words": 165,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-08_0.txt"
+      ],
+      "median_conf": 0.8256,
+      "p10_conf": 0.4912,
+      "first_word_s": 775.94,
+      "last_word_s": 870.74,
+      "lead_in_s": 0.94,
+      "tail_s": 4.26,
+      "words_outside_window": 0,
+      "low_conf_words": 6,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-09",
+      "window_s": [
+        875,
+        985
+      ],
+      "align_window_s": [
+        873.42,
+        982.78
+      ],
+      "n_words": 174,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-09_0.txt"
+      ],
+      "median_conf": 0.798,
+      "p10_conf": 0.4037,
+      "first_word_s": 875.84,
+      "last_word_s": 980.18,
+      "lead_in_s": 0.84,
+      "tail_s": 4.82,
+      "words_outside_window": 0,
+      "low_conf_words": 8,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-10",
+      "window_s": [
+        985,
+        1080
+      ],
+      "align_window_s": [
+        982.78,
+        1078.67
+      ],
+      "n_words": 166,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-10_0.txt"
+      ],
+      "median_conf": 0.7331,
+      "p10_conf": 0.3304,
+      "first_word_s": 985.8,
+      "last_word_s": 1078.5,
+      "lead_in_s": 0.8,
+      "tail_s": 1.5,
+      "words_outside_window": 0,
+      "low_conf_words": 15,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-11",
+      "window_s": [
+        1080,
+        1200
+      ],
+      "align_window_s": [
+        1078.67,
+        1200.0
+      ],
+      "n_words": 199,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-11_0.txt"
+      ],
+      "median_conf": 0.7881,
+      "p10_conf": 0.2949,
+      "first_word_s": 1080.74,
+      "last_word_s": 1195.48,
+      "lead_in_s": 0.74,
+      "tail_s": 4.52,
+      "words_outside_window": 0,
+      "low_conf_words": 24,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-12",
+      "window_s": [
+        1200,
+        1315
+      ],
+      "align_window_s": [
+        1200.0,
+        1313.22
+      ],
+      "n_words": 195,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-12_0.txt"
+      ],
+      "median_conf": 0.877,
+      "p10_conf": 0.467,
+      "first_word_s": 1201.06,
+      "last_word_s": 1310.36,
+      "lead_in_s": 1.06,
+      "tail_s": 4.64,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-13",
+      "window_s": [
+        1315,
+        1410
+      ],
+      "align_window_s": [
+        1313.22,
+        1409.32
+      ],
+      "n_words": 155,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-13_0.txt"
+      ],
+      "median_conf": 0.6488,
+      "p10_conf": 0.1757,
+      "first_word_s": 1315.96,
+      "last_word_s": 1407.82,
+      "lead_in_s": 0.96,
+      "tail_s": 2.18,
+      "words_outside_window": 0,
+      "low_conf_words": 21,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-14",
+      "window_s": [
+        1410,
+        1575
+      ],
+      "align_window_s": [
+        1409.32,
+        1571.94
+      ],
+      "n_words": 263,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-14_0.txt",
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-14_1.txt"
+      ],
+      "median_conf": 0.8502,
+      "p10_conf": 0.5353,
+      "first_word_s": 1410.88,
+      "last_word_s": 1570.36,
+      "lead_in_s": 0.88,
+      "tail_s": 4.64,
+      "words_outside_window": 0,
+      "low_conf_words": 10,
+      "interpolated": 0,
+      "align_s": 0.2
+    },
+    {
+      "chapter": "CH-15",
+      "window_s": [
+        1575,
+        1695
+      ],
+      "align_window_s": [
+        1571.94,
+        1695.0
+      ],
+      "n_words": 188,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-15_0.txt"
+      ],
+      "median_conf": 0.8488,
+      "p10_conf": 0.3961,
+      "first_word_s": 1575.78,
+      "last_word_s": 1691.42,
+      "lead_in_s": 0.78,
+      "tail_s": 3.58,
+      "words_outside_window": 0,
+      "low_conf_words": 13,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-16",
+      "window_s": [
+        1695,
+        1805
+      ],
+      "align_window_s": [
+        1695.0,
+        1803.53
+      ],
+      "n_words": 180,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-16_0.txt"
+      ],
+      "median_conf": 0.8874,
+      "p10_conf": 0.5218,
+      "first_word_s": 1695.7,
+      "last_word_s": 1800.56,
+      "lead_in_s": 0.7,
+      "tail_s": 4.44,
+      "words_outside_window": 0,
+      "low_conf_words": 10,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-17",
+      "window_s": [
+        1805,
+        1910
+      ],
+      "align_window_s": [
+        1803.53,
+        1908.32
+      ],
+      "n_words": 166,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-17_0.txt"
+      ],
+      "median_conf": 0.8679,
+      "p10_conf": 0.4952,
+      "first_word_s": 1806.02,
+      "last_word_s": 1905.62,
+      "lead_in_s": 1.02,
+      "tail_s": 4.38,
+      "words_outside_window": 0,
+      "low_conf_words": 1,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-18",
+      "window_s": [
+        1910,
+        2025
+      ],
+      "align_window_s": [
+        1908.32,
+        2024.48
+      ],
+      "n_words": 183,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-18_0.txt"
+      ],
+      "median_conf": 0.8534,
+      "p10_conf": 0.4909,
+      "first_word_s": 1910.96,
+      "last_word_s": 2021.64,
+      "lead_in_s": 0.96,
+      "tail_s": 3.36,
+      "words_outside_window": 0,
+      "low_conf_words": 9,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-19",
+      "window_s": [
+        2025,
+        2140
+      ],
+      "align_window_s": [
+        2024.48,
+        2140.0
+      ],
+      "n_words": 186,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-19_0.txt"
+      ],
+      "median_conf": 0.7639,
+      "p10_conf": 0.3839,
+      "first_word_s": 2025.94,
+      "last_word_s": 2134.7,
+      "lead_in_s": 0.94,
+      "tail_s": 5.3,
+      "words_outside_window": 0,
+      "low_conf_words": 13,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-20",
+      "window_s": [
+        2140,
+        2265
+      ],
+      "align_window_s": [
+        2140.0,
+        2264.01
+      ],
+      "n_words": 185,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-20_0.txt"
+      ],
+      "median_conf": 0.7693,
+      "p10_conf": 0.3504,
+      "first_word_s": 2140.8,
+      "last_word_s": 2261.04,
+      "lead_in_s": 0.8,
+      "tail_s": 3.96,
+      "words_outside_window": 0,
+      "low_conf_words": 15,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-21",
+      "window_s": [
+        2265,
+        2380
+      ],
+      "align_window_s": [
+        2264.01,
+        2379.88
+      ],
+      "n_words": 179,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-21_0.txt"
+      ],
+      "median_conf": 0.8236,
+      "p10_conf": 0.4085,
+      "first_word_s": 2265.7,
+      "last_word_s": 2374.94,
+      "lead_in_s": 0.7,
+      "tail_s": 5.06,
+      "words_outside_window": 0,
+      "low_conf_words": 12,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-22",
+      "window_s": [
+        2380,
+        2500
+      ],
+      "align_window_s": [
+        2379.88,
+        2500.34
+      ],
+      "n_words": 183,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-22_0.txt"
+      ],
+      "median_conf": 0.8279,
+      "p10_conf": 0.4798,
+      "first_word_s": 2380.64,
+      "last_word_s": 2497.9,
+      "lead_in_s": 0.64,
+      "tail_s": 2.1,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0,
+      "align_s": 0.3
+    },
+    {
+      "chapter": "CH-23",
+      "window_s": [
+        2500,
+        2625
+      ],
+      "align_window_s": [
+        2500.34,
+        2623.45
+      ],
+      "n_words": 207,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-23_0.txt"
+      ],
+      "median_conf": 0.8259,
+      "p10_conf": 0.4225,
+      "first_word_s": 2500.96,
+      "last_word_s": 2621.56,
+      "lead_in_s": 0.96,
+      "tail_s": 3.44,
+      "words_outside_window": 0,
+      "low_conf_words": 12,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-24",
+      "window_s": [
+        2625,
+        2740
+      ],
+      "align_window_s": [
+        2623.45,
+        2737.95
+      ],
+      "n_words": 173,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-24_0.txt"
+      ],
+      "median_conf": 0.788,
+      "p10_conf": 0.4072,
+      "first_word_s": 2625.9,
+      "last_word_s": 2731.28,
+      "lead_in_s": 0.9,
+      "tail_s": 8.72,
+      "words_outside_window": 0,
+      "low_conf_words": 6,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-25",
+      "window_s": [
+        2740,
+        2860
+      ],
+      "align_window_s": [
+        2737.95,
+        2857.26
+      ],
+      "n_words": 182,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-25_0.txt"
+      ],
+      "median_conf": 0.8233,
+      "p10_conf": 0.5012,
+      "first_word_s": 2740.86,
+      "last_word_s": 2853.58,
+      "lead_in_s": 0.86,
+      "tail_s": 6.42,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-26",
+      "window_s": [
+        2860,
+        2990
+      ],
+      "align_window_s": [
+        2857.26,
+        2987.54
+      ],
+      "n_words": 184,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-26_0.txt"
+      ],
+      "median_conf": 0.7779,
+      "p10_conf": 0.4787,
+      "first_word_s": 2860.68,
+      "last_word_s": 2984.62,
+      "lead_in_s": 0.68,
+      "tail_s": 5.38,
+      "words_outside_window": 0,
+      "low_conf_words": 5,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-27",
+      "window_s": [
+        2990,
+        3105
+      ],
+      "align_window_s": [
+        2987.54,
+        3104.85
+      ],
+      "n_words": 175,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-27_0.txt"
+      ],
+      "median_conf": 0.9327,
+      "p10_conf": 0.535,
+      "first_word_s": 2990.64,
+      "last_word_s": 3102.52,
+      "lead_in_s": 0.64,
+      "tail_s": 2.48,
+      "words_outside_window": 0,
+      "low_conf_words": 6,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-28",
+      "window_s": [
+        3105,
+        3235
+      ],
+      "align_window_s": [
+        3104.85,
+        3234.27
+      ],
+      "n_words": 216,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-28_0.txt"
+      ],
+      "median_conf": 0.8385,
+      "p10_conf": 0.423,
+      "first_word_s": 3105.94,
+      "last_word_s": 3231.56,
+      "lead_in_s": 0.94,
+      "tail_s": 3.44,
+      "words_outside_window": 0,
+      "low_conf_words": 9,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-29",
+      "window_s": [
+        3235,
+        3360
+      ],
+      "align_window_s": [
+        3234.27,
+        3360.0
+      ],
+      "n_words": 187,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-29_0.txt"
+      ],
+      "median_conf": 0.8754,
+      "p10_conf": 0.4765,
+      "first_word_s": 3235.88,
+      "last_word_s": 3353.22,
+      "lead_in_s": 0.88,
+      "tail_s": 6.78,
+      "words_outside_window": 0,
+      "low_conf_words": 5,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-30",
+      "window_s": [
+        3360,
+        3475
+      ],
+      "align_window_s": [
+        3360.0,
+        3475.14
+      ],
+      "n_words": 206,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-30_0.txt"
+      ],
+      "median_conf": 0.9305,
+      "p10_conf": 0.5172,
+      "first_word_s": 3360.8,
+      "last_word_s": 3473.4,
+      "lead_in_s": 0.8,
+      "tail_s": 1.6,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-31",
+      "window_s": [
+        3475,
+        3595
+      ],
+      "align_window_s": [
+        3475.14,
+        3592.84
+      ],
+      "n_words": 193,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-31_0.txt"
+      ],
+      "median_conf": 0.8516,
+      "p10_conf": 0.4695,
+      "first_word_s": 3475.74,
+      "last_word_s": 3590.06,
+      "lead_in_s": 0.74,
+      "tail_s": 4.94,
+      "words_outside_window": 0,
+      "low_conf_words": 6,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-32",
+      "window_s": [
+        3595,
+        3715
+      ],
+      "align_window_s": [
+        3592.84,
+        3714.07
+      ],
+      "n_words": 191,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-32_0.txt"
+      ],
+      "median_conf": 0.8474,
+      "p10_conf": 0.4277,
+      "first_word_s": 3595.62,
+      "last_word_s": 3712.42,
+      "lead_in_s": 0.62,
+      "tail_s": 2.58,
+      "words_outside_window": 0,
+      "low_conf_words": 8,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-33",
+      "window_s": [
+        3715,
+        3855
+      ],
+      "align_window_s": [
+        3714.07,
+        3854.42
+      ],
+      "n_words": 219,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-33_0.txt",
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-33_1.txt"
+      ],
+      "median_conf": 0.7866,
+      "p10_conf": 0.3971,
+      "first_word_s": 3715.96,
+      "last_word_s": 3853.18,
+      "lead_in_s": 0.96,
+      "tail_s": 1.82,
+      "words_outside_window": 0,
+      "low_conf_words": 11,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-34",
+      "window_s": [
+        3855,
+        3995
+      ],
+      "align_window_s": [
+        3854.42,
+        3992.52
+      ],
+      "n_words": 207,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-34_0.txt"
+      ],
+      "median_conf": 0.7897,
+      "p10_conf": 0.3377,
+      "first_word_s": 3855.86,
+      "last_word_s": 3991.6,
+      "lead_in_s": 0.86,
+      "tail_s": 3.4,
+      "words_outside_window": 0,
+      "low_conf_words": 17,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-35",
+      "window_s": [
+        3995,
+        4130
+      ],
+      "align_window_s": [
+        3992.52,
+        4128.93
+      ],
+      "n_words": 212,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-35_0.txt"
+      ],
+      "median_conf": 0.7973,
+      "p10_conf": 0.3023,
+      "first_word_s": 3995.74,
+      "last_word_s": 4127.14,
+      "lead_in_s": 0.74,
+      "tail_s": 2.86,
+      "words_outside_window": 0,
+      "low_conf_words": 21,
+      "interpolated": 0,
+      "align_s": 0.1
+    },
+    {
+      "chapter": "CH-36",
+      "window_s": [
+        4130,
+        4205
+      ],
+      "align_window_s": [
+        4128.93,
+        4204.99
+      ],
+      "n_words": 126,
+      "files": [
+        "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-36_0.txt"
+      ],
+      "median_conf": 0.8275,
+      "p10_conf": 0.469,
+      "first_word_s": 4130.66,
+      "last_word_s": 4202.96,
+      "lead_in_s": 0.66,
+      "tail_s": 2.04,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0,
+      "align_s": 0.0
+    }
+  ],
+  "window_source": "master.md §7 (identical to DA_SCENES in 02_Natural_AR_EDITABLE_STANDALONE.html)",
+  "window_mismatch": [],
+  "boundary_overlaps": [],
+  "flagged": [],
+  "pad_s": 0.0,
+  "window_mode": "asr-anchored (midpoint of the pauses between matched whisper words)",
+  "anchor_info": {
+    "matched_words": 5209,
+    "notes": [
+      "CH-05|CH-06: nominal boundary (anchors inconsistent)",
+      "CH-06|CH-07: nominal boundary (anchors inconsistent)",
+      "CH-11|CH-12: nominal boundary (anchors inconsistent)",
+      "CH-15|CH-16: nominal boundary (anchors inconsistent)",
+      "CH-19|CH-20: nominal boundary (anchors inconsistent)",
+      "CH-29|CH-30: nominal boundary (anchors inconsistent)"
+    ]
+  },
+  "text_source": "LMArena/Folder 1/dacamp/tts/CH-nn_k.txt",
+  "created": "2026-10-07T16:07:45Z",
+  "vad_coverage": {
+    "vad_speech_s": 2799.7,
+    "unexplained_s": 20.3,
+    "unexplained_share": 0.0073,
+    "segments_with_ge_0.7s_unexplained": [],
+    "chapters_with_all_words_inside_nominal_window": 37,
+    "vad_segments_crossing_a_chapter_boundary": []
+  }
+}

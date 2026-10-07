@@ -5,7 +5,7 @@ import sys
 from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
-    "audio": "P3", "asr": "P3", "graph": "P4", "story": "P5", "spec": "P7/P8",
+    "graph": "P4", "story": "P5", "spec": "P7/P8",
     "render": "P6/P9", "sound": "P11", "qa": "P9", "deliver": "P14", "dag": "P0 (later)",
 }
 
@@ -79,6 +79,75 @@ def build():
         if name == "probe":
             s.add_argument("--timeout", type=int, default=3600, help="per-file decode timeout (s)")
         s.set_defaults(fn=f"ingest.cmd_{name}")
+
+    # audio (P3)
+    au = sub.add_parser("audio", help="P3 audio truth: decode, QA profile, S2 script identification").add_subparsers(dest="audio_cmd", required=True)
+    s = au.add_parser("decode", help="decode every unique audio asset to 16 kHz mono WAV (data/derived/audio/16k)")
+    s.add_argument("--ids", nargs="*", help="audio ids (default all 71)")
+    s.add_argument("--force", action="store_true")
+    s.add_argument("--inline", action="store_true")
+    s.set_defaults(fn="audio.cmd_decode")
+    s = au.add_parser("qa", help="profile each audio asset -> corpus/audio/assets.json + reports/audio/sources.md")
+    s.add_argument("--ids", nargs="*")
+    s.add_argument("--force", action="store_true")
+    s.add_argument("--inline", action="store_true")
+    s.add_argument("--shard", help="k/n (internal: one queue job per shard)")
+    s.add_argument("--no-report", action="store_true")
+    s.set_defaults(fn="audio.cmd_qa")
+    s = au.add_parser("report", help="rebuild assets.json + reports/audio/sources.md from cached per-asset profiles")
+    s.set_defaults(fn="audio.cmd_report")
+    s = au.add_parser("crosscheck", help="S4 part: MP3 vs the audio stream of its NotebookLM MP4 (waveform correlation)")
+    s.add_argument("part", help="e.g. P23")
+    s.add_argument("--inline", action="store_true")
+    s.set_defaults(fn="audio.cmd_crosscheck")
+    s = au.add_parser("voices", help="ECAPA voice identity per asset: which S4 parts share a narrator")
+    s.add_argument("--inline", action="store_true")
+    s.set_defaults(fn="audio.cmd_voices")
+    s = au.add_parser("identify-s2", help="turbo-ASR two 3-min S2 windows and fuzzy-match against candidate scripts")
+    s.add_argument("--force", action="store_true")
+    s.add_argument("--inline", action="store_true")
+    s.set_defaults(fn="s2id.cmd_identify")
+
+    # asr (P3)
+    asr = sub.add_parser("asr", help="P3 ASR: transcribe, calibrate, agreement").add_subparsers(dest="asr_cmd", required=True)
+    s = asr.add_parser("transcribe", help="faster-whisper transcription -> corpus/transcripts/<audio>.asr.json")
+    s.add_argument("audio_id")
+    s.add_argument("--model", default="turbo", choices=["turbo", "large-v3"])
+    s.add_argument("--threads", type=int, default=2)
+    s.add_argument("--start", type=float, default=0.0, help="window start (s)")
+    s.add_argument("--dur", type=float, default=0.0, help="window length (s); 0 = to the end")
+    s.add_argument("--out", help="output path (default corpus/transcripts/<audio>.asr.json)")
+    s.add_argument("--shard", help="k/n: transcribe the k-th of n equal shards into data/derived/asr/ (merge with --merge)")
+    s.add_argument("--merge", action="store_true", help="merge shard files into the final asr.json")
+    s.add_argument("--prompt", default="glossary", help="'glossary' | 'none' | literal text")
+    s.add_argument("--beam", type=int, default=5, help="beam size (1 = greedy)")
+    s.add_argument("--force", action="store_true")
+    s.add_argument("--inline", action="store_true")
+    s.set_defaults(fn="asr.cmd_transcribe")
+    s = asr.add_parser("submit-s4", help="queue one transcription job per S4 part (28 audio assets incl. P00b)")
+    s.add_argument("--model", default="turbo")
+    s.add_argument("--threads", type=int, default=1)
+    s.add_argument("--force", action="store_true")
+    s.set_defaults(fn="asr.cmd_submit_s4")
+    s = asr.add_parser("calibrate", help="P3.4: CER/WER of turbo vs large-v3 on 10 min of S1 -> reports/asr/calibration.md")
+    s.add_argument("--prepare", action="store_true", help="queue the large-v3 clip jobs")
+    s.add_argument("--variant", default="large-v3", help="calibration variant label: large-v3 (beam 5) | large-v3-b1 (greedy) | turbo-b1 ...")
+    s.add_argument("--report", action="store_true", help="score available outputs and write the report")
+    s.set_defaults(fn="asr.cmd_calibrate")
+    s = asr.add_parser("agreement", help="S1 aligner vs whisper word timing -> reports/asr/s1_agreement.md")
+    s.set_defaults(fn="asr.cmd_agreement")
+
+    # align (P3)
+    al = sub.add_parser("align", help="P3 forced alignment").add_subparsers(dest="align_cmd", required=True)
+    s = al.add_parser("scripted", help="align the script text of a scripted source (S1) per chapter window")
+    s.add_argument("audio_id", help="a:S1:ar-natural")
+    s.add_argument("--force", action="store_true")
+    s.add_argument("--inline", action="store_true")
+    s.add_argument("--emissions-only", action="store_true")
+    s.set_defaults(fn="align.cmd_scripted")
+    s = al.add_parser("check", help="containment / VAD coverage / per-chapter table -> reports/audio/s1_alignment.md")
+    s.add_argument("audio_id", help="a:S1:ar-natural")
+    s.set_defaults(fn="align.cmd_check")
 
     # corpus (P2): group and subcommands live in corpus_cli.py
     from . import corpus_cli

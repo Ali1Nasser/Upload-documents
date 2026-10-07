@@ -1,0 +1,2135 @@
+[
+  {
+    "v": 1,
+    "audio_id": "a:S1:ar-natural",
+    "file_id": "f:519039775c27",
+    "family": "S1",
+    "lang": "ar-EG",
+    "duration_ms": 4205000,
+    "sr": 48000,
+    "channels": 2,
+    "qa": {
+      "lufs_i": -16.0,
+      "lra": 6.3,
+      "tp_dbtp": -1.0,
+      "speech_ratio": 0.6658,
+      "pauses": 608,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 8601.5625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T1:§8-AR",
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8261
+    },
+    "role": "trunk"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S2:ar-esraa",
+    "file_id": "f:913842e62a55",
+    "family": "S2",
+    "lang": "ar-EG",
+    "duration_ms": 4205000,
+    "sr": 48000,
+    "channels": 2,
+    "qa": {
+      "lufs_i": -16.0,
+      "lra": 7.6,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.666,
+      "pauses": 689,
+      "noise_floor_db": -31.6,
+      "bandwidth_hz": 8554.6875,
+      "clipping": 0,
+      "music_bed_score": 0.947,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T1:§8-AR",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-00_0",
+    "file_id": "f:bc541aa4b6d1",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 59784,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.7,
+      "lra": 3.6,
+      "tp_dbtp": -1.3,
+      "speech_ratio": 0.8676,
+      "pauses": 11,
+      "noise_floor_db": -80.1,
+      "bandwidth_hz": 7605.46875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-00_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-01_0",
+    "file_id": "f:b5e8d71d2335",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 75336,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 3.2,
+      "tp_dbtp": -1.8,
+      "speech_ratio": 0.8813,
+      "pauses": 12,
+      "noise_floor_db": -85.3,
+      "bandwidth_hz": 7839.84375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-01_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-02_0",
+    "file_id": "f:f20220278898",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 68808,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 3.1,
+      "tp_dbtp": -1.1,
+      "speech_ratio": 0.87,
+      "pauses": 9,
+      "noise_floor_db": -79.2,
+      "bandwidth_hz": 7335.9375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-02_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-03_0",
+    "file_id": "f:23a416426152",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 80064,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.3,
+      "lra": 3.7,
+      "tp_dbtp": -2.3,
+      "speech_ratio": 0.9027,
+      "pauses": 4,
+      "noise_floor_db": -80.0,
+      "bandwidth_hz": 3363.28125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-03_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-04_0",
+    "file_id": "f:06b5a0e4f30a",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 72048,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 5.0,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.8919,
+      "pauses": 11,
+      "noise_floor_db": -74.1,
+      "bandwidth_hz": 6820.3125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-04_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-05_0",
+    "file_id": "f:3cb592b681cb",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 69024,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.8,
+      "lra": 2.5,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.8791,
+      "pauses": 13,
+      "noise_floor_db": -81.8,
+      "bandwidth_hz": 7863.28125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-05_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-06_0",
+    "file_id": "f:0e81fea1558c",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 69264,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.9,
+      "lra": 3.4,
+      "tp_dbtp": -0.8,
+      "speech_ratio": 0.9212,
+      "pauses": 3,
+      "noise_floor_db": -78.1,
+      "bandwidth_hz": 7734.375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-06_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-07_0",
+    "file_id": "f:58e3e4349799",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 69648,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 3.8,
+      "tp_dbtp": -2.5,
+      "speech_ratio": 0.9564,
+      "pauses": 1,
+      "noise_floor_db": -68.4,
+      "bandwidth_hz": 6527.34375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-07_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-08_0",
+    "file_id": "f:b372f816ae59",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 77376,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 3.1,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.8915,
+      "pauses": 12,
+      "noise_floor_db": -72.6,
+      "bandwidth_hz": 7582.03125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-08_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-09_0",
+    "file_id": "f:e00c5be1fc46",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 77208,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.9,
+      "lra": 3.0,
+      "tp_dbtp": -2.4,
+      "speech_ratio": 0.8999,
+      "pauses": 2,
+      "noise_floor_db": -72.9,
+      "bandwidth_hz": 7640.625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-09_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-10_0",
+    "file_id": "f:b3e6bee1458d",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 74616,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 3.7,
+      "tp_dbtp": -2.2,
+      "speech_ratio": 0.8484,
+      "pauses": 18,
+      "noise_floor_db": -85.8,
+      "bandwidth_hz": 6175.78125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-10_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-11_0",
+    "file_id": "f:96171c63b409",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 97344,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 3.1,
+      "tp_dbtp": -2.6,
+      "speech_ratio": 0.8941,
+      "pauses": 15,
+      "noise_floor_db": -81.0,
+      "bandwidth_hz": 5835.9375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-11_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-12_0",
+    "file_id": "f:3b549a7a401d",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 83616,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 2.5,
+      "tp_dbtp": -2.6,
+      "speech_ratio": 0.9311,
+      "pauses": 7,
+      "noise_floor_db": -68.3,
+      "bandwidth_hz": 3550.78125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-12_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-13_0",
+    "file_id": "f:51200da7ef27",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 78648,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 3.3,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.8275,
+      "pauses": 20,
+      "noise_floor_db": -82.2,
+      "bandwidth_hz": 7687.5,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-13_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-14_0",
+    "file_id": "f:f25b7992f408",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 106776,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 2.4,
+      "tp_dbtp": -1.0,
+      "speech_ratio": 0.9359,
+      "pauses": 1,
+      "noise_floor_db": -75.5,
+      "bandwidth_hz": 7277.34375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-14_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-14_1",
+    "file_id": "f:6dcd3cb3fc6d",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 24768,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.3,
+      "lra": 1.8,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.8984,
+      "pauses": 2,
+      "noise_floor_db": -71.2,
+      "bandwidth_hz": 6738.28125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-14_1.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-14_vo",
+    "file_id": "f:826ee3bab473",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 131544,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 2.3,
+      "tp_dbtp": -1.0,
+      "speech_ratio": 0.9292,
+      "pauses": 4,
+      "noise_floor_db": -75.1,
+      "bandwidth_hz": 7171.875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-14_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-15_0",
+    "file_id": "f:86fbc7c629c4",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 89256,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 2.7,
+      "tp_dbtp": -2.0,
+      "speech_ratio": 0.925,
+      "pauses": 4,
+      "noise_floor_db": -79.2,
+      "bandwidth_hz": 7347.65625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-15_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-16_0",
+    "file_id": "f:1327110dcc67",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 79536,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 4.3,
+      "tp_dbtp": -1.8,
+      "speech_ratio": 0.9213,
+      "pauses": 2,
+      "noise_floor_db": -76.7,
+      "bandwidth_hz": 7253.90625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-16_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-17_0",
+    "file_id": "f:c85e9ac9d6c5",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 82824,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 2.9,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.9239,
+      "pauses": 11,
+      "noise_floor_db": -67.3,
+      "bandwidth_hz": 7253.90625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-17_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-18_0",
+    "file_id": "f:20f185bda878",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 87576,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 3.5,
+      "tp_dbtp": -2.3,
+      "speech_ratio": 0.8907,
+      "pauses": 4,
+      "noise_floor_db": -81.5,
+      "bandwidth_hz": 7183.59375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-18_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-19_0",
+    "file_id": "f:bed18ea99e68",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 85728,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 2.6,
+      "tp_dbtp": -1.8,
+      "speech_ratio": 0.9754,
+      "pauses": 0,
+      "noise_floor_db": -64.2,
+      "bandwidth_hz": 7078.125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-19_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-20_0",
+    "file_id": "f:31c98a146cae",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 97344,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 3.5,
+      "tp_dbtp": -0.9,
+      "speech_ratio": 0.9057,
+      "pauses": 14,
+      "noise_floor_db": -77.6,
+      "bandwidth_hz": 6726.5625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-20_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-21_0",
+    "file_id": "f:bfa6b28b01a9",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 87984,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 2.8,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.8523,
+      "pauses": 18,
+      "noise_floor_db": -85.4,
+      "bandwidth_hz": 7628.90625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-21_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-22_0",
+    "file_id": "f:9ff5e4dc4edf",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 79344,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 2.4,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.9374,
+      "pauses": 0,
+      "noise_floor_db": -74.4,
+      "bandwidth_hz": 7628.90625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-22_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-23_0",
+    "file_id": "f:f09f75d37bb4",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 100104,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.8,
+      "lra": 3.8,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.9016,
+      "pauses": 12,
+      "noise_floor_db": -65.5,
+      "bandwidth_hz": 7792.96875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-23_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-24_0",
+    "file_id": "f:bdc50200937d",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 80304,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 3.2,
+      "tp_dbtp": -2.4,
+      "speech_ratio": 0.9164,
+      "pauses": 4,
+      "noise_floor_db": -76.6,
+      "bandwidth_hz": 6914.0625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-24_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-25_0",
+    "file_id": "f:116c4d180d8f",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 80616,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 2.6,
+      "tp_dbtp": -2.1,
+      "speech_ratio": 0.9086,
+      "pauses": 8,
+      "noise_floor_db": -70.8,
+      "bandwidth_hz": 7699.21875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-25_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-26_0",
+    "file_id": "f:f41520dd3338",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 84528,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 2.3,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.8924,
+      "pauses": 9,
+      "noise_floor_db": -71.9,
+      "bandwidth_hz": 6960.9375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-26_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-27_0",
+    "file_id": "f:e7250f53ac8c",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 89088,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 3.6,
+      "tp_dbtp": -1.8,
+      "speech_ratio": 0.8864,
+      "pauses": 16,
+      "noise_floor_db": -77.4,
+      "bandwidth_hz": 7417.96875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-27_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-28_0",
+    "file_id": "f:0efdbeafbd0a",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 98376,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 2.9,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.8633,
+      "pauses": 21,
+      "noise_floor_db": -70.4,
+      "bandwidth_hz": 7582.03125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-28_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-29_0",
+    "file_id": "f:533f0818fcf4",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 86496,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 2.9,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.9152,
+      "pauses": 7,
+      "noise_floor_db": -75.9,
+      "bandwidth_hz": 6890.625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-29_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-30_0",
+    "file_id": "f:1dc5aa5c2849",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 90384,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 2.8,
+      "tp_dbtp": -1.8,
+      "speech_ratio": 0.9693,
+      "pauses": 0,
+      "noise_floor_db": -68.1,
+      "bandwidth_hz": 7101.5625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-30_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-31_0",
+    "file_id": "f:a6145215c746",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 86784,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.3,
+      "lra": 4.5,
+      "tp_dbtp": -1.4,
+      "speech_ratio": 0.9105,
+      "pauses": 9,
+      "noise_floor_db": -77.0,
+      "bandwidth_hz": 7265.625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-31_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-32_0",
+    "file_id": "f:563c68fe2d0a",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 83064,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 4.5,
+      "tp_dbtp": -2.7,
+      "speech_ratio": 0.9115,
+      "pauses": 7,
+      "noise_floor_db": -74.3,
+      "bandwidth_hz": 7406.25,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-32_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-33_0",
+    "file_id": "f:cbad98c72824",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 62856,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 4.8,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.8881,
+      "pauses": 6,
+      "noise_floor_db": -78.0,
+      "bandwidth_hz": 7429.6875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-33_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-33_1",
+    "file_id": "f:36e544617b1e",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 56808,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 3.8,
+      "tp_dbtp": -0.7,
+      "speech_ratio": 0.9247,
+      "pauses": 2,
+      "noise_floor_db": -75.2,
+      "bandwidth_hz": 6339.84375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 2,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-33_1.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-33_vo",
+    "file_id": "f:b6fd375246f7",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 119664,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.5,
+      "lra": 4.4,
+      "tp_dbtp": -0.7,
+      "speech_ratio": 0.9053,
+      "pauses": 9,
+      "noise_floor_db": -77.1,
+      "bandwidth_hz": 7042.96875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-33_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-34_0",
+    "file_id": "f:ff7d07ee22bf",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 99336,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.4,
+      "lra": 3.1,
+      "tp_dbtp": -1.8,
+      "speech_ratio": 0.9488,
+      "pauses": 3,
+      "noise_floor_db": -72.0,
+      "bandwidth_hz": 6867.1875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-34_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-35_0",
+    "file_id": "f:e1de2c8072a0",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 104016,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.6,
+      "lra": 3.7,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.8066,
+      "pauses": 33,
+      "noise_floor_db": -85.3,
+      "bandwidth_hz": 6093.75,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-35_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S3:CH-36_0",
+    "file_id": "f:1a3194ba3b7f",
+    "family": "S3",
+    "lang": "ar-EG",
+    "duration_ms": 62088,
+    "sr": 24000,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -19.7,
+      "lra": 4.0,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.8674,
+      "pauses": 12,
+      "noise_floor_db": -83.9,
+      "bandwidth_hz": 7640.625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T6:dacamp/tts/CH-36_0.txt",
+    "alignment": {},
+    "role": "reference"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P00",
+    "file_id": "f:297ec328f7b6",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 530390,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.6,
+      "lra": 3.9,
+      "tp_dbtp": 0.1,
+      "speech_ratio": 0.9427,
+      "pauses": 35,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 9388.4765625,
+      "clipping": 2,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P00b",
+    "file_id": "f:6162af27f58f",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 523860,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.4,
+      "lra": 4.4,
+      "tp_dbtp": -0.9,
+      "speech_ratio": 0.8889,
+      "pauses": 64,
+      "noise_floor_db": -80.5,
+      "bandwidth_hz": 8333.349609375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P01",
+    "file_id": "f:fc5b9dcba339",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 536477,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.7,
+      "lra": 5.5,
+      "tp_dbtp": 1.1,
+      "speech_ratio": 0.9314,
+      "pauses": 40,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 10077.5390625,
+      "clipping": 21,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P02",
+    "file_id": "f:8f223a689238",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 397401,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.9,
+      "lra": 3.3,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.8927,
+      "pauses": 43,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 8031.884765625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P03",
+    "file_id": "f:cb8f9665b23f",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 562260,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.3,
+      "lra": 3.2,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.8651,
+      "pauses": 102,
+      "noise_floor_db": -87.1,
+      "bandwidth_hz": 7881.15234375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P04",
+    "file_id": "f:4f9d188533e6",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 480653,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.3,
+      "lra": 3.4,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.849,
+      "pauses": 101,
+      "noise_floor_db": -85.0,
+      "bandwidth_hz": 7385.888671875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P05",
+    "file_id": "f:bb6d7bb4cf54",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 571011,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.9,
+      "lra": 3.7,
+      "tp_dbtp": -1.2,
+      "speech_ratio": 0.9002,
+      "pauses": 65,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 8936.279296875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P06",
+    "file_id": "f:6ac50769aa8a",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 520986,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.4,
+      "lra": 3.2,
+      "tp_dbtp": -1.3,
+      "speech_ratio": 0.8468,
+      "pauses": 128,
+      "noise_floor_db": -82.4,
+      "bandwidth_hz": 8225.68359375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P07",
+    "file_id": "f:26930406d40c",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 474436,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.6,
+      "lra": 3.5,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.8555,
+      "pauses": 102,
+      "noise_floor_db": -82.1,
+      "bandwidth_hz": 8333.349609375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P08",
+    "file_id": "f:7aadfcd92709",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 481176,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.6,
+      "lra": 3.9,
+      "tp_dbtp": -0.9,
+      "speech_ratio": 0.884,
+      "pauses": 58,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 7428.955078125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P09",
+    "file_id": "f:53d0d6e3fec5",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 539402,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.5,
+      "lra": 3.4,
+      "tp_dbtp": -1.3,
+      "speech_ratio": 0.8579,
+      "pauses": 112,
+      "noise_floor_db": -83.6,
+      "bandwidth_hz": 7924.21875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P10",
+    "file_id": "f:f0906e2b5ad8",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 491938,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.0,
+      "lra": 3.5,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.8687,
+      "pauses": 91,
+      "noise_floor_db": -87.0,
+      "bandwidth_hz": 7708.88671875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P11",
+    "file_id": "f:64185a71b69f",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 517669,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.6,
+      "lra": 3.2,
+      "tp_dbtp": -2.2,
+      "speech_ratio": 0.8525,
+      "pauses": 114,
+      "noise_floor_db": -85.0,
+      "bandwidth_hz": 8333.349609375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P12",
+    "file_id": "f:9b63c54722ba",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 456803,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.5,
+      "lra": 3.2,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.8537,
+      "pauses": 100,
+      "noise_floor_db": -88.7,
+      "bandwidth_hz": 7665.8203125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P13",
+    "file_id": "f:b488a1627fee",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 435696,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.1,
+      "lra": 3.4,
+      "tp_dbtp": -0.9,
+      "speech_ratio": 0.89,
+      "pauses": 52,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 9431.54296875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P14",
+    "file_id": "f:8cc347eddadb",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 467931,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.3,
+      "lra": 3.2,
+      "tp_dbtp": -1.5,
+      "speech_ratio": 0.8674,
+      "pauses": 94,
+      "noise_floor_db": -86.2,
+      "bandwidth_hz": 7299.755859375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P15",
+    "file_id": "f:e573a5f1cecf",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 588722,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.7,
+      "lra": 3.6,
+      "tp_dbtp": -1.2,
+      "speech_ratio": 0.8952,
+      "pauses": 71,
+      "noise_floor_db": -76.1,
+      "bandwidth_hz": 8548.681640625,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P16",
+    "file_id": "f:0e7f3b6c79eb",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 458553,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.6,
+      "lra": 4.3,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.9024,
+      "pauses": 52,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 8591.748046875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P17",
+    "file_id": "f:cdeafc75ad4c",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 466233,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.6,
+      "lra": 3.6,
+      "tp_dbtp": -1.4,
+      "speech_ratio": 0.8484,
+      "pauses": 100,
+      "noise_floor_db": -88.7,
+      "bandwidth_hz": 7902.685546875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P18",
+    "file_id": "f:7c40ee9f9868",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 586919,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.2,
+      "lra": 3.6,
+      "tp_dbtp": -1.6,
+      "speech_ratio": 0.8529,
+      "pauses": 125,
+      "noise_floor_db": -82.5,
+      "bandwidth_hz": 7838.0859375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P19",
+    "file_id": "f:4183eb0aadca",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 523102,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.3,
+      "lra": 3.4,
+      "tp_dbtp": -1.4,
+      "speech_ratio": 0.8412,
+      "pauses": 124,
+      "noise_floor_db": -83.2,
+      "bandwidth_hz": 8096.484375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P20",
+    "file_id": "f:f57158c8dfcf",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 456829,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.0,
+      "lra": 3.3,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.9014,
+      "pauses": 47,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 9216.2109375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P21",
+    "file_id": "f:5ac40ea4086e",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 458998,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.5,
+      "lra": 3.6,
+      "tp_dbtp": -1.4,
+      "speech_ratio": 0.8638,
+      "pauses": 87,
+      "noise_floor_db": -83.5,
+      "bandwidth_hz": 7708.88671875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P22",
+    "file_id": "f:dc8a1648d311",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 482011,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.5,
+      "lra": 3.1,
+      "tp_dbtp": -1.9,
+      "speech_ratio": 0.8408,
+      "pauses": 113,
+      "noise_floor_db": -85.2,
+      "bandwidth_hz": 7795.01953125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P23",
+    "file_id": "f:007079733598",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 401032,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.9,
+      "lra": 2.9,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.8508,
+      "pauses": 79,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 7407.421875,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P24",
+    "file_id": "f:589cb2187940",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 476813,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -20.7,
+      "lra": 4.2,
+      "tp_dbtp": -1.3,
+      "speech_ratio": 0.8874,
+      "pauses": 63,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 8527.1484375,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S4:P25",
+    "file_id": "f:5da35c58435a",
+    "family": "S4",
+    "lang": "ar-EG",
+    "duration_ms": 505469,
+    "sr": 44100,
+    "channels": 1,
+    "qa": {
+      "lufs_i": -21.2,
+      "lra": 3.4,
+      "tp_dbtp": -1.7,
+      "speech_ratio": 0.8598,
+      "pauses": 96,
+      "noise_floor_db": -85.6,
+      "bandwidth_hz": 7773.486328125,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": null,
+    "alignment": {},
+    "role": "deep-dive"
+  },
+  {
+    "v": 1,
+    "audio_id": "a:S5:en-natural",
+    "file_id": "f:ccb1e62d3aa7",
+    "family": "S5",
+    "lang": "en",
+    "duration_ms": 4205000,
+    "sr": 48000,
+    "channels": 2,
+    "qa": {
+      "lufs_i": -16.0,
+      "lra": 5.6,
+      "tp_dbtp": -1.4,
+      "speech_ratio": 0.6857,
+      "pauses": 681,
+      "noise_floor_db": -90.0,
+      "bandwidth_hz": 10406.25,
+      "clipping": 0,
+      "music_bed_score": 0.0,
+      "speakers": 1,
+      "dnsmos": null,
+      "utmos": null
+    },
+    "stems": {
+      "vocals": null
+    },
+    "script_ref": "T1:§8-EN",
+    "alignment": {},
+    "role": "reference"
+  }
+]

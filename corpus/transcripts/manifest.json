@@ -1,0 +1,64 @@
+{
+  "step": "align:a:S1:ar-natural",
+  "cmd": "dc align scripted a:S1:ar-natural",
+  "inputs": [
+    {
+      "path": "data/derived/audio/16k/a_S1_ar-natural.wav",
+      "sha256": "f7604e7b0a7f303455286cb799a554eb3e5a4eca7293e05b390b1de25dd619c4"
+    },
+    {
+      "path": "data/extracted/DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+      "sha256": "ec116f8119691de2af694fd52202660f684f8a3e6d0dcb32d242081dfa728e76"
+    },
+    {
+      "path": "data/extracted/DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-00_0.txt",
+      "sha256": "0f1fba87c184d3f1b737eb0d59a25444c9404896c2c339ed48dee9d77453df6e"
+    }
+  ],
+  "inputs_digest": "ef2e838a201de8d98577f7b48030dd357d03e0190fc8cdbe75277994eb9c25a4",
+  "outputs": [
+    "corpus/transcripts/a_S1_ar-natural.words.jsonl",
+    "corpus/transcripts/a_S1_ar-natural.align.json"
+  ],
+  "tool_versions": {
+    "python": "3.12.3"
+  },
+  "created": "2026-10-07T16:07:45Z",
+  "extra": {
+    "words": 6644,
+    "median_conf": 0.8261
+  },
+  "steps": {
+    "align:a:S1:ar-natural": {
+      "step": "align:a:S1:ar-natural",
+      "cmd": "dc align scripted a:S1:ar-natural",
+      "inputs": [
+        {
+          "path": "data/derived/audio/16k/a_S1_ar-natural.wav",
+          "sha256": "f7604e7b0a7f303455286cb799a554eb3e5a4eca7293e05b390b1de25dd619c4"
+        },
+        {
+          "path": "data/extracted/DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 3/film/master.md",
+          "sha256": "ec116f8119691de2af694fd52202660f684f8a3e6d0dcb32d242081dfa728e76"
+        },
+        {
+          "path": "data/extracted/DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-00_0.txt",
+          "sha256": "0f1fba87c184d3f1b737eb0d59a25444c9404896c2c339ed48dee9d77453df6e"
+        }
+      ],
+      "inputs_digest": "ef2e838a201de8d98577f7b48030dd357d03e0190fc8cdbe75277994eb9c25a4",
+      "outputs": [
+        "corpus/transcripts/a_S1_ar-natural.words.jsonl",
+        "corpus/transcripts/a_S1_ar-natural.align.json"
+      ],
+      "tool_versions": {
+        "python": "3.12.3"
+      },
+      "created": "2026-10-07T16:07:45Z",
+      "extra": {
+        "words": 6644,
+        "median_conf": 0.8261
+      }
+    }
+  }
+}
