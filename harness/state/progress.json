@@ -13,7 +13,9 @@
       "checked": "2026-10-07T14:44:38Z"
     },
     "G2": {
-      "status": "pending"
+      "status": "pass",
+      "report": "reports/gates/G2.json",
+      "checked": "2026-10-07T16:49:33Z"
     },
     "G3": {
       "status": "pending"
@@ -59,7 +61,8 @@
   "next_actions": [
     "P1.4: python3 tools/dc.py ingest probe (full decode of 121 media, ~15+ min; run when no benchmark is active)",
     "P3a S4 ASR: 27 turbo jobs queued (tsp ids 73-99, one per part, 1 thread each; outputs corpus/transcripts/a_S4_Pnn.asr.json, P00b = render2). Check: python3 tools/dc.py q status; then P3b: polish -> align -> sentences.",
-    "P3b todo: S2 not transcribed in full (reads master 8 AR, role reference); align S3 (41 clips) and S5 (needs cues_70m05.json from P2); second CTC aligner for G3 (>=95% within 120 ms): none run yet, whisper-vs-MMS is 45.7%, see reports/asr/s1_agreement.md"
+    "P3b todo: S2 not transcribed in full (reads master 8 AR, role reference); align S3 (41 clips) and S5 (needs cues_70m05.json from P2); second CTC aligner for G3 (>=95% within 120 ms): none run yet, whisper-vs-MMS is 45.7%, see reports/asr/s1_agreement.md",
+    "P2 context-engineer: run 'python3 tools/dc.py corpus index --dense' once the S4 ASR backlog shrinks (queue RAM guard refused it); then 'dc corpus smoke' reports hybrid. Packs (corpus/packs) wait for EDL/graph."
   ],
-  "updated": "2026-10-07T16:22:38Z"
+  "updated": "2026-10-07T16:49:33Z"
 }

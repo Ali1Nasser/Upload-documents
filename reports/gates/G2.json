@@ -1,0 +1,47 @@
+{
+  "gate": "G2",
+  "pass": true,
+  "checks": [
+    {
+      "name": "canon_validates",
+      "pass": true,
+      "detail": "20 canon files schema-valid (0 errors); chapters 37/37, shots 200/200, data-contract facts 103 (arithmetic checks ok: True), glossary terms 232, patterns 22/22"
+    },
+    {
+      "name": "nblm_scenes_parsed",
+      "pass": true,
+      "detail": "351 scenes (+1 intro record); expected 351"
+    },
+    {
+      "name": "cues_imported",
+      "pass": true,
+      "detail": "637 caption cues over 37 chapters; expected 637 over 37"
+    },
+    {
+      "name": "visuals_captioned_ocr",
+      "pass": true,
+      "detail": "png_scene 21/21; render_keyframe 212/212; slide 519/519; listed 752, in assets.jsonl 1303 (0 duplicate ids, 0 schema errors), missing-report present"
+    },
+    {
+      "name": "hub_harvest",
+      "pass": true,
+      "detail": "report present (docs/handoffs/PHASE-02-hub.md); knowledge sections 2207/2207, crash steps 79/79, shots 150/150, items 4180"
+    },
+    {
+      "name": "text_distilled",
+      "pass": true,
+      "detail": "15069 chunks from 339/339 unique text sources (corpus/text/chunks.jsonl); BM25 index present; files missing on disk: 0"
+    },
+    {
+      "name": "corpus_maps",
+      "pass": true,
+      "detail": "192 map files (corpus.md, 9/9 families, documents, sections); over 300 words: 0; built from current chunks: True"
+    },
+    {
+      "name": "retrieval_smoke",
+      "pass": true,
+      "detail": "10/10 queries return the expected source in the top 3 (BM25 only (dense vectors not built); reports/retrieval_smoke.md"
+    }
+  ],
+  "created": "2026-10-07T16:49:33Z"
+}

@@ -1,0 +1,158 @@
+{
+  "step": "distill",
+  "cmd": "dc corpus distill",
+  "inputs": [
+    {
+      "path": "corpus/catalog/files.jsonl",
+      "sha256": "ec77bbcaea07d93bec388434affbb6f21f8c3d07d9d7978d3c0b529022aba1fe"
+    },
+    {
+      "path": "corpus/canon/knowledge_index.jsonl",
+      "sha256": "c3299127be4710943284b1849d76d3f6bf8cb309df85751c36ab489d97835b84"
+    }
+  ],
+  "inputs_digest": "6fca9ac361f7251d97f4535f9e87fa1566700e4f7f9f0bc9310ff1799e3b70d4",
+  "outputs": [
+    "corpus/text/docs.jsonl",
+    "corpus/text/chunks.jsonl"
+  ],
+  "tool_versions": {
+    "python": "3.12.3"
+  },
+  "created": "2026-10-07T16:41:14Z",
+  "extra": {
+    "chunks": 15069,
+    "docs": 339,
+    "bytes": 36411312,
+    "chunks_path": "corpus/text/chunks.jsonl",
+    "chunks_sha256": "ed61c760d0f160e84570b3e69b5c64c2fe8a27bd97bbce774d7fd0d92a8fcc2b",
+    "in_git": true,
+    "by_family": {
+      "data-json-csv": {
+        "docs": 8,
+        "chunks": 614
+      },
+      "hub-knowledge": {
+        "docs": 1,
+        "chunks": 6238
+      },
+      "masters": {
+        "docs": 5,
+        "chunks": 6172
+      },
+      "narration-scripts": {
+        "docs": 10,
+        "chunks": 403
+      },
+      "nblm-parts": {
+        "docs": 25,
+        "chunks": 553
+      },
+      "reports-notes": {
+        "docs": 21,
+        "chunks": 280
+      },
+      "sidecar-txt": {
+        "docs": 7,
+        "chunks": 13
+      },
+      "subtitles": {
+        "docs": 49,
+        "chunks": 429
+      },
+      "tts-chapter-texts": {
+        "docs": 213,
+        "chunks": 367
+      }
+    },
+    "knowledge": {
+      "sections": 2207,
+      "chunks": 6238,
+      "payload_sections_cut": 31,
+      "payload_chars_not_indexed": 34884401
+    },
+    "missing_files": [],
+    "sources": 339,
+    "max_mb": 60.0
+  },
+  "steps": {
+    "distill": {
+      "step": "distill",
+      "cmd": "dc corpus distill",
+      "inputs": [
+        {
+          "path": "corpus/catalog/files.jsonl",
+          "sha256": "ec77bbcaea07d93bec388434affbb6f21f8c3d07d9d7978d3c0b529022aba1fe"
+        },
+        {
+          "path": "corpus/canon/knowledge_index.jsonl",
+          "sha256": "c3299127be4710943284b1849d76d3f6bf8cb309df85751c36ab489d97835b84"
+        }
+      ],
+      "inputs_digest": "6fca9ac361f7251d97f4535f9e87fa1566700e4f7f9f0bc9310ff1799e3b70d4",
+      "outputs": [
+        "corpus/text/docs.jsonl",
+        "corpus/text/chunks.jsonl"
+      ],
+      "tool_versions": {
+        "python": "3.12.3"
+      },
+      "created": "2026-10-07T16:41:14Z",
+      "extra": {
+        "chunks": 15069,
+        "docs": 339,
+        "bytes": 36411312,
+        "chunks_path": "corpus/text/chunks.jsonl",
+        "chunks_sha256": "ed61c760d0f160e84570b3e69b5c64c2fe8a27bd97bbce774d7fd0d92a8fcc2b",
+        "in_git": true,
+        "by_family": {
+          "data-json-csv": {
+            "docs": 8,
+            "chunks": 614
+          },
+          "hub-knowledge": {
+            "docs": 1,
+            "chunks": 6238
+          },
+          "masters": {
+            "docs": 5,
+            "chunks": 6172
+          },
+          "narration-scripts": {
+            "docs": 10,
+            "chunks": 403
+          },
+          "nblm-parts": {
+            "docs": 25,
+            "chunks": 553
+          },
+          "reports-notes": {
+            "docs": 21,
+            "chunks": 280
+          },
+          "sidecar-txt": {
+            "docs": 7,
+            "chunks": 13
+          },
+          "subtitles": {
+            "docs": 49,
+            "chunks": 429
+          },
+          "tts-chapter-texts": {
+            "docs": 213,
+            "chunks": 367
+          }
+        },
+        "knowledge": {
+          "sections": 2207,
+          "chunks": 6238,
+          "payload_sections_cut": 31,
+          "payload_chars_not_indexed": 34884401
+        },
+        "missing_files": [],
+        "sources": 339,
+        "max_mb": 60.0
+      }
+    }
+  }
+}

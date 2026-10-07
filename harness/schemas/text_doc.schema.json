@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:text_doc",
+  "title": "text/docs.jsonl record (one per distilled document)",
+  "type": "object",
+  "properties": {
+    "v": {"type": "integer", "minimum": 1},
+    "doc_id": {"type": "string", "pattern": "^f:[0-9a-f]{12}$"},
+    "path": {"type": "string", "minLength": 1},
+    "ext": {"type": "string"},
+    "family": {"type": "string"},
+    "title": {"type": "string"},
+    "bytes": {"type": "integer", "minimum": 0},
+    "chars": {"type": "integer", "minimum": 0},
+    "chunks": {"type": "integer", "minimum": 0},
+    "langs": {"type": "object"},
+    "n_paths": {"type": "integer", "minimum": 0}
+  },
+  "required": ["v", "doc_id", "path", "family", "title", "chunks"]
+}

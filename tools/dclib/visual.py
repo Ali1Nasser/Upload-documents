@@ -739,4 +739,6 @@ def register(sub):
     s.add_argument("--size", type=int, default=25)
     s.add_argument("--allow-missing-ocr", action="store_true")
     s.set_defaults(fn="visual.cmd_batch")
+    from . import visual_merge
+    visual_merge.register_visual(vs)
     return v

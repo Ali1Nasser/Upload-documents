@@ -1,0 +1,58 @@
+{
+  "step": "maps",
+  "cmd": "dc corpus maps",
+  "inputs": [
+    {
+      "path": "corpus/text/chunks.jsonl",
+      "sha256": "ed61c760d0f160e84570b3e69b5c64c2fe8a27bd97bbce774d7fd0d92a8fcc2b"
+    },
+    {
+      "path": "corpus/text/docs.jsonl",
+      "sha256": "fa819831e69c163bd5bb6fd7b53323241adef5cc391fb1d6cbde386128e4a0ef"
+    }
+  ],
+  "inputs_digest": "2cc076c71fc73cc4504a680dbb414ecce9c07ab75b059c025dfd446e282d6623",
+  "outputs": [
+    "corpus/maps/corpus.md"
+  ],
+  "tool_versions": {
+    "python": "3.12.3"
+  },
+  "created": "2026-10-07T16:45:35Z",
+  "extra": {
+    "files": 192,
+    "docs_mapped": 86,
+    "max_words": 284,
+    "limit": 300
+  },
+  "steps": {
+    "maps": {
+      "step": "maps",
+      "cmd": "dc corpus maps",
+      "inputs": [
+        {
+          "path": "corpus/text/chunks.jsonl",
+          "sha256": "ed61c760d0f160e84570b3e69b5c64c2fe8a27bd97bbce774d7fd0d92a8fcc2b"
+        },
+        {
+          "path": "corpus/text/docs.jsonl",
+          "sha256": "fa819831e69c163bd5bb6fd7b53323241adef5cc391fb1d6cbde386128e4a0ef"
+        }
+      ],
+      "inputs_digest": "2cc076c71fc73cc4504a680dbb414ecce9c07ab75b059c025dfd446e282d6623",
+      "outputs": [
+        "corpus/maps/corpus.md"
+      ],
+      "tool_versions": {
+        "python": "3.12.3"
+      },
+      "created": "2026-10-07T16:45:35Z",
+      "extra": {
+        "files": 192,
+        "docs_mapped": 86,
+        "max_words": 284,
+        "limit": 300
+      }
+    }
+  }
+}

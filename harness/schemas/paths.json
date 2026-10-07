@@ -195,6 +195,16 @@
       "glob": "corpus/canon/contradictions.json",
       "schema": "canon_contradictions",
       "format": "json"
+    },
+    {
+      "glob": "corpus/text/chunks.jsonl",
+      "schema": "chunk",
+      "format": "jsonl"
+    },
+    {
+      "glob": "corpus/text/docs.jsonl",
+      "schema": "text_doc",
+      "format": "jsonl"
     }
   ]
 }

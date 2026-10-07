@@ -1,0 +1,58 @@
+{
+  "created": "2026-10-07T16:49:33Z",
+  "mode": "BM25 only (dense vectors not built)",
+  "passed": 10,
+  "total": 10,
+  "cases": [
+    {
+      "query": "fan-out SUM doubles",
+      "rank": 1,
+      "specific_rank": 3
+    },
+    {
+      "query": "consumer lag",
+      "rank": 1,
+      "specific_rank": null
+    },
+    {
+      "query": "الـgrain",
+      "rank": 1,
+      "specific_rank": 3
+    },
+    {
+      "query": "idempotency retry duplicates",
+      "rank": 1,
+      "specific_rank": null
+    },
+    {
+      "query": "k-anonymity",
+      "rank": 1,
+      "specific_rank": 5
+    },
+    {
+      "query": "six receipts NilePay",
+      "rank": 1,
+      "specific_rank": 2
+    },
+    {
+      "query": "attention Q K V",
+      "rank": 1,
+      "specific_rank": null
+    },
+    {
+      "query": "docker layer cache",
+      "rank": 1,
+      "specific_rank": 5
+    },
+    {
+      "query": "RPO RTO",
+      "rank": 1,
+      "specific_rank": 2
+    },
+    {
+      "query": "B-tree 3 page reads",
+      "rank": 1,
+      "specific_rank": 1
+    }
+  ]
+}

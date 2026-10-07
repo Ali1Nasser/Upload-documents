@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dc:chunk",
+  "title": "text/chunks.jsonl record (heading-chunked text with search-normalised copy)",
+  "type": "object",
+  "properties": {
+    "v": {"type": "integer", "minimum": 1},
+    "chunk_id": {"type": "string", "pattern": "^f:[0-9a-f]{12}#[0-9]{5}$"},
+    "doc_id": {"type": "string", "pattern": "^f:[0-9a-f]{12}$"},
+    "heading_path": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "lang": {"type": "string", "enum": ["ar-EG", "en"]},
+    "lang_mix": {"type": "boolean"},
+    "text": {"type": "string", "minLength": 1},
+    "norm": {"type": "string"},
+    "char_span": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2},
+    "family": {"type": "string"},
+    "section_id": {"type": "string", "pattern": "^K[0-9]{5}$"},
+    "byte_span": {"type": "array", "items": {"type": "integer", "minimum": 0}, "minItems": 2, "maxItems": 2},
+    "payload": {"type": "boolean"},
+    "section_chars": {"type": "integer", "minimum": 0},
+    "rendered": {"type": "boolean"}
+  },
+  "required": ["v", "chunk_id", "doc_id", "heading_path", "lang", "text", "norm", "char_span"]
+}
