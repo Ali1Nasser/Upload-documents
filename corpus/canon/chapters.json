@@ -731,9 +731,9 @@
           "t_from_ms": 61000,
           "t_to_ms": 82000,
           "beat": "Pipes",
-          "on_screen": "`cat orders.csv \\| grep FAILED \\| wc -l` — output of one tool physically flows into the next",
+          "on_screen": "`cat orders.csv | grep FAILED | wc -l` — output of one tool physically flows into the next",
           "on_screen_terms": [
-            "cat orders.csv \\| grep FAILED \\| wc -l"
+            "cat orders.csv | grep FAILED | wc -l"
           ],
           "on_screen_numbers": [],
           "motion": "P06 marching dashes",

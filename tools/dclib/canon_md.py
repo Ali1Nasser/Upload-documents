@@ -7,7 +7,7 @@ import re
 
 # ---------------------------------------------------------------- generic markdown helpers
 NUM_RX = re.compile(
-    r"(?<![\w.])[−+-]?(?:\d{1,3}(?:[    ]\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)(?![\w])")
+    r"(?:(?<![\w.])|(?<=\u0640))[−+-]?(?:\d{1,3}(?:(?:[    ]|,(?=\d{3}(?!\d)))\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)(?![\w])")
 CH_RX = re.compile(r"\bCH-(\d\d)\b")
 PAT_RX = re.compile(r"\bP(\d\d)\b")
 BOLD_RX = re.compile(r"\*\*(.+?)\*\*")
@@ -45,10 +45,12 @@ def split_cells(row):
     if s.endswith("|"):
         s = s[:-1]
     cells, buf, tick = [], [], False
-    for ch in s:
+    for i, ch in enumerate(s):
+        if ch == "\\" and s[i + 1:i + 2] == "|":
+            continue          # markdown escapes a literal pipe in a cell as \| : drop the backslash, keep the pipe in the cell
         if ch == "`":
             tick = not tick
-        if ch == "|" and not tick:
+        if ch == "|" and not tick and s[i - 1:i] != "\\":
             cells.append("".join(buf).strip())
             buf = []
         else:
@@ -113,6 +115,7 @@ def chapter_ranges(s):
 def parse_number(tok):
     t = tok.replace("−", "-").replace(" ", "").replace(" ", "").replace(" ", "")
     t = re.sub(r"(?<=\d) (?=\d{3})", "", t)
+    t = re.sub(r"(?<=\d),(?=\d{3}(?!\d))", "", t)   # NotebookLM comma thousands: 1,250,000
     try:
         v = float(t)
     except ValueError:

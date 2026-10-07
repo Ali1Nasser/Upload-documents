@@ -1408,7 +1408,7 @@
       ]
     },
     {
-      "term": "cat orders.csv \\| grep FAILED \\| wc -l",
+      "term": "cat orders.csv | grep FAILED | wc -l",
       "kind": "label_en",
       "count": 1,
       "chapters": [
