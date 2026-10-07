@@ -21,6 +21,7 @@ def _register_hub(corp):
             s.add_argument("--max-shots", type=int, default=25, help="screenshots per build (default 25)")
             s.add_argument("--inline", action="store_true", help="run the browser here instead of through tsp")
             s.add_argument("--worker", action="store_true", help="(internal) run the listed builds inside a queue job")
+            s.add_argument("--merge-only", action="store_true", help="no browser: merge per-build results into corpus/canon/hub_shots.jsonl")
             s.add_argument("--front", action="store_true", help="move the queue job to the front (short job, < 5 min)")
         s.set_defaults(fn="hub.run")
 

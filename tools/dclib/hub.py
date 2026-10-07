@@ -109,9 +109,7 @@ def knowledge_sections(path=KNOW):
                         stack.pop()
                     stack.append((level, title))
                     if level <= 2 and _PART.match(title):
-                        part = title
-                    elif level == 1:
-                        part = ""
+                        part = title  # only the file's own "## N · name" markers open a part; embedded H1s do not close it
                     cur = {"level": level, "title": title[:240], "heading_path": [t[:120] for _, t in stack], "part": part,
                            "line": lineno, "byte_start": off, "byte_end": None, "chars": 0}
             if cur is not None:
@@ -677,17 +675,20 @@ def cmd_shots(args):
     paths = [os.path.join(HUB_DIR, BUILD_FILE[b]) for b in builds]
     ins = _inputs(paths) + [{"path": "tools/dclib/hub_shots.py", "sha256": C.sha256_file(C.p("tools", "dclib", "hub_shots.py"))},
                             {"path": "max_shots", "sha256": _short(str(mx))}]
-    if not getattr(args, "build", None) and M.should_skip(CANON, "hub_shots", ins, [SHOTS_PATH], getattr(args, "force", False)):
+    if (not getattr(args, "build", None) and not getattr(args, "merge_only", False)
+            and M.should_skip(CANON, "hub_shots", ins, [SHOTS_PATH], getattr(args, "force", False))):
         print("hub shots: up to date")
         return 0
     rc_all = 0
-    if getattr(args, "inline", False) or Q.in_queue() or not Q.tsp_bin():
+    if getattr(args, "merge_only", False):
+        pass  # rebuild corpus/canon/hub_shots.jsonl + manifest from the per-build results already on disk
+    elif getattr(args, "inline", False) or Q.in_queue() or not Q.tsp_bin():
         for b in builds:
             rc_all = S.run_build(b, mx, force=getattr(args, "force", False)) or rc_all
     else:
         # one queue job for all requested builds: one chromium at a time keeps the RAM promise small (3 shared slots, 15 GB)
         argv = _self_argv("shots", ["--build", *builds, "--max-shots", str(mx), "--worker"] + (["--force"] if getattr(args, "force", False) else []))
-        job = Q.submit("hubshots-" + ("all" if len(builds) > 1 else builds[0]), [sys.executable, *argv], 2.5, 0.3)
+        job = Q.submit("hubshots-" + ("all" if len(builds) > 1 else builds[0]), [sys.executable, *argv], 1.8, 0.3)
         print(f"hub shots: queued tsp job {job['tsp_id']} for {', '.join(builds)}")
         if getattr(args, "front", False):
             import subprocess
@@ -704,7 +705,7 @@ def cmd_shots(args):
         p_ = os.path.join(SHOTS_DIR, slug, "shots.jsonl")
         if os.path.exists(p_):
             recs.extend(C.read_jsonl(p_))
-    if recs and not getattr(args, "build", None):
+    if recs and (not getattr(args, "build", None) or getattr(args, "merge_only", False)):
         C.write_jsonl(SHOTS_PATH, recs)
         by = {}
         for r in recs:

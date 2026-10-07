@@ -91,6 +91,7 @@ class Capture:
                 return False
             self.seen.add(sha)
             info = self.pg.evaluate(EXCERPT_JS)
+            label = re.sub(r"\s+", " ", label).strip()
             title = label if not info["heading"] or info["heading"].lower() in label.lower() else f"{label} — {info['heading']}"
             self.recs.append({"v": 1, "asset_id": "v:" + hashlib.sha1(data).hexdigest()[:12], "build": self.slug,
                               "path": os.path.relpath(path, C.ROOT), "n": n, "section_title": title[:240],
@@ -117,134 +118,185 @@ def spread(n_items, k):
 
 
 # --------------------------------------------------------------------------- per-build plans
+def hub_labs(build):
+    """Lab definitions found by the static harvest: [(lab_id, tag, title)] for lab({id,...}) entries of a build."""
+    out = []
+    for r in C.read_jsonl(ITEMS):
+        if r["build"] == build and r["kind"] == "lab" and r.get("lab_id") and r.get("source_ref", "").endswith("#script"):
+            out.append((r["lab_id"], r.get("tag", ""), r["title"]))
+    return out
+
+
+REVEAL_JS = """() => {
+  // Capture-only DOM tweaks: hide the 'prerequisites not mastered' blocker and primer strip (Lab builds), answer the
+  // 'predict before play' gates, then scroll the first drawn canvas / svg diagram into view.
+  document.querySelectorAll('.m3-blocker, .primer-strip, .exec-disclosure').forEach(e => { e.style.display = 'none'; });
+  const ta = document.querySelector('textarea');
+  if (ta && /predict/i.test((ta.placeholder || '') + (ta.closest('section,div') || {innerText: ''}).innerText)) {
+    ta.value = 'my prediction'; ta.dispatchEvent(new Event('input', {bubbles: true}));
+  }
+  const btn = Array.from(document.querySelectorAll('button')).find(b => /reveal the visual|reveal/i.test(b.innerText || '') && b.offsetParent);
+  if (btn) btn.click();
+  const g = document.querySelector('.m9-predict-gate button, .predict-gate button');
+  if (g) g.click();
+  return true;
+}"""
+SCROLL_JS = """() => {
+  const vis = e => { const r = e.getBoundingClientRect(); return r.width > 260 && r.height > 120; };
+  const c = Array.from(document.querySelectorAll('canvas, .vcc-stage, svg')).find(vis);
+  if (c) { c.scrollIntoView({block: 'center', inline: 'nearest'}); return c.tagName.toLowerCase(); }
+  return null;
+}"""
+
+
+def reveal_visual(cap, pg):
+    """Make the lesson's own picture visible (best effort; never raises)."""
+    try:
+        pg.evaluate(REVEAL_JS)
+        pg.wait_for_timeout(900)
+        pg.evaluate(REVEAL_JS)  # a second pass handles gates that appear after the first answer
+        pg.wait_for_timeout(1400)
+        return pg.evaluate(SCROLL_JS)
+    except Exception as e:  # noqa: BLE001
+        cap.fails.append(f"reveal failed: {str(e)[:100]}")
+        return None
+
+
+def go_hash(cap, pg, h, label, wait_ms=1500, visual=False):
+    cap.js_click("h => { location.hash = h; }", h)
+    if visual:
+        pg.wait_for_timeout(900)
+        reveal_visual(cap, pg)
+    return cap.shot(label, wait_ms)
+
+
 def plan_vcc(cap, pg):
     cap.shot("Course map", 1200)
-    rows = pg.evaluate("() => Array.from(document.querySelectorAll('.vcc-step-row')).map(e => [e.id, (e.innerText||'').trim().replace(/\\s+/g,' ')])")
-    for i in spread(len(rows), cap.max - 1):
-        sid, label = rows[i]
-        cap.js_click("id => document.getElementById(id).click()", sid)
-        cap.shot(f"step: {label}"[:120], 1600)
-        back = pg.locator("button:has-text('Course map')")
-        try:
-            if back.count() and back.first.is_visible():
-                back.first.click(timeout=3000)
-                pg.wait_for_timeout(400)
-        except Exception as e:  # noqa: BLE001
-            cap.fails.append(f"back failed: {str(e)[:80]}")
+    n = pg.evaluate("() => document.querySelectorAll('.vcc-step-row').length")
+    rows = pg.evaluate("() => Array.from(document.querySelectorAll('.vcc-step-row')).map(e => (e.innerText||'').trim().replace(/\\s+/g,' '))")
+    for i in spread(n, cap.max - 1):
+        cap.js_click("i => document.querySelectorAll('.vcc-step-row')[i].click()", i)
+        pg.wait_for_timeout(700)
+        pg.evaluate(SCROLL_JS)
+        cap.shot(f"step: {rows[i]}"[:120], 1800)
         if cap.full:
             break
 
 
-def _rail_plan(cap, pg, prefer_live, avoid_titles=()):
-    items = pg.evaluate("() => Array.from(document.querySelectorAll('.rail-item')).map((e, i) => [i, (e.innerText||'').trim().replace(/\\s+/g,' ')])")
-    cap.shot("Home (Journey)", 1500)
-    pool = [(i, t) for i, t in items if t and t not in avoid_titles]
-    live = [x for x in pool if re.search(r"\blive\b", x[1])]
-    rest = [x for x in pool if x not in live]
-    chosen = []
-    if prefer_live:
-        chosen = [live[j] for j in spread(len(live), min(len(live), cap.max - 4))]
-        chosen += [rest[j] for j in spread(len(rest), min(len(rest), 3))]
-    else:
-        chosen = [pool[j] for j in spread(len(pool), min(len(pool), cap.max - 1))]
-    for i, t in chosen:
-        if cap.full:
-            break
-        cap.js_click("i => document.querySelectorAll('.rail-item')[i].click()", i)
-        cap.shot(t[:120], 1400)
-    return [t for _, t in chosen]
+ANIM_ORDER = ("anim", "sim", "trace", "live", "map", "build", "drill")
+
+
+def _lab_pool(build):
+    labs = [x for x in hub_labs(build) if x[1] in ANIM_ORDER]
+    labs.sort(key=lambda x: ANIM_ORDER.index(x[1]))
+    return labs
 
 
 def plan_lab(cap, pg):
-    titles = _rail_plan(cap, pg, True)
-    C.write_json(os.path.join(OUT, cap.slug, "chosen_titles.json"), titles)
+    pool = [x for x in _lab_pool("lab-m12-ds") if x[1] in ("anim", "sim", "trace")]
+    cap.shot("Journey Home", 1500)
+    chosen = [pool[i] for i in spread(len(pool), cap.max - 1)]
+    for lab_id, tag, title in chosen:
+        if cap.full:
+            break
+        go_hash(cap, pg, "#" + lab_id, f"lab {lab_id} ({tag}): {title}"[:120], 1200, visual=True)
+    C.write_json(os.path.join(OUT, cap.slug, "chosen_titles.json"), [c[0] for c in chosen])
 
 
 def plan_unified(cap, pg):
-    avoid = set(C.read_json(os.path.join(OUT, "lab-m12-ds", "chosen_titles.json"), []) or [])
-    _rail_plan(cap, pg, False, avoid_titles=avoid)
-
-
-def _click_text_buttons(cap, pg, selector, label_prefix, wait_ms=1300, limit=99, only=None):
-    labels = pg.evaluate("sel => Array.from(document.querySelectorAll(sel)).map((e, i) => [i, (e.innerText||'').trim().replace(/\\s+/g,' ')])", selector)
-    labels = [x for x in labels if x[1]]
-    if only:
-        labels = [x for x in labels if only(x[1])]
-    for j in spread(len(labels), min(limit, len(labels))):
+    used = set(C.read_json(os.path.join(OUT, "lab-m12-ds", "chosen_titles.json"), []) or [])
+    pool = [x for x in _lab_pool("unified") if x[0] not in used]
+    left_anim = [x for x in pool if x[1] in ("anim", "sim", "trace")]
+    live = [x for x in pool if x[1] not in ("anim", "sim", "trace")]
+    chosen = [left_anim[i] for i in spread(len(left_anim), min(len(left_anim), 12))]
+    chosen += [live[i] for i in spread(len(live), min(len(live), cap.max - 1 - len(chosen)))]
+    cap.shot("Journey Home", 1500)
+    for lab_id, tag, title in chosen:
         if cap.full:
-            return
-        i, t = labels[j]
-        cap.js_click("a => document.querySelectorAll(a[0])[a[1]].click()", [selector, i])
-        cap.shot(f"{label_prefix}{t}"[:120], wait_ms)
+            break
+        go_hash(cap, pg, "#" + lab_id, f"lab {lab_id} ({tag}): {title}"[:120], 1200, visual=True)
+
+
+def _lesson_ids(pg):
+    return pg.evaluate("() => { try { const c = JSON.parse(document.getElementById('course-data').textContent); return (c.lessons || []).map(l => l.id); } catch (e) { return []; } }")
 
 
 def plan_supreme(cap, pg):
     cap.shot("Home", 1500)
     docks = pg.evaluate("() => Array.from(document.querySelectorAll('button[data-dock]')).map(e => e.dataset.dock)")
     for d in docks:
-        if d == "home":
-            continue
-        cap.js_click("d => document.querySelector(`button[data-dock='${d}']`).click()", d)
-        cap.shot(f"dock: {d}", 1200)
-        if d == "scenes":
-            _click_text_buttons(cap, pg, "button.chip", "scene lesson: ", 1700, limit=max(1, cap.max - len(cap.recs) - 3))
-    if not cap.full:
-        cap.js_click("() => document.querySelector(\"button[data-dock='scenes']\").click()")
-        _click_text_buttons(cap, pg, "button.chip", "scene lesson: ", 1700, limit=cap.max - len(cap.recs))
+        if d != "home":
+            go_hash(cap, pg, "#" + d, f"dock: {d}", 1200)
+    ids = _lesson_ids(pg)
+    for i in spread(len(ids), cap.max - len(cap.recs)):
+        if cap.full:
+            break
+        go_hash(cap, pg, "#lesson/" + ids[i], f"lesson: {ids[i]}", 1500, visual=True)
 
 
 def plan_nilepay(cap, pg):
     cap.shot("Journey home", 1200)
-    navs = pg.evaluate("() => Array.from(document.querySelectorAll('button.navbtn')).map(e => e.dataset.nav)")
-    for nv in navs:
-        if nv == "home":
-            continue
-        cap.js_click("n => document.querySelector(`button.navbtn[data-nav='${n}']`).click()", nv)
-        cap.shot(f"nav: {nv}", 1000)
-    cap.js_click("() => document.querySelector(\"button.navbtn[data-nav='home']\").click()")
-    phases = pg.evaluate("() => Array.from(document.querySelectorAll('button.phase-link')).map((e, i) => [i, (e.innerText||'').trim().replace(/\\s+/g,' ')])")
-    for i, t in phases:
+    for nv in ("practice", "project", "reference", "progress"):
+        go_hash(cap, pg, "#" + nv, f"nav: {nv}", 1000)
+    go_hash(cap, pg, "#phase/6", "phase 06: Learn from examples", 1000)
+    ids = _lesson_ids(pg)
+    for i in spread(len(ids), cap.max - len(cap.recs)):
         if cap.full:
             break
-        cap.js_click("i => document.querySelectorAll('button.phase-link')[i].click()", i)
-        cap.shot(f"phase: {t}", 900)
-        if cap.full:
-            break
-        # open the first lesson of the phase (lessons are buttons/links inside the phase list)
-        ok = cap.js_click("""() => { const c = Array.from(document.querySelectorAll('main button, main a, #main button, #main a'))
-            .filter(e => !e.classList.contains('phase-link') && !e.classList.contains('navbtn') && (e.innerText||'').trim().length > 6);
-            if (!c.length) return false; c[0].click(); return (c[0].innerText||'').trim().slice(0, 80); }""")
-        if ok:
-            cap.shot(f"lesson: {ok}", 1500)
-            cap.js_click("() => document.querySelector(\"button.navbtn[data-nav='home']\").click()")
+        go_hash(cap, pg, "#lesson/" + ids[i], f"lesson: {ids[i]}", 1500, visual=True)
+
+
+CONTENT_JS = """() => {
+  const vis = e => { const r = e.getBoundingClientRect(); const cs = getComputedStyle(e);
+    return r.width > 24 && r.height > 14 && r.left > 255 && r.top > 70 && cs.visibility !== 'hidden' && cs.display !== 'none'; };
+  const ok = e => { const t = (e.innerText || '').trim(); return t.length > 3 && t.length < 600; };
+  const direct = Array.from(document.querySelectorAll('.item-card, button, a[href], [role=button], [role=tab], .card, summary, .vcc-step-row'));
+  // cards that are plain divs with cursor:pointer (outermost only; cursor is inherited by their children)
+  const cards = Array.from(document.querySelectorAll('div, article, li')).filter(e => {
+    const cs = getComputedStyle(e); if (cs.cursor !== 'pointer') return false;
+    const r = e.getBoundingClientRect(); if (r.width < 150 || r.height < 60) return false;
+    return !e.parentElement || getComputedStyle(e.parentElement).cursor !== 'pointer';
+  });
+  return Array.from(new Set(direct.concat(cards))).filter(vis).filter(ok);
+}"""
+
+
+def _enter_view(pg, text):
+    pg.evaluate("t => { const b = Array.from(document.querySelectorAll('button')).find(e => (e.innerText||'').trim().includes(t)); if (b) b.click(); }", text)
+    pg.wait_for_timeout(700)
 
 
 def plan_fusion(cap, pg):
     cap.shot("Home", 1500)
-    tabs = pg.evaluate("() => Array.from(document.querySelectorAll('nav button, header button, .tabs button, .nav button')).slice(0, 12).map(e => (e.innerText||'').trim())")
-    names = [t for t in tabs if re.search(r"Labs|Canvas|Studio|Review|Terminal|Sources|Audit|Curriculum", t)]
-    for t in names:
+    views = pg.evaluate("() => Array.from(document.querySelectorAll('button')).filter(e => e.getBoundingClientRect().left < 260).map(e => (e.innerText||'').trim()).filter(t => /Home|Curriculum|Labs|Canvas|Studio|Review|Terminal|Sources|Audit/.test(t) && t.length < 40)")
+    seen_v, uniq = set(), []
+    for t in views:  # nav buttons and sidebar chips can share a name; keep the first of each
+        k = re.sub(r"[^A-Za-z]", "", t)[:6].lower()
+        if k not in seen_v:
+            seen_v.add(k)
+            uniq.append(t)
+    views = uniq
+    quota = {"Labs": 8, "Canvas": 5, "Curriculum": 2, "Studio": 2}
+    for v in views:
         if cap.full:
-            return
-        pg.get_by_text(t, exact=False).first.click(timeout=4000)
-        cap.shot(f"view: {t}", 1500)
-        if "Labs" in t:
-            _fusion_open_cards(cap, pg, "lab", 9)
-        elif "Canvas" in t:
-            _fusion_open_cards(cap, pg, "canvas", 6)
-
-
-def _fusion_open_cards(cap, pg, what, k):
-    # cards/rows inside the current view: buttons that are not top-level navigation
-    labels = pg.evaluate("""() => Array.from(document.querySelectorAll('main button, #view button, .view button, section button, .grid button, .card, .vcc-step-row'))
-        .map((e, i) => [i, (e.innerText||'').trim().replace(/\\s+/g,' ')]).filter(x => x[1].length > 4 && x[1].length < 120)""")
-    for j in spread(len(labels), min(k, len(labels))):
-        if cap.full:
-            return
-        i, t = labels[j]
-        cap.js_click("""i => { const q = Array.from(document.querySelectorAll('main button, #view button, .view button, section button, .grid button, .card, .vcc-step-row'));
-            if (q[i]) q[i].click(); }""", i)
-        cap.shot(f"{what}: {t}", 1500)
+            break
+        if v.endswith("Home"):
+            continue
+        _enter_view(pg, v)
+        cap.shot(f"view: {v}", 1500)
+        k = next((q for name, q in quota.items() if name in v), 0)
+        if not k:
+            continue
+        count = pg.evaluate(f"() => ({CONTENT_JS})().length")
+        for idx in spread(count, min(k, count)):
+            if cap.full:
+                break
+            _enter_view(pg, v)
+            label = cap.js_click(f"""i => {{ const l = ({CONTENT_JS})(); const e = l[i]; if (!e) return null; e.click(); return (e.innerText||'').trim().replace(/\\s+/g, ' ').slice(0, 80); }}""", idx)
+            if label:
+                pg.wait_for_timeout(700)
+                pg.evaluate(SCROLL_JS)
+                cap.shot(f"{v} / {label}", 1600)
 
 
 PLANS = {"vcc": plan_vcc, "lab-m12-ds": plan_lab, "unified": plan_unified, "supreme-final2": plan_supreme,
@@ -299,7 +351,10 @@ def run_build(slug, max_shots=25, force=False):
         info = pg.evaluate(EXCERPT_JS)
         notes.update({"title": pg.title(), "body_text_chars": info["bodyLen"], "blocked_requests": len(blocked),
                       "blocked_hosts": sorted({re.sub(r"^(\w+://[^/]+).*", r"\1", b) for b in blocked})[:10], "page_errors": errs[:5]})
-        PLANS[slug](cap, pg)
+        try:
+            PLANS[slug](cap, pg)
+        except Exception as e:  # noqa: BLE001  keep whatever was captured
+            cap.fails.append(f"plan aborted: {type(e).__name__}: {str(e)[:200]}")
         # blank diagnosis: no text and flat pixels -> keep text only
         if cap.recs:
             var = [_png_variance(os.path.join(C.ROOT, r["path"])) for r in cap.recs]
