@@ -5,7 +5,7 @@ import sys
 from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
-    "audio": "P3", "asr": "P3", "visual": "P2", "graph": "P4", "story": "P5", "spec": "P7/P8",
+    "audio": "P3", "asr": "P3", "graph": "P4", "story": "P5", "spec": "P7/P8",
     "render": "P6/P9", "sound": "P11", "qa": "P9", "deliver": "P14", "dag": "P0 (later)",
 }
 
@@ -83,6 +83,10 @@ def build():
     # corpus (P2): group and subcommands live in corpus_cli.py
     from . import corpus_cli
     corpus_cli.register(sub)
+
+    # visual (P2.7): group and subcommands live in visual.py
+    from . import visual
+    visual.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():

@@ -4,6 +4,11 @@ import os
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+# P2.7: `visual` reads extracted images/video (numpy, Pillow from the venv). Re-exec once, isolated.
+_VPY = os.path.join(os.path.dirname(HERE), ".venv", "bin", "python")
+if (len(sys.argv) > 1 and sys.argv[1] == "visual" and os.path.exists(_VPY) and not os.environ.get("DC_NO_VENV")
+        and (os.path.abspath(sys.executable) != os.path.abspath(_VPY) or not sys.flags.isolated)):
+    os.execv(_VPY, [_VPY, "-I", os.path.abspath(__file__), *sys.argv[1:]])
 # Rule 11: python that reads extracted (untrusted) files runs isolated (-I). Re-exec once for those commands.
 if len(sys.argv) > 1 and sys.argv[1] == "ingest" and not sys.flags.isolated and os.environ.get("DC_NO_ISOLATE") != "1":
     os.execv(sys.executable, [sys.executable, "-I", os.path.abspath(__file__), *sys.argv[1:]])
