@@ -614,12 +614,17 @@ def cmd_report(args=None):
 
 
 def set_alignment(audio_id, method, median_conf):
-    """Record the alignment method/confidence of an asset in corpus/audio/assets.json (survives `dc audio report`)."""
-    items = C.read_json(ASSETS_JSON, []) or []
-    for it in items:
-        if it["audio_id"] == audio_id:
-            it["alignment"] = {"method": method, "median_conf": median_conf}
-    C.write_json(ASSETS_JSON, items)
+    """Record the alignment method/confidence of an asset in corpus/audio/assets.json (survives `dc audio report`).
+    Several queue jobs finish at the same time, so the read-modify-write is serialised with a file lock."""
+    import fcntl
+    os.makedirs(DERIVED, exist_ok=True)
+    with open(os.path.join(DERIVED, "assets.lock"), "w") as lk:
+        fcntl.flock(lk, fcntl.LOCK_EX)
+        items = C.read_json(ASSETS_JSON, []) or []
+        for it in items:
+            if it["audio_id"] == audio_id:
+                it["alignment"] = {"method": method, "median_conf": median_conf}
+        C.write_json(ASSETS_JSON, items)
 
 
 # ------------------------------------------------------------------ S4 mp3 vs its NotebookLM mp4 (P3.1 cross-check)

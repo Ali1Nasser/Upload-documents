@@ -86,11 +86,27 @@ def spoken(tok):
     return " ".join(x for x in out if x)
 
 
+_H = None
+
+
 def _harness():
-    spec = importlib.util.spec_from_file_location("harness_align", C.p("harness", "lib", "align.py"))
-    m = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(m)
-    return m
+    """harness/lib/align.py loaded once per process (its lru_cache holds the 1.2 GB model)."""
+    global _H
+    if _H is None:
+        spec = importlib.util.spec_from_file_location("harness_align", C.p("harness", "lib", "align.py"))
+        m = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(m)
+        _H = m
+    return _H
+
+
+def set_threads(n):
+    """Load the MMS model (first call) and fix the torch thread count (the harness loader hard-codes 3)."""
+    import torch
+    H = _harness()
+    H._load()
+    torch.set_num_threads(int(n))
+    return H
 
 
 _VU = None
@@ -140,14 +156,14 @@ def emissions_cached(aid, force=False):
     return np.concatenate(parts)
 
 
-def forced_align_slice(em, words, H=None):
+def forced_align_slice(em, words, H=None, lang="ara"):
     """em: float32 torch [T,V] log-probs; words: surrogate strings.
     Returns per word None (nothing to align) or a list of per-char (frame, prob) pairs, in text order."""
     import numpy as np
     import torch
     import torchaudio.functional as F
     vocab, u, H = vocab_uroman()
-    rom = [H._romanize(w, u, "ara") if w else "" for w in words]
+    rom = [H._romanize(w, u, lang) if w else "" for w in words]
     toks, owner = [], []
     for i, r in enumerate(rom):
         for ch in r:
@@ -253,7 +269,8 @@ def asr_windows(aid, wins, texts, total_s):
 def cmd_scripted(args):
     aid = args.audio_id
     if aid != "a:S1:ar-natural":
-        C.fail("scripted alignment is implemented for a:S1:ar-natural (S3/S5 follow in P3b)", 2)
+        from . import scripted as SCR
+        return SCR.cmd(args)
     wav = A.wav16_path(aid)
     if not os.path.exists(wav):
         C.fail("decode first: dc audio decode", 2)

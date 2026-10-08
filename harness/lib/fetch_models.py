@@ -21,6 +21,8 @@ MODELS = {
                           "colbert_linear.pt", "sparse_linear.pt"],
                    ignore=["onnx/*", "imgs/*", "*.md", "long.jpg"]),
     # speaker embeddings (speechbrain EncoderClassifier.from_hparams(source=<this dir>)); used by P3 diarisation/speaker checks
+    # second CTC aligner for the G3 agreement check (Arabic-letter vocabulary, independent of MMS); pytorch_model.bin only (flax duplicate skipped)
+    "wav2vec2-xlsr53-arabic": dict(repos=["jonatasgrosman/wav2vec2-large-xlsr-53-arabic"], ignore=["flax_model.msgpack", "*.md", ".gitattributes"]),
     "ecapa-voxceleb": dict(repos=["speechbrain/spkrec-ecapa-voxceleb"], ignore=["*.md", "example*.wav"]),
 }
 

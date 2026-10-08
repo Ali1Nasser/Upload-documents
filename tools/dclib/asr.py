@@ -328,6 +328,9 @@ def _calib_report():
 
 # ------------------------------------------------------------------ agreement (aligner vs whisper word times)
 def cmd_agreement(args):
+    if getattr(args, "second", None) == "w2v":
+        from . import align2
+        return align2.cmd_agreement_w2v(args)
     from rapidfuzz.distance import Levenshtein
     s1 = "a:S1:ar-natural"
     wp = os.path.join(TRANS, A.fid(s1) + ".words.jsonl")

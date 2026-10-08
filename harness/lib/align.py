@@ -37,7 +37,11 @@ def emissions(wav, window_s=30, context_s=2, batch_size=4):
         for i in range(0, len(chunks), batch_size):
             b = torch.from_numpy(np.stack(chunks[i:i + batch_size])).float()
             lg = model(b).logits
-            lg = lg[:, int(C / sr / STRIDE_S):-int(C / sr / STRIDE_S) or None]
+            # keep exactly W/320 frames per window: the model emits floor((n-400)/320)+1 frames for a padded chunk, i.e. one frame
+            # (20 ms) fewer than n/320, so trimming `context` frames from each end (the old code) lost 1 frame per window and the
+            # concatenated timeline ran early by 20 ms per 30 s (up to 0.4 s per 10-min block). Window frame j starts at sample 320 j.
+            fc = int(round(C / 320))
+            lg = lg[:, fc:fc + int(round(W / 320))]
             outs.append(torch.log_softmax(lg, -1).reshape(-1, lg.shape[-1]))
     em = torch.cat(outs)[: int(np.ceil(len(x) / sr / STRIDE_S))]
     return em
