@@ -1,0 +1,32 @@
+{
+  "v": 1,
+  "audio_id": "a:S3:CH-06_0",
+  "method": "mms_fa",
+  "words": 135,
+  "median_conf": 0.8995,
+  "chapters": [
+    {
+      "chapter": "CH-06",
+      "window_s": [
+        0.0,
+        69.2
+      ],
+      "n_words": 135,
+      "median_conf": 0.8995,
+      "p10_conf": 0.5591,
+      "first_word_s": 0.34,
+      "last_word_s": 68.88,
+      "lead_in_s": 0.34,
+      "tail_s": 0.32,
+      "words_outside_window": 0,
+      "low_conf_words": 1,
+      "interpolated": 0
+    }
+  ],
+  "flagged": [],
+  "text_source": [
+    "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-06_0.txt"
+  ],
+  "duration_s": 69.2,
+  "created": "2026-10-08T08:09:25Z"
+}

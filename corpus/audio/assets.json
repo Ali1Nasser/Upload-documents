@@ -59,7 +59,10 @@
       "vocals": null
     },
     "script_ref": "T1:§8-AR",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8062
+    },
     "role": "reference"
   },
   {
@@ -89,7 +92,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-00_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8643
+    },
     "role": "reference"
   },
   {
@@ -119,7 +125,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-01_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8144
+    },
     "role": "reference"
   },
   {
@@ -149,7 +158,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-02_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8904
+    },
     "role": "reference"
   },
   {
@@ -179,7 +191,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-03_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8402
+    },
     "role": "reference"
   },
   {
@@ -209,7 +224,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-04_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8726
+    },
     "role": "reference"
   },
   {
@@ -239,7 +257,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-05_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8262
+    },
     "role": "reference"
   },
   {
@@ -269,7 +290,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-06_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8995
+    },
     "role": "reference"
   },
   {
@@ -299,7 +323,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-07_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.7704
+    },
     "role": "reference"
   },
   {
@@ -329,7 +356,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-08_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9155
+    },
     "role": "reference"
   },
   {
@@ -359,7 +389,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-09_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.801
+    },
     "role": "reference"
   },
   {
@@ -389,7 +422,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-10_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8804
+    },
     "role": "reference"
   },
   {
@@ -419,7 +455,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-11_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8482
+    },
     "role": "reference"
   },
   {
@@ -449,7 +488,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-12_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8835
+    },
     "role": "reference"
   },
   {
@@ -479,7 +521,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-13_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.7833
+    },
     "role": "reference"
   },
   {
@@ -509,7 +554,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-14_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.932
+    },
     "role": "reference"
   },
   {
@@ -539,7 +587,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-14_1.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8019
+    },
     "role": "reference"
   },
   {
@@ -569,7 +620,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-14_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9119
+    },
     "role": "reference"
   },
   {
@@ -599,7 +653,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-15_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8984
+    },
     "role": "reference"
   },
   {
@@ -629,7 +686,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-16_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9437
+    },
     "role": "reference"
   },
   {
@@ -659,7 +719,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-17_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9476
+    },
     "role": "reference"
   },
   {
@@ -689,7 +752,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-18_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8474
+    },
     "role": "reference"
   },
   {
@@ -719,7 +785,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-19_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8525
+    },
     "role": "reference"
   },
   {
@@ -749,7 +818,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-20_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8281
+    },
     "role": "reference"
   },
   {
@@ -779,7 +851,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-21_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8753
+    },
     "role": "reference"
   },
   {
@@ -809,7 +884,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-22_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8948
+    },
     "role": "reference"
   },
   {
@@ -839,7 +917,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-23_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8961
+    },
     "role": "reference"
   },
   {
@@ -869,7 +950,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-24_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8869
+    },
     "role": "reference"
   },
   {
@@ -899,7 +983,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-25_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8176
+    },
     "role": "reference"
   },
   {
@@ -929,7 +1016,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-26_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.811
+    },
     "role": "reference"
   },
   {
@@ -959,7 +1049,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-27_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9135
+    },
     "role": "reference"
   },
   {
@@ -989,7 +1082,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-28_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9107
+    },
     "role": "reference"
   },
   {
@@ -1019,7 +1115,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-29_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8501
+    },
     "role": "reference"
   },
   {
@@ -1049,7 +1148,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-30_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9274
+    },
     "role": "reference"
   },
   {
@@ -1079,7 +1181,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-31_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8514
+    },
     "role": "reference"
   },
   {
@@ -1109,7 +1214,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-32_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8332
+    },
     "role": "reference"
   },
   {
@@ -1139,7 +1247,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-33_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8289
+    },
     "role": "reference"
   },
   {
@@ -1169,7 +1280,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-33_1.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8663
+    },
     "role": "reference"
   },
   {
@@ -1199,7 +1313,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-33_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8367
+    },
     "role": "reference"
   },
   {
@@ -1229,7 +1346,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-34_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8206
+    },
     "role": "reference"
   },
   {
@@ -1259,7 +1379,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-35_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.8715
+    },
     "role": "reference"
   },
   {
@@ -1289,7 +1412,10 @@
       "vocals": null
     },
     "script_ref": "T6:dacamp/tts/CH-36_0.txt",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.9035
+    },
     "role": "reference"
   },
   {
@@ -2129,7 +2255,10 @@
       "vocals": null
     },
     "script_ref": "T1:§8-EN",
-    "alignment": {},
+    "alignment": {
+      "method": "mms_fa",
+      "median_conf": 0.997
+    },
     "role": "reference"
   }
 ]

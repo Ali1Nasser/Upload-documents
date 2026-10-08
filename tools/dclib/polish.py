@@ -424,7 +424,30 @@ def word_flags(text):
     return bool(latin), bool(re.search(r"\d", text)) or bool(re.search(r"[٠-٩]", text))
 
 
+def cmd_warm(args):
+    """Cache the MMS emissions of S4 parts (the bulk of the alignment compute) so polish-apply only has to run the CTC trellis."""
+    ids = s4_ids() if args.audio_id.lower() in ("all", "all-s4") else args.audio_id.split(",")
+    if not args.inline and not Q.in_queue():
+        n = max(1, args.jobs)
+        jobs = []
+        for k in range(n):
+            part = ids[k::n]
+            if part:
+                jobs.append(Q.submit(f"polish-warm-{k + 1}of{n}", [sys.executable, "-I", C.p("tools", "dc.py"), "asr", "polish-apply", ",".join(part), "--warm", "--inline",
+                                                                  "--threads", str(args.threads)], mem_gb=2.0, expected_gb=0.1)["tsp_id"])
+        print(json.dumps(jobs))
+        return 0
+    AL.set_threads(args.threads)
+    for a in ids:
+        t0 = time.time()
+        em = AL.emissions_cached(a)
+        print(f"warm {a}: {em.shape[0]} frames [{time.time() - t0:.0f}s]", flush=True)
+    return 0
+
+
 def cmd_polish_apply(args):
+    if args.warm:
+        return cmd_warm(args)
     aid = args.audio_id
     if aid.lower() in ("all", "all-s4"):
         ids = [a for a in s4_ids() if os.path.exists(out_path(a))]

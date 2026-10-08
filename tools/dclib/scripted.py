@@ -329,6 +329,48 @@ def run_clips(ids, args):
     return 0
 
 
+def run_joint(ids, args):
+    """CH-33_0/CH-33_1: the audio clips are cut at a different place than the text files (clip _0 is 62.8 s but its text needs about 110 s; clip _1 has 7 text
+    words for 56.8 s). Align the joined text over the joined audio, then give each clip the words that start inside it (times relative to the clip)."""
+    import numpy as np
+    import soundfile as sf
+    import torch
+    H = AL.set_threads(args.threads)
+    AL.vocab_uroman()
+    glossary = {t.casefold() for t in SC.glossary_terms(400)}
+    xs, durs, texts, parts = [], [], [], []
+    for aid in ids:
+        x, sr = sf.read(A.wav16_path(aid), dtype="float32")
+        xs.append(x)
+        durs.append(len(x) / sr)
+        t, p = clip_text(aid)
+        texts.append(t)
+        parts += p
+    toks = AL.tokenise(" ".join(texts))
+    sur = [AL.spoken(t) for t in toks]
+    em = H.emissions(np.concatenate(xs)).numpy()
+    res = AL.forced_align_slice(torch.from_numpy(em.astype(np.float32)), sur)
+    rows = _fill(_rows(res, 0, len(toks)), 0)
+    bounds = np.cumsum([0.0] + durs) * 1000
+    for k, aid in enumerate(ids):
+        sel = [(t, r) for t, r in zip(toks, rows) if bounds[k] <= r[0] < bounds[k + 1] or (k == len(ids) - 1 and r[0] >= bounds[k])]
+        off = int(round(bounds[k]))
+        words = []
+        for i, (t, r) in enumerate(sel):
+            rr = (max(0, r[0] - off), max(20, r[1] - off)) + tuple(r[2:])
+            words.append(_record(aid, i, t, rr, aid.split(":")[2][:5], "mms_fa", glossary, "ara"))
+        st = _stats(words, (0.0, durs[k]), 1.0)
+        doc = {"v": 1, "audio_id": aid, "method": "mms_fa", "words": len(words), "median_conf": st["median_conf"],
+               "chapters": [{"chapter": aid.split(":")[2][:5], "window_s": [0.0, round(durs[k], 2)], "n_words": len(words), **st}],
+               "flagged": [], "joint_with": [a for a in ids if a != aid], "text_source": [os.path.relpath(os.path.join(SC.TTS_DIR, p + ".txt"), SC.EX) for p in parts],
+               "note": "joint alignment: the audio clips are cut at a different place than the text files", "duration_s": round(durs[k], 2), "created": C.now_iso()}
+        C.write_jsonl(os.path.join(TRANS, A.fid(aid) + ".words.jsonl"), words)
+        C.write_json(os.path.join(TRANS, A.fid(aid) + ".align.json"), doc)
+        A.set_alignment(aid, "mms_fa", st["median_conf"])
+        print(f"{aid}: {len(words)} words, conf {st['median_conf']}, lead {st['lead_in_s']}s tail {st['tail_s']}s (joint)", flush=True)
+    return 0
+
+
 def s3_ids():
     return [a["audio_id"] for a in A.registry() if a["family"] == "S3"]
 
@@ -349,6 +391,10 @@ def cmd(args):
     if not args.inline and not Q.in_queue():
         base = [sys.executable, "-I", C.p("tools", "dc.py"), "align", "scripted"]
         flags = ["--inline", "--threads", str(args.threads), "--tol", str(args.tol)] + (["--emissions-only"] if args.emissions_only else [])
+        if fam == "S3" and args.joint:
+            job = Q.submit("align-S3-mms-joint", base + ["all-s3"] + flags + ["--joint", "--only"] + ids, mem_gb=2.0, expected_gb=0.1)
+            print(job["tsp_id"])
+            return 0
         if fam == "S3":
             n = max(1, args.jobs)
             jobs = []
@@ -364,5 +410,5 @@ def cmd(args):
         print(job["tsp_id"])
         return 0
     if fam == "S3":
-        return run_clips(ids, args)
+        return run_joint(ids, args) if args.joint else run_clips(ids, args)
     return run_chaptered(aid, args)

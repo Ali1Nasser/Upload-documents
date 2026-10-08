@@ -1,0 +1,1208 @@
+{
+  "v": 1,
+  "audio_id": "a:S5:en-natural",
+  "method": "mms_fa",
+  "words": 8643,
+  "median_conf": 0.997,
+  "chapters": [
+    {
+      "chapter": "CH-00",
+      "window_s": [
+        0,
+        95
+      ],
+      "align_window_s": [
+        0.0,
+        93.2
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            0.0,
+            93.2
+          ],
+          "median_conf": 0.9979
+        }
+      ],
+      "n_words": 165,
+      "median_conf": 0.9979,
+      "p10_conf": 0.9094,
+      "first_word_s": 1.02,
+      "last_word_s": 90.18,
+      "lead_in_s": 1.02,
+      "tail_s": 4.82,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-01",
+      "window_s": [
+        95,
+        200
+      ],
+      "align_window_s": [
+        93.2,
+        197.89
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            93.2,
+            197.89
+          ],
+          "median_conf": 0.9964
+        }
+      ],
+      "n_words": 171,
+      "median_conf": 0.9964,
+      "p10_conf": 0.8834,
+      "first_word_s": 96.06,
+      "last_word_s": 194.6,
+      "lead_in_s": 1.06,
+      "tail_s": 5.4,
+      "words_outside_window": 0,
+      "low_conf_words": 1,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-02",
+      "window_s": [
+        200,
+        300
+      ],
+      "align_window_s": [
+        197.89,
+        298.96
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            197.89,
+            298.96
+          ],
+          "median_conf": 0.9988
+        }
+      ],
+      "n_words": 196,
+      "median_conf": 0.9988,
+      "p10_conf": 0.9765,
+      "first_word_s": 200.98,
+      "last_word_s": 296.78,
+      "lead_in_s": 0.98,
+      "tail_s": 3.22,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-03",
+      "window_s": [
+        300,
+        385
+      ],
+      "align_window_s": [
+        298.96,
+        384.75
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            298.96,
+            384.75
+          ],
+          "median_conf": 0.9959
+        }
+      ],
+      "n_words": 175,
+      "median_conf": 0.9959,
+      "p10_conf": 0.8914,
+      "first_word_s": 301.0,
+      "last_word_s": 383.36,
+      "lead_in_s": 1.0,
+      "tail_s": 1.64,
+      "words_outside_window": 0,
+      "low_conf_words": 1,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-04",
+      "window_s": [
+        385,
+        485
+      ],
+      "align_window_s": [
+        384.75,
+        483.06
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            384.75,
+            483.06
+          ],
+          "median_conf": 0.9985
+        }
+      ],
+      "n_words": 202,
+      "median_conf": 0.9985,
+      "p10_conf": 0.9134,
+      "first_word_s": 386.0,
+      "last_word_s": 480.0,
+      "lead_in_s": 1.0,
+      "tail_s": 5.0,
+      "words_outside_window": 0,
+      "low_conf_words": 1,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-05",
+      "window_s": [
+        485,
+        585
+      ],
+      "align_window_s": [
+        483.06,
+        583.82
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            483.06,
+            583.82
+          ],
+          "median_conf": 0.9981
+        }
+      ],
+      "n_words": 208,
+      "median_conf": 0.9981,
+      "p10_conf": 0.9842,
+      "first_word_s": 486.02,
+      "last_word_s": 581.46,
+      "lead_in_s": 1.02,
+      "tail_s": 3.54,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-06",
+      "window_s": [
+        585,
+        680
+      ],
+      "align_window_s": [
+        583.82,
+        678.82
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            583.82,
+            678.82
+          ],
+          "median_conf": 0.9978
+        }
+      ],
+      "n_words": 195,
+      "median_conf": 0.9978,
+      "p10_conf": 0.923,
+      "first_word_s": 586.0,
+      "last_word_s": 676.48,
+      "lead_in_s": 1.0,
+      "tail_s": 3.52,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-07",
+      "window_s": [
+        680,
+        775
+      ],
+      "align_window_s": [
+        678.82,
+        773.74
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            678.82,
+            773.74
+          ],
+          "median_conf": 0.9979
+        }
+      ],
+      "n_words": 191,
+      "median_conf": 0.9979,
+      "p10_conf": 0.9134,
+      "first_word_s": 681.0,
+      "last_word_s": 771.34,
+      "lead_in_s": 1.0,
+      "tail_s": 3.66,
+      "words_outside_window": 0,
+      "low_conf_words": 4,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-08",
+      "window_s": [
+        775,
+        875
+      ],
+      "align_window_s": [
+        773.74,
+        873.49
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            773.74,
+            873.49
+          ],
+          "median_conf": 0.9978
+        }
+      ],
+      "n_words": 210,
+      "median_conf": 0.9978,
+      "p10_conf": 0.9694,
+      "first_word_s": 776.02,
+      "last_word_s": 870.86,
+      "lead_in_s": 1.02,
+      "tail_s": 4.14,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-09",
+      "window_s": [
+        875,
+        985
+      ],
+      "align_window_s": [
+        873.49,
+        984.1
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            873.49,
+            984.1
+          ],
+          "median_conf": 0.9962
+        }
+      ],
+      "n_words": 225,
+      "median_conf": 0.9962,
+      "p10_conf": 0.9325,
+      "first_word_s": 876.0,
+      "last_word_s": 982.08,
+      "lead_in_s": 1.0,
+      "tail_s": 2.92,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-10",
+      "window_s": [
+        985,
+        1080
+      ],
+      "align_window_s": [
+        984.1,
+        1078.8
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            984.1,
+            1078.8
+          ],
+          "median_conf": 0.9962
+        }
+      ],
+      "n_words": 199,
+      "median_conf": 0.9962,
+      "p10_conf": 0.8837,
+      "first_word_s": 986.0,
+      "last_word_s": 1076.5,
+      "lead_in_s": 1.0,
+      "tail_s": 3.5,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-11",
+      "window_s": [
+        1080,
+        1200
+      ],
+      "align_window_s": [
+        1078.8,
+        1198.67
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1078.8,
+            1198.67
+          ],
+          "median_conf": 0.9939
+        }
+      ],
+      "n_words": 251,
+      "median_conf": 0.9939,
+      "p10_conf": 0.6714,
+      "first_word_s": 1081.06,
+      "last_word_s": 1196.22,
+      "lead_in_s": 1.06,
+      "tail_s": 3.78,
+      "words_outside_window": 0,
+      "low_conf_words": 14,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-12",
+      "window_s": [
+        1200,
+        1315
+      ],
+      "align_window_s": [
+        1198.67,
+        1314.21
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1198.67,
+            1314.21
+          ],
+          "median_conf": 0.9956
+        }
+      ],
+      "n_words": 240,
+      "median_conf": 0.9956,
+      "p10_conf": 0.868,
+      "first_word_s": 1201.04,
+      "last_word_s": 1312.26,
+      "lead_in_s": 1.04,
+      "tail_s": 2.74,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-13",
+      "window_s": [
+        1315,
+        1410
+      ],
+      "align_window_s": [
+        1314.21,
+        1409.36
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1314.21,
+            1409.36
+          ],
+          "median_conf": 0.9965
+        }
+      ],
+      "n_words": 196,
+      "median_conf": 0.9965,
+      "p10_conf": 0.6151,
+      "first_word_s": 1316.0,
+      "last_word_s": 1407.52,
+      "lead_in_s": 1.0,
+      "tail_s": 2.48,
+      "words_outside_window": 0,
+      "low_conf_words": 13,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-14",
+      "window_s": [
+        1410,
+        1575
+      ],
+      "align_window_s": [
+        1409.36,
+        1573.31
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1409.36,
+            1573.31
+          ],
+          "median_conf": 0.9939
+        }
+      ],
+      "n_words": 346,
+      "median_conf": 0.9939,
+      "p10_conf": 0.7525,
+      "first_word_s": 1411.0,
+      "last_word_s": 1570.52,
+      "lead_in_s": 1.0,
+      "tail_s": 4.48,
+      "words_outside_window": 0,
+      "low_conf_words": 15,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-15",
+      "window_s": [
+        1575,
+        1695
+      ],
+      "align_window_s": [
+        1573.31,
+        1694.64
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1573.31,
+            1694.64
+          ],
+          "median_conf": 0.9963
+        }
+      ],
+      "n_words": 246,
+      "median_conf": 0.9963,
+      "p10_conf": 0.6619,
+      "first_word_s": 1576.02,
+      "last_word_s": 1693.22,
+      "lead_in_s": 1.02,
+      "tail_s": 1.78,
+      "words_outside_window": 0,
+      "low_conf_words": 18,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-16",
+      "window_s": [
+        1695,
+        1805
+      ],
+      "align_window_s": [
+        1694.64,
+        1803.87
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1694.64,
+            1803.87
+          ],
+          "median_conf": 0.9947
+        }
+      ],
+      "n_words": 233,
+      "median_conf": 0.9947,
+      "p10_conf": 0.8461,
+      "first_word_s": 1695.98,
+      "last_word_s": 1801.62,
+      "lead_in_s": 0.98,
+      "tail_s": 3.38,
+      "words_outside_window": 0,
+      "low_conf_words": 7,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-17",
+      "window_s": [
+        1805,
+        1910
+      ],
+      "align_window_s": [
+        1803.87,
+        1908.58
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1803.87,
+            1908.58
+          ],
+          "median_conf": 0.9973
+        }
+      ],
+      "n_words": 219,
+      "median_conf": 0.9973,
+      "p10_conf": 0.9023,
+      "first_word_s": 1806.0,
+      "last_word_s": 1906.0,
+      "lead_in_s": 1.0,
+      "tail_s": 4.0,
+      "words_outside_window": 0,
+      "low_conf_words": 5,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-18",
+      "window_s": [
+        1910,
+        2025
+      ],
+      "align_window_s": [
+        1908.58,
+        2024.37
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            1908.58,
+            2024.37
+          ],
+          "median_conf": 0.9979
+        }
+      ],
+      "n_words": 237,
+      "median_conf": 0.9979,
+      "p10_conf": 0.9673,
+      "first_word_s": 1911.04,
+      "last_word_s": 2022.64,
+      "lead_in_s": 1.04,
+      "tail_s": 2.36,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-19",
+      "window_s": [
+        2025,
+        2140
+      ],
+      "align_window_s": [
+        2024.37,
+        2138.27
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2024.37,
+            2138.27
+          ],
+          "median_conf": 0.9934
+        }
+      ],
+      "n_words": 238,
+      "median_conf": 0.9934,
+      "p10_conf": 0.6709,
+      "first_word_s": 2026.04,
+      "last_word_s": 2135.4,
+      "lead_in_s": 1.04,
+      "tail_s": 4.6,
+      "words_outside_window": 0,
+      "low_conf_words": 8,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-20",
+      "window_s": [
+        2140,
+        2265
+      ],
+      "align_window_s": [
+        2138.27,
+        2263.22
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2138.27,
+            2263.22
+          ],
+          "median_conf": 0.9965
+        }
+      ],
+      "n_words": 259,
+      "median_conf": 0.9965,
+      "p10_conf": 0.8833,
+      "first_word_s": 2141.02,
+      "last_word_s": 2260.3,
+      "lead_in_s": 1.02,
+      "tail_s": 4.7,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-21",
+      "window_s": [
+        2265,
+        2380
+      ],
+      "align_window_s": [
+        2263.22,
+        2378.74
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2263.22,
+            2378.74
+          ],
+          "median_conf": 0.9972
+        }
+      ],
+      "n_words": 235,
+      "median_conf": 0.9972,
+      "p10_conf": 0.8296,
+      "first_word_s": 2266.0,
+      "last_word_s": 2376.34,
+      "lead_in_s": 1.0,
+      "tail_s": 3.66,
+      "words_outside_window": 0,
+      "low_conf_words": 4,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-22",
+      "window_s": [
+        2380,
+        2500
+      ],
+      "align_window_s": [
+        2378.74,
+        2499.84
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2378.74,
+            2499.84
+          ],
+          "median_conf": 0.998
+        }
+      ],
+      "n_words": 246,
+      "median_conf": 0.998,
+      "p10_conf": 0.9462,
+      "first_word_s": 2381.0,
+      "last_word_s": 2498.54,
+      "lead_in_s": 1.0,
+      "tail_s": 1.46,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-23",
+      "window_s": [
+        2500,
+        2625
+      ],
+      "align_window_s": [
+        2499.84,
+        2624.0
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2499.84,
+            2624.0
+          ],
+          "median_conf": 0.9946
+        }
+      ],
+      "n_words": 263,
+      "median_conf": 0.9946,
+      "p10_conf": 0.8684,
+      "first_word_s": 2501.0,
+      "last_word_s": 2621.88,
+      "lead_in_s": 1.0,
+      "tail_s": 3.12,
+      "words_outside_window": 0,
+      "low_conf_words": 4,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-24",
+      "window_s": [
+        2625,
+        2740
+      ],
+      "align_window_s": [
+        2624.0,
+        2738.02
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2624.0,
+            2738.02
+          ],
+          "median_conf": 0.9968
+        }
+      ],
+      "n_words": 232,
+      "median_conf": 0.9968,
+      "p10_conf": 0.883,
+      "first_word_s": 2625.96,
+      "last_word_s": 2734.88,
+      "lead_in_s": 0.96,
+      "tail_s": 5.12,
+      "words_outside_window": 0,
+      "low_conf_words": 1,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-25",
+      "window_s": [
+        2740,
+        2860
+      ],
+      "align_window_s": [
+        2738.02,
+        2857.86
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2738.02,
+            2857.86
+          ],
+          "median_conf": 0.9975
+        }
+      ],
+      "n_words": 256,
+      "median_conf": 0.9975,
+      "p10_conf": 0.8748,
+      "first_word_s": 2741.04,
+      "last_word_s": 2854.54,
+      "lead_in_s": 1.04,
+      "tail_s": 5.46,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-26",
+      "window_s": [
+        2860,
+        2990
+      ],
+      "align_window_s": [
+        2857.86,
+        2988.34
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2857.86,
+            2988.34
+          ],
+          "median_conf": 0.9984
+        }
+      ],
+      "n_words": 267,
+      "median_conf": 0.9984,
+      "p10_conf": 0.936,
+      "first_word_s": 2861.0,
+      "last_word_s": 2985.58,
+      "lead_in_s": 1.0,
+      "tail_s": 4.42,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-27",
+      "window_s": [
+        2990,
+        3105
+      ],
+      "align_window_s": [
+        2988.34,
+        3103.81
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            2988.34,
+            3103.81
+          ],
+          "median_conf": 0.9975
+        }
+      ],
+      "n_words": 241,
+      "median_conf": 0.9975,
+      "p10_conf": 0.9694,
+      "first_word_s": 2991.04,
+      "last_word_s": 3101.54,
+      "lead_in_s": 1.04,
+      "tail_s": 3.46,
+      "words_outside_window": 0,
+      "low_conf_words": 0,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-28",
+      "window_s": [
+        3105,
+        3235
+      ],
+      "align_window_s": [
+        3103.81,
+        3234.24
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3103.81,
+            3234.24
+          ],
+          "median_conf": 0.9977
+        }
+      ],
+      "n_words": 277,
+      "median_conf": 0.9977,
+      "p10_conf": 0.8931,
+      "first_word_s": 3106.0,
+      "last_word_s": 3232.3,
+      "lead_in_s": 1.0,
+      "tail_s": 2.7,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-29",
+      "window_s": [
+        3235,
+        3360
+      ],
+      "align_window_s": [
+        3234.24,
+        3357.84
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3234.24,
+            3357.84
+          ],
+          "median_conf": 0.9965
+        }
+      ],
+      "n_words": 260,
+      "median_conf": 0.9965,
+      "p10_conf": 0.8302,
+      "first_word_s": 3236.0,
+      "last_word_s": 3354.46,
+      "lead_in_s": 1.0,
+      "tail_s": 5.54,
+      "words_outside_window": 0,
+      "low_conf_words": 8,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-30",
+      "window_s": [
+        3360,
+        3475
+      ],
+      "align_window_s": [
+        3357.84,
+        3474.78
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3357.84,
+            3474.78
+          ],
+          "median_conf": 0.9979
+        }
+      ],
+      "n_words": 244,
+      "median_conf": 0.9979,
+      "p10_conf": 0.8974,
+      "first_word_s": 3360.96,
+      "last_word_s": 3473.46,
+      "lead_in_s": 0.96,
+      "tail_s": 1.54,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-31",
+      "window_s": [
+        3475,
+        3595
+      ],
+      "align_window_s": [
+        3474.78,
+        3593.66
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3474.78,
+            3593.66
+          ],
+          "median_conf": 0.9974
+        }
+      ],
+      "n_words": 252,
+      "median_conf": 0.9974,
+      "p10_conf": 0.8462,
+      "first_word_s": 3476.0,
+      "last_word_s": 3591.18,
+      "lead_in_s": 1.0,
+      "tail_s": 3.82,
+      "words_outside_window": 0,
+      "low_conf_words": 8,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-32",
+      "window_s": [
+        3595,
+        3715
+      ],
+      "align_window_s": [
+        3593.66,
+        3714.91
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3593.66,
+            3714.91
+          ],
+          "median_conf": 0.9979
+        }
+      ],
+      "n_words": 252,
+      "median_conf": 0.998,
+      "p10_conf": 0.8421,
+      "first_word_s": 3596.0,
+      "last_word_s": 3713.64,
+      "lead_in_s": 1.0,
+      "tail_s": 1.36,
+      "words_outside_window": 0,
+      "low_conf_words": 4,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-33",
+      "window_s": [
+        3715,
+        3855
+      ],
+      "align_window_s": [
+        3714.91,
+        3854.06
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3714.91,
+            3854.06
+          ],
+          "median_conf": 0.9956
+        }
+      ],
+      "n_words": 293,
+      "median_conf": 0.9956,
+      "p10_conf": 0.7918,
+      "first_word_s": 3716.0,
+      "last_word_s": 3852.04,
+      "lead_in_s": 1.0,
+      "tail_s": 2.96,
+      "words_outside_window": 0,
+      "low_conf_words": 10,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-34",
+      "window_s": [
+        3855,
+        3995
+      ],
+      "align_window_s": [
+        3854.06,
+        3994.14
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3854.06,
+            3994.14
+          ],
+          "median_conf": 0.9984
+        }
+      ],
+      "n_words": 293,
+      "median_conf": 0.9984,
+      "p10_conf": 0.9539,
+      "first_word_s": 3856.0,
+      "last_word_s": 3992.16,
+      "lead_in_s": 1.0,
+      "tail_s": 2.84,
+      "words_outside_window": 0,
+      "low_conf_words": 2,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-35",
+      "window_s": [
+        3995,
+        4130
+      ],
+      "align_window_s": [
+        3994.14,
+        4129.74
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            3994.14,
+            4129.74
+          ],
+          "median_conf": 0.9965
+        }
+      ],
+      "n_words": 279,
+      "median_conf": 0.9965,
+      "p10_conf": 0.9137,
+      "first_word_s": 3995.98,
+      "last_word_s": 4128.36,
+      "lead_in_s": 0.98,
+      "tail_s": 1.64,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0
+    },
+    {
+      "chapter": "CH-36",
+      "window_s": [
+        4130,
+        4205
+      ],
+      "align_window_s": [
+        4129.74,
+        4205.02
+      ],
+      "variant": "vad6",
+      "variants_tried": [
+        {
+          "variant": "vad6",
+          "window_s": [
+            4129.74,
+            4205.02
+          ],
+          "median_conf": 0.9975
+        }
+      ],
+      "n_words": 151,
+      "median_conf": 0.9975,
+      "p10_conf": 0.8393,
+      "first_word_s": 4131.02,
+      "last_word_s": 4203.02,
+      "lead_in_s": 1.02,
+      "tail_s": 1.98,
+      "words_outside_window": 0,
+      "low_conf_words": 4,
+      "interpolated": 0
+    }
+  ],
+  "flagged": [],
+  "boundary_overlaps": [],
+  "window_mode": "VAD-gap variants vad6 > vad12 > nominal (first with median conf >= 0.55)",
+  "text_source": "corpus/canon/chapters.json narration_en_plain (master §8 English)",
+  "needs_demucs": [],
+  "created": "2026-10-08T08:12:06Z",
+  "cue_check": {
+    "captions": 637,
+    "compared": 637,
+    "chapters_skipped_word_count_mismatch": [],
+    "median_abs_ms": 160,
+    "median_signed_ms": 157,
+    "within_300ms": 0.8179,
+    "p90_abs_ms": 443
+  }
+}

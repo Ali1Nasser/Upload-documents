@@ -1,0 +1,32 @@
+{
+  "v": 1,
+  "audio_id": "a:S3:CH-35_0",
+  "method": "mms_fa",
+  "words": 212,
+  "median_conf": 0.8715,
+  "chapters": [
+    {
+      "chapter": "CH-35",
+      "window_s": [
+        0.0,
+        103.96
+      ],
+      "n_words": 212,
+      "median_conf": 0.8715,
+      "p10_conf": 0.482,
+      "first_word_s": 0.32,
+      "last_word_s": 103.62,
+      "lead_in_s": 0.32,
+      "tail_s": 0.34,
+      "words_outside_window": 0,
+      "low_conf_words": 3,
+      "interpolated": 0
+    }
+  ],
+  "flagged": [],
+  "text_source": [
+    "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-35_0.txt"
+  ],
+  "duration_s": 103.96,
+  "created": "2026-10-08T08:32:19Z"
+}

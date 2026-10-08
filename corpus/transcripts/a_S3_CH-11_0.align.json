@@ -1,0 +1,32 @@
+{
+  "v": 1,
+  "audio_id": "a:S3:CH-11_0",
+  "method": "mms_fa",
+  "words": 199,
+  "median_conf": 0.8482,
+  "chapters": [
+    {
+      "chapter": "CH-11",
+      "window_s": [
+        0.0,
+        97.28
+      ],
+      "n_words": 199,
+      "median_conf": 0.8482,
+      "p10_conf": 0.4627,
+      "first_word_s": 0.32,
+      "last_word_s": 96.7,
+      "lead_in_s": 0.32,
+      "tail_s": 0.58,
+      "words_outside_window": 0,
+      "low_conf_words": 12,
+      "interpolated": 0
+    }
+  ],
+  "flagged": [],
+  "text_source": [
+    "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/dacamp/tts/CH-11_0.txt"
+  ],
+  "duration_s": 97.28,
+  "created": "2026-10-08T08:13:12Z"
+}
