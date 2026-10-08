@@ -1,0 +1,3241 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P14",
+  "asr_words": 1101,
+  "final_words": 1052,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 14,
+      "orig": "الباك",
+      "to": "الـbackend",
+      "why": "term",
+      "final": [
+        14,
+        14
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 15,
+      "orig": "اند",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 23,
+      "orig": "ريكوست",
+      "to": "request",
+      "why": "term",
+      "final": [
+        22,
+        22
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 34,
+      "orig": "الdatابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        33,
+        33
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 47,
+      "orig": "مطباط",
+      "to": "مطبات",
+      "why": "mishear",
+      "final": [
+        46,
+        46
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 56,
+      "orig": "خارط",
+      "to": "خارطة",
+      "why": "mishear",
+      "final": [
+        55,
+        55
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 65,
+      "orig": "الريكويست",
+      "to": "الـrequest",
+      "why": "term",
+      "final": [
+        64,
+        64
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 75,
+      "orig": "جافا",
+      "to": "Java",
+      "why": "term",
+      "final": [
+        74,
+        74
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 76,
+      "orig": "والستريمز",
+      "to": "والـStreams",
+      "why": "term",
+      "final": [
+        75,
+        75
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 78,
+      "orig": "الجي",
+      "to": "الـJDBC",
+      "why": "term",
+      "final": [
+        77,
+        77
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 79,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 80,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 81,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 82,
+      "orig": "والترانزاكشنز",
+      "to": "والـtransactions",
+      "why": "term",
+      "final": [
+        78,
+        78
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 86,
+      "orig": "الكنيكشن",
+      "to": "الـConnection",
+      "why": "term",
+      "final": [
+        82,
+        82
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 87,
+      "orig": "بول",
+      "to": "Pool",
+      "why": "term",
+      "final": [
+        83,
+        83
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 90,
+      "orig": "السبرينج",
+      "to": "الـSpring",
+      "why": "term",
+      "final": [
+        86,
+        86
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 91,
+      "orig": "بوت",
+      "to": "Boot",
+      "why": "term",
+      "final": [
+        87,
+        87
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 94,
+      "orig": "بالكونكرنسي",
+      "to": "بالـconcurrency",
+      "why": "term",
+      "final": [
+        90,
+        90
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 95,
+      "orig": "والساجا",
+      "to": "والـsaga",
+      "why": "term",
+      "final": [
+        91,
+        91
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 96,
+      "orig": "باترن",
+      "to": "pattern",
+      "why": "term",
+      "final": [
+        92,
+        92
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 106,
+      "orig": "الريكويست",
+      "to": "الـrequest",
+      "why": "term",
+      "final": [
+        102,
+        102
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 120,
+      "orig": "للريكويست",
+      "to": "للـrequest",
+      "why": "term",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 126,
+      "orig": "الكنترولر",
+      "to": "الـController",
+      "why": "term",
+      "final": [
+        122,
+        122
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 132,
+      "orig": "للسيرفس",
+      "to": "للـService",
+      "why": "term",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 138,
+      "orig": "البيزنس",
+      "to": "الـbusiness",
+      "why": "term",
+      "final": [
+        134,
+        134
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 139,
+      "orig": "رولز",
+      "to": "rules",
+      "why": "term",
+      "final": [
+        135,
+        135
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 141,
+      "orig": "للريبوزتري",
+      "to": "للـRepository",
+      "why": "term",
+      "final": [
+        137,
+        137
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 144,
+      "orig": "الاسي",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        140,
+        140
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 145,
+      "orig": "كيوال",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 149,
+      "orig": "للكونكشن",
+      "to": "للـConnection",
+      "why": "term",
+      "final": [
+        144,
+        144
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 150,
+      "orig": "بول",
+      "to": "Pool",
+      "why": "term",
+      "final": [
+        145,
+        145
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 153,
+      "orig": "للداتابيز",
+      "to": "للـdatabase",
+      "why": "term",
+      "final": [
+        148,
+        148
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 174,
+      "orig": "الكنكشن",
+      "to": "الـConnection",
+      "why": "term",
+      "final": [
+        169,
+        169
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 175,
+      "orig": "بول",
+      "to": "Pool",
+      "why": "term",
+      "final": [
+        170,
+        170
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 191,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        186,
+        186
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 192,
+      "orig": "وجافا",
+      "to": "وJava",
+      "why": "term",
+      "final": [
+        187,
+        187
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 200,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        195,
+        195
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 210,
+      "orig": "دايناميك",
+      "to": "dynamic",
+      "why": "term",
+      "final": [
+        205,
+        205
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 211,
+      "orig": "تايبينج",
+      "to": "typing",
+      "why": "term",
+      "final": [
+        206,
+        206
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 220,
+      "orig": "الجي",
+      "to": "الـGIL",
+      "why": "term",
+      "final": [
+        215,
+        215
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 221,
+      "orig": "آي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 222,
+      "orig": "أل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 227,
+      "orig": "جافا",
+      "to": "Java",
+      "why": "term",
+      "final": [
+        220,
+        220
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 231,
+      "orig": "ل80",
+      "to": "لـ80",
+      "why": "number",
+      "final": [
+        224,
+        224
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 237,
+      "orig": "بستاتيك",
+      "to": "بـstatic",
+      "why": "term",
+      "final": [
+        230,
+        230
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 238,
+      "orig": "تايبينج",
+      "to": "typing",
+      "why": "term",
+      "final": [
+        231,
+        231
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 239,
+      "orig": "بيصطادر",
+      "to": "بيصطاد",
+      "why": "mishear",
+      "final": [
+        232,
+        232
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 241,
+      "orig": "بدر",
+      "to": "بدري",
+      "why": "mishear",
+      "final": [
+        234,
+        234
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 248,
+      "orig": "Compailer",
+      "to": "Compiler",
+      "why": "term",
+      "final": [
+        241,
+        241
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 269,
+      "orig": "ال",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 270,
+      "orig": "Production",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        262,
+        262
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 271,
+      "orig": "Skill",
+      "to": "scale",
+      "why": "mishear",
+      "final": [
+        263,
+        263
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 272,
+      "orig": "الArchitecture",
+      "to": "الـarchitecture",
+      "why": "term",
+      "final": [
+        264,
+        264
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 287,
+      "orig": "السيرفز",
+      "to": "الـService",
+      "why": "term",
+      "final": [
+        279,
+        279
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 291,
+      "orig": "وفي",
+      "to": "وفخاخ",
+      "why": "mishear",
+      "final": [
+        283,
+        283
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 292,
+      "orig": "خاخ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 301,
+      "orig": "عبقر",
+      "to": "عبقري",
+      "why": "mishear",
+      "final": [
+        292,
+        292
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 311,
+      "orig": "integer",
+      "to": "Integer",
+      "why": "term",
+      "final": [
+        302,
+        302
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 324,
+      "orig": "integer",
+      "to": "Integer",
+      "why": "term",
+      "final": [
+        315,
+        315
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 339,
+      "orig": "الانتيجر",
+      "to": "الـInteger",
+      "why": "term",
+      "final": [
+        330,
+        330
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 340,
+      "orig": "كاش",
+      "to": "cache",
+      "why": "term",
+      "final": [
+        331,
+        331
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 341,
+      "orig": "الجي",
+      "to": "الـJVM",
+      "why": "term",
+      "final": [
+        332,
+        332
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 342,
+      "orig": "في",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 343,
+      "orig": "ام",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 364,
+      "orig": "كأوبجيكت",
+      "to": "كـobject",
+      "why": "term",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 392,
+      "orig": "الجافا",
+      "to": "الـJava",
+      "why": "term",
+      "final": [
+        381,
+        381
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 393,
+      "orig": "ستريمز",
+      "to": "Streams",
+      "why": "term",
+      "final": [
+        382,
+        382
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 401,
+      "orig": "لبانداز",
+      "to": "لـpandas",
+      "why": "term",
+      "final": [
+        390,
+        390
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 403,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        392,
+        392
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 414,
+      "orig": "الفلتر",
+      "to": "الـfilter",
+      "why": "term",
+      "final": [
+        403,
+        403
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 415,
+      "orig": "والماب",
+      "to": "والـmap",
+      "why": "term",
+      "final": [
+        404,
+        404
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 416,
+      "orig": "والجروبينج",
+      "to": "والـgroupingBy",
+      "why": "term",
+      "final": [
+        405,
+        405
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 417,
+      "orig": "باي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 418,
+      "orig": "والصم",
+      "to": "والـsum",
+      "why": "term",
+      "final": [
+        406,
+        406
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 431,
+      "orig": "ديتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        419,
+        419
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 432,
+      "orig": "سيتس",
+      "to": "sets",
+      "why": "term",
+      "final": [
+        420,
+        420
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 463,
+      "orig": "الربوزيتوري",
+      "to": "الـRepository",
+      "why": "term",
+      "final": [
+        451,
+        451
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 468,
+      "orig": "الجي",
+      "to": "الـJDBC",
+      "why": "term",
+      "final": [
+        456,
+        456
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 469,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 470,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 471,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 472,
+      "orig": "والترانزاكشنز",
+      "to": "والـtransactions",
+      "why": "term",
+      "final": [
+        457,
+        457
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 480,
+      "orig": "الكوننكشن",
+      "to": "الـconnection",
+      "why": "term",
+      "final": [
+        465,
+        465
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 483,
+      "orig": "Prepared",
+      "to": "PreparedStatement",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 484,
+      "orig": "Statement",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 486,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        470,
+        470
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 492,
+      "orig": "الResult",
+      "to": "الـResultSet",
+      "why": "term",
+      "final": [
+        476,
+        476
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 493,
+      "orig": "Set",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 503,
+      "orig": "Prepared",
+      "to": "PreparedStatement",
+      "why": "term",
+      "final": [
+        486,
+        486
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 504,
+      "orig": "Statement",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 510,
+      "orig": "بلوك",
+      "to": "block",
+      "why": "term",
+      "final": [
+        492,
+        492
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 524,
+      "orig": "TryWithResources",
+      "to": "try-with-resources",
+      "why": "term",
+      "final": [
+        506,
+        506
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 527,
+      "orig": "الConnection",
+      "to": "الـconnection",
+      "why": "term",
+      "final": [
+        509,
+        509
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 535,
+      "orig": "للResources",
+      "to": "للـresources",
+      "why": "term",
+      "final": [
+        517,
+        517
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 542,
+      "orig": "الترانزاكشن",
+      "to": "الـtransaction",
+      "why": "term",
+      "final": [
+        524,
+        524
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 545,
+      "orig": "الأوتو",
+      "to": "الـauto",
+      "why": "term",
+      "final": [
+        527,
+        527
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 546,
+      "orig": "كوميت",
+      "to": "commit",
+      "why": "term",
+      "final": [
+        528,
+        528
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 553,
+      "orig": "نخص",
+      "to": "نخصم",
+      "why": "mishear",
+      "final": [
+        535,
+        535
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 571,
+      "orig": "بتعف",
+      "to": "بتقف",
+      "why": "mishear",
+      "final": [
+        553,
+        553
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "رول",
+      "to": "rollback",
+      "why": "term",
+      "final": [
+        555,
+        555
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 574,
+      "orig": "باك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 576,
+      "orig": "الرول",
+      "to": "الـrollback",
+      "why": "term",
+      "final": [
+        557,
+        557
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 577,
+      "orig": "باك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 596,
+      "orig": "ريس",
+      "to": "race",
+      "why": "term",
+      "final": [
+        576,
+        576
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 597,
+      "orig": "كونديشنز",
+      "to": "conditions",
+      "why": "term",
+      "final": [
+        577,
+        577
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 602,
+      "orig": "دخله",
+      "to": "دخلوا",
+      "why": "mishear",
+      "final": [
+        582,
+        582
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 617,
+      "orig": "الكونكشن",
+      "to": "الـConnection",
+      "why": "term",
+      "final": [
+        597,
+        597
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 618,
+      "orig": "بول",
+      "to": "Pool",
+      "why": "term",
+      "final": [
+        598,
+        598
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 630,
+      "orig": "كونكشنز",
+      "to": "connections",
+      "why": "term",
+      "final": [
+        610,
+        610
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 634,
+      "orig": "هكاري",
+      "to": "HikariCP",
+      "why": "term",
+      "final": [
+        614,
+        614
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 635,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 636,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 646,
+      "orig": "ومجغولين",
+      "to": "ومشغولين",
+      "why": "mishear",
+      "final": [
+        624,
+        624
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 652,
+      "orig": "ريكواست",
+      "to": "request",
+      "why": "term",
+      "final": [
+        630,
+        630
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 663,
+      "orig": "الطايم",
+      "to": "الـtimeout",
+      "why": "term",
+      "final": [
+        641,
+        641
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 664,
+      "orig": "عود",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 673,
+      "orig": "بنغبط",
+      "to": "بنخبط",
+      "why": "mishear",
+      "final": [
+        650,
+        650
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 675,
+      "orig": "حطة",
+      "to": "حيطة",
+      "why": "mishear",
+      "final": [
+        652,
+        652
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 678,
+      "orig": "أرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        655,
+        655
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 681,
+      "orig": "Pull",
+      "to": "Pool",
+      "why": "mishear",
+      "final": [
+        658,
+        658
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 694,
+      "orig": "للداتابيز",
+      "to": "للـdatabase",
+      "why": "term",
+      "final": [
+        671,
+        671
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 718,
+      "orig": "لSpring",
+      "to": "لـSpring",
+      "why": "term",
+      "final": [
+        695,
+        695
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 731,
+      "orig": "Add",
+      "to": "@Entity",
+      "why": "term",
+      "final": [
+        708,
+        708
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 732,
+      "orig": "Entity",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 738,
+      "orig": "JPA",
+      "to": "JpaRepository",
+      "why": "term",
+      "final": [
+        714,
+        714
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 739,
+      "orig": "Repository",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 743,
+      "orig": "الكويريز",
+      "to": "الـqueries",
+      "why": "term",
+      "final": [
+        718,
+        718
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 747,
+      "orig": "Add",
+      "to": "@Service",
+      "why": "term",
+      "final": [
+        722,
+        722
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 748,
+      "orig": "Service",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 750,
+      "orig": "Add",
+      "to": "@Transactional",
+      "why": "term",
+      "final": [
+        724,
+        724
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 751,
+      "orig": "Transactional",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "البزنس",
+      "to": "الـbusiness",
+      "why": "term",
+      "final": [
+        728,
+        728
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 756,
+      "orig": "والrollbacks",
+      "to": "والـrollbacks",
+      "why": "term",
+      "final": [
+        729,
+        729
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 760,
+      "orig": "Add",
+      "to": "@RestController",
+      "why": "term",
+      "final": [
+        733,
+        733
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 761,
+      "orig": "Rest",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 762,
+      "orig": "Controller",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 783,
+      "orig": "وفي",
+      "to": "وفخاخ",
+      "why": "mishear",
+      "final": [
+        754,
+        754
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 784,
+      "orig": "خاخ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 790,
+      "orig": "Global",
+      "to": "GlobalExceptionHandler",
+      "why": "term",
+      "final": [
+        760,
+        760
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 791,
+      "orig": "Exception",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 792,
+      "orig": "Handler",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 794,
+      "orig": "ما",
+      "to": "مكان",
+      "why": "mishear",
+      "final": [
+        762,
+        762
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 795,
+      "orig": "كان",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 809,
+      "orig": "فيت",
+      "to": "فيه",
+      "why": "mishear",
+      "final": [
+        776,
+        776
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 810,
+      "orig": "عرض",
+      "to": "تعارض",
+      "why": "mishear",
+      "final": [
+        777,
+        777
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 820,
+      "orig": "الجي",
+      "to": "الـJPA",
+      "why": "term",
+      "final": [
+        787,
+        787
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 821,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 822,
+      "orig": "اي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 823,
+      "orig": "ان",
+      "to": "N+1",
+      "why": "term",
+      "final": [
+        788,
+        788
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 824,
+      "orig": "بلاس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 825,
+      "orig": "وان",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 826,
+      "orig": "كويري",
+      "to": "query",
+      "why": "term",
+      "final": [
+        789,
+        789
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 827,
+      "orig": "تراب",
+      "to": "trap",
+      "why": "term",
+      "final": [
+        790,
+        790
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 831,
+      "orig": "ليزي",
+      "to": "lazy",
+      "why": "term",
+      "final": [
+        794,
+        794
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 832,
+      "orig": "لودينج",
+      "to": "loading",
+      "why": "term",
+      "final": [
+        795,
+        795
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 836,
+      "orig": "ميت",
+      "to": "100",
+      "why": "number",
+      "final": [
+        799,
+        799
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 850,
+      "orig": "ميت",
+      "to": "100",
+      "why": "number",
+      "final": [
+        813,
+        813
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 857,
+      "orig": "مية",
+      "to": "101",
+      "why": "number",
+      "final": [
+        820,
+        820
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 858,
+      "orig": "واحد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 859,
+      "orig": "كويري",
+      "to": "query",
+      "why": "term",
+      "final": [
+        821,
+        821
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 862,
+      "orig": "ميت",
+      "to": "100",
+      "why": "number",
+      "final": [
+        824,
+        824
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 866,
+      "orig": "بيضمر",
+      "to": "بيدمر",
+      "why": "mishear",
+      "final": [
+        828,
+        828
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 871,
+      "orig": "لضروة",
+      "to": "لذروة",
+      "why": "mishear",
+      "final": [
+        833,
+        833
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 876,
+      "orig": "الكونكورنسي",
+      "to": "الـconcurrency",
+      "why": "term",
+      "final": [
+        838,
+        838
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 877,
+      "orig": "والساجة",
+      "to": "والـsaga",
+      "why": "term",
+      "final": [
+        839,
+        839
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 878,
+      "orig": "باترن",
+      "to": "pattern",
+      "why": "term",
+      "final": [
+        840,
+        840
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 882,
+      "orig": "الكونكورنسي",
+      "to": "الـconcurrency",
+      "why": "term",
+      "final": [
+        844,
+        844
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 885,
+      "orig": "بايثن",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        847,
+        847
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 889,
+      "orig": "حيال",
+      "to": "حيل",
+      "why": "mishear",
+      "final": [
+        851,
+        851
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 891,
+      "orig": "الثريدينج",
+      "to": "الـthreading",
+      "why": "term",
+      "final": [
+        853,
+        853
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 892,
+      "orig": "للآي",
+      "to": "للـI/O",
+      "why": "term",
+      "final": [
+        854,
+        854
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 893,
+      "orig": "أو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 895,
+      "orig": "مالتي",
+      "to": "multiprocessing",
+      "why": "term",
+      "final": [
+        856,
+        856
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 896,
+      "orig": "بروسسنج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 897,
+      "orig": "للسي",
+      "to": "للـCPU",
+      "why": "term",
+      "final": [
+        857,
+        857
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 898,
+      "orig": "بيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 900,
+      "orig": "إيسينج",
+      "to": "asyncio",
+      "why": "term",
+      "final": [
+        859,
+        859
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 901,
+      "orig": "آي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 902,
+      "orig": "أو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 906,
+      "orig": "تلفه",
+      "to": "تلف",
+      "why": "mishear",
+      "final": [
+        863,
+        863
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 907,
+      "orig": "ودور",
+      "to": "وتدور",
+      "why": "mishear",
+      "final": [
+        864,
+        864
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 910,
+      "orig": "الجي",
+      "to": "الـGIL",
+      "why": "term",
+      "final": [
+        867,
+        867
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 911,
+      "orig": "آي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 912,
+      "orig": "أل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 915,
+      "orig": "جافا",
+      "to": "Java",
+      "why": "term",
+      "final": [
+        870,
+        870
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 927,
+      "orig": "الثريدز",
+      "to": "الـthreads",
+      "why": "term",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 932,
+      "orig": "كور",
+      "to": "core",
+      "why": "term",
+      "final": [
+        887,
+        887
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 943,
+      "orig": "خزر",
+      "to": "حذر",
+      "why": "mishear",
+      "final": [
+        898,
+        898
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 950,
+      "orig": "الأتوميك",
+      "to": "الـatomic",
+      "why": "term",
+      "final": [
+        905,
+        905
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 951,
+      "orig": "سيفتي",
+      "to": "safety",
+      "why": "term",
+      "final": [
+        906,
+        906
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 962,
+      "orig": "بيجبر",
+      "to": "بيكبر",
+      "why": "mishear",
+      "final": [
+        917,
+        917
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 967,
+      "orig": "مايكرو",
+      "to": "microservice",
+      "why": "term",
+      "final": [
+        922,
+        922
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 968,
+      "orig": "سيرفس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 972,
+      "orig": "الداتاباس",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        926,
+        926
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 979,
+      "orig": "ترانزاكشن",
+      "to": "transaction",
+      "why": "term",
+      "final": [
+        933,
+        933
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 981,
+      "orig": "ورول",
+      "to": "وrollback",
+      "why": "term",
+      "final": [
+        935,
+        935
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 982,
+      "orig": "باك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 989,
+      "orig": "الساجا",
+      "to": "الـsaga",
+      "why": "term",
+      "final": [
+        942,
+        942
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 990,
+      "orig": "باترن",
+      "to": "pattern",
+      "why": "term",
+      "final": [
+        943,
+        943
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1046,
+      "orig": "الكنكشن",
+      "to": "الـConnection",
+      "why": "term",
+      "final": [
+        999,
+        999
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1047,
+      "orig": "بول",
+      "to": "Pool",
+      "why": "term",
+      "final": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1049,
+      "orig": "الساجا",
+      "to": "الـsaga",
+      "why": "term",
+      "final": [
+        1002,
+        1002
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1050,
+      "orig": "باترن",
+      "to": "pattern",
+      "why": "term",
+      "final": [
+        1003,
+        1003
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1063,
+      "orig": "الديتا",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        1016,
+        1016
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1064,
+      "orig": "بايبلاينز",
+      "to": "pipelines",
+      "why": "term",
+      "final": [
+        1017,
+        1017
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1069,
+      "orig": "موصوق",
+      "to": "موثوق",
+      "why": "mishear",
+      "final": [
+        1022,
+        1022
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1072,
+      "orig": "الانتر",
+      "to": "الـenterprise",
+      "why": "term",
+      "final": [
+        1025,
+        1025
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1073,
+      "orig": "برايس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1074,
+      "orig": "كيل",
+      "to": "scale",
+      "why": "mishear",
+      "final": [
+        1026,
+        1026
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1095,
+      "orig": "الـ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1096,
+      "orig": "ETLs",
+      "to": "الـETLs",
+      "why": "term",
+      "final": [
+        1047,
+        1047
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1097,
+      "orig": "والDAGs",
+      "to": "والـDAGs",
+      "why": "term",
+      "final": [
+        1048,
+        1048
+      ]
+    }
+  ],
+  "notes": "NotebookLM narration paraphrasing S4-P14 (request path Controller->Service->Repository->Connection Pool->DB; Python vs Java; Integer cache 127/128 and .equals; Streams vs pandas, parallel stream trap; JDBC steps, PreparedStatement, try-with-resources; manual transaction with conditional stock decrement and rollback; HikariCP pool of 10, request 11, pool exhausted; Spring Boot annotations; GlobalExceptionHandler 404/409/500; JPA N+1; Python threading/multiprocessing/asyncio vs Java threads; saga and compensation; teaser for ETLs/DAGs). It does not follow the script verbatim; source_excerpt used to confirm terms and figures. Terms: Arabic-script English converted to Latin with the source's الـ/و/لـ/بـ prefix style (backend, request, database, Java, Python, Streams, JDBC, transaction(s), Connection Pool, Spring Boot, concurrency, saga pattern, Controller, Service, Repository, business rules, SQL, GIL, dynamic/static typing, production scale, architecture, Integer cache, JVM, object, pandas, filter/map/groupingBy/sum, data sets, connection, PreparedStatement (merged 'Prepared Statement'), query/queries, ResultSet, block, try-with-resources, resources, auto commit, rollback, race conditions, connections, HikariCP, request, timeout, error, @Entity/@Service/@Transactional/@RestController (whisper heard 'Add' for spoken '@'), JpaRepository, GlobalExceptionHandler, JPA N+1 query trap, lazy loading, threading, I/O, multiprocessing, CPU, asyncio, threads, core, atomic safety, microservice, data pipelines, enterprise scale, ETLs, DAGs); 'Compailer'->'Compiler', 'Pull Exhausted'->'Pool Exhausted', 'Production Skill'->'production scale'. Numbers: 'ل80'->'لـ80'; 'ميت' (100) x3 -> 100 and 'مية واحد' -> 101 (N+1 example; source: ميّة عميل -> ميّة وواحد query). Spoken counts/ordinals left as words ('ست محطات', المحطة الثالثة/الرابعة/الخامسة/السادسة) but listed as digits in sentence numbers; 'سالب 128' listed as -128. Mishears fixed (meaning certain from context/source): مطباط->مطبات, خارط->خارطة, بيصطادر->بيصطاد, بدر->بدري, وفي خاخ->وفخاخ (x2; source فخاخ), عبقر->عبقري, نخص->نخصم (source خصم المخزون), بتعف->بتقف (Egyptian glottal ق), دخله->دخلوا, ومجغولين->ومشغولين (on-screen مشغولين), بنغبط في حطة سد->بنخبط في حيطة سد, ما كان مركزي->مكان مركزي, فيت عرض->فيه تعارض (409 CONFLICT), بيضمر->بيدمر, لضروة->لذروة, حيال->حيل, تلفه ودور->تلف وتدور, خزر->حذر, بيجبر->بيكبر, موصوق->موثوق. Egyptian pronunciation spellings kept (بالزبط, الزاكرة, الزهبية, زكي, هتعجبكو, حيفتح). Left as heard (uncertain, please spot-check audio): i71-73 'في خخص الريا' in the roadmap (likely 'فخاخ ...' = gotchas, maybe 'فخاخ صغيرة', but not certain); i549 'مندخل' (maybe 'بندخل'); i753 'نديل' (maybe 'نهندل'/'ندير'); i855 'الواحده' (maybe 'لوحده'); i498 'الأهمة' (maybe 'الأهم'); i950-951 'atomic safety' kept as heard (source talks about protecting shared data / thread-safe). Possible dropout: 3.2 s gap between i560 and i561 ('شرط زكي جدا' | 'لو الشرط...'), with i561 confidence 0.00; the source's condition ('قلّل بس لو الكمية كفاية') may have been spoken there but the exact words are not certain, so no insert. No inserts made.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 4,
+      "kind": "transition",
+      "gloss_en": "Welcome to this explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 5,
+      "to": 15,
+      "kind": "transition",
+      "gloss_en": "Today we go on a really fun trip inside the complex details of the backend.",
+      "terms": [
+        "backend"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 16,
+      "to": 35,
+      "kind": "transition",
+      "gloss_en": "We will trace, exactly step by step, the journey of any request from the moment it leaves the client until it dives deep into the database and comes back.",
+      "terms": [
+        "request",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 36,
+      "to": 42,
+      "kind": "claim",
+      "gloss_en": "It is not just a straight line, not at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 43,
+      "to": 50,
+      "kind": "claim",
+      "gloss_en": "It is a journey full of bumps and technical details you will really like.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 51,
+      "to": 61,
+      "kind": "transition",
+      "gloss_en": "Let us quickly look at our roadmap: we will go through six stations.",
+      "terms": [],
+      "numbers": [
+        6
+      ],
+      "entities": []
+    },
+    {
+      "from": 62,
+      "to": 75,
+      "kind": "transition",
+      "gloss_en": "First, the request journey and the language wars; second, we look at some (unclear) in Java and the Streams.",
+      "terms": [
+        "request",
+        "Java",
+        "Streams"
+      ],
+      "numbers": [],
+      "entities": [
+        "Java"
+      ]
+    },
+    {
+      "from": 76,
+      "to": 87,
+      "kind": "transition",
+      "gloss_en": "Third, JDBC and transactions; fourth, we stop at the connection pool; fifth, the Spring Boot layers.",
+      "terms": [
+        "JDBC",
+        "transactions",
+        "Connection",
+        "Pool",
+        "Spring",
+        "Boot"
+      ],
+      "numbers": [],
+      "entities": [
+        "Spring Boot"
+      ]
+    },
+    {
+      "from": 88,
+      "to": 92,
+      "kind": "transition",
+      "gloss_en": "And finally we close with concurrency and the saga pattern.",
+      "terms": [
+        "concurrency",
+        "saga",
+        "pattern"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 93,
+      "to": 100,
+      "kind": "transition",
+      "gloss_en": "Great, let us start with our first station.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 101,
+      "to": 110,
+      "kind": "transition",
+      "gloss_en": "The request journey and the language wars that always go on in this layer.",
+      "terms": [
+        "request"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 111,
+      "to": 116,
+      "kind": "transition",
+      "gloss_en": "Picture with me the spatial map of the request.",
+      "terms": [
+        "request"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 117,
+      "to": 125,
+      "kind": "claim",
+      "gloss_en": "It first knocks on the door of the Controller, which receives it and routes it.",
+      "terms": [
+        "Controller"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 126,
+      "to": 135,
+      "kind": "claim",
+      "gloss_en": "Then it goes down to the Service, which holds all the business rules.",
+      "terms": [
+        "Service",
+        "business",
+        "rules"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 136,
+      "to": 148,
+      "kind": "claim",
+      "gloss_en": "From there to the Repository, which writes the SQL, until we reach the connection pool and finally the database.",
+      "terms": [
+        "Repository",
+        "SQL",
+        "Connection",
+        "Pool",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 149,
+      "to": 161,
+      "kind": "claim",
+      "gloss_en": "The core idea here is that all these layers depend on each other vertically.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 178,
+      "kind": "claim",
+      "gloss_en": "So if any small problem happens in the connection pool, everything above stops completely and the whole system goes down.",
+      "terms": [
+        "Connection",
+        "Pool"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 179,
+      "to": 194,
+      "kind": "transition",
+      "gloss_en": "Now look at this direct comparison between Python and Java doing the same task; it is really interesting.",
+      "terms": [
+        "Python",
+        "Java"
+      ],
+      "numbers": [],
+      "entities": [
+        "Python",
+        "Java"
+      ]
+    },
+    {
+      "from": 195,
+      "to": 206,
+      "kind": "claim",
+      "gloss_en": "Python gives you very short code, about 20 lines, with dynamic typing.",
+      "terms": [
+        "Python",
+        "dynamic",
+        "typing"
+      ],
+      "numbers": [
+        20
+      ],
+      "entities": [
+        "Python"
+      ]
+    },
+    {
+      "from": 207,
+      "to": 215,
+      "kind": "claim",
+      "gloss_en": "But at the same time it is constrained by something called the GIL.",
+      "terms": [
+        "GIL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 216,
+      "to": 227,
+      "kind": "claim",
+      "gloss_en": "On the other side, Java code can reach 80 lines or more.",
+      "terms": [
+        "Java"
+      ],
+      "numbers": [
+        80
+      ],
+      "entities": [
+        "Java"
+      ]
+    },
+    {
+      "from": 228,
+      "to": 235,
+      "kind": "claim",
+      "gloss_en": "But it makes up for it with static typing that catches errors very early.",
+      "terms": [
+        "static",
+        "typing"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 236,
+      "to": 244,
+      "kind": "claim",
+      "gloss_en": "And it runs on the JVM with a JIT compiler that gives tremendous speed.",
+      "terms": [
+        "JVM",
+        "JIT",
+        "Compiler"
+      ],
+      "numbers": [],
+      "entities": [
+        "JVM"
+      ]
+    },
+    {
+      "from": 245,
+      "to": 251,
+      "kind": "claim",
+      "gloss_en": "And most important of all: true multithreading.",
+      "terms": [
+        "True",
+        "Multi",
+        "Threading",
+        "multithreading"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 252,
+      "to": 269,
+      "kind": "claim",
+      "gloss_en": "When we build systems handling billions of records at production scale, this architecture makes a huge difference.",
+      "terms": [
+        "Systems",
+        "production",
+        "scale",
+        "architecture"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 270,
+      "to": 287,
+      "kind": "transition",
+      "gloss_en": "Based on that, let us go inside the Service layer and uncover some hidden programming traps in Java.",
+      "terms": [
+        "Service",
+        "Java"
+      ],
+      "numbers": [],
+      "entities": [
+        "Java"
+      ]
+    },
+    {
+      "from": 288,
+      "to": 297,
+      "kind": "claim",
+      "gloss_en": "Here we have a really clever trap that can catch anyone.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 298,
+      "to": 311,
+      "kind": "example",
+      "gloss_en": "If we write Integer 127 == 127 in code, the result is true, as expected.",
+      "terms": [
+        "Integer",
+        "true"
+      ],
+      "numbers": [
+        127,
+        127
+      ],
+      "entities": []
+    },
+    {
+      "from": 312,
+      "to": 324,
+      "kind": "example",
+      "gloss_en": "But if we write Integer 128 == 128, the result suddenly becomes false. How?",
+      "terms": [
+        "Integer",
+        "false"
+      ],
+      "numbers": [
+        128,
+        128
+      ],
+      "entities": []
+    },
+    {
+      "from": 325,
+      "to": 340,
+      "kind": "claim",
+      "gloss_en": "The whole secret is the Integer cache: the JVM pre-stores numbers from -128 to 127.",
+      "terms": [
+        "Integer",
+        "cache",
+        "JVM"
+      ],
+      "numbers": [
+        -128,
+        127
+      ],
+      "entities": [
+        "JVM"
+      ]
+    },
+    {
+      "from": 341,
+      "to": 347,
+      "kind": "claim",
+      "gloss_en": "So any == comparison between them succeeds.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 348,
+      "to": 357,
+      "kind": "claim",
+      "gloss_en": "But 128 is treated as a completely new object in memory.",
+      "terms": [
+        "object"
+      ],
+      "numbers": [
+        128
+      ],
+      "entities": []
+    },
+    {
+      "from": 358,
+      "to": 376,
+      "kind": "claim",
+      "gloss_en": "So the golden rule to avoid disasters in code: always use .equals in comparisons instead of the == sign.",
+      "terms": [
+        "equals"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 377,
+      "to": 392,
+      "kind": "claim",
+      "gloss_en": "And the Java Streams API works brilliantly, exactly like the equivalent of pandas in Python.",
+      "terms": [
+        "Java",
+        "Streams",
+        "API",
+        "pandas",
+        "Python"
+      ],
+      "numbers": [],
+      "entities": [
+        "Java",
+        "pandas",
+        "Python"
+      ]
+    },
+    {
+      "from": 393,
+      "to": 410,
+      "kind": "claim",
+      "gloss_en": "We can chain operations one after another very easily, like filter, map, groupingBy and sum, with the same power and flexibility.",
+      "terms": [
+        "filter",
+        "map",
+        "groupingBy",
+        "sum"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 411,
+      "to": 430,
+      "kind": "claim",
+      "gloss_en": "Another trap: if you use a parallel stream on small data sets, performance gets slower, not faster as you imagine.",
+      "terms": [
+        "Parallel",
+        "Stream",
+        "parallelStream",
+        "data",
+        "sets"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 431,
+      "to": 443,
+      "kind": "claim",
+      "gloss_en": "That is because the cost of splitting the work across threads is bigger than the execution time itself.",
+      "terms": [
+        "Threads",
+        "threads"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 444,
+      "to": 457,
+      "kind": "transition",
+      "gloss_en": "Now let us go a bit deeper to the Repository layer, specifically the third station: the JDBC journey and transactions.",
+      "terms": [
+        "Repository",
+        "JDBC",
+        "transactions"
+      ],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 458,
+      "to": 462,
+      "kind": "claim",
+      "gloss_en": "The steps here are clear and very direct.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 463,
+      "to": 476,
+      "kind": "claim",
+      "gloss_en": "We open the connection, then create a PreparedStatement, execute the query, and walk through the results via the ResultSet.",
+      "terms": [
+        "connection",
+        "PreparedStatement",
+        "query",
+        "ResultSet",
+        "resultset"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 477,
+      "to": 486,
+      "kind": "claim",
+      "gloss_en": "But focus with me: the most important step of all here is the PreparedStatement.",
+      "terms": [
+        "PreparedStatement"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 487,
+      "to": 503,
+      "kind": "claim",
+      "gloss_en": "Why? Because it completely blocks any SQL injection attacks, since it separates the data from the code entirely.",
+      "terms": [
+        "block",
+        "SQL",
+        "Injection",
+        "injection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 504,
+      "to": 517,
+      "kind": "claim",
+      "gloss_en": "We also use try-with-resources to close the connection automatically so no resources leak.",
+      "terms": [
+        "try-with-resources",
+        "connection",
+        "resources"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 518,
+      "to": 530,
+      "kind": "example",
+      "gloss_en": "Here comes the real transaction action: we turn off auto commit and start the scenario.",
+      "terms": [
+        "transaction",
+        "auto",
+        "commit"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 531,
+      "to": 542,
+      "kind": "example",
+      "gloss_en": "We insert a new order and try to deduct from stock, but we add a very smart condition.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 543,
+      "to": 556,
+      "kind": "example",
+      "gloss_en": "If that condition is not met and the stock was not enough, the whole operation stops and we roll back immediately.",
+      "terms": [
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 557,
+      "to": 569,
+      "kind": "claim",
+      "gloss_en": "That rollback is like turning time back, as if the order never happened at all.",
+      "terms": [
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 570,
+      "to": 585,
+      "kind": "claim",
+      "gloss_en": "And it fully protects us from race condition problems if several orders come in at the same moment.",
+      "terms": [
+        "race",
+        "conditions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 586,
+      "to": 598,
+      "kind": "transition",
+      "gloss_en": "The fourth station we are reaching now is the very critical infrastructure: the connection pool.",
+      "terms": [
+        "Connection",
+        "Pool"
+      ],
+      "numbers": [
+        4
+      ],
+      "entities": []
+    },
+    {
+      "from": 599,
+      "to": 602,
+      "kind": "question",
+      "gloss_en": "See this number 10?",
+      "terms": [],
+      "numbers": [
+        10
+      ],
+      "entities": []
+    },
+    {
+      "from": 603,
+      "to": 615,
+      "kind": "claim",
+      "gloss_en": "It is not just a number; it is the maximum number of connections in a config like HikariCP, for example.",
+      "terms": [
+        "connections",
+        "HikariCP"
+      ],
+      "numbers": [
+        10
+      ],
+      "entities": [
+        "HikariCP"
+      ]
+    },
+    {
+      "from": 616,
+      "to": 627,
+      "kind": "example",
+      "gloss_en": "Imagine this scenario: 10 connections, all checked out and busy with other requests.",
+      "terms": [],
+      "numbers": [
+        10
+      ],
+      "entities": []
+    },
+    {
+      "from": 628,
+      "to": 638,
+      "kind": "question",
+      "gloss_en": "Suddenly request number 11 arrives; what does it do? Wait in a queue?",
+      "terms": [
+        "request"
+      ],
+      "numbers": [
+        11
+      ],
+      "entities": []
+    },
+    {
+      "from": 639,
+      "to": 648,
+      "kind": "example",
+      "gloss_en": "If the timeout passes without any connection freeing up...",
+      "terms": [
+        "timeout"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 649,
+      "to": 659,
+      "kind": "example",
+      "gloss_en": "Boom, we hit a dead-end wall and get a fatal error called pool exhausted.",
+      "terms": [
+        "error",
+        "Pool",
+        "Exhausted",
+        "exhausted"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 660,
+      "to": 671,
+      "kind": "claim",
+      "gloss_en": "At that moment the whole system is paralyzed, simply because there is no way out to the database.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 672,
+      "to": 690,
+      "kind": "transition",
+      "gloss_en": "To spare ourselves writing all this manual work every time, we move to the fifth station: the Spring Boot layers.",
+      "terms": [
+        "Spring",
+        "Boot"
+      ],
+      "numbers": [
+        5
+      ],
+      "entities": [
+        "Spring Boot"
+      ]
+    },
+    {
+      "from": 691,
+      "to": 706,
+      "kind": "claim",
+      "gloss_en": "Here we see the real magic of Spring Boot: how it wraps the whole journey we described with just simple annotations.",
+      "terms": [
+        "Spring",
+        "Boot",
+        "Annotations"
+      ],
+      "numbers": [],
+      "entities": [
+        "Spring Boot"
+      ]
+    },
+    {
+      "from": 707,
+      "to": 720,
+      "kind": "claim",
+      "gloss_en": "We put @Entity to describe the table, and use JpaRepository so it writes the queries for us.",
+      "terms": [
+        "@Entity",
+        "Entity",
+        "JpaRepository",
+        "queries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 721,
+      "to": 731,
+      "kind": "claim",
+      "gloss_en": "And we put @Service with @Transactional to handle the business rules and rollbacks elegantly.",
+      "terms": [
+        "@Service",
+        "Service",
+        "@Transactional",
+        "Transactional",
+        "business",
+        "rollbacks",
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 732,
+      "to": 736,
+      "kind": "claim",
+      "gloss_en": "And finally @RestController for API routing.",
+      "terms": [
+        "@RestController",
+        "Controller",
+        "API",
+        "Routing",
+        "routing"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 737,
+      "to": 745,
+      "kind": "claim",
+      "gloss_en": "Ordered, organized layers that connect each step with minimal effort.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 746,
+      "to": 755,
+      "kind": "claim",
+      "gloss_en": "But watch out: this ease comes with responsibility, and traps too.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 756,
+      "to": 765,
+      "kind": "claim",
+      "gloss_en": "The great thing here is the GlobalExceptionHandler, a central place that unifies the responses.",
+      "terms": [
+        "GlobalExceptionHandler"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 766,
+      "to": 781,
+      "kind": "example",
+      "gloss_en": "It returns 404 if something is not found, 409 if there is a conflict, or 500 as an internal error.",
+      "terms": [],
+      "numbers": [
+        404,
+        409,
+        500
+      ],
+      "entities": []
+    },
+    {
+      "from": 782,
+      "to": 795,
+      "kind": "claim",
+      "gloss_en": "But the truly scary trap is the JPA N+1 query trap, caused by a feature called lazy loading.",
+      "terms": [
+        "JPA",
+        "N+1",
+        "query",
+        "lazy",
+        "loading"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 796,
+      "to": 818,
+      "kind": "example",
+      "gloss_en": "If we have, say, 100 records, instead of one query the system runs a main query and then 100 sub-queries, one per record.",
+      "terms": [],
+      "numbers": [
+        100,
+        1,
+        100
+      ],
+      "entities": []
+    },
+    {
+      "from": 819,
+      "to": 825,
+      "kind": "example",
+      "gloss_en": "That is 101 queries just for 100 records.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [
+        101,
+        100
+      ],
+      "entities": []
+    },
+    {
+      "from": 826,
+      "to": 830,
+      "kind": "question",
+      "gloss_en": "Can you imagine how this destroys performance?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 831,
+      "to": 840,
+      "kind": "transition",
+      "gloss_en": "Now we reach the climax of our explainer: the sixth station, concurrency and the saga pattern.",
+      "terms": [
+        "concurrency",
+        "saga",
+        "pattern"
+      ],
+      "numbers": [
+        6
+      ],
+      "entities": []
+    },
+    {
+      "from": 841,
+      "to": 859,
+      "kind": "claim",
+      "gloss_en": "Comparing concurrency, Python relies on a few tricks: threading for I/O, multiprocessing for CPU, or asyncio.",
+      "terms": [
+        "concurrency",
+        "Python",
+        "threading",
+        "I/O",
+        "multiprocessing",
+        "CPU",
+        "asyncio"
+      ],
+      "numbers": [],
+      "entities": [
+        "Python"
+      ]
+    },
+    {
+      "from": 860,
+      "to": 867,
+      "kind": "claim",
+      "gloss_en": "All of that is to work around the limits of the GIL.",
+      "terms": [
+        "GIL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 868,
+      "to": 881,
+      "kind": "claim",
+      "gloss_en": "But in Java it is different: we are talking about true multi-core multithreading.",
+      "terms": [
+        "Java",
+        "True",
+        "Multi",
+        "-Core",
+        "-Threading",
+        "multithreading"
+      ],
+      "numbers": [],
+      "entities": [
+        "Java"
+      ]
+    },
+    {
+      "from": 882,
+      "to": 890,
+      "kind": "claim",
+      "gloss_en": "Threads really run on several cores at the same moment.",
+      "terms": [
+        "threads",
+        "core"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 891,
+      "to": 913,
+      "kind": "claim",
+      "gloss_en": "Of course this power is not free: it needs great caution and strict protection of shared data using atomic safety, so no interference happens.",
+      "terms": [
+        "atomic",
+        "safety"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 914,
+      "to": 936,
+      "kind": "claim",
+      "gloss_en": "When the work grows and is spread over several microservices, each with its own database, a single transaction and a normal rollback no longer work.",
+      "terms": [
+        "microservice",
+        "database",
+        "transaction",
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 937,
+      "to": 943,
+      "kind": "claim",
+      "gloss_en": "Here a hero called the saga pattern appears.",
+      "terms": [
+        "saga",
+        "pattern"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 944,
+      "to": 951,
+      "kind": "example",
+      "gloss_en": "The idea is we move forward: reserve stock, then pay.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 952,
+      "to": 969,
+      "kind": "example",
+      "gloss_en": "But if the shipping step hits a problem and fails, we run the reverse operations in reverse order, what we call compensation.",
+      "terms": [
+        "compensation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 970,
+      "to": 977,
+      "kind": "example",
+      "gloss_en": "That is, refund the money first, then cancel the stock reservation.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 978,
+      "to": 988,
+      "kind": "claim",
+      "gloss_en": "This is the only way to guarantee consistency in these complex distributed systems.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 989,
+      "to": 1011,
+      "kind": "recap",
+      "gloss_en": "After this whole tour, from the connection pool to the saga pattern and compensating operations, an important question arises.",
+      "terms": [
+        "Connection",
+        "Pool",
+        "saga",
+        "pattern"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1012,
+      "to": 1026,
+      "kind": "question",
+      "gloss_en": "How can we manage all these complex, distributed data pipelines reliably at enterprise scale?",
+      "terms": [
+        "data",
+        "pipelines",
+        "pipeline",
+        "enterprise",
+        "scale"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1027,
+      "to": 1036,
+      "kind": "question",
+      "gloss_en": "How do we make sure everything happens on time and in the right order?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1037,
+      "to": 1051,
+      "kind": "transition",
+      "gloss_en": "That is exactly the question that opens the door to exploring the world of ETLs and DAGs in the next stage.",
+      "terms": [
+        "ETLs",
+        "ETL",
+        "DAGs"
+      ],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:50Z"
+}

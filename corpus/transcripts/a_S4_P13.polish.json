@@ -1,0 +1,2102 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P13",
+  "asr_words": 936,
+  "final_words": 905,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 0,
+      "orig": "أمركم",
+      "to": "عمركم",
+      "why": "mishear",
+      "final": [
+        0,
+        0
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 12,
+      "orig": "ال",
+      "to": "الـURL؟",
+      "why": "term",
+      "final": [
+        12,
+        12
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 13,
+      "orig": "-URL؟",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 42,
+      "orig": "الباكتز",
+      "to": "الـpackets",
+      "why": "term",
+      "final": [
+        41,
+        41
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 50,
+      "orig": "والديتابيز",
+      "to": "والـdatabase",
+      "why": "term",
+      "final": [
+        49,
+        49
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 57,
+      "orig": "في",
+      "to": "فخاخ",
+      "why": "mishear",
+      "final": [
+        56,
+        56
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 58,
+      "orig": "خيخ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 77,
+      "orig": "برماجة",
+      "to": "برمجة",
+      "why": "mishear",
+      "final": [
+        75,
+        75
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 90,
+      "orig": "الريكواست",
+      "to": "الـrequest",
+      "why": "term",
+      "final": [
+        88,
+        88
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 95,
+      "orig": "الDNS",
+      "to": "الـDNS",
+      "why": "term",
+      "final": [
+        93,
+        93
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 100,
+      "orig": "بإكسبلايتس",
+      "to": "بـexploits",
+      "why": "term",
+      "final": [
+        98,
+        98
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 130,
+      "orig": "Fast",
+      "to": "FastAPI",
+      "why": "term",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 131,
+      "orig": "API",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 135,
+      "orig": "ال",
+      "to": "الـIDOR",
+      "why": "term",
+      "final": [
+        132,
+        132
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 136,
+      "orig": "-IDOR",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 141,
+      "orig": "ال",
+      "to": "الـinjection",
+      "why": "term",
+      "final": [
+        137,
+        137
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 142,
+      "orig": "-إنجكشن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 166,
+      "orig": "API",
+      "to": "api.shopflow",
+      "why": "term",
+      "final": [
+        161,
+        161
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 167,
+      "orig": ".shopflow",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 169,
+      "orig": "ال",
+      "to": "الـDNS",
+      "why": "term",
+      "final": [
+        163,
+        163
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 170,
+      "orig": "-DNS",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 187,
+      "orig": "باكت",
+      "to": "packet",
+      "why": "term",
+      "final": [
+        180,
+        180
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 198,
+      "orig": "باكت",
+      "to": "packet",
+      "why": "term",
+      "final": [
+        191,
+        191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 200,
+      "orig": "ضعت",
+      "to": "ضاعت",
+      "why": "mishear",
+      "final": [
+        193,
+        193
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 212,
+      "orig": "بالزيت",
+      "to": "بالذات",
+      "why": "mishear",
+      "final": [
+        205,
+        205
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 217,
+      "orig": "باكت",
+      "to": "packet",
+      "why": "term",
+      "final": [
+        210,
+        210
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 227,
+      "orig": "هوب",
+      "to": "hop",
+      "why": "term",
+      "final": [
+        220,
+        220
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 236,
+      "orig": "لها",
+      "to": "لهدفها",
+      "why": "mishear",
+      "final": [
+        229,
+        229
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 237,
+      "orig": "دفع",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 262,
+      "orig": "مصفحات",
+      "to": "مصافحات",
+      "why": "mishear",
+      "final": [
+        254,
+        254
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 295,
+      "orig": "3",
+      "to": "3.6",
+      "why": "number",
+      "final": [
+        287,
+        287
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 296,
+      "orig": ".6",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 315,
+      "orig": "ال",
+      "to": "الـHTTP",
+      "why": "term",
+      "final": [
+        306,
+        306
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 316,
+      "orig": "-HTTP",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 321,
+      "orig": "للأعب",
+      "to": "للـapp",
+      "why": "term",
+      "final": [
+        311,
+        311
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 329,
+      "orig": "الراوتر",
+      "to": "الـrouter",
+      "why": "term",
+      "final": [
+        319,
+        319
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 331,
+      "orig": "السيرفز",
+      "to": "الـservice",
+      "why": "term",
+      "final": [
+        321,
+        321
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 332,
+      "orig": "والريبخوزتري",
+      "to": "والـrepository",
+      "why": "term",
+      "final": [
+        322,
+        322
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 336,
+      "orig": "ال",
+      "to": "الـconnection",
+      "why": "term",
+      "final": [
+        326,
+        326
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 337,
+      "orig": "-connection",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 342,
+      "orig": "للديتابيس",
+      "to": "للـdatabase",
+      "why": "term",
+      "final": [
+        331,
+        331
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 363,
+      "orig": "الماثود",
+      "to": "الـmethod",
+      "why": "term",
+      "final": [
+        352,
+        352
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 364,
+      "orig": "والمصار",
+      "to": "والمسار",
+      "why": "mishear",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 366,
+      "orig": "الباث",
+      "to": "الـpath",
+      "why": "term",
+      "final": [
+        355,
+        355
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 367,
+      "orig": "والهيدورز",
+      "to": "والـheaders",
+      "why": "term",
+      "final": [
+        356,
+        356
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 368,
+      "orig": "والبادي",
+      "to": "والـbody",
+      "why": "term",
+      "final": [
+        357,
+        357
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 370,
+      "orig": "الستيتس",
+      "to": "الـstatus",
+      "why": "term",
+      "final": [
+        359,
+        359
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 387,
+      "orig": "الريسورس",
+      "to": "الـresource",
+      "why": "term",
+      "final": [
+        376,
+        376
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 394,
+      "orig": "بتعد",
+      "to": "بتعدل",
+      "why": "mishear",
+      "final": [
+        383,
+        383
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 395,
+      "orig": "الجزء",
+      "to": "جزء",
+      "why": "mishear",
+      "final": [
+        384,
+        384
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 403,
+      "orig": "الستيتس",
+      "to": "الـstatus",
+      "why": "term",
+      "final": [
+        392,
+        392
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 404,
+      "orig": "كودز",
+      "to": "codes",
+      "why": "term",
+      "final": [
+        393,
+        393
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 424,
+      "orig": "بربعة",
+      "to": "بـ4",
+      "why": "number",
+      "final": [
+        413,
+        413
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 445,
+      "orig": "بخمسة",
+      "to": "بـ5",
+      "why": "number",
+      "final": [
+        434,
+        434
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 447,
+      "orig": "خمسمية",
+      "to": "500",
+      "why": "number",
+      "final": [
+        436,
+        436
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 449,
+      "orig": "خمسمية",
+      "to": "504",
+      "why": "number",
+      "final": [
+        438,
+        438
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 450,
+      "orig": "واربعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 468,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        456,
+        456
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 470,
+      "orig": "بفاست",
+      "to": "بـFastAPI",
+      "why": "term",
+      "final": [
+        458,
+        458
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 471,
+      "orig": "اي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 472,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 473,
+      "orig": "آي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 475,
+      "orig": "يوفي",
+      "to": "uvicorn",
+      "why": "term",
+      "final": [
+        460,
+        460
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 476,
+      "orig": "كورن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "بورت",
+      "to": "port",
+      "why": "term",
+      "final": [
+        463,
+        463
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 480,
+      "orig": "تمن",
+      "to": "8000",
+      "why": "number",
+      "final": [
+        464,
+        464
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 481,
+      "orig": "تلاف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 483,
+      "orig": "كورز",
+      "to": "CORS",
+      "why": "term",
+      "final": [
+        466,
+        466
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 484,
+      "orig": "ميدل",
+      "to": "middleware",
+      "why": "term",
+      "final": [
+        467,
+        467
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 485,
+      "orig": "وير",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 486,
+      "orig": "والسيكوالالكيمي",
+      "to": "والـSQLAlchemy",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 488,
+      "orig": "ببول",
+      "to": "بـpool",
+      "why": "term",
+      "final": [
+        470,
+        470
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 490,
+      "orig": "عشرة",
+      "to": "10",
+      "why": "number",
+      "final": [
+        472,
+        472
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 498,
+      "orig": "الساشن",
+      "to": "الـsession",
+      "why": "term",
+      "final": [
+        480,
+        480
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 512,
+      "orig": "للليمتس",
+      "to": "للـlimits",
+      "why": "term",
+      "final": [
+        494,
+        494
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 526,
+      "orig": "Open",
+      "to": "OpenAPI",
+      "why": "term",
+      "final": [
+        508,
+        508
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 527,
+      "orig": "API",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 530,
+      "orig": "وموصوق",
+      "to": "وموثوق",
+      "why": "mishear",
+      "final": [
+        511,
+        511
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 534,
+      "orig": "ال",
+      "to": "الـIDOR",
+      "why": "term",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 535,
+      "orig": "-IDOR",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 550,
+      "orig": "ال",
+      "to": "الـauthentication",
+      "why": "term",
+      "final": [
+        530,
+        530
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 551,
+      "orig": "-authentication",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 557,
+      "orig": "توكن",
+      "to": "token",
+      "why": "term",
+      "final": [
+        536,
+        536
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 562,
+      "orig": "الاثورايزيشن",
+      "to": "الـauthorization",
+      "why": "term",
+      "final": [
+        541,
+        541
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 594,
+      "orig": "صارت",
+      "to": "ثغرة",
+      "why": "mishear",
+      "final": [
+        573,
+        573
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 595,
+      "orig": "الايدور",
+      "to": "الـIDOR",
+      "why": "term",
+      "final": [
+        574,
+        574
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 600,
+      "orig": "توكن",
+      "to": "token",
+      "why": "term",
+      "final": [
+        579,
+        579
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 603,
+      "orig": "وعد",
+      "to": "وعدى",
+      "why": "mishear",
+      "final": [
+        582,
+        582
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 605,
+      "orig": "الاثونتيكيشن",
+      "to": "الـauthentication",
+      "why": "term",
+      "final": [
+        584,
+        584
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 618,
+      "orig": "الأوردر",
+      "to": "الـorder",
+      "why": "term",
+      "final": [
+        597,
+        597
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 621,
+      "orig": "get",
+      "to": "GET",
+      "why": "term",
+      "final": [
+        600,
+        600
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 622,
+      "orig": "slash",
+      "to": "/orders/1005",
+      "why": "term",
+      "final": [
+        601,
+        601
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 623,
+      "orig": "orders",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 624,
+      "orig": "slash",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 625,
+      "orig": "1005",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 637,
+      "orig": "كرسة",
+      "to": "كارثة",
+      "why": "mishear",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 655,
+      "orig": "order",
+      "to": "order.customer_id",
+      "why": "term",
+      "final": [
+        631,
+        631
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 656,
+      "orig": ".customerid",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 657,
+      "orig": "equal",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 658,
+      "orig": "equal",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 659,
+      "orig": "current",
+      "to": "current_user.id",
+      "why": "term",
+      "final": [
+        632,
+        632
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 660,
+      "orig": "user",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 661,
+      "orig": "id",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 666,
+      "orig": "بالزبط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        637,
+        637
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 668,
+      "orig": "التوكن",
+      "to": "الـtoken",
+      "why": "term",
+      "final": [
+        639,
+        639
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 676,
+      "orig": "الأوردر",
+      "to": "الـorder",
+      "why": "term",
+      "final": [
+        647,
+        647
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 697,
+      "orig": "صغرة",
+      "to": "ثغرة",
+      "why": "mishear",
+      "final": [
+        668,
+        668
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 729,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        700,
+        700
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 732,
+      "orig": "الديتابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        703,
+        703
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 741,
+      "orig": "داتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        712,
+        712
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 745,
+      "orig": "where",
+      "to": "WHERE",
+      "why": "term",
+      "final": [
+        716,
+        716
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 747,
+      "orig": "equal",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 757,
+      "orig": "الparameterized",
+      "to": "الـparameterized",
+      "why": "term",
+      "final": [
+        727,
+        727
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 761,
+      "orig": "الparameters",
+      "to": "الـparameters",
+      "why": "term",
+      "final": [
+        731,
+        731
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 763,
+      "orig": "الديتابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        733,
+        733
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 817,
+      "orig": "الإغراق",
+      "to": "لإغراق",
+      "why": "mishear",
+      "final": [
+        787,
+        787
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 843,
+      "orig": "Open",
+      "to": "OpenAPI",
+      "why": "term",
+      "final": [
+        813,
+        813
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 844,
+      "orig": "API",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 885,
+      "orig": "كلاء",
+      "to": "وكلاء",
+      "why": "mishear",
+      "final": [
+        854,
+        854
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 886,
+      "orig": "الزكاء",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        855,
+        855
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 913,
+      "orig": "الزكية",
+      "to": "الذكية",
+      "why": "mishear",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 918,
+      "orig": "وصغرة",
+      "to": "وثغرة",
+      "why": "mishear",
+      "final": [
+        887,
+        887
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 926,
+      "orig": "وإمن",
+      "to": "وآمن",
+      "why": "mishear",
+      "final": [
+        895,
+        895
+      ]
+    }
+  ],
+  "notes": "Narration is NotebookLM's own paraphrase of the P13 script (sc01-sc12); edits limited to terms, numbers and clear mishearings. Hyphen artifacts ('ال' + '-URL/-IDOR/-DNS/-HTTP/-connection/-authentication/-إنجكشن') merged into 'الـX'; standalone 'الـ' + Latin word left as two tokens. Terms Latinised per latin_terms: packets/packet, database, request, exploits, FastAPI ('Fast API', 'فاست اي بي آي'), api.shopflow, hop, app ('للأعب'), router/service/repository ('السيرفز والريبخوزتري'), method/path/headers/body/status, resource, status codes, client, uvicorn ('يوفي كورن'), port, CORS middleware, SQLAlchemy ('السيكوالالكيمي'), pool, session, limits, OpenAPI, token, authorization/authentication, order, query, data, parameterized/parameters. Spoken code normalised to on-screen form: i621-625 'get slash orders slash 1005' -> 'GET /orders/1005'; i655-661 'order.customerid equal equal current user id' -> 'order.customer_id == current_user.id'; i745/747 'where ... equal' -> 'WHERE ... ='. Numbers: 3.6 (i295-296 merged), بـ4/بـ5 (leading digit of status codes), خمسمية -> 500, خمسمية واربعة -> 504, تمن تلاف -> 8000 (uvicorn port, not in source excerpt but clearly spoken), عشرة -> 10 (pool_size=10). 'رقم واحد بس' (i8-9, 'just one number') and ordinals kept as words. Mishearings fixed: أمركم->عمركم, في خيخ->فخاخ, برماجة->برمجة, ضعت->ضاعت, بالزيت->بالذات, لها دفع->لهدفها, مصفحات->مصافحات, والمصار->والمسار, بتعد الجزء->بتعدل جزء, المعمرية->المعمارية, وموصوق->وموثوق, صارت/صغرة->ثغرة, وعد->وعدى, كرسة->كارثة, بالزبط->بالظبط, الإغراق->لإغراق, كلاء الزكاء->وكلاء الذكاء, الزكية->الذكية, وإمن->وآمن. Left as-is (uncertain): i362 'سبتة' (maybe 'ثابتة'/'أساسية'), i61-62 'ونشوفها يصمد' (likely 'ونشوفه بيصمد'), i275 'عن ناحية' (likely 'من ناحية'), i522 'بضمن' (maybe 'نضمن'), i628 'بتاعه' (likely 'بتاع'), i774 'بنحفظ على', i374 'انتروفيوهات', i457-458 'الباك اند' kept in Arabic script (backend not in latin_terms), i489 'حجم' kept (may have been 'size'). Content differences vs source: narration never says '/orders/1003' or 'القسم الثالث'/'القسم الخامس' headers; status codes listed are 400/401/404/429 and 500/504 (no 403/502). Possible dropout: 3.18 s gap after i691 before the injection section (likely a pause or an unrecognised 'القسم الخامس' header); no insert since the source does not make the words certain.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 12,
+      "kind": "question",
+      "gloss_en": "Have you ever thought what could happen if we changed just one number in the URL?",
+      "terms": [
+        "URL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 13,
+      "to": 23,
+      "kind": "question",
+      "gloss_en": "Can you imagine a simple move like that could expose a whole company's data?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 24,
+      "to": 31,
+      "kind": "transition",
+      "gloss_en": "In analysing this topic we'll take a really fun journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 32,
+      "to": 49,
+      "kind": "transition",
+      "gloss_en": "We'll start from the moment we type the site name, follow the packets through the network, until we reach the depths of the code and the database.",
+      "terms": [
+        "packets",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 50,
+      "to": 68,
+      "kind": "transition",
+      "gloss_en": "Most importantly, we'll set security traps for the system and see how it holds up against serious vulnerabilities that could wreck any system.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 69,
+      "to": 81,
+      "kind": "claim",
+      "gloss_en": "Today's topic is about systems and web programming interfaces, that is, web APIs and security.",
+      "terms": [
+        "APIs",
+        "API"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 82,
+      "to": 93,
+      "kind": "claim",
+      "gloss_en": "The goal isn't only to understand how the request travels, starting from DNS.",
+      "terms": [
+        "request",
+        "DNS"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 94,
+      "to": 108,
+      "kind": "claim",
+      "gloss_en": "No, we'll also attack it with real exploits, so we learn how to build a strong system that doesn't fall easily.",
+      "terms": [
+        "exploit"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 109,
+      "to": 114,
+      "kind": "transition",
+      "gloss_en": "Today's agenda goes in this order.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 115,
+      "to": 128,
+      "kind": "transition",
+      "gloss_en": "First, the network journey; second, the HTTP protocol and status codes; third, FastAPI architecture.",
+      "terms": [
+        "HTTP",
+        "status",
+        "codes",
+        "FastAPI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 129,
+      "to": 143,
+      "kind": "transition",
+      "gloss_en": "Fourth, the IDOR ambush; fifth, injection and limits; and finally, secure outputs. Let's begin.",
+      "terms": [
+        "IDOR",
+        "injection",
+        "limits"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 144,
+      "to": 150,
+      "kind": "transition",
+      "gloss_en": "Section one: the network journey, The Network Journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 151,
+      "to": 162,
+      "kind": "claim",
+      "gloss_en": "Any call to any service starts with a name, not an address, like api.shopflow for example.",
+      "terms": [
+        "service",
+        "api.shopflow"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 163,
+      "to": 175,
+      "kind": "claim",
+      "gloss_en": "DNS translates that name into an IP address; then the message is cut into small pieces called packets.",
+      "terms": [
+        "DNS",
+        "IP",
+        "packets"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 176,
+      "to": 186,
+      "kind": "claim",
+      "gloss_en": "What's special is that each packet takes its own independent route through the network.",
+      "terms": [
+        "packet"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 187,
+      "to": 201,
+      "kind": "claim",
+      "gloss_en": "That means if one packet gets lost on the way, the rest can carry on and arrive just fine.",
+      "terms": [
+        "packet"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 202,
+      "to": 207,
+      "kind": "claim",
+      "gloss_en": "This number, 14, is especially important.",
+      "terms": [],
+      "numbers": [
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 208,
+      "to": 229,
+      "kind": "claim",
+      "gloss_en": "Because each packet we talked about takes on average about 14 hops between different network devices to reach its destination.",
+      "terms": [
+        "packet",
+        "hop"
+      ],
+      "numbers": [
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 230,
+      "to": 238,
+      "kind": "claim",
+      "gloss_en": "A very long journey, yet it happens in fractions of a second.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 239,
+      "to": 244,
+      "kind": "transition",
+      "gloss_en": "Speed, though, depends on the type of connection.",
+      "terms": [
+        "connection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 245,
+      "to": 265,
+      "kind": "claim",
+      "gloss_en": "A cold connection has to build reliability and encryption from scratch, so it does very slow handshakes: the TCP handshake, then the TLS handshake for identity and encryption.",
+      "terms": [
+        "connection",
+        "TCP",
+        "TLS",
+        "handshake"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 266,
+      "to": 280,
+      "kind": "claim",
+      "gloss_en": "On the other hand, the warm connection relies on reusing the connection.",
+      "terms": [
+        "warm",
+        "connection",
+        "reuse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 281,
+      "to": 291,
+      "kind": "claim",
+      "gloss_en": "The surprise here is that the warm connection is 3.6 times faster than the cold one.",
+      "terms": [
+        "warm",
+        "connection",
+        "faster"
+      ],
+      "numbers": [
+        "3.6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 292,
+      "to": 311,
+      "kind": "claim",
+      "gloss_en": "This whole path is like a waterfall: from DNS, to opening the connection, to TLS, then the HTTP is sent until it reaches the app.",
+      "terms": [
+        "waterfall",
+        "DNS",
+        "connection",
+        "TLS",
+        "HTTP",
+        "app"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 312,
+      "to": 333,
+      "kind": "claim",
+      "gloss_en": "Inside the application itself it passes through layers: it hits the router, then the service and the repository, takes a connection from the connection pool, until it finally reaches the database.",
+      "terms": [
+        "app",
+        "router",
+        "service",
+        "repository",
+        "connection",
+        "pool",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 334,
+      "to": 339,
+      "kind": "transition",
+      "gloss_en": "Section two: the HTTP protocol and status codes.",
+      "terms": [
+        "HTTP",
+        "status",
+        "codes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 340,
+      "to": 359,
+      "kind": "claim",
+      "gloss_en": "Now that we understand the network layer, any HTTP request is made of set parts: the method, the path, the headers, the body and finally the status.",
+      "terms": [
+        "HTTP",
+        "request",
+        "method",
+        "path",
+        "headers",
+        "body",
+        "status"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 360,
+      "to": 372,
+      "kind": "question",
+      "gloss_en": "By the way, there's a very famous interview question about the difference between PUT and PATCH.",
+      "terms": [
+        "PUT",
+        "PATCH"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 373,
+      "to": 387,
+      "kind": "claim",
+      "gloss_en": "Simply put, PUT replaces the whole resource from start to finish, while PATCH changes only a small part of it.",
+      "terms": [
+        "PUT",
+        "PATCH",
+        "resource"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 388,
+      "to": 402,
+      "kind": "transition",
+      "gloss_en": "Status codes can be simplified with a brilliant idea, without memorising lots of numbers.",
+      "terms": [
+        "status",
+        "codes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 403,
+      "to": 409,
+      "kind": "claim",
+      "gloss_en": "The whole idea boils down to one question: who fixes it?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 410,
+      "to": 430,
+      "kind": "example",
+      "gloss_en": "If the code starts with 4, like 400, 401, 404 or 429, the problem is on the client side, and the client must fix its request.",
+      "terms": [
+        "code",
+        "client",
+        "request"
+      ],
+      "numbers": [
+        "4",
+        "400",
+        "401",
+        "404",
+        "429"
+      ],
+      "entities": []
+    },
+    {
+      "from": 431,
+      "to": 451,
+      "kind": "example",
+      "gloss_en": "But if it starts with 5, like 500 or 504, the server is the one that's down, and the backend developer has to go in and fix it.",
+      "terms": [
+        "code"
+      ],
+      "numbers": [
+        "5",
+        "500",
+        "504"
+      ],
+      "entities": []
+    },
+    {
+      "from": 452,
+      "to": 464,
+      "kind": "example",
+      "gloss_en": "Looking at these architecture layers in FastAPI, we find uvicorn running on port 8000.",
+      "terms": [
+        "FastAPI",
+        "uvicorn",
+        "port"
+      ],
+      "numbers": [
+        "8000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 465,
+      "to": 472,
+      "kind": "example",
+      "gloss_en": "There's a CORS middleware, and SQLAlchemy runs with a connection pool of size 10.",
+      "terms": [
+        "CORS",
+        "middleware",
+        "SQLAlchemy",
+        "pool",
+        "pool_size"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 473,
+      "to": 482,
+      "kind": "claim",
+      "gloss_en": "The key part is dependency injection, which opens the session and closes it automatically.",
+      "terms": [
+        "dependency",
+        "injection",
+        "session"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 483,
+      "to": 494,
+      "kind": "claim",
+      "gloss_en": "Before any code runs, Pydantic stands at the door doing validation of the limits.",
+      "terms": [
+        "Pydantic",
+        "validation",
+        "limits"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 495,
+      "to": 511,
+      "kind": "claim",
+      "gloss_en": "Any request whose limits exceed what's allowed is rejected immediately, so we're sure we work on a clear, reliable OpenAPI contract.",
+      "terms": [
+        "request",
+        "limit",
+        "OpenAPI",
+        "contract"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 512,
+      "to": 515,
+      "kind": "transition",
+      "gloss_en": "Section four: the IDOR ambush.",
+      "terms": [
+        "IDOR"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 516,
+      "to": 529,
+      "kind": "claim",
+      "gloss_en": "Before we attack the system, there are two concepts people mix up a lot, and the mix-up is very costly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 530,
+      "to": 539,
+      "kind": "claim",
+      "gloss_en": "Authentication asks who the user is and whether they hold a valid token.",
+      "terms": [
+        "authentication",
+        "token"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 540,
+      "to": 549,
+      "kind": "claim",
+      "gloss_en": "But authorization asks whether this user is allowed to do this action.",
+      "terms": [
+        "authorization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 550,
+      "to": 563,
+      "kind": "claim",
+      "gloss_en": "Here comes access control and the principle of granting only the least privilege needed to do the job.",
+      "terms": [
+        "least",
+        "privilege"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 564,
+      "to": 574,
+      "kind": "transition",
+      "gloss_en": "This is our most important scene: the danger scenario in red, the IDOR vulnerability.",
+      "terms": [
+        "IDOR"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 575,
+      "to": 593,
+      "kind": "example",
+      "gloss_en": "Imagine the attacker has a perfectly valid token and passed authentication; all he did was change the number in the URL.",
+      "terms": [
+        "token",
+        "authentication",
+        "URL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 594,
+      "to": 607,
+      "kind": "example",
+      "gloss_en": "Instead of requesting his own order, he requested GET /orders/1005, which belongs to a completely different user.",
+      "terms": [
+        "order",
+        "GET",
+        "/orders/1005"
+      ],
+      "numbers": [
+        "1005"
+      ],
+      "entities": []
+    },
+    {
+      "from": 608,
+      "to": 611,
+      "kind": "example",
+      "gloss_en": "And sadly the system returned the data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 612,
+      "to": 615,
+      "kind": "claim",
+      "gloss_en": "This is a real security disaster.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 616,
+      "to": 622,
+      "kind": "transition",
+      "gloss_en": "That's why the safe scenario in green comes in.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 623,
+      "to": 632,
+      "kind": "claim",
+      "gloss_en": "The fix was one line of code doing an ownership check: order.customer_id == current_user.id.",
+      "terms": [
+        "order.customer_id",
+        "current_user.id"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 633,
+      "to": 652,
+      "kind": "example",
+      "gloss_en": "Now the exact same malicious request, with the same valid token, is fully rejected because the system confirmed this order doesn't belong to this user.",
+      "terms": [
+        "token",
+        "order"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 653,
+      "to": 662,
+      "kind": "recap",
+      "gloss_en": "A tiny difference in the code, but it protects the whole company's data.",
+      "terms": [
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 663,
+      "to": 671,
+      "kind": "transition",
+      "gloss_en": "In the second red danger, the SQL injection vulnerability appears.",
+      "terms": [
+        "SQL",
+        "injection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 672,
+      "to": 688,
+      "kind": "claim",
+      "gloss_en": "This problem happens when we take the user input and paste it as-is into the SQL statement as text.",
+      "terms": [
+        "input",
+        "SQL",
+        "text"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 689,
+      "to": 712,
+      "kind": "claim",
+      "gloss_en": "The attacker can write malicious code that closes the quote and changes the query's meaning entirely, so the database executes that input as code, not just data.",
+      "terms": [
+        "query",
+        "database",
+        "data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 713,
+      "to": 719,
+      "kind": "example",
+      "gloss_en": "Like when we write WHERE email = plus the input.",
+      "terms": [
+        "WHERE",
+        "email"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 720,
+      "to": 731,
+      "kind": "claim",
+      "gloss_en": "The magic fix to reach green safety is parameterized queries, or using parameters.",
+      "terms": [
+        "parameterized",
+        "queries",
+        "parameters"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 732,
+      "to": 743,
+      "kind": "claim",
+      "gloss_en": "Here the database treats those inputs only as values that can never execute as code.",
+      "terms": [
+        "database",
+        "inputs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 744,
+      "to": 755,
+      "kind": "claim",
+      "gloss_en": "We also keep our secrets safe instead of writing them openly in the code.",
+      "terms": [
+        "secrets",
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 756,
+      "to": 761,
+      "kind": "claim",
+      "gloss_en": "The last line of defence is rate limiting.",
+      "terms": [
+        "rate",
+        "limiting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 762,
+      "to": 782,
+      "kind": "claim",
+      "gloss_en": "If the number of requests exceeds the allowed limit, the server protects itself immediately and returns status code 429, meaning too many requests.",
+      "terms": [
+        "limit",
+        "status",
+        "code"
+      ],
+      "numbers": [
+        "429"
+      ],
+      "entities": []
+    },
+    {
+      "from": 783,
+      "to": 791,
+      "kind": "claim",
+      "gloss_en": "That blocks any attempt to flood the server with fake requests to bring it down.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 792,
+      "to": 796,
+      "kind": "transition",
+      "gloss_en": "Section six, the last one: secure outputs.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 797,
+      "to": 803,
+      "kind": "question",
+      "gloss_en": "What are the tangible outputs of all this analysis?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 804,
+      "to": 809,
+      "kind": "recap",
+      "gloss_en": "We didn't just build code that works.",
+      "terms": [
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 810,
+      "to": 832,
+      "kind": "recap",
+      "gloss_en": "We came out with a clear, documented OpenAPI specification, and security tests, automated tests, that prove the system rejects any IDOR or injection attempt.",
+      "terms": [
+        "OpenAPI",
+        "specification",
+        "test",
+        "IDOR",
+        "injection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 833,
+      "to": 838,
+      "kind": "recap",
+      "gloss_en": "Meaning security is built into the foundation itself.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 839,
+      "to": 844,
+      "kind": "transition",
+      "gloss_en": "Finally, we'll leave you with this thought.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 845,
+      "to": 865,
+      "kind": "question",
+      "gloss_en": "What could happen if AI agents, advanced artificial-intelligence agents, start using these APIs to carry out tasks,",
+      "terms": [
+        "AI",
+        "agents",
+        "APIs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 866,
+      "to": 888,
+      "kind": "prediction",
+      "gloss_en": "but without these basics, without strong authentication, input validation or rate limits, that smart feature turns into a security nightmare and a huge vulnerability.",
+      "terms": [
+        "authentication",
+        "validation",
+        "input",
+        "rate",
+        "limits",
+        "feature"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 889,
+      "to": 904,
+      "kind": "recap",
+      "gloss_en": "That's why building systems correctly and securely is the cornerstone of any upcoming technology. Can you imagine the responsibility?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:37Z"
+}

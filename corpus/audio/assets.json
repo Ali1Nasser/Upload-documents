@@ -1445,7 +1445,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8581
+    },
     "role": "deep-dive"
   },
   {
@@ -1475,7 +1478,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8105
+    },
     "role": "deep-dive"
   },
   {
@@ -1505,7 +1511,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.9947
+    },
     "role": "deep-dive"
   },
   {
@@ -1535,7 +1544,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.85
+    },
     "role": "deep-dive"
   },
   {
@@ -1565,7 +1577,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.7827
+    },
     "role": "deep-dive"
   },
   {
@@ -1595,7 +1610,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.7947
+    },
     "role": "deep-dive"
   },
   {
@@ -1625,7 +1643,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8528
+    },
     "role": "deep-dive"
   },
   {
@@ -1655,7 +1676,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8227
+    },
     "role": "deep-dive"
   },
   {
@@ -1685,7 +1709,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.7844
+    },
     "role": "deep-dive"
   },
   {
@@ -1715,7 +1742,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8217
+    },
     "role": "deep-dive"
   },
   {
@@ -1745,7 +1775,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.845
+    },
     "role": "deep-dive"
   },
   {
@@ -1775,7 +1808,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8217
+    },
     "role": "deep-dive"
   },
   {
@@ -1805,7 +1841,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8534
+    },
     "role": "deep-dive"
   },
   {
@@ -1835,7 +1874,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8332
+    },
     "role": "deep-dive"
   },
   {
@@ -1865,7 +1907,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8147
+    },
     "role": "deep-dive"
   },
   {
@@ -1895,7 +1940,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.7782
+    },
     "role": "deep-dive"
   },
   {
@@ -1925,7 +1973,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8317
+    },
     "role": "deep-dive"
   },
   {
@@ -1955,7 +2006,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8528
+    },
     "role": "deep-dive"
   },
   {
@@ -1985,7 +2039,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8305
+    },
     "role": "deep-dive"
   },
   {
@@ -2015,7 +2072,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.827
+    },
     "role": "deep-dive"
   },
   {
@@ -2045,7 +2105,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8219
+    },
     "role": "deep-dive"
   },
   {
@@ -2075,7 +2138,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8237
+    },
     "role": "deep-dive"
   },
   {
@@ -2105,7 +2171,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8303
+    },
     "role": "deep-dive"
   },
   {
@@ -2135,7 +2204,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8134
+    },
     "role": "deep-dive"
   },
   {
@@ -2165,7 +2237,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.789
+    },
     "role": "deep-dive"
   },
   {
@@ -2195,7 +2270,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8241
+    },
     "role": "deep-dive"
   },
   {
@@ -2225,7 +2303,10 @@
       "vocals": null
     },
     "script_ref": null,
-    "alignment": {},
+    "alignment": {
+      "method": "asr+mms_fa",
+      "median_conf": 0.8397
+    },
     "role": "deep-dive"
   },
   {

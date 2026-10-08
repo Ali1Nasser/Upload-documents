@@ -1,0 +1,3060 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P04",
+  "asr_words": 1120,
+  "final_words": 1082,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 49,
+      "orig": "بصق",
+      "to": "بثقة",
+      "why": "mishear",
+      "final": [
+        49,
+        49
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 53,
+      "orig": "توطر",
+      "to": "توتر",
+      "why": "mishear",
+      "final": [
+        53,
+        53
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 55,
+      "orig": "نتفع",
+      "to": "نتفق",
+      "why": "mishear",
+      "final": [
+        55,
+        55
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 58,
+      "orig": "زهبية",
+      "to": "ذهبية",
+      "why": "mishear",
+      "final": [
+        58,
+        58
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 71,
+      "orig": "بوز",
+      "to": "تبوظ",
+      "why": "mishear",
+      "final": [
+        71,
+        71
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 74,
+      "orig": "اللباز",
+      "to": "اللي باظ",
+      "why": "split",
+      "final": [
+        74,
+        75
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 77,
+      "orig": "اللباز",
+      "to": "اللي باظ",
+      "why": "split",
+      "final": [
+        78,
+        79
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 85,
+      "orig": "الجزري",
+      "to": "الجذري",
+      "why": "mishear",
+      "final": [
+        87,
+        87
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 107,
+      "orig": "نزبط",
+      "to": "نظبط",
+      "why": "mishear",
+      "final": [
+        109,
+        109
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 108,
+      "orig": "الدسك",
+      "to": "الديسك",
+      "why": "mishear",
+      "final": [
+        110,
+        110
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 113,
+      "orig": "نرائب",
+      "to": "نراقب",
+      "why": "mishear",
+      "final": [
+        115,
+        115
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 118,
+      "orig": "بالرانبوك",
+      "to": "بالـrunbook",
+      "why": "term",
+      "final": [
+        120,
+        120
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 125,
+      "orig": "وإزاينا",
+      "to": "وإزاي",
+      "why": "split",
+      "final": [
+        127,
+        127
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 126,
+      "orig": "تتبع",
+      "to": "نتتبع",
+      "why": "mishear",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 131,
+      "orig": "لينيكس",
+      "to": "Linux",
+      "why": "term",
+      "final": [
+        133,
+        133
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 136,
+      "orig": "منفاصلة",
+      "to": "منفصلة",
+      "why": "mishear",
+      "final": [
+        138,
+        138
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 138,
+      "orig": "يونيتس",
+      "to": "units",
+      "why": "term",
+      "final": [
+        140,
+        140
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 150,
+      "orig": "لstarting",
+      "to": "لـstarting",
+      "why": "term",
+      "final": [
+        152,
+        152
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 155,
+      "orig": "لقدر",
+      "to": "لا قدر",
+      "why": "split",
+      "final": [
+        157,
+        158
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 185,
+      "orig": "العبقاري",
+      "to": "العبقري",
+      "why": "mishear",
+      "final": [
+        188,
+        188
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 199,
+      "orig": "Enable",
+      "to": "enable",
+      "why": "term",
+      "final": [
+        202,
+        202
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 205,
+      "orig": "البوت",
+      "to": "الـboot",
+      "why": "term",
+      "final": [
+        208,
+        208
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 209,
+      "orig": "App",
+      "to": "app.service",
+      "why": "merge",
+      "final": [
+        212,
+        212
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 210,
+      "orig": ".Service",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 213,
+      "orig": "Crash",
+      "to": "crash",
+      "why": "term",
+      "final": [
+        215,
+        215
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 214,
+      "orig": "Loop",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        216,
+        216
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 236,
+      "orig": "LDB",
+      "to": "الـdb-proxy.service",
+      "why": "merge",
+      "final": [
+        238,
+        238
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 237,
+      "orig": "Proxy",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 238,
+      "orig": ".Service",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 246,
+      "orig": "الDatabase",
+      "to": "الـdatabase.service",
+      "why": "merge",
+      "final": [
+        246,
+        246
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 247,
+      "orig": ".Service",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 259,
+      "orig": "نعليكش",
+      "to": "نعالجش",
+      "why": "mishear",
+      "final": [
+        258,
+        258
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 267,
+      "orig": "إراية",
+      "to": "قراية",
+      "why": "mishear",
+      "final": [
+        266,
+        266
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 268,
+      "orig": "اللجات",
+      "to": "اللوجات",
+      "why": "mishear",
+      "final": [
+        267,
+        267
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 279,
+      "orig": "جونال",
+      "to": "journalctl",
+      "why": "merge",
+      "final": [
+        278,
+        278
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 280,
+      "orig": "سيتي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 281,
+      "orig": "أل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 284,
+      "orig": "السندوق",
+      "to": "الصندوق",
+      "why": "mishear",
+      "final": [
+        281,
+        281
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 294,
+      "orig": "داش",
+      "to": "-u",
+      "why": "merge",
+      "final": [
+        291,
+        291
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 295,
+      "orig": "يو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 299,
+      "orig": "وداش",
+      "to": "و-f",
+      "why": "merge",
+      "final": [
+        295,
+        295
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 300,
+      "orig": "أف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 307,
+      "orig": "اللجات",
+      "to": "اللوجات",
+      "why": "mishear",
+      "final": [
+        302,
+        302
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 313,
+      "orig": "الفوق",
+      "to": "لفوق",
+      "why": "mishear",
+      "final": [
+        308,
+        308
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 319,
+      "orig": "الجاب",
+      "to": "اللي جاب",
+      "why": "split",
+      "final": [
+        314,
+        315
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 332,
+      "orig": "للفشر",
+      "to": "للفشل",
+      "why": "mishear",
+      "final": [
+        328,
+        328
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 335,
+      "orig": "بنحل",
+      "to": "بنحلل",
+      "why": "mishear",
+      "final": [
+        331,
+        331
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 339,
+      "orig": "auth",
+      "to": "auth.log",
+      "why": "merge",
+      "final": [
+        335,
+        335
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 340,
+      "orig": ".log",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 344,
+      "orig": "الباش",
+      "to": "الـbash",
+      "why": "term",
+      "final": [
+        339,
+        339
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 345,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        340,
+        340
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 348,
+      "orig": "grip",
+      "to": "grep",
+      "why": "term",
+      "final": [
+        343,
+        343
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 351,
+      "orig": "الأخضاء",
+      "to": "الأخطاء",
+      "why": "mishear",
+      "final": [
+        346,
+        346
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 358,
+      "orig": "نصطادل",
+      "to": "نصطاد",
+      "why": "split",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 359,
+      "orig": "IP",
+      "to": "الـIP",
+      "why": "term",
+      "final": [
+        354,
+        354
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 361,
+      "orig": "بunique",
+      "to": "بـuniq",
+      "why": "term",
+      "final": [
+        356,
+        356
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 364,
+      "orig": "بsort",
+      "to": "بـsort",
+      "why": "term",
+      "final": [
+        359,
+        359
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 378,
+      "orig": "الشل",
+      "to": "الـshell",
+      "why": "term",
+      "final": [
+        373,
+        373
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 387,
+      "orig": "الدسك",
+      "to": "الديسك",
+      "why": "mishear",
+      "final": [
+        382,
+        382
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 404,
+      "orig": "الدسك",
+      "to": "الديسك",
+      "why": "mishear",
+      "final": [
+        399,
+        399
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 406,
+      "orig": "الدسك",
+      "to": "الديسك",
+      "why": "mishear",
+      "final": [
+        401,
+        401
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 407,
+      "orig": "بيش",
+      "to": "مش",
+      "why": "mishear",
+      "final": [
+        402,
+        402
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 408,
+      "orig": "بيبعد",
+      "to": "بيبعت",
+      "why": "mishear",
+      "final": [
+        403,
+        403
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 416,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        411,
+        411
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 422,
+      "orig": "DF",
+      "to": "df",
+      "why": "term",
+      "final": [
+        417,
+        417
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 423,
+      "orig": "-H",
+      "to": "-h",
+      "why": "term",
+      "final": [
+        418,
+        418
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 428,
+      "orig": "و",
+      "to": "وdu",
+      "why": "merge",
+      "final": [
+        423,
+        423
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 429,
+      "orig": "DU",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 430,
+      "orig": "-SH",
+      "to": "-sh",
+      "why": "term",
+      "final": [
+        424,
+        424
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 432,
+      "orig": "نصطاضي",
+      "to": "نصطاد",
+      "why": "mishear",
+      "final": [
+        426,
+        426
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 440,
+      "orig": "فضية",
+      "to": "فاضية",
+      "why": "mishear",
+      "final": [
+        434,
+        434
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 452,
+      "orig": "ال",
+      "to": "الـinodes",
+      "why": "merge",
+      "final": [
+        446,
+        446
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 453,
+      "orig": "-inodes",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "ال",
+      "to": "الـbackups",
+      "why": "merge",
+      "final": [
+        472,
+        472
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 480,
+      "orig": "-backups",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 482,
+      "orig": "كرون",
+      "to": "cron",
+      "why": "term",
+      "final": [
+        474,
+        474
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 493,
+      "orig": "خنات",
+      "to": "خانات",
+      "why": "mishear",
+      "final": [
+        485,
+        485
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 523,
+      "orig": "من",
+      "to": "2",
+      "why": "number",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 528,
+      "orig": "كرون",
+      "to": "cron",
+      "why": "term",
+      "final": [
+        520,
+        520
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 546,
+      "orig": "الدسك",
+      "to": "الديسك",
+      "why": "mishear",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 551,
+      "orig": "الـ",
+      "to": "الـLVM",
+      "why": "merge",
+      "final": [
+        543,
+        543
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 552,
+      "orig": "LVM",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 564,
+      "orig": "الفيزيكال",
+      "to": "الـPhysical",
+      "why": "term",
+      "final": [
+        555,
+        555
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 565,
+      "orig": "فوليوم",
+      "to": "Volume",
+      "why": "term",
+      "final": [
+        556,
+        556
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 567,
+      "orig": "الـ",
+      "to": "الـPV",
+      "why": "merge",
+      "final": [
+        558,
+        558
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 568,
+      "orig": "PV",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 571,
+      "orig": "الدسك",
+      "to": "الديسك",
+      "why": "mishear",
+      "final": [
+        561,
+        561
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "فوق",
+      "to": "فوقيه",
+      "why": "merge",
+      "final": [
+        563,
+        563
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 574,
+      "orig": "إيه",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 576,
+      "orig": "الVolume",
+      "to": "الـVolume",
+      "why": "term",
+      "final": [
+        565,
+        565
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 579,
+      "orig": "الVG",
+      "to": "الـVG",
+      "why": "term",
+      "final": [
+        568,
+        568
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 582,
+      "orig": "المساح",
+      "to": "المساحة",
+      "why": "mishear",
+      "final": [
+        571,
+        571
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "الLogical",
+      "to": "الـLogical",
+      "why": "term",
+      "final": [
+        574,
+        574
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 588,
+      "orig": "الLV",
+      "to": "الـLV",
+      "why": "term",
+      "final": [
+        577,
+        577
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 590,
+      "orig": "الPartition",
+      "to": "الـpartition",
+      "why": "term",
+      "final": [
+        579,
+        579
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 591,
+      "orig": "المارين",
+      "to": "المرن",
+      "why": "mishear",
+      "final": [
+        580,
+        580
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 602,
+      "orig": "Mount",
+      "to": "mount",
+      "why": "term",
+      "final": [
+        591,
+        591
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 605,
+      "orig": "الFS",
+      "to": "الـfstab",
+      "why": "merge",
+      "final": [
+        594,
+        594
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 606,
+      "orig": "Tab",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 613,
+      "orig": "Mount",
+      "to": "mount",
+      "why": "term",
+      "final": [
+        601,
+        601
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 614,
+      "orig": "-A",
+      "to": "-a",
+      "why": "term",
+      "final": [
+        602,
+        602
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 637,
+      "orig": "بيزة",
+      "to": "بايظة",
+      "why": "mishear",
+      "final": [
+        625,
+        625
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 639,
+      "orig": "فايروق",
+      "to": "firewall",
+      "why": "term",
+      "final": [
+        627,
+        627
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 643,
+      "orig": "الاسس",
+      "to": "الـSSH",
+      "why": "merge",
+      "final": [
+        631,
+        631
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 644,
+      "orig": "اتش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 655,
+      "orig": "زكي",
+      "to": "ذكي",
+      "why": "mishear",
+      "final": [
+        642,
+        642
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 660,
+      "orig": "الprivate",
+      "to": "الـprivate",
+      "why": "term",
+      "final": [
+        647,
+        647
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 677,
+      "orig": "بالضب",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        664,
+        664
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 685,
+      "orig": "الـ",
+      "to": "الـpublic",
+      "why": "merge",
+      "final": [
+        672,
+        672
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 686,
+      "orig": "public",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 692,
+      "orig": "الـ",
+      "to": "الـauthorized_keys",
+      "why": "merge",
+      "final": [
+        678,
+        678
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 693,
+      "orig": "authorized",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 694,
+      "orig": "underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 695,
+      "orig": "keys",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 711,
+      "orig": "بSS",
+      "to": "بـss",
+      "why": "term",
+      "final": [
+        694,
+        694
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 712,
+      "orig": "-TULPN",
+      "to": "-tulnp",
+      "why": "term",
+      "final": [
+        695,
+        695
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 717,
+      "orig": "سمعة",
+      "to": "سامعة",
+      "why": "mishear",
+      "final": [
+        700,
+        700
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "البورت",
+      "to": "الـport",
+      "why": "term",
+      "final": [
+        704,
+        704
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 725,
+      "orig": "وسمعة",
+      "to": "وسامعة",
+      "why": "mishear",
+      "final": [
+        708,
+        708
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 731,
+      "orig": "الفايروول",
+      "to": "الـfirewall",
+      "why": "term",
+      "final": [
+        714,
+        714
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 733,
+      "orig": "UFW",
+      "to": "ufw",
+      "why": "term",
+      "final": [
+        716,
+        716
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 734,
+      "orig": "Status",
+      "to": "status",
+      "why": "term",
+      "final": [
+        717,
+        717
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 763,
+      "orig": "أب",
+      "to": "uptime",
+      "why": "merge",
+      "final": [
+        746,
+        746
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 764,
+      "orig": "تايم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 767,
+      "orig": "اللود",
+      "to": "الـload",
+      "why": "term",
+      "final": [
+        749,
+        749
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 782,
+      "orig": "اللود",
+      "to": "الـload",
+      "why": "term",
+      "final": [
+        764,
+        764
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 783,
+      "orig": "أفريدج",
+      "to": "average",
+      "why": "term",
+      "final": [
+        765,
+        765
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 785,
+      "orig": "1",
+      "to": "1.0",
+      "why": "number",
+      "final": [
+        767,
+        767
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 786,
+      "orig": ".0",
+      "why": "number",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 791,
+      "orig": "كور",
+      "to": "cores",
+      "why": "term",
+      "final": [
+        772,
+        772
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 796,
+      "orig": "25",
+      "to": "25%",
+      "why": "number",
+      "final": [
+        777,
+        777
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 797,
+      "orig": "%",
+      "why": "number",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 804,
+      "orig": "للألأ",
+      "to": "للقلق",
+      "why": "mishear",
+      "final": [
+        784,
+        784
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 809,
+      "orig": "بfree",
+      "to": "بـfree",
+      "why": "term",
+      "final": [
+        789,
+        789
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 815,
+      "orig": "الavailable",
+      "to": "الـavailable",
+      "why": "term",
+      "final": [
+        795,
+        795
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 817,
+      "orig": "الفري",
+      "to": "الـfree",
+      "why": "term",
+      "final": [
+        797,
+        797
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 819,
+      "orig": "لينكس",
+      "to": "Linux",
+      "why": "term",
+      "final": [
+        799,
+        799
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 824,
+      "orig": "فضية",
+      "to": "فاضية",
+      "why": "mishear",
+      "final": [
+        804,
+        804
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 825,
+      "orig": "ككاش",
+      "to": "كـcache",
+      "why": "term",
+      "final": [
+        805,
+        805
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 831,
+      "orig": "T",
+      "to": "tmux",
+      "why": "merge",
+      "final": [
+        811,
+        811
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 832,
+      "orig": "-Max",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 845,
+      "orig": "الباش",
+      "to": "الـbash",
+      "why": "term",
+      "final": [
+        824,
+        824
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 846,
+      "orig": "سكريبتينج",
+      "to": "scripting",
+      "why": "term",
+      "final": [
+        825,
+        825
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 852,
+      "orig": "الأجزة",
+      "to": "الـexit",
+      "why": "term",
+      "final": [
+        831,
+        831
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 853,
+      "orig": "كود",
+      "to": "code",
+      "why": "term",
+      "final": [
+        832,
+        832
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 879,
+      "orig": "عدوات",
+      "to": "أدوات",
+      "why": "mishear",
+      "final": [
+        858,
+        858
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 882,
+      "orig": "كرون",
+      "to": "cron",
+      "why": "term",
+      "final": [
+        861,
+        861
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 894,
+      "orig": "ذاكية",
+      "to": "ذكية",
+      "why": "mishear",
+      "final": [
+        873,
+        873
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 903,
+      "orig": "الران",
+      "to": "الـrunbook",
+      "why": "merge",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 904,
+      "orig": "بوك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 909,
+      "orig": "للرون",
+      "to": "للـrunbook",
+      "why": "merge",
+      "final": [
+        887,
+        887
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 910,
+      "orig": "بوك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 916,
+      "orig": "البوت",
+      "to": "الـboot",
+      "why": "term",
+      "final": [
+        893,
+        893
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 917,
+      "orig": "سيكونز",
+      "to": "sequence",
+      "why": "term",
+      "final": [
+        894,
+        894
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 929,
+      "orig": "الريستورت",
+      "to": "الـrestart",
+      "why": "term",
+      "final": [
+        906,
+        906
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 932,
+      "orig": "بجراب",
+      "to": "بـGRUB",
+      "why": "term",
+      "final": [
+        909,
+        909
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 933,
+      "orig": "بوت",
+      "to": "boot",
+      "why": "term",
+      "final": [
+        910,
+        910
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 934,
+      "orig": "لودر",
+      "to": "loader",
+      "why": "term",
+      "final": [
+        911,
+        911
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 936,
+      "orig": "اللينكس",
+      "to": "الـLinux",
+      "why": "term",
+      "final": [
+        913,
+        913
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 937,
+      "orig": "كرنل",
+      "to": "kernel",
+      "why": "term",
+      "final": [
+        914,
+        914
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 939,
+      "orig": "السيستم",
+      "to": "الـsystemd",
+      "why": "merge",
+      "final": [
+        916,
+        916
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 940,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 945,
+      "orig": "للتارجت",
+      "to": "للـtarget",
+      "why": "term",
+      "final": [
+        921,
+        921
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 951,
+      "orig": "الماونت",
+      "to": "الـmount",
+      "why": "term",
+      "final": [
+        927,
+        927
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 952,
+      "orig": "السيستم",
+      "to": "الـsystemd",
+      "why": "merge",
+      "final": [
+        928,
+        928
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 953,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 963,
+      "orig": "فاده",
+      "to": "فات ده",
+      "why": "split",
+      "final": [
+        938,
+        939
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 968,
+      "orig": "الرون",
+      "to": "الـrunbook",
+      "why": "merge",
+      "final": [
+        944,
+        944
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 969,
+      "orig": "بوك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 983,
+      "orig": "والفراضية",
+      "to": "والفرضية",
+      "why": "mishear",
+      "final": [
+        958,
+        958
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 989,
+      "orig": "جورنال",
+      "to": "journalctl",
+      "why": "merge",
+      "final": [
+        964,
+        964
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 990,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 991,
+      "orig": "تي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 992,
+      "orig": "أليو",
+      "to": "-u",
+      "why": "term",
+      "final": [
+        965,
+        965
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 998,
+      "orig": "الفوق",
+      "to": "لفوق",
+      "why": "mishear",
+      "final": [
+        971,
+        971
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1004,
+      "orig": "بدي",
+      "to": "بـdf",
+      "why": "merge",
+      "final": [
+        977,
+        977
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1005,
+      "orig": "أف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1006,
+      "orig": "داش",
+      "to": "-h",
+      "why": "merge",
+      "final": [
+        978,
+        978
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1007,
+      "orig": "أتش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1010,
+      "orig": "اتماله",
+      "to": "اتملى",
+      "why": "mishear",
+      "final": [
+        981,
+        981
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1011,
+      "orig": "بورت",
+      "to": "port",
+      "why": "term",
+      "final": [
+        982,
+        982
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1015,
+      "orig": "بأس",
+      "to": "بـss",
+      "why": "merge",
+      "final": [
+        986,
+        986
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1016,
+      "orig": "أس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1017,
+      "orig": "داش",
+      "to": "-tulnp",
+      "why": "merge",
+      "final": [
+        987,
+        987
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1018,
+      "orig": "تي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1019,
+      "orig": "وأن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1020,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1021,
+      "orig": "أل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1023,
+      "orig": "الفايروول",
+      "to": "الـfirewall",
+      "why": "term",
+      "final": [
+        989,
+        989
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1025,
+      "orig": "الأس",
+      "to": "الـSSH",
+      "why": "merge",
+      "final": [
+        991,
+        991
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1026,
+      "orig": "أس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1027,
+      "orig": "أتش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1030,
+      "orig": "بأل",
+      "to": "بـls",
+      "why": "merge",
+      "final": [
+        994,
+        994
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1031,
+      "orig": "أس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1032,
+      "orig": "داش",
+      "to": "-l",
+      "why": "merge",
+      "final": [
+        995,
+        995
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1033,
+      "orig": "أل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1034,
+      "orig": "ونزبط",
+      "to": "ونظبط",
+      "why": "mishear",
+      "final": [
+        996,
+        996
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1036,
+      "orig": "لستمية",
+      "to": "لـ600",
+      "why": "number",
+      "final": [
+        998,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1067,
+      "orig": "مساعة",
+      "to": "مساحة",
+      "why": "mishear",
+      "final": [
+        1029,
+        1029
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1079,
+      "orig": "لحد",
+      "to": "الحد",
+      "why": "mishear",
+      "final": [
+        1041,
+        1041
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1100,
+      "orig": "لينكس",
+      "to": "Linux",
+      "why": "term",
+      "final": [
+        1062,
+        1062
+      ]
+    }
+  ],
+  "notes": "NotebookLM two-host-style recap of S4 P04 (Linux ops: systemd, journalctl, disk/cron/LVM, SSH/firewall, monitoring, bash, boot/runbook). Terms re-latinized per latin_terms (journalctl, -u/-f, df -h/-i, du -sh, inodes, cron, LVM/PV/VG/LV, fstab, mount -a, SSH, authorized_keys, ss -tulnp, ufw status, uptime, load average, cores, tmux, bash scripting, exit code, runbook, GRUB boot loader, Linux kernel, systemd, target). Spelled-out flags at 1015-1021 (heard as t-u-n-p-l) and 712 (heard -TULPN) normalized to the canonical 'ss -tulnp'; 'unique' -> 'uniq'. Number words (ست/خمس/خمسة وخمستاشر/صفر/اتنين) kept as spoken words; digits recorded in sentences.numbers. Edit 523 'من' (p=0.34, 100 ms) -> '2' rests on the source ('0 2 * * *' = كل يوم 2 الفجر); flag for a listen. Uncertain, left unedited: 171 'التركاية' (likely 'trick'/'الحتة'), 640-641 'القافل للدانية' (probably 'قافل الدنيا'), 784 'آري' (unclear filler after 'load average'), 941 'إنت' (possibly 'init' after systemd), 678 'والمفتاح' (possibly 'ومفتوحة'), 483 'بيتدير'. Dialect forms kept (اتماسحت، فوقيها، بيرود، لكو، ضربت). No dropouts detected (max inter-segment gap ~0.8 s); no inserts.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 4,
+      "kind": "transition",
+      "gloss_en": "Welcome to this analysis.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 5,
+      "to": 15,
+      "kind": "example",
+      "gloss_en": "Imagine the phone rings at 3 a.m. and the server is down. An emergency.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 16,
+      "to": 36,
+      "kind": "transition",
+      "gloss_en": "Today we will build together a complete, methodical framework to diagnose and fix server problems on this night on-call shift.",
+      "terms": [
+        "on call"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 37,
+      "to": 53,
+      "kind": "transition",
+      "gloss_en": "Let us get straight into it, so we know how to handle these failures with confidence and without stress.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 54,
+      "to": 66,
+      "kind": "claim",
+      "gloss_en": "Let us agree on a golden rule in operations that saves hours of guessing and wasted effort.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 67,
+      "to": 80,
+      "kind": "claim",
+      "gloss_en": "The first question when something breaks is not what broke, but what broke first.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 81,
+      "to": 97,
+      "kind": "claim",
+      "gloss_en": "To find the real root cause we must trace the symptoms backwards until we reach the starting point.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 98,
+      "to": 104,
+      "kind": "transition",
+      "gloss_en": "Our journey will pass through six quick stations.",
+      "terms": [],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 105,
+      "to": 122,
+      "kind": "transition",
+      "gloss_en": "We will manage services, read logs, tune the disk and scheduled jobs, secure the network, monitor performance, and finish with the emergency runbook.",
+      "terms": [
+        "log",
+        "disk",
+        "runbook"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 123,
+      "to": 131,
+      "kind": "transition",
+      "gloss_en": "Station one: service management and how to trace the first failure that happened.",
+      "terms": [
+        "service"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 132,
+      "to": 140,
+      "kind": "claim",
+      "gloss_en": "Linux manages services as separate units.",
+      "terms": [
+        "Linux",
+        "units"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 141,
+      "to": 160,
+      "kind": "claim",
+      "gloss_en": "Picture them as living entities whose state keeps changing: from inactive to starting, then active, or, God forbid, failed.",
+      "terms": [
+        "inactive",
+        "starting",
+        "active",
+        "failed"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 161,
+      "to": 169,
+      "kind": "claim",
+      "gloss_en": "This is where systemctl comes in; it is our remote control.",
+      "terms": [
+        "systemctl"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 170,
+      "to": 186,
+      "kind": "claim",
+      "gloss_en": "We use start and stop, but the important trick here is the difference between restart, which stops the service and brings it back up from scratch,",
+      "terms": [
+        "start",
+        "stop",
+        "restart"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 187,
+      "to": 198,
+      "kind": "claim",
+      "gloss_en": "and the brilliant reload, which applies the new settings without dropping the connection at all.",
+      "terms": [
+        "reload"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 199,
+      "to": 208,
+      "kind": "claim",
+      "gloss_en": "And of course do not forget enable, so the service comes up on its own at boot.",
+      "terms": [
+        "enable",
+        "boot"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 209,
+      "to": 224,
+      "kind": "question",
+      "gloss_en": "So if we find app.service in a crash loop, falling, restarting and falling again, is the problem in it?",
+      "terms": [
+        "app.service",
+        "crash loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 225,
+      "to": 233,
+      "kind": "claim",
+      "gloss_en": "Usually not; we have to follow this dependency chain backwards.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 234,
+      "to": 251,
+      "kind": "example",
+      "gloss_en": "The app is down because it needs db-proxy.service, and when we look at the proxy we find it down because database.service failed first of all.",
+      "terms": [
+        "db-proxy.service",
+        "database.service"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 252,
+      "to": 262,
+      "kind": "recap",
+      "gloss_en": "So always diagnose before fixing; do not treat the symptom and leave the underlying disease.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 263,
+      "to": 276,
+      "kind": "transition",
+      "gloss_en": "Station two: reading logs, which we will analyze step by step once we pin down the first point that failed.",
+      "terms": [
+        "log"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 277,
+      "to": 289,
+      "kind": "claim",
+      "gloss_en": "journalctl is our black box: a precise timeline of everything that happened.",
+      "terms": [
+        "journalctl"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 290,
+      "to": 297,
+      "kind": "claim",
+      "gloss_en": "We use -u to pick the service and -f to follow live.",
+      "terms": [
+        "-u",
+        "-f"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 298,
+      "to": 308,
+      "kind": "claim",
+      "gloss_en": "But the real secret here is that these logs must be read from the bottom up.",
+      "terms": [
+        "log"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 309,
+      "to": 329,
+      "kind": "claim",
+      "gloss_en": "We look for the first line from the bottom that caused the problem, not the lines above it, which are just consequences of the original failure.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 330,
+      "to": 340,
+      "kind": "claim",
+      "gloss_en": "And if we are analyzing specific files like auth.log, nothing beats the bash pipeline.",
+      "terms": [
+        "auth.log",
+        "bash",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 341,
+      "to": 360,
+      "kind": "example",
+      "gloss_en": "Imagine we run grep to pull out errors like failed password, then awk to catch the IP, count them with uniq -c and sort them with sort -rn.",
+      "terms": [
+        "grep",
+        "password",
+        "awk",
+        "IP",
+        "uniq",
+        "-c",
+        "sort",
+        "-rn"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 361,
+      "to": 378,
+      "kind": "claim",
+      "gloss_en": "We are literally running database logic like SQL, but directly from the shell; extremely powerful and fast.",
+      "terms": [
+        "SQL",
+        "shell"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 379,
+      "to": 384,
+      "kind": "transition",
+      "gloss_en": "Station three: secrets of the disk and scheduled jobs.",
+      "terms": [
+        "disk"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 385,
+      "to": 400,
+      "kind": "claim",
+      "gloss_en": "Sometimes strange, random, meaningless failures appear; the secret here is usually the silent killer: a full disk.",
+      "terms": [
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 401,
+      "to": 410,
+      "kind": "claim",
+      "gloss_en": "The disk does not send a warning; it just makes the server collapse slowly.",
+      "terms": [
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 411,
+      "to": 428,
+      "kind": "claim",
+      "gloss_en": "Our diagnosis path must be in order: df -h to see total space, and du -sh to catch the big files.",
+      "terms": [
+        "df -h",
+        "du",
+        "-sh"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 429,
+      "to": 438,
+      "kind": "claim",
+      "gloss_en": "But wait: the space may be free and everything still fails.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 439,
+      "to": 453,
+      "kind": "claim",
+      "gloss_en": "Here we use df -i to check the inodes, which run out if we have millions of small files.",
+      "terms": [
+        "df -i",
+        "inodes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 454,
+      "to": 465,
+      "kind": "claim",
+      "gloss_en": "And of course lsof reveals files that were deleted but are still held in memory.",
+      "terms": [
+        "lsof"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 466,
+      "to": 485,
+      "kind": "claim",
+      "gloss_en": "For jobs that run on their own, like backups, cron handles it with a precise schedule made of five fields.",
+      "terms": [
+        "backup",
+        "cron"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 486,
+      "to": 494,
+      "kind": "claim",
+      "gloss_en": "Minute, hour, day of month, month, and day of week.",
+      "terms": [
+        "minute",
+        "hour",
+        "day-of-month",
+        "month",
+        "day-of-week"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 495,
+      "to": 503,
+      "kind": "example",
+      "gloss_en": "So if we put five stars, the job runs every minute.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 504,
+      "to": 516,
+      "kind": "example",
+      "gloss_en": "And if we put zero, then two, and three stars, it runs every day at 2 a.m.",
+      "terms": [],
+      "numbers": [
+        "0",
+        "2",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 517,
+      "to": 534,
+      "kind": "claim",
+      "gloss_en": "But note: cron has no retry mechanism if the job fails, nor does it understand what depends on what.",
+      "terms": [
+        "cron",
+        "retries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 535,
+      "to": 543,
+      "kind": "claim",
+      "gloss_en": "And to avoid the full-disk nightmare in the first place, we use LVM.",
+      "terms": [
+        "LVM",
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 544,
+      "to": 551,
+      "kind": "example",
+      "gloss_en": "Picture it like Lego blocks stacked on top of each other.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 552,
+      "to": 562,
+      "kind": "example",
+      "gloss_en": "At the very bottom is the Physical Volume block, or PV, which is the raw disk.",
+      "terms": [
+        "Physical",
+        "Volume",
+        "PV",
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 563,
+      "to": 571,
+      "kind": "example",
+      "gloss_en": "Above it is the Volume Group block, or VG, which pools the space.",
+      "terms": [
+        "Volume",
+        "group",
+        "VG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 572,
+      "to": 588,
+      "kind": "example",
+      "gloss_en": "And on top of them the Logical Volume block, or LV, the flexible partition we can grow while the server keeps running normally.",
+      "terms": [
+        "Logical",
+        "Volume",
+        "LV",
+        "partition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 589,
+      "to": 594,
+      "kind": "claim",
+      "gloss_en": "Then we mount through fstab.",
+      "terms": [
+        "mount",
+        "fstab"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 595,
+      "to": 610,
+      "kind": "claim",
+      "gloss_en": "And before any restart, always test with mount -a to make sure no mistake will stop the server.",
+      "terms": [
+        "restart",
+        "mount -a"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 611,
+      "to": 616,
+      "kind": "transition",
+      "gloss_en": "Station four: server security and connection setup.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 617,
+      "to": 629,
+      "kind": "claim",
+      "gloss_en": "Connection problems usually come down to two things: broken permissions or a firewall blocking things.",
+      "terms": [
+        "firewall"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 630,
+      "to": 640,
+      "kind": "claim",
+      "gloss_en": "If SSH suddenly refuses to let us in, the first thing to suspect is permissions.",
+      "terms": [
+        "ssh"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 641,
+      "to": 656,
+      "kind": "claim",
+      "gloss_en": "The system is smart: if it finds the private key with wide permissions that anyone can read, it rejects it immediately.",
+      "terms": [
+        "private key"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 657,
+      "to": 669,
+      "kind": "claim",
+      "gloss_en": "These permissions must be 600, meaning locked down exactly, the key for the file owner only.",
+      "terms": [],
+      "numbers": [
+        "600"
+      ],
+      "entities": []
+    },
+    {
+      "from": 670,
+      "to": 678,
+      "kind": "claim",
+      "gloss_en": "And the public key is what goes into authorized_keys.",
+      "terms": [
+        "public key",
+        "authorized_keys"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 679,
+      "to": 692,
+      "kind": "example",
+      "gloss_en": "Now, if the service is running but nobody can reach it, the diagnosis here is just two steps.",
+      "terms": [
+        "service"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 693,
+      "to": 705,
+      "kind": "claim",
+      "gloss_en": "First, with ss -tulnp we confirm the service is really listening and waiting for connections on its port.",
+      "terms": [
+        "ss -tulnp",
+        "Port"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 706,
+      "to": 717,
+      "kind": "claim",
+      "gloss_en": "If it is fine and listening, we go to the second step and check the firewall, like ufw status.",
+      "terms": [
+        "firewall",
+        "ufw status"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 718,
+      "to": 728,
+      "kind": "question",
+      "gloss_en": "Does it even allow outside traffic through, or is it shutting the door?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 729,
+      "to": 733,
+      "kind": "transition",
+      "gloss_en": "Station five: performance monitoring and scripts.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 734,
+      "to": 744,
+      "kind": "claim",
+      "gloss_en": "To keep the server healthy, our eyes must stay on the key numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 745,
+      "to": 754,
+      "kind": "claim",
+      "gloss_en": "The uptime command gives us the load average for the last one, five and fifteen minutes.",
+      "terms": [
+        "uptime",
+        "load"
+      ],
+      "numbers": [
+        "1",
+        "5",
+        "15"
+      ],
+      "entities": []
+    },
+    {
+      "from": 755,
+      "to": 761,
+      "kind": "claim",
+      "gloss_en": "But understanding these numbers is what makes the difference.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 762,
+      "to": 778,
+      "kind": "example",
+      "gloss_en": "So if the load average is 1.0 on a server with 4 cores, that means we are using only 25%.",
+      "terms": [
+        "load",
+        "cores"
+      ],
+      "numbers": [
+        "1.0",
+        "4",
+        "25%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 779,
+      "to": 784,
+      "kind": "claim",
+      "gloss_en": "So there is no reason to worry at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 785,
+      "to": 797,
+      "kind": "claim",
+      "gloss_en": "And when we check memory with free -h, our eyes always go to available, not free.",
+      "terms": [
+        "free",
+        "available"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 798,
+      "to": 808,
+      "kind": "claim",
+      "gloss_en": "Because Linux by nature uses any free space as cache, and that is completely normal.",
+      "terms": [
+        "Linux",
+        "cache"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 809,
+      "to": 821,
+      "kind": "claim",
+      "gloss_en": "And of course tmux is the lifesaver that keeps the session running even if we get disconnected.",
+      "terms": [
+        "tmux"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 822,
+      "to": 835,
+      "kind": "claim",
+      "gloss_en": "In bash scripting, the most important idea of all is the exit code.",
+      "terms": [
+        "bash",
+        "exit code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 836,
+      "to": 850,
+      "kind": "claim",
+      "gloss_en": "If the command returns zero, congrats, it succeeded; any number other than zero means failure.",
+      "terms": [],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 851,
+      "to": 867,
+      "kind": "claim",
+      "gloss_en": "This small number is what talks to other tools like cron and tells them whether the job finished or failed.",
+      "terms": [
+        "cron"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 868,
+      "to": 878,
+      "kind": "claim",
+      "gloss_en": "Based on it we can build smart scripts we can rely on for automation.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 879,
+      "to": 883,
+      "kind": "transition",
+      "gloss_en": "Station six, the last: the emergency runbook.",
+      "terms": [
+        "runbook"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 884,
+      "to": 894,
+      "kind": "claim",
+      "gloss_en": "Before we reach the runbook, we must understand the boot sequence.",
+      "terms": [
+        "runbook",
+        "boot"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 895,
+      "to": 906,
+      "kind": "claim",
+      "gloss_en": "It tells us exactly why the server might not come back up after a restart.",
+      "terms": [
+        "restart"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 907,
+      "to": 921,
+      "kind": "claim",
+      "gloss_en": "It starts with the GRUB boot loader, followed by the Linux kernel, then systemd, until we reach the target.",
+      "terms": [
+        "GRUB",
+        "boot loader",
+        "Linux",
+        "kernel",
+        "systemd",
+        "target"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 922,
+      "to": 934,
+      "kind": "example",
+      "gloss_en": "If, say, a mount problem happens, systemd stops halfway and the server stays down.",
+      "terms": [
+        "mount",
+        "systemd"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 935,
+      "to": 948,
+      "kind": "recap",
+      "gloss_en": "Everything so far comes together here in the runbook page that saves us during an emergency.",
+      "terms": [
+        "runbook"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 949,
+      "to": 960,
+      "kind": "recap",
+      "gloss_en": "It is a clear map linking each symptom to the first diagnostic command, the expected hypothesis and the fix.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 961,
+      "to": 973,
+      "kind": "recap",
+      "gloss_en": "A service in a crash loop: journalctl -u to trace the dependency from the bottom up and fix the root.",
+      "terms": [
+        "crash loop",
+        "journalctl",
+        "-u"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 974,
+      "to": 981,
+      "kind": "recap",
+      "gloss_en": "Random errors: diagnose with df -h because the disk filled up.",
+      "terms": [
+        "df -h",
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 982,
+      "to": 989,
+      "kind": "recap",
+      "gloss_en": "A port not responding: diagnose with ss -tulnp and review the firewall.",
+      "terms": [
+        "Port",
+        "ss -tulnp",
+        "firewall"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 990,
+      "to": 998,
+      "kind": "recap",
+      "gloss_en": "And if SSH refuses: diagnose with ls -l and set the permissions to 600.",
+      "terms": [
+        "ssh",
+        "ls -l"
+      ],
+      "numbers": [
+        "600"
+      ],
+      "entities": []
+    },
+    {
+      "from": 999,
+      "to": 1008,
+      "kind": "recap",
+      "gloss_en": "This sheet turns crisis-time flailing into clear, explicit, methodical steps.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1009,
+      "to": 1022,
+      "kind": "transition",
+      "gloss_en": "Before we wrap up, we leave you with this scenario to think about until next time.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1023,
+      "to": 1039,
+      "kind": "example",
+      "gloss_en": "A server went down, and when we got in we found the disk space completely free, yet every attempt to write new data fails.",
+      "terms": [
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1040,
+      "to": 1050,
+      "kind": "question",
+      "gloss_en": "What is the hidden limit the system hit that nobody noticed?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1051,
+      "to": 1068,
+      "kind": "recap",
+      "gloss_en": "This question pulls us away from shallow thinking into the deep secrets and mechanics of Linux, part of which we explored today.",
+      "terms": [
+        "Linux"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1069,
+      "to": 1081,
+      "kind": "recap",
+      "gloss_en": "Diagnosis is always a fun journey if the map is clear in our heads. Thank you very much.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:10:49Z"
+}

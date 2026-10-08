@@ -1,0 +1,2286 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P17",
+  "asr_words": 1024,
+  "final_words": 997,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 16,
+      "orig": "داتا",
+      "to": "DataCube",
+      "why": "term",
+      "final": [
+        16,
+        16
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 17,
+      "orig": "كيوب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 25,
+      "orig": "row",
+      "to": "raw",
+      "why": "mishear",
+      "final": [
+        24,
+        24
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 46,
+      "orig": "الموبايل",
+      "to": "الـMobile",
+      "why": "term",
+      "final": [
+        45,
+        45
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 47,
+      "orig": "ماني",
+      "to": "Money",
+      "why": "term",
+      "final": [
+        46,
+        46
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 76,
+      "orig": "الاركتاكتشر",
+      "to": "الـArchitecture",
+      "why": "term",
+      "final": [
+        75,
+        75
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 77,
+      "orig": "الستار",
+      "to": "الـstar",
+      "why": "term",
+      "final": [
+        76,
+        76
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 78,
+      "orig": "سكيما",
+      "to": "schema",
+      "why": "term",
+      "final": [
+        77,
+        77
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 101,
+      "orig": "الاركتاكتشر",
+      "to": "الـArchitecture",
+      "why": "term",
+      "final": [
+        100,
+        100
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 143,
+      "orig": "الموبايل",
+      "to": "الـMobile",
+      "why": "term",
+      "final": [
+        142,
+        142
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 144,
+      "orig": "ماني",
+      "to": "Money",
+      "why": "term",
+      "final": [
+        143,
+        143
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 149,
+      "orig": "البيلينج",
+      "to": "الـbilling",
+      "why": "term",
+      "final": [
+        148,
+        148
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 153,
+      "orig": "الرم",
+      "to": "الـCRM",
+      "why": "term",
+      "final": [
+        152,
+        152
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 162,
+      "orig": "إقاعه",
+      "to": "إيقاعه",
+      "why": "mishear",
+      "final": [
+        161,
+        161
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 173,
+      "orig": "الديتا",
+      "to": "الـDataCube",
+      "why": "term",
+      "final": [
+        172,
+        172
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 174,
+      "orig": "كيوب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 177,
+      "orig": "داشبرد",
+      "to": "dashboard",
+      "why": "term",
+      "final": [
+        175,
+        175
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 178,
+      "orig": "منفاصلة",
+      "to": "منفصلة",
+      "why": "mishear",
+      "final": [
+        176,
+        176
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 186,
+      "orig": "كبايبلاين",
+      "to": "كـpipeline",
+      "why": "term",
+      "final": [
+        184,
+        184
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 190,
+      "orig": "السورسز",
+      "to": "الـSources",
+      "why": "term",
+      "final": [
+        188,
+        188
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 262,
+      "orig": "الأناليست",
+      "to": "الـanalysts",
+      "why": "term",
+      "final": [
+        260,
+        260
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 264,
+      "orig": "الديتا",
+      "to": "الـData",
+      "why": "term",
+      "final": [
+        262,
+        262
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 265,
+      "orig": "مارت",
+      "to": "Mart",
+      "why": "term",
+      "final": [
+        263,
+        263
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 269,
+      "orig": "جهزة",
+      "to": "جاهزة",
+      "why": "mishear",
+      "final": [
+        267,
+        267
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 284,
+      "orig": "ستوريج",
+      "to": "storage",
+      "why": "term",
+      "final": [
+        282,
+        282
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 302,
+      "orig": "HBs",
+      "to": "HBase",
+      "why": "term",
+      "final": [
+        300,
+        300
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 303,
+      "orig": "والريدس",
+      "to": "وRedis",
+      "why": "term",
+      "final": [
+        301,
+        301
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 311,
+      "orig": "باتش",
+      "to": "batch",
+      "why": "term",
+      "final": [
+        309,
+        309
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 312,
+      "orig": "بروسيسنج",
+      "to": "processing",
+      "why": "term",
+      "final": [
+        310,
+        310
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 314,
+      "orig": "لهايف",
+      "to": "لـHive",
+      "why": "term",
+      "final": [
+        312,
+        312
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 317,
+      "orig": "والجوينز",
+      "to": "والـjoins",
+      "why": "term",
+      "final": [
+        315,
+        315
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 320,
+      "orig": "جاوس",
+      "to": "GaussDB",
+      "why": "term",
+      "final": [
+        318,
+        318
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 321,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 322,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 369,
+      "orig": "الجرين",
+      "to": "الـgrain",
+      "why": "term",
+      "final": [
+        365,
+        365
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 381,
+      "orig": "الستور",
+      "to": "الـstar",
+      "why": "term",
+      "final": [
+        377,
+        377
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 382,
+      "orig": "سكيمة",
+      "to": "schema",
+      "why": "term",
+      "final": [
+        378,
+        378
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 383,
+      "orig": "للموبايل",
+      "to": "لـMobile",
+      "why": "term",
+      "final": [
+        379,
+        379
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 384,
+      "orig": "موني",
+      "to": "Money",
+      "why": "term",
+      "final": [
+        380,
+        380
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 386,
+      "orig": "الفاكتس",
+      "to": "الـfacts",
+      "why": "term",
+      "final": [
+        382,
+        382
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 387,
+      "orig": "والديمانشنز",
+      "to": "والـdimensions",
+      "why": "term",
+      "final": [
+        383,
+        383
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 442,
+      "orig": "33",
+      "to": "33.33",
+      "why": "number",
+      "final": [
+        438,
+        438
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 443,
+      "orig": ".33",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 471,
+      "orig": "33",
+      "to": "33.33",
+      "why": "number",
+      "final": [
+        466,
+        466
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 472,
+      "orig": ".33",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 504,
+      "orig": "ديه",
+      "to": "دقيقة",
+      "why": "mishear",
+      "final": [
+        498,
+        498
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 537,
+      "orig": "Cash",
+      "to": "CASH_IN",
+      "why": "term",
+      "final": [
+        531,
+        531
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 538,
+      "orig": "Underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 539,
+      "orig": "In",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 541,
+      "orig": "P2P",
+      "to": "P2P_TRANSFER",
+      "why": "term",
+      "final": [
+        533,
+        533
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 542,
+      "orig": "Underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 543,
+      "orig": "Transfer",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "60",
+      "to": "60-40",
+      "why": "number",
+      "final": [
+        563,
+        563
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 574,
+      "orig": "-40",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "60",
+      "to": "60%",
+      "why": "number",
+      "final": [
+        574,
+        574
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 586,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 591,
+      "orig": "40",
+      "to": "40%",
+      "why": "number",
+      "final": [
+        579,
+        579
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 592,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 594,
+      "orig": "إراد",
+      "to": "إيراد",
+      "why": "mishear",
+      "final": [
+        581,
+        581
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 615,
+      "orig": "الإكستراكت",
+      "to": "الـExtract",
+      "why": "term",
+      "final": [
+        602,
+        602
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 622,
+      "orig": "ترانسفورم",
+      "to": "Transform",
+      "why": "term",
+      "final": [
+        609,
+        609
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 627,
+      "orig": "6040",
+      "to": "60-40",
+      "why": "number",
+      "final": [
+        614,
+        614
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 633,
+      "orig": "اللود",
+      "to": "الـLoad",
+      "why": "term",
+      "final": [
+        620,
+        620
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 649,
+      "orig": "المجميع",
+      "to": "المجاميع",
+      "why": "mishear",
+      "final": [
+        636,
+        636
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 672,
+      "orig": "الموبايل",
+      "to": "الـMobile",
+      "why": "term",
+      "final": [
+        659,
+        659
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 673,
+      "orig": "ماني",
+      "to": "Money",
+      "why": "term",
+      "final": [
+        660,
+        660
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 693,
+      "orig": "الريبورد",
+      "to": "الـReport",
+      "why": "term",
+      "final": [
+        680,
+        680
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 694,
+      "orig": "ديزاينر",
+      "to": "Designer",
+      "why": "term",
+      "final": [
+        681,
+        681
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 696,
+      "orig": "لوجن",
+      "to": "login",
+      "why": "term",
+      "final": [
+        683,
+        683
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 698,
+      "orig": "الديزاينر",
+      "to": "الـdesigner",
+      "why": "term",
+      "final": [
+        685,
+        685
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 700,
+      "orig": "الكيوبز",
+      "to": "الـcubes",
+      "why": "term",
+      "final": [
+        687,
+        687
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 701,
+      "orig": "الجهزة",
+      "to": "الجاهزة",
+      "why": "mishear",
+      "final": [
+        688,
+        688
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 709,
+      "orig": "الماجرز",
+      "to": "الـmeasures",
+      "why": "term",
+      "final": [
+        696,
+        696
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 712,
+      "orig": "الفيلترز",
+      "to": "الـfilters",
+      "why": "term",
+      "final": [
+        699,
+        699
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 716,
+      "orig": "سكاجول",
+      "to": "schedule",
+      "why": "term",
+      "final": [
+        703,
+        703
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 723,
+      "orig": "الصح",
+      "to": "الصبح",
+      "why": "mishear",
+      "final": [
+        710,
+        710
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 742,
+      "orig": "كاش",
+      "to": "Cash-In،",
+      "why": "term",
+      "final": [
+        729,
+        729
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 743,
+      "orig": "إن،",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 744,
+      "orig": "كاش",
+      "to": "Cash-Out،",
+      "why": "term",
+      "final": [
+        730,
+        730
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 745,
+      "orig": "آوت،",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 746,
+      "orig": "البي",
+      "to": "الـP2P",
+      "why": "term",
+      "final": [
+        731,
+        731
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 747,
+      "orig": "تو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 748,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 754,
+      "orig": "بيل",
+      "to": "Bill",
+      "why": "term",
+      "final": [
+        737,
+        737
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "بايمينت،",
+      "to": "Payment،",
+      "why": "term",
+      "final": [
+        738,
+        738
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 756,
+      "orig": "اير",
+      "to": "Airtime",
+      "why": "term",
+      "final": [
+        739,
+        739
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 757,
+      "orig": "تايم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 758,
+      "orig": "ومرشنت",
+      "to": "وMerchant",
+      "why": "term",
+      "final": [
+        740,
+        740
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 765,
+      "orig": "والسكسيس",
+      "to": "والـsuccess",
+      "why": "term",
+      "final": [
+        747,
+        747
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 766,
+      "orig": "ريت",
+      "to": "rate",
+      "why": "term",
+      "final": [
+        748,
+        748
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 783,
+      "orig": "إرادات",
+      "to": "إيرادات",
+      "why": "mishear",
+      "final": [
+        765,
+        765
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 788,
+      "orig": "السنترل",
+      "to": "الـCentral",
+      "why": "term",
+      "final": [
+        770,
+        770
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 790,
+      "orig": "ب40",
+      "to": "ب40%",
+      "why": "number",
+      "final": [
+        772,
+        772
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 791,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 793,
+      "orig": "الايسترن",
+      "to": "الـEastern",
+      "why": "term",
+      "final": [
+        774,
+        774
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 794,
+      "orig": "ب20",
+      "to": "ب20%",
+      "why": "number",
+      "final": [
+        775,
+        775
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 795,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 796,
+      "orig": "والوسترن",
+      "to": "والـWestern",
+      "why": "term",
+      "final": [
+        776,
+        776
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 797,
+      "orig": "ب18",
+      "to": "ب18%",
+      "why": "number",
+      "final": [
+        777,
+        777
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 798,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 816,
+      "orig": "125",
+      "to": "125,847",
+      "why": "number",
+      "final": [
+        795,
+        795
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 817,
+      "orig": "847",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 821,
+      "orig": "ل4",
+      "to": "ل4.2",
+      "why": "number",
+      "final": [
+        799,
+        799
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 822,
+      "orig": ".2",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 875,
+      "orig": "الماسكينج",
+      "to": "الـmasking",
+      "why": "term",
+      "final": [
+        852,
+        852
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 900,
+      "orig": "الماسكينج",
+      "to": "الـmasking",
+      "why": "term",
+      "final": [
+        877,
+        877
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 926,
+      "orig": "نسق",
+      "to": "نثق",
+      "why": "mishear",
+      "final": [
+        903,
+        903
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 930,
+      "orig": "الجوفرنس",
+      "to": "الـgovernance",
+      "why": "term",
+      "final": [
+        907,
+        907
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 937,
+      "orig": "تراست",
+      "to": "trust",
+      "why": "term",
+      "final": [
+        914,
+        914
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 938,
+      "orig": "سكور",
+      "to": "score",
+      "why": "term",
+      "final": [
+        915,
+        915
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 939,
+      "orig": "80",
+      "to": "80%",
+      "why": "number",
+      "final": [
+        916,
+        916
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 940,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 949,
+      "orig": "فرش",
+      "to": "fresh",
+      "why": "term",
+      "final": [
+        925,
+        925
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 969,
+      "orig": "AES256",
+      "to": "AES-256",
+      "why": "term",
+      "final": [
+        945,
+        945
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 973,
+      "orig": "1",
+      "to": "1.2+",
+      "why": "number",
+      "final": [
+        949,
+        949
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 974,
+      "orig": ".2",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 975,
+      "orig": "بلس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 991,
+      "orig": "الديتا",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        965,
+        965
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 992,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        966,
+        966
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 997,
+      "orig": "100",
+      "to": "100%",
+      "why": "number",
+      "final": [
+        971,
+        971
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 998,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1000,
+      "orig": "هدسة",
+      "to": "هندسة",
+      "why": "mishear",
+      "final": [
+        973,
+        973
+      ]
+    }
+  ],
+  "notes": "No inserts: no whisper dropout was certain from source_excerpt. Edits are term (Latin script for DataCube, Mobile Money, billing, CRM, HBase, Redis, Hive, GaussDB, joins, grain, star schema, facts/dimensions, Extract/Transform/Load, Report Designer, cubes, measures, filters, schedule, masking, governance, trust score, service and region names), number merges (33.33, 60-40, 60%/40%, 40/20/18%, 125,847, 4.2, 80%, 1.2+, 100%, AES-256) and excerpt-proven mishearings (row->raw, الرم->CRM, إقاعه->إيقاعه, 15 ديه->15 دقيقة, الصح->الصبح, نسق->نثق, المجميع->المجاميع, إراد->إيراد, جهزة->جاهزة, هدسة->هندسة). Deleted tokens (to='') are the trailing halves of merged terms/numbers. Egyptian-spelling forms kept deliberately: تأرير, تأسيمه, التأسيمة, متأسمة, باسمة (=بقسمة), مزهلة, دهبية, بزكاء. Left unchanged and NOT proven by source_excerpt (review at audio check): 1 'بيكو' (likely بيكم); 338 'فايب' (unclear interjection); 352 'Matrix' (probably Metrics, since the next sentence is about 24 metrics/KPIs); 415 'نتوشف' (maybe نتوه في); 458 'إجمال' (إجمالي); 571 'اسمة' (likely اسمها); 606 'منحس' (من غير ما نحس); 719 'يتبعي' (likely يتبعت); 741 'ورصف' (likely ورا صف); 738 'بيتميلة'; 888-889 'جون موكاسا' (name, Latin spelling unknown, glossed as John Mokasa); 951 'ممرش' (likely مرّش); 221 'للنظام دقيق'. Region names Central/Eastern/Western and services Cash-In/Cash-Out/P2P/Bill Payment/Airtime/Merchant were converted from spoken English in Arabic script; the excerpt table is truncated after Bill Payment, so Airtime/Merchant and the region names are from the audio only. Sentence 413-425 'نتوشف' meaning is uncertain; gloss is approximate.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 4,
+      "kind": "transition",
+      "gloss_en": "Welcome to a new explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 5,
+      "to": 16,
+      "kind": "claim",
+      "gloss_en": "Today we dive into the world of data and specifically take apart the architecture of the Huawei DataCube platform.",
+      "terms": [
+        "DataCube"
+      ],
+      "numbers": [],
+      "entities": [
+        "Huawei",
+        "DataCube"
+      ]
+    },
+    {
+      "from": 17,
+      "to": 35,
+      "kind": "claim",
+      "gloss_en": "We'll see how this platform takes raw operational data, the raw and very messy operating data, and works magic on it.",
+      "terms": [
+        "raw operational data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 36,
+      "to": 46,
+      "kind": "claim",
+      "gloss_en": "So it turns it into business intelligence and a very clear view, specifically for mobile money services.",
+      "terms": [
+        "business intelligence",
+        "Mobile Money"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 47,
+      "to": 51,
+      "kind": "claim",
+      "gloss_en": "The subject really is like brilliant engineering.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 52,
+      "to": 56,
+      "kind": "claim",
+      "gloss_en": "Our journey today is fast and exciting.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 57,
+      "to": 70,
+      "kind": "transition",
+      "gloss_en": "We'll walk with the data from the moment it enters the system until it comes out as a report.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 71,
+      "to": 90,
+      "kind": "transition",
+      "gloss_en": "We'll pass through five stations: architecture, the star schema, our kitchen the ETL, then the Daily Report, and we'll serve it with Governance and Masking.",
+      "terms": [
+        "Architecture",
+        "star schema",
+        "ETL",
+        "Daily Report",
+        "Governance",
+        "Masking"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 91,
+      "to": 102,
+      "kind": "transition",
+      "gloss_en": "Let's get straight into it and start with the first station, architecture and storage.",
+      "terms": [
+        "Architecture",
+        "Storage"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 109,
+      "kind": "question",
+      "gloss_en": "How do we build the foundation that will carry all of this?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 110,
+      "to": 125,
+      "kind": "example",
+      "gloss_en": "Imagine with me how we could take more than 50 raw data sources and turn them into a clear business view.",
+      "terms": [],
+      "numbers": [
+        "50"
+      ],
+      "entities": []
+    },
+    {
+      "from": 126,
+      "to": 135,
+      "kind": "claim",
+      "gloss_en": "The challenge here is not only the count; the challenge is the speeds.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 136,
+      "to": 155,
+      "kind": "example",
+      "gloss_en": "We pull data from the Mobile Money platform every 15 minutes, from billing every hour, and from CRM once a day.",
+      "terms": [
+        "Mobile Money",
+        "billing",
+        "CRM"
+      ],
+      "numbers": [
+        "15"
+      ],
+      "entities": []
+    },
+    {
+      "from": 156,
+      "to": 167,
+      "kind": "claim",
+      "gloss_en": "Chaos, right? Every source has its own rhythm, and that represents a huge challenge.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 168,
+      "to": 171,
+      "kind": "transition",
+      "gloss_en": "The solution starts from here.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 172,
+      "to": 185,
+      "kind": "claim",
+      "gloss_en": "DataCube is not just a separate dashboard we look at and that's it; it's a complete architecture running as a connected pipeline.",
+      "terms": [
+        "DataCube",
+        "dashboard",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 186,
+      "to": 196,
+      "kind": "claim",
+      "gloss_en": "It starts from the sources, then passes through the ETL layer for merging and cleaning.",
+      "terms": [
+        "Sources",
+        "ETL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 197,
+      "to": 212,
+      "kind": "claim",
+      "gloss_en": "Then it enters the storage layers to be stored, and finally reaches the analytics and reporting layer.",
+      "terms": [
+        "Storage Layers",
+        "Analytics",
+        "Reporting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 213,
+      "to": 219,
+      "kind": "recap",
+      "gloss_en": "Step by step, this chaos turns into a precise system.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 220,
+      "to": 229,
+      "kind": "transition",
+      "gloss_en": "The table shows its division very cleverly: we have three storage layers.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 230,
+      "to": 246,
+      "kind": "claim",
+      "gloss_en": "First the ODS, which is for raw data with retention of just days, and it is used by the ETL developers.",
+      "terms": [
+        "ODS",
+        "ETL Developers"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 247,
+      "to": 260,
+      "kind": "claim",
+      "gloss_en": "Second the DW, or Data Warehouse, which keeps a full history for years and is used by the analysts.",
+      "terms": [
+        "DW",
+        "Data Warehouse",
+        "analysts"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 261,
+      "to": 275,
+      "kind": "claim",
+      "gloss_en": "Finally the Data Mart, which offers ready summaries for specific departments, with history in months, aimed more at business managers.",
+      "terms": [
+        "Data Mart"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 276,
+      "to": 279,
+      "kind": "recap",
+      "gloss_en": "Each one has its own use.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 280,
+      "to": 287,
+      "kind": "claim",
+      "gloss_en": "And no single storage fits everything, right?",
+      "terms": [
+        "storage"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 288,
+      "to": 294,
+      "kind": "transition",
+      "gloss_en": "This decision tree shows what we use and when.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 295,
+      "to": 303,
+      "kind": "claim",
+      "gloss_en": "If we need an instant response, HBase and Redis are the solution.",
+      "terms": [
+        "HBase",
+        "Redis"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 304,
+      "to": 312,
+      "kind": "claim",
+      "gloss_en": "For very large data that needs batch processing, we go to Hive.",
+      "terms": [
+        "batch processing",
+        "Hive"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 313,
+      "to": 318,
+      "kind": "claim",
+      "gloss_en": "For historical analysis and complex joins, we use GaussDB.",
+      "terms": [
+        "joins",
+        "GaussDB"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 319,
+      "to": 327,
+      "kind": "claim",
+      "gloss_en": "And raw data lands as it is on HDFS.",
+      "terms": [
+        "HDFS"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 328,
+      "to": 339,
+      "kind": "recap",
+      "gloss_en": "Each technology is placed in its right place; the data is stored and has become safe.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 340,
+      "to": 359,
+      "kind": "transition",
+      "gloss_en": "Let's move on to the Star Schema and Matrix stage and see how we organize these numbers so the business can understand them and benefit from them.",
+      "terms": [
+        "Star Schema",
+        "Matrix"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 360,
+      "to": 369,
+      "kind": "claim",
+      "gloss_en": "The most important rule here, which we call the grain, confirms a fundamental principle.",
+      "terms": [
+        "grain"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 370,
+      "to": 387,
+      "kind": "claim",
+      "gloss_en": "This rule is the foundation on which the Mobile Money star schema is built, and all the facts and dimensions that come after.",
+      "terms": [
+        "star schema",
+        "Mobile Money",
+        "facts",
+        "dimensions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 388,
+      "to": 396,
+      "kind": "claim",
+      "gloss_en": "If this foundation is sound, everything after it will be sound.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 397,
+      "to": 408,
+      "kind": "claim",
+      "gloss_en": "Based on this foundation, we can produce 24 measures, or 24 KPIs.",
+      "terms": [
+        "KPIs"
+      ],
+      "numbers": [
+        "24"
+      ],
+      "entities": []
+    },
+    {
+      "from": 409,
+      "to": 421,
+      "kind": "claim",
+      "gloss_en": "So these numbers stay manageable, we divide them into five main families, and finally the system's own indicators.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 422,
+      "to": 429,
+      "kind": "claim",
+      "gloss_en": "This division makes the huge numbers very easy to digest.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 430,
+      "to": 439,
+      "kind": "transition",
+      "gloss_en": "To understand this practically, look at this number: 33.33 dollars.",
+      "terms": [],
+      "numbers": [
+        "33.33"
+      ],
+      "entities": []
+    },
+    {
+      "from": 440,
+      "to": 447,
+      "kind": "claim",
+      "gloss_en": "It's not a random number; it's a calculated average.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 448,
+      "to": 457,
+      "kind": "example",
+      "gloss_en": "Imagine we have 15 thousand transactions with a total value of 500 thousand dollars.",
+      "terms": [],
+      "numbers": [
+        "15000",
+        "500000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 458,
+      "to": 467,
+      "kind": "example",
+      "gloss_en": "When we divide them we get the average of a single transaction, which is 33.33 dollars.",
+      "terms": [],
+      "numbers": [
+        "33.33"
+      ],
+      "entities": []
+    },
+    {
+      "from": 468,
+      "to": 478,
+      "kind": "recap",
+      "gloss_en": "Did you see how the raw counter turns into a calculated value that has weight in the business?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 479,
+      "to": 488,
+      "kind": "transition",
+      "gloss_en": "And now we go down to the engine room, our kitchen: the ETL and Standardization.",
+      "terms": [
+        "ETL",
+        "Standardization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 489,
+      "to": 498,
+      "kind": "claim",
+      "gloss_en": "The place where the data is washed and cleaned every 15 minutes.",
+      "terms": [
+        "Data"
+      ],
+      "numbers": [
+        "15"
+      ],
+      "entities": []
+    },
+    {
+      "from": 499,
+      "to": 508,
+      "kind": "example",
+      "gloss_en": "Look at the mess on the left: scrambled codes from the source.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 509,
+      "to": 517,
+      "kind": "example",
+      "gloss_en": "Like CI and Cash In, or P2P and Transfer.",
+      "terms": [
+        "CI",
+        "Cash In",
+        "P2P",
+        "Transfer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 518,
+      "to": 529,
+      "kind": "claim",
+      "gloss_en": "On the right, after the magic of Standardization, all of this is unified into very clean values.",
+      "terms": [
+        "Standardization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 530,
+      "to": 533,
+      "kind": "example",
+      "gloss_en": "Like CASH_IN and P2P_TRANSFER.",
+      "terms": [
+        "CASH_IN",
+        "P2P_TRANSFER"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 534,
+      "to": 546,
+      "kind": "claim",
+      "gloss_en": "This unification is what makes the reports come out accurate to the last bit, without any duplication.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 547,
+      "to": 557,
+      "kind": "claim",
+      "gloss_en": "And here comes the role of Enrichment, where we apply the financial business rules.",
+      "terms": [
+        "Enrichment"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 558,
+      "to": 565,
+      "kind": "claim",
+      "gloss_en": "The rule here is called the 60-40 Commission Split.",
+      "terms": [
+        "Commission Split"
+      ],
+      "numbers": [
+        "60",
+        "40"
+      ],
+      "entities": []
+    },
+    {
+      "from": 566,
+      "to": 584,
+      "kind": "claim",
+      "gloss_en": "Meaning the ETL automatically calculates the commission as 60% of the fees, and the remaining 40% is net revenue.",
+      "terms": [
+        "ETL",
+        "Net Revenue"
+      ],
+      "numbers": [
+        "60",
+        "40"
+      ],
+      "entities": []
+    },
+    {
+      "from": 585,
+      "to": 593,
+      "kind": "claim",
+      "gloss_en": "Complex calculations happening in the background without us feeling it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 594,
+      "to": 600,
+      "kind": "transition",
+      "gloss_en": "This journey summarizes the whole ETL Flow.",
+      "terms": [
+        "ETL Flow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 601,
+      "to": 607,
+      "kind": "claim",
+      "gloss_en": "First, Extract: we pull the data every 15 minutes.",
+      "terms": [
+        "Extract"
+      ],
+      "numbers": [
+        "15"
+      ],
+      "entities": []
+    },
+    {
+      "from": 608,
+      "to": 618,
+      "kind": "claim",
+      "gloss_en": "Second, Transform: for cleaning and applying the 60-40 rules we were just talking about.",
+      "terms": [
+        "Transform"
+      ],
+      "numbers": [
+        "60",
+        "40"
+      ],
+      "entities": []
+    },
+    {
+      "from": 619,
+      "to": 632,
+      "kind": "claim",
+      "gloss_en": "Third, Load, and this has the most important part of all: the Post-Load Reconciliation.",
+      "terms": [
+        "Load",
+        "Post-Load Reconciliation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 633,
+      "to": 645,
+      "kind": "claim",
+      "gloss_en": "We must make sure that the totals that left the source are exactly what arrived at the target.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 646,
+      "to": 649,
+      "kind": "claim",
+      "gloss_en": "There is no room for error here.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 650,
+      "to": 661,
+      "kind": "transition",
+      "gloss_en": "We've reached the peak, the moment in which all this effort crystallizes: the daily Mobile Money report.",
+      "terms": [
+        "Mobile Money"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 662,
+      "to": 670,
+      "kind": "transition",
+      "gloss_en": "Let's see how January 15, 2024 went.",
+      "terms": [],
+      "numbers": [
+        "15",
+        "2024"
+      ],
+      "entities": [
+        "15 January 2024"
+      ]
+    },
+    {
+      "from": 671,
+      "to": 674,
+      "kind": "question",
+      "gloss_en": "How is this report built?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 675,
+      "to": 681,
+      "kind": "claim",
+      "gloss_en": "Seven very simple steps in the Report Designer.",
+      "terms": [
+        "Report Designer"
+      ],
+      "numbers": [
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 682,
+      "to": 694,
+      "kind": "example",
+      "gloss_en": "We log in, open the designer, choose the ready cubes, and define what goes in the rows and columns.",
+      "terms": [
+        "login",
+        "designer",
+        "cubes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 695,
+      "to": 710,
+      "kind": "example",
+      "gloss_en": "We choose our measures, put in the filters, and finally set a schedule so the report is sent automatically at 6 in the morning.",
+      "terms": [
+        "measures",
+        "filters",
+        "schedule"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 711,
+      "to": 718,
+      "kind": "claim",
+      "gloss_en": "Terrible complexity in the background provides simplicity and comfort for the user.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 719,
+      "to": 728,
+      "kind": "transition",
+      "gloss_en": "And this is the final report; imagine the table filling up in front of us row after row.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 729,
+      "to": 736,
+      "kind": "example",
+      "gloss_en": "Cash-In, Cash-Out, and P2P, which recorded the highest transaction count.",
+      "terms": [
+        "Cash-In",
+        "Cash-Out",
+        "P2P"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 737,
+      "to": 748,
+      "kind": "example",
+      "gloss_en": "Bill Payment, Airtime and Merchant; each row shows the count, value, fees and success rate.",
+      "terms": [
+        "Bill Payment",
+        "Airtime",
+        "Merchant",
+        "success rate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 749,
+      "to": 758,
+      "kind": "claim",
+      "gloss_en": "These aren't just numbers; this is the pulse of the business on that day.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 759,
+      "to": 769,
+      "kind": "claim",
+      "gloss_en": "This chart gives us the geographic summary: the day's revenues split across the regions.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 770,
+      "to": 778,
+      "kind": "example",
+      "gloss_en": "Central dominates with 40%, then Eastern with 20%, and Western with 18%, and so on.",
+      "terms": [],
+      "numbers": [
+        "40",
+        "20",
+        "18"
+      ],
+      "entities": [
+        "Central",
+        "Eastern",
+        "Western"
+      ]
+    },
+    {
+      "from": 779,
+      "to": 789,
+      "kind": "claim",
+      "gloss_en": "A quick visual view helps decision makers direct their marketing effort in seconds.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 790,
+      "to": 801,
+      "kind": "claim",
+      "gloss_en": "The summary for that day was astonishing: 125,847 transactions, with a total reaching 4.2 million dollars.",
+      "terms": [],
+      "numbers": [
+        "125847",
+        "4.2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 802,
+      "to": 818,
+      "kind": "claim",
+      "gloss_en": "Here we must stress a golden rule: the overall average is computed by dividing this total value by the total count.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 819,
+      "to": 831,
+      "kind": "claim",
+      "gloss_en": "Don't compute an average of the averages in the table, because that gives a completely misleading number.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 832,
+      "to": 843,
+      "kind": "transition",
+      "gloss_en": "We've reached the last and most important station in the data world: Governance and Data Masking.",
+      "terms": [
+        "Governance",
+        "Data Masking"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 844,
+      "to": 850,
+      "kind": "question",
+      "gloss_en": "How do we keep control of this treasure and protect it?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 851,
+      "to": 866,
+      "kind": "example",
+      "gloss_en": "The magic of masking shows up here: on the left the full MSISDN, the mobile number, and the name appears as John Mokasa.",
+      "terms": [
+        "masking",
+        "MSISDN"
+      ],
+      "numbers": [],
+      "entities": [
+        "جون موكاسا"
+      ]
+    },
+    {
+      "from": 867,
+      "to": 873,
+      "kind": "claim",
+      "gloss_en": "This is very dangerous as personal information, or PII.",
+      "terms": [
+        "PII"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 874,
+      "to": 891,
+      "kind": "example",
+      "gloss_en": "But on the right, after masking, the number is masked and only the last four digits are visible, and the name only the first letter.",
+      "terms": [
+        "masking"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 892,
+      "to": 901,
+      "kind": "claim",
+      "gloss_en": "Immediate privacy protection while keeping the report useful.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 902,
+      "to": 918,
+      "kind": "claim",
+      "gloss_en": "And so that we can trust this data, governance imposes very strict conditions to get a trust score of 80% or more.",
+      "terms": [
+        "governance",
+        "trust score"
+      ],
+      "numbers": [
+        "80"
+      ],
+      "entities": []
+    },
+    {
+      "from": 919,
+      "to": 931,
+      "kind": "example",
+      "gloss_en": "The conditions are like the data being fresh, with no more than two hours having passed on it.",
+      "terms": [
+        "fresh"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 932,
+      "to": 938,
+      "kind": "example",
+      "gloss_en": "The amounts must be logical, between 0 and 10 million.",
+      "terms": [],
+      "numbers": [
+        "0",
+        "10000000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 939,
+      "to": 947,
+      "kind": "claim",
+      "gloss_en": "And of course applying top encryption standards like AES-256 for stored data.",
+      "terms": [
+        "AES-256"
+      ],
+      "numbers": [
+        "256"
+      ],
+      "entities": []
+    },
+    {
+      "from": 948,
+      "to": 953,
+      "kind": "claim",
+      "gloss_en": "And TLS 1.2 plus while it is being transferred: total security.",
+      "terms": [
+        "TLS"
+      ],
+      "numbers": [
+        "1.2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 954,
+      "to": 971,
+      "kind": "question",
+      "gloss_en": "And in the end, do you think what business secrets and opportunities we could discover when our data pipeline reaches 100% confidence?",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [
+        "100"
+      ],
+      "entities": []
+    },
+    {
+      "from": 972,
+      "to": 979,
+      "kind": "claim",
+      "gloss_en": "Building strong data engineering is not just stacking numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 980,
+      "to": 988,
+      "kind": "claim",
+      "gloss_en": "It's building trust, and building a future we can rely on.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 989,
+      "to": 996,
+      "kind": "transition",
+      "gloss_en": "Thank you very much for your focus and for following along, and see you in future explainers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:06Z"
+}

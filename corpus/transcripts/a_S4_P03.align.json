@@ -1,0 +1,40 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P03",
+  "method": "asr+mms_fa",
+  "words": 1265,
+  "median_conf": 0.7827,
+  "chapters": [],
+  "flagged": [
+    "seg77",
+    "seg112",
+    "seg123",
+    "seg201",
+    "seg205",
+    "seg210",
+    "seg212",
+    "seg223"
+  ],
+  "boundary_overlaps": [],
+  "asr_words": 1316,
+  "asr_segments": 243,
+  "polish": {
+    "edits": 127,
+    "deletes": 70,
+    "inserts": 1,
+    "inserted_words": 2,
+    "edit_rate": 0.1497,
+    "sentences": 105,
+    "notes": []
+  },
+  "alignment": {
+    "segments_aligned": 243,
+    "segments_fallback": [],
+    "low_conf_words_lt_0.3": 93,
+    "monotonic_fixes": 2,
+    "latin_words": 107,
+    "latin_median_conf": 0.3532,
+    "seconds": 13.8
+  },
+  "created": "2026-10-08T14:10:48Z"
+}

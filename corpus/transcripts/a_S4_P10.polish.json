@@ -1,0 +1,3018 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P10",
+  "asr_words": 1165,
+  "final_words": 1146,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 21,
+      "orig": "الdatabase",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        21,
+        21
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 25,
+      "orig": "زهبية",
+      "to": "ذهبية",
+      "why": "mishear",
+      "final": [
+        25,
+        25
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 28,
+      "orig": "نتفع",
+      "to": "نتفق",
+      "why": "mishear",
+      "final": [
+        28,
+        28
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 38,
+      "orig": "المقرؤة",
+      "to": "المقروءة",
+      "why": "mishear",
+      "final": [
+        38,
+        38
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 43,
+      "orig": "سكان",
+      "to": "scan",
+      "why": "term",
+      "final": [
+        43,
+        43
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 55,
+      "orig": "تشغيلها",
+      "to": "تشغيلة",
+      "why": "mishear",
+      "final": [
+        55,
+        55
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 91,
+      "orig": "التونينج",
+      "to": "الـtuning",
+      "why": "term",
+      "final": [
+        91,
+        91
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 92,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        92,
+        92
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 94,
+      "orig": "الاندكسز",
+      "to": "الـindexes",
+      "why": "term",
+      "final": [
+        94,
+        94
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 95,
+      "orig": "والسلكتيفتي",
+      "to": "والـselectivity",
+      "why": "term",
+      "final": [
+        95,
+        95
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 96,
+      "orig": "البلانز",
+      "to": "الـplans",
+      "why": "term",
+      "final": [
+        96,
+        96
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 97,
+      "orig": "والانتي",
+      "to": "والـanti-patterns",
+      "why": "merge",
+      "final": [
+        97,
+        97
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 98,
+      "orig": "باترنز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 102,
+      "orig": "الهيدن",
+      "to": "الـhidden",
+      "why": "term",
+      "final": [
+        101,
+        101
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 103,
+      "orig": "كاست",
+      "to": "costs",
+      "why": "term",
+      "final": [
+        102,
+        102
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 109,
+      "orig": "لSQL",
+      "to": "لـSQL",
+      "why": "term",
+      "final": [
+        108,
+        108
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 113,
+      "orig": "البيك",
+      "to": "الـbig",
+      "why": "term",
+      "final": [
+        112,
+        112
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 114,
+      "orig": "ديتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        113,
+        113
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 116,
+      "orig": "كاربون",
+      "to": "Carbon",
+      "why": "term",
+      "final": [
+        115,
+        115
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 117,
+      "orig": "وجاوس",
+      "to": "وGauss",
+      "why": "term",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 122,
+      "orig": "التونينج",
+      "to": "الـtuning",
+      "why": "term",
+      "final": [
+        121,
+        121
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 123,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        122,
+        122
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 132,
+      "orig": "التونينج",
+      "to": "الـtuning",
+      "why": "term",
+      "final": [
+        131,
+        131
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 141,
+      "orig": "إلا",
+      "to": "اللي",
+      "why": "mishear",
+      "final": [
+        140,
+        140
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 151,
+      "orig": "بيزلاين",
+      "to": "baseline",
+      "why": "term",
+      "final": [
+        150,
+        150
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 167,
+      "orig": "بيتطر",
+      "to": "بيضطر",
+      "why": "mishear",
+      "final": [
+        166,
+        166
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 193,
+      "orig": "الفول",
+      "to": "الـfull",
+      "why": "term",
+      "final": [
+        192,
+        192
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 194,
+      "orig": "سكان",
+      "to": "scan",
+      "why": "term",
+      "final": [
+        193,
+        193
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 196,
+      "orig": "هيتطر",
+      "to": "هيضطر",
+      "why": "mishear",
+      "final": [
+        195,
+        195
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 205,
+      "orig": "بيتري",
+      "to": "B-tree",
+      "why": "term",
+      "final": [
+        204,
+        204
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 214,
+      "orig": "بتلاتة",
+      "to": "بـ3",
+      "why": "number",
+      "final": [
+        213,
+        213
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 215,
+      "orig": "بيج",
+      "to": "page",
+      "why": "term",
+      "final": [
+        214,
+        214
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 216,
+      "orig": "ريدز",
+      "to": "reads",
+      "why": "term",
+      "final": [
+        215,
+        215
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 220,
+      "orig": "السيك",
+      "to": "الـseek",
+      "why": "term",
+      "final": [
+        219,
+        219
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 233,
+      "orig": "البيتري",
+      "to": "الـB-tree",
+      "why": "term",
+      "final": [
+        232,
+        232
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 250,
+      "orig": "الاندكسز",
+      "to": "الـindexes",
+      "why": "term",
+      "final": [
+        249,
+        249
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 251,
+      "orig": "والسيلكتيفتي",
+      "to": "والـselectivity",
+      "why": "term",
+      "final": [
+        250,
+        250
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 252,
+      "orig": "الاندكسز",
+      "to": "الـindexes",
+      "why": "term",
+      "final": [
+        251,
+        251
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 280,
+      "orig": "كويري",
+      "to": "query",
+      "why": "term",
+      "final": [
+        279,
+        279
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 292,
+      "orig": "الاندكس",
+      "to": "الـindex",
+      "why": "term",
+      "final": [
+        291,
+        291
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 293,
+      "orig": "سيك",
+      "to": "seek",
+      "why": "term",
+      "final": [
+        292,
+        292
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 295,
+      "orig": "الفول",
+      "to": "الـfull",
+      "why": "term",
+      "final": [
+        294,
+        294
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 296,
+      "orig": "سكان؟",
+      "to": "scan؟",
+      "why": "term",
+      "final": [
+        295,
+        295
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 306,
+      "orig": "الفول",
+      "to": "الـfull",
+      "why": "term",
+      "final": [
+        305,
+        305
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 307,
+      "orig": "سكان",
+      "to": "scan",
+      "why": "term",
+      "final": [
+        306,
+        306
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 315,
+      "orig": "منسترجع",
+      "to": "بنسترجع",
+      "why": "mishear",
+      "final": [
+        314,
+        314
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 321,
+      "orig": "الاندكس",
+      "to": "الـindex",
+      "why": "term",
+      "final": [
+        320,
+        320
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 340,
+      "orig": "مقوية",
+      "to": "مئوية",
+      "why": "mishear",
+      "final": [
+        339,
+        339
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 341,
+      "orig": "سابتة",
+      "to": "ثابتة",
+      "why": "mishear",
+      "final": [
+        340,
+        340
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 363,
+      "orig": "الاندكسز",
+      "to": "الـindexes",
+      "why": "term",
+      "final": [
+        362,
+        362
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 368,
+      "orig": "صنمة",
+      "to": "صارمة",
+      "why": "mishear",
+      "final": [
+        367,
+        367
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 371,
+      "orig": "البي",
+      "to": "الـB-tree",
+      "why": "merge",
+      "final": [
+        370,
+        370
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 372,
+      "orig": "تري",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 379,
+      "orig": "والرينج",
+      "to": "والـrange",
+      "why": "term",
+      "final": [
+        377,
+        377
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 383,
+      "orig": "كومبوزيت",
+      "to": "composite",
+      "why": "term",
+      "final": [
+        381,
+        381
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 384,
+      "orig": "اندكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        382,
+        382
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 389,
+      "orig": "اللفت",
+      "to": "الـleftmost",
+      "why": "merge",
+      "final": [
+        387,
+        387
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 390,
+      "orig": "مست",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 391,
+      "orig": "بريفكس",
+      "to": "prefix",
+      "why": "term",
+      "final": [
+        388,
+        388
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 396,
+      "orig": "الايكواليتي",
+      "to": "الـequality",
+      "why": "term",
+      "final": [
+        393,
+        393
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 399,
+      "orig": "الرينج",
+      "to": "الـrange",
+      "why": "term",
+      "final": [
+        396,
+        396
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 402,
+      "orig": "الكوفرينج",
+      "to": "الـcovering",
+      "why": "term",
+      "final": [
+        399,
+        399
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 403,
+      "orig": "اندكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        400,
+        400
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 405,
+      "orig": "زاكي",
+      "to": "ذكي",
+      "why": "mishear",
+      "final": [
+        402,
+        402
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 419,
+      "orig": "البارشل",
+      "to": "الـpartial",
+      "why": "term",
+      "final": [
+        416,
+        416
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 420,
+      "orig": "والإكسبريشن",
+      "to": "والـexpression",
+      "why": "term",
+      "final": [
+        417,
+        417
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 421,
+      "orig": "اندكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        418,
+        418
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 425,
+      "orig": "المفهوم",
+      "to": "لمفهوم",
+      "why": "mishear",
+      "final": [
+        422,
+        422
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 429,
+      "orig": "السرجوبيليتي",
+      "to": "الـsargability",
+      "why": "term",
+      "final": [
+        426,
+        426
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 436,
+      "orig": "فونكشن",
+      "to": "function",
+      "why": "term",
+      "final": [
+        433,
+        433
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 441,
+      "orig": "event",
+      "to": "event_time",
+      "why": "merge",
+      "final": [
+        438,
+        438
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 442,
+      "orig": "time",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 446,
+      "orig": "بنغمي",
+      "to": "بنعمي",
+      "why": "mishear",
+      "final": [
+        442,
+        442
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 450,
+      "orig": "تجاهل",
+      "to": "يتجاهل",
+      "why": "mishear",
+      "final": [
+        446,
+        446
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 451,
+      "orig": "الاندكس",
+      "to": "الـindex",
+      "why": "term",
+      "final": [
+        447,
+        447
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 459,
+      "orig": "والزاكي",
+      "to": "والذكي",
+      "why": "mishear",
+      "final": [
+        455,
+        455
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 467,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        463,
+        463
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 472,
+      "orig": "الاندكس",
+      "to": "الـindex",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 485,
+      "orig": "Anti",
+      "to": "Anti-Patterns",
+      "why": "merge",
+      "final": [
+        481,
+        481
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 486,
+      "orig": "-Patterns",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 497,
+      "orig": "نفذها",
+      "to": "ينفذها",
+      "why": "mishear",
+      "final": [
+        492,
+        492
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 517,
+      "orig": "Rose",
+      "to": "Rows",
+      "why": "mishear",
+      "final": [
+        512,
+        512
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 520,
+      "orig": "Rose",
+      "to": "Rows",
+      "why": "mishear",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 541,
+      "orig": "إنديكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        536,
+        536
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 559,
+      "orig": "الستاتيستيكس",
+      "to": "الـstatistics",
+      "why": "term",
+      "final": [
+        554,
+        554
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 563,
+      "orig": "Analyze",
+      "to": "ANALYZE",
+      "why": "term",
+      "final": [
+        558,
+        558
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 571,
+      "orig": "Anti",
+      "to": "Anti-Patterns",
+      "why": "merge",
+      "final": [
+        566,
+        566
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 572,
+      "orig": "-Patterns",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 584,
+      "orig": "Select",
+      "to": "SELECT",
+      "why": "term",
+      "final": [
+        578,
+        578
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 585,
+      "orig": "Nijma",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 586,
+      "orig": "عملها",
+      "to": "عمال",
+      "why": "mishear",
+      "final": [
+        579,
+        579
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 593,
+      "orig": "نفرض",
+      "to": "نفرط",
+      "why": "mishear",
+      "final": [
+        586,
+        586
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 596,
+      "orig": "Or",
+      "to": "OR",
+      "why": "term",
+      "final": [
+        589,
+        589
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 606,
+      "orig": "distinct",
+      "to": "DISTINCT",
+      "why": "term",
+      "final": [
+        599,
+        599
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 620,
+      "orig": "الكارسة",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 638,
+      "orig": "منفاصلة",
+      "to": "منفصلة",
+      "why": "mishear",
+      "final": [
+        631,
+        631
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 664,
+      "orig": "الكويريز",
+      "to": "الـqueries",
+      "why": "term",
+      "final": [
+        657,
+        657
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 668,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        661,
+        661
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 677,
+      "orig": "الاندكسز",
+      "to": "الـindexes",
+      "why": "term",
+      "final": [
+        670,
+        670
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 687,
+      "orig": "اندكسز",
+      "to": "indexes",
+      "why": "term",
+      "final": [
+        680,
+        680
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 691,
+      "orig": "انسيرت",
+      "to": "insert",
+      "why": "term",
+      "final": [
+        684,
+        684
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 713,
+      "orig": "اندكسز",
+      "to": "indexes",
+      "why": "term",
+      "final": [
+        706,
+        706
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 715,
+      "orig": "الجدول",
+      "to": "الجداول",
+      "why": "mishear",
+      "final": [
+        708,
+        708
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "البوليانز",
+      "to": "الـbooleans",
+      "why": "term",
+      "final": [
+        714,
+        714
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 732,
+      "orig": "الداتابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        725,
+        725
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 738,
+      "orig": "الكونكشن",
+      "to": "الـconnection",
+      "why": "term",
+      "final": [
+        731,
+        731
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 739,
+      "orig": "بول",
+      "to": "pool",
+      "why": "term",
+      "final": [
+        732,
+        732
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 740,
+      "orig": "تخيالوا",
+      "to": "تخيلوا",
+      "why": "mishear",
+      "final": [
+        733,
+        733
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 742,
+      "orig": "الساعة",
+      "to": "السعة",
+      "why": "mishear",
+      "final": [
+        735,
+        735
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 758,
+      "orig": "طبور",
+      "to": "طابور",
+      "why": "mishear",
+      "final": [
+        751,
+        751
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 771,
+      "orig": "هيعدل",
+      "to": "هيعدي",
+      "why": "mishear",
+      "final": [
+        764,
+        764
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 774,
+      "orig": "سانية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        767,
+        767
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 780,
+      "orig": "والكويري",
+      "to": "والـquery",
+      "why": "term",
+      "final": [
+        773,
+        773
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 784,
+      "orig": "زند",
+      "to": "ذنب",
+      "why": "mishear",
+      "final": [
+        777,
+        777
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 790,
+      "orig": "آت",
+      "to": "آوت",
+      "why": "mishear",
+      "final": [
+        783,
+        783
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 794,
+      "orig": "اللي",
+      "to": "اللهجات",
+      "why": "mishear",
+      "final": [
+        787,
+        787
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 795,
+      "orig": "حاجات",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 845,
+      "orig": "الجيسون",
+      "to": "الـJSON",
+      "why": "term",
+      "final": [
+        837,
+        837
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 848,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        840,
+        840
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 862,
+      "orig": "الكاربون",
+      "to": "الـCarbonData",
+      "why": "merge",
+      "final": [
+        854,
+        854
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 863,
+      "orig": "ديتا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 865,
+      "orig": "للبيج",
+      "to": "للـbig",
+      "why": "term",
+      "final": [
+        856,
+        856
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 866,
+      "orig": "ديتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        857,
+        857
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 868,
+      "orig": "هادوب",
+      "to": "Hadoop",
+      "why": "term",
+      "final": [
+        859,
+        859
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 875,
+      "orig": "البيج",
+      "to": "الـbig",
+      "why": "term",
+      "final": [
+        866,
+        866
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 876,
+      "orig": "ديتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        867,
+        867
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 878,
+      "orig": "كاربون",
+      "to": "CarbonData",
+      "why": "merge",
+      "final": [
+        869,
+        869
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 879,
+      "orig": "ديتا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 880,
+      "orig": "وجاوس",
+      "to": "وGaussDB",
+      "why": "merge",
+      "final": [
+        870,
+        870
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 881,
+      "orig": "ديبي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 886,
+      "orig": "الماسفلي",
+      "to": "الـMassively",
+      "why": "term",
+      "final": [
+        875,
+        875
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 887,
+      "orig": "باراليل",
+      "to": "Parallel",
+      "why": "term",
+      "final": [
+        876,
+        876
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 888,
+      "orig": "بروساسنج",
+      "to": "Processing",
+      "why": "term",
+      "final": [
+        877,
+        877
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 896,
+      "orig": "تيجيب",
+      "to": "تجيب",
+      "why": "mishear",
+      "final": [
+        885,
+        885
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 905,
+      "orig": "الكاربون",
+      "to": "الـCarbonData",
+      "why": "merge",
+      "final": [
+        894,
+        894
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 906,
+      "orig": "ديتا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 910,
+      "orig": "كولومنر",
+      "to": "columnar",
+      "why": "term",
+      "final": [
+        898,
+        898
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 911,
+      "orig": "ديتا",
+      "to": "datastore",
+      "why": "merge",
+      "final": [
+        899,
+        899
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 912,
+      "orig": "ستور",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 917,
+      "orig": "ملتي",
+      "to": "multi-level",
+      "why": "merge",
+      "final": [
+        904,
+        904
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 918,
+      "orig": "ليفل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 919,
+      "orig": "انديكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        905,
+        905
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 941,
+      "orig": "صيخ",
+      "to": "صيغ",
+      "why": "mishear",
+      "final": [
+        927,
+        927
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 944,
+      "orig": "Park",
+      "to": "Parquet",
+      "why": "mishear",
+      "final": [
+        930,
+        930
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 945,
+      "orig": "K",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 949,
+      "orig": "سكان",
+      "to": "scan",
+      "why": "term",
+      "final": [
+        934,
+        934
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 957,
+      "orig": "معمرية",
+      "to": "معمارية",
+      "why": "mishear",
+      "final": [
+        942,
+        942
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 958,
+      "orig": "الجاوس",
+      "to": "الـGaussDB",
+      "why": "merge",
+      "final": [
+        943,
+        943
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 959,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 960,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 973,
+      "orig": "الكوردينيتور",
+      "to": "الـcoordinator",
+      "why": "term",
+      "final": [
+        956,
+        956
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 974,
+      "orig": "نود",
+      "to": "node",
+      "why": "term",
+      "final": [
+        957,
+        957
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 979,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        962,
+        962
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 984,
+      "orig": "الديتا",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        967,
+        967
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 985,
+      "orig": "نودز",
+      "to": "nodes",
+      "why": "term",
+      "final": [
+        968,
+        968
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 988,
+      "orig": "الشاردز",
+      "to": "الـshards",
+      "why": "term",
+      "final": [
+        971,
+        971
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 999,
+      "orig": "النجاح",
+      "to": "لنجاح",
+      "why": "mishear",
+      "final": [
+        982,
+        982
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1000,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        983,
+        983
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1007,
+      "orig": "ديستريبيوشن",
+      "to": "distribution",
+      "why": "term",
+      "final": [
+        990,
+        990
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1008,
+      "orig": "كي",
+      "to": "key",
+      "why": "term",
+      "final": [
+        991,
+        991
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1010,
+      "orig": "الكارديناليت",
+      "to": "الـcardinality",
+      "why": "term",
+      "final": [
+        993,
+        993
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1022,
+      "orig": "نوض",
+      "to": "node",
+      "why": "term",
+      "final": [
+        1005,
+        1005
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1039,
+      "orig": "والفلطرة",
+      "to": "والفلترة",
+      "why": "mishear",
+      "final": [
+        1022,
+        1022
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1050,
+      "orig": "البرتشن",
+      "to": "الـpartition",
+      "why": "term",
+      "final": [
+        1033,
+        1033
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1051,
+      "orig": "برونينج",
+      "to": "pruning",
+      "why": "term",
+      "final": [
+        1034,
+        1034
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1063,
+      "orig": "سامبلينج",
+      "to": "sampling",
+      "why": "term",
+      "final": [
+        1046,
+        1046
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1066,
+      "orig": "سيستم",
+      "to": "SYSTEM",
+      "why": "term",
+      "final": [
+        1049,
+        1049
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1068,
+      "orig": "برنولي",
+      "to": "BERNOULLI",
+      "why": "term",
+      "final": [
+        1051,
+        1051
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1079,
+      "orig": "الهايبر",
+      "to": "الـHyperLogLog",
+      "why": "merge",
+      "final": [
+        1062,
+        1062
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1080,
+      "orig": "لوج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1081,
+      "orig": "لوج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1086,
+      "orig": "الدستينجت",
+      "to": "الـdistinct",
+      "why": "term",
+      "final": [
+        1067,
+        1067
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1094,
+      "orig": "تتنفس",
+      "to": "تتنفذ",
+      "why": "mishear",
+      "final": [
+        1075,
+        1075
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1098,
+      "orig": "باتشت",
+      "to": "batched",
+      "why": "term",
+      "final": [
+        1079,
+        1079
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1099,
+      "orig": "أبديتس",
+      "to": "updates",
+      "why": "term",
+      "final": [
+        1080,
+        1080
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1107,
+      "orig": "تشاكليست",
+      "to": "checklist",
+      "why": "term",
+      "final": [
+        1088,
+        1088
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1120,
+      "orig": "البيزلاين",
+      "to": "الـbaseline",
+      "why": "term",
+      "final": [
+        1101,
+        1101
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1123,
+      "orig": "المفخوصة",
+      "to": "المفحوصة",
+      "why": "mishear",
+      "final": [
+        1104,
+        1104
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1132,
+      "orig": "ايسوا",
+      "to": "قيسوا",
+      "why": "mishear",
+      "final": [
+        1113,
+        1113
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1134,
+      "orig": "الأكتشوال",
+      "to": "الـactual",
+      "why": "term",
+      "final": [
+        1115,
+        1115
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1136,
+      "orig": "الاستيميتد",
+      "to": "الـestimated",
+      "why": "term",
+      "final": [
+        1117,
+        1117
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1146,
+      "orig": "إندكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        1127,
+        1127
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1148,
+      "orig": "تضفوه",
+      "to": "تضيفوه",
+      "why": "mishear",
+      "final": [
+        1129,
+        1129
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1156,
+      "orig": "سلو",
+      "to": "slow",
+      "why": "term",
+      "final": [
+        1137,
+        1137
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1157,
+      "orig": "كويري",
+      "to": "query",
+      "why": "term",
+      "final": [
+        1138,
+        1138
+      ]
+    }
+  ],
+  "notes": "NotebookLM paraphrase of P10 (sc01-sc16); numbers match source (12,500 pages; 3 levels / 3 page reads; x10 -> +1 level; 67 vs 260 req/s; queue 289; p95 1,160 ms; 30-second checklist). Terms Latinised per latin_terms (index/indexes, scan, seek, B-tree, query, baseline, tuning, selectivity, sargability, statistics, ANALYZE, SELECT *, OR, DISTINCT, CarbonData, GaussDB, Hadoop, Parquet, HyperLogLog, pool, ...), plus clearly English jargon not in the list (loop, hidden costs, connection, shards, cardinality, distribution key, partition pruning, sampling, SYSTEM/BERNOULLI, batched updates, Massively Parallel Processing). Key mishears fixed with source support: Rose->Rows (517,520); الساعة->السعة capacity (742); بنغمي->بنعمي (446, source 'بتعمي'); Park K->Parquet (944-945); اللي حاجات->اللهجات (794-795, source 'لهجات'); هيعدل/سانية->هيعدي/ثانية (771,774); تشغيلها->تشغيلة (55). Merges (to='' on the absorbed index): 98, 372, 390, 442, 486, 572, 795, 863, 879, 881, 906, 912, 918, 945, 959, 960, 1080, 1081. Carbon/Gauss at 116-117 kept as spoken short names (entities tagged CarbonData/GaussDB). 214 'بتلاتة' -> 'بـ3' to match on-screen '3 page reads'; other spelled-out numbers (مليون, فعشرة, اتنين, لتلات) left as words and listed as digits in sentences. Possible dropout at 273->274 (2.68 s gap; 'ونتوقع إجابته' refers to a question not transcribed, likely a prediction prompt like sc04) - not inserted because the words are not certain. Left as-is/uncertain: 246 'داي' (unclear filler), 652 'وعنانيق' (probably 'وعنق/وأعناق' الزجاجة), 475 'بزي الفل', 440 'لعنصر' (maybe 'لعمود'); standalone 'الـ' tokens before Latin words (198, 334, 481, 484, 503, 515, 518, 625, 655, 658, 767, 797, 822, 837) not merged; 1118/1124/1131 '1.' '2.' '3.' kept as whisper wrote them.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 13,
+      "kind": "transition",
+      "gloss_en": "Welcome to this explainer; let's get straight into the topic, no introductions.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 14,
+      "to": 31,
+      "kind": "claim",
+      "gloss_en": "If we want to measure database performance, there's a golden rule we must agree on from the start.",
+      "terms": [
+        "database",
+        "performance"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 32,
+      "to": 47,
+      "kind": "claim",
+      "gloss_en": "We always measure performance by pages read and rows scanned, never in milliseconds.",
+      "terms": [
+        "scan",
+        "pages read"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 48,
+      "to": 70,
+      "kind": "claim",
+      "gloss_en": "Why? Because wall-clock time can change from one run to the next if the server is busy, but the number of rows the engine examined is a fixed, precise number.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 71,
+      "to": 78,
+      "kind": "claim",
+      "gloss_en": "That is the real metric in today's explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 79,
+      "to": 83,
+      "kind": "transition",
+      "gloss_en": "We'll follow a very clear map.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 84,
+      "to": 88,
+      "kind": "transition",
+      "gloss_en": "We'll go from the micro to the macro.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 89,
+      "to": 102,
+      "kind": "transition",
+      "gloss_en": "We'll cover the tuning loop, then indexes and selectivity, plans and anti-patterns, and the hidden costs.",
+      "terms": [
+        "tuning",
+        "loop",
+        "indexes",
+        "selectivity",
+        "plans",
+        "anti-patterns",
+        "hidden costs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 116,
+      "kind": "transition",
+      "gloss_en": "Until we finally reach SQL dialects and dealing with big data, like Carbon and Gauss.",
+      "terms": [
+        "SQL",
+        "dialects",
+        "big data"
+      ],
+      "numbers": [],
+      "entities": [
+        "CarbonData",
+        "GaussDB"
+      ]
+    },
+    {
+      "from": 117,
+      "to": 122,
+      "kind": "transition",
+      "gloss_en": "Let's start with the first part: the tuning loop.",
+      "terms": [
+        "tuning",
+        "loop"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 123,
+      "to": 130,
+      "kind": "question",
+      "gloss_en": "How do we actually approach a performance problem in the first place?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 131,
+      "to": 141,
+      "kind": "claim",
+      "gloss_en": "Tuning isn't just guessing, or trying our luck and seeing what happens.",
+      "terms": [
+        "tuning"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 142,
+      "to": 154,
+      "kind": "claim",
+      "gloss_en": "Not at all: it's a method with deliberate steps, so we set a baseline to work from.",
+      "terms": [
+        "baseline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 155,
+      "to": 169,
+      "kind": "example",
+      "gloss_en": "Imagine: just to find one customer's data, the engine has to read 12,500 pages.",
+      "terms": [
+        "page"
+      ],
+      "numbers": [
+        "1",
+        "12500"
+      ],
+      "entities": []
+    },
+    {
+      "from": 170,
+      "to": 183,
+      "kind": "claim",
+      "gloss_en": "Can you picture that number? That's the real measure of the problem and of the huge effort wasted on the server.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 184,
+      "to": 191,
+      "kind": "example",
+      "gloss_en": "Let's do a quick comparison on a table with a million rows.",
+      "terms": [
+        "row"
+      ],
+      "numbers": [
+        "1000000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 192,
+      "to": 200,
+      "kind": "example",
+      "gloss_en": "A plain full scan has to read all 12,500 pages.",
+      "terms": [
+        "full scan"
+      ],
+      "numbers": [
+        "12500"
+      ],
+      "entities": []
+    },
+    {
+      "from": 201,
+      "to": 219,
+      "kind": "example",
+      "gloss_en": "But with a B-tree of just 3 levels, we reach the same result in only 3 page reads through a seek.",
+      "terms": [
+        "B-tree",
+        "page reads",
+        "seek"
+      ],
+      "numbers": [
+        "3",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 220,
+      "to": 238,
+      "kind": "claim",
+      "gloss_en": "The real genius: even if we multiply this data size by ten, the B-tree barely grows by one level.",
+      "terms": [
+        "B-tree"
+      ],
+      "numbers": [
+        "10",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 239,
+      "to": 243,
+      "kind": "claim",
+      "gloss_en": "Honestly, that's extremely efficient.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 244,
+      "to": 250,
+      "kind": "transition",
+      "gloss_en": "OK, let's move to the second section: indexes and selectivity.",
+      "terms": [
+        "indexes",
+        "selectivity"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 251,
+      "to": 266,
+      "kind": "claim",
+      "gloss_en": "Indexes are a very powerful tool, but let's agree they're not a magic wand that solves every problem.",
+      "terms": [
+        "indexes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 267,
+      "to": 272,
+      "kind": "claim",
+      "gloss_en": "And they have fine details we need to understand well.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 273,
+      "to": 284,
+      "kind": "prediction",
+      "gloss_en": "Let's predict the answer together: suppose a query returns exactly half the table.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 285,
+      "to": 295,
+      "kind": "question",
+      "gloss_en": "Which do you think will be faster: an index seek or a full scan?",
+      "terms": [
+        "index",
+        "seek",
+        "full scan"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 296,
+      "to": 304,
+      "kind": "transition",
+      "gloss_en": "Think about it for a few seconds; the answer may surprise some of you.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 305,
+      "to": 311,
+      "kind": "claim",
+      "gloss_en": "The full scan is the one that wins. Why?",
+      "terms": [
+        "full scan"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 312,
+      "to": 328,
+      "kind": "claim",
+      "gloss_en": "Because when we retrieve a very large part of the data, the index becomes an extra step that slows us down.",
+      "terms": [
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 329,
+      "to": 344,
+      "kind": "claim",
+      "gloss_en": "This turning point, the selectivity crossover, isn't a fixed percentage we can memorize and follow.",
+      "terms": [
+        "selectivity",
+        "crossover"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 345,
+      "to": 355,
+      "kind": "claim",
+      "gloss_en": "No, it depends entirely on the engine itself and how it stores the data.",
+      "terms": [
+        "engine"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 356,
+      "to": 367,
+      "kind": "claim",
+      "gloss_en": "What matters is knowing that indexes come in many shapes with strict rules.",
+      "terms": [
+        "indexes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 368,
+      "to": 377,
+      "kind": "claim",
+      "gloss_en": "For example, the B-tree is the default type and is excellent for sorting and ranges.",
+      "terms": [
+        "B-tree",
+        "range"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 378,
+      "to": 396,
+      "kind": "claim",
+      "gloss_en": "But with a composite index we must follow the leftmost-prefix rule: start with equality first, then the range.",
+      "terms": [
+        "composite",
+        "index",
+        "leftmost prefix",
+        "equality",
+        "range"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 397,
+      "to": 412,
+      "kind": "claim",
+      "gloss_en": "There's also the covering index, which is clever because it holds the data inside, so we don't go back to the base table.",
+      "terms": [
+        "covering index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 413,
+      "to": 418,
+      "kind": "claim",
+      "gloss_en": "Not to mention partial and expression indexes.",
+      "terms": [
+        "partial",
+        "expression",
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 419,
+      "to": 426,
+      "kind": "transition",
+      "gloss_en": "This brings us to a very important concept called sargability.",
+      "terms": [
+        "sargability"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 427,
+      "to": 451,
+      "kind": "example",
+      "gloss_en": "If we wrap an indexed column in a function, like date on event_time, we literally blind the engine and make it ignore the index entirely, as if it weren't there.",
+      "terms": [
+        "function",
+        "date",
+        "event_time",
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 452,
+      "to": 472,
+      "kind": "claim",
+      "gloss_en": "The simple, clever fix is to rewrite the query as a range, and then the index works perfectly.",
+      "terms": [
+        "query",
+        "range",
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 473,
+      "to": 481,
+      "kind": "transition",
+      "gloss_en": "On to the third section: execution plans and anti-patterns.",
+      "terms": [
+        "execution plans",
+        "anti-patterns"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 482,
+      "to": 493,
+      "kind": "claim",
+      "gloss_en": "Here we start diagnosing problems by reading the plan the engine actually intends to execute.",
+      "terms": [
+        "plan"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 494,
+      "to": 515,
+      "kind": "claim",
+      "gloss_en": "When we look at the execution plan, our eyes must go to one key thing: the gap between estimated rows and actual rows.",
+      "terms": [
+        "execution plan",
+        "estimated",
+        "actual",
+        "rows"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 516,
+      "to": 537,
+      "kind": "claim",
+      "gloss_en": "If we find a big gap between the numbers the engine expected and those actually returned, the problem isn't that we need a new index.",
+      "terms": [
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 538,
+      "to": 548,
+      "kind": "claim",
+      "gloss_en": "The problem is that the engine is making decisions based on old, outdated statistics.",
+      "terms": [
+        "statistics"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 549,
+      "to": 558,
+      "kind": "claim",
+      "gloss_en": "The fix is simply to update those statistics with a command like ANALYZE.",
+      "terms": [
+        "statistics",
+        "ANALYZE"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 559,
+      "to": 574,
+      "kind": "claim",
+      "gloss_en": "And there are common coding mistakes, or anti-patterns, that literally destroy performance and that we must avoid. Like what?",
+      "terms": [
+        "anti-patterns"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 575,
+      "to": 593,
+      "kind": "example",
+      "gloss_en": "Like using SELECT * indiscriminately for no reason, overusing OR, or writing correlated subqueries.",
+      "terms": [
+        "SELECT *",
+        "OR",
+        "correlated",
+        "subquery"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 594,
+      "to": 611,
+      "kind": "example",
+      "gloss_en": "Another mistake is adding DISTINCT just to hide duplicates coming from a badly written join.",
+      "terms": [
+        "DISTINCT",
+        "join"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 612,
+      "to": 633,
+      "kind": "example",
+      "gloss_en": "And the big disaster we all know: N+1 queries, running a query for the parent and then looping a separate query for each child.",
+      "terms": [
+        "N+1",
+        "queries",
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 634,
+      "to": 638,
+      "kind": "claim",
+      "gloss_en": "We have to stop doing these things immediately.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 639,
+      "to": 652,
+      "kind": "transition",
+      "gloss_en": "Now we reach the fourth section: hidden costs and bottlenecks.",
+      "terms": [
+        "hidden costs",
+        "bottlenecks"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 653,
+      "to": 663,
+      "kind": "transition",
+      "gloss_en": "Here we step outside the queries themselves and look at the architecture and system-level costs.",
+      "terms": [
+        "queries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 664,
+      "to": 674,
+      "kind": "claim",
+      "gloss_en": "The hidden cost here might really shock us: indexes are not free at all.",
+      "terms": [
+        "indexes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 675,
+      "to": 691,
+      "kind": "example",
+      "gloss_en": "If a table has just two indexes, every single insert turns into three actual writes on disk.",
+      "terms": [
+        "indexes",
+        "INSERT"
+      ],
+      "numbers": [
+        "2",
+        "1",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 692,
+      "to": 699,
+      "kind": "claim",
+      "gloss_en": "That's a tax paid for life on every modification.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 700,
+      "to": 714,
+      "kind": "claim",
+      "gloss_en": "That's why we always avoid putting indexes on very small tables or on boolean columns.",
+      "terms": [
+        "indexes",
+        "boolean"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 715,
+      "to": 732,
+      "kind": "claim",
+      "gloss_en": "The big surprise: the slowness may not come from the database engine at all; sometimes the problem is the connection pool.",
+      "terms": [
+        "database",
+        "connection pool"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 733,
+      "to": 749,
+      "kind": "example",
+      "gloss_en": "Imagine our capacity is 67 requests per second, but the incoming load is 260 requests. What happens?",
+      "terms": [
+        "capacity",
+        "req/s"
+      ],
+      "numbers": [
+        "67",
+        "260"
+      ],
+      "entities": []
+    },
+    {
+      "from": 750,
+      "to": 767,
+      "kind": "example",
+      "gloss_en": "A very long queue of 289 requests builds up, and the p95 wait time exceeds 1,160 milliseconds.",
+      "terms": [
+        "p95",
+        "wait time",
+        "ms"
+      ],
+      "numbers": [
+        "289",
+        "1160"
+      ],
+      "entities": []
+    },
+    {
+      "from": 768,
+      "to": 777,
+      "kind": "claim",
+      "gloss_en": "So the system is choked from outside, and the query itself is not to blame.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 778,
+      "to": 784,
+      "kind": "transition",
+      "gloss_en": "Fifth section: let's zoom out a bit.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 785,
+      "to": 803,
+      "kind": "transition",
+      "gloss_en": "And look at how the different SQL dialects and various systems handle these operations, at a much larger scale.",
+      "terms": [
+        "SQL",
+        "dialects"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 804,
+      "to": 825,
+      "kind": "claim",
+      "gloss_en": "Comparing the key differences in this table, MySQL is excellent and practical for fast web applications, what we call OLTP.",
+      "terms": [
+        "OLTP"
+      ],
+      "numbers": [],
+      "entities": [
+        "MySQL"
+      ]
+    },
+    {
+      "from": 826,
+      "to": 837,
+      "kind": "claim",
+      "gloss_en": "Whereas PostgreSQL is a beast at complex analytics and handling JSON.",
+      "terms": [
+        "JSON"
+      ],
+      "numbers": [],
+      "entities": [
+        "PostgreSQL"
+      ]
+    },
+    {
+      "from": 838,
+      "to": 859,
+      "kind": "claim",
+      "gloss_en": "But if the data grows so large that no single server can hold it, we enter the world of CarbonData, built for big data and the Hadoop ecosystem.",
+      "terms": [
+        "big data"
+      ],
+      "numbers": [],
+      "entities": [
+        "CarbonData",
+        "Hadoop"
+      ]
+    },
+    {
+      "from": 860,
+      "to": 870,
+      "kind": "transition",
+      "gloss_en": "This takes us to the sixth and final section: big data technologies and the architecture of CarbonData and GaussDB.",
+      "terms": [
+        "big data"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": [
+        "CarbonData",
+        "GaussDB"
+      ]
+    },
+    {
+      "from": 871,
+      "to": 886,
+      "kind": "claim",
+      "gloss_en": "We're talking about massively parallel processing, which we turn to when ordinary databases reach their limit.",
+      "terms": [
+        "MPP",
+        "Massively Parallel Processing"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 887,
+      "to": 905,
+      "kind": "claim",
+      "gloss_en": "One of the key technologies here is CarbonData, a very advanced columnar datastore built with a multi-level index.",
+      "terms": [
+        "columnar",
+        "datastore",
+        "multi-level",
+        "index"
+      ],
+      "numbers": [],
+      "entities": [
+        "CarbonData"
+      ]
+    },
+    {
+      "from": 906,
+      "to": 923,
+      "kind": "claim",
+      "gloss_en": "Its great advantage is jumping directly to the exact block of data we want, using Spark SQL.",
+      "terms": [
+        "Spark SQL"
+      ],
+      "numbers": [],
+      "entities": [
+        "Spark"
+      ]
+    },
+    {
+      "from": 924,
+      "to": 938,
+      "kind": "claim",
+      "gloss_en": "That's unlike other formats such as Parquet, which have to do a full scan to find the data.",
+      "terms": [
+        "Parquet",
+        "scan"
+      ],
+      "numbers": [],
+      "entities": [
+        "Parquet"
+      ]
+    },
+    {
+      "from": 939,
+      "to": 951,
+      "kind": "claim",
+      "gloss_en": "GaussDB's architecture is built on a system called MPP shared-nothing.",
+      "terms": [
+        "MPP",
+        "shared-nothing"
+      ],
+      "numbers": [],
+      "entities": [
+        "GaussDB"
+      ]
+    },
+    {
+      "from": 952,
+      "to": 965,
+      "kind": "claim",
+      "gloss_en": "The work is split: the coordinator node is the maestro that understands the query, plans and distributes the work.",
+      "terms": [
+        "coordinator",
+        "node",
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 966,
+      "to": 979,
+      "kind": "claim",
+      "gloss_en": "And the data nodes are the shards, the pieces that store the data and do the processing themselves.",
+      "terms": [
+        "data nodes",
+        "shards"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 980,
+      "to": 996,
+      "kind": "claim",
+      "gloss_en": "The whole secret to this architecture's success is choosing a distribution key with very high cardinality.",
+      "terms": [
+        "distribution key",
+        "cardinality"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 997,
+      "to": 1011,
+      "kind": "claim",
+      "gloss_en": "So the data is spread evenly and no single node gets choked carrying all the work alone.",
+      "terms": [
+        "node"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1012,
+      "to": 1024,
+      "kind": "claim",
+      "gloss_en": "When dealing with billions of rows, ordinary sorting and filtering methods fail completely.",
+      "terms": [
+        "rows"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1025,
+      "to": 1042,
+      "kind": "example",
+      "gloss_en": "We need special big-data tactics, like partition pruning to exclude the time periods we don't need at all.",
+      "terms": [
+        "partition pruning"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1043,
+      "to": 1058,
+      "kind": "example",
+      "gloss_en": "Or sampling, either SYSTEM or BERNOULLI, instead of reading the table cover to cover.",
+      "terms": [
+        "sampling",
+        "SYSTEM",
+        "BERNOULLI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1059,
+      "to": 1070,
+      "kind": "example",
+      "gloss_en": "We can also use HyperLogLog when we need to count distinct values approximately and quickly.",
+      "terms": [
+        "HyperLogLog",
+        "DISTINCT"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1071,
+      "to": 1080,
+      "kind": "example",
+      "gloss_en": "And any modifications should run in batches, as batched updates.",
+      "terms": [
+        "batched updates"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1081,
+      "to": 1086,
+      "kind": "transition",
+      "gloss_en": "And with that we've reached the end of our explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1087,
+      "to": 1098,
+      "kind": "recap",
+      "gloss_en": "We have a quick checklist to apply right away: just 30 seconds before any decision.",
+      "terms": [
+        "checklist"
+      ],
+      "numbers": [
+        "30"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1099,
+      "to": 1104,
+      "kind": "recap",
+      "gloss_en": "1. Set the baseline by the number of rows examined.",
+      "terms": [
+        "baseline"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1105,
+      "to": 1111,
+      "kind": "recap",
+      "gloss_en": "2. Make only one change at a time.",
+      "terms": [
+        "change"
+      ],
+      "numbers": [
+        "2",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1112,
+      "to": 1117,
+      "kind": "recap",
+      "gloss_en": "3. Always measure actual against estimated.",
+      "terms": [
+        "actual",
+        "estimated"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1118,
+      "to": 1129,
+      "kind": "recap",
+      "gloss_en": "Finally, document the write cost you'll pay with every new index you add.",
+      "terms": [
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1130,
+      "to": 1145,
+      "kind": "question",
+      "gloss_en": "So the question is: what's the first slow query you'll apply this method to today?",
+      "terms": [
+        "slow-query",
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:21Z"
+}

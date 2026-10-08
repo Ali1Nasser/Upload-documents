@@ -1,0 +1,2873 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P19",
+  "asr_words": 1186,
+  "final_words": 1162,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 10,
+      "orig": "الريل",
+      "to": "real",
+      "why": "term",
+      "final": [
+        10,
+        10
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 11,
+      "orig": "تايم",
+      "to": "time",
+      "why": "term",
+      "final": [
+        11,
+        11
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 12,
+      "orig": "ستريمينج",
+      "to": "streaming",
+      "why": "term",
+      "final": [
+        12,
+        12
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 30,
+      "orig": "موبايل",
+      "to": "Mobile",
+      "why": "term",
+      "final": [
+        30,
+        30
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 31,
+      "orig": "ماني",
+      "to": "Money",
+      "why": "term",
+      "final": [
+        31,
+        31
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 37,
+      "orig": "الكافكا",
+      "to": "الـKafka",
+      "why": "term",
+      "final": [
+        37,
+        37
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 38,
+      "orig": "لوج",
+      "to": "log",
+      "why": "term",
+      "final": [
+        38,
+        38
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 45,
+      "orig": "داشبورد",
+      "to": "dashboard",
+      "why": "term",
+      "final": [
+        45,
+        45
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 79,
+      "orig": "التضفقات",
+      "to": "التدفقات",
+      "why": "mishear",
+      "final": [
+        79,
+        79
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 84,
+      "orig": "الداشبوردز،",
+      "to": "الـdashboards،",
+      "why": "term",
+      "final": [
+        84,
+        84
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 85,
+      "orig": "الأسل",
+      "to": "الـSLAs",
+      "why": "term",
+      "final": [
+        85,
+        85
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 86,
+      "orig": "إيز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 91,
+      "orig": "الستريمينج",
+      "to": "الـstreaming",
+      "why": "term",
+      "final": [
+        90,
+        90
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 92,
+      "orig": "والكافكا",
+      "to": "والـKafka",
+      "why": "term",
+      "final": [
+        91,
+        91
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 100,
+      "orig": "علامين",
+      "to": "عالمين",
+      "why": "mishear",
+      "final": [
+        99,
+        99
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 104,
+      "orig": "الباتش",
+      "to": "الـbatch",
+      "why": "term",
+      "final": [
+        103,
+        103
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 105,
+      "orig": "بروساسنج",
+      "to": "processing",
+      "why": "term",
+      "final": [
+        104,
+        104
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 115,
+      "orig": "بنعليجها",
+      "to": "بنعالجها",
+      "why": "mishear",
+      "final": [
+        114,
+        114
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 120,
+      "orig": "الثروبوت",
+      "to": "الـthroughput",
+      "why": "term",
+      "final": [
+        119,
+        119
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 125,
+      "orig": "اللاتنسي",
+      "to": "الـlatency",
+      "why": "term",
+      "final": [
+        124,
+        124
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 134,
+      "orig": "الستريم",
+      "to": "الـstream",
+      "why": "term",
+      "final": [
+        133,
+        133
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 147,
+      "orig": "بلا",
+      "to": "بالـlatency",
+      "why": "term",
+      "final": [
+        146,
+        146
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 148,
+      "orig": "تنسي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 149,
+      "orig": "تكب",
+      "to": "تكاد",
+      "why": "mishear",
+      "final": [
+        147,
+        147
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 154,
+      "orig": "الزاكية",
+      "to": "الذكية",
+      "why": "mishear",
+      "final": [
+        152,
+        152
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 162,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        160,
+        160
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 165,
+      "orig": "ومصار",
+      "to": "ومسار",
+      "why": "mishear",
+      "final": [
+        163,
+        163
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 166,
+      "orig": "باتش",
+      "to": "batch",
+      "why": "term",
+      "final": [
+        164,
+        164
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 172,
+      "orig": "لابس",
+      "to": "لبس",
+      "why": "mishear",
+      "final": [
+        170,
+        170
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 178,
+      "orig": "الكافكا",
+      "to": "الـKafka",
+      "why": "term",
+      "final": [
+        176,
+        176
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 182,
+      "orig": "خلص",
+      "to": "خالص",
+      "why": "mishear",
+      "final": [
+        180,
+        180
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 189,
+      "orig": "التوبيك",
+      "to": "الـtopic",
+      "why": "term",
+      "final": [
+        187,
+        187
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 191,
+      "orig": "لپارتشنز",
+      "to": "لـpartitions",
+      "why": "term",
+      "final": [
+        189,
+        189
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 193,
+      "orig": "البروديوسرز",
+      "to": "الـproducers",
+      "why": "term",
+      "final": [
+        191,
+        191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 200,
+      "orig": "بارتشن",
+      "to": "partition",
+      "why": "term",
+      "final": [
+        198,
+        198
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 202,
+      "orig": "الكونسيومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        200,
+        200
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 204,
+      "orig": "الكونسيومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        202,
+        202
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 205,
+      "orig": "بوينتر",
+      "to": "pointer",
+      "why": "term",
+      "final": [
+        203,
+        203
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 208,
+      "orig": "الأدام",
+      "to": "لقدام",
+      "why": "mishear",
+      "final": [
+        206,
+        206
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 214,
+      "orig": "الأوفسيتس",
+      "to": "الـoffsets",
+      "why": "term",
+      "final": [
+        212,
+        212
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 222,
+      "orig": "البرتشن",
+      "to": "الـpartition",
+      "why": "term",
+      "final": [
+        220,
+        220
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 237,
+      "orig": "الكي",
+      "to": "الـkey",
+      "why": "term",
+      "final": [
+        235,
+        235
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 242,
+      "orig": "البرتشن",
+      "to": "الـpartition",
+      "why": "term",
+      "final": [
+        240,
+        240
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 255,
+      "orig": "الستريمينج",
+      "to": "الـstreaming",
+      "why": "term",
+      "final": [
+        253,
+        253
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 256,
+      "orig": "اللاج",
+      "to": "الـlag",
+      "why": "term",
+      "final": [
+        254,
+        254
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 267,
+      "orig": "الكنسومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        265,
+        265
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 268,
+      "orig": "إدري",
+      "to": "قدر",
+      "why": "mishear",
+      "final": [
+        266,
+        266
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 269,
+      "orig": "علجها",
+      "to": "يعالجها",
+      "why": "mishear",
+      "final": [
+        267,
+        267
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 275,
+      "orig": "اللاج",
+      "to": "الـlag",
+      "why": "term",
+      "final": [
+        273,
+        273
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 292,
+      "orig": "الكافكة",
+      "to": "الـKafka",
+      "why": "term",
+      "final": [
+        290,
+        290
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 297,
+      "orig": "سينك",
+      "to": "sink",
+      "why": "term",
+      "final": [
+        295,
+        295
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 300,
+      "orig": "مصاب",
+      "to": "مصب",
+      "why": "mishear",
+      "final": [
+        298,
+        298
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 305,
+      "orig": "المصار",
+      "to": "المسار",
+      "why": "mishear",
+      "final": [
+        303,
+        303
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 314,
+      "orig": "السكيماز",
+      "to": "الـschemas",
+      "why": "term",
+      "final": [
+        312,
+        312
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 330,
+      "orig": "الكونسيومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        328,
+        328
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 344,
+      "orig": "يكمت",
+      "to": "يـcommit",
+      "why": "term",
+      "final": [
+        342,
+        342
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 347,
+      "orig": "الأفسد",
+      "to": "الـoffset",
+      "why": "term",
+      "final": [
+        345,
+        345
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 350,
+      "orig": "اللوج",
+      "to": "الـlog",
+      "why": "term",
+      "final": [
+        348,
+        348
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 362,
+      "orig": "الكونسيومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        360,
+        360
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 373,
+      "orig": "دوبليكت",
+      "to": "duplicate",
+      "why": "term",
+      "final": [
+        371,
+        371
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 388,
+      "orig": "كافكا",
+      "to": "Kafka",
+      "why": "term",
+      "final": [
+        386,
+        386
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 407,
+      "orig": "Identity",
+      "to": "idempotent",
+      "why": "term",
+      "final": [
+        405,
+        405
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 408,
+      "orig": "Potent",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 409,
+      "orig": "Sync",
+      "to": "sink",
+      "why": "term",
+      "final": [
+        406,
+        406
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 413,
+      "orig": "بزكي",
+      "to": "ذكي",
+      "why": "mishear",
+      "final": [
+        410,
+        410
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 421,
+      "orig": "يبوز",
+      "to": "يبوّظ",
+      "why": "mishear",
+      "final": [
+        418,
+        418
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 429,
+      "orig": "الكونسيومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        426,
+        426
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 434,
+      "orig": "لديد",
+      "to": "لـdead",
+      "why": "term",
+      "final": [
+        431,
+        431
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 435,
+      "orig": "لتر",
+      "to": "letter",
+      "why": "term",
+      "final": [
+        432,
+        432
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 436,
+      "orig": "كيو",
+      "to": "queue",
+      "why": "term",
+      "final": [
+        433,
+        433
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 438,
+      "orig": "دي",
+      "to": "DLQ",
+      "why": "term",
+      "final": [
+        435,
+        435
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 439,
+      "orig": "ألكيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 441,
+      "orig": "المصار",
+      "to": "المسار",
+      "why": "mishear",
+      "final": [
+        437,
+        437
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 453,
+      "orig": "البيس",
+      "to": "الـPySpark",
+      "why": "term",
+      "final": [
+        449,
+        449
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 454,
+      "orig": "بارك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 456,
+      "orig": "لستريمز",
+      "to": "الـstreams",
+      "why": "term",
+      "final": [
+        451,
+        451
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 458,
+      "orig": "بورت",
+      "to": "port",
+      "why": "term",
+      "final": [
+        453,
+        453
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 459,
+      "orig": "تسعين",
+      "to": "9092",
+      "why": "number",
+      "final": [
+        454,
+        454
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 460,
+      "orig": "اتنين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 461,
+      "orig": "وتسعين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 466,
+      "orig": "ويندوز",
+      "to": "windows",
+      "why": "term",
+      "final": [
+        459,
+        459
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 473,
+      "orig": "بتريجر",
+      "to": "بـtrigger",
+      "why": "term",
+      "final": [
+        466,
+        466
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 480,
+      "orig": "الووتر",
+      "to": "الـwatermark",
+      "why": "term",
+      "final": [
+        473,
+        473
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 481,
+      "orig": "مارك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 507,
+      "orig": "السكيما",
+      "to": "الـschema",
+      "why": "term",
+      "final": [
+        499,
+        499
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 508,
+      "orig": "ريجستري",
+      "to": "registry",
+      "why": "term",
+      "final": [
+        500,
+        500
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 522,
+      "orig": "الكونسيومرز",
+      "to": "الـconsumers",
+      "why": "term",
+      "final": [
+        514,
+        514
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 536,
+      "orig": "تي",
+      "to": "TXN",
+      "why": "term",
+      "final": [
+        528,
+        528
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 537,
+      "orig": "اكس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 538,
+      "orig": "ان",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 539,
+      "orig": "تسعة",
+      "to": "-99482",
+      "why": "number",
+      "final": [
+        529,
+        529
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 540,
+      "orig": "وتسعين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 541,
+      "orig": "اربعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 542,
+      "orig": "تمانية",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 543,
+      "orig": "اتنين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 570,
+      "orig": "مسكينه",
+      "to": "ماسكينه",
+      "why": "mishear",
+      "final": [
+        556,
+        556
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 576,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        562,
+        562
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 589,
+      "orig": "hub",
+      "to": "hop",
+      "why": "mishear",
+      "final": [
+        575,
+        575
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 625,
+      "orig": "نظر",
+      "to": "نقدر",
+      "why": "mishear",
+      "final": [
+        611,
+        611
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 651,
+      "orig": "الناكست",
+      "to": "الـNext",
+      "why": "term",
+      "final": [
+        637,
+        637
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 652,
+      "orig": "جين",
+      "to": "Gen",
+      "why": "term",
+      "final": [
+        638,
+        638
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 653,
+      "orig": "أركيتكتشور",
+      "to": "Architecture",
+      "why": "term",
+      "final": [
+        639,
+        639
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 695,
+      "orig": "ال",
+      "to": "الـ",
+      "why": "term",
+      "final": [
+        681,
+        681
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 696,
+      "orig": "-ADS",
+      "to": "ADS",
+      "why": "term",
+      "final": [
+        682,
+        682
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 699,
+      "orig": "ال",
+      "to": "الـ",
+      "why": "term",
+      "final": [
+        685,
+        685
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 700,
+      "orig": "-TA",
+      "to": "TA",
+      "why": "term",
+      "final": [
+        686,
+        686
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 703,
+      "orig": "ال",
+      "to": "الـ",
+      "why": "term",
+      "final": [
+        689,
+        689
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 704,
+      "orig": "-Business",
+      "to": "Business",
+      "why": "term",
+      "final": [
+        690,
+        690
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 716,
+      "orig": "ال",
+      "to": "الـ",
+      "why": "term",
+      "final": [
+        702,
+        702
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 717,
+      "orig": "-Next",
+      "to": "Next",
+      "why": "term",
+      "final": [
+        703,
+        703
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 718,
+      "orig": "-Gen",
+      "to": "Gen",
+      "why": "term",
+      "final": [
+        704,
+        704
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 719,
+      "orig": "-DIM",
+      "to": "D&IM",
+      "why": "term",
+      "final": [
+        705,
+        705
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 733,
+      "orig": "كافكا",
+      "to": "Kafka",
+      "why": "term",
+      "final": [
+        719,
+        719
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 736,
+      "orig": "10",
+      "to": "10,000",
+      "why": "number",
+      "final": [
+        722,
+        722
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 737,
+      "orig": ".000",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 745,
+      "orig": "في",
+      "to": "Flink",
+      "why": "term",
+      "final": [
+        730,
+        730
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 746,
+      "orig": "لينك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 747,
+      "orig": "للبات",
+      "to": "للـbatch",
+      "why": "term",
+      "final": [
+        731,
+        731
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 751,
+      "orig": "للإي",
+      "to": "للـAPIs",
+      "why": "term",
+      "final": [
+        735,
+        735
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 752,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 753,
+      "orig": "آيز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "جوس",
+      "to": "GaussDB",
+      "why": "term",
+      "final": [
+        737,
+        737
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 756,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 757,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 766,
+      "orig": "ماهولة",
+      "to": "مهولة",
+      "why": "mishear",
+      "final": [
+        746,
+        746
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 795,
+      "orig": "الكافكبس",
+      "to": "الـKafka bus",
+      "why": "term",
+      "final": [
+        775,
+        776
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 800,
+      "orig": "الساروخ",
+      "to": "الصاروخ",
+      "why": "mishear",
+      "final": [
+        781,
+        781
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 814,
+      "orig": "مصارات",
+      "to": "مسارات",
+      "why": "mishear",
+      "final": [
+        795,
+        795
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 859,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        840,
+        840
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 864,
+      "orig": "المصار",
+      "to": "المسار",
+      "why": "mishear",
+      "final": [
+        845,
+        845
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 882,
+      "orig": "الداشبوردز",
+      "to": "الـdashboards",
+      "why": "term",
+      "final": [
+        863,
+        863
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 883,
+      "orig": "الاسليز",
+      "to": "الـSLAs",
+      "why": "term",
+      "final": [
+        864,
+        864
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 902,
+      "orig": "الاس",
+      "to": "الـSLA",
+      "why": "term",
+      "final": [
+        883,
+        883
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 903,
+      "orig": "الاس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 917,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        897,
+        897
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 918,
+      "orig": "الباتش",
+      "to": "الـbatch",
+      "why": "term",
+      "final": [
+        898,
+        898
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 928,
+      "orig": "الكمبلاينز",
+      "to": "الـcompliance",
+      "why": "term",
+      "final": [
+        908,
+        908
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 945,
+      "orig": "السنترال",
+      "to": "الـCentral",
+      "why": "term",
+      "final": [
+        925,
+        925
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 946,
+      "orig": "كافكا",
+      "to": "Kafka",
+      "why": "term",
+      "final": [
+        926,
+        926
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 953,
+      "orig": "لثلاث",
+      "to": "ل3",
+      "why": "number",
+      "final": [
+        933,
+        933
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 954,
+      "orig": "دقائية",
+      "to": "دقائق",
+      "why": "mishear",
+      "final": [
+        934,
+        934
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 955,
+      "orig": "والإبي",
+      "to": "والـAPIs",
+      "why": "term",
+      "final": [
+        935,
+        935
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 956,
+      "orig": "آيز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 969,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        948,
+        948
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 983,
+      "orig": "الداشبورد",
+      "to": "الـdashboard",
+      "why": "term",
+      "final": [
+        962,
+        962
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1010,
+      "orig": "الضقة",
+      "to": "الدقة",
+      "why": "mishear",
+      "final": [
+        989,
+        989
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1016,
+      "orig": "البزنس",
+      "to": "الـbusiness",
+      "why": "term",
+      "final": [
+        995,
+        995
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1017,
+      "orig": "لوجيك",
+      "to": "logic",
+      "why": "term",
+      "final": [
+        996,
+        996
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1019,
+      "orig": "طابعة",
+      "to": "طبقة",
+      "why": "mishear",
+      "final": [
+        998,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1021,
+      "orig": "EDS",
+      "to": "ADS",
+      "why": "mishear",
+      "final": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1029,
+      "orig": "الحزبة",
+      "to": "الحسبة",
+      "why": "mishear",
+      "final": [
+        1008,
+        1008
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1039,
+      "orig": "متأسمين",
+      "to": "متقسمين",
+      "why": "mishear",
+      "final": [
+        1018,
+        1018
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1042,
+      "orig": "الأوبريتور",
+      "to": "الـoperator",
+      "why": "term",
+      "final": [
+        1021,
+        1021
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1046,
+      "orig": "والأوبريتور",
+      "to": "والـoperator",
+      "why": "term",
+      "final": [
+        1025,
+        1025
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1080,
+      "orig": "66",
+      "to": "66.67%",
+      "why": "number",
+      "final": [
+        1059,
+        1059
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1081,
+      "orig": "و",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1082,
+      "orig": "67",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1083,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1093,
+      "orig": "الستريمينج",
+      "to": "الـstreaming",
+      "why": "term",
+      "final": [
+        1069,
+        1069
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1094,
+      "orig": "والكافكا",
+      "to": "والـKafka",
+      "why": "term",
+      "final": [
+        1070,
+        1070
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1114,
+      "orig": "التزاجة",
+      "to": "الطزاجة",
+      "why": "mishear",
+      "final": [
+        1090,
+        1090
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1123,
+      "orig": "طرى",
+      "to": "ترى",
+      "why": "mishear",
+      "final": [
+        1099,
+        1099
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1126,
+      "orig": "لأختم",
+      "to": "لأختام",
+      "why": "mishear",
+      "final": [
+        1102,
+        1102
+      ]
+    }
+  ],
+  "notes": "Whisper dropout (not inserted, wording not certain): between 'سريعا كده' (64-65) and 'ثلاثة' (66) the agenda items 1 and 2 are missing; the speaker evidently listed 'أساسيات الستريمينج والكافكا' and 'الأعطال والسكيماز والكود' (they reappear later as the station headers at 88-92 and 311-315), but the exact spoken words are unproven. Left unedited because source_excerpt does not prove the intended word: 18 'ميكالكعة' (likely a garbled adjective for 'theories', unclear), 194 'عملين' (probably 'عمّالين'), 307 'لمأخر' (probably 'بيأخّر', unproven), 477 'الصائعة' ('الحتة الصائعة', probably 'الضايعة' or 'الصايعة', unproven), 579 'نسبة' (possibly 'نثبت' but unproven), 599 'وقت' (possibly 'أوقات'), 907 'بتسمع' (source sc15 says 'بتبان'; unproven), 962 'بكتير' (probably 'بالكتير'), 1180 'نوارة' (probably 'نوّرت'). Edits made on phonetic or contextual certainty: 85-86 and 883 'الأسل إيز'/'الاسليز' -> SLAs (station-6 header is dashboards, SLAs, invoices); 902-903 'الاس الاس' -> SLA (speaker says SLA at 1120; source heading says SLO but latin_terms has SLAs); 147-149 'بلا تنسي تكب' -> 'بالـlatency تكاد'; 268-269 'إدري علجها' -> 'قدر يعالجها' (Egyptian ق as glottal stop); 413 'بزكي' -> 'ذكي' and 154 'الزاكية' -> 'الذكية'; 'مصار' -> 'مسار' everywhere (source sc01 'مسار'); 'المعمرية' -> 'المعمارية'; 589 'hub' -> 'hop' (source sc11); 1019-1021 'طابعة الـ EDS' -> 'طبقة ADS'; 1114 'التزاجة' -> 'الطزاجة'; 1126 'لأختم' -> 'لأختام'. Numbers: TXN-99482 normalized across 536-543 (digits placed on 539, same 'TXN' + '-99482' split pattern as 976-977); port 9092 merged on 459; '10 .000' -> '10,000' on 736; '66 و 67 %' -> '66.67%' on 1080; 953 'لثلاث' -> 'ل3'. Spelled-out small numbers (agenda 3-6, خمس/عشر دقائق, ألف, أربع/ستة) and Arabic units (تيرابايت, دقايق) were kept as spoken; digits are given in each sentence's numbers field. Kept in Arabic script as common loanwords (not forced to Latin): داتا, كراش, الإدارة التنفيذية; 'DataBase' (180) and 'Log' (186) kept as whisper wrote them. Edit 795 'الكافكبس' -> 'الـKafka bus' puts two tokens in one index (source sc13 'الـKafka bus'). Hyphen artifacts at 695-719 were cleaned for ADS/TA/Business/Next/Gen/D&IM (source heading 'Nextgen D&IM'); the 74/75-77 'Next Gen Architecture' and 1118 '-minute' tokens were left as written. Spoken content deviates from the source scene text in places (e.g. 70 seconds to 3 minutes, 5 to 15 minutes, 10,000 TPS, 352 TB, 6 invoices / 400 EGP split 250+150 / 66.67%); these figures follow the audio, and 250+150=400 and 4/6=66.67% are internally consistent. Central Kafka at 945-946 (whisper: 'السنترال كافكا') was normalized to 'الـCentral Kafka'.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 12,
+      "kind": "transition",
+      "gloss_en": "Welcome; today we go deep into the world of real-time streaming.",
+      "terms": [
+        "real time streaming"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 13,
+      "to": 27,
+      "kind": "claim",
+      "gloss_en": "Instead of mechanical theory, we follow one very practical journey: a single financial transaction.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 28,
+      "to": 48,
+      "kind": "claim",
+      "gloss_en": "In a Mobile Money system, from being logged in the Kafka log until it shows up in an executive's dashboard.",
+      "terms": [
+        "Kafka",
+        "log",
+        "dashboard"
+      ],
+      "numbers": [],
+      "entities": [
+        "Mobile Money",
+        "Kafka"
+      ]
+    },
+    {
+      "from": 49,
+      "to": 60,
+      "kind": "transition",
+      "gloss_en": "This journey will reveal the magic behind the scenes; let's start.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 61,
+      "to": 65,
+      "kind": "transition",
+      "gloss_en": "Today's six stations, quickly.",
+      "terms": [],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 66,
+      "to": 71,
+      "kind": "transition",
+      "gloss_en": "Three: the journey of our story's hero, the financial transaction.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 72,
+      "to": 77,
+      "kind": "transition",
+      "gloss_en": "Four: the components of the Next Gen Architecture.",
+      "terms": [
+        "Next Gen Architecture"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": [
+        "Next Gen Architecture"
+      ]
+    },
+    {
+      "from": 78,
+      "to": 81,
+      "kind": "transition",
+      "gloss_en": "Five: the four data flows.",
+      "terms": [],
+      "numbers": [
+        "5",
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 82,
+      "to": 86,
+      "kind": "transition",
+      "gloss_en": "And finally six: the dashboards, the SLAs and the invoices.",
+      "terms": [
+        "dashboards",
+        "SLAs"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 87,
+      "to": 91,
+      "kind": "transition",
+      "gloss_en": "First station: the basics of streaming and Kafka.",
+      "terms": [
+        "streaming",
+        "Kafka"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 92,
+      "to": 99,
+      "kind": "claim",
+      "gloss_en": "To understand the picture we must tell two worlds apart.",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 100,
+      "to": 118,
+      "kind": "claim",
+      "gloss_en": "On the left is batch processing: collecting data with a beginning and an end, processed once a day.",
+      "terms": [
+        "batch",
+        "processing"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 119,
+      "to": 128,
+      "kind": "claim",
+      "gloss_en": "Its throughput is very high, but its latency, the delay, is also high.",
+      "terms": [
+        "throughput",
+        "latency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 129,
+      "to": 138,
+      "kind": "claim",
+      "gloss_en": "On the right is the world of the stream: a river of events with no end.",
+      "terms": [
+        "stream",
+        "events"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 139,
+      "to": 149,
+      "kind": "claim",
+      "gloss_en": "Point after point they arrive and are processed in time, with latency almost nil.",
+      "terms": [
+        "latency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 150,
+      "to": 166,
+      "kind": "claim",
+      "gloss_en": "Modern smart systems combine both in a Lambda Architecture: a fast real-time path and a batch path for reports.",
+      "terms": [
+        "Lambda Architecture",
+        "batch"
+      ],
+      "numbers": [],
+      "entities": [
+        "Lambda Architecture"
+      ]
+    },
+    {
+      "from": 167,
+      "to": 184,
+      "kind": "claim",
+      "gloss_en": "What confuses many people is that Kafka is not an ordinary database at all; it is a log.",
+      "terms": [
+        "Kafka",
+        "database",
+        "log"
+      ],
+      "numbers": [],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 185,
+      "to": 198,
+      "kind": "claim",
+      "gloss_en": "Imagine the topic split into horizontal partitions, with the producers dropping events at the end of each partition.",
+      "terms": [
+        "topic",
+        "partitions",
+        "producers",
+        "partition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 199,
+      "to": 212,
+      "kind": "claim",
+      "gloss_en": "The consumer pointer moves forward reading, via sequential numbers called offsets.",
+      "terms": [
+        "consumer",
+        "pointer",
+        "offsets"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 213,
+      "to": 221,
+      "kind": "claim",
+      "gloss_en": "The key point is that ordering is guaranteed only inside a single partition.",
+      "terms": [
+        "partition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 222,
+      "to": 241,
+      "kind": "claim",
+      "gloss_en": "So if events depend on each other and must stay in order, they must take the same key to land in the same partition.",
+      "terms": [
+        "key",
+        "partition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 242,
+      "to": 254,
+      "kind": "transition",
+      "gloss_en": "Here we reach the most important number in the life of anyone working in streaming: the lag.",
+      "terms": [
+        "streaming",
+        "lag"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 255,
+      "to": 267,
+      "kind": "claim",
+      "gloss_en": "Simply, it is the distance between the newest message that entered the platform and the last message the consumer managed to process.",
+      "terms": [
+        "consumer",
+        "lag"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 268,
+      "to": 282,
+      "kind": "claim",
+      "gloss_en": "A golden rule: the lag indicator must always be read and analyzed together with its cause in the same snapshot.",
+      "terms": [
+        "lag"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 283,
+      "to": 291,
+      "kind": "claim",
+      "gloss_en": "Because most of the time the problem is not in Kafka itself.",
+      "terms": [
+        "Kafka"
+      ],
+      "numbers": [],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 292,
+      "to": 308,
+      "kind": "claim",
+      "gloss_en": "The problem is a sink, or a very slow downstream system at the end of the path, which delays the whole queue behind it.",
+      "terms": [
+        "sink"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 309,
+      "to": 313,
+      "kind": "transition",
+      "gloss_en": "Second station: failures, schemas and code.",
+      "terms": [
+        "schemas"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 314,
+      "to": 326,
+      "kind": "question",
+      "gloss_en": "Let's ask a question at the heart of it, one that tests the robustness of any system: what could happen?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 327,
+      "to": 337,
+      "kind": "example",
+      "gloss_en": "If the consumer pulled a message, worked hard and processed it, but suddenly a crash happened.",
+      "terms": [
+        "consumer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 338,
+      "to": 348,
+      "kind": "example",
+      "gloss_en": "The system went down before it could commit, or save its offset in the log.",
+      "terms": [
+        "commit",
+        "offset",
+        "log"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 349,
+      "to": 355,
+      "kind": "question",
+      "gloss_en": "When it comes back up again, what will happen?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 356,
+      "to": 373,
+      "kind": "claim",
+      "gloss_en": "When the consumer comes back to work it will read the same message again, and we will end up with a duplicate.",
+      "terms": [
+        "consumer",
+        "duplicate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 374,
+      "to": 389,
+      "kind": "claim",
+      "gloss_en": "That is why the Exactly Once principle is not just a button you press in Kafka; it is a complete journey.",
+      "terms": [
+        "Exactly Once",
+        "Kafka"
+      ],
+      "numbers": [],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 390,
+      "to": 400,
+      "kind": "claim",
+      "gloss_en": "The practical and safer solution is to set the system to at least once.",
+      "terms": [
+        "at least once"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 401,
+      "to": 419,
+      "kind": "claim",
+      "gloss_en": "And to receive the data in an idempotent sink, a smart sink that can swallow duplicates safely without spoiling the results.",
+      "terms": [
+        "idempotent",
+        "sink"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 420,
+      "to": 441,
+      "kind": "claim",
+      "gloss_en": "And of course a poisoned message that keeps crashing the consumer is immediately moved to a dead letter queue, or DLQ, so the path keeps running and does not stop.",
+      "terms": [
+        "consumer",
+        "dead letter queue",
+        "DLQ"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 442,
+      "to": 454,
+      "kind": "example",
+      "gloss_en": "Looking at the code from inside, we find PySpark reading streams from port 9092.",
+      "terms": [
+        "PySpark",
+        "streams",
+        "port"
+      ],
+      "numbers": [
+        "9092"
+      ],
+      "entities": [
+        "PySpark"
+      ]
+    },
+    {
+      "from": 455,
+      "to": 468,
+      "kind": "example",
+      "gloss_en": "It groups this data into time windows lasting five minutes, with a trigger every minute.",
+      "terms": [
+        "windows",
+        "trigger"
+      ],
+      "numbers": [
+        "5",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 469,
+      "to": 478,
+      "kind": "claim",
+      "gloss_en": "The key piece here is the watermark, which is set to ten minutes.",
+      "terms": [
+        "watermark"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 479,
+      "to": 496,
+      "kind": "claim",
+      "gloss_en": "Meaning, the system gives late events ten minutes to arrive before it fully closes the window.",
+      "terms": [
+        "watermark"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 497,
+      "to": 514,
+      "kind": "claim",
+      "gloss_en": "In the background the schema registry stands like a strict guard, rejecting any sudden change in data shape that could break the consumers.",
+      "terms": [
+        "schema registry",
+        "consumers"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 515,
+      "to": 521,
+      "kind": "transition",
+      "gloss_en": "Third station: the journey of the story's hero, the transaction.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 522,
+      "to": 535,
+      "kind": "example",
+      "gloss_en": "Let's all focus on this number, TXN-99482, a real money transfer accurate to the piaster.",
+      "terms": [
+        "TXN"
+      ],
+      "numbers": [
+        "99482"
+      ],
+      "entities": [
+        "TXN-99482"
+      ]
+    },
+    {
+      "from": 536,
+      "to": 549,
+      "kind": "example",
+      "gloss_en": "Someone pressed send, and the operating system recorded the amount and the parties and produced this lovely transaction number.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 550,
+      "to": 570,
+      "kind": "claim",
+      "gloss_en": "This number is the thread we will keep holding and tracking at every station inside our architecture, to show practically how real data moves.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 571,
+      "to": 586,
+      "kind": "claim",
+      "gloss_en": "At every hop inside the system, this transaction gets four stamps, at different times.",
+      "terms": [
+        "hop"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 587,
+      "to": 594,
+      "kind": "claim",
+      "gloss_en": "First, the time the event actually happened.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 595,
+      "to": 603,
+      "kind": "claim",
+      "gloss_en": "Then the time our platform received it; third, the processing time.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 604,
+      "to": 612,
+      "kind": "claim",
+      "gloss_en": "And fourth, the time it became available in a report we can see.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 613,
+      "to": 633,
+      "kind": "claim",
+      "gloss_en": "Mixing these times up and treating them as one is the trap that catches many people and creates differences in the numbers while we chase problems.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 634,
+      "to": 641,
+      "kind": "transition",
+      "gloss_en": "Fourth station: the components of the Next Gen Architecture inside the platform.",
+      "terms": [
+        "Next Gen Architecture"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": [
+        "Next Gen Architecture"
+      ]
+    },
+    {
+      "from": 642,
+      "to": 657,
+      "kind": "claim",
+      "gloss_en": "Data moves between levels; looking at the left we find the ODS layer, or the TO tables.",
+      "terms": [
+        "ODS",
+        "TO"
+      ],
+      "numbers": [],
+      "entities": [
+        "ODS"
+      ]
+    },
+    {
+      "from": 658,
+      "to": 674,
+      "kind": "claim",
+      "gloss_en": "They stay very close to the shape of the original data at the source and are updated in near real time.",
+      "terms": [
+        "Near Real Time"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 675,
+      "to": 686,
+      "kind": "claim",
+      "gloss_en": "On the right we enter the ADS layer, or the TA tables.",
+      "terms": [
+        "ADS",
+        "TA"
+      ],
+      "numbers": [],
+      "entities": [
+        "ADS"
+      ]
+    },
+    {
+      "from": 687,
+      "to": 698,
+      "kind": "claim",
+      "gloss_en": "Here we put our business logic and produce aggregated, calculated data ready for reports.",
+      "terms": [
+        "Business Logic"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 699,
+      "to": 713,
+      "kind": "transition",
+      "gloss_en": "If we break down the components of Next Gen D&IM by function first and then product, we find the following.",
+      "terms": [
+        "Next Gen D&IM"
+      ],
+      "numbers": [],
+      "entities": [
+        "Next Gen D&IM"
+      ]
+    },
+    {
+      "from": 714,
+      "to": 725,
+      "kind": "claim",
+      "gloss_en": "For real-time event distribution we rely on Kafka, which carries up to 10,000 transactions per second.",
+      "terms": [
+        "Kafka"
+      ],
+      "numbers": [
+        "10,000"
+      ],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 726,
+      "to": 734,
+      "kind": "claim",
+      "gloss_en": "For real-time processing our hero is Flink, and for batch and heavy reports, Spark.",
+      "terms": [
+        "batch"
+      ],
+      "numbers": [],
+      "entities": [
+        "Flink",
+        "Spark"
+      ]
+    },
+    {
+      "from": 735,
+      "to": 737,
+      "kind": "claim",
+      "gloss_en": "For the APIs we use GaussDB.",
+      "terms": [
+        "APIs"
+      ],
+      "numbers": [],
+      "entities": [
+        "GaussDB"
+      ]
+    },
+    {
+      "from": 738,
+      "to": 750,
+      "kind": "claim",
+      "gloss_en": "The huge storage goes to HDFS, with a massive capacity reaching 352 terabytes.",
+      "terms": [],
+      "numbers": [
+        "352"
+      ],
+      "entities": [
+        "HDFS"
+      ]
+    },
+    {
+      "from": 751,
+      "to": 761,
+      "kind": "claim",
+      "gloss_en": "The impressive part is that 13 different countries are connected to this platform.",
+      "terms": [],
+      "numbers": [
+        "13"
+      ],
+      "entities": []
+    },
+    {
+      "from": 762,
+      "to": 769,
+      "kind": "claim",
+      "gloss_en": "Each country is completely isolated in its own databases.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 770,
+      "to": 781,
+      "kind": "claim",
+      "gloss_en": "The only thing that joins them is the Kafka bus, moving data at rocket speed.",
+      "terms": [
+        "Kafka bus"
+      ],
+      "numbers": [],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 782,
+      "to": 786,
+      "kind": "transition",
+      "gloss_en": "Fifth station: the four data flows.",
+      "terms": [],
+      "numbers": [
+        "5",
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 787,
+      "to": 798,
+      "kind": "claim",
+      "gloss_en": "Data leaves this platform through four main paths, or flows.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 799,
+      "to": 811,
+      "kind": "claim",
+      "gloss_en": "First, Central Kafka, dedicated to heavy central systems such as fraud detection systems.",
+      "terms": [
+        "Central Kafka"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": [
+        "Central Kafka"
+      ]
+    },
+    {
+      "from": 812,
+      "to": 822,
+      "kind": "claim",
+      "gloss_en": "Second, Local Kafka, which serves each country's applications locally.",
+      "terms": [
+        "Local Kafka"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": [
+        "Local Kafka"
+      ]
+    },
+    {
+      "from": 823,
+      "to": 837,
+      "kind": "claim",
+      "gloss_en": "Third, API Out, which returns data as JSON with a maximum of one thousand records per request.",
+      "terms": [
+        "API Out",
+        "JSON"
+      ],
+      "numbers": [
+        "3",
+        "1000"
+      ],
+      "entities": [
+        "API Out"
+      ]
+    },
+    {
+      "from": 838,
+      "to": 859,
+      "kind": "claim",
+      "gloss_en": "And fourth and last, the File Out path, the quiet nightly path that sends files over SFTP between 2 and 5 AM.",
+      "terms": [
+        "File Out",
+        "SFTP"
+      ],
+      "numbers": [
+        "4",
+        "2",
+        "5"
+      ],
+      "entities": [
+        "File Out",
+        "SFTP"
+      ]
+    },
+    {
+      "from": 860,
+      "to": 865,
+      "kind": "transition",
+      "gloss_en": "Sixth and last station: the dashboards, the SLAs and the invoices.",
+      "terms": [
+        "dashboards",
+        "SLAs"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 866,
+      "to": 873,
+      "kind": "transition",
+      "gloss_en": "Let's live a day in the life of our heroine, the financial transaction.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 874,
+      "to": 885,
+      "kind": "claim",
+      "gloss_en": "The transfer happens, and within less than 5 minutes, which is our strict SLA.",
+      "terms": [
+        "SLA"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 886,
+      "to": 892,
+      "kind": "claim",
+      "gloss_en": "The transaction shows up in the real-time report, and things calm down.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 893,
+      "to": 899,
+      "kind": "claim",
+      "gloss_en": "At night at 2 the heavy batch path begins.",
+      "terms": [
+        "batch"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 900,
+      "to": 909,
+      "kind": "claim",
+      "gloss_en": "Before 3 all the compliance files have been exported.",
+      "terms": [
+        "compliance"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 910,
+      "to": 919,
+      "kind": "claim",
+      "gloss_en": "And by 5 in the early morning all the reports have been delivered to the downstream systems.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 920,
+      "to": 924,
+      "kind": "claim",
+      "gloss_en": "Every step here is measured to the second.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 925,
+      "to": 941,
+      "kind": "claim",
+      "gloss_en": "Central Kafka for example must finish within 70 seconds to 3 minutes, and the APIs within 5 to 15 minutes at most.",
+      "terms": [
+        "Central Kafka",
+        "APIs"
+      ],
+      "numbers": [
+        "70",
+        "3",
+        "5",
+        "15"
+      ],
+      "entities": [
+        "Central Kafka"
+      ]
+    },
+    {
+      "from": 942,
+      "to": 950,
+      "kind": "transition",
+      "gloss_en": "And now the moment of truth that proves the strength of this whole architecture.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 951,
+      "to": 965,
+      "kind": "example",
+      "gloss_en": "Our same transaction number, TXN-99482, shows up lit on the executive management's dashboard screen.",
+      "terms": [
+        "dashboard"
+      ],
+      "numbers": [
+        "99482"
+      ],
+      "entities": [
+        "TXN-99482"
+      ]
+    },
+    {
+      "from": 966,
+      "to": 973,
+      "kind": "claim",
+      "gloss_en": "Not a similar transaction nor an approximate aggregate, but exactly it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 974,
+      "to": 990,
+      "kind": "claim",
+      "gloss_en": "This is the biggest proof that the data travelled from its tiny origin to the decision-making screens with utmost accuracy and transparency.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 991,
+      "to": 1007,
+      "kind": "example",
+      "gloss_en": "To confirm the business logic work in the ADS layer, we have six invoices recorded over the day.",
+      "terms": [
+        "business logic",
+        "ADS"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": [
+        "ADS"
+      ]
+    },
+    {
+      "from": 1008,
+      "to": 1020,
+      "kind": "example",
+      "gloss_en": "The simple calculation says the successful total is 400 Egyptian pounds, split fairly.",
+      "terms": [
+        "EGP"
+      ],
+      "numbers": [
+        "400"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1021,
+      "to": 1028,
+      "kind": "example",
+      "gloss_en": "The first operator gets 250 and the second operator gets 150.",
+      "terms": [
+        "operator"
+      ],
+      "numbers": [
+        "250",
+        "150"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1029,
+      "to": 1037,
+      "kind": "example",
+      "gloss_en": "The system classified the operations and by money produced a result accurate to the piaster.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1038,
+      "to": 1050,
+      "kind": "example",
+      "gloss_en": "From these invoices we derive the final statistic: four successful operations out of six.",
+      "terms": [],
+      "numbers": [
+        "4",
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1051,
+      "to": 1059,
+      "kind": "claim",
+      "gloss_en": "Meaning the overall success rate for that day's transactions is 66.67%.",
+      "terms": [],
+      "numbers": [
+        "66.67%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1060,
+      "to": 1070,
+      "kind": "recap",
+      "gloss_en": "This is the crowning exact number of the long data journey inside the arteries of streaming and Kafka.",
+      "terms": [
+        "streaming",
+        "Kafka"
+      ],
+      "numbers": [],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 1071,
+      "to": 1080,
+      "kind": "transition",
+      "gloss_en": "Before we end this explainer, we leave you with an important question to think about.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1081,
+      "to": 1097,
+      "kind": "question",
+      "gloss_en": "If we woke up one day and found a report delayed and the 5-minute freshness SLA broken.",
+      "terms": [
+        "freshness",
+        "SLA"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1098,
+      "to": 1107,
+      "kind": "question",
+      "gloss_en": "I wonder, if we go back to the four time stamps we talked about.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1108,
+      "to": 1125,
+      "kind": "question",
+      "gloss_en": "Which stamp absorbed and created this delay: is it the ingestion time or the processing time?",
+      "terms": [
+        "ingestion time",
+        "processing time"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1126,
+      "to": 1148,
+      "kind": "prediction",
+      "gloss_en": "The answer to this question is what separates pretty talk in presentations from real, professional engineering control over real time data.",
+      "terms": [
+        "presentations",
+        "real time data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1149,
+      "to": 1161,
+      "kind": "recap",
+      "gloss_en": "Thank you very much for your time; we hope this tour lit up the picture inside the world of streaming.",
+      "terms": [
+        "streaming"
+      ],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:09Z"
+}

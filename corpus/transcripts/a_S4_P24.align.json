@@ -1,0 +1,36 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P24",
+  "method": "asr+mms_fa",
+  "words": 1071,
+  "median_conf": 0.8241,
+  "chapters": [],
+  "flagged": [
+    "seg21",
+    "seg73",
+    "seg86",
+    "seg140"
+  ],
+  "boundary_overlaps": [],
+  "asr_words": 1089,
+  "asr_segments": 193,
+  "polish": {
+    "edits": 124,
+    "deletes": 22,
+    "inserts": 0,
+    "inserted_words": 0,
+    "edit_rate": 0.1341,
+    "sentences": 80,
+    "notes": []
+  },
+  "alignment": {
+    "segments_aligned": 193,
+    "segments_fallback": [],
+    "low_conf_words_lt_0.3": 48,
+    "monotonic_fixes": 1,
+    "latin_words": 152,
+    "latin_median_conf": 0.4878,
+    "seconds": 14.1
+  },
+  "created": "2026-10-08T14:12:40Z"
+}

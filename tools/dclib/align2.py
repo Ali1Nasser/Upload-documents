@@ -175,10 +175,51 @@ def forced_align_w2v(em, letters, vocab):
     return [r or None for r in res]
 
 
+def second_clips(ids, threads):
+    """S3 TTS clips: same script tokens as the MMS words, one window per clip -> data/derived/align/<clip>.w2v.words.jsonl."""
+    import numpy as np
+    import torch
+    m, vocab = model(threads)
+    for aid in ids:
+        words = C.read_jsonl(os.path.join(AL.TRANS, A.fid(aid) + ".words.jsonl"))
+        em = emissions_cached(aid, threads)
+        letters = [to_vocab(AL.spoken(w["text"]), vocab)[0] for w in words]
+        t0 = time.time()
+        try:
+            res = forced_align_w2v(torch.from_numpy(em.astype(np.float32)), letters, vocab)
+        except Exception as e:  # noqa: BLE001
+            print(f"  {aid}: FAILED {e}", flush=True)
+            res = [None] * len(words)
+        out = []
+        for w, r in zip(words, res):
+            if r is None:
+                out.append({"v": 1, "word_id": w["word_id"], "audio_id": aid, "i": w["i"], "text": w["text"], "start_ms": None, "end_ms": None, "conf": 0.0, "method": "w2v_none"})
+                continue
+            fs, fe, cf, _ = AL.word_span(r)
+            out.append({"v": 1, "word_id": w["word_id"], "audio_id": aid, "i": w["i"], "text": w["text"], "start_ms": int(round(fs * STRIDE * 1000)),
+                        "end_ms": int(round(fe * STRIDE * 1000)), "conf": round(cf, 4), "method": "w2v_fa"})
+        os.makedirs(OUT_DIR, exist_ok=True)
+        C.write_jsonl(os.path.join(OUT_DIR, A.fid(aid) + ".w2v.words.jsonl"), out)
+        print(f"  {aid}: {len(out)} words, aligned {sum(1 for o in out if o['start_ms'] is not None)} [{time.time() - t0:.1f}s]", flush=True)
+    return 0
+
+
 def cmd_second(args):
     aid = args.audio_id
+    if aid in ("all-s3", "s3") or aid.startswith("a:S3:"):
+        ids = sorted(a["audio_id"] for a in A.registry() if a["family"] == "S3") if aid in ("all-s3", "s3") else [aid]
+        if not args.inline and not Q.in_queue() and len(ids) > 1:
+            jobs = []
+            for k in range(2):
+                part = ids[k::2]
+                job = Q.submit(f"align-S3-w2v-{k + 1}of2", [sys.executable, "-I", C.p("tools", "dc.py"), "align", "second", part[0], "--inline", "--threads", str(args.threads),
+                                                              "--also"] + part[1:], mem_gb=2.5, expected_gb=0.1)
+                jobs.append(job["tsp_id"])
+            print(json.dumps(jobs))
+            return 0
+        return second_clips(ids + list(getattr(args, "also", None) or []), args.threads)
     if aid != "a:S1:ar-natural":
-        C.fail("second aligner is implemented for a:S1:ar-natural", 2)
+        C.fail("second aligner is implemented for a:S1:ar-natural and the S3 clips (all-s3 | a:S3:CH-nn_k)", 2)
     if not args.inline and not Q.in_queue():
         job = Q.submit("align-S1-w2v", [sys.executable, "-I", C.p("tools", "dc.py"), "align", "second", aid, "--inline", "--threads", str(args.threads)]
                        + (["--emissions-only"] if args.emissions_only else []), mem_gb=2.5, expected_gb=0.1)

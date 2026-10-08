@@ -1,0 +1,2085 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P02",
+  "asr_words": 907,
+  "final_words": 889,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 8,
+      "orig": "هنغوز",
+      "to": "هنغوص",
+      "why": "mishear",
+      "final": [
+        8,
+        8
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 11,
+      "orig": "المكانة",
+      "to": "المكنة",
+      "why": "mishear",
+      "final": [
+        11,
+        11
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 14,
+      "orig": "طلاصم",
+      "to": "طلاسم",
+      "why": "mishear",
+      "final": [
+        14,
+        14
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 15,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        15,
+        15
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 19,
+      "orig": "البيتس",
+      "to": "الـbits",
+      "why": "term",
+      "final": [
+        19,
+        19
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 28,
+      "orig": "ديتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        28,
+        28
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 29,
+      "orig": "بايبلاين.",
+      "to": "pipeline.",
+      "why": "term",
+      "final": [
+        29,
+        29
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 62,
+      "orig": "الهاردوير",
+      "to": "الـhardware",
+      "why": "term",
+      "final": [
+        62,
+        62
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 65,
+      "orig": "السي",
+      "to": "الـCPU",
+      "why": "term",
+      "final": [
+        65,
+        65
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 66,
+      "orig": "بيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 70,
+      "orig": "والبيتس",
+      "to": "والـbits",
+      "why": "term",
+      "final": [
+        69,
+        69
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 72,
+      "orig": "والمصارات",
+      "to": "والمسارات",
+      "why": "mishear",
+      "final": [
+        71,
+        71
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 74,
+      "orig": "التيرمينال",
+      "to": "الـterminal",
+      "why": "term",
+      "final": [
+        73,
+        73
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 75,
+      "orig": "البيبس",
+      "to": "الـpipes",
+      "why": "term",
+      "final": [
+        74,
+        74
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 80,
+      "orig": "وتجيز",
+      "to": "وتجهيز",
+      "why": "mishear",
+      "final": [
+        79,
+        79
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 87,
+      "orig": "المكانة",
+      "to": "المكنة",
+      "why": "mishear",
+      "final": [
+        86,
+        86
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 91,
+      "orig": "السي",
+      "to": "الـCPU",
+      "why": "term",
+      "final": [
+        90,
+        90
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 92,
+      "orig": "بيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 118,
+      "orig": "المجنة",
+      "to": "المكنة",
+      "why": "mishear",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 124,
+      "orig": "فتش",
+      "to": "fetch",
+      "why": "term",
+      "final": [
+        122,
+        122
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 128,
+      "orig": "دي",
+      "to": "decode",
+      "why": "term",
+      "final": [
+        126,
+        126
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 129,
+      "orig": "كود",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 133,
+      "orig": "اكسيكيوت",
+      "to": "execute",
+      "why": "term",
+      "final": [
+        130,
+        130
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 134,
+      "orig": "الانستركشن",
+      "to": "الـinstruction",
+      "why": "term",
+      "final": [
+        131,
+        131
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 135,
+      "orig": "بوينتر",
+      "to": "pointer",
+      "why": "term",
+      "final": [
+        132,
+        132
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 137,
+      "orig": "السي",
+      "to": "الـCPU",
+      "why": "term",
+      "final": [
+        134,
+        134
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 138,
+      "orig": "بيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 146,
+      "orig": "سنية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        142,
+        142
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 159,
+      "orig": "بروسس",
+      "to": "process",
+      "why": "term",
+      "final": [
+        155,
+        155
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 160,
+      "orig": "بيدرها",
+      "to": "بيديرها",
+      "why": "mishear",
+      "final": [
+        156,
+        156
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 163,
+      "orig": "والسي",
+      "to": "والـCPU",
+      "why": "term",
+      "final": [
+        159,
+        159
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 164,
+      "orig": "بيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 179,
+      "orig": "الرام",
+      "to": "الـRAM",
+      "why": "term",
+      "final": [
+        174,
+        174
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 190,
+      "orig": "نانو",
+      "to": "nanoseconds",
+      "why": "term",
+      "final": [
+        185,
+        185
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 191,
+      "orig": "ساكنز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 205,
+      "orig": "الدسك",
+      "to": "الـdisk",
+      "why": "term",
+      "final": [
+        199,
+        199
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 213,
+      "orig": "القرية",
+      "to": "القراية",
+      "why": "mishear",
+      "final": [
+        207,
+        207
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 215,
+      "orig": "بالمايكرو",
+      "to": "بالـmicroseconds",
+      "why": "term",
+      "final": [
+        209,
+        209
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 216,
+      "orig": "ساكنز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 218,
+      "orig": "المالي",
+      "to": "الـmilliseconds",
+      "why": "term",
+      "final": [
+        211,
+        211
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 219,
+      "orig": "ساكنز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 229,
+      "orig": "اللي",
+      "to": "الـlatency",
+      "why": "mishear",
+      "final": [
+        221,
+        221
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 230,
+      "orig": "تنسي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 239,
+      "orig": "بنقبل",
+      "to": "بنقابل",
+      "why": "mishear",
+      "final": [
+        230,
+        230
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 251,
+      "orig": "إنديكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        242,
+        242
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 256,
+      "orig": "أداء",
+      "to": "أداة",
+      "why": "mishear",
+      "final": [
+        247,
+        247
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 258,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        249,
+        249
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 260,
+      "orig": "كاش",
+      "to": "cache",
+      "why": "term",
+      "final": [
+        251,
+        251
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 282,
+      "orig": "للبيتس",
+      "to": "للـbits",
+      "why": "term",
+      "final": [
+        273,
+        273
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 289,
+      "orig": "كافي",
+      "to": "café",
+      "why": "term",
+      "final": [
+        280,
+        280
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 292,
+      "orig": "أربع",
+      "to": "4",
+      "why": "number",
+      "final": [
+        283,
+        283
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 298,
+      "orig": "بايت",
+      "to": "byte",
+      "why": "term",
+      "final": [
+        289,
+        289
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 319,
+      "orig": "الانكودينج",
+      "to": "الـencoding",
+      "why": "term",
+      "final": [
+        310,
+        310
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 324,
+      "orig": "UTF",
+      "to": "UTF-8",
+      "why": "term",
+      "final": [
+        315,
+        315
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 325,
+      "orig": "-8",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 327,
+      "orig": "العالي",
+      "to": "اللي عليه",
+      "why": "split",
+      "final": [
+        317,
+        318
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 330,
+      "orig": "ال",
+      "to": "الـé",
+      "why": "term",
+      "final": [
+        321,
+        321
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 331,
+      "orig": "-E",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 351,
+      "orig": "الbytes",
+      "to": "الـbytes",
+      "why": "term",
+      "final": [
+        341,
+        341
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 360,
+      "orig": "الكراش",
+      "to": "الـcrash",
+      "why": "term",
+      "final": [
+        350,
+        350
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 363,
+      "orig": "Unicode",
+      "to": "UnicodeDecodeError",
+      "why": "term",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 364,
+      "orig": "Decode",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 365,
+      "orig": "Error",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 369,
+      "orig": "بانكودينج",
+      "to": "بـencoding",
+      "why": "term",
+      "final": [
+        357,
+        357
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 376,
+      "orig": "البساطة",
+      "to": "ببساطة",
+      "why": "mishear",
+      "final": [
+        364,
+        364
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 380,
+      "orig": "البعض",
+      "to": "الـbytes",
+      "why": "mishear",
+      "final": [
+        368,
+        368
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 386,
+      "orig": "الاكستينشن",
+      "to": "الـextension",
+      "why": "term",
+      "final": [
+        374,
+        374
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 391,
+      "orig": "دماره",
+      "to": "ضمانة",
+      "why": "mishear",
+      "final": [
+        379,
+        379
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 392,
+      "orig": "أكيدا",
+      "to": "أكيدة",
+      "why": "mishear",
+      "final": [
+        380,
+        380
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 397,
+      "orig": "جوى",
+      "to": "جوه",
+      "why": "mishear",
+      "final": [
+        385,
+        385
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 402,
+      "orig": "الأبسلوت",
+      "to": "الـabsolute",
+      "why": "term",
+      "final": [
+        390,
+        390
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 403,
+      "orig": "باث",
+      "to": "path",
+      "why": "term",
+      "final": [
+        391,
+        391
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 407,
+      "orig": "الجزر",
+      "to": "الجذر",
+      "why": "mishear",
+      "final": [
+        395,
+        395
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 409,
+      "orig": "الروت",
+      "to": "الـroot",
+      "why": "term",
+      "final": [
+        397,
+        397
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 414,
+      "orig": "السلاش",
+      "to": "الـslash",
+      "why": "term",
+      "final": [
+        402,
+        402
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 416,
+      "orig": "الريلاتيف",
+      "to": "الـrelative",
+      "why": "term",
+      "final": [
+        404,
+        404
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 417,
+      "orig": "باث",
+      "to": "path",
+      "why": "term",
+      "final": [
+        405,
+        405
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 423,
+      "orig": "وقفين",
+      "to": "واقفين",
+      "why": "mishear",
+      "final": [
+        411,
+        411
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 461,
+      "orig": "المكانة",
+      "to": "المكنة",
+      "why": "mishear",
+      "final": [
+        449,
+        449
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 482,
+      "orig": "الستيت",
+      "to": "الـstate",
+      "why": "term",
+      "final": [
+        470,
+        470
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 489,
+      "orig": "بPWD",
+      "to": "بـpwd",
+      "why": "term",
+      "final": [
+        477,
+        477
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 494,
+      "orig": "بالزبط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 496,
+      "orig": "CDData",
+      "to": "cd data",
+      "why": "term",
+      "final": [
+        484,
+        485
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 504,
+      "orig": "المكانة",
+      "to": "المكنة",
+      "why": "mishear",
+      "final": [
+        493,
+        493
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 506,
+      "orig": "LS",
+      "to": "ls -la",
+      "why": "term",
+      "final": [
+        495,
+        496
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 507,
+      "orig": "-LA",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 532,
+      "orig": "الPipes",
+      "to": "الـpipes",
+      "why": "term",
+      "final": [
+        521,
+        521
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 533,
+      "orig": "والRedirection",
+      "to": "والـredirection",
+      "why": "term",
+      "final": [
+        522,
+        522
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 535,
+      "orig": "العبقارية",
+      "to": "العبقرية",
+      "why": "mishear",
+      "final": [
+        524,
+        524
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 539,
+      "orig": "يونيكس",
+      "to": "Unix",
+      "why": "term",
+      "final": [
+        528,
+        528
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 557,
+      "orig": "البايب",
+      "to": "الـpipe",
+      "why": "term",
+      "final": [
+        546,
+        546
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 569,
+      "orig": "ك",
+      "to": "كـstdout",
+      "why": "term",
+      "final": [
+        558,
+        558
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 570,
+      "orig": "-STD",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 571,
+      "orig": "-OUT",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 574,
+      "orig": "كات",
+      "to": "cat",
+      "why": "term",
+      "final": [
+        561,
+        561
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 581,
+      "orig": "ك",
+      "to": "كـstdin",
+      "why": "term",
+      "final": [
+        568,
+        568
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 582,
+      "orig": "-STD",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 583,
+      "orig": "-IN",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "جراب",
+      "to": "grep",
+      "why": "term",
+      "final": [
+        570,
+        570
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 589,
+      "orig": "الفشلة",
+      "to": "الفاشلة",
+      "why": "mishear",
+      "final": [
+        574,
+        574
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 595,
+      "orig": "لل",
+      "to": "للـwc",
+      "why": "term",
+      "final": [
+        580,
+        580
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 596,
+      "orig": "-WC",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 625,
+      "orig": "شل",
+      "to": "shell",
+      "why": "term",
+      "final": [
+        609,
+        609
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 627,
+      "orig": "منتحة",
+      "to": "منتهى",
+      "why": "mishear",
+      "final": [
+        611,
+        611
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 629,
+      "orig": "الري",
+      "to": "الـredirection",
+      "why": "term",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 630,
+      "orig": "دايركشن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 633,
+      "orig": "الأوتبوت",
+      "to": "الـoutput",
+      "why": "term",
+      "final": [
+        616,
+        616
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 644,
+      "orig": "وعلمتين",
+      "to": "وعلامتين",
+      "why": "mishear",
+      "final": [
+        627,
+        627
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 664,
+      "orig": "to",
+      "to": "2",
+      "why": "number",
+      "final": [
+        647,
+        647
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 668,
+      "orig": "def",
+      "to": "dev",
+      "why": "mishear",
+      "final": [
+        651,
+        651
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 675,
+      "orig": "الشال",
+      "to": "الـshell",
+      "why": "term",
+      "final": [
+        658,
+        658
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 681,
+      "orig": "AdPass",
+      "to": "PATH",
+      "why": "mishear",
+      "final": [
+        664,
+        664
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 693,
+      "orig": "History",
+      "to": "history",
+      "why": "term",
+      "final": [
+        676,
+        676
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 745,
+      "orig": "المصاري",
+      "to": "المسار",
+      "why": "mishear",
+      "final": [
+        728,
+        728
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 762,
+      "orig": "PWD",
+      "to": "pwd",
+      "why": "term",
+      "final": [
+        745,
+        745
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 765,
+      "orig": "وآدات",
+      "to": "وأداة",
+      "why": "mishear",
+      "final": [
+        748,
+        748
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 791,
+      "orig": "الخضاء",
+      "to": "الخطأ",
+      "why": "mishear",
+      "final": [
+        774,
+        774
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 805,
+      "orig": "نتعامك",
+      "to": "نتعمق",
+      "why": "mishear",
+      "final": [
+        788,
+        788
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 812,
+      "orig": "جهزة",
+      "to": "جاهزة",
+      "why": "mishear",
+      "final": [
+        795,
+        795
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 831,
+      "orig": "Dash",
+      "to": "--version",
+      "why": "mishear",
+      "final": [
+        814,
+        814
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 832,
+      "orig": "-Virgin",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 848,
+      "orig": "كومت",
+      "to": "commit",
+      "why": "term",
+      "final": [
+        830,
+        830
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 850,
+      "orig": "الريبوزيتوري",
+      "to": "الـrepository",
+      "why": "term",
+      "final": [
+        832,
+        832
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 875,
+      "orig": "التيرمينال",
+      "to": "الـterminal",
+      "why": "term",
+      "final": [
+        857,
+        857
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 878,
+      "orig": "ننسخة",
+      "to": "ننسخها",
+      "why": "mishear",
+      "final": [
+        860,
+        860
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 885,
+      "orig": "بتتبيني",
+      "to": "بتتبني",
+      "why": "mishear",
+      "final": [
+        867,
+        867
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 896,
+      "orig": "المكانة",
+      "to": "المكنة",
+      "why": "mishear",
+      "final": [
+        878,
+        878
+      ]
+    }
+  ],
+  "notes": "Edits: 127 word-level fixes. Technical terms now in Latin (CPU, RAM, disk, fetch/decode/execute, instruction pointer, process, nanoseconds/microseconds/milliseconds, latency, index, Spark, cache, bits/bytes, café, encoding, UTF-8, é, crash, UnicodeDecodeError, extension, absolute/relative path, root, slash, state, pwd, cd data, ls -la, pipes, redirection, Unix, stdout/stdin, cat, grep, wc, shell, output, PATH, history, --version, commit, repository, terminal). Multi-token terms are merged into the first index and later indices set to ''. Source-proven mishears: 'اللي تنسي'->'الـlatency' (on-screen latency counter), 'البعض'->'الـbytes' (file = bytes), 'العالي'->'اللي عليه' (accented letter), 'دماره أكيدا'->'ضمانة أكيدة' (not a guarantee), 'AdPass'->'PATH', 'Dash -Virgin'->'--version', 'to'->'2' and 'def'->'dev' (2>/dev/null), 'أداء'->'أداة' (tool like Spark), 'بنقبل'->'بنقابل', 'القرية'->'القراية', 'المصاري'->'المسار', 'الجزر'->'الجذر'. Whisper non-words corrected in place (المكانة/المجنة->المكنة x6, هنغوز, طلاصم, المعمرية, والمصارات, وتجيز, سنية->ثانية, بيدرها, ببساطة, جوى, وقفين, بالزبط, العبقارية, الفشلة, منتحة, وعلمتين, وآدات, الخضاء, نتعامك, جهزة, ننسخة, بتتبيني). Number: 'أربع'->'4' (café = 4 letters). Kept as spoken (Arabic in source too): الداتا/الديتا, الميموري, قواعد البيانات, التعليمة, الكمبيوتر; 'byte 1' kept in spoken order. Not changed (uncertain, flag for review): i73 'الامر' likely 'أوامر' (terminal commands); i498 'الفولدر' likely 'لفولدر'; i592 'جريف' (unclear: 'في'/'grep'?); i717 'العمل' possibly 'العطل' (source sc10 'العطل'). Fact-check flag: i143-147 says the instruction pointer steps 'every ~700 milliseconds' - not in source; likely describes the on-screen step animation, kept as said. Possible dropout: 5.16 s silence before i371 between the encoding block and the file/path block; the narration has 'القسم الثاني', 'الرابع', 'الخامس', 'السادس' but no 'القسم الثالث', so a section-3 heading was probably spoken there. Not inserted because the source_excerpt does not make the words certain; check audio. Also 3.04 s pause after i275 (section-2 title card). No inserts.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 4,
+      "kind": "transition",
+      "gloss_en": "Welcome to this explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 5,
+      "to": 29,
+      "kind": "transition",
+      "gloss_en": "Today we dive into the secrets of our machine and unravel its architecture, from the tiniest bits up to building our first data pipeline together.",
+      "terms": [
+        "bits",
+        "data pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 30,
+      "to": 48,
+      "kind": "claim",
+      "gloss_en": "This explainer is designed to remove any mystery about the computer and cover the basics all our data runs on.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 49,
+      "to": 54,
+      "kind": "transition",
+      "gloss_en": "Let's start this journey together.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 55,
+      "to": 66,
+      "kind": "transition",
+      "gloss_en": "Our journey is ordered as follows: we start with hardware basics, from the CPU to memory,",
+      "terms": [
+        "hardware",
+        "CPU"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 67,
+      "to": 81,
+      "kind": "transition",
+      "gloss_en": "then data and bits, files and paths, terminal commands, pipes, and we finish with troubleshooting and setting up the work environment.",
+      "terms": [
+        "bits",
+        "terminal",
+        "pipes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 82,
+      "to": 92,
+      "kind": "transition",
+      "gloss_en": "OK, our first stop is the machine itself, from the CPU to memory.",
+      "terms": [
+        "CPU"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 93,
+      "to": 115,
+      "kind": "claim",
+      "gloss_en": "The truth to always keep in mind is that the computer does only one thing, but does it incredibly fast and repeatedly, without stopping.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 116,
+      "to": 130,
+      "kind": "claim",
+      "gloss_en": "The machine simply fetches the instruction, then decodes it, then executes it.",
+      "terms": [
+        "fetch",
+        "decode",
+        "execute"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 131,
+      "to": 143,
+      "kind": "claim",
+      "gloss_en": "The CPU's instruction pointer moves and performs these steps roughly every 700 milliseconds.",
+      "terms": [
+        "instruction",
+        "pointer",
+        "CPU"
+      ],
+      "numbers": [
+        700
+      ],
+      "entities": []
+    },
+    {
+      "from": 144,
+      "to": 163,
+      "kind": "claim",
+      "gloss_en": "So any running program is not magic at all; it is simply a process managed by the operating system, and the CPU walks through it step by step.",
+      "terms": [
+        "process",
+        "CPU"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 164,
+      "to": 181,
+      "kind": "example",
+      "gloss_en": "If we picture in 3D the places where data lives, RAM is like a very close, fast grid.",
+      "terms": [
+        "3D",
+        "RAM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 182,
+      "to": 194,
+      "kind": "claim",
+      "gloss_en": "Reading from it takes nanoseconds, but sadly it forgets everything as soon as the program stops.",
+      "terms": [
+        "nanoseconds"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 195,
+      "to": 206,
+      "kind": "claim",
+      "gloss_en": "On the other side, the disk is like a slab a bit farther away, and much slower.",
+      "terms": [
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 207,
+      "to": 216,
+      "kind": "claim",
+      "gloss_en": "Reading from it takes microseconds or milliseconds, but it keeps the data permanently.",
+      "terms": [
+        "microseconds",
+        "milliseconds"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 217,
+      "to": 233,
+      "kind": "claim",
+      "gloss_en": "If we watch the latency counter rising with distance, we understand why we run into performance problems.",
+      "terms": [
+        "latency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 234,
+      "to": 251,
+      "kind": "claim",
+      "gloss_en": "This speed gap is why we need indexes in databases, and why a tool like Spark uses a cache.",
+      "terms": [
+        "index",
+        "Spark",
+        "cache"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 252,
+      "to": 264,
+      "kind": "claim",
+      "gloss_en": "That's why a program can fly on a small file and crash completely on a big one.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 265,
+      "to": 273,
+      "kind": "transition",
+      "gloss_en": "Section two: let's dive a little into the microscopic level of bits.",
+      "terms": [
+        "bits"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 274,
+      "to": 285,
+      "kind": "prediction",
+      "gloss_en": "And ask ourselves this prediction question: the word café has only 4 letters.",
+      "terms": [
+        "café"
+      ],
+      "numbers": [
+        4
+      ],
+      "entities": []
+    },
+    {
+      "from": 286,
+      "to": 295,
+      "kind": "prediction",
+      "gloss_en": "How many bytes do you think it takes to store? Think about it for a moment.",
+      "terms": [
+        "byte"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 296,
+      "to": 303,
+      "kind": "claim",
+      "gloss_en": "The surprise is that it's 5 bytes, not 4 at all.",
+      "terms": [
+        "bytes"
+      ],
+      "numbers": [
+        5,
+        4
+      ],
+      "entities": []
+    },
+    {
+      "from": 304,
+      "to": 312,
+      "kind": "claim",
+      "gloss_en": "This number 5 explains the idea of encoding very simply.",
+      "terms": [
+        "encoding"
+      ],
+      "numbers": [
+        5
+      ],
+      "entities": []
+    },
+    {
+      "from": 313,
+      "to": 329,
+      "kind": "claim",
+      "gloss_en": "In UTF-8, an accented letter like é needs 2 bytes to be stored, not 1 byte.",
+      "terms": [
+        "UTF-8",
+        "é",
+        "bytes",
+        "byte"
+      ],
+      "numbers": [
+        2,
+        1
+      ],
+      "entities": []
+    },
+    {
+      "from": 330,
+      "to": 341,
+      "kind": "claim",
+      "gloss_en": "In the end, every character is an agreement on a specific pattern of bytes.",
+      "terms": [
+        "bytes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 342,
+      "to": 358,
+      "kind": "claim",
+      "gloss_en": "That's exactly what makes us see scary crash messages like UnicodeDecodeError when we open files with the wrong encoding.",
+      "terms": [
+        "crash",
+        "UnicodeDecodeError",
+        "encoding"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 359,
+      "to": 371,
+      "kind": "claim",
+      "gloss_en": "The key idea here is that a file is simply a sequence of bytes given a certain name.",
+      "terms": [
+        "file",
+        "bytes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 372,
+      "to": 380,
+      "kind": "claim",
+      "gloss_en": "And the extension is just a hint, not a sure guarantee.",
+      "terms": [
+        "extension"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 381,
+      "to": 402,
+      "kind": "claim",
+      "gloss_en": "Comparing paths in the file tree, an absolute path always starts from the root, which we mark with a slash,",
+      "terms": [
+        "absolute",
+        "path",
+        "root",
+        "/"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 403,
+      "to": 413,
+      "kind": "claim",
+      "gloss_en": "whereas a relative path starts from where we are currently standing.",
+      "terms": [
+        "relative",
+        "path"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 414,
+      "to": 437,
+      "kind": "claim",
+      "gloss_en": "The secret is that almost every File Not Found message is just a disagreement about exactly where we are in the tree, not that the file was deleted.",
+      "terms": [
+        "File Not Found"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 438,
+      "to": 442,
+      "kind": "transition",
+      "gloss_en": "Section four: the terminal and basic commands.",
+      "terms": [
+        "terminal"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 443,
+      "to": 457,
+      "kind": "claim",
+      "gloss_en": "The terminal is a direct dialogue with the machine, and every command we type changes the machine's state step by step.",
+      "terms": [
+        "terminal",
+        "state"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 458,
+      "to": 475,
+      "kind": "example",
+      "gloss_en": "Picture the terminal being typed letter by letter, with the machine's state panel changing beside it at the same moment.",
+      "terms": [
+        "terminal",
+        "state"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 476,
+      "to": 482,
+      "kind": "example",
+      "gloss_en": "We start with pwd, which prints exactly where we are.",
+      "terms": [
+        "pwd"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 483,
+      "to": 493,
+      "kind": "example",
+      "gloss_en": "Then cd data moves us to a new folder, as if we were physically moving inside the machine.",
+      "terms": [
+        "cd data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 494,
+      "to": 506,
+      "kind": "example",
+      "gloss_en": "Finally, ls -la shows all the files around us, even the hidden ones, with all their details.",
+      "terms": [
+        "ls -la"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 507,
+      "to": 518,
+      "kind": "claim",
+      "gloss_en": "That's the only effective way to learn to see these commands' effect directly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 519,
+      "to": 522,
+      "kind": "transition",
+      "gloss_en": "Section five: pipes and redirection.",
+      "terms": [
+        "pipes",
+        "redirection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 523,
+      "to": 542,
+      "kind": "claim",
+      "gloss_en": "The brilliant idea that made Unix systems so powerful is that one tool's output can become the input of the next tool.",
+      "terms": [
+        "Unix",
+        "output",
+        "input"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 543,
+      "to": 555,
+      "kind": "example",
+      "gloss_en": "Picture this pipe symbol as real data pipes with information flowing smoothly through them.",
+      "terms": [
+        "pipe"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 556,
+      "to": 574,
+      "kind": "example",
+      "gloss_en": "Data comes out as stdout from the cat program and travels through this pipe to enter as stdin to grep, which filters the failed words,",
+      "terms": [
+        "stdout",
+        "cat",
+        "stdin",
+        "grep"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 575,
+      "to": 583,
+      "kind": "example",
+      "gloss_en": "then continues through another pipe to wc to count the lines.",
+      "terms": [
+        "wc"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 584,
+      "to": 599,
+      "kind": "recap",
+      "gloss_en": "We counted the problem lines without even opening the file, all in one line.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 600,
+      "to": 612,
+      "kind": "transition",
+      "gloss_en": "To control this flowing data, we have extremely important shell tools.",
+      "terms": [
+        "shell"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 613,
+      "to": 618,
+      "kind": "claim",
+      "gloss_en": "Redirection lets us control where the output goes.",
+      "terms": [
+        "redirection",
+        "output"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 619,
+      "to": 636,
+      "kind": "claim",
+      "gloss_en": "One greater-than sign overwrites the file from the start, and two greater-than signs append data to the end of the file.",
+      "terms": [
+        ">",
+        ">>"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 637,
+      "to": 653,
+      "kind": "claim",
+      "gloss_en": "And if we get errors we want to throw away to clean up the screen, we use 2>/dev/null.",
+      "terms": [
+        "2>/dev/null"
+      ],
+      "numbers": [
+        2
+      ],
+      "entities": []
+    },
+    {
+      "from": 654,
+      "to": 664,
+      "kind": "claim",
+      "gloss_en": "And of course, don't forget the shell relies on a critical variable called PATH,",
+      "terms": [
+        "shell",
+        "PATH"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 665,
+      "to": 673,
+      "kind": "claim",
+      "gloss_en": "which tells the system which folders the commands are hidden in.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 674,
+      "to": 689,
+      "kind": "claim",
+      "gloss_en": "And the history command saves us by keeping everything we typed, so there's no need to retype from scratch.",
+      "terms": [
+        "history"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 690,
+      "to": 697,
+      "kind": "transition",
+      "gloss_en": "Section six, the last: troubleshooting and preparing the work environment.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 698,
+      "to": 702,
+      "kind": "transition",
+      "gloss_en": "Now it's time for work and troubleshooting.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 703,
+      "to": 713,
+      "kind": "example",
+      "gloss_en": "We often see this classic error message and feel like the world has stopped.",
+      "terms": [
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 714,
+      "to": 730,
+      "kind": "claim",
+      "gloss_en": "But the truth is the machine isn't attacking us at all; it just shows there's a wrong assumption about our current path.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 731,
+      "to": 740,
+      "kind": "claim",
+      "gloss_en": "The file is probably there; we're just the ones looking in the wrong place.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 741,
+      "to": 751,
+      "kind": "claim",
+      "gloss_en": "This is where the pwd command comes in, as a magic fix and our first diagnostic tool.",
+      "terms": [
+        "pwd"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 752,
+      "to": 768,
+      "kind": "claim",
+      "gloss_en": "In one second this command reveals where we are and immediately shows why the previous command didn't find the file.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 769,
+      "to": 785,
+      "kind": "claim",
+      "gloss_en": "The golden rule: read the error message, check where we are and understand it, before rushing to search the internet.",
+      "terms": [
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 786,
+      "to": 796,
+      "kind": "claim",
+      "gloss_en": "And before going deeper, we must make sure our toolkit is ready and tested.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 797,
+      "to": 809,
+      "kind": "claim",
+      "gloss_en": "For tools like VS Code, Python, Git, PostgreSQL and Docker, just installing them isn't enough.",
+      "terms": [
+        "VS Code",
+        "Python",
+        "Git",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 810,
+      "to": 821,
+      "kind": "claim",
+      "gloss_en": "We must use commands like --version to make sure each tool works properly.",
+      "terms": [
+        "--version"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 822,
+      "to": 834,
+      "kind": "claim",
+      "gloss_en": "This step is essential before we push the first commit to the ShopFlow repository.",
+      "terms": [
+        "commit",
+        "repository"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 835,
+      "to": 841,
+      "kind": "transition",
+      "gloss_en": "And with that we reach the last point of this explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 842,
+      "to": 864,
+      "kind": "question",
+      "gloss_en": "Having understood these basics, can we analyze any error message we meet and understand the terminal's logic, instead of just copying it and throwing it at the internet?",
+      "terms": [
+        "error",
+        "terminal"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 865,
+      "to": 878,
+      "kind": "recap",
+      "gloss_en": "The confidence built from understanding these basics is what will truly put us in control of the machine.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 879,
+      "to": 888,
+      "kind": "recap",
+      "gloss_en": "The foundation we built today will make everything ahead much easier.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:10:50Z"
+}

@@ -1,0 +1,2307 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P11",
+  "asr_words": 1216,
+  "final_words": 1212,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 5,
+      "orig": "النهر",
+      "to": "النهارده",
+      "why": "mishear",
+      "final": [
+        5,
+        5
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 6,
+      "orig": "ده",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 15,
+      "orig": "داشبوردز",
+      "to": "dashboards",
+      "why": "term",
+      "final": [
+        14,
+        14
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 40,
+      "orig": "في",
+      "to": "فخاخ",
+      "why": "mishear",
+      "final": [
+        39,
+        39
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 41,
+      "orig": "خاخ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 45,
+      "orig": "البيضة",
+      "to": "البايظة",
+      "why": "mishear",
+      "final": [
+        43,
+        43
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 64,
+      "orig": "البايبلاينز",
+      "to": "الـpipelines",
+      "why": "term",
+      "final": [
+        62,
+        62
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 86,
+      "orig": "ليهنغطيه",
+      "to": "اللي هنغطيه",
+      "why": "split",
+      "final": [
+        84,
+        85
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 89,
+      "orig": "البيضة",
+      "to": "البايظة",
+      "why": "mishear",
+      "final": [
+        88,
+        88
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 96,
+      "orig": "الكارسة",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        95,
+        95
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 106,
+      "orig": "الإحصة",
+      "to": "الإحصاء",
+      "why": "mishear",
+      "final": [
+        105,
+        105
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 138,
+      "orig": "البيزة",
+      "to": "البايظة",
+      "why": "mishear",
+      "final": [
+        137,
+        137
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 148,
+      "orig": "بايزة",
+      "to": "بايظة",
+      "why": "mishear",
+      "final": [
+        147,
+        147
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 154,
+      "orig": "بايزة",
+      "to": "بايظة",
+      "why": "mishear",
+      "final": [
+        153,
+        153
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 165,
+      "orig": "الجريد",
+      "to": "الـgrid",
+      "why": "term",
+      "final": [
+        164,
+        164
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 180,
+      "orig": "2001",
+      "to": "1001",
+      "why": "number",
+      "final": [
+        179,
+        179
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 186,
+      "orig": "بينواروا",
+      "to": "بينوّروا",
+      "why": "mishear",
+      "final": [
+        185,
+        185
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 189,
+      "orig": "متقرب",
+      "to": "متكرر",
+      "why": "mishear",
+      "final": [
+        188,
+        188
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 191,
+      "orig": "2008",
+      "to": "1008",
+      "why": "number",
+      "final": [
+        190,
+        190
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 199,
+      "orig": "من",
+      "to": "ملخبطة",
+      "why": "merge",
+      "final": [
+        198,
+        198
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 200,
+      "orig": "لغبط",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 208,
+      "orig": "بكتوبة",
+      "to": "مكتوبة",
+      "why": "mishear",
+      "final": [
+        206,
+        206
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 224,
+      "orig": "فضية",
+      "to": "فاضية",
+      "why": "mishear",
+      "final": [
+        222,
+        222
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 238,
+      "orig": "الكوارس",
+      "to": "الكوارث",
+      "why": "mishear",
+      "final": [
+        236,
+        236
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 247,
+      "orig": "الفانل",
+      "to": "الـfunnel",
+      "why": "term",
+      "final": [
+        245,
+        245
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 249,
+      "orig": "بنعادي",
+      "to": "بنعدّي",
+      "why": "mishear",
+      "final": [
+        247,
+        247
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 259,
+      "orig": "العملة",
+      "to": "العملاء",
+      "why": "mishear",
+      "final": [
+        257,
+        257
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 261,
+      "orig": "لغبط",
+      "to": "لخبطة",
+      "why": "mishear",
+      "final": [
+        259,
+        259
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 267,
+      "orig": "التريم",
+      "to": "الـTRIM",
+      "why": "term",
+      "final": [
+        265,
+        265
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 272,
+      "orig": "الحضاشة",
+      "to": "الحداشر",
+      "why": "mishear",
+      "final": [
+        270,
+        270
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 277,
+      "orig": "دلة",
+      "to": "دالة",
+      "why": "mishear",
+      "final": [
+        275,
+        275
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 278,
+      "orig": "بروبر",
+      "to": "PROPER",
+      "why": "term",
+      "final": [
+        276,
+        276
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 287,
+      "orig": "عمل",
+      "to": "عملاء",
+      "why": "mishear",
+      "final": [
+        285,
+        285
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 288,
+      "orig": "حقيقين",
+      "to": "حقيقيين",
+      "why": "mishear",
+      "final": [
+        286,
+        286
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 310,
+      "orig": "بالكاستمر",
+      "to": "بالـcustomer",
+      "why": "term",
+      "final": [
+        308,
+        308
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 311,
+      "orig": "كي",
+      "to": "key",
+      "why": "term",
+      "final": [
+        309,
+        309
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 321,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        319,
+        319
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 338,
+      "orig": "الApplied",
+      "to": "الـApplied",
+      "why": "term",
+      "final": [
+        336,
+        336
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 344,
+      "orig": "بنوصق",
+      "to": "بنوثّق",
+      "why": "mishear",
+      "final": [
+        342,
+        342
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 363,
+      "orig": "الشغر",
+      "to": "الشغل",
+      "why": "mishear",
+      "final": [
+        361,
+        361
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 386,
+      "orig": "مقولكم",
+      "to": "ما أقولكم",
+      "why": "split",
+      "final": [
+        384,
+        385
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 391,
+      "orig": "التواقع",
+      "to": "التوقع",
+      "why": "mishear",
+      "final": [
+        390,
+        390
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 396,
+      "orig": "تخيالوا",
+      "to": "تخيلوا",
+      "why": "mishear",
+      "final": [
+        395,
+        395
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 398,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        397,
+        397
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 408,
+      "orig": "ما",
+      "to": "مكان",
+      "why": "merge",
+      "final": [
+        407,
+        407
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 409,
+      "orig": "كان",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 420,
+      "orig": "ايرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        418,
+        418
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 438,
+      "orig": "الجروب",
+      "to": "الـgroup-by",
+      "why": "term",
+      "final": [
+        436,
+        436
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 439,
+      "orig": "باي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 443,
+      "orig": "قابله",
+      "to": "قبله",
+      "why": "mishear",
+      "final": [
+        440,
+        440
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 445,
+      "orig": "نطه",
+      "to": "نط",
+      "why": "mishear",
+      "final": [
+        442,
+        442
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 449,
+      "orig": "وكارسة",
+      "to": "والكارثة",
+      "why": "mishear",
+      "final": [
+        446,
+        446
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 450,
+      "orig": "الاجبر",
+      "to": "الأكبر",
+      "why": "mishear",
+      "final": [
+        447,
+        447
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 451,
+      "orig": "البايبلاين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        448,
+        448
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 457,
+      "orig": "ايرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        454,
+        454
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 467,
+      "orig": "الفشر",
+      "to": "الفشل",
+      "why": "mishear",
+      "final": [
+        464,
+        464
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 470,
+      "orig": "واسقة",
+      "to": "واثقة",
+      "why": "mishear",
+      "final": [
+        467,
+        467
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 490,
+      "orig": "مجميع",
+      "to": "مجاميع",
+      "why": "mishear",
+      "final": [
+        487,
+        487
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 494,
+      "orig": "3948",
+      "to": "3948.5",
+      "why": "number",
+      "final": [
+        491,
+        491
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 495,
+      "orig": ".5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 500,
+      "orig": "المزبوط",
+      "to": "المظبوط",
+      "why": "mishear",
+      "final": [
+        496,
+        496
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 515,
+      "orig": "قمتين",
+      "to": "قيمتين",
+      "why": "mishear",
+      "final": [
+        511,
+        511
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 517,
+      "orig": "نال",
+      "to": "null",
+      "why": "term",
+      "final": [
+        513,
+        513
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 560,
+      "orig": "الدومين",
+      "to": "الـdomain",
+      "why": "term",
+      "final": [
+        556,
+        556
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 584,
+      "orig": "القيام",
+      "to": "القيم",
+      "why": "mishear",
+      "final": [
+        580,
+        580
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 610,
+      "orig": "نطفت",
+      "to": "نضفت",
+      "why": "mishear",
+      "final": [
+        606,
+        606
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 613,
+      "orig": "نصفها",
+      "to": "نوصفها",
+      "why": "mishear",
+      "final": [
+        609,
+        609
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 634,
+      "orig": "قمتها",
+      "to": "قيمتها",
+      "why": "mishear",
+      "final": [
+        630,
+        630
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 645,
+      "orig": "المين",
+      "to": "الـmean",
+      "why": "term",
+      "final": [
+        641,
+        641
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 656,
+      "orig": "الميديان",
+      "to": "الـmedian",
+      "why": "term",
+      "final": [
+        652,
+        652
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 661,
+      "orig": "سابت",
+      "to": "ثابت",
+      "why": "mishear",
+      "final": [
+        657,
+        657
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 683,
+      "orig": "وتبوازلك",
+      "to": "وتبوّظلك",
+      "why": "mishear",
+      "final": [
+        679,
+        679
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 687,
+      "orig": "الحقيقة",
+      "to": "لحقيقة",
+      "why": "mishear",
+      "final": [
+        683,
+        683
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 698,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        694,
+        694
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 706,
+      "orig": "تخيال",
+      "to": "تخيل",
+      "why": "mishear",
+      "final": [
+        702,
+        702
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 710,
+      "orig": "طال",
+      "to": "طلب",
+      "why": "mishear",
+      "final": [
+        706,
+        706
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 765,
+      "orig": "واسقين",
+      "to": "واثقين",
+      "why": "mishear",
+      "final": [
+        761,
+        761
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 770,
+      "orig": "واسقين",
+      "to": "واثقين",
+      "why": "mishear",
+      "final": [
+        766,
+        766
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 787,
+      "orig": "فهمة",
+      "to": "فاهمة",
+      "why": "mishear",
+      "final": [
+        783,
+        783
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 807,
+      "orig": "الحيائية",
+      "to": "الحقيقية",
+      "why": "mishear",
+      "final": [
+        803,
+        803
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 817,
+      "orig": "واسقين",
+      "to": "واثقين",
+      "why": "mishear",
+      "final": [
+        813,
+        813
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 821,
+      "orig": "بنئيس",
+      "to": "بنقيس",
+      "why": "mishear",
+      "final": [
+        817,
+        817
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 891,
+      "orig": "الداشبورد",
+      "to": "الـdashboard",
+      "why": "term",
+      "final": [
+        887,
+        887
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 898,
+      "orig": "الماجرز",
+      "to": "الـmeasures",
+      "why": "term",
+      "final": [
+        894,
+        894
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 904,
+      "orig": "سابتة",
+      "to": "ثابتة",
+      "why": "mishear",
+      "final": [
+        900,
+        900
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 925,
+      "orig": "سليسرز",
+      "to": "slicers",
+      "why": "term",
+      "final": [
+        921,
+        921
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 958,
+      "orig": "دلة",
+      "to": "دالة",
+      "why": "mishear",
+      "final": [
+        954,
+        954
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 959,
+      "orig": "أول",
+      "to": "ALL",
+      "why": "term",
+      "final": [
+        955,
+        955
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 970,
+      "orig": "فخة",
+      "to": "فخ",
+      "why": "mishear",
+      "final": [
+        966,
+        966
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 974,
+      "orig": "الداشبوردز",
+      "to": "الـdashboards",
+      "why": "term",
+      "final": [
+        970,
+        970
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 976,
+      "orig": "دوالة",
+      "to": "دوال",
+      "why": "mishear",
+      "final": [
+        972,
+        972
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 992,
+      "orig": "بتدياوه",
+      "to": "بتضيّقه",
+      "why": "mishear",
+      "final": [
+        988,
+        988
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1008,
+      "orig": "الزهبية",
+      "to": "الذهبية",
+      "why": "mishear",
+      "final": [
+        1004,
+        1004
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1048,
+      "orig": "لواحد",
+      "to": "لـ1",
+      "why": "number",
+      "final": [
+        1044,
+        1044
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1088,
+      "orig": "إراية",
+      "to": "قراية",
+      "why": "mishear",
+      "final": [
+        1084,
+        1084
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1093,
+      "orig": "تلغبط",
+      "to": "تلخبط",
+      "why": "mishear",
+      "final": [
+        1089,
+        1089
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1110,
+      "orig": "الارتفاكت",
+      "to": "الـartifact",
+      "why": "term",
+      "final": [
+        1106,
+        1106
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1113,
+      "orig": "داشبورد",
+      "to": "dashboard",
+      "why": "term",
+      "final": [
+        1109,
+        1109
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1115,
+      "orig": "المتريكس",
+      "to": "الـmetrics",
+      "why": "term",
+      "final": [
+        1111,
+        1111
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1135,
+      "orig": "اكسبيريمنت",
+      "to": "experiment",
+      "why": "term",
+      "final": [
+        1131,
+        1131
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1136,
+      "orig": "ميمو",
+      "to": "memo",
+      "why": "term",
+      "final": [
+        1132,
+        1132
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1163,
+      "orig": "البيضة",
+      "to": "البايظة",
+      "why": "mishear",
+      "final": [
+        1159,
+        1159
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1173,
+      "orig": "للميجرز",
+      "to": "للـmeasures",
+      "why": "term",
+      "final": [
+        1169,
+        1169
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1192,
+      "orig": "داشبورد",
+      "to": "dashboard",
+      "why": "term",
+      "final": [
+        1188,
+        1188
+      ]
+    }
+  ],
+  "notes": "Source excerpt is the film script, not a transcript; the audio is a looser two-host style re-explanation, so only word-level fixes were made. Fixes: Latin terms (dashboards, pipeline(s), grid, funnel, TRIM, PROPER, customer key, Applied Steps, error, group-by, null, domain, mean, median, dashboard, measures, slicers, ALL, artifact, metrics, experiment, memo); numbers (order 2001->1001, 2008->1008 per on-screen 'orders 1001-1014' and 'duplicate 1008'; '3948 .5' merged to 3948.5; '21 لواحد' -> '21 لـ1'); mishearings proven by script or context (البايظة x6 for البيضة/بيزة/بايزة, الإحصاء, فاضية, العملاء, الحداشر, واثقة/واثقين, القيم, قيمتين, الحقيقية, بنقيس, التوقع, الفشل الصامت, بتضيّقه, ثابت, الشغل, بنوثّق). Merges (token deleted with to=''): 5-6 النهارده, 40-41 فخاخ, 199-200 ملخبطة, 408-409 مكان, 438-439 الـgroup-by, 494-495 3948.5. 86 and 386 split into two words. Lower-confidence fixes from context only: 450 الاجبر->الأكبر (could be الأخطر), 445 نطه->نط, 189 متقرب->متكرر, 787 فهمة->فاهمة, 976 دوالة->دوال, 249 بنعادي->بنعدّي, 96/238 كارثة/كوارث. Left as transcribed (unclear, not provable): 197-198 كابيتل واسمول, 220 الكوميديا, 284 تصفوا, 513 'الكتابة' (script says typing), 229-233 'اسم عميل مش موجود' (script says فاضي), 1062-1065 'الـ Data', 809 'بالضبط' (script says تقريباً). Number words left as spoken (حداشر/سبعة/خمس/خمسة) with digits recorded in sentence numbers; 3948.5 and 3853.5 are spoken as 'يورو ونص'. No inserts: no whisper dropout is certain from the excerpt (the script's gold 3,098.30 + silver 850.20 reconciliation and the 6x12 encoding grid are not in this audio part).",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 5,
+      "kind": "transition",
+      "gloss_en": "Welcome to today's explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 6,
+      "to": 11,
+      "kind": "transition",
+      "gloss_en": "Let's get straight into the topic.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 12,
+      "to": 29,
+      "kind": "claim",
+      "gloss_en": "We often see great-looking dashboards whose numbers make us feel it is absolute certainty with no room for error.",
+      "terms": [
+        "dashboards"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 30,
+      "to": 47,
+      "kind": "claim",
+      "gloss_en": "But the truth behind those numbers is a long journey full of traps, from raw dirty data to wrong statistical interpretations.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 48,
+      "to": 56,
+      "kind": "transition",
+      "gloss_en": "In this analysis we will take apart the illusion of certainty piece by piece.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 57,
+      "to": 73,
+      "kind": "claim",
+      "gloss_en": "We will see how data pipelines can collapse in complete silence without anyone noticing.",
+      "terms": [
+        "pipelines"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 74,
+      "to": 79,
+      "kind": "transition",
+      "gloss_en": "Come on, so we are on the same page.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 80,
+      "to": 85,
+      "kind": "transition",
+      "gloss_en": "Let's quickly look at what we are going to cover.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 86,
+      "to": 92,
+      "kind": "transition",
+      "gloss_en": "We start with dirty data and how we record the cleaning steps.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 93,
+      "to": 101,
+      "kind": "transition",
+      "gloss_en": "Then we will see the disaster that happens if we change the order of the steps.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 102,
+      "to": 109,
+      "kind": "transition",
+      "gloss_en": "After that we enter statistics and understand the game of mean and median.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 110,
+      "to": 116,
+      "kind": "transition",
+      "gloss_en": "Then we move to confidence intervals and A/B tests.",
+      "terms": [
+        "A/B"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 117,
+      "to": 126,
+      "kind": "transition",
+      "gloss_en": "Finally we will see how filter context plays tricks on us in reports.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 127,
+      "to": 130,
+      "kind": "transition",
+      "gloss_en": "And we close with the importance of visual design.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 131,
+      "to": 139,
+      "kind": "transition",
+      "gloss_en": "Okay, let's start with the first part: dirty data and logging the steps.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 140,
+      "to": 149,
+      "kind": "claim",
+      "gloss_en": "To be realistic, real data almost always arrives dirty at the start.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 150,
+      "to": 161,
+      "kind": "claim",
+      "gloss_en": "And knowing exactly how it is dirty is a fundamental skill in itself.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 167,
+      "kind": "transition",
+      "gloss_en": "Look at this grid in front of us.",
+      "terms": [
+        "grid"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 168,
+      "to": 181,
+      "kind": "example",
+      "gloss_en": "15 rows of raw data, just as they came out of the system, from order 1001 to 1014.",
+      "terms": [],
+      "numbers": [
+        "15",
+        "1001",
+        "1014"
+      ],
+      "entities": []
+    },
+    {
+      "from": 182,
+      "to": 194,
+      "kind": "example",
+      "gloss_en": "We have 8 defects lighting up in front of us: a duplicated row in 1008 and extra spaces in the names.",
+      "terms": [],
+      "numbers": [
+        "8",
+        "1008"
+      ],
+      "entities": []
+    },
+    {
+      "from": 195,
+      "to": 208,
+      "kind": "example",
+      "gloss_en": "Mixed capital and small letters, dates recorded in different formats, and sales channels not written the same way.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 209,
+      "to": 216,
+      "kind": "example",
+      "gloss_en": "Using the comma as a decimal mark and using a space as a thousands separator.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 217,
+      "to": 226,
+      "kind": "example",
+      "gloss_en": "And of course the real comedy is an empty quantity in order 1009.",
+      "terms": [],
+      "numbers": [
+        "1009"
+      ],
+      "entities": []
+    },
+    {
+      "from": 227,
+      "to": 234,
+      "kind": "example",
+      "gloss_en": "And a customer name that is missing altogether in order 1013.",
+      "terms": [],
+      "numbers": [
+        "1013"
+      ],
+      "entities": []
+    },
+    {
+      "from": 235,
+      "to": 249,
+      "kind": "transition",
+      "gloss_en": "These are our daily disasters, and here comes the cleaning, the funnel we pass the data through.",
+      "terms": [
+        "funnel"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 250,
+      "to": 260,
+      "kind": "example",
+      "gloss_en": "We had 11 different spellings of customer names, a real mess.",
+      "terms": [],
+      "numbers": [
+        "11"
+      ],
+      "entities": []
+    },
+    {
+      "from": 261,
+      "to": 272,
+      "kind": "example",
+      "gloss_en": "But when we applied the TRIM step to remove the extra spaces, the eleven became seven.",
+      "terms": [
+        "TRIM"
+      ],
+      "numbers": [
+        "11",
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 273,
+      "to": 280,
+      "kind": "example",
+      "gloss_en": "Then we used the PROPER function to fix the letter case.",
+      "terms": [
+        "PROPER"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 281,
+      "to": 287,
+      "kind": "example",
+      "gloss_en": "The seven settled down to just five real customers.",
+      "terms": [],
+      "numbers": [
+        "7",
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 288,
+      "to": 292,
+      "kind": "question",
+      "gloss_en": "Great, right? But hold on.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 293,
+      "to": 304,
+      "kind": "claim",
+      "gloss_en": "One empty customer remains, and the cleaning functions do nothing about that.",
+      "terms": [],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 305,
+      "to": 314,
+      "kind": "claim",
+      "gloss_en": "We have to tie it to the customer key so we know who that even is.",
+      "terms": [
+        "customer",
+        "key"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 315,
+      "to": 329,
+      "kind": "claim",
+      "gloss_en": "The real philosophy for any serious pipeline is that we record the steps themselves, not just the final result.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 330,
+      "to": 345,
+      "kind": "example",
+      "gloss_en": "As you can see in the Applied Steps list on the left, we document every step we took.",
+      "terms": [
+        "applied steps"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 346,
+      "to": 366,
+      "kind": "claim",
+      "gloss_en": "So when next month's file arrives, we run the same list on it without redoing all this work from scratch.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 367,
+      "to": 375,
+      "kind": "transition",
+      "gloss_en": "Let's move on to the second part: the trap of step order and the numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 376,
+      "to": 386,
+      "kind": "transition",
+      "gloss_en": "And here we start to see the real nightmares of a data analyst, before I tell you the answer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 387,
+      "to": 394,
+      "kind": "question",
+      "gloss_en": "Let's ask this prediction question and think about it for a moment.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 395,
+      "to": 400,
+      "kind": "example",
+      "gloss_en": "Imagine we have a pipeline that is running perfectly.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 401,
+      "to": 412,
+      "kind": "prediction",
+      "gloss_en": "Just by swapping two steps with each other, do you think total sales will change?",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 413,
+      "to": 419,
+      "kind": "question",
+      "gloss_en": "And if it changed, will the system raise an error to warn us?",
+      "terms": [
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 420,
+      "to": 428,
+      "kind": "claim",
+      "gloss_en": "The truth is frightening: the original total was 3948.5 euros.",
+      "terms": [],
+      "numbers": [
+        "3948.5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 429,
+      "to": 445,
+      "kind": "example",
+      "gloss_en": "But just by letting the filter run after the group-by instead of before it, the number jumped to 4177 euros.",
+      "terms": [
+        "group-by"
+      ],
+      "numbers": [
+        "4177"
+      ],
+      "entities": []
+    },
+    {
+      "from": 446,
+      "to": 456,
+      "kind": "claim",
+      "gloss_en": "And the bigger disaster is that the pipeline is green and no error came up at all.",
+      "terms": [
+        "pipeline",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 457,
+      "to": 465,
+      "kind": "claim",
+      "gloss_en": "The system tells you I am fine, and this is what we call silent failure.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 466,
+      "to": 472,
+      "kind": "claim",
+      "gloss_en": "A very confident answer, but 100% wrong.",
+      "terms": [],
+      "numbers": [
+        "100"
+      ],
+      "entities": []
+    },
+    {
+      "from": 473,
+      "to": 483,
+      "kind": "transition",
+      "gloss_en": "To grasp the scale of the mess that can happen, look at this panel.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 484,
+      "to": 490,
+      "kind": "example",
+      "gloss_en": "It shows four different totals for the same data.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 491,
+      "to": 496,
+      "kind": "example",
+      "gloss_en": "3948.5 is the right number, with the steps in the correct order.",
+      "terms": [],
+      "numbers": [
+        "3948.5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 497,
+      "to": 501,
+      "kind": "example",
+      "gloss_en": "4177 is what we get when we delayed the filter.",
+      "terms": [],
+      "numbers": [
+        "4177"
+      ],
+      "entities": []
+    },
+    {
+      "from": 502,
+      "to": 515,
+      "kind": "example",
+      "gloss_en": "2148 happened because of a small typing mistake that silently turned two values into null.",
+      "terms": [
+        "null"
+      ],
+      "numbers": [
+        "2148",
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 516,
+      "to": 526,
+      "kind": "example",
+      "gloss_en": "And finally 3853.5, which happened when we decided to treat the empty quantity as zero.",
+      "terms": [],
+      "numbers": [
+        "3853.5",
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 527,
+      "to": 530,
+      "kind": "claim",
+      "gloss_en": "The difference here is 95 euros.",
+      "terms": [],
+      "numbers": [
+        "95"
+      ],
+      "entities": []
+    },
+    {
+      "from": 531,
+      "to": 540,
+      "kind": "claim",
+      "gloss_en": "Those 95 euros are not a technical error; they are the value of a policy decision.",
+      "terms": [],
+      "numbers": [
+        "95"
+      ],
+      "entities": []
+    },
+    {
+      "from": 541,
+      "to": 547,
+      "kind": "claim",
+      "gloss_en": "It determines how we deal with empty data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 548,
+      "to": 554,
+      "kind": "transition",
+      "gloss_en": "And keep in mind that formatting does not solve everything.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 555,
+      "to": 572,
+      "kind": "example",
+      "gloss_en": "Domain problems remain, for example order 1007 points to customer number 9, who does not exist in the data at all.",
+      "terms": [
+        "domain"
+      ],
+      "numbers": [
+        "1007",
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 573,
+      "to": 583,
+      "kind": "example",
+      "gloss_en": "And order 1010 has the status refunded, which is outside the allowed values in the system.",
+      "terms": [
+        "refunded"
+      ],
+      "numbers": [
+        "1010"
+      ],
+      "entities": []
+    },
+    {
+      "from": 584,
+      "to": 595,
+      "kind": "claim",
+      "gloss_en": "This cannot be solved by simple formatting; it needs a strict quality gate that stops it.",
+      "terms": [
+        "quality",
+        "gate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 596,
+      "to": 603,
+      "kind": "transition",
+      "gloss_en": "Okay, let's go to the third section: statistics, mean, median and samples.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 604,
+      "to": 616,
+      "kind": "question",
+      "gloss_en": "Now that the data is clean, how do we describe it properly without fooling ourselves?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 617,
+      "to": 626,
+      "kind": "transition",
+      "gloss_en": "Look at the scene in front of us; the idea explains itself, literally.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 627,
+      "to": 637,
+      "kind": "example",
+      "gloss_en": "Imagine a shopping basket whose value was suddenly pulled from 90 euros to 600 euros.",
+      "terms": [],
+      "numbers": [
+        "90",
+        "600"
+      ],
+      "entities": []
+    },
+    {
+      "from": 638,
+      "to": 648,
+      "kind": "example",
+      "gloss_en": "On the left, the mean, or average, runs after it quickly and rises with it.",
+      "terms": [
+        "mean"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 649,
+      "to": 659,
+      "kind": "example",
+      "gloss_en": "But on the right, the median stopped in place, stable, and did not move.",
+      "terms": [
+        "median"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 660,
+      "to": 670,
+      "kind": "claim",
+      "gloss_en": "This proves that relying on a single number is a dangerous idea.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 671,
+      "to": 680,
+      "kind": "claim",
+      "gloss_en": "Because one spike can drag the whole average along with it and wreck your analysis.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 681,
+      "to": 688,
+      "kind": "transition",
+      "gloss_en": "And this takes us to a very important truth in practical work.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 689,
+      "to": 697,
+      "kind": "claim",
+      "gloss_en": "We never measure all the data in the population.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 698,
+      "to": 701,
+      "kind": "claim",
+      "gloss_en": "We always take samples.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 702,
+      "to": 706,
+      "kind": "example",
+      "gloss_en": "Imagine a population of 5000 orders.",
+      "terms": [],
+      "numbers": [
+        "5000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 707,
+      "to": 719,
+      "kind": "example",
+      "gloss_en": "If we keep taking repeated samples and recording the average of each sample, this distribution gets drawn in front of us.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 720,
+      "to": 730,
+      "kind": "claim",
+      "gloss_en": "This distribution is the secret that lets us use statistics at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 731,
+      "to": 744,
+      "kind": "claim",
+      "gloss_en": "And it is the same reason confirming that the average of one sample can never express the absolute truth.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 745,
+      "to": 762,
+      "kind": "transition",
+      "gloss_en": "From here we enter the fourth section: confidence intervals and A/B tests, how to test our claims and be truly confident.",
+      "terms": [
+        "A/B"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 763,
+      "to": 778,
+      "kind": "claim",
+      "gloss_en": "When we say we are 95% confident, that does not mean the number is inside the range with 95% probability.",
+      "terms": [],
+      "numbers": [
+        "95"
+      ],
+      "entities": []
+    },
+    {
+      "from": 779,
+      "to": 790,
+      "kind": "claim",
+      "gloss_en": "As many people understand it; the idea is that it is confidence in the process itself.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 791,
+      "to": 805,
+      "kind": "example",
+      "gloss_en": "If we made 100 intervals and looked at the counter, we would find exactly 95 of them covered the true value and hit the target.",
+      "terms": [
+        "interval"
+      ],
+      "numbers": [
+        "100",
+        "95"
+      ],
+      "entities": []
+    },
+    {
+      "from": 806,
+      "to": 811,
+      "kind": "example",
+      "gloss_en": "And the five that missed will light up red, clearly.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 812,
+      "to": 822,
+      "kind": "claim",
+      "gloss_en": "We are confident in the method we measure with, not in one specific number.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 823,
+      "to": 829,
+      "kind": "transition",
+      "gloss_en": "And to test properly we do A/B tests.",
+      "terms": [
+        "A/B"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 830,
+      "to": 844,
+      "kind": "claim",
+      "gloss_en": "But the key here is that there are conditions that must be locked before we start the experiment, not after.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 845,
+      "to": 861,
+      "kind": "claim",
+      "gloss_en": "We must set the effect size worth caring about, set the power of the test at 80%, and compute the required sample size per group.",
+      "terms": [],
+      "numbers": [
+        "80"
+      ],
+      "entities": []
+    },
+    {
+      "from": 862,
+      "to": 879,
+      "kind": "claim",
+      "gloss_en": "If you set these things after looking at the data, you are fooling yourself and convincing yourself of results with no basis.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 880,
+      "to": 887,
+      "kind": "transition",
+      "gloss_en": "Now to the fifth section: filter context and dashboard reports.",
+      "terms": [
+        "dashboard"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 888,
+      "to": 893,
+      "kind": "question",
+      "gloss_en": "The numbers are ready, so how will they show up in the reports?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 894,
+      "to": 905,
+      "kind": "claim",
+      "gloss_en": "The measures we build are not just fixed columns; they are functions that change with the filter.",
+      "terms": [
+        "measures"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 906,
+      "to": 922,
+      "kind": "example",
+      "gloss_en": "The table in front of us shows how the same formula yields 3 different values under 3 different filters or slicers.",
+      "terms": [
+        "slicer"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 923,
+      "to": 937,
+      "kind": "claim",
+      "gloss_en": "And here we fall into a very famous trap called the 100 percent trap, when we divide by the total.",
+      "terms": [],
+      "numbers": [
+        "100"
+      ],
+      "entities": []
+    },
+    {
+      "from": 938,
+      "to": 950,
+      "kind": "example",
+      "gloss_en": "The ratio comes out 100 percent in every cell because the denominator gets filtered along with the numerator.",
+      "terms": [],
+      "numbers": [
+        "100"
+      ],
+      "entities": []
+    },
+    {
+      "from": 951,
+      "to": 965,
+      "kind": "claim",
+      "gloss_en": "The fix? We must use the ALL function to force the denominator to ignore the filter, and the ratio returns to normal and sensible.",
+      "terms": [
+        "ALL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 966,
+      "to": 982,
+      "kind": "claim",
+      "gloss_en": "Another dangerous trap in dashboards is the Time Intelligence functions, when we use something like Same Period Last Year.",
+      "terms": [
+        "dashboards",
+        "time",
+        "intelligence",
+        "same-period-last-year"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 983,
+      "to": 988,
+      "kind": "claim",
+      "gloss_en": "It actually replaces the filter; it does not narrow it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 989,
+      "to": 1000,
+      "kind": "claim",
+      "gloss_en": "If we do not calculate this correctly, we will find ourselves comparing a period with itself, in silence.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1001,
+      "to": 1014,
+      "kind": "claim",
+      "gloss_en": "That is why the golden rule we must follow is one clear definition for every KPI.",
+      "terms": [
+        "KPI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1015,
+      "to": 1021,
+      "kind": "claim",
+      "gloss_en": "Written once and used everywhere.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1022,
+      "to": 1029,
+      "kind": "transition",
+      "gloss_en": "Finally we have reached the sixth section: visual design and the final result.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1030,
+      "to": 1038,
+      "kind": "question",
+      "gloss_en": "How do we present all this effort in a way that does not mislead people?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1039,
+      "to": 1048,
+      "kind": "example",
+      "gloss_en": "Look at this number, 21 to 1; this is the ideal contrast ratio.",
+      "terms": [],
+      "numbers": [
+        "21",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1049,
+      "to": 1057,
+      "kind": "example",
+      "gloss_en": "According to the WCAG standards, for black text on a white background.",
+      "terms": [
+        "WCAG"
+      ],
+      "numbers": [],
+      "entities": [
+        "WCAG"
+      ]
+    },
+    {
+      "from": 1058,
+      "to": 1067,
+      "kind": "claim",
+      "gloss_en": "Design in data is not just cheerful colors; design is mathematics.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1068,
+      "to": 1081,
+      "kind": "example",
+      "gloss_en": "Company colors used in dashboards often have a contrast below 3 to 1.",
+      "terms": [
+        "dashboards"
+      ],
+      "numbers": [
+        "3",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1082,
+      "to": 1090,
+      "kind": "claim",
+      "gloss_en": "That makes reading the numbers hard and can easily confuse and mislead.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1091,
+      "to": 1094,
+      "kind": "claim",
+      "gloss_en": "We must compute contrast with equations.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1095,
+      "to": 1112,
+      "kind": "claim",
+      "gloss_en": "The final result of any serious data work is not just a nice-looking chart; the right artifact is a dashboard that ties metrics to their causes.",
+      "terms": [
+        "artifact",
+        "dashboard",
+        "metric"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1113,
+      "to": 1126,
+      "kind": "example",
+      "gloss_en": "So if the success rate dropped, I can see at that same moment which step caused the drop.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1127,
+      "to": 1147,
+      "kind": "claim",
+      "gloss_en": "And it must come with an experiment memo, a document with the core question, metric definitions, source, assumptions, uncertainty and the final decision; that is the complete work.",
+      "terms": [
+        "experiment",
+        "memo"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1148,
+      "to": 1156,
+      "kind": "recap",
+      "gloss_en": "And in the end, after we have walked this whole journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1157,
+      "to": 1172,
+      "kind": "recap",
+      "gloss_en": "From dirty data to the step-order trap, from the average running after the numbers to measures whose context changes.",
+      "terms": [
+        "measure"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1173,
+      "to": 1183,
+      "kind": "question",
+      "gloss_en": "The real question we must ask ourselves every time we open the data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1184,
+      "to": 1192,
+      "kind": "question",
+      "gloss_en": "Are we just building a dashboard to please the managers?",
+      "terms": [
+        "dashboard"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1193,
+      "to": 1203,
+      "kind": "question",
+      "gloss_en": "Or are we building a documented truth that we can truly rely on in Egyptian decisions?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1204,
+      "to": 1211,
+      "kind": "transition",
+      "gloss_en": "Think about it, thank you, and see you in our next analysis.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:35Z"
+}

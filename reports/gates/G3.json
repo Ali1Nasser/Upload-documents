@@ -1,0 +1,72 @@
+{
+  "gate": "G3",
+  "pass": true,
+  "checks": [
+    {
+      "name": "audio_profiled",
+      "pass": true,
+      "detail": "71 audio assets (expect 71), unprofiled none"
+    },
+    {
+      "name": "asr_calibration",
+      "pass": true,
+      "detail": "reports/asr/calibration.md present, model chosen: turbo"
+    },
+    {
+      "name": "scripted_median_conf",
+      "pass": true,
+      "detail": "S1 0.826 (6644 words), S3 0.869 (7126 words, 41 clips; clips < 0.70: none), S5 0.997 (8643 words); threshold 0.8"
+    },
+    {
+      "name": "s2_aligned",
+      "pass": true,
+      "detail": "S2 6644 words, median conf 0.806 (threshold 0.75; sentences optional)"
+    },
+    {
+      "name": "s4_transcribed_polished_aligned",
+      "pass": true,
+      "detail": "27/27 parts, 30460 words, median conf 0.835 (min part 0.778; parts < 0.75: none), missing asr/polish logs none"
+    },
+    {
+      "name": "polish_edits_logged",
+      "pass": true,
+      "detail": "3895 replace/delete + 5 insert edits logged with original token indices in corpus/transcripts/a_S4_*.polish.json; malformed entries none"
+    },
+    {
+      "name": "two_aligner_agreement",
+      "pass": true,
+      "detail": "MMS vs wav2vec2-xlsr53-arabic within 120 ms (threshold 95 %): S1 97.9 % of 6644 words, S3 98.1 % of 7126 words in 41 clips; S5 (English) has no second aligner: it is checked against the 637 cues instead"
+    },
+    {
+      "name": "s1_inside_chapter_windows",
+      "pass": true,
+      "detail": "37/37 chapters, 0 words outside, overlaps []"
+    },
+    {
+      "name": "s1_inside_cue_windows",
+      "pass": true,
+      "detail": "96.1 % of S1 speech inside 637 cue windows +-500 ms (threshold 90 %)"
+    },
+    {
+      "name": "s5_onsets_vs_cues",
+      "pass": true,
+      "detail": "median abs 160 ms over 637 of 637 cues (threshold 300 ms)"
+    },
+    {
+      "name": "s3_vs_srt",
+      "pass": true,
+      "detail": "37 chapters, tokens matched 100.0 %, envelope max 564 ms, cue-start deviation median 715 ms (SRT interior timing is an estimate; MMS 66 ms vs SRT 449 ms from the nearest speech onset)"
+    },
+    {
+      "name": "sentences_and_emphasis",
+      "pass": true,
+      "detail": "S1 + S4: 3126 sentences in 28 audio files (S1 562), impact words on 3120 of them; problems none"
+    },
+    {
+      "name": "schemas_and_word_ids",
+      "pass": true,
+      "detail": "198 files validated; schema errors none; files with non-sequential or duplicate word ids none"
+    }
+  ],
+  "created": "2026-10-08T14:31:00Z"
+}

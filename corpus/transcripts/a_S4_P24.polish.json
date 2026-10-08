@@ -1,0 +1,2480 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P24",
+  "asr_words": 1089,
+  "final_words": 1071,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 22,
+      "orig": "أنظام",
+      "to": "نظام",
+      "why": "mishear",
+      "final": [
+        22,
+        22
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 26,
+      "orig": "البروداكشن",
+      "to": "الproduction",
+      "why": "term",
+      "final": [
+        26,
+        26
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 69,
+      "orig": "شرحينا",
+      "to": "شرحنا",
+      "why": "mishear",
+      "final": [
+        69,
+        69
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 72,
+      "orig": "هنننسف",
+      "to": "هننسف",
+      "why": "mishear",
+      "final": [
+        72,
+        72
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 101,
+      "orig": "الباكيجينج",
+      "to": "الpackaging",
+      "why": "term",
+      "final": [
+        101,
+        101
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 113,
+      "orig": "المرأبة",
+      "to": "المراقبة",
+      "why": "mishear",
+      "final": [
+        113,
+        113
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 116,
+      "orig": "والحوادس",
+      "to": "والحوادث",
+      "why": "mishear",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 149,
+      "orig": "الكنتينر",
+      "to": "الcontainer",
+      "why": "term",
+      "final": [
+        149,
+        149
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 167,
+      "orig": "الإيمج",
+      "to": "الimage",
+      "why": "term",
+      "final": [
+        167,
+        167
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 169,
+      "orig": "الآلب",
+      "to": "القالب",
+      "why": "mishear",
+      "final": [
+        169,
+        169
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 173,
+      "orig": "والكنتينر",
+      "to": "والcontainer",
+      "why": "term",
+      "final": [
+        173,
+        173
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 180,
+      "orig": "الآلب",
+      "to": "القالب",
+      "why": "mishear",
+      "final": [
+        180,
+        180
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 189,
+      "orig": "الديتا",
+      "to": "الdata",
+      "why": "term",
+      "final": [
+        189,
+        189
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 195,
+      "orig": "الكنتينر",
+      "to": "الcontainer",
+      "why": "term",
+      "final": [
+        195,
+        195
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 210,
+      "orig": "توب",
+      "to": "طوب",
+      "why": "mishear",
+      "final": [
+        210,
+        210
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 216,
+      "orig": "الدوكر",
+      "to": "الDockerfile",
+      "why": "term",
+      "final": [
+        216,
+        216
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 217,
+      "orig": "فايل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 230,
+      "orig": "copy",
+      "to": "COPY",
+      "why": "term",
+      "final": [
+        229,
+        229
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 231,
+      "orig": ".dot",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 248,
+      "orig": "البلد",
+      "to": "الbuild",
+      "why": "term",
+      "final": [
+        246,
+        246
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 254,
+      "orig": "خمس",
+      "to": "5",
+      "why": "number",
+      "final": [
+        252,
+        252
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 258,
+      "orig": "سنية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        256,
+        256
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 260,
+      "orig": "العدات",
+      "to": "العداد",
+      "why": "mishear",
+      "final": [
+        258,
+        258
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 268,
+      "orig": "الدوكر",
+      "to": "الDockerfile",
+      "why": "term",
+      "final": [
+        266,
+        266
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 269,
+      "orig": "فايل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 277,
+      "orig": "البايبلين",
+      "to": "الpipeline",
+      "why": "term",
+      "final": [
+        274,
+        274
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 282,
+      "orig": "واللييرز",
+      "to": "والlayers",
+      "why": "term",
+      "final": [
+        279,
+        279
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 284,
+      "orig": "كاش",
+      "to": "cache",
+      "why": "term",
+      "final": [
+        281,
+        281
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 289,
+      "orig": "خمس",
+      "to": "5",
+      "why": "number",
+      "final": [
+        286,
+        286
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 323,
+      "orig": "دوكر",
+      "to": "docker compose up",
+      "why": "term",
+      "final": [
+        320,
+        322
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 324,
+      "orig": "كومبوز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 325,
+      "orig": "أب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 336,
+      "orig": "شوب",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        333,
+        333
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 337,
+      "orig": "فلو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 349,
+      "orig": "3",
+      "to": "3306",
+      "why": "number",
+      "final": [
+        345,
+        345
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 350,
+      "orig": ".306",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 351,
+      "orig": "وبوستغرس",
+      "to": "وPostgres",
+      "why": "term",
+      "final": [
+        346,
+        346
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 353,
+      "orig": "5",
+      "to": "5432",
+      "why": "number",
+      "final": [
+        348,
+        348
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 354,
+      "orig": ".4",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 355,
+      "orig": ".8",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 360,
+      "orig": "80",
+      "to": "8080",
+      "why": "number",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 361,
+      "orig": ".80",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 362,
+      "orig": "وبايتون",
+      "to": "وPython",
+      "why": "term",
+      "final": [
+        354,
+        354
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 365,
+      "orig": "8",
+      "to": "8000",
+      "why": "number",
+      "final": [
+        357,
+        357
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 366,
+      "orig": ".000",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 367,
+      "orig": "وجافا",
+      "to": "وJava",
+      "why": "term",
+      "final": [
+        358,
+        358
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 368,
+      "orig": "باك",
+      "to": "backend",
+      "why": "term",
+      "final": [
+        359,
+        359
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 369,
+      "orig": "أند",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 429,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        419,
+        419
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 437,
+      "orig": "التست",
+      "to": "الtest",
+      "why": "term",
+      "final": [
+        427,
+        427
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 455,
+      "orig": "تست",
+      "to": "test",
+      "why": "term",
+      "final": [
+        445,
+        445
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 460,
+      "orig": "بالضبع",
+      "to": "بالضبة",
+      "why": "mishear",
+      "final": [
+        450,
+        450
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 467,
+      "orig": "البايبلاين",
+      "to": "الpipeline",
+      "why": "term",
+      "final": [
+        457,
+        457
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 492,
+      "orig": "الانتجريشن",
+      "to": "الintegration",
+      "why": "term",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 493,
+      "orig": "تيست",
+      "to": "test",
+      "why": "term",
+      "final": [
+        483,
+        483
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 494,
+      "orig": "والأكسبتنس",
+      "to": "والacceptance",
+      "why": "term",
+      "final": [
+        484,
+        484
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 495,
+      "orig": "تيست",
+      "to": "test",
+      "why": "term",
+      "final": [
+        485,
+        485
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 500,
+      "orig": "ديتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        490,
+        490
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 510,
+      "orig": "للبي",
+      "to": "للP95",
+      "why": "term",
+      "final": [
+        500,
+        500
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 511,
+      "orig": "خمسة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 512,
+      "orig": "وتسعين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 517,
+      "orig": "الخمسمائة",
+      "to": "الـ500",
+      "why": "number",
+      "final": [
+        505,
+        505
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 518,
+      "orig": "ملي",
+      "to": "ms",
+      "why": "term",
+      "final": [
+        506,
+        506
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 519,
+      "orig": "سكند",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 522,
+      "orig": "ستمية",
+      "to": "675",
+      "why": "number",
+      "final": [
+        509,
+        509
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 523,
+      "orig": "خمسة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 524,
+      "orig": "وسبعين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 525,
+      "orig": "ملي",
+      "to": "ms",
+      "why": "term",
+      "final": [
+        510,
+        510
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 526,
+      "orig": "سكند",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 532,
+      "orig": "عدد",
+      "to": "عدّت",
+      "why": "mishear",
+      "final": [
+        516,
+        516
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 536,
+      "orig": "الديبلايمنت",
+      "to": "الdeployment",
+      "why": "term",
+      "final": [
+        520,
+        520
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 554,
+      "orig": "الهيلث",
+      "to": "الhealth",
+      "why": "term",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 555,
+      "orig": "تشك",
+      "to": "check",
+      "why": "term",
+      "final": [
+        539,
+        539
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 560,
+      "orig": "رولباك",
+      "to": "rollback",
+      "why": "term",
+      "final": [
+        544,
+        544
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 565,
+      "orig": "السنية",
+      "to": "الثانية",
+      "why": "mishear",
+      "final": [
+        549,
+        549
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 568,
+      "orig": "الديبلايمنت",
+      "to": "الdeployment",
+      "why": "term",
+      "final": [
+        552,
+        552
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 572,
+      "orig": "الهيلث",
+      "to": "الhealth",
+      "why": "term",
+      "final": [
+        556,
+        556
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "تشك",
+      "to": "check",
+      "why": "term",
+      "final": [
+        557,
+        557
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 589,
+      "orig": "الكلاود؟",
+      "to": "الcloud؟",
+      "why": "term",
+      "final": [
+        573,
+        573
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 600,
+      "orig": "الزهبية",
+      "to": "الذهبية",
+      "why": "mishear",
+      "final": [
+        584,
+        584
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 629,
+      "orig": "ألعاو",
+      "to": "allow",
+      "why": "term",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 656,
+      "orig": "الكلاود",
+      "to": "الcloud",
+      "why": "term",
+      "final": [
+        640,
+        640
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 664,
+      "orig": "بوليسي",
+      "to": "policy",
+      "why": "term",
+      "final": [
+        648,
+        648
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 669,
+      "orig": "بوايلد",
+      "to": "wildcard",
+      "why": "term",
+      "final": [
+        653,
+        653
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 670,
+      "orig": "كارد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 673,
+      "orig": "جمل",
+      "to": "جملة",
+      "why": "mishear",
+      "final": [
+        656,
+        656
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 674,
+      "orig": "الديناي",
+      "to": "الdeny",
+      "why": "term",
+      "final": [
+        657,
+        657
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 681,
+      "orig": "الديناي",
+      "to": "الdeny",
+      "why": "term",
+      "final": [
+        664,
+        664
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 699,
+      "orig": "بنرائب",
+      "to": "بنراقب",
+      "why": "mishear",
+      "final": [
+        682,
+        682
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 709,
+      "orig": "نرائب",
+      "to": "نراقب",
+      "why": "mishear",
+      "final": [
+        692,
+        692
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 717,
+      "orig": "اللوجز",
+      "to": "الlogs",
+      "why": "term",
+      "final": [
+        700,
+        700
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 723,
+      "orig": "الماتريكس",
+      "to": "الmetrics",
+      "why": "term",
+      "final": [
+        706,
+        706
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 730,
+      "orig": "والتريسيس",
+      "to": "والtraces",
+      "why": "term",
+      "final": [
+        713,
+        713
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 734,
+      "orig": "ضعفين",
+      "to": "ضاع فين",
+      "why": "mishear",
+      "final": [
+        717,
+        718
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 739,
+      "orig": "بروميثيس",
+      "to": "Prometheus",
+      "why": "term",
+      "final": [
+        723,
+        723
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 740,
+      "orig": "وجرافانا",
+      "to": "وGrafana",
+      "why": "term",
+      "final": [
+        724,
+        724
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "الكوريليشن",
+      "to": "الcorrelation",
+      "why": "term",
+      "final": [
+        739,
+        739
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 756,
+      "orig": "آي",
+      "to": "id",
+      "why": "term",
+      "final": [
+        740,
+        740
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 757,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 765,
+      "orig": "ديجيتل",
+      "to": "digital",
+      "why": "term",
+      "final": [
+        748,
+        748
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 766,
+      "orig": "توين",
+      "to": "twin",
+      "why": "term",
+      "final": [
+        749,
+        749
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 769,
+      "orig": "حملة",
+      "to": "حمل",
+      "why": "mishear",
+      "final": [
+        752,
+        752
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 785,
+      "orig": "ميلي",
+      "to": "ms",
+      "why": "term",
+      "final": [
+        768,
+        768
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 786,
+      "orig": "سكند",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 789,
+      "orig": "شدين",
+      "to": "شدينا",
+      "why": "mishear",
+      "final": [
+        771,
+        771
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 792,
+      "orig": "20",
+      "to": "200",
+      "why": "number",
+      "final": [
+        774,
+        774
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 797,
+      "orig": "طبور",
+      "to": "طابور",
+      "why": "mishear",
+      "final": [
+        779,
+        779
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 804,
+      "orig": "المسير",
+      "to": "المثير",
+      "why": "mishear",
+      "final": [
+        786,
+        786
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 841,
+      "orig": "باك",
+      "to": "bug",
+      "why": "term",
+      "final": [
+        823,
+        823
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 849,
+      "orig": "منتعة",
+      "to": "منتهى",
+      "why": "mishear",
+      "final": [
+        831,
+        831
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 854,
+      "orig": "بج",
+      "to": "bug",
+      "why": "term",
+      "final": [
+        836,
+        836
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 855,
+      "orig": "اللاتنسي",
+      "to": "الlatency",
+      "why": "term",
+      "final": [
+        837,
+        837
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 860,
+      "orig": "إيرو",
+      "to": "error",
+      "why": "term",
+      "final": [
+        842,
+        842
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 861,
+      "orig": "الريت",
+      "to": "rate",
+      "why": "term",
+      "final": [
+        843,
+        843
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 866,
+      "orig": "لريسورس",
+      "to": "لresource",
+      "why": "term",
+      "final": [
+        848,
+        848
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 867,
+      "orig": "ساتوريشن",
+      "to": "saturation",
+      "why": "term",
+      "final": [
+        849,
+        849
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 875,
+      "orig": "الكونيكشن",
+      "to": "الconnection",
+      "why": "term",
+      "final": [
+        857,
+        857
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 876,
+      "orig": "بول",
+      "to": "pool",
+      "why": "term",
+      "final": [
+        858,
+        858
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 892,
+      "orig": "بيبوز",
+      "to": "بيبوظ",
+      "why": "mishear",
+      "final": [
+        874,
+        874
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 903,
+      "orig": "ريزولوشن",
+      "to": "Resolution",
+      "why": "term",
+      "final": [
+        885,
+        885
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 904,
+      "orig": "أنسكيل",
+      "to": "and Scale",
+      "why": "term",
+      "final": [
+        886,
+        887
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 911,
+      "orig": "جزرها",
+      "to": "جذورها",
+      "why": "mishear",
+      "final": [
+        894,
+        894
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 923,
+      "orig": "البروداكشن",
+      "to": "الproduction",
+      "why": "term",
+      "final": [
+        906,
+        906
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 929,
+      "orig": "ريستارت",
+      "to": "restart",
+      "why": "term",
+      "final": [
+        912,
+        912
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 930,
+      "orig": "للسيرفر",
+      "to": "للserver",
+      "why": "term",
+      "final": [
+        913,
+        913
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 935,
+      "orig": "الريستارت",
+      "to": "الrestart",
+      "why": "term",
+      "final": [
+        918,
+        918
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 937,
+      "orig": "مجتوب",
+      "to": "مشطوب",
+      "why": "mishear",
+      "final": [
+        920,
+        920
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 956,
+      "orig": "الروت",
+      "to": "الroot",
+      "why": "term",
+      "final": [
+        939,
+        939
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 957,
+      "orig": "كوز",
+      "to": "cause",
+      "why": "term",
+      "final": [
+        940,
+        940
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 959,
+      "orig": "الفكس",
+      "to": "الfix",
+      "why": "term",
+      "final": [
+        942,
+        942
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 962,
+      "orig": "بريجراشن",
+      "to": "بregression",
+      "why": "term",
+      "final": [
+        945,
+        945
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 963,
+      "orig": "تشاك",
+      "to": "check",
+      "why": "term",
+      "final": [
+        946,
+        946
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 976,
+      "orig": "الرون",
+      "to": "الrunbook",
+      "why": "term",
+      "final": [
+        959,
+        959
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 977,
+      "orig": "بوك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 986,
+      "orig": "للبروداكشن",
+      "to": "للproduction",
+      "why": "term",
+      "final": [
+        968,
+        968
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 991,
+      "orig": "عشر",
+      "to": "10",
+      "why": "number",
+      "final": [
+        973,
+        973
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1002,
+      "orig": "SLA's",
+      "to": "SLAs",
+      "why": "term",
+      "final": [
+        984,
+        984
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1003,
+      "orig": "وCICD",
+      "to": "وCI/CD",
+      "why": "term",
+      "final": [
+        985,
+        985
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1004,
+      "orig": "وباكابس",
+      "to": "وbackups",
+      "why": "term",
+      "final": [
+        986,
+        986
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1007,
+      "orig": "وريت",
+      "to": "وrate",
+      "why": "term",
+      "final": [
+        989,
+        989
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1008,
+      "orig": "ليميتينج",
+      "to": "limiting",
+      "why": "term",
+      "final": [
+        990,
+        990
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1019,
+      "orig": "باركي",
+      "to": "Parquet",
+      "why": "term",
+      "final": [
+        1001,
+        1001
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1024,
+      "orig": "الكاشنج",
+      "to": "الcaching",
+      "why": "term",
+      "final": [
+        1006,
+        1006
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1044,
+      "orig": "لوكل؟",
+      "to": "local؟",
+      "why": "term",
+      "final": [
+        1026,
+        1026
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1048,
+      "orig": "مارين",
+      "to": "مرن",
+      "why": "mishear",
+      "final": [
+        1030,
+        1030
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1053,
+      "orig": "البروداكشن",
+      "to": "الproduction",
+      "why": "term",
+      "final": [
+        1035,
+        1035
+      ]
+    }
+  ],
+  "notes": "Edits: Arabic-script English terms moved to Latin (container, image, Dockerfile, pipeline, layers, cache, health check, rollback, deployment, logs/metrics/traces, Prometheus/Grafana, correlation id, digital twin, regression check, runbook, Parquet, caching, Python/Java/backend/Postgres, ShopFlow, docker compose up, policy/wildcard/deny/allow, resource saturation, connection pool, etc.); ports repaired from whisper fragments (3 .306 -> 3306, 5 .4 .8 -> 5432, 80 .80 -> 8080, 8 .000 -> 8000; proven by sc03 on-screen); '20 طلب' -> 200 (sc08 says 200 req/s); P95 and ms spoken as words converted to P95 / 500 / 675 / ms; 'خمس ثواني' -> 5 (sc02). Mishearings fixed with source or idiom support: الآلب -> القالب (sc01), توب -> طوب (sc02 'طوبة'), ضعفين -> ضاع فين (sc07), بيبوز -> بيبوظ (sc08), مجتوب -> مشطوب (sc10 on-screen), طبور -> طابور, bug (باك/بج), سنية -> ثانية, بالضبع -> بالضبة (idiom 'بالضبة والمفتاح'), المرأبة/بنرائب/نرائب -> مراقبة/بنراقب/نراقب, المسير -> المثير, منتعة -> منتهى, جزرها -> جذورها, الزهبية -> الذهبية, أنظام -> نظام, هنننسف -> هننسف, شرحينا -> شرحنا, مصار -> مسار, العدات -> العداد, جمل -> جملة (statement), مارين -> مرن, شدين -> شدينا, عدد -> عدّت, حملة -> حمل (load; sc08/sc11). Left as spoken, flagged as uncertain: word 20 'حلها' (probably 'حيلها', cf. 'على حيله' at 332); 'الشطرة' at 468 (probably 'الشاطرة'); 'زكي' at 281 (Egyptian pronunciation of 'ذكي'); 'مالكود' at 540 (= 'ما الكود'); 'لطلب واحد' at 748 where source says request. Possible whisper dropout at 497-502 'فيهم ديتا كامل ناقص': source (sc04) says a missing day of data ('اليوم الناقص'), likely 'ديتا يوم كامل ناقص', but not certain, so no insert. Speaker content diverges from source in places (e.g. source says 'عاقل' for ordering; speaker says 'زكي'); edits follow what was said, not the source wording. No inserts. Deleted word indices (to='') are merge remnants of multi-token terms/numbers.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 6,
+      "kind": "transition",
+      "gloss_en": "Welcome to today's explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 7,
+      "to": 26,
+      "kind": "claim",
+      "gloss_en": "The code's journey, from a mere idea written on the developer's machine until it stands on its own as a strong system in production.",
+      "terms": [
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 27,
+      "to": 40,
+      "kind": "transition",
+      "gloss_en": "Let's get into the details and see how ideas turn into a solid reality that does not fall over easily.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 41,
+      "to": 53,
+      "kind": "claim",
+      "gloss_en": "The famous line: 'It works on my machine'.",
+      "terms": [
+        "It works on my machine"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 54,
+      "to": 66,
+      "kind": "claim",
+      "gloss_en": "You have surely heard or said it before; it is probably the most famous excuse in the programmers' world.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 67,
+      "to": 75,
+      "kind": "claim",
+      "gloss_en": "But in today's explainer we are going to blow that excuse apart completely.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 76,
+      "to": 92,
+      "kind": "claim",
+      "gloss_en": "Together we will see how code can live and hold up in the real operating environment, not just on one machine.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 93,
+      "to": 96,
+      "kind": "transition",
+      "gloss_en": "Today's plan is quick and direct.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 97,
+      "to": 119,
+      "kind": "transition",
+      "gloss_en": "Start with packaging the code, then deployment gates, then cloud security, then observability and incidents, and finish with resolution and scale.",
+      "terms": [
+        "packaging",
+        "deployment gates",
+        "cloud security",
+        "observability",
+        "resolution",
+        "scale"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 120,
+      "to": 131,
+      "kind": "transition",
+      "gloss_en": "Let's get straight into the topic and start with the first section, Packaging Code.",
+      "terms": [
+        "Packaging Code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 132,
+      "to": 144,
+      "kind": "claim",
+      "gloss_en": "How we build the foundation and solve the dependencies problem that differs from one machine to another.",
+      "terms": [
+        "Dependencies"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 145,
+      "to": 149,
+      "kind": "claim",
+      "gloss_en": "The magic solution here is the container.",
+      "terms": [
+        "container"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 150,
+      "to": 166,
+      "kind": "example",
+      "gloss_en": "Picture it as a well-sealed box that travels from machine to machine, with an application inside it with all its dependencies and its configuration.",
+      "terms": [
+        "Configuration"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 167,
+      "to": 181,
+      "kind": "claim",
+      "gloss_en": "The image is the mold we pour into, and the container is the running instance made from that mold.",
+      "terms": [
+        "image",
+        "container"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 182,
+      "to": 197,
+      "kind": "claim",
+      "gloss_en": "The volume is the safe place where the data stays alive even if the container itself gets deleted.",
+      "terms": [
+        "Volume",
+        "data",
+        "container"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 198,
+      "to": 204,
+      "kind": "transition",
+      "gloss_en": "Let's stop here for a second and ask an important question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 205,
+      "to": 216,
+      "kind": "example",
+      "gloss_en": "Imagine the code like bricks we build on top of each other, as layers in the Dockerfile.",
+      "terms": [
+        "Layers",
+        "Dockerfile"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 217,
+      "to": 234,
+      "kind": "example",
+      "gloss_en": "Suppose we make a small edit to a single line of code, and decide to move the COPY command above the pip install command.",
+      "terms": [
+        "COPY",
+        "pip install"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 235,
+      "to": 248,
+      "kind": "prediction",
+      "gloss_en": "How much time do you think that edit will cost us to rebuild the build again?",
+      "terms": [
+        "build"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 249,
+      "to": 264,
+      "kind": "claim",
+      "gloss_en": "The difference is frankly scary: 5 seconds versus 57 seconds; imagine, the counter runs every time you do a build.",
+      "terms": [
+        "build"
+      ],
+      "numbers": [
+        "5",
+        "57"
+      ],
+      "entities": []
+    },
+    {
+      "from": 265,
+      "to": 275,
+      "kind": "claim",
+      "gloss_en": "The Dockerfile order is a purely economic decision that affects the whole pipeline time.",
+      "terms": [
+        "Dockerfile",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 276,
+      "to": 288,
+      "kind": "example",
+      "gloss_en": "If the order is smart and the layers cache correctly, a code line takes only 5 seconds.",
+      "terms": [
+        "layers",
+        "cache"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 289,
+      "to": 306,
+      "kind": "example",
+      "gloss_en": "But if the order is wrong and we put the code before the dependencies, we waste 57 seconds on every small edit for the rest of the project's life.",
+      "terms": [],
+      "numbers": [
+        "57"
+      ],
+      "entities": []
+    },
+    {
+      "from": 307,
+      "to": 312,
+      "kind": "recap",
+      "gloss_en": "And that is wasted time with no use at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 313,
+      "to": 334,
+      "kind": "claim",
+      "gloss_en": "Here the genius of one command like docker compose up shows: it can bring up a whole system on its own, in the ShopFlow project network for example.",
+      "terms": [
+        "docker compose up"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 335,
+      "to": 348,
+      "kind": "example",
+      "gloss_en": "We have five different services, databases like MySQL on port 3306 and Postgres on 5432.",
+      "terms": [
+        "MySQL",
+        "Postgres"
+      ],
+      "numbers": [
+        "5",
+        "3306",
+        "5432"
+      ],
+      "entities": [
+        "MySQL",
+        "Postgres"
+      ]
+    },
+    {
+      "from": 349,
+      "to": 362,
+      "kind": "example",
+      "gloss_en": "And also Airflow on 8080, a Python API on 8000, a Java backend, and even an AI agent.",
+      "terms": [
+        "Airflow",
+        "Python",
+        "API",
+        "Java",
+        "backend",
+        "AI agent"
+      ],
+      "numbers": [
+        "8080",
+        "8000"
+      ],
+      "entities": [
+        "Airflow",
+        "Python",
+        "Java"
+      ]
+    },
+    {
+      "from": 363,
+      "to": 376,
+      "kind": "claim",
+      "gloss_en": "All of these run together on one network, and the secrets are fully protected in environment variables.",
+      "terms": [
+        "Environment Variables"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 377,
+      "to": 384,
+      "kind": "recap",
+      "gloss_en": "One command, and the whole system is ready and under control.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 385,
+      "to": 406,
+      "kind": "transition",
+      "gloss_en": "On to the second section, deployment gates: after we have packaged the code, how do we stop bad code before it reaches production?",
+      "terms": [
+        "deployment gates",
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 407,
+      "to": 414,
+      "kind": "claim",
+      "gloss_en": "Any gate that does not stop anything is just decoration.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 415,
+      "to": 437,
+      "kind": "claim",
+      "gloss_en": "The code's journey follows a very specific path: from the commit to the build, then the test suite and the security scan, until we reach the final gate, the release gate.",
+      "terms": [
+        "commit",
+        "build",
+        "test suite",
+        "security scan",
+        "release gate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 438,
+      "to": 456,
+      "kind": "claim",
+      "gloss_en": "The key point here is that if any test fails, this gate locks tight and stops the release completely in its place.",
+      "terms": [
+        "test"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 457,
+      "to": 472,
+      "kind": "claim",
+      "gloss_en": "The pipeline does not just say there is a problem; it tells us exactly what it is and why it happened.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 473,
+      "to": 480,
+      "kind": "claim",
+      "gloss_en": "Each test layer catches a specific kind of error.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 481,
+      "to": 492,
+      "kind": "example",
+      "gloss_en": "For example the integration test and the acceptance test; notice that a whole day of data is missing in them.",
+      "terms": [
+        "integration test",
+        "acceptance test",
+        "data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 493,
+      "to": 506,
+      "kind": "example",
+      "gloss_en": "Add to that a very strict performance gate on P95, which should not exceed 500 ms.",
+      "terms": [
+        "P95",
+        "ms"
+      ],
+      "numbers": [
+        "95",
+        "500"
+      ],
+      "entities": []
+    },
+    {
+      "from": 507,
+      "to": 516,
+      "kind": "example",
+      "gloss_en": "So when it reached 675 ms the gate closed, and nothing passed.",
+      "terms": [
+        "ms"
+      ],
+      "numbers": [
+        "675"
+      ],
+      "entities": []
+    },
+    {
+      "from": 517,
+      "to": 529,
+      "kind": "claim",
+      "gloss_en": "But watch out: deployment does not finish just because the code goes live; the clock is still ticking.",
+      "terms": [
+        "deployment",
+        "live"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 530,
+      "to": 550,
+      "kind": "example",
+      "gloss_en": "We rolled out the new version, but exactly 30 seconds later the health check failed; the result? An automatic rollback started immediately at second 45.",
+      "terms": [
+        "health check",
+        "rollback"
+      ],
+      "numbers": [
+        "30",
+        "45"
+      ],
+      "entities": []
+    },
+    {
+      "from": 551,
+      "to": 562,
+      "kind": "claim",
+      "gloss_en": "So deployment completes only when the health check passes, or else the rollback happens safely.",
+      "terms": [
+        "deployment",
+        "health check"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 563,
+      "to": 573,
+      "kind": "transition",
+      "gloss_en": "Great, the system went live; so what about security in the cloud?",
+      "terms": [
+        "live",
+        "cloud"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 574,
+      "to": 590,
+      "kind": "transition",
+      "gloss_en": "Here we move on to the third section, Cloud Security, and learn the golden rule that can never be broken in IAM.",
+      "terms": [
+        "Cloud Security",
+        "IAM"
+      ],
+      "numbers": [],
+      "entities": [
+        "IAM"
+      ]
+    },
+    {
+      "from": 591,
+      "to": 597,
+      "kind": "claim",
+      "gloss_en": "IAM thinks and makes its decision in strict steps.",
+      "terms": [
+        "IAM"
+      ],
+      "numbers": [],
+      "entities": [
+        "IAM"
+      ]
+    },
+    {
+      "from": 598,
+      "to": 608,
+      "kind": "claim",
+      "gloss_en": "The first thing it looks for is the Explicit Deny, the explicit refusal.",
+      "terms": [
+        "Explicit Deny"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 609,
+      "to": 627,
+      "kind": "claim",
+      "gloss_en": "If there is none it looks for an allow, and if it finds neither it falls back to the base, the Implicit Deny, the implicit refusal.",
+      "terms": [
+        "allow",
+        "Implicit Deny"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 628,
+      "to": 634,
+      "kind": "claim",
+      "gloss_en": "Every policy is checked in exactly this order.",
+      "terms": [
+        "policy"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 635,
+      "to": 644,
+      "kind": "claim",
+      "gloss_en": "So the pivotal point here is that in the cloud the explicit deny always wins.",
+      "terms": [
+        "cloud",
+        "explicit deny"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 645,
+      "to": 653,
+      "kind": "example",
+      "gloss_en": "Even if there is a policy granting open admin permissions with a wildcard.",
+      "terms": [
+        "policy",
+        "wildcard"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 654,
+      "to": 668,
+      "kind": "claim",
+      "gloss_en": "If there is a single explicit deny statement, it cancels any other allow; the deny is the one whose word goes.",
+      "terms": [
+        "deny",
+        "allow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 669,
+      "to": 677,
+      "kind": "transition",
+      "gloss_en": "Okay, the system is secure and running; now we move on to the fourth section.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 678,
+      "to": 690,
+      "kind": "question",
+      "gloss_en": "Observability and Incidents: how do we monitor the system, and what happens when a real crisis hits?",
+      "terms": [
+        "Observability",
+        "Incidents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 691,
+      "to": 699,
+      "kind": "claim",
+      "gloss_en": "To monitor correctly we always keep our eyes on three basic signals.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 700,
+      "to": 718,
+      "kind": "claim",
+      "gloss_en": "The logs tell us what happened, the metrics tell us the quantity and the rate, and the traces answer where the time went.",
+      "terms": [
+        "logs",
+        "metrics",
+        "traces"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 719,
+      "to": 724,
+      "kind": "example",
+      "gloss_en": "We see this with tools like Prometheus and Grafana.",
+      "terms": [
+        "Prometheus",
+        "Grafana"
+      ],
+      "numbers": [],
+      "entities": [
+        "Prometheus",
+        "Grafana"
+      ]
+    },
+    {
+      "from": 725,
+      "to": 740,
+      "kind": "claim",
+      "gloss_en": "The genius secret that ties these three together, for one request across all these services, is the correlation id.",
+      "terms": [
+        "correlation id"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 741,
+      "to": 750,
+      "kind": "claim",
+      "gloss_en": "And before disasters happen we run our experiments on a digital twin of the system.",
+      "terms": [
+        "digital twin"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 751,
+      "to": 768,
+      "kind": "example",
+      "gloss_en": "At a load of 25 requests per second life is great: 100% success rate and P95 latency at 150 ms.",
+      "terms": [
+        "P95",
+        "latency",
+        "ms"
+      ],
+      "numbers": [
+        "25",
+        "100",
+        "150"
+      ],
+      "entities": []
+    },
+    {
+      "from": 769,
+      "to": 784,
+      "kind": "example",
+      "gloss_en": "But when we pushed the load to 200 requests per second, a queue started forming and latency shot through the roof.",
+      "terms": [
+        "Latency"
+      ],
+      "numbers": [
+        "200"
+      ],
+      "entities": []
+    },
+    {
+      "from": 785,
+      "to": 798,
+      "kind": "claim",
+      "gloss_en": "But the interesting thing is that the error rate stayed steady and did not move.",
+      "terms": [
+        "Error Rate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 799,
+      "to": 819,
+      "kind": "claim",
+      "gloss_en": "And here a real crisis arrives, and a question we need to think about: P95 latency climbs frighteningly, yet the error rate is perfectly steady, like a straight line.",
+      "terms": [
+        "P95",
+        "Latency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 820,
+      "to": 832,
+      "kind": "prediction",
+      "gloss_en": "Do you think this counts as a bug in the code? And this clarifies a point of the utmost importance.",
+      "terms": [
+        "bug"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 833,
+      "to": 852,
+      "kind": "claim",
+      "gloss_en": "No, this is not a bug; latency shooting upward while the error rate stays flat is the confirmed signature of resource saturation.",
+      "terms": [
+        "bug",
+        "latency",
+        "error rate",
+        "resource",
+        "saturation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 853,
+      "to": 861,
+      "kind": "example",
+      "gloss_en": "Something like the connection pool being filled to the brim.",
+      "terms": [
+        "connection pool"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 862,
+      "to": 880,
+      "kind": "claim",
+      "gloss_en": "If we sit idle waiting for errors before we act, we will be very late, because performance degrades before the errors even start to show.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 881,
+      "to": 887,
+      "kind": "transition",
+      "gloss_en": "We reach the last section, Resolution and Scale.",
+      "terms": [
+        "Resolution",
+        "Scale"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 888,
+      "to": 902,
+      "kind": "transition",
+      "gloss_en": "How professionals solve these incidents from their roots, and how we prepare the system to withstand huge workloads.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 903,
+      "to": 916,
+      "kind": "claim",
+      "gloss_en": "Solving problems in production never means that we restart the server and declare the problem fixed.",
+      "terms": [
+        "production",
+        "restart",
+        "server"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 917,
+      "to": 922,
+      "kind": "claim",
+      "gloss_en": "The restart button is crossed out of the dictionary.",
+      "terms": [
+        "restart"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 923,
+      "to": 930,
+      "kind": "transition",
+      "gloss_en": "We follow an organized chain: we start with the symptom and the signal.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 931,
+      "to": 946,
+      "kind": "claim",
+      "gloss_en": "Build a hypothesis, look for evidence until we catch the root cause, apply our fix, and verify with a regression check.",
+      "terms": [
+        "root cause",
+        "fix",
+        "regression check"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 947,
+      "to": 964,
+      "kind": "claim",
+      "gloss_en": "And the most important step that closes the story: we write a report and add a new line to the runbook so this problem does not repeat.",
+      "terms": [
+        "runbook"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 965,
+      "to": 977,
+      "kind": "claim",
+      "gloss_en": "And to be really ready for production and able to scale the system tenfold, we need heavy capabilities.",
+      "terms": [
+        "production"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 978,
+      "to": 990,
+      "kind": "example",
+      "gloss_en": "We are talking about monitoring, agreed quality levels or SLAs, CI/CD, automatic backups, security, and rate limiting.",
+      "terms": [
+        "SLAs",
+        "CI/CD",
+        "backups",
+        "rate limiting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 991,
+      "to": 1011,
+      "kind": "example",
+      "gloss_en": "And when the workload grows we partition the data by date, use columnar storage like Parquet, rely on Redis for caching, and of course do horizontal scaling for the API.",
+      "terms": [
+        "Parquet",
+        "Redis",
+        "caching",
+        "Horizontal Scaling",
+        "API"
+      ],
+      "numbers": [],
+      "entities": [
+        "Redis",
+        "Parquet"
+      ]
+    },
+    {
+      "from": 1012,
+      "to": 1026,
+      "kind": "question",
+      "gloss_en": "In the end we must ask ourselves an important question: is the code just lines running on a local machine?",
+      "terms": [
+        "local"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1027,
+      "to": 1036,
+      "kind": "question",
+      "gloss_en": "Or is it a resilient, truly strong system, ready for the real production environment?",
+      "terms": [
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1037,
+      "to": 1054,
+      "kind": "claim",
+      "gloss_en": "The real proof of your expertise is not just code being written; it is your ability to run a system, break it, understand the problem and fix it with solid evidence.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1055,
+      "to": 1063,
+      "kind": "recap",
+      "gloss_en": "And that was our journey in understanding how code lives and grows.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1064,
+      "to": 1070,
+      "kind": "transition",
+      "gloss_en": "Thank you, and always stay ready for the next step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:40Z"
+}

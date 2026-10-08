@@ -1,0 +1,2289 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P00",
+  "asr_words": 1243,
+  "final_words": 1227,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 14,
+      "orig": "منهك",
+      "to": "منهج",
+      "why": "mishear",
+      "final": [
+        14,
+        14
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 24,
+      "orig": "الداسم",
+      "to": "الدسم",
+      "why": "mishear",
+      "final": [
+        24,
+        24
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 38,
+      "orig": "السفر",
+      "to": "الصفر",
+      "why": "mishear",
+      "final": [
+        38,
+        38
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 40,
+      "orig": "shop",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        40,
+        40
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 41,
+      "orig": "flow",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 77,
+      "orig": "هندخن",
+      "to": "هندخل",
+      "why": "mishear",
+      "final": [
+        76,
+        76
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 92,
+      "orig": "الزكاية",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        91,
+        91
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 142,
+      "orig": "كoutput",
+      "to": "كـoutput",
+      "why": "term",
+      "final": [
+        141,
+        141
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 152,
+      "orig": "failure",
+      "to": "Failure-first",
+      "why": "term",
+      "final": [
+        151,
+        151
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 153,
+      "orig": "first",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 159,
+      "orig": "شاب",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        157,
+        157
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 160,
+      "orig": "فلو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 166,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        163,
+        163
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 167,
+      "orig": "سكريبت",
+      "to": "script",
+      "why": "term",
+      "final": [
+        164,
+        164
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 182,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        179,
+        179
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 187,
+      "orig": "بيسبت",
+      "to": "بيثبت",
+      "why": "mishear",
+      "final": [
+        184,
+        184
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 195,
+      "orig": "الأرر",
+      "to": "الـerror",
+      "why": "term",
+      "final": [
+        192,
+        192
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 196,
+      "orig": "هندلين",
+      "to": "handling",
+      "why": "term",
+      "final": [
+        193,
+        193
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 218,
+      "orig": "شوف",
+      "to": "ShopFlow",
+      "why": "mishear",
+      "final": [
+        215,
+        215
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 219,
+      "orig": "له",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 221,
+      "orig": "رجلي",
+      "to": "رجليه",
+      "why": "mishear",
+      "final": [
+        217,
+        217
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 228,
+      "orig": "مصار",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        224,
+        224
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 264,
+      "orig": "واللوبس",
+      "to": "والـloops",
+      "why": "term",
+      "final": [
+        260,
+        260
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 268,
+      "orig": "crud",
+      "to": "CRUD",
+      "why": "term",
+      "final": [
+        264,
+        264
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 283,
+      "orig": "أرر",
+      "to": "error",
+      "why": "term",
+      "final": [
+        279,
+        279
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 312,
+      "orig": "الدتا",
+      "to": "الديتا",
+      "why": "mishear",
+      "final": [
+        308,
+        308
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 318,
+      "orig": "shop",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        314,
+        314
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 319,
+      "orig": "flow",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 339,
+      "orig": "لفسها",
+      "to": "نفسها",
+      "why": "mishear",
+      "final": [
+        334,
+        334
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 373,
+      "orig": "الأسد",
+      "to": "ACID",
+      "why": "term",
+      "final": [
+        368,
+        368
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 375,
+      "orig": "الأسد",
+      "to": "ACID",
+      "why": "term",
+      "final": [
+        370,
+        370
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 398,
+      "orig": "هضيع",
+      "to": "هتضيع",
+      "why": "mishear",
+      "final": [
+        393,
+        393
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 417,
+      "orig": "شاب",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        412,
+        412
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 418,
+      "orig": "فلو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 455,
+      "orig": "حجيئي",
+      "to": "حقيقي",
+      "why": "mishear",
+      "final": [
+        449,
+        449
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 471,
+      "orig": "كرثة",
+      "to": "كارثة",
+      "why": "mishear",
+      "final": [
+        465,
+        465
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "يباوز",
+      "to": "يبوظ",
+      "why": "mishear",
+      "final": [
+        473,
+        473
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 493,
+      "orig": "إكسبلين",
+      "to": "EXPLAIN",
+      "why": "term",
+      "final": [
+        487,
+        487
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 497,
+      "orig": "كويري",
+      "to": "query",
+      "why": "term",
+      "final": [
+        491,
+        491
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 521,
+      "orig": "إكسبلين",
+      "to": "EXPLAIN",
+      "why": "term",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 530,
+      "orig": "B3",
+      "to": "B-tree",
+      "why": "mishear",
+      "final": [
+        524,
+        524
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 542,
+      "orig": "بتتضارف",
+      "to": "بتتضاعف",
+      "why": "mishear",
+      "final": [
+        536,
+        536
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 545,
+      "orig": "والكويري",
+      "to": "والـquery",
+      "why": "term",
+      "final": [
+        539,
+        539
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 564,
+      "orig": "المعمري",
+      "to": "المعماري",
+      "why": "mishear",
+      "final": [
+        558,
+        558
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 567,
+      "orig": "شاب",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        561,
+        561
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 568,
+      "orig": "فلو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 617,
+      "orig": "SQ",
+      "to": "Skew",
+      "why": "mishear",
+      "final": [
+        610,
+        610
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 649,
+      "orig": "توهن",
+      "to": "توهان",
+      "why": "mishear",
+      "final": [
+        642,
+        642
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 654,
+      "orig": "DIG",
+      "to": "DAG",
+      "why": "term",
+      "final": [
+        647,
+        647
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 657,
+      "orig": "A",
+      "to": "Acyclic",
+      "why": "term",
+      "final": [
+        650,
+        650
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 658,
+      "orig": "-Cyclic",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 665,
+      "orig": "بخير",
+      "to": "بيخلي",
+      "why": "mishear",
+      "final": [
+        657,
+        657
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 666,
+      "orig": "التاسكس",
+      "to": "الـtasks",
+      "why": "term",
+      "final": [
+        658,
+        658
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 676,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        668,
+        668
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 695,
+      "orig": "Item",
+      "to": "Idempotency",
+      "why": "term",
+      "final": [
+        687,
+        687
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 696,
+      "orig": "Potency",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 708,
+      "orig": "100",
+      "to": "100%",
+      "why": "number",
+      "final": [
+        699,
+        699
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 709,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 713,
+      "orig": "Shop",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        703,
+        703
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 714,
+      "orig": "Flow",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "للتاك",
+      "to": "للـtech",
+      "why": "term",
+      "final": [
+        710,
+        710
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 722,
+      "orig": "ستاك",
+      "to": "stack",
+      "why": "term",
+      "final": [
+        711,
+        711
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 747,
+      "orig": "والReplication",
+      "to": "والـReplication",
+      "why": "term",
+      "final": [
+        736,
+        736
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "Carbon",
+      "to": "CarbonData",
+      "why": "term",
+      "final": [
+        744,
+        744
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 756,
+      "orig": "Data",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 767,
+      "orig": "الصياغ",
+      "to": "الصيغ",
+      "why": "mishear",
+      "final": [
+        755,
+        755
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 772,
+      "orig": "Multi",
+      "to": "Multi-Level",
+      "why": "term",
+      "final": [
+        760,
+        760
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 773,
+      "orig": "-Level",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 800,
+      "orig": "الداشبوردز",
+      "to": "الـdashboards",
+      "why": "term",
+      "final": [
+        787,
+        787
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 801,
+      "orig": "السبتة",
+      "to": "الثابتة",
+      "why": "mishear",
+      "final": [
+        788,
+        788
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 817,
+      "orig": "المكالكعة",
+      "to": "المكلكعة",
+      "why": "mishear",
+      "final": [
+        804,
+        804
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 823,
+      "orig": "الزهبية",
+      "to": "الذهبية",
+      "why": "mishear",
+      "final": [
+        810,
+        810
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 848,
+      "orig": "مصاري",
+      "to": "مسار",
+      "why": "mishear",
+      "final": [
+        835,
+        835
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 861,
+      "orig": "توجهه",
+      "to": "تواجهه",
+      "why": "mishear",
+      "final": [
+        848,
+        848
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 864,
+      "orig": "الأداء",
+      "to": "الأداة",
+      "why": "mishear",
+      "final": [
+        851,
+        851
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 872,
+      "orig": "ال",
+      "to": "الـ",
+      "why": "term",
+      "final": [
+        859,
+        859
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 873,
+      "orig": "-RAG",
+      "to": "RAG",
+      "why": "term",
+      "final": [
+        860,
+        860
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 887,
+      "orig": "إلها",
+      "to": "الهلوسة",
+      "why": "mishear",
+      "final": [
+        874,
+        874
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 888,
+      "orig": "الوسع",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 892,
+      "orig": "ال",
+      "to": "الـ",
+      "why": "term",
+      "final": [
+        878,
+        878
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 893,
+      "orig": "-AI",
+      "to": "AI",
+      "why": "term",
+      "final": [
+        879,
+        879
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 895,
+      "orig": "ويقلف",
+      "to": "ويألف",
+      "why": "mishear",
+      "final": [
+        881,
+        881
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 896,
+      "orig": "إيجابات",
+      "to": "إجابات",
+      "why": "mishear",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 899,
+      "orig": "دمجة",
+      "to": "دمج",
+      "why": "mishear",
+      "final": [
+        885,
+        885
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 933,
+      "orig": "الرياكت",
+      "to": "الـReAct",
+      "why": "term",
+      "final": [
+        919,
+        919
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 934,
+      "orig": "ايجنت",
+      "to": "Agent",
+      "why": "term",
+      "final": [
+        920,
+        920
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 935,
+      "orig": "لوب",
+      "to": "Loop",
+      "why": "term",
+      "final": [
+        921,
+        921
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 978,
+      "orig": "الدكاء",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        964,
+        964
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 984,
+      "orig": "جوى",
+      "to": "جوه",
+      "why": "mishear",
+      "final": [
+        970,
+        970
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1005,
+      "orig": "جهزة",
+      "to": "جاهزة",
+      "why": "mishear",
+      "final": [
+        991,
+        991
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1012,
+      "orig": "بزكاء",
+      "to": "بذكاء",
+      "why": "mishear",
+      "final": [
+        998,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1016,
+      "orig": "كما",
+      "to": "كمسار",
+      "why": "mishear",
+      "final": [
+        1002,
+        1002
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1017,
+      "orig": "صار",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1023,
+      "orig": "الSQL",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        1008,
+        1008
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1026,
+      "orig": "أربع",
+      "to": "4",
+      "why": "number",
+      "final": [
+        1011,
+        1011
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1031,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        1016,
+        1016
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1034,
+      "orig": "الثامن",
+      "to": "8",
+      "why": "number",
+      "final": [
+        1019,
+        1019
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1035,
+      "orig": "للحداشر",
+      "to": "لـ11",
+      "why": "number",
+      "final": [
+        1020,
+        1020
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1039,
+      "orig": "الثمنتاشر",
+      "to": "18",
+      "why": "number",
+      "final": [
+        1024,
+        1024
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1042,
+      "orig": "الDAG",
+      "to": "الـDAG",
+      "why": "term",
+      "final": [
+        1027,
+        1027
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1043,
+      "orig": "وإيرفلو",
+      "to": "وAirflow",
+      "why": "term",
+      "final": [
+        1028,
+        1028
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1082,
+      "orig": "حيائية",
+      "to": "حقيقية",
+      "why": "mishear",
+      "final": [
+        1067,
+        1067
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1105,
+      "orig": "CICD",
+      "to": "CI/CD",
+      "why": "term",
+      "final": [
+        1090,
+        1090
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1111,
+      "orig": "ونمازج",
+      "to": "ونماذج",
+      "why": "mishear",
+      "final": [
+        1096,
+        1096
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1144,
+      "orig": "الزهبي",
+      "to": "الذهبي",
+      "why": "mishear",
+      "final": [
+        1129,
+        1129
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1177,
+      "orig": "وبيثبته",
+      "to": "وبيثبتوا",
+      "why": "mishear",
+      "final": [
+        1162,
+        1162
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1234,
+      "orig": "شوب",
+      "to": "ShopFlow",
+      "why": "term",
+      "final": [
+        1219,
+        1219
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1235,
+      "orig": "فلاو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1241,
+      "orig": "الزكاء",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        1225,
+        1225
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1242,
+      "orig": "الإصطناعي",
+      "to": "الاصطناعي",
+      "why": "mishear",
+      "final": [
+        1226,
+        1226
+      ]
+    }
+  ],
+  "notes": "No dropouts detected (word timings contiguous, no anomalous long words); no inserts. source_excerpt is only the P00 visual-language rules, so mishear fixes rest on in-transcript context (same word spelled correctly elsewhere) or unambiguous meaning: منهك->منهج, السفر->الصفر, هندخن->هندخل, الزكاية/الدكاء/الزكاء->الذكاء, مصار/مصاري->مسار, B3->B-tree, Data SQ->Data Skew, إلها الوسع->الهلوسة (hallucination, the problem RAG solves), كما صار->كمسار, Item Potency->Idempotency, DIG->DAG, الأسد->ACID, شوف له/شاب فلو/شوب فلاو->ShopFlow (split tokens merged, second token emptied). Spelled-out cardinals converted to Western digits (أربع->4, الثامن->8, للحداشر->لـ11, الثمنتاشر->18, 100 %->100%); 'لمليون' kept as a word, listed as 1000000 in numbers. Common loanwords kept in Arabic script as dialect (الديتا, الميموري, كود, السيرفر, جوجل, الريكروترز, البرتفوليو, التوتوريال, أكشن). Left unedited but uncertain: 348 'عزل' (likely 'نقل' = move the work onto a SQL DB), 482-483 'بصوا باع' (likely 'بصوا بقى', a word such as 'الحاجة' may be missing before 'المثيرة'), 510-511 'بتلفه الدور' (likely 'بتلف وتدور'), 792 'والطبقة المستقبل' (likely 'وطبقة المستقبل'), 1068-1070 'وفي الرحلة زي' (likely 'وفي رحلة زي دي'), 474 'Row' conf 0.15 ('Row Multiplication' kept as heard). Fact-check flags: curriculum timeline as spoken = SQL weeks 1-4, Python weeks 8-11, DAG/Airflow from week 18, AI weeks 21-24 of 24; '3 projects' portfolio standard; 'Apache CarbonData' normalized to its official one-word name.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 5,
+      "kind": "transition",
+      "gloss_en": "OK, let's dive into the details.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 6,
+      "to": 19,
+      "kind": "claim",
+      "gloss_en": "In today's explanation we won't just take a 24-week technical curriculum and read it.",
+      "terms": [],
+      "numbers": [
+        "24"
+      ],
+      "entities": []
+    },
+    {
+      "from": 20,
+      "to": 29,
+      "kind": "claim",
+      "gloss_en": "No, we'll take this rich curriculum and turn it into a really fun journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 30,
+      "to": 40,
+      "kind": "example",
+      "gloss_en": "Imagine with me that we're building an e-commerce project from scratch; we'll call it ShopFlow.",
+      "terms": [],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 41,
+      "to": 60,
+      "kind": "claim",
+      "gloss_en": "We'll go step by step, from when it's a simple idea until it becomes a fully smart, AI-powered data platform.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 61,
+      "to": 68,
+      "kind": "claim",
+      "gloss_en": "This journey is divided into stations that take us from zero to pro.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 69,
+      "to": 74,
+      "kind": "transition",
+      "gloss_en": "We'll start with the zero journey: basics and programming.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 75,
+      "to": 82,
+      "kind": "transition",
+      "gloss_en": "Then we'll move to 'when the data grows': databases.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 83,
+      "to": 88,
+      "kind": "transition",
+      "gloss_en": "The third station will be big data engineering.",
+      "terms": [
+        "Big Data"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 89,
+      "to": 92,
+      "kind": "transition",
+      "gloss_en": "After that, integrating AI.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 93,
+      "to": 99,
+      "kind": "transition",
+      "gloss_en": "And finally we'll close with: from learning to the job market.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 100,
+      "to": 111,
+      "kind": "claim",
+      "gloss_en": "It looks big, but don't worry, we'll take it one step at a time, very smoothly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 112,
+      "to": 120,
+      "kind": "transition",
+      "gloss_en": "Let's start with our first station: the zero journey, basics and programming.",
+      "terms": [],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 121,
+      "to": 141,
+      "kind": "claim",
+      "gloss_en": "Before writing any complex code, we must first understand how the computer thinks: how it takes input, stores it in memory and returns it as output.",
+      "terms": [
+        "code",
+        "input",
+        "memory",
+        "output"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 142,
+      "to": 151,
+      "kind": "claim",
+      "gloss_en": "This curriculum relies on something called failure first.",
+      "terms": [
+        "Failure-first"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 152,
+      "to": 166,
+      "kind": "example",
+      "gloss_en": "What does that mean? Imagine that in its first days ShopFlow was just a very simple Python script.",
+      "terms": [
+        "Python",
+        "script"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 167,
+      "to": 181,
+      "kind": "example",
+      "gloss_en": "Suddenly the whole program crashed with a runtime error because of a bad file path, a wrong file path.",
+      "terms": [
+        "runtime error",
+        "file path"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 182,
+      "to": 196,
+      "kind": "claim",
+      "gloss_en": "This situation proves to us in practice why error handling is not just a luxury.",
+      "terms": [
+        "error handling"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 197,
+      "to": 208,
+      "kind": "claim",
+      "gloss_en": "It's a foundation we must understand very well before building anything else.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 209,
+      "to": 225,
+      "kind": "claim",
+      "gloss_en": "To fix this problem and get ShopFlow back on its feet, the data moves along a defined path.",
+      "terms": [
+        "data"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 226,
+      "to": 247,
+      "kind": "claim",
+      "gloss_en": "First the raw data comes in, then it's processed in memory, specifically in the stack and the heap, and finally it's saved to a persisted file.",
+      "terms": [
+        "raw data",
+        "memory",
+        "stack",
+        "heap",
+        "persisted file"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 248,
+      "to": 264,
+      "kind": "claim",
+      "gloss_en": "At this stage all the work is built on fundamentals like variables, loops and, of course, CRUD operations.",
+      "terms": [
+        "variables",
+        "loops",
+        "CRUD"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 265,
+      "to": 271,
+      "kind": "transition",
+      "gloss_en": "And here's an extremely important tip.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 272,
+      "to": 287,
+      "kind": "claim",
+      "gloss_en": "Before we rush to ask Google about any error that appears, we must, I insist, read the terminal output first.",
+      "terms": [
+        "error",
+        "terminal output"
+      ],
+      "numbers": [],
+      "entities": [
+        "Google"
+      ]
+    },
+    {
+      "from": 288,
+      "to": 293,
+      "kind": "claim",
+      "gloss_en": "Believe me, the answer is always hidden there.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 294,
+      "to": 304,
+      "kind": "transition",
+      "gloss_en": "Let's move to the next step and see how this grows.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 305,
+      "to": 311,
+      "kind": "transition",
+      "gloss_en": "Section two: when the data grows, databases.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 312,
+      "to": 317,
+      "kind": "example",
+      "gloss_en": "Over time ShopFlow grows and its orders multiply.",
+      "terms": [],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 318,
+      "to": 329,
+      "kind": "claim",
+      "gloss_en": "Here the simple files and spreadsheet tables start to crash and become very slow.",
+      "terms": [
+        "spreadsheets"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 330,
+      "to": 336,
+      "kind": "claim",
+      "gloss_en": "And the bigger disaster is that the data itself can get lost.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 337,
+      "to": 352,
+      "kind": "claim",
+      "gloss_en": "That's why the natural architectural evolution is moving the work onto a strong SQL database like Postgres or MySQL.",
+      "terms": [
+        "SQL",
+        "database",
+        "Postgres",
+        "MySQL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 353,
+      "to": 371,
+      "kind": "claim",
+      "gloss_en": "And here we're not only looking for storage space; we're looking for the safety that ACID properties provide.",
+      "terms": [
+        "ACID",
+        "ACID Properties"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 372,
+      "to": 399,
+      "kind": "claim",
+      "gloss_en": "These guarantee that if several operations happen at the same moment, what we call concurrent transactions, no data is ever lost or overwritten by mistake.",
+      "terms": [
+        "Concurrent Transactions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 400,
+      "to": 404,
+      "kind": "question",
+      "gloss_en": "So how do we connect data together?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 405,
+      "to": 415,
+      "kind": "example",
+      "gloss_en": "If we want to join the users tables with their orders in ShopFlow, we have magic tools.",
+      "terms": [
+        "table",
+        "join"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 416,
+      "to": 439,
+      "kind": "claim",
+      "gloss_en": "An Inner Join, for example, returns only the shared data, while a Left Join brings everything on the left plus the shared part from the right.",
+      "terms": [
+        "Inner Join",
+        "Left Join",
+        "join"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 440,
+      "to": 452,
+      "kind": "claim",
+      "gloss_en": "And of course we won't forget Window Functions, which are real magic for cumulative calculations.",
+      "terms": [
+        "Window Functions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 453,
+      "to": 475,
+      "kind": "claim",
+      "gloss_en": "But watch out: any small mistake in joining these tables can cause a disaster called row multiplication, duplicating the data in a way that ruins all the calculations.",
+      "terms": [
+        "join",
+        "table",
+        "Row Multiplication"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 476,
+      "to": 487,
+      "kind": "transition",
+      "gloss_en": "Look, the really interesting part here is the magic the EXPLAIN command does.",
+      "terms": [
+        "EXPLAIN"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 488,
+      "to": 502,
+      "kind": "example",
+      "gloss_en": "Sometimes we have an annoyingly slow query, and that's usually because it's doing a full table scan.",
+      "terms": [
+        "query",
+        "full table scan"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 503,
+      "to": 513,
+      "kind": "claim",
+      "gloss_en": "Meaning it loops over every row in the table to find the result.",
+      "terms": [
+        "row",
+        "table"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 514,
+      "to": 519,
+      "kind": "claim",
+      "gloss_en": "The EXPLAIN command exposes this problem immediately.",
+      "terms": [
+        "EXPLAIN"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 520,
+      "to": 533,
+      "kind": "claim",
+      "gloss_en": "And as soon as we add something called a B-tree index, it's as if we're building a shortcut lookup.",
+      "terms": [
+        "B-tree",
+        "index",
+        "shortcut lookup"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 534,
+      "to": 544,
+      "kind": "claim",
+      "gloss_en": "The result: speed multiplies incredibly, and the query that was slow becomes lightning fast.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 545,
+      "to": 553,
+      "kind": "transition",
+      "gloss_en": "OK, we've reached the beast stage: section three, big data engineering.",
+      "terms": [
+        "Big Data"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 554,
+      "to": 572,
+      "kind": "claim",
+      "gloss_en": "This leap is the architectural evolution ShopFlow needs to turn from an ordinary project into a giant, enterprise-level platform.",
+      "terms": [
+        "Enterprise Level Platform"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 573,
+      "to": 578,
+      "kind": "transition",
+      "gloss_en": "Here we face a rather scary failure scenario.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 579,
+      "to": 599,
+      "kind": "question",
+      "gloss_en": "What happens if the platform reaches a million users a day and suddenly the single server carrying all that load crashes?",
+      "terms": [
+        "server"
+      ],
+      "numbers": [
+        "1000000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 600,
+      "to": 610,
+      "kind": "question",
+      "gloss_en": "How will this disaster be handled, along with problems like data skew?",
+      "terms": [
+        "Data Skew"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 611,
+      "to": 633,
+      "kind": "claim",
+      "gloss_en": "This situation confirms that relying on distributed systems is no longer just an option; it's an absolute necessity to keep the system alive.",
+      "terms": [
+        "Distributed Systems"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 634,
+      "to": 651,
+      "kind": "claim",
+      "gloss_en": "And to manage this complex work without getting lost, we need a brilliant abbreviation called DAG, or Directed Acyclic Graph.",
+      "terms": [
+        "DAG",
+        "Directed Acyclic Graph"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 652,
+      "to": 668,
+      "kind": "claim",
+      "gloss_en": "Simply put, it's an organizing structure that makes tasks flow in one direction only, and they can never go back and form a loop.",
+      "terms": [
+        "tasks",
+        "loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 669,
+      "to": 679,
+      "kind": "claim",
+      "gloss_en": "Tools like Apache Airflow orchestrate these data pipelines very efficiently.",
+      "terms": [
+        "Apache Airflow",
+        "Airflow",
+        "Data Pipelines",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 680,
+      "to": 687,
+      "kind": "claim",
+      "gloss_en": "And the real architectural secret here is the principle of idempotency.",
+      "terms": [
+        "Idempotency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 688,
+      "to": 705,
+      "kind": "example",
+      "gloss_en": "Meaning if any problem happens and we have to rerun a task, the system guarantees 100% that ShopFlow data can never be duplicated.",
+      "terms": [
+        "Task",
+        "Idempotency"
+      ],
+      "numbers": [
+        "100%"
+      ],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 706,
+      "to": 715,
+      "kind": "transition",
+      "gloss_en": "So these are the core components of the big data tech stack.",
+      "terms": [
+        "tech stack",
+        "Big Data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 716,
+      "to": 722,
+      "kind": "claim",
+      "gloss_en": "The foundation starts with Apache Spark and distributed computing.",
+      "terms": [
+        "Apache Spark",
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 723,
+      "to": 730,
+      "kind": "claim",
+      "gloss_en": "And of course Kafka for real-time event streaming.",
+      "terms": [
+        "Kafka",
+        "Real Time Event Streaming"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 731,
+      "to": 736,
+      "kind": "claim",
+      "gloss_en": "And alongside them HDFS for storage and replication.",
+      "terms": [
+        "HDFS",
+        "Replication"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 737,
+      "to": 744,
+      "kind": "claim",
+      "gloss_en": "But the real standout hero here is Apache CarbonData.",
+      "terms": [
+        "Apache CarbonData"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 745,
+      "to": 756,
+      "kind": "question",
+      "gloss_en": "Why? Because it delivers analytical queries much faster than ordinary formats.",
+      "terms": [
+        "Analytical Queries",
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 757,
+      "to": 768,
+      "kind": "claim",
+      "gloss_en": "That's thanks to multi-level indexing, which reaches the data in fractions of a second.",
+      "terms": [
+        "Multi-Level Indexing",
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 769,
+      "to": 783,
+      "kind": "transition",
+      "gloss_en": "Having built this strong foundation, we move to section four, the future layer: integrating AI.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 784,
+      "to": 796,
+      "kind": "claim",
+      "gloss_en": "Here we turn static, boring dashboards into a smart assistant that makes decisions on its own, an autonomous assistant.",
+      "terms": [
+        "dashboard",
+        "Autonomous Assistant"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 797,
+      "to": 813,
+      "kind": "transition",
+      "gloss_en": "But before we drown in complicated technical terms, let's pause a moment at this golden tip from the curriculum.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 814,
+      "to": 820,
+      "kind": "claim",
+      "gloss_en": "Don't memorize syntax, understand the data flow.",
+      "terms": [
+        "syntax",
+        "data flow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 821,
+      "to": 827,
+      "kind": "claim",
+      "gloss_en": "The goal isn't memorizing code; code always changes.",
+      "terms": [
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 828,
+      "to": 837,
+      "kind": "claim",
+      "gloss_en": "But the right engineering mindset is the one that understands the data's path and flow.",
+      "terms": [
+        "data flow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 838,
+      "to": 853,
+      "kind": "claim",
+      "gloss_en": "That mindset lets any engineer solve any problem they face, whatever tool they use.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 854,
+      "to": 864,
+      "kind": "claim",
+      "gloss_en": "One of the most important techniques here is RAG, or Retrieval Augmented Generation.",
+      "terms": [
+        "RAG",
+        "Retrieval Augmented Generation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 865,
+      "to": 874,
+      "kind": "claim",
+      "gloss_en": "This concept literally solves the biggest problem in AI: hallucination.",
+      "terms": [
+        "AI",
+        "hallucination"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 875,
+      "to": 895,
+      "kind": "claim",
+      "gloss_en": "Instead of letting the AI guess and make up wrong answers, large language models are combined with ShopFlow's private, closed databases.",
+      "terms": [
+        "AI",
+        "LLM",
+        "Large Language Models",
+        "database"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 896,
+      "to": 914,
+      "kind": "claim",
+      "gloss_en": "We use something called vector embeddings so the system pulls real, accurate information and gives an answer built on facts, not just guesses.",
+      "terms": [
+        "Vector Embeddings",
+        "embeddings"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 915,
+      "to": 921,
+      "kind": "transition",
+      "gloss_en": "And here the picture is completed with the ReAct agent loop.",
+      "terms": [
+        "ReAct",
+        "Agent Loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 922,
+      "to": 937,
+      "kind": "claim",
+      "gloss_en": "The AI here isn't just a model that replies with written text; no, it thinks and takes real action.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 938,
+      "to": 959,
+      "kind": "example",
+      "gloss_en": "It receives the goal, picks the right tool, like running an SQL command itself, then fetches the needed data, and finally generates the answer.",
+      "terms": [
+        "SQL",
+        "SQL execution",
+        "generate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 960,
+      "to": 971,
+      "kind": "claim",
+      "gloss_en": "That's real interaction that makes AI a genuinely working, effective part of the system.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 972,
+      "to": 982,
+      "kind": "transition",
+      "gloss_en": "OK, now the decisive point: section five, from learning to the job market.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 983,
+      "to": 995,
+      "kind": "question",
+      "gloss_en": "How can we turn all this knowledge into ready, in-demand skills for the job market?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 996,
+      "to": 1004,
+      "kind": "claim",
+      "gloss_en": "The curriculum is smartly split over 24 weeks as a clear timeline.",
+      "terms": [],
+      "numbers": [
+        "24"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1005,
+      "to": 1012,
+      "kind": "claim",
+      "gloss_en": "It starts with mastering SQL in the first 4 weeks.",
+      "terms": [
+        "SQL"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1013,
+      "to": 1020,
+      "kind": "claim",
+      "gloss_en": "Then building Python basics from week 8 to 11.",
+      "terms": [
+        "Python"
+      ],
+      "numbers": [
+        "8",
+        "11"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1021,
+      "to": 1028,
+      "kind": "claim",
+      "gloss_en": "When we reach week 18, we get into DAGs and Airflow.",
+      "terms": [
+        "DAG",
+        "Airflow"
+      ],
+      "numbers": [
+        "18"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1029,
+      "to": 1043,
+      "kind": "claim",
+      "gloss_en": "Until we finish in weeks 21 to 24 by integrating AI and autonomous agents.",
+      "terms": [
+        "AI",
+        "Autonomous Agents"
+      ],
+      "numbers": [
+        "21",
+        "24"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1044,
+      "to": 1052,
+      "kind": "recap",
+      "gloss_en": "The roadmap is complete, moving step by step on solid ground.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1053,
+      "to": 1060,
+      "kind": "claim",
+      "gloss_en": "And on the journey, hands-on practice is everything.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1061,
+      "to": 1070,
+      "kind": "claim",
+      "gloss_en": "What's required here is to come out with real artifacts and push them to GitHub.",
+      "terms": [
+        "Artifacts"
+      ],
+      "numbers": [],
+      "entities": [
+        "GitHub"
+      ]
+    },
+    {
+      "from": 1071,
+      "to": 1086,
+      "kind": "example",
+      "gloss_en": "What does that mean? Reports built on tuned SQL queries, and secured APIs written in Python or Java,",
+      "terms": [
+        "SQL",
+        "query",
+        "API",
+        "Python",
+        "Java"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1087,
+      "to": 1101,
+      "kind": "example",
+      "gloss_en": "Dockerized apps with CI/CD, plus Airflow pipelines running automatically, and live working models for AI agents.",
+      "terms": [
+        "Docker",
+        "CI/CD",
+        "Airflow",
+        "pipeline",
+        "AI",
+        "AI agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1102,
+      "to": 1119,
+      "kind": "claim",
+      "gloss_en": "These things are the practical proof that shows any company your full ability to handle production systems and their complex challenges.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1120,
+      "to": 1142,
+      "kind": "claim",
+      "gloss_en": "The number 3. This number isn't just a number; it's the gold standard for anyone to catch recruiters' attention and really stand out in any job interview.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1143,
+      "to": 1155,
+      "kind": "claim",
+      "gloss_en": "Their portfolio must have 3 complete projects, 3 projects from start to finish,",
+      "terms": [],
+      "numbers": [
+        "3",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1156,
+      "to": 1169,
+      "kind": "claim",
+      "gloss_en": "covering all the technologies we talked about and proving in practice that this isn't just theoretical knowledge.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1170,
+      "to": 1176,
+      "kind": "claim",
+      "gloss_en": "No, these are projects built by hand that actually ran.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1177,
+      "to": 1184,
+      "kind": "transition",
+      "gloss_en": "And finally, let's think about this important question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1185,
+      "to": 1202,
+      "kind": "question",
+      "gloss_en": "Will the next generation of data platforms be built by people content with just watching, or by people who build and experiment themselves?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1203,
+      "to": 1210,
+      "kind": "claim",
+      "gloss_en": "The answer is surely clear: enough watching tutorials.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1211,
+      "to": 1226,
+      "kind": "recap",
+      "gloss_en": "And this is the right time to start building a real version of ShopFlow, step by step, from zero all the way to AI.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:10:32Z"
+}

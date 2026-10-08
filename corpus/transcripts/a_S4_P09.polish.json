@@ -1,0 +1,3300 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P09",
+  "asr_words": 1306,
+  "final_words": 1285,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 19,
+      "orig": "الداة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        19,
+        19
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 20,
+      "orig": "الصمتة",
+      "to": "الصامتة",
+      "why": "mishear",
+      "final": [
+        20,
+        20
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 22,
+      "orig": "بتضمر",
+      "to": "بتدمر",
+      "why": "mishear",
+      "final": [
+        22,
+        22
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 41,
+      "orig": "الSQL",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        41,
+        41
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 46,
+      "orig": "إيرر",
+      "to": "error",
+      "why": "term",
+      "final": [
+        46,
+        46
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 61,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        61,
+        61
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 72,
+      "orig": "بينها",
+      "to": "باينها",
+      "why": "mishear",
+      "final": [
+        72,
+        72
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 76,
+      "orig": "إرادات",
+      "to": "إيرادات",
+      "why": "mishear",
+      "final": [
+        76,
+        76
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 92,
+      "orig": "الأسكيوال",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        92,
+        92
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 112,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        112,
+        112
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 139,
+      "orig": "وقصات",
+      "to": "قصاد",
+      "why": "mishear",
+      "final": [
+        139,
+        139
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 152,
+      "orig": "بيشور",
+      "to": "بيشاور",
+      "why": "mishear",
+      "final": [
+        152,
+        152
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 185,
+      "orig": "الإجمال",
+      "to": "الإجمالي",
+      "why": "mishear",
+      "final": [
+        185,
+        185
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 186,
+      "orig": "يبينقص",
+      "to": "بينقص",
+      "why": "mishear",
+      "final": [
+        186,
+        186
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 196,
+      "orig": "lift",
+      "to": "left",
+      "why": "term",
+      "final": [
+        196,
+        196
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 203,
+      "orig": "النقصة",
+      "to": "الناقصة",
+      "why": "mishear",
+      "final": [
+        203,
+        203
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 222,
+      "orig": "ونترح",
+      "to": "ونطرح",
+      "why": "mishear",
+      "final": [
+        222,
+        222
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 231,
+      "orig": "عملة",
+      "to": "عملاء",
+      "why": "mishear",
+      "final": [
+        231,
+        231
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 255,
+      "orig": "الكرسى",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        255,
+        255
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 269,
+      "orig": "الفان",
+      "to": "الـfan-out",
+      "why": "term",
+      "final": [
+        269,
+        269
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 270,
+      "orig": "آوت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 272,
+      "orig": "عملة",
+      "to": "عملاء",
+      "why": "mishear",
+      "final": [
+        271,
+        271
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 291,
+      "orig": "الكي",
+      "to": "الـkey",
+      "why": "term",
+      "final": [
+        290,
+        290
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 295,
+      "orig": "الجوين",
+      "to": "الـjoin",
+      "why": "term",
+      "final": [
+        294,
+        294
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 298,
+      "orig": "يونيك",
+      "to": "unique",
+      "why": "term",
+      "final": [
+        297,
+        297
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 322,
+      "orig": "أربعة",
+      "to": "4",
+      "why": "number",
+      "final": [
+        321,
+        321
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 326,
+      "orig": "أمارة",
+      "to": "Amara",
+      "why": "term",
+      "final": [
+        325,
+        325
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 328,
+      "orig": "الفان",
+      "to": "الـfan-out",
+      "why": "term",
+      "final": [
+        327,
+        327
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 329,
+      "orig": "أوت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 345,
+      "orig": "sum",
+      "to": "SUM",
+      "why": "term",
+      "final": [
+        343,
+        343
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 346,
+      "orig": "للaggregations",
+      "to": "للـaggregations",
+      "why": "term",
+      "final": [
+        344,
+        344
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 348,
+      "orig": "أمارة",
+      "to": "Amara",
+      "why": "term",
+      "final": [
+        346,
+        346
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 360,
+      "orig": "لحل",
+      "to": "الحل",
+      "why": "mishear",
+      "final": [
+        358,
+        358
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 361,
+      "orig": "الإصلاح",
+      "to": "لإصلاح",
+      "why": "mishear",
+      "final": [
+        359,
+        359
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 362,
+      "orig": "الفان",
+      "to": "الـfan-out",
+      "why": "term",
+      "final": [
+        360,
+        360
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 363,
+      "orig": "اوت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 369,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        366,
+        366
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 373,
+      "orig": "الaggregate",
+      "to": "الـaggregate",
+      "why": "term",
+      "final": [
+        370,
+        370
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 377,
+      "orig": "الجوين",
+      "to": "الـjoin",
+      "why": "term",
+      "final": [
+        374,
+        374
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 391,
+      "orig": "exists",
+      "to": "EXISTS",
+      "why": "term",
+      "final": [
+        388,
+        388
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 395,
+      "orig": "بآ",
+      "to": "بآه",
+      "why": "mishear",
+      "final": [
+        392,
+        392
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 409,
+      "orig": "distinct",
+      "to": "DISTINCT",
+      "why": "term",
+      "final": [
+        406,
+        406
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 417,
+      "orig": "أنتي",
+      "to": "anti-pattern",
+      "why": "term",
+      "final": [
+        414,
+        414
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 418,
+      "orig": "باترن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 423,
+      "orig": "بيع",
+      "to": "بيعالجوش",
+      "why": "merge",
+      "final": [
+        419,
+        419
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 424,
+      "orig": "الجوش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 428,
+      "orig": "الجوين",
+      "to": "الـjoin",
+      "why": "term",
+      "final": [
+        423,
+        423
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 430,
+      "orig": "لكارسة",
+      "to": "لكارثة",
+      "why": "mishear",
+      "final": [
+        425,
+        425
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 432,
+      "orig": "كارتيجين",
+      "to": "Cartesian",
+      "why": "term",
+      "final": [
+        427,
+        427
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 433,
+      "orig": "برودكت",
+      "to": "product",
+      "why": "term",
+      "final": [
+        428,
+        428
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 445,
+      "orig": "الفخ",
+      "to": "لفخ",
+      "why": "mishear",
+      "final": [
+        440,
+        440
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 451,
+      "orig": "ليفت",
+      "to": "left",
+      "why": "term",
+      "final": [
+        446,
+        446
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 452,
+      "orig": "جوين",
+      "to": "join",
+      "why": "term",
+      "final": [
+        447,
+        447
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 461,
+      "orig": "جوال",
+      "to": "جوه",
+      "why": "mishear",
+      "final": [
+        456,
+        456
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 462,
+      "orig": "وير",
+      "to": "الـWHERE",
+      "why": "term",
+      "final": [
+        457,
+        457
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 463,
+      "orig": "كلوز",
+      "to": "clause",
+      "why": "term",
+      "final": [
+        458,
+        458
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 473,
+      "orig": "نل",
+      "to": "null",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 480,
+      "orig": "الليف",
+      "to": "الـleft",
+      "why": "term",
+      "final": [
+        475,
+        475
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 481,
+      "orig": "جوين",
+      "to": "join",
+      "why": "term",
+      "final": [
+        476,
+        476
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 484,
+      "orig": "لإنر",
+      "to": "لـinner",
+      "why": "term",
+      "final": [
+        479,
+        479
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 485,
+      "orig": "جوين",
+      "to": "join",
+      "why": "term",
+      "final": [
+        480,
+        480
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 491,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        486,
+        486
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 493,
+      "orig": "بيبوز",
+      "to": "بيبوظ",
+      "why": "mishear",
+      "final": [
+        488,
+        488
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 495,
+      "orig": "البساطة",
+      "to": "ببساطة",
+      "why": "mishear",
+      "final": [
+        490,
+        490
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 503,
+      "orig": "جوال",
+      "to": "جوه",
+      "why": "mishear",
+      "final": [
+        498,
+        498
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 504,
+      "orig": "ON",
+      "to": "الـON",
+      "why": "term",
+      "final": [
+        499,
+        499
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 510,
+      "orig": "معاقدة",
+      "to": "معقدة",
+      "why": "mishear",
+      "final": [
+        505,
+        505
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 514,
+      "orig": "مبوص",
+      "to": "نبوظ",
+      "why": "mishear",
+      "final": [
+        509,
+        509
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 520,
+      "orig": "الويندو",
+      "to": "الـwindow",
+      "why": "term",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 521,
+      "orig": "فانكشنز",
+      "to": "functions",
+      "why": "term",
+      "final": [
+        516,
+        516
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 522,
+      "orig": "كعلاق",
+      "to": "كعلاج",
+      "why": "mishear",
+      "final": [
+        517,
+        517
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 527,
+      "orig": "الجروب",
+      "to": "الـGROUP",
+      "why": "term",
+      "final": [
+        522,
+        522
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 528,
+      "orig": "باي",
+      "to": "BY",
+      "why": "term",
+      "final": [
+        523,
+        523
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 538,
+      "orig": "الويندو",
+      "to": "الـwindow",
+      "why": "term",
+      "final": [
+        533,
+        533
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 539,
+      "orig": "فانكشنز",
+      "to": "functions",
+      "why": "term",
+      "final": [
+        534,
+        534
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 543,
+      "orig": "البرتشن",
+      "to": "الـpartition",
+      "why": "term",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 545,
+      "orig": "التأسيمة",
+      "to": "التقسيمة",
+      "why": "mishear",
+      "final": [
+        540,
+        540
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 548,
+      "orig": "البنفسيجي",
+      "to": "البنفسجي",
+      "why": "mishear",
+      "final": [
+        543,
+        543
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 550,
+      "orig": "الفريم",
+      "to": "الـframe",
+      "why": "term",
+      "final": [
+        545,
+        545
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 553,
+      "orig": "بيسحف",
+      "to": "بيزحف",
+      "why": "mishear",
+      "final": [
+        548,
+        548
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 567,
+      "orig": "بالزبط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        562,
+        562
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 570,
+      "orig": "الويندو",
+      "to": "الـwindow",
+      "why": "term",
+      "final": [
+        565,
+        565
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 571,
+      "orig": "فانكشنز",
+      "to": "functions",
+      "why": "term",
+      "final": [
+        566,
+        566
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 574,
+      "orig": "طريق",
+      "to": "طريقة",
+      "why": "mishear",
+      "final": [
+        569,
+        569
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 575,
+      "orig": "التعاملها",
+      "to": "تعاملها",
+      "why": "mishear",
+      "final": [
+        570,
+        570
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 583,
+      "orig": "الايفون",
+      "to": "الـiPhone",
+      "why": "term",
+      "final": [
+        578,
+        578
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 584,
+      "orig": "والماجبوك",
+      "to": "والـMacBook",
+      "why": "term",
+      "final": [
+        579,
+        579
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 590,
+      "orig": "4",
+      "to": "4.8",
+      "why": "number",
+      "final": [
+        585,
+        585
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 591,
+      "orig": ".8",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 592,
+      "orig": "الدولة",
+      "to": "الدوال",
+      "why": "mishear",
+      "final": [
+        586,
+        586
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 599,
+      "orig": "الرو",
+      "to": "الـROW_NUMBER",
+      "why": "term",
+      "final": [
+        593,
+        593
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 600,
+      "orig": "نمبر",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 619,
+      "orig": "الديد",
+      "to": "الـdeduplication",
+      "why": "term",
+      "final": [
+        612,
+        612
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 620,
+      "orig": "أبليكيشن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 626,
+      "orig": "الرانك",
+      "to": "الـRANK",
+      "why": "term",
+      "final": [
+        618,
+        618
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 643,
+      "orig": "الدينس",
+      "to": "الـDENSE_RANK",
+      "why": "term",
+      "final": [
+        635,
+        635
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 644,
+      "orig": "رانك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 684,
+      "orig": "للCTEs",
+      "to": "للـCTEs",
+      "why": "term",
+      "final": [
+        675,
+        675
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 685,
+      "orig": "الCTE",
+      "to": "الـCTE",
+      "why": "term",
+      "final": [
+        676,
+        676
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 687,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        678,
+        678
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 691,
+      "orig": "بالزبط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        682,
+        682
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 699,
+      "orig": "الديد",
+      "to": "الـdeduplication",
+      "why": "term",
+      "final": [
+        690,
+        690
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 700,
+      "orig": "ديوبليكيشن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 701,
+      "orig": "والريكورس",
+      "to": "والـrecursive",
+      "why": "term",
+      "final": [
+        691,
+        691
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 702,
+      "orig": "في",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 728,
+      "orig": "للكوريليتد",
+      "to": "للـcorrelated",
+      "why": "term",
+      "final": [
+        717,
+        717
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 729,
+      "orig": "صب",
+      "to": "subqueries",
+      "why": "term",
+      "final": [
+        718,
+        718
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 730,
+      "orig": "كويريز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 740,
+      "orig": "الوحدة",
+      "to": "لوحده",
+      "why": "mishear",
+      "final": [
+        728,
+        728
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 744,
+      "orig": "السوابت",
+      "to": "الثوابت",
+      "why": "mishear",
+      "final": [
+        732,
+        732
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 748,
+      "orig": "النال",
+      "to": "الـNULL",
+      "why": "term",
+      "final": [
+        736,
+        736
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 751,
+      "orig": "الـ",
+      "to": "الـSQL",
+      "why": "merge",
+      "final": [
+        739,
+        739
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 752,
+      "orig": "SQL",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 753,
+      "orig": "النال",
+      "to": "الـNULL",
+      "why": "term",
+      "final": [
+        740,
+        740
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 761,
+      "orig": "النال",
+      "to": "الـNULL",
+      "why": "term",
+      "final": [
+        748,
+        748
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 771,
+      "orig": "سلاسي",
+      "to": "تلاتي",
+      "why": "mishear",
+      "final": [
+        758,
+        758
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 775,
+      "orig": "الكارسة",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        762,
+        762
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 779,
+      "orig": "not",
+      "to": "NOT",
+      "why": "term",
+      "final": [
+        766,
+        766
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 780,
+      "orig": "in",
+      "to": "IN",
+      "why": "term",
+      "final": [
+        767,
+        767
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 783,
+      "orig": "نال",
+      "to": "NULL",
+      "why": "term",
+      "final": [
+        770,
+        770
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 789,
+      "orig": "وصفوف",
+      "to": "صفوف",
+      "why": "mishear",
+      "final": [
+        776,
+        776
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 796,
+      "orig": "الفخدة",
+      "to": "الفخ ده",
+      "why": "split",
+      "final": [
+        783,
+        784
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 800,
+      "orig": "Not",
+      "to": "NOT",
+      "why": "term",
+      "final": [
+        788,
+        788
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 801,
+      "orig": "Exists",
+      "to": "EXISTS",
+      "why": "term",
+      "final": [
+        789,
+        789
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 806,
+      "orig": "كوالاس",
+      "to": "COALESCE",
+      "why": "term",
+      "final": [
+        794,
+        794
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 833,
+      "orig": "ال",
+      "to": "الـACID",
+      "why": "merge",
+      "final": [
+        821,
+        821
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 834,
+      "orig": "-ACID",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 840,
+      "orig": "ال",
+      "to": "الـcheckout",
+      "why": "merge",
+      "final": [
+        827,
+        827
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 841,
+      "orig": "-checkout",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 887,
+      "orig": "السيرفر",
+      "to": "الـserver",
+      "why": "term",
+      "final": [
+        873,
+        873
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 890,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        876,
+        876
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 899,
+      "orig": "الIsolation",
+      "to": "الـisolation",
+      "why": "term",
+      "final": [
+        885,
+        885
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 903,
+      "orig": "تواقع",
+      "to": "توقع",
+      "why": "mishear",
+      "final": [
+        889,
+        889
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 909,
+      "orig": "علي",
+      "to": "عالي",
+      "why": "mishear",
+      "final": [
+        895,
+        895
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 934,
+      "orig": "ساشن",
+      "to": "Session",
+      "why": "term",
+      "final": [
+        920,
+        920
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 935,
+      "orig": "بي",
+      "to": "B",
+      "why": "term",
+      "final": [
+        921,
+        921
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 939,
+      "orig": "الخمسمية",
+      "to": "الـ500",
+      "why": "number",
+      "final": [
+        925,
+        925
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 943,
+      "orig": "بي",
+      "to": "B",
+      "why": "term",
+      "final": [
+        929,
+        929
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 944,
+      "orig": "اللي",
+      "to": "الاتنين",
+      "why": "merge",
+      "final": [
+        930,
+        930
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 945,
+      "orig": "اتنين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 952,
+      "orig": "يطار",
+      "to": "يا ترى",
+      "why": "split",
+      "final": [
+        937,
+        938
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 972,
+      "orig": "خمسمية",
+      "to": "500",
+      "why": "number",
+      "final": [
+        958,
+        958
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 974,
+      "orig": "اي",
+      "to": "A",
+      "why": "term",
+      "final": [
+        960,
+        960
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 976,
+      "orig": "بي",
+      "to": "B",
+      "why": "term",
+      "final": [
+        962,
+        962
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 982,
+      "orig": "الكارسة",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        968,
+        968
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 984,
+      "orig": "ساشن",
+      "to": "Session",
+      "why": "term",
+      "final": [
+        970,
+        970
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 985,
+      "orig": "بي",
+      "to": "B",
+      "why": "term",
+      "final": [
+        971,
+        971
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 987,
+      "orig": "خمسمية",
+      "to": "500",
+      "why": "number",
+      "final": [
+        973,
+        973
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 989,
+      "orig": "بي",
+      "to": "B",
+      "why": "term",
+      "final": [
+        975,
+        975
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 991,
+      "orig": "مسحة",
+      "to": "ماسحة",
+      "why": "mishear",
+      "final": [
+        977,
+        977
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 993,
+      "orig": "ساشن",
+      "to": "Session",
+      "why": "term",
+      "final": [
+        979,
+        979
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 994,
+      "orig": "اي",
+      "to": "A",
+      "why": "term",
+      "final": [
+        980,
+        980
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 997,
+      "orig": "صومت",
+      "to": "صامت",
+      "why": "mishear",
+      "final": [
+        983,
+        983
+      ]
+    },
+    {
+      "op": "insert",
+      "after_i": 1010,
+      "text": "lost update",
+      "why": "dropout",
+      "final": [
+        997,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1019,
+      "orig": "ال",
+      "to": "الـisolation",
+      "why": "merge",
+      "final": [
+        1007,
+        1007
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1020,
+      "orig": "-isolation",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1023,
+      "orig": "نشبيها",
+      "to": "نشبهها",
+      "why": "mishear",
+      "final": [
+        1010,
+        1010
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1049,
+      "orig": "التلزامن",
+      "to": "التزامن",
+      "why": "mishear",
+      "final": [
+        1036,
+        1036
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1051,
+      "orig": "ال",
+      "to": "الـconcurrency",
+      "why": "merge",
+      "final": [
+        1038,
+        1038
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1052,
+      "orig": "-concurrency",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1054,
+      "orig": "ال",
+      "to": "الـPostgreSQL",
+      "why": "merge",
+      "final": [
+        1040,
+        1040
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1055,
+      "orig": "-post",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1056,
+      "orig": "-grass",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1057,
+      "orig": "SQL",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1058,
+      "orig": "بيزبط",
+      "to": "بيظبط",
+      "why": "mishear",
+      "final": [
+        1041,
+        1041
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1059,
+      "orig": "الدفولت",
+      "to": "الـdefault",
+      "why": "term",
+      "final": [
+        1042,
+        1042
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1063,
+      "orig": "-committed",
+      "to": "committed",
+      "why": "term",
+      "final": [
+        1046,
+        1046
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1065,
+      "orig": "الماي",
+      "to": "الـMySQL",
+      "why": "merge",
+      "final": [
+        1048,
+        1048
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1066,
+      "orig": "سيكويل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1067,
+      "orig": "بيزبطوا",
+      "to": "بيظبطوا",
+      "why": "mishear",
+      "final": [
+        1049,
+        1049
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1073,
+      "orig": "الMVCC",
+      "to": "الـMVCC",
+      "why": "term",
+      "final": [
+        1055,
+        1055
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1082,
+      "orig": "سابتة",
+      "to": "ثابتة",
+      "why": "mishear",
+      "final": [
+        1064,
+        1064
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1101,
+      "orig": "الdeadlock",
+      "to": "الـdeadlock",
+      "why": "term",
+      "final": [
+        1083,
+        1083
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1110,
+      "orig": "ساشن",
+      "to": "Session",
+      "why": "term",
+      "final": [
+        1092,
+        1092
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1115,
+      "orig": "واحد",
+      "to": "1",
+      "why": "number",
+      "final": [
+        1097,
+        1097
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1119,
+      "orig": "اثنين",
+      "to": "2",
+      "why": "number",
+      "final": [
+        1101,
+        1101
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1124,
+      "orig": "ساشن",
+      "to": "Session",
+      "why": "term",
+      "final": [
+        1106,
+        1106
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1125,
+      "orig": "بي",
+      "to": "B",
+      "why": "term",
+      "final": [
+        1107,
+        1107
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1136,
+      "orig": "تقفلت",
+      "to": "اتقفلت",
+      "why": "mishear",
+      "final": [
+        1118,
+        1118
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1152,
+      "orig": "قصوة",
+      "to": "قسوة",
+      "why": "mishear",
+      "final": [
+        1134,
+        1134
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1156,
+      "orig": "الساشنز",
+      "to": "الـsessions",
+      "why": "term",
+      "final": [
+        1138,
+        1138
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1168,
+      "orig": "والتجنب",
+      "to": "ولتجنب",
+      "why": "mishear",
+      "final": [
+        1150,
+        1150
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1183,
+      "orig": "time",
+      "to": "timeout",
+      "why": "merge",
+      "final": [
+        1165,
+        1165
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1184,
+      "orig": "out",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1203,
+      "orig": "الديليت",
+      "to": "الـDELETE",
+      "why": "term",
+      "final": [
+        1184,
+        1184
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1210,
+      "orig": "لوجد",
+      "to": "logged",
+      "why": "term",
+      "final": [
+        1191,
+        1191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1214,
+      "orig": "الرول",
+      "to": "الـROLLBACK",
+      "why": "merge",
+      "final": [
+        1195,
+        1195
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1215,
+      "orig": "باك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1218,
+      "orig": "الترونكيت",
+      "to": "الـTRUNCATE",
+      "why": "term",
+      "final": [
+        1198,
+        1198
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1230,
+      "orig": "الايدنتيتي",
+      "to": "الـidentity",
+      "why": "term",
+      "final": [
+        1210,
+        1210
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1237,
+      "orig": "الدروب",
+      "to": "الـDROP",
+      "why": "term",
+      "final": [
+        1217,
+        1217
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1240,
+      "orig": "بتضمر",
+      "to": "بتدمر",
+      "why": "mishear",
+      "final": [
+        1220,
+        1220
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1244,
+      "orig": "وتركبته",
+      "to": "وتركيبته",
+      "why": "mishear",
+      "final": [
+        1224,
+        1224
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1264,
+      "orig": "الفان",
+      "to": "الـfan-out",
+      "why": "term",
+      "final": [
+        1244,
+        1244
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1265,
+      "orig": "آوت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1276,
+      "orig": "اللوك",
+      "to": "الـlock",
+      "why": "term",
+      "final": [
+        1255,
+        1255
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1277,
+      "orig": "أوردرز",
+      "to": "orders",
+      "why": "term",
+      "final": [
+        1256,
+        1256
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1286,
+      "orig": "الترانزاكشنز",
+      "to": "الـtransactions",
+      "why": "term",
+      "final": [
+        1265,
+        1265
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1288,
+      "orig": "للدادلوكس",
+      "to": "للـdeadlocks",
+      "why": "term",
+      "final": [
+        1267,
+        1267
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1292,
+      "orig": "البروداكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        1271,
+        1271
+      ]
+    }
+  ],
+  "notes": "NotebookLM narration that paraphrases the S4-P09 script (joins, fan-out, LEFT->INNER trap, windows/ties, CTEs, NULL, ACID, lost update, isolation, deadlock, DELETE/TRUNCATE/DROP); it does not follow the script verbatim, so source_excerpt was used only to confirm terms and figures. Terms: Arabic-script English terms converted to Latin with the source's الـ prefix style (query, join, key, unique, fan-out, window functions, partition, frame, GROUP BY, ROW_NUMBER, RANK, DENSE_RANK, CTE(s), recursive, correlated subqueries, NULL, NOT IN/NOT EXISTS, COALESCE, ACID, checkout, server, isolation levels, concurrency, PostgreSQL, MySQL, default, MVCC, deadlock(s), sessions, timeout, DELETE, logged, ROLLBACK, TRUNCATE, identity, DROP, production, transactions); spoken letters A/B -> 'A'/'B' and 'ساشن' -> 'Session'; 'أمارة' -> 'Amara'. Numbers: '4 .8' merged to '4.8'; balance 'خمسمية' -> 500 (x3, matching whisper's own '500' at i915/i924); deadlock row ids 'واحد/اثنين' at i1115/i1119 -> 1/2 to match i1129/i1133; 'الرقم أربعة' (the on-screen x4 for Amara) -> 4. Other spoken counts (ست عملاء، أربع مرات، رقم واحد/اثنين/تلاتة in the ranking, لخمس ثواني) stay as words but are listed as digits in sentence numbers. Dropout: inserted 'lost update' after i1010 ('...في قواعد البيانات بنسميها') -- a 1.76 s silence follows and the source says 'ده اسمه lost update'. Left as heard (uncertain, please spot-check audio): i3 'الشرح جديد' (maybe 'شرح جديد'); i57 'الكاوز' (maybe 'الكابوس' or 'الكيس'); i264-265 'تأثير الأمة' (conf 0.64, the Arabic name for fan-out, maybe 'تأثير المروحة'); i759 'صحة فاضية' (maybe 'خانة/مساحة فاضية'); i982 kept as 'الكارثة حقيقية' (maybe 'كارثة حقيقية'); i1004 'استطلع' (conf 0.72, maybe 'ما تطلع'); i1040 'أهلين عليها' (maybe 'حاكيين عليها'); i1120 'يفضل' (maybe 'يفضى'); i1227 'وبترصة' (maybe 'وبتريست/وبتصفّر' the counter); i1179-1180/1276-1277 'lock orders' kept as said. Dialect contractions 'محد' (i189) and 'منفوت' (i673) kept. i139 'وقصات' -> 'قصاد' (row against row; source: صف بصف). Sentences 1259-1272 and 1273-1294 form one long question that was split to stay within 28 words.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 4,
+      "kind": "transition",
+      "gloss_en": "Welcome to a new explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 5,
+      "to": 13,
+      "kind": "transition",
+      "gloss_en": "Let's get straight into the topic, no introductions.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 14,
+      "to": 36,
+      "kind": "transition",
+      "gloss_en": "Today's journey takes us from the silent data traps that wreck calculations quietly to how we build strong, bulletproof databases.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 37,
+      "to": 52,
+      "kind": "claim",
+      "gloss_en": "If you believe correct SQL is SQL that throws no error, this explainer will change that idea completely.",
+      "terms": [
+        "SQL",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 53,
+      "to": 60,
+      "kind": "transition",
+      "gloss_en": "Come on, let's picture this scenario together.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 61,
+      "to": 73,
+      "kind": "example",
+      "gloss_en": "The query ran fine, no error message appeared, and everything looked OK.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 74,
+      "to": 83,
+      "kind": "question",
+      "gloss_en": "But all the company's revenue figures came out wrong. How does that happen?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 84,
+      "to": 100,
+      "kind": "claim",
+      "gloss_en": "The key point is that the most dangerous SQL errors are not the ones that raise a red warning and stop the work.",
+      "terms": [
+        "SQL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 101,
+      "to": 111,
+      "kind": "claim",
+      "gloss_en": "Not at all: they are the errors that happen in total silence, behind the scenes.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 112,
+      "to": 123,
+      "kind": "claim",
+      "gloss_en": "Data changes, disappears or even doubles, all without any warning.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 124,
+      "to": 142,
+      "kind": "example",
+      "gloss_en": "To see how, imagine a laser pointer walking along, matching the data row against row between two tables.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 143,
+      "to": 167,
+      "kind": "example",
+      "gloss_en": "With an inner join, order 1007 points to customer 9, but that customer is not in the customers table for some reason.",
+      "terms": [
+        "inner join"
+      ],
+      "numbers": [
+        1007,
+        9
+      ],
+      "entities": []
+    },
+    {
+      "from": 168,
+      "to": 171,
+      "kind": "question",
+      "gloss_en": "So what is the result here?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 172,
+      "to": 183,
+      "kind": "claim",
+      "gloss_en": "The inner join drops order 1007 entirely, and does it in total silence.",
+      "terms": [
+        "inner join"
+      ],
+      "numbers": [
+        1007
+      ],
+      "entities": []
+    },
+    {
+      "from": 184,
+      "to": 190,
+      "kind": "claim",
+      "gloss_en": "Suddenly the total shrinks without anyone noticing.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 191,
+      "to": 201,
+      "kind": "claim",
+      "gloss_en": "In contrast, with a left join, order 1007 stays in the result.",
+      "terms": [
+        "left join"
+      ],
+      "numbers": [
+        1007
+      ],
+      "entities": []
+    },
+    {
+      "from": 202,
+      "to": 208,
+      "kind": "claim",
+      "gloss_en": "And the missing data on the right side gets a null value.",
+      "terms": [
+        "null"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 209,
+      "to": 216,
+      "kind": "claim",
+      "gloss_en": "Then the problem is visible in front of us, so we can fix it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 217,
+      "to": 227,
+      "kind": "transition",
+      "gloss_en": "Now let's pause for a moment and pose a question we need to predict together.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 228,
+      "to": 246,
+      "kind": "prediction",
+      "gloss_en": "If we have six customers and LEFT JOIN them to the orders table, how many rows come out in the final result?",
+      "terms": [
+        "LEFT JOIN",
+        "orders"
+      ],
+      "numbers": [
+        6
+      ],
+      "entities": []
+    },
+    {
+      "from": 247,
+      "to": 258,
+      "kind": "prediction",
+      "gloss_en": "Take a second to think before we see the disaster that can happen.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 259,
+      "to": 263,
+      "kind": "transition",
+      "gloss_en": "The shocking answer appears in front of us now.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 264,
+      "to": 269,
+      "kind": "claim",
+      "gloss_en": "The multiplying effect, or what we call fan-out.",
+      "terms": [
+        "fan-out"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 270,
+      "to": 283,
+      "kind": "example",
+      "gloss_en": "Only six customers went in, but 15 rows came out: more out than in.",
+      "terms": [
+        "fan-out"
+      ],
+      "numbers": [
+        6,
+        15
+      ],
+      "entities": []
+    },
+    {
+      "from": 284,
+      "to": 302,
+      "kind": "claim",
+      "gloss_en": "This happens silently when the key we join on is not unique on the other side.",
+      "terms": [
+        "key",
+        "join",
+        "unique"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 303,
+      "to": 315,
+      "kind": "claim",
+      "gloss_en": "As a result, all revenue calculations inflate beyond the truth because of this row duplication.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 316,
+      "to": 329,
+      "kind": "example",
+      "gloss_en": "To make it concrete, this number 4 represents the customer Amara, because of the fan-out that happened.",
+      "terms": [
+        "fan-out"
+      ],
+      "numbers": [
+        4
+      ],
+      "entities": [
+        "Amara"
+      ]
+    },
+    {
+      "from": 330,
+      "to": 339,
+      "kind": "example",
+      "gloss_en": "That customer is now counted four times in the data, secretly.",
+      "terms": [],
+      "numbers": [
+        4
+      ],
+      "entities": [
+        "Amara"
+      ]
+    },
+    {
+      "from": 340,
+      "to": 355,
+      "kind": "example",
+      "gloss_en": "So if we use SUM for aggregations, Amara's figures get added four times, which completely destroys data accuracy.",
+      "terms": [
+        "SUM",
+        "aggregations"
+      ],
+      "numbers": [
+        4
+      ],
+      "entities": [
+        "Amara"
+      ]
+    },
+    {
+      "from": 356,
+      "to": 361,
+      "kind": "question",
+      "gloss_en": "So what is the fix for this fan-out?",
+      "terms": [
+        "fan-out"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 362,
+      "to": 374,
+      "kind": "claim",
+      "gloss_en": "First, aggregate the data before doing the join.",
+      "terms": [
+        "aggregate",
+        "join"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 375,
+      "to": 399,
+      "kind": "claim",
+      "gloss_en": "Second, to check whether a customer has orders or not, use EXISTS: it simply answers yes or no without duplicating rows.",
+      "terms": [
+        "EXISTS"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 400,
+      "to": 410,
+      "kind": "claim",
+      "gloss_en": "And the most important advice: never use DISTINCT to solve this problem.",
+      "terms": [
+        "DISTINCT"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 411,
+      "to": 419,
+      "kind": "claim",
+      "gloss_en": "That is the worst anti-pattern, because it hides the disease instead of curing it.",
+      "terms": [
+        "anti-pattern",
+        "DISTINCT"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 420,
+      "to": 437,
+      "kind": "claim",
+      "gloss_en": "Finally, forgetting the join condition leads to a disaster called a Cartesian product: every row multiplies with every row and the data literally explodes.",
+      "terms": [
+        "join",
+        "Cartesian product"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 438,
+      "to": 443,
+      "kind": "transition",
+      "gloss_en": "That brings us to another very famous trap.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 444,
+      "to": 458,
+      "kind": "example",
+      "gloss_en": "Sometimes we use a left join and then filter on the right-hand table inside the WHERE clause.",
+      "terms": [
+        "left join",
+        "WHERE"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 459,
+      "to": 473,
+      "kind": "claim",
+      "gloss_en": "What happens silently is that rows whose right side is null fail that filter and get removed.",
+      "terms": [
+        "null",
+        "WHERE"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 474,
+      "to": 488,
+      "kind": "claim",
+      "gloss_en": "So the left join effectively turns into an inner join without us meaning it, and the whole query logic breaks.",
+      "terms": [
+        "left join",
+        "inner join",
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 489,
+      "to": 499,
+      "kind": "claim",
+      "gloss_en": "The fix is simply to move that condition into the ON clause.",
+      "terms": [
+        "ON"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 500,
+      "to": 511,
+      "kind": "question",
+      "gloss_en": "OK, how can we do complex calculations without wrecking the shape of the data?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 512,
+      "to": 520,
+      "kind": "claim",
+      "gloss_en": "This is where window functions come in, as a magic cure for row collapse.",
+      "terms": [
+        "window function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 521,
+      "to": 531,
+      "kind": "claim",
+      "gloss_en": "Using GROUP BY collapses all the rows into just one summary row.",
+      "terms": [
+        "GROUP BY"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 532,
+      "to": 550,
+      "kind": "claim",
+      "gloss_en": "But window functions compute freely across the partition, shown in purple, with the orange frame crawling row by row.",
+      "terms": [
+        "window function",
+        "PARTITION",
+        "frame"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 551,
+      "to": 562,
+      "kind": "claim",
+      "gloss_en": "All while keeping every original row intact, exactly as it is.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 563,
+      "to": 573,
+      "kind": "claim",
+      "gloss_en": "What really sets window functions apart is how they handle ties.",
+      "terms": [
+        "window function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 574,
+      "to": 585,
+      "kind": "example",
+      "gloss_en": "Here the iPhone and the MacBook are tied in rating; both have 4.8.",
+      "terms": [],
+      "numbers": [
+        4.8
+      ],
+      "entities": [
+        "iPhone",
+        "MacBook"
+      ]
+    },
+    {
+      "from": 586,
+      "to": 592,
+      "kind": "claim",
+      "gloss_en": "The three functions treat them in completely different ways.",
+      "terms": [
+        "ROW_NUMBER",
+        "RANK",
+        "DENSE_RANK"
+      ],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 593,
+      "to": 605,
+      "kind": "example",
+      "gloss_en": "ROW_NUMBER invents an order on its own: it gives one of them 1 and the other 2.",
+      "terms": [
+        "ROW_NUMBER"
+      ],
+      "numbers": [
+        1,
+        2
+      ],
+      "entities": []
+    },
+    {
+      "from": 606,
+      "to": 617,
+      "kind": "claim",
+      "gloss_en": "That is why it is the ideal tool for deduplication, because it keeps exactly one row.",
+      "terms": [
+        "ROW_NUMBER",
+        "dedupe"
+      ],
+      "numbers": [
+        1
+      ],
+      "entities": []
+    },
+    {
+      "from": 618,
+      "to": 633,
+      "kind": "example",
+      "gloss_en": "RANK gives both of them 1, but then jumps, so the next one gets 3.",
+      "terms": [
+        "RANK"
+      ],
+      "numbers": [
+        1,
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 634,
+      "to": 646,
+      "kind": "example",
+      "gloss_en": "DENSE_RANK gives them 1 and continues naturally with 2 for the next rank.",
+      "terms": [
+        "DENSE_RANK"
+      ],
+      "numbers": [
+        1,
+        2
+      ],
+      "entities": []
+    },
+    {
+      "from": 647,
+      "to": 665,
+      "kind": "claim",
+      "gloss_en": "That makes it the right tool when looking for the second-highest value, or any specific rank, without skipping numbers.",
+      "terms": [
+        "DENSE_RANK",
+        "Nth highest"
+      ],
+      "numbers": [
+        2
+      ],
+      "entities": []
+    },
+    {
+      "from": 666,
+      "to": 675,
+      "kind": "transition",
+      "gloss_en": "To organise all these complex ideas together, we turn to CTEs.",
+      "terms": [
+        "CTE"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 676,
+      "to": 684,
+      "kind": "claim",
+      "gloss_en": "A CTE makes the query read exactly like a story, step by step.",
+      "terms": [
+        "CTE",
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 685,
+      "to": 690,
+      "kind": "claim",
+      "gloss_en": "It is excellent for deduplication.",
+      "terms": [
+        "CTE",
+        "dedupe"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 691,
+      "to": 709,
+      "kind": "example",
+      "gloss_en": "Recursive CTEs in particular can generate series, for example creating 12 rows for the months of 2024 to fill data gaps.",
+      "terms": [
+        "recursive",
+        "CTE"
+      ],
+      "numbers": [
+        12,
+        2024
+      ],
+      "entities": []
+    },
+    {
+      "from": 710,
+      "to": 728,
+      "kind": "claim",
+      "gloss_en": "Most importantly, they are an excellent replacement for complex correlated subqueries, which kill performance because they run once per row.",
+      "terms": [
+        "CTE",
+        "correlated",
+        "subqueries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 729,
+      "to": 736,
+      "kind": "transition",
+      "gloss_en": "Now let's shake up some fundamentals and talk about NULL.",
+      "terms": [
+        "NULL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 737,
+      "to": 747,
+      "kind": "claim",
+      "gloss_en": "In SQL, NULL does not mean zero, nor an empty value.",
+      "terms": [
+        "SQL",
+        "NULL"
+      ],
+      "numbers": [
+        0
+      ],
+      "entities": []
+    },
+    {
+      "from": 748,
+      "to": 761,
+      "kind": "claim",
+      "gloss_en": "NULL means unknown, which gives us three-valued logic: true, false and unknown.",
+      "terms": [
+        "NULL",
+        "unknown",
+        "true",
+        "false"
+      ],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 762,
+      "to": 780,
+      "kind": "claim",
+      "gloss_en": "Disaster strikes when we use NOT IN with just one NULL inside: the result is zero rows, nothing comes back.",
+      "terms": [
+        "NOT IN",
+        "NULL"
+      ],
+      "numbers": [
+        1,
+        0
+      ],
+      "entities": []
+    },
+    {
+      "from": 781,
+      "to": 794,
+      "kind": "claim",
+      "gloss_en": "To avoid this trap, it is always better to use NOT EXISTS or other functions like COALESCE.",
+      "terms": [
+        "NOT EXISTS",
+        "COALESCE"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 795,
+      "to": 812,
+      "kind": "transition",
+      "gloss_en": "Now we enter the third chapter: modifying data in an environment with many users at the same time.",
+      "terms": [],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 813,
+      "to": 821,
+      "kind": "claim",
+      "gloss_en": "Any change to the data must respect principles we call ACID.",
+      "terms": [
+        "ACID"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 822,
+      "to": 831,
+      "kind": "example",
+      "gloss_en": "Imagine the payment or checkout process on any e-commerce site.",
+      "terms": [
+        "checkout"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 832,
+      "to": 850,
+      "kind": "claim",
+      "gloss_en": "It must be Atomic: either it all completes together, or nothing happens and it is all cancelled if any failure occurs.",
+      "terms": [
+        "Atomic"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 851,
+      "to": 857,
+      "kind": "claim",
+      "gloss_en": "It must be Consistent: all the rules are enforced.",
+      "terms": [
+        "Consistent"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 858,
+      "to": 867,
+      "kind": "claim",
+      "gloss_en": "Isolated: the work is isolated and safe from any other interference.",
+      "terms": [
+        "Isolated"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 868,
+      "to": 881,
+      "kind": "claim",
+      "gloss_en": "And finally Durable: if the server suddenly crashes, data that was already recorded will not be lost.",
+      "terms": [
+        "Durable",
+        "server"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 882,
+      "to": 896,
+      "kind": "transition",
+      "gloss_en": "To understand why isolation matters, we have another prediction question, but this time the stakes are a bit higher.",
+      "terms": [
+        "isolation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 897,
+      "to": 915,
+      "kind": "example",
+      "gloss_en": "We have a balance of 500; Session A reads that the balance is 500 and decides to add a value A.",
+      "terms": [
+        "Session",
+        "balance"
+      ],
+      "numbers": [
+        500
+      ],
+      "entities": [
+        "Session A"
+      ]
+    },
+    {
+      "from": 916,
+      "to": 929,
+      "kind": "example",
+      "gloss_en": "At exactly the same time, Session B reads the same 500 and decides to add a value B.",
+      "terms": [
+        "Session"
+      ],
+      "numbers": [
+        500
+      ],
+      "entities": [
+        "Session B"
+      ]
+    },
+    {
+      "from": 930,
+      "to": 942,
+      "kind": "prediction",
+      "gloss_en": "Both write and update the balance at the same moment. What will the final balance be?",
+      "terms": [
+        "balance"
+      ],
+      "numbers": [],
+      "entities": [
+        "Session A",
+        "Session B"
+      ]
+    },
+    {
+      "from": 943,
+      "to": 962,
+      "kind": "prediction",
+      "gloss_en": "With the two timelines overlapping, the logical answer anyone would expect is 500 plus A plus B.",
+      "terms": [],
+      "numbers": [
+        500,
+        2
+      ],
+      "entities": [
+        "Session A",
+        "Session B"
+      ]
+    },
+    {
+      "from": 963,
+      "to": 969,
+      "kind": "claim",
+      "gloss_en": "But what actually happens is a real disaster.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 970,
+      "to": 981,
+      "kind": "example",
+      "gloss_en": "Session B writes 500 plus B and completely wipes out Session A's update.",
+      "terms": [
+        "update"
+      ],
+      "numbers": [
+        500
+      ],
+      "entities": [
+        "Session A",
+        "Session B"
+      ]
+    },
+    {
+      "from": 982,
+      "to": 990,
+      "kind": "claim",
+      "gloss_en": "A completely silent wipe, without any error message appearing.",
+      "terms": [
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 991,
+      "to": 998,
+      "kind": "claim",
+      "gloss_en": "In databases we call this phenomenon a lost update.",
+      "terms": [
+        "lost update"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 999,
+      "to": 1008,
+      "kind": "claim",
+      "gloss_en": "To prevent these disasters, something called isolation levels is used.",
+      "terms": [
+        "isolation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1009,
+      "to": 1028,
+      "kind": "claim",
+      "gloss_en": "We can liken them to a graduated dial we turn: the higher we set it, the more protection against the problems we have been describing.",
+      "terms": [
+        "isolation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1029,
+      "to": 1038,
+      "kind": "claim",
+      "gloss_en": "But the price we pay comes out of concurrency speed.",
+      "terms": [
+        "concurrency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1039,
+      "to": 1052,
+      "kind": "example",
+      "gloss_en": "For example, PostgreSQL sets its default to read committed, while MySQL sets it to repeatable read.",
+      "terms": [
+        "default",
+        "READ COMMITTED",
+        "REPEATABLE READ"
+      ],
+      "numbers": [],
+      "entities": [
+        "PostgreSQL",
+        "MySQL"
+      ]
+    },
+    {
+      "from": 1053,
+      "to": 1073,
+      "kind": "claim",
+      "gloss_en": "Using the MVCC snapshots technique, each reader sees a fixed copy of the data, so reading does not block writing.",
+      "terms": [
+        "MVCC",
+        "snapshot",
+        "reader"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1074,
+      "to": 1087,
+      "kind": "claim",
+      "gloss_en": "But sometimes this concurrency causes a much harder problem: the deadlock, the deadly waiting circle.",
+      "terms": [
+        "concurrency",
+        "deadlock"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1088,
+      "to": 1102,
+      "kind": "example",
+      "gloss_en": "Picture these steps: Session A locked row 1 and is waiting for row 2.",
+      "terms": [
+        "Session",
+        "locks"
+      ],
+      "numbers": [
+        1,
+        2
+      ],
+      "entities": [
+        "Session A"
+      ]
+    },
+    {
+      "from": 1103,
+      "to": 1115,
+      "kind": "example",
+      "gloss_en": "At the same time, Session B locked row 2 and is waiting for row 1.",
+      "terms": [
+        "Session",
+        "locks"
+      ],
+      "numbers": [
+        2,
+        1
+      ],
+      "entities": [
+        "Session B"
+      ]
+    },
+    {
+      "from": 1116,
+      "to": 1122,
+      "kind": "claim",
+      "gloss_en": "So the circle closes and they are stuck in an infinite loop.",
+      "terms": [
+        "wait-for",
+        "cycle"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1123,
+      "to": 1128,
+      "kind": "claim",
+      "gloss_en": "The database will not hang forever here.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1129,
+      "to": 1149,
+      "kind": "claim",
+      "gloss_en": "It detects the cycle and ruthlessly picks one of the sessions as the victim and kills it so the other can finish its work.",
+      "terms": [
+        "Session",
+        "victim"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1150,
+      "to": 1168,
+      "kind": "claim",
+      "gloss_en": "To avoid this, lock rows in a consistent order, using lock ordering, and set a lock timeout of, say, five seconds.",
+      "terms": [
+        "locks",
+        "lock_timeout"
+      ],
+      "numbers": [
+        5
+      ],
+      "entities": []
+    },
+    {
+      "from": 1169,
+      "to": 1183,
+      "kind": "transition",
+      "gloss_en": "Before we wrap up, let's quickly summarise how we can remove data, because the differences are clear and important.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1184,
+      "to": 1197,
+      "kind": "claim",
+      "gloss_en": "DELETE is a somewhat slow operation, but it is logged and we can ROLLBACK it if we make a mistake.",
+      "terms": [
+        "DELETE",
+        "logging",
+        "ROLLBACK"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1198,
+      "to": 1215,
+      "kind": "claim",
+      "gloss_en": "TRUNCATE is very fast because it empties the whole table at once and resets the counter or identity, but the table structure remains.",
+      "terms": [
+        "TRUNCATE",
+        "identity",
+        "structure"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1216,
+      "to": 1229,
+      "kind": "claim",
+      "gloss_en": "DROP, on the other hand, destroys the table with all its details and structure, as if it never existed.",
+      "terms": [
+        "DROP"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1230,
+      "to": 1238,
+      "kind": "transition",
+      "gloss_en": "We've reached the end, and here is a question that needs real, deep thought.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1239,
+      "to": 1251,
+      "kind": "recap",
+      "gloss_en": "Now that we know how to fix fan-out and how data can secretly multiply,",
+      "terms": [
+        "fan-out"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1252,
+      "to": 1273,
+      "kind": "question",
+      "gloss_en": "have the lock orders been reviewed recently to make sure the database is not silently sacrificing its most important transactions as deadlock victims in production?",
+      "terms": [
+        "locks",
+        "database",
+        "transactions",
+        "deadlock",
+        "victim"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1274,
+      "to": 1277,
+      "kind": "claim",
+      "gloss_en": "A question very much worth reviewing.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1278,
+      "to": 1284,
+      "kind": "transition",
+      "gloss_en": "Thanks for watching, and see you in a new explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:20Z"
+}

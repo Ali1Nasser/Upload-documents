@@ -1,0 +1,31 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P09",
+  "method": "asr+mms_fa",
+  "words": 1285,
+  "median_conf": 0.845,
+  "chapters": [],
+  "flagged": [],
+  "boundary_overlaps": [],
+  "asr_words": 1306,
+  "asr_segments": 214,
+  "polish": {
+    "edits": 174,
+    "deletes": 25,
+    "inserts": 1,
+    "inserted_words": 2,
+    "edit_rate": 0.1524,
+    "sentences": 100,
+    "notes": []
+  },
+  "alignment": {
+    "segments_aligned": 214,
+    "segments_fallback": [],
+    "low_conf_words_lt_0.3": 32,
+    "monotonic_fixes": 0,
+    "latin_words": 131,
+    "latin_median_conf": 0.4875,
+    "seconds": 13.5
+  },
+  "created": "2026-10-08T14:11:20Z"
+}

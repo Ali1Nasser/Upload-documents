@@ -1,0 +1,2314 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P21",
+  "asr_words": 1114,
+  "final_words": 1094,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 15,
+      "orig": "الزكاء",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        15,
+        15
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 31,
+      "orig": "الزكاء",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        31,
+        31
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 39,
+      "orig": "الماشين",
+      "to": "الـmachine",
+      "why": "term",
+      "final": [
+        39,
+        39
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 40,
+      "orig": "لرنينج",
+      "to": "learning",
+      "why": "term",
+      "final": [
+        40,
+        40
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 42,
+      "orig": "الماشين",
+      "to": "الـmachine",
+      "why": "term",
+      "final": [
+        42,
+        42
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 43,
+      "orig": "لرنينج",
+      "to": "learning",
+      "why": "term",
+      "final": [
+        43,
+        43
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 45,
+      "orig": "ديب",
+      "to": "deep",
+      "why": "term",
+      "final": [
+        45,
+        45
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 46,
+      "orig": "لرنينج",
+      "to": "learning",
+      "why": "term",
+      "final": [
+        46,
+        46
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 64,
+      "orig": "الماشين",
+      "to": "الـmachine",
+      "why": "term",
+      "final": [
+        64,
+        64
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 65,
+      "orig": "لرنينج",
+      "to": "learning",
+      "why": "term",
+      "final": [
+        65,
+        65
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 74,
+      "orig": "قوا",
+      "to": "قواعد",
+      "why": "mishear",
+      "final": [
+        74,
+        74
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 77,
+      "orig": "بأدينة",
+      "to": "بأيدينا",
+      "why": "mishear",
+      "final": [
+        77,
+        77
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 81,
+      "orig": "هارد",
+      "to": "hard-coded",
+      "why": "term",
+      "final": [
+        81,
+        81
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 82,
+      "orig": "كوديد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 83,
+      "orig": "رولز",
+      "to": "rules",
+      "why": "term",
+      "final": [
+        82,
+        82
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 87,
+      "orig": "الباترن",
+      "to": "الـpattern",
+      "why": "term",
+      "final": [
+        86,
+        86
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 112,
+      "orig": "الليبل",
+      "to": "الـlabel",
+      "why": "term",
+      "final": [
+        111,
+        111
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 144,
+      "orig": "بيز",
+      "to": "baseline",
+      "why": "term",
+      "final": [
+        143,
+        143
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 145,
+      "orig": "لاين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 154,
+      "orig": "قعدة",
+      "to": "قاعدة",
+      "why": "mishear",
+      "final": [
+        152,
+        152
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 158,
+      "orig": "قعدة",
+      "to": "قاعدة",
+      "why": "mishear",
+      "final": [
+        156,
+        156
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 160,
+      "orig": "صمصر",
+      "to": "سمسار",
+      "why": "mishear",
+      "final": [
+        158,
+        158
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 166,
+      "orig": "البيز",
+      "to": "الـbaseline",
+      "why": "term",
+      "final": [
+        164,
+        164
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 167,
+      "orig": "لاين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 174,
+      "orig": "65",
+      "to": "65.50",
+      "why": "number",
+      "final": [
+        171,
+        171
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 175,
+      "orig": ".50",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 185,
+      "orig": "زاكي",
+      "to": "ذكي",
+      "why": "mishear",
+      "final": [
+        181,
+        181
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 200,
+      "orig": "تخيالوا",
+      "to": "تخيلوا",
+      "why": "mishear",
+      "final": [
+        196,
+        196
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 205,
+      "orig": "دهات",
+      "to": "داتا",
+      "why": "mishear",
+      "final": [
+        201,
+        201
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 211,
+      "orig": "اتباعه",
+      "to": "اتباعوا",
+      "why": "mishear",
+      "final": [
+        207,
+        207
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 213,
+      "orig": "السمصار",
+      "to": "السمسار",
+      "why": "mishear",
+      "final": [
+        209,
+        209
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 214,
+      "orig": "البداقي",
+      "to": "البدائي",
+      "why": "mishear",
+      "final": [
+        210,
+        210
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 230,
+      "orig": "فت",
+      "to": "fit",
+      "why": "term",
+      "final": [
+        226,
+        226
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 254,
+      "orig": "اللاص",
+      "to": "الـloss",
+      "why": "term",
+      "final": [
+        250,
+        250
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 272,
+      "orig": "M",
+      "to": "MAE",
+      "why": "term",
+      "final": [
+        268,
+        268
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 273,
+      "orig": ".A",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 274,
+      "orig": ".E.",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 276,
+      "orig": "7",
+      "to": "7.33",
+      "why": "number",
+      "final": [
+        270,
+        270
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 277,
+      "orig": ".33",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 297,
+      "orig": "held",
+      "to": "held-out",
+      "why": "term",
+      "final": [
+        290,
+        290
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 298,
+      "orig": "out",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 303,
+      "orig": "الزهبية",
+      "to": "الذهبية",
+      "why": "mishear",
+      "final": [
+        295,
+        295
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 307,
+      "orig": "النمازج",
+      "to": "النماذج",
+      "why": "mishear",
+      "final": [
+        299,
+        299
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 327,
+      "orig": "هي",
+      "to": "هينهار",
+      "why": "mishear",
+      "final": [
+        319,
+        319
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 328,
+      "orig": "نهار",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 343,
+      "orig": "وسكورز",
+      "to": "وscores",
+      "why": "term",
+      "final": [
+        334,
+        334
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 357,
+      "orig": "البروداكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        348,
+        348
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 362,
+      "orig": "النمازك",
+      "to": "النماذج",
+      "why": "mishear",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 393,
+      "orig": "الديتا",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        384,
+        384
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 394,
+      "orig": "ليكج",
+      "to": "leakage",
+      "why": "term",
+      "final": [
+        385,
+        385
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 402,
+      "orig": "فخخ",
+      "to": "فخاخ",
+      "why": "mishear",
+      "final": [
+        393,
+        393
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 407,
+      "orig": "الفيتشر",
+      "to": "الـfuture",
+      "why": "term",
+      "final": [
+        398,
+        398
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 408,
+      "orig": "قلم",
+      "to": "column",
+      "why": "term",
+      "final": [
+        399,
+        399
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 425,
+      "orig": "تارجت",
+      "to": "target-derived",
+      "why": "term",
+      "final": [
+        416,
+        416
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 426,
+      "orig": "درايفد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 427,
+      "orig": "فيتشر",
+      "to": "feature",
+      "why": "term",
+      "final": [
+        417,
+        417
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 440,
+      "orig": "الجروب",
+      "to": "الـgroup",
+      "why": "term",
+      "final": [
+        430,
+        430
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 441,
+      "orig": "جليك",
+      "to": "leak",
+      "why": "term",
+      "final": [
+        431,
+        431
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 470,
+      "orig": "الجروب",
+      "to": "الـgroup",
+      "why": "term",
+      "final": [
+        460,
+        460
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 471,
+      "orig": "سبلت",
+      "to": "split",
+      "why": "term",
+      "final": [
+        461,
+        461
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 488,
+      "orig": "التست",
+      "to": "الـtest",
+      "why": "term",
+      "final": [
+        478,
+        478
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 489,
+      "orig": "سيت",
+      "to": "set",
+      "why": "term",
+      "final": [
+        479,
+        479
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 492,
+      "orig": "إفل",
+      "to": "قفل",
+      "why": "mishear",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 506,
+      "orig": "التست",
+      "to": "الـtest",
+      "why": "term",
+      "final": [
+        496,
+        496
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 507,
+      "orig": "سيت",
+      "to": "set",
+      "why": "term",
+      "final": [
+        497,
+        497
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 513,
+      "orig": "أوفرفيتنج",
+      "to": "overfitting",
+      "why": "term",
+      "final": [
+        503,
+        503
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 529,
+      "orig": "المصدرة",
+      "to": "المسطرة",
+      "why": "mishear",
+      "final": [
+        519,
+        519
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 537,
+      "orig": "للنمازج",
+      "to": "للنماذج",
+      "why": "mishear",
+      "final": [
+        527,
+        527
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 538,
+      "orig": "اللينير",
+      "to": "الـlinear",
+      "why": "term",
+      "final": [
+        528,
+        528
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 544,
+      "orig": "التري",
+      "to": "الـtree",
+      "why": "term",
+      "final": [
+        534,
+        534
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 548,
+      "orig": "اعتبات",
+      "to": "عتبات",
+      "why": "mishear",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 549,
+      "orig": "الانسامبل",
+      "to": "الـensemble",
+      "why": "term",
+      "final": [
+        539,
+        539
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 554,
+      "orig": "الراندم",
+      "to": "random",
+      "why": "term",
+      "final": [
+        544,
+        544
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 555,
+      "orig": "فورست",
+      "to": "forest",
+      "why": "term",
+      "final": [
+        545,
+        545
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 560,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        550,
+        550
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 563,
+      "orig": "الديستنس",
+      "to": "الـdistance-based",
+      "why": "term",
+      "final": [
+        553,
+        553
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 564,
+      "orig": "بيست",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 566,
+      "orig": "الكي",
+      "to": "الـkNN",
+      "why": "term",
+      "final": [
+        555,
+        555
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 567,
+      "orig": "أن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 568,
+      "orig": "أن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "الكي",
+      "to": "الـkNN",
+      "why": "term",
+      "final": [
+        572,
+        572
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 586,
+      "orig": "أن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 587,
+      "orig": "أن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 591,
+      "orig": "كي",
+      "to": "k",
+      "why": "term",
+      "final": [
+        576,
+        576
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 594,
+      "orig": "واحد",
+      "to": "1",
+      "why": "number",
+      "final": [
+        579,
+        579
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 620,
+      "orig": "فتنج",
+      "to": "fitting",
+      "why": "term",
+      "final": [
+        605,
+        605
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 650,
+      "orig": "برامتر",
+      "to": "parameter",
+      "why": "term",
+      "final": [
+        635,
+        635
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 675,
+      "orig": "الأكيرسي",
+      "to": "الـaccuracy",
+      "why": "term",
+      "final": [
+        660,
+        660
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 687,
+      "orig": "كلاسفاير",
+      "to": "classifier",
+      "why": "term",
+      "final": [
+        672,
+        672
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 690,
+      "orig": "99",
+      "to": "99%",
+      "why": "number",
+      "final": [
+        675,
+        675
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 691,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 713,
+      "orig": "كارسي",
+      "to": "كارثي",
+      "why": "mishear",
+      "final": [
+        697,
+        697
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "الكونفيوجن",
+      "to": "الـconfusion",
+      "why": "term",
+      "final": [
+        705,
+        705
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 722,
+      "orig": "ماتريكس",
+      "to": "matrix",
+      "why": "term",
+      "final": [
+        706,
+        706
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 730,
+      "orig": "1",
+      "to": "1%",
+      "why": "number",
+      "final": [
+        714,
+        714
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 731,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 737,
+      "orig": "أكيرسي",
+      "to": "accuracy",
+      "why": "term",
+      "final": [
+        720,
+        720
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 738,
+      "orig": "99",
+      "to": "99%",
+      "why": "number",
+      "final": [
+        721,
+        721
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 739,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "صفر",
+      "to": "0",
+      "why": "number",
+      "final": [
+        737,
+        737
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 756,
+      "orig": "الترو",
+      "to": "true",
+      "why": "term",
+      "final": [
+        738,
+        738
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 757,
+      "orig": "بوزيتيفس",
+      "to": "positives",
+      "why": "term",
+      "final": [
+        739,
+        739
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 772,
+      "orig": "بتجدب",
+      "to": "بتكدب",
+      "why": "mishear",
+      "final": [
+        754,
+        754
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 785,
+      "orig": "الأكوريس",
+      "to": "الـaccuracy",
+      "why": "term",
+      "final": [
+        767,
+        767
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 790,
+      "orig": "بنالجأ",
+      "to": "بنلجأ",
+      "why": "mishear",
+      "final": [
+        772,
+        772
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 795,
+      "orig": "البريسيجن",
+      "to": "الـprecision",
+      "why": "term",
+      "final": [
+        777,
+        777
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 798,
+      "orig": "الإنظار",
+      "to": "الإنذار",
+      "why": "mishear",
+      "final": [
+        780,
+        780
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 808,
+      "orig": "الريكول",
+      "to": "الـrecall",
+      "why": "term",
+      "final": [
+        790,
+        790
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 833,
+      "orig": "المقاييز",
+      "to": "المقاييس",
+      "why": "mishear",
+      "final": [
+        815,
+        815
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 846,
+      "orig": "الثراشهولد",
+      "to": "الـthreshold",
+      "why": "term",
+      "final": [
+        828,
+        828
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 866,
+      "orig": "الفولس",
+      "to": "الـfalse",
+      "why": "term",
+      "final": [
+        848,
+        848
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 867,
+      "orig": "بوزيتيفز",
+      "to": "positives",
+      "why": "term",
+      "final": [
+        849,
+        849
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 870,
+      "orig": "الفولس",
+      "to": "الـfalse",
+      "why": "term",
+      "final": [
+        852,
+        852
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 871,
+      "orig": "ناجتيفز",
+      "to": "negatives",
+      "why": "term",
+      "final": [
+        853,
+        853
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 873,
+      "orig": "الثراش",
+      "to": "الـthreshold",
+      "why": "term",
+      "final": [
+        855,
+        855
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 897,
+      "orig": "نايف",
+      "to": "naive",
+      "why": "term",
+      "final": [
+        879,
+        879
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 898,
+      "orig": "كروس",
+      "to": "cross-validation",
+      "why": "term",
+      "final": [
+        880,
+        880
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 899,
+      "orig": "فاليديشن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 913,
+      "orig": "ليك",
+      "to": "leak",
+      "why": "term",
+      "final": [
+        894,
+        894
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 923,
+      "orig": "الجروب",
+      "to": "الـgroup",
+      "why": "term",
+      "final": [
+        904,
+        904
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 924,
+      "orig": "كروس",
+      "to": "cross-validation",
+      "why": "term",
+      "final": [
+        905,
+        905
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 925,
+      "orig": "فاليديشن",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 939,
+      "orig": "وموصوق",
+      "to": "وموثوق",
+      "why": "mishear",
+      "final": [
+        919,
+        919
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 946,
+      "orig": "البايس",
+      "to": "الـbias",
+      "why": "term",
+      "final": [
+        926,
+        926
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 947,
+      "orig": "والفاريانس",
+      "to": "والـvariance",
+      "why": "term",
+      "final": [
+        927,
+        927
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1012,
+      "orig": "بنتلع",
+      "to": "بنطلع",
+      "why": "mishear",
+      "final": [
+        992,
+        992
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1039,
+      "orig": "المترك",
+      "to": "الـmetric",
+      "why": "term",
+      "final": [
+        1019,
+        1019
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1050,
+      "orig": "الفيلير",
+      "to": "الـfailure",
+      "why": "term",
+      "final": [
+        1030,
+        1030
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1080,
+      "orig": "ديمو",
+      "to": "demo",
+      "why": "term",
+      "final": [
+        1060,
+        1060
+      ]
+    }
+  ],
+  "notes": "No inserts: one dropout suspected at 1103-1104 ('وندخل فعالة من' - likely 'وندخل في عالم ...' + a name, e.g. LLMs/bigger models; source_excerpt does not make the missing words certain). Edits: Latin terms re-scripted (machine learning, deep learning, baseline [merged 144-145, 166-167], label, pattern, hard-coded rules [81-83], loss, fit/fitting, MAE [272-274], held-out [297-298], scores, production, data leakage, future column [407-408, proved by on-screen text], target-derived feature, group leak/split/cross-validation (speaker says group, source says grouped), test set, overfitting, linear/tree/ensemble/random forest, distance-based, kNN [566-568, 585-587], k, parameter, accuracy, classifier, confusion matrix, true positives, precision, recall, threshold, false positives/negatives, naive cross-validation [897-899], leak, bias, variance, metric, failure, demo). Numbers merged to digits: 65.50 (174-175), 7.33 (276-277), 99% (690-691, 737-739), 1% (730-731), k=1 (594), TP=0 (755). Spoken number words elsewhere (4 families, 6 steps, degrees 3 and 9) left as said and listed in numbers[]. Mishearings fixed with source_excerpt support: الذكاء (15,31), قواعد (74), قاعدة (154,158), سمسار/السمسار (160,213), اتباعوا (211), قفل (492), المسطرة (529; sc07 'أشكال للمسطرة'), عتبات (548), الداتا (560), بتكدب (772; sc09 title), الإنذار (798), الـmetric (1039), الـfailure (1050), هينهار (327-328; source 'بينهار'). Non-word / phonetic-spelling slips fixed (meaning not in doubt): بأيدينا (77), ذكي (185), تخيلوا (200), داتا (205, 'دهات'), البدائي (214), الذهبية (303), النماذج (307,362,537), فخاخ (402), كارثي (713), بنلجأ (790), المقاييس (833), وموثوق (939), بنطلع (1012). NOT edited, left for review (real words, source does not prove): 271 'لتستد' in 'نزل لتستد MAE' (possibly 'لـtest set'); 421 and 456 'الحي' (456 reads as 'النمط الحقيقي', cf. 640-641; 421 may be 'التنبؤ الحي/الحقيقي'); 378 'الواقعة' (likely 'الواقع'); 516 'ثقف' (likely 'ثقة'); 581 'والمسير' (likely 'والمثير'); 906 'النفس' (likely 'نفس'); 1008 'الأثر' (source scene sc13 says 'الـartifact'; kept as said); 1069 'تقيمش'; 971/979 'منحنة'; 955/962 'بكثير حدود'; 347 'خد' in 'لدرجة خد' unclear. Narration is an NLM re-telling (not the source script verbatim): sentences glossed from what was said. Sentences 91 total, all 4-28 words; contiguous 0-1113; cut at meaning boundaries because word timing has no pauses (only 714, 886, 962, 1105 have gaps >250ms and all are used as sentence starts).",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 10,
+      "kind": "transition",
+      "gloss_en": "Welcome; let's jump straight into this explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 11,
+      "to": 27,
+      "kind": "claim",
+      "gloss_en": "We will unpack the hierarchy of the AI world and understand what separates the terms we hear every day.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 28,
+      "to": 37,
+      "kind": "claim",
+      "gloss_en": "AI, or artificial intelligence, is our big umbrella; inside it we find...",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 38,
+      "to": 46,
+      "kind": "claim",
+      "gloss_en": "Inside it we find machine learning, and inside machine learning we find deep learning.",
+      "terms": [
+        "machine learning",
+        "deep learning"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 47,
+      "to": 63,
+      "kind": "claim",
+      "gloss_en": "The point here isn't just labels or filler talk; it's about how the work itself is done and how a machine thinks and learns.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 64,
+      "to": 69,
+      "kind": "claim",
+      "gloss_en": "Machine learning really changes the game completely.",
+      "terms": [
+        "machine learning"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 70,
+      "to": 89,
+      "kind": "claim",
+      "gloss_en": "Instead of sitting and hand-writing rigid code rules, the hard-coded rules, we let the model learn the pattern on its own from examples.",
+      "terms": [
+        "hard-coded rules",
+        "pattern"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 90,
+      "to": 102,
+      "kind": "claim",
+      "gloss_en": "The inputs it takes we call features, and the answer or output it produces we call the label.",
+      "terms": [
+        "features",
+        "label"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 107,
+      "kind": "transition",
+      "gloss_en": "And here the work splits into two types.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 108,
+      "to": 114,
+      "kind": "claim",
+      "gloss_en": "Supervised, if we have the label ready and known.",
+      "terms": [
+        "supervised",
+        "label"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 115,
+      "to": 126,
+      "kind": "claim",
+      "gloss_en": "And unsupervised, if there is no clear answer and the model needs to discover this pattern by itself.",
+      "terms": [
+        "unsupervised"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 127,
+      "to": 146,
+      "kind": "claim",
+      "gloss_en": "The most important point: any machine learning project must start with a clear business question, along with a baseline we compare our work against.",
+      "terms": [
+        "machine learning",
+        "baseline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 147,
+      "to": 161,
+      "kind": "example",
+      "gloss_en": "Say we use the simplest, dumbest rule possible, for example a rule a beginner real-estate broker uses.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 171,
+      "kind": "example",
+      "gloss_en": "We would find the baseline, which is the mean absolute error, records 65.50.",
+      "terms": [
+        "baseline"
+      ],
+      "numbers": [
+        "65.50"
+      ],
+      "entities": []
+    },
+    {
+      "from": 172,
+      "to": 177,
+      "kind": "claim",
+      "gloss_en": "This number is our starting point.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 178,
+      "to": 186,
+      "kind": "claim",
+      "gloss_en": "Any smart model we build has to beat this number.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 187,
+      "to": 195,
+      "kind": "claim",
+      "gloss_en": "Otherwise we are wasting our time and there is no need for the complexity at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 196,
+      "to": 207,
+      "kind": "example",
+      "gloss_en": "Imagine we have 30 data points on the plot, representing 30 houses that were sold.",
+      "terms": [],
+      "numbers": [
+        "30"
+      ],
+      "entities": []
+    },
+    {
+      "from": 208,
+      "to": 220,
+      "kind": "example",
+      "gloss_en": "The primitive broker line we talked about fails completely, especially at the high and low ends.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 221,
+      "to": 236,
+      "kind": "example",
+      "gloss_en": "But when we use a model that does a proper fit, we see the line start to rotate and move to its right place.",
+      "terms": [
+        "fit"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 237,
+      "to": 256,
+      "kind": "claim",
+      "gloss_en": "To cut the distance between it and these points as much as it can, and thereby cut the loss, the error, significantly.",
+      "terms": [
+        "loss"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 257,
+      "to": 263,
+      "kind": "claim",
+      "gloss_en": "The result is a dramatic drop in the error rate.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 264,
+      "to": 272,
+      "kind": "claim",
+      "gloss_en": "The number here fell to an MAE of 7.33 out of a hundred, only.",
+      "terms": [
+        "MAE"
+      ],
+      "numbers": [
+        "7.33"
+      ],
+      "entities": []
+    },
+    {
+      "from": 273,
+      "to": 291,
+      "kind": "claim",
+      "gloss_en": "But watch out: more important than this impressive number is that it was recorded on held-out data, what we call held out data.",
+      "terms": [
+        "held-out"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 292,
+      "to": 298,
+      "kind": "claim",
+      "gloss_en": "This is the golden rule in this field.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 299,
+      "to": 308,
+      "kind": "claim",
+      "gloss_en": "Models must be evaluated on data they have never seen before.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 309,
+      "to": 323,
+      "kind": "claim",
+      "gloss_en": "Because if the model memorizes the training data it will get perfect scores, but it collapses completely in the real world.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 324,
+      "to": 330,
+      "kind": "transition",
+      "gloss_en": "And here we must stop and ask a very logical question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 331,
+      "to": 349,
+      "kind": "question",
+      "gloss_en": "When we see numbers and scores this impressive and perfect, which one of them can actually carry on and live in the real production environment?",
+      "terms": [
+        "scores",
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 350,
+      "to": 369,
+      "kind": "claim",
+      "gloss_en": "The shocking truth is that very many models look perfect on paper but fail completely as soon as they hit the ground.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 370,
+      "to": 376,
+      "kind": "transition",
+      "gloss_en": "And the reason behind this is what we will uncover right now.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 377,
+      "to": 388,
+      "kind": "claim",
+      "gloss_en": "The secret behind these fake victories is usually data leakage, or leaking of the data.",
+      "terms": [
+        "data leakage"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 389,
+      "to": 394,
+      "kind": "claim",
+      "gloss_en": "This leakage sets 3 basic traps.",
+      "terms": [
+        "leakage"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 395,
+      "to": 412,
+      "kind": "claim",
+      "gloss_en": "The first trap is the future column, simply meaning using a data column that would not even be available at prediction time.",
+      "terms": [
+        "future column"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 413,
+      "to": 426,
+      "kind": "claim",
+      "gloss_en": "The second trap is a target-derived feature, a feature that is quietly inferred from the answer itself.",
+      "terms": [
+        "target-derived feature"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 427,
+      "to": 449,
+      "kind": "claim",
+      "gloss_en": "And the third trap is group leak, which happens when we split the data in a way that makes the model memorize the groups instead of learning the pattern we want.",
+      "terms": [
+        "group leak"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 450,
+      "to": 461,
+      "kind": "claim",
+      "gloss_en": "The ideal solution to this group leakage problem is to apply the group split.",
+      "terms": [
+        "group split"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 462,
+      "to": 471,
+      "kind": "claim",
+      "gloss_en": "The idea, quite simply, is to split the data by whole group, not by row.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 472,
+      "to": 491,
+      "kind": "claim",
+      "gloss_en": "Also, work discipline dictates that the test set be put behind a lock and never opened except once, at the end.",
+      "terms": [
+        "test set"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 492,
+      "to": 509,
+      "kind": "claim",
+      "gloss_en": "Any extra peek at the test set counts as an invisible leak, causes overfitting, and gives the model confidence that is completely misplaced.",
+      "terms": [
+        "test set",
+        "overfitting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 510,
+      "to": 522,
+      "kind": "transition",
+      "gloss_en": "When we get to building the model, we are actually choosing the shape of the ruler we will measure with.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 523,
+      "to": 527,
+      "kind": "claim",
+      "gloss_en": "We have four main families of models.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 528,
+      "to": 533,
+      "kind": "example",
+      "gloss_en": "Linear draws a straight line and is easy to explain.",
+      "terms": [
+        "linear"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 534,
+      "to": 538,
+      "kind": "example",
+      "gloss_en": "Tree splits the data on thresholds.",
+      "terms": [
+        "tree"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 539,
+      "to": 551,
+      "kind": "example",
+      "gloss_en": "Ensemble takes strong averages, like random forest, and it always sweeps on tabular data.",
+      "terms": [
+        "ensemble",
+        "random forest"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 552,
+      "to": 567,
+      "kind": "example",
+      "gloss_en": "And lastly distance-based, like kNN, which relies on closeness by distance but struggles a lot when we have many columns.",
+      "terms": [
+        "distance-based",
+        "kNN"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 568,
+      "to": 584,
+      "kind": "claim",
+      "gloss_en": "And the interesting thing here is that kNN, when the value of k equals 1, gives zero training error by construction.",
+      "terms": [
+        "kNN"
+      ],
+      "numbers": [
+        "1",
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 585,
+      "to": 591,
+      "kind": "claim",
+      "gloss_en": "And that is another trap we have to watch out for.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 592,
+      "to": 605,
+      "kind": "claim",
+      "gloss_en": "That is why the most important thing is the necessity of choosing the model family before we do any fitting.",
+      "terms": [
+        "fitting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 606,
+      "to": 626,
+      "kind": "claim",
+      "gloss_en": "If we choose a very flexible, stretchy model on small data, the model will simply memorize the noise with very high confidence instead of learning the real pattern.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 627,
+      "to": 650,
+      "kind": "claim",
+      "gloss_en": "The rule always looks at the ratio of data rows per parameter: the fewer the rows, the more choosing a complex model counts as a very dangerous decision.",
+      "terms": [
+        "parameter"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 651,
+      "to": 657,
+      "kind": "transition",
+      "gloss_en": "Let's think together about this question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 658,
+      "to": 668,
+      "kind": "question",
+      "gloss_en": "Is accuracy, that is a high accuracy figure, always conclusive proof of success?",
+      "terms": [
+        "accuracy"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 669,
+      "to": 675,
+      "kind": "example",
+      "gloss_en": "I mean, if we have a classifier that achieved 99% accuracy.",
+      "terms": [
+        "classifier",
+        "accuracy"
+      ],
+      "numbers": [
+        "99%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 676,
+      "to": 685,
+      "kind": "question",
+      "gloss_en": "Does that mean, with our eyes closed, that the model is excellent and ready to use?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 686,
+      "to": 697,
+      "kind": "claim",
+      "gloss_en": "The truth is that numbers are sometimes a trick and can hide a catastrophic failure behind them.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 698,
+      "to": 706,
+      "kind": "transition",
+      "gloss_en": "To understand this trick, let's look at the confusion matrix.",
+      "terms": [
+        "confusion matrix"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 707,
+      "to": 715,
+      "kind": "example",
+      "gloss_en": "Imagine we have data where the proportion of positive cases is only 1%.",
+      "terms": [],
+      "numbers": [
+        "1%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 716,
+      "to": 733,
+      "kind": "example",
+      "gloss_en": "The model can achieve 99% accuracy simply by always saying no, or negative, on everything.",
+      "terms": [
+        "accuracy"
+      ],
+      "numbers": [
+        "99%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 734,
+      "to": 739,
+      "kind": "question",
+      "gloss_en": "What would the result be? Zero true positives.",
+      "terms": [
+        "true positives"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 740,
+      "to": 751,
+      "kind": "claim",
+      "gloss_en": "A model that did not catch a single case of the ones it was made to catch in the first place.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 752,
+      "to": 763,
+      "kind": "claim",
+      "gloss_en": "The accuracy here is lying to us completely, and the model counts as a failure at its core task.",
+      "terms": [
+        "accuracy"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 764,
+      "to": 775,
+      "kind": "transition",
+      "gloss_en": "And that is why, when accuracy is misleading like this, we resort to the real evaluation metrics.",
+      "terms": [
+        "accuracy"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 776,
+      "to": 788,
+      "kind": "claim",
+      "gloss_en": "We use precision when a false alarm is very costly and there is no room for joking around.",
+      "terms": [
+        "precision"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 789,
+      "to": 799,
+      "kind": "claim",
+      "gloss_en": "And we use recall when missing the positive case is what carries the high cost.",
+      "terms": [
+        "recall"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 800,
+      "to": 814,
+      "kind": "claim",
+      "gloss_en": "And if we need to balance the two and make a decision based on one number, we use the F1 score.",
+      "terms": [
+        "F1 score"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 815,
+      "to": 824,
+      "kind": "claim",
+      "gloss_en": "These metrics are what give us the truly real picture of the model's performance.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 825,
+      "to": 836,
+      "kind": "claim",
+      "gloss_en": "The statistical threshold is not just a mathematical number, as it may seem to some.",
+      "terms": [
+        "threshold"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 837,
+      "to": 844,
+      "kind": "claim",
+      "gloss_en": "In the end it is a pure business decision, computed in money.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 845,
+      "to": 853,
+      "kind": "claim",
+      "gloss_en": "We weigh the cost of false positives against the cost of false negatives.",
+      "terms": [
+        "false positives",
+        "false negatives"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 854,
+      "to": 867,
+      "kind": "claim",
+      "gloss_en": "Moving the threshold, right or left, translates immediately into a financial gain or loss for the business.",
+      "terms": [
+        "threshold"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 868,
+      "to": 876,
+      "kind": "transition",
+      "gloss_en": "The problem is that even the evaluation stage itself can be a trap.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 877,
+      "to": 891,
+      "kind": "example",
+      "gloss_en": "If we use naive cross-validation, we are breaking the groups and may distribute the same class across training and testing.",
+      "terms": [
+        "naive cross-validation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 892,
+      "to": 899,
+      "kind": "claim",
+      "gloss_en": "And that creates an explicit leak inside the evaluation stage itself.",
+      "terms": [
+        "leak"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 900,
+      "to": 912,
+      "kind": "claim",
+      "gloss_en": "The honest and logical alternative is group cross-validation, which keeps the groups locked and tied together.",
+      "terms": [
+        "group cross-validation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 913,
+      "to": 922,
+      "kind": "claim",
+      "gloss_en": "So that it gives us in the end an honest and reliable evaluation we can depend on.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 923,
+      "to": 927,
+      "kind": "transition",
+      "gloss_en": "And here we reach the bias and variance dilemma.",
+      "terms": [
+        "bias",
+        "variance"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 928,
+      "to": 939,
+      "kind": "example",
+      "gloss_en": "As we see, on the left we have a polynomial of the third degree.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 940,
+      "to": 946,
+      "kind": "example",
+      "gloss_en": "And on the right a polynomial of the ninth degree.",
+      "terms": [],
+      "numbers": [
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 947,
+      "to": 965,
+      "kind": "claim",
+      "gloss_en": "What happens here is that the training curve keeps going down and records excellent numbers, but the test curve suddenly diverges and shoots upward.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 966,
+      "to": 981,
+      "kind": "claim",
+      "gloss_en": "The moment the two curves diverge is the moment the model starts memorizing the data instead of understanding it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 982,
+      "to": 1001,
+      "kind": "recap",
+      "gloss_en": "At the end of this long technical journey, the real and honest artifact we walk away with is the documented experiment record.",
+      "terms": [
+        "Experiment Record"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1002,
+      "to": 1013,
+      "kind": "recap",
+      "gloss_en": "This record includes six very clear steps; it starts with the baseline score.",
+      "terms": [
+        "baseline score"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1014,
+      "to": 1021,
+      "kind": "recap",
+      "gloss_en": "Then the split method and choosing the right metric along with its justification.",
+      "terms": [
+        "split",
+        "metric"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1022,
+      "to": 1031,
+      "kind": "recap",
+      "gloss_en": "Until we reach the held-out result and the analysis of the failure cases.",
+      "terms": [
+        "held-out",
+        "failure cases"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1032,
+      "to": 1037,
+      "kind": "recap",
+      "gloss_en": "And finally the final decision regarding this model.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1038,
+      "to": 1043,
+      "kind": "transition",
+      "gloss_en": "We close this explainer with this provocative question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1044,
+      "to": 1063,
+      "kind": "question",
+      "gloss_en": "Does a model that is built but not evaluated honestly and rigorously count as anything more than a mere demo, or illustrative show?",
+      "terms": [
+        "demo"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1064,
+      "to": 1075,
+      "kind": "claim",
+      "gloss_en": "The answer is very clear: evaluation is what separates real work from mere showing off.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1076,
+      "to": 1084,
+      "kind": "transition",
+      "gloss_en": "In the next explainer we will continue this journey and enter...",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1085,
+      "to": 1093,
+      "kind": "prediction",
+      "gloss_en": "and see how these rules evolve in the bigger models. Stay tuned.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:24Z"
+}

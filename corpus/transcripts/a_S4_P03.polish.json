@@ -1,0 +1,3163 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P03",
+  "asr_words": 1316,
+  "final_words": 1265,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 12,
+      "orig": "قيمة",
+      "to": "قايمة",
+      "why": "mishear",
+      "final": [
+        12,
+        12
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 14,
+      "orig": "لينكس",
+      "to": "Linux",
+      "why": "term",
+      "final": [
+        14,
+        14
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 28,
+      "orig": "تعيهين",
+      "to": "تايهين",
+      "why": "mishear",
+      "final": [
+        28,
+        28
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 34,
+      "orig": "وننا",
+      "to": "وإننا",
+      "why": "mishear",
+      "final": [
+        34,
+        34
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 59,
+      "orig": "متحاكمين",
+      "to": "متحكمين",
+      "why": "mishear",
+      "final": [
+        59,
+        59
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 88,
+      "orig": "مخطة",
+      "to": "محطة",
+      "why": "mishear",
+      "final": [
+        88,
+        88
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 126,
+      "orig": "طريق",
+      "to": "طريقة",
+      "why": "mishear",
+      "final": [
+        126,
+        126
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 128,
+      "orig": "الكورنل",
+      "to": "الـkernel",
+      "why": "term",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 129,
+      "orig": "تخيلوك",
+      "to": "تخيلوه",
+      "why": "mishear",
+      "final": [
+        129,
+        129
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 194,
+      "orig": "اليوزر",
+      "to": "الـuser",
+      "why": "term",
+      "final": [
+        194,
+        194
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 220,
+      "orig": "الريد",
+      "to": "الـread",
+      "why": "term",
+      "final": [
+        220,
+        220
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 228,
+      "orig": "الريت",
+      "to": "الـwrite",
+      "why": "term",
+      "final": [
+        228,
+        228
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 235,
+      "orig": "والأكسكيوت",
+      "to": "والـexecute",
+      "why": "term",
+      "final": [
+        235,
+        235
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 250,
+      "orig": "أعلامة",
+      "to": "علامة",
+      "why": "mishear",
+      "final": [
+        250,
+        250
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 270,
+      "orig": "7",
+      "to": "755",
+      "why": "number",
+      "final": [
+        270,
+        270
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 271,
+      "orig": "-5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 272,
+      "orig": "-5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 276,
+      "orig": "-2",
+      "to": "2",
+      "why": "number",
+      "final": [
+        274,
+        274
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 277,
+      "orig": "-1",
+      "to": "1",
+      "why": "number",
+      "final": [
+        275,
+        275
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 282,
+      "orig": "-1",
+      "to": "1",
+      "why": "number",
+      "final": [
+        280,
+        280
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 288,
+      "orig": "-1",
+      "to": "1",
+      "why": "number",
+      "final": [
+        286,
+        286
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 293,
+      "orig": "السبعة",
+      "to": "الـ755",
+      "why": "number",
+      "final": [
+        291,
+        291
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 294,
+      "orig": "5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 295,
+      "orig": "-5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 302,
+      "orig": "6",
+      "to": "644",
+      "why": "number",
+      "final": [
+        298,
+        298
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 303,
+      "orig": "-4",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 304,
+      "orig": "-4",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 312,
+      "orig": "-2",
+      "to": "2",
+      "why": "number",
+      "final": [
+        306,
+        306
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 313,
+      "orig": "-6",
+      "to": "6",
+      "why": "number",
+      "final": [
+        307,
+        307
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 319,
+      "orig": "-4",
+      "to": "4",
+      "why": "number",
+      "final": [
+        313,
+        313
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 327,
+      "orig": "السبعة",
+      "to": "الـ777",
+      "why": "number",
+      "final": [
+        321,
+        321
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 328,
+      "orig": "سبعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 329,
+      "orig": "سبعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 366,
+      "orig": "hello",
+      "to": "hello.sh",
+      "why": "merge",
+      "final": [
+        358,
+        358
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 367,
+      "orig": ".sh",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 373,
+      "orig": "permission",
+      "to": "Permission",
+      "why": "term",
+      "final": [
+        364,
+        364
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 377,
+      "orig": "نتصرع",
+      "to": "نتسرع",
+      "why": "mishear",
+      "final": [
+        368,
+        368
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 384,
+      "orig": "ls",
+      "to": "ls -l",
+      "why": "merge",
+      "final": [
+        375,
+        376
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 385,
+      "orig": "-l",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 402,
+      "orig": "plus",
+      "to": "+x",
+      "why": "merge",
+      "final": [
+        393,
+        393
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 403,
+      "orig": "x",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 404,
+      "orig": "hello",
+      "to": "hello.sh",
+      "why": "merge",
+      "final": [
+        394,
+        394
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 405,
+      "orig": ".sh",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 408,
+      "orig": "حالينا",
+      "to": "حلينا",
+      "why": "mishear",
+      "final": [
+        397,
+        397
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 433,
+      "orig": "7777",
+      "to": "777",
+      "why": "number",
+      "final": [
+        422,
+        422
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 441,
+      "orig": "U",
+      "to": "umask",
+      "why": "merge",
+      "final": [
+        430,
+        430
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 442,
+      "orig": "-mask",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 446,
+      "orig": "U",
+      "to": "umask",
+      "why": "merge",
+      "final": [
+        434,
+        434
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 447,
+      "orig": "-mask",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 452,
+      "orig": "6",
+      "to": "644",
+      "why": "number",
+      "final": [
+        439,
+        439
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 453,
+      "orig": "-4",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 454,
+      "orig": "-4",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 457,
+      "orig": "7",
+      "to": "755",
+      "why": "number",
+      "final": [
+        442,
+        442
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 458,
+      "orig": "-5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 459,
+      "orig": "-5",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 464,
+      "orig": "touchprivate",
+      "to": "touch private.txt",
+      "why": "merge",
+      "final": [
+        447,
+        448
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 465,
+      "orig": ".txt",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 467,
+      "orig": "umask077",
+      "to": "umask 077",
+      "why": "term",
+      "final": [
+        450,
+        451
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 474,
+      "orig": "بالضب",
+      "to": "بالضبة",
+      "why": "mishear",
+      "final": [
+        458,
+        458
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 487,
+      "orig": "chan",
+      "to": "chown",
+      "why": "term",
+      "final": [
+        471,
+        471
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 491,
+      "orig": "chan",
+      "to": "chgrp",
+      "why": "merge",
+      "final": [
+        475,
+        475
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 492,
+      "orig": "group",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 509,
+      "orig": "لينكس",
+      "to": "Linux",
+      "why": "term",
+      "final": [
+        492,
+        492
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 517,
+      "orig": "هو",
+      "to": "whoami",
+      "why": "merge",
+      "final": [
+        500,
+        500
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 518,
+      "orig": "ماي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 525,
+      "orig": "ID",
+      "to": "id",
+      "why": "term",
+      "final": [
+        507,
+        507
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 533,
+      "orig": "الروت",
+      "to": "الـroot",
+      "why": "term",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 541,
+      "orig": "يوزر",
+      "to": "user",
+      "why": "term",
+      "final": [
+        523,
+        523
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 545,
+      "orig": "userad",
+      "to": "useradd -m -s",
+      "why": "merge",
+      "final": [
+        527,
+        529
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 546,
+      "orig": "-m",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 547,
+      "orig": "-s",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 552,
+      "orig": "passwordwd",
+      "to": "passwd",
+      "why": "term",
+      "final": [
+        534,
+        534
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 560,
+      "orig": "يوزر",
+      "to": "user",
+      "why": "term",
+      "final": [
+        542,
+        542
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 565,
+      "orig": "usermod",
+      "to": "usermod -aG",
+      "why": "merge",
+      "final": [
+        547,
+        548
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 566,
+      "orig": "-ag",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 570,
+      "orig": "الا",
+      "to": "الـa",
+      "why": "term",
+      "final": [
+        552,
+        552
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "اليوزر",
+      "to": "الـuser",
+      "why": "term",
+      "final": [
+        555,
+        555
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "يوزر",
+      "to": "user",
+      "why": "term",
+      "final": [
+        567,
+        567
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 588,
+      "orig": "يوزر",
+      "to": "userdel -r",
+      "why": "merge",
+      "final": [
+        570,
+        571
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 589,
+      "orig": "ديل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 590,
+      "orig": "داش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 591,
+      "orig": "آر",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 598,
+      "orig": "سلاش",
+      "to": "/etc/passwd",
+      "why": "merge",
+      "final": [
+        578,
+        578
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 599,
+      "orig": "اي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 600,
+      "orig": "تي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 601,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 602,
+      "orig": "سلاش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 603,
+      "orig": "باسورد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 611,
+      "orig": "سلاش",
+      "to": "/etc/shadow",
+      "why": "merge",
+      "final": [
+        586,
+        586
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 612,
+      "orig": "اي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 613,
+      "orig": "تي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 614,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 615,
+      "orig": "سلاش",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 616,
+      "orig": "شادو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 622,
+      "orig": "الروت",
+      "to": "الـroot",
+      "why": "term",
+      "final": [
+        592,
+        592
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 632,
+      "orig": "بروسس",
+      "to": "process",
+      "why": "term",
+      "final": [
+        602,
+        602
+      ]
+    },
+    {
+      "op": "insert",
+      "after_i": 644,
+      "text": "ps aux",
+      "why": "dropout",
+      "final": [
+        615,
+        616
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 649,
+      "orig": "بعددات",
+      "to": "بعدادات",
+      "why": "mishear",
+      "final": [
+        621,
+        621
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 653,
+      "orig": "للسي",
+      "to": "للـCPU",
+      "why": "merge",
+      "final": [
+        625,
+        625
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 654,
+      "orig": "بيو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 656,
+      "orig": "العددات",
+      "to": "العدادات",
+      "why": "mishear",
+      "final": [
+        627,
+        627
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 676,
+      "orig": "طوب",
+      "to": "top",
+      "why": "term",
+      "final": [
+        647,
+        647
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 677,
+      "orig": "وإيتش",
+      "to": "وhtop",
+      "why": "merge",
+      "final": [
+        648,
+        648
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 678,
+      "orig": "طوب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 680,
+      "orig": "نصطادر",
+      "to": "نصطاد",
+      "why": "mishear",
+      "final": [
+        650,
+        650
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 681,
+      "orig": "لعمل",
+      "to": "اللي عامل",
+      "why": "mishear",
+      "final": [
+        651,
+        652
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 686,
+      "orig": "لعمل",
+      "to": "اللي عامل",
+      "why": "mishear",
+      "final": [
+        657,
+        658
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 694,
+      "orig": "سيجنالز",
+      "to": "signals",
+      "why": "term",
+      "final": [
+        666,
+        666
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 699,
+      "orig": "كل",
+      "to": "kill -15",
+      "why": "merge",
+      "final": [
+        671,
+        672
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 700,
+      "orig": "ناقص",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 701,
+      "orig": "15",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 705,
+      "orig": "سيج",
+      "to": "SIGTERM",
+      "why": "merge",
+      "final": [
+        676,
+        676
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 706,
+      "orig": "تيرم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 724,
+      "orig": "كل",
+      "to": "kill -9",
+      "why": "merge",
+      "final": [
+        694,
+        695
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 725,
+      "orig": "ناقص",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 726,
+      "orig": "تسعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 728,
+      "orig": "سيج",
+      "to": "SIGKILL",
+      "why": "merge",
+      "final": [
+        697,
+        697
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 729,
+      "orig": "كل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 741,
+      "orig": "متضمرة",
+      "to": "متضررة",
+      "why": "mishear",
+      "final": [
+        709,
+        709
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 751,
+      "orig": "سيج",
+      "to": "SIGHUP",
+      "why": "merge",
+      "final": [
+        719,
+        719
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 752,
+      "orig": "هاب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 753,
+      "orig": "واحد",
+      "to": "1",
+      "why": "number",
+      "final": [
+        720,
+        720
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "بتقولي",
+      "to": "بتقول",
+      "why": "mishear",
+      "final": [
+        722,
+        722
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 756,
+      "orig": "البرنامج",
+      "to": "للبرنامج",
+      "why": "mishear",
+      "final": [
+        723,
+        723
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 775,
+      "orig": "Kill",
+      "to": "killall",
+      "why": "merge",
+      "final": [
+        742,
+        742
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 776,
+      "orig": "All",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 778,
+      "orig": "P",
+      "to": "pkill",
+      "why": "merge",
+      "final": [
+        744,
+        744
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 779,
+      "orig": "-Kill",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 781,
+      "orig": "P",
+      "to": "pgrep",
+      "why": "merge",
+      "final": [
+        746,
+        746
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 782,
+      "orig": "-Grab",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 795,
+      "orig": "الأمبرساند",
+      "to": "الـampersand",
+      "why": "term",
+      "final": [
+        759,
+        759
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 807,
+      "orig": "Jobs",
+      "to": "jobs",
+      "why": "term",
+      "final": [
+        771,
+        771
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 811,
+      "orig": "ال",
+      "to": "الـfg",
+      "why": "merge",
+      "final": [
+        775,
+        775
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 812,
+      "orig": "-FG",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 813,
+      "orig": "وال",
+      "to": "والـbg",
+      "why": "merge",
+      "final": [
+        776,
+        776
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 814,
+      "orig": "-BG",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 820,
+      "orig": "ال",
+      "to": "الـCPU",
+      "why": "merge",
+      "final": [
+        782,
+        782
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 821,
+      "orig": "-CPU",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 824,
+      "orig": "Nice",
+      "to": "nice",
+      "why": "term",
+      "final": [
+        785,
+        785
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 843,
+      "orig": "ري",
+      "to": "renice",
+      "why": "merge",
+      "final": [
+        804,
+        804
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 844,
+      "orig": "نايس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 863,
+      "orig": "النوهب",
+      "to": "الـnohup",
+      "why": "term",
+      "final": [
+        823,
+        823
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 885,
+      "orig": "أبت",
+      "to": "apt",
+      "why": "term",
+      "final": [
+        845,
+        845
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 886,
+      "orig": "ريموف",
+      "to": "remove",
+      "why": "term",
+      "final": [
+        846,
+        846
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 911,
+      "orig": "ببلفاته",
+      "to": "بملفاته",
+      "why": "mishear",
+      "final": [
+        871,
+        871
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 976,
+      "orig": "لس",
+      "to": "less",
+      "why": "term",
+      "final": [
+        936,
+        936
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 983,
+      "orig": "نرأي",
+      "to": "نراقب",
+      "why": "mishear",
+      "final": [
+        943,
+        943
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 984,
+      "orig": "باللوج",
+      "to": "اللوج",
+      "why": "mishear",
+      "final": [
+        944,
+        944
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 992,
+      "orig": "tail",
+      "to": "tail -f",
+      "why": "merge",
+      "final": [
+        952,
+        953
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 993,
+      "orig": "-f",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1014,
+      "orig": "data",
+      "to": "database",
+      "why": "merge",
+      "final": [
+        974,
+        974
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1015,
+      "orig": "base",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1032,
+      "orig": "نعدي",
+      "to": "نعدل",
+      "why": "mishear",
+      "final": [
+        991,
+        991
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1054,
+      "orig": "WQ",
+      "to": "wq",
+      "why": "term",
+      "final": [
+        1013,
+        1013
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1065,
+      "orig": "LN",
+      "to": "ln -s",
+      "why": "merge",
+      "final": [
+        1024,
+        1025
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1066,
+      "orig": "-S",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1067,
+      "orig": "وندغط",
+      "to": "ونضغط",
+      "why": "mishear",
+      "final": [
+        1026,
+        1026
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1070,
+      "orig": "TAR",
+      "to": "tar -czvf",
+      "why": "merge",
+      "final": [
+        1029,
+        1030
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1071,
+      "orig": "-CZVF",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1075,
+      "orig": "تبع",
+      "to": "تبص",
+      "why": "mishear",
+      "final": [
+        1034,
+        1034
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1078,
+      "orig": "DF",
+      "to": "df -h",
+      "why": "merge",
+      "final": [
+        1037,
+        1038
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1079,
+      "orig": "-H",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1083,
+      "orig": "مساحها",
+      "to": "مساحتها",
+      "why": "mishear",
+      "final": [
+        1042,
+        1042
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1084,
+      "orig": "عدة",
+      "to": "عدت",
+      "why": "mishear",
+      "final": [
+        1043,
+        1043
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1085,
+      "orig": "80",
+      "to": "80%",
+      "why": "number",
+      "final": [
+        1044,
+        1044
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1086,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1096,
+      "orig": "DU",
+      "to": "du",
+      "why": "term",
+      "final": [
+        1054,
+        1054
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1101,
+      "orig": "وكلها",
+      "to": "واكلة",
+      "why": "mishear",
+      "final": [
+        1059,
+        1059
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1107,
+      "orig": "IPADDR",
+      "to": "ip addr",
+      "why": "term",
+      "final": [
+        1065,
+        1066
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1109,
+      "orig": "ال",
+      "to": "الـIP",
+      "why": "merge",
+      "final": [
+        1068,
+        1068
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1110,
+      "orig": "-IP",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1111,
+      "orig": "و",
+      "to": "وping",
+      "why": "merge",
+      "final": [
+        1069,
+        1069
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1112,
+      "orig": "-Ping",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1116,
+      "orig": "و",
+      "to": "وss -tulnp",
+      "why": "merge",
+      "final": [
+        1073,
+        1074
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1117,
+      "orig": "-SS",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1118,
+      "orig": "-T",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1119,
+      "orig": "و",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1120,
+      "orig": "-NPLP",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1125,
+      "orig": "بورت",
+      "to": "port",
+      "why": "term",
+      "final": [
+        1079,
+        1079
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1135,
+      "orig": "و",
+      "to": "وdig",
+      "why": "merge",
+      "final": [
+        1089,
+        1089
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1136,
+      "orig": "-dig",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1164,
+      "orig": "sodo",
+      "to": "sudo",
+      "why": "term",
+      "final": [
+        1117,
+        1117
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1165,
+      "orig": "group",
+      "to": "groupadd",
+      "why": "merge",
+      "final": [
+        1118,
+        1118
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1166,
+      "orig": "add",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1167,
+      "orig": "web",
+      "to": "webteam",
+      "why": "merge",
+      "final": [
+        1119,
+        1119
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1168,
+      "orig": "team",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1172,
+      "orig": "اليوزرز",
+      "to": "الـusers",
+      "why": "term",
+      "final": [
+        1123,
+        1123
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1174,
+      "orig": "آلس",
+      "to": "alice",
+      "why": "term",
+      "final": [
+        1125,
+        1125
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1175,
+      "orig": "وبوب",
+      "to": "وbob",
+      "why": "term",
+      "final": [
+        1126,
+        1126
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1184,
+      "orig": "شاون",
+      "to": "chown",
+      "why": "term",
+      "final": [
+        1135,
+        1135
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1185,
+      "orig": "روت",
+      "to": "root:webteam",
+      "why": "merge",
+      "final": [
+        1136,
+        1136
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1186,
+      "orig": "ويب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 1187,
+      "orig": "تيم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1196,
+      "orig": "الشامد",
+      "to": "chmod",
+      "why": "term",
+      "final": [
+        1145,
+        1145
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1207,
+      "orig": "بت",
+      "to": "bit",
+      "why": "term",
+      "final": [
+        1156,
+        1156
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1242,
+      "orig": "يقفر",
+      "to": "يقفل",
+      "why": "mishear",
+      "final": [
+        1191,
+        1191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1259,
+      "orig": "ومتحاكمين",
+      "to": "ومتحكمين",
+      "why": "mishear",
+      "final": [
+        1208,
+        1208
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1264,
+      "orig": "تمة",
+      "to": "تامة",
+      "why": "mishear",
+      "final": [
+        1213,
+        1213
+      ]
+    }
+  ],
+  "notes": "Edits: Linux/kernel/root/user/process/signals and all spoken commands normalised to Latin (chown, chgrp, whoami, id, useradd -m -s, passwd, usermod -aG, userdel -r, /etc/passwd, /etc/shadow, top/htop, kill -15/-9, SIGTERM/SIGKILL/SIGHUP, killall/pkill/pgrep, fg/bg, nice/renice, nohup, apt remove, less, tail -f, ln -s, tar -czvf, df -h, du, ip addr, ping, ss -tulnp, dig, sudo groupadd webteam, chown root:webteam, chmod 2775, SGID bit). Glued whisper sub-tokens (leading '-' or '.') were merged into the first token (later tokens set to ''), so the merged word spans the whole command. Numbers: permission modes merged to 755/644/777 (7777 corrected to 777, matches source 777); addends kept as separate digits (4 2 1, 4 1, 4 2 6, 4 4); 80% merged. Mishears fixed only where meaning is unambiguous (قيمة>قايمة, تعيهين>تايهين, متحاكمين>متحكمين x2, مخطة>محطة, نتصرع>نتسرع, ببلفاته>بملفاته, نرأي باللوج>نراقب اللوج, نعدي>نعدل, تبع>تبص, يقفر>يقفل, لعمل>اللي عامل x2, متضمرة>متضررة, بتقولي البرنامج>بتقول للبرنامج, etc.). Insert: 'ps aux' after i=644 (920 ms gap after 'مخرجات أمر'; source sc06 and its on-screen table name ps aux). Dropout NOT inserted: 4.6 s silence between i=639 and i=640 (272-280 s); source sc06 suggests it covered 'own memory, file handles and a PID', but exact words unknown. Left as-is (uncertain, worth a listen): i=365 repeated 'سلاش' (maybe reading of ./hello.sh); i=790-791 'تعطى للشاشة' (likely 'تعطل/تغطي الشاشة'); i=846-847 'ننمر تحين' (likely 'نبقى مرتاحين'); i=1146-1147 'فدت بعضه' (likely 'فات ببعضه'); i=1188 'التركية' (likely 'التكّة'/'التركيبة'); i=720 'عن ناحية' (likely 'من ناحية'); i=140 'مع مفاتيح' (maybe 'معاه'). Dialect spellings kept (عمروكو, نفسوكو, سانية, نحزف, بنكريات, يتكاريت, وستطبناه, بالزبط). 'الجروب' kept in Arabic script as the source does for most occurrences.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 5,
+      "kind": "transition",
+      "gloss_en": "Welcome to this explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 6,
+      "to": 21,
+      "kind": "claim",
+      "gloss_en": "Since most servers in the world run on Linux, it is very important that we understand rather than guess.",
+      "terms": [
+        "Linux"
+      ],
+      "numbers": [],
+      "entities": [
+        "Linux"
+      ]
+    },
+    {
+      "from": 22,
+      "to": 44,
+      "kind": "claim",
+      "gloss_en": "Because the real difference between being lost on a night the server is down and knowing and controlling everything that happens starts here.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 45,
+      "to": 62,
+      "kind": "transition",
+      "gloss_en": "In this explainer we will understand the basics and concepts that build this system piece by piece, so we are in control of every detail.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 63,
+      "to": 68,
+      "kind": "transition",
+      "gloss_en": "Let us get right into it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 69,
+      "to": 86,
+      "kind": "transition",
+      "gloss_en": "Our journey is split into six stations: permissions and files, users and groups, processes and resources, packages and software, reading, search and networking, and finally a hands-on lab.",
+      "terms": [
+        "permissions",
+        "user",
+        "group",
+        "process"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 87,
+      "to": 93,
+      "kind": "transition",
+      "gloss_en": "The first station, the foundation: permissions and files.",
+      "terms": [
+        "permissions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 94,
+      "to": 102,
+      "kind": "transition",
+      "gloss_en": "There is an important question here that will show us how the system thinks.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 122,
+      "kind": "question",
+      "gloss_en": "Have you ever asked yourselves why sometimes we give a group a certain permission and find that nothing changed, as if we did nothing?",
+      "terms": [
+        "group",
+        "permissions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 123,
+      "to": 128,
+      "kind": "claim",
+      "gloss_en": "The secret lies in how the kernel thinks.",
+      "terms": [
+        "kernel"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 129,
+      "to": 149,
+      "kind": "example",
+      "gloss_en": "Imagine it as a strict gatekeeper facing three people, each with keys: read r, write w and execute x.",
+      "terms": [
+        "owner",
+        "group",
+        "other",
+        "r",
+        "w",
+        "x"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 150,
+      "to": 161,
+      "kind": "example",
+      "gloss_en": "This guard asks his questions in order: first, is this person the owner?",
+      "terms": [
+        "owner"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 173,
+      "kind": "example",
+      "gloss_en": "If yes, he applies the owner permissions and stops asking; he does not even look at the group.",
+      "terms": [
+        "owner",
+        "group"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 174,
+      "to": 185,
+      "kind": "example",
+      "gloss_en": "If not, he moves to the second question: is he in the group? And so on.",
+      "terms": [
+        "group"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 186,
+      "to": 199,
+      "kind": "claim",
+      "gloss_en": "That is why group permissions can be ignored completely if the user turns out to be the owner from the start.",
+      "terms": [
+        "group",
+        "user",
+        "owner"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 200,
+      "to": 204,
+      "kind": "question",
+      "gloss_en": "Okay, what is the story with these keys?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 205,
+      "to": 212,
+      "kind": "claim",
+      "gloss_en": "They are simply the bricks we build any permission from.",
+      "terms": [
+        "permissions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 213,
+      "to": 219,
+      "kind": "claim",
+      "gloss_en": "Each permission has a fixed number that never changes.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 220,
+      "to": 227,
+      "kind": "claim",
+      "gloss_en": "Read: we give it the letter r and the number 4.",
+      "terms": [
+        "read",
+        "r"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 228,
+      "to": 234,
+      "kind": "claim",
+      "gloss_en": "Write: its letter is w and its number is 2.",
+      "terms": [
+        "write",
+        "w"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 235,
+      "to": 241,
+      "kind": "claim",
+      "gloss_en": "Execute: its letter is x and its number is 1.",
+      "terms": [
+        "execute",
+        "x"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 242,
+      "to": 253,
+      "kind": "claim",
+      "gloss_en": "And if there is no permission at all, it is a minus sign and its number is 0.",
+      "terms": [
+        "-"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 254,
+      "to": 264,
+      "kind": "claim",
+      "gloss_en": "The nice thing about this system is that we simply add these numbers up.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 265,
+      "to": 288,
+      "kind": "example",
+      "gloss_en": "So to give a permission like 755, for the owner we add 4, 2, 1 to get 7; for the group 4 and 1 make 5; and for the rest also 4 and 1, so 5.",
+      "terms": [
+        "owner",
+        "group",
+        "other",
+        "rwxr-xr-x"
+      ],
+      "numbers": [
+        "755",
+        "4",
+        "2",
+        "1",
+        "7",
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 289,
+      "to": 295,
+      "kind": "recap",
+      "gloss_en": "So now we understand 755, which we use for folders and scripts.",
+      "terms": [
+        "755 = rwxr-xr-x"
+      ],
+      "numbers": [
+        "755"
+      ],
+      "entities": []
+    },
+    {
+      "from": 296,
+      "to": 313,
+      "kind": "example",
+      "gloss_en": "What about 644? That is the normal one for files: the owner reads and writes, 4 plus 2 is 6, and the rest only read, so 4 and 4.",
+      "terms": [
+        "644 = rw-r--r--",
+        "owner",
+        "other"
+      ],
+      "numbers": [
+        "644",
+        "4",
+        "2",
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 314,
+      "to": 317,
+      "kind": "example",
+      "gloss_en": "And we have 700 for private keys.",
+      "terms": [
+        "700 = rwx------"
+      ],
+      "numbers": [
+        "700"
+      ],
+      "entities": []
+    },
+    {
+      "from": 318,
+      "to": 337,
+      "kind": "claim",
+      "gloss_en": "But watch out: this 777 carries a huge warning sign, because it means anyone can do anything, and that is a disaster.",
+      "terms": [
+        "777 = rwxrwxrwx"
+      ],
+      "numbers": [
+        "777"
+      ],
+      "entities": []
+    },
+    {
+      "from": 338,
+      "to": 345,
+      "kind": "claim",
+      "gloss_en": "No respectable work environment uses it as a solution.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 346,
+      "to": 349,
+      "kind": "transition",
+      "gloss_en": "Let us see this in practice.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 350,
+      "to": 365,
+      "kind": "example",
+      "gloss_en": "We wrote a perfectly fine script and run it with dot slash hello.sh, and oops, we get the annoying message Permission denied.",
+      "terms": [
+        "/hello.sh",
+        "hello.sh",
+        "Permission denied"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 366,
+      "to": 376,
+      "kind": "example",
+      "gloss_en": "Before we rush, we must diagnose the problem first: we type the command ls -l.",
+      "terms": [
+        "ls -l"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 377,
+      "to": 387,
+      "kind": "example",
+      "gloss_en": "We find that the letter x, the execute permission, is missing.",
+      "terms": [
+        "x"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 388,
+      "to": 394,
+      "kind": "example",
+      "gloss_en": "The fix is simply the command chmod +x hello.sh.",
+      "terms": [
+        "chmod +x hello.sh"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 395,
+      "to": 406,
+      "kind": "claim",
+      "gloss_en": "And with that we have solved the problem, whether we use numbers or letters with chmod.",
+      "terms": [
+        "chmod"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 407,
+      "to": 415,
+      "kind": "question",
+      "gloss_en": "But an important question: where do these default permissions come from?",
+      "terms": [
+        "permissions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 416,
+      "to": 430,
+      "kind": "claim",
+      "gloss_en": "The system starts from 666 for files and 777 for folders, then subtracts a value called the umask.",
+      "terms": [
+        "umask"
+      ],
+      "numbers": [
+        "666",
+        "777"
+      ],
+      "entities": []
+    },
+    {
+      "from": 431,
+      "to": 443,
+      "kind": "example",
+      "gloss_en": "So if the umask is 022, the result is 644 for files and 755 for folders.",
+      "terms": [
+        "umask 022"
+      ],
+      "numbers": [
+        "022",
+        "644",
+        "755"
+      ],
+      "entities": []
+    },
+    {
+      "from": 444,
+      "to": 461,
+      "kind": "example",
+      "gloss_en": "Try for example touch private.txt with umask 077: you will find the file created with permission 600, locked tight against everyone but the owner.",
+      "terms": [
+        "umask 077; touch private.txt",
+        "touch",
+        "private.txt",
+        "owner"
+      ],
+      "numbers": [
+        "077",
+        "600"
+      ],
+      "entities": []
+    },
+    {
+      "from": 462,
+      "to": 478,
+      "kind": "claim",
+      "gloss_en": "And of course, to change a file's owner or group, chown does the job, and chgrp if it is only the group.",
+      "terms": [
+        "chown",
+        "chgrp",
+        "owner",
+        "group"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 479,
+      "to": 488,
+      "kind": "transition",
+      "gloss_en": "Our second station is users and groups, or we could say the system's identity.",
+      "terms": [
+        "user",
+        "group"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 489,
+      "to": 498,
+      "kind": "claim",
+      "gloss_en": "Identity management in Linux has essential commands you cannot do without.",
+      "terms": [
+        "Linux"
+      ],
+      "numbers": [],
+      "entities": [
+        "Linux"
+      ]
+    },
+    {
+      "from": 499,
+      "to": 509,
+      "kind": "claim",
+      "gloss_en": "whoami tells the system who we are right now, and id fetches the details.",
+      "terms": [
+        "whoami",
+        "id"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 510,
+      "to": 521,
+      "kind": "claim",
+      "gloss_en": "And here our eyes always go to root, whose number is zero and which has all permissions.",
+      "terms": [
+        "root",
+        "uid=0"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 522,
+      "to": 534,
+      "kind": "example",
+      "gloss_en": "We create a new user with sudo useradd -m -s and set its password with passwd.",
+      "terms": [
+        "user",
+        "sudo useradd -m -s /bin/bash testuser",
+        "useradd",
+        "passwd"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 535,
+      "to": 539,
+      "kind": "transition",
+      "gloss_en": "And here is an extremely dangerous warning.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 540,
+      "to": 552,
+      "kind": "claim",
+      "gloss_en": "When we add a user to an existing group with usermod -aG, never forget the letter a.",
+      "terms": [
+        "user",
+        "group",
+        "usermod -aG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 553,
+      "to": 563,
+      "kind": "claim",
+      "gloss_en": "If you forget it, the user will be thrown out of all their old groups in a second.",
+      "terms": [
+        "usermod -G",
+        "user",
+        "group"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 564,
+      "to": 571,
+      "kind": "example",
+      "gloss_en": "And when we want to delete a user completely, we use userdel -r.",
+      "terms": [
+        "user",
+        "userdel"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 572,
+      "to": 578,
+      "kind": "claim",
+      "gloss_en": "All this data is recorded in the file /etc/passwd.",
+      "terms": [
+        "/etc/passwd"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 579,
+      "to": 592,
+      "kind": "claim",
+      "gloss_en": "But the passwords are encrypted and safely hidden in the file /etc/shadow, which no one but root can read.",
+      "terms": [
+        "/etc/shadow",
+        "hashes",
+        "root"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 593,
+      "to": 600,
+      "kind": "transition",
+      "gloss_en": "The third station: processes and resources, and how to run our server properly.",
+      "terms": [
+        "process"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 601,
+      "to": 609,
+      "kind": "claim",
+      "gloss_en": "Any process in the world is simply a running program.",
+      "terms": [
+        "process"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 610,
+      "to": 626,
+      "kind": "example",
+      "gloss_en": "If we look at the output of ps aux, we see this table connected to live counters moving in front of us for CPU and memory.",
+      "terms": [
+        "ps aux",
+        "CPU",
+        "MEM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 627,
+      "to": 637,
+      "kind": "claim",
+      "gloss_en": "These counters are what reveal who is eating the server's resources.",
+      "terms": [
+        "CPU"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 638,
+      "to": 654,
+      "kind": "claim",
+      "gloss_en": "Of course we can use interactive commands that sort these processes, like top and htop, to catch the culprit quickly.",
+      "terms": [
+        "top",
+        "htop",
+        "process"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 655,
+      "to": 667,
+      "kind": "claim",
+      "gloss_en": "Okay, we found the culprit and want to stop it: here we send signals to the program.",
+      "terms": [
+        "signals"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 668,
+      "to": 681,
+      "kind": "example",
+      "gloss_en": "If we use kill -15, it sends a SIGTERM signal, which we consider a very polite request.",
+      "terms": [
+        "kill",
+        "SIGTERM"
+      ],
+      "numbers": [
+        "15"
+      ],
+      "entities": []
+    },
+    {
+      "from": 682,
+      "to": 689,
+      "kind": "claim",
+      "gloss_en": "It lets the program close its files, clean up after itself and exit gracefully.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 690,
+      "to": 705,
+      "kind": "example",
+      "gloss_en": "On the other hand, kill -9 sends SIGKILL, and that is the hard hit: it shuts the program down immediately.",
+      "terms": [
+        "kill",
+        "SIGKILL"
+      ],
+      "numbers": [
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 706,
+      "to": 715,
+      "kind": "claim",
+      "gloss_en": "And it may leave damaged files behind, so we keep it as the very last resort.",
+      "terms": [
+        "SIGKILL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 716,
+      "to": 733,
+      "kind": "claim",
+      "gloss_en": "There is also the SIGHUP signal, 1, which tells the program: please re-read your settings, without stopping.",
+      "terms": [
+        "SIGHUP",
+        "reload"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 734,
+      "to": 746,
+      "kind": "claim",
+      "gloss_en": "To make life easier we can use commands like killall, pkill and pgrep.",
+      "terms": [
+        "killall",
+        "pkill",
+        "pgrep"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 747,
+      "to": 755,
+      "kind": "claim",
+      "gloss_en": "Sometimes we have heavy tasks that we do not want tying up the screen.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 756,
+      "to": 767,
+      "kind": "example",
+      "gloss_en": "The fix is to put the ampersand at the end of the command, and that throws the task into the background.",
+      "terms": [
+        "&",
+        "sleep 100 &"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 768,
+      "to": 776,
+      "kind": "claim",
+      "gloss_en": "We can follow it with jobs and move it freely between fg and bg.",
+      "terms": [
+        "jobs",
+        "fg",
+        "bg"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 777,
+      "to": 796,
+      "kind": "claim",
+      "gloss_en": "We can also give it a CPU priority with nice, which runs from minus 20 as the highest priority to 19 as the lowest.",
+      "terms": [
+        "CPU",
+        "nice"
+      ],
+      "numbers": [
+        "-20",
+        "19"
+      ],
+      "entities": []
+    },
+    {
+      "from": 797,
+      "to": 804,
+      "kind": "claim",
+      "gloss_en": "And if it is already running or we want to change its priority, we use renice.",
+      "terms": [
+        "renice"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 805,
+      "to": 823,
+      "kind": "claim",
+      "gloss_en": "And to be at ease and make sure the task keeps running even if we close the screen or log out, we prefix it with nohup.",
+      "terms": [
+        "nohup",
+        "session"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 824,
+      "to": 829,
+      "kind": "transition",
+      "gloss_en": "The fourth station: packages and software, installing and removing.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 830,
+      "to": 843,
+      "kind": "claim",
+      "gloss_en": "When we remove a program there is a huge difference between deleting it and wiping it out of existence.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 844,
+      "to": 861,
+      "kind": "claim",
+      "gloss_en": "apt remove removes the program but keeps its settings, so if we change our minds and reinstall it we find our stuff ready.",
+      "terms": [
+        "apt remove"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 862,
+      "to": 873,
+      "kind": "claim",
+      "gloss_en": "But apt purge deletes literally everything: the program, its settings, its files, everything.",
+      "terms": [
+        "apt purge"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 874,
+      "to": 896,
+      "kind": "recap",
+      "gloss_en": "And of course we know the basics, like apt update to refresh the index, apt upgrade to update the programs themselves, and apt install to download new programs.",
+      "terms": [
+        "sudo apt update",
+        "sudo apt upgrade",
+        "install"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 897,
+      "to": 909,
+      "kind": "claim",
+      "gloss_en": "And if we want to go a bit lower level and deal with the package itself, we use the dpkg tool.",
+      "terms": [
+        "dpkg"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 910,
+      "to": 917,
+      "kind": "transition",
+      "gloss_en": "We move to the fifth station: tools for reading, search and networking.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 918,
+      "to": 924,
+      "kind": "claim",
+      "gloss_en": "These are the things we use every day.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 925,
+      "to": 939,
+      "kind": "claim",
+      "gloss_en": "To read big log files without the machine freezing, the less command is the perfect solution.",
+      "terms": [
+        "less",
+        "log"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 940,
+      "to": 953,
+      "kind": "example",
+      "gloss_en": "And if we want to watch the log live, line by line as it is being written, we use tail -f.",
+      "terms": [
+        "tail -f /var/log/syslog",
+        "log"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 954,
+      "to": 965,
+      "kind": "claim",
+      "gloss_en": "If we are searching for something precisely, find is very powerful and has tons of filters.",
+      "terms": [
+        "find"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 966,
+      "to": 981,
+      "kind": "claim",
+      "gloss_en": "While locate is much faster, but it relies on a database that may not be up to date at that moment.",
+      "terms": [
+        "locate",
+        "updatedb"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 982,
+      "to": 988,
+      "kind": "claim",
+      "gloss_en": "And we have which to know exactly where commands are located.",
+      "terms": [
+        "which"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 989,
+      "to": 1001,
+      "kind": "claim",
+      "gloss_en": "When we need to edit files, we either use the simple nano or the mighty vim.",
+      "terms": [
+        "nano",
+        "vim"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1002,
+      "to": 1013,
+      "kind": "example",
+      "gloss_en": "And by the way, to save and exit it we type a colon and then wq.",
+      "terms": [
+        ":wq",
+        "wq"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1014,
+      "to": 1019,
+      "kind": "transition",
+      "gloss_en": "A server's health is always measured by its disk space and its network.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1020,
+      "to": 1030,
+      "kind": "claim",
+      "gloss_en": "We make shortcuts to files with ln -s and compress the work with tar -czvf.",
+      "terms": [
+        "ln -s",
+        "symlink",
+        "tar -czvf backup.tar.gz dir/"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1031,
+      "to": 1038,
+      "kind": "claim",
+      "gloss_en": "Our eyes should always be on the df -h command.",
+      "terms": [
+        "df -h"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1039,
+      "to": 1050,
+      "kind": "claim",
+      "gloss_en": "As soon as we find its usage has passed 80%, it is an emergency that needs immediate attention.",
+      "terms": [
+        "partition"
+      ],
+      "numbers": [
+        "80%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1051,
+      "to": 1060,
+      "kind": "claim",
+      "gloss_en": "Then we use du to find out which folders are eating the space.",
+      "terms": [
+        "du"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1061,
+      "to": 1072,
+      "kind": "claim",
+      "gloss_en": "As for networking, ip addr gets the IP and ping reassures us about the connection.",
+      "terms": [
+        "ip addr",
+        "IP",
+        "ping"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1073,
+      "to": 1080,
+      "kind": "claim",
+      "gloss_en": "And ss -tulnp reveals who has a port open and running.",
+      "terms": [
+        "ss -tulnp",
+        "port"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1081,
+      "to": 1089,
+      "kind": "claim",
+      "gloss_en": "Not to mention quick, important rescue tools like curl and dig.",
+      "terms": [
+        "curl",
+        "dig"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1090,
+      "to": 1104,
+      "kind": "transition",
+      "gloss_en": "We have reached the sixth and final station, the hands-on lab, where we tie everything together in a shared team folder.",
+      "terms": [
+        "lab"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1105,
+      "to": 1111,
+      "kind": "example",
+      "gloss_en": "Imagine with us a team that needs a shared folder.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1112,
+      "to": 1119,
+      "kind": "example",
+      "gloss_en": "The first step: we create a group with sudo groupadd webteam.",
+      "terms": [
+        "sudo groupadd webteam",
+        "groupadd",
+        "webteam"
+      ],
+      "numbers": [],
+      "entities": [
+        "webteam"
+      ]
+    },
+    {
+      "from": 1120,
+      "to": 1128,
+      "kind": "example",
+      "gloss_en": "The second step: we add users like alice and bob to this group.",
+      "terms": [
+        "user",
+        "group"
+      ],
+      "numbers": [],
+      "entities": [
+        "alice",
+        "bob"
+      ]
+    },
+    {
+      "from": 1129,
+      "to": 1136,
+      "kind": "example",
+      "gloss_en": "Then we give the group ownership of the folder with chown root:webteam.",
+      "terms": [
+        "chown root:webteam",
+        "root",
+        "webteam"
+      ],
+      "numbers": [],
+      "entities": [
+        "webteam"
+      ]
+    },
+    {
+      "from": 1137,
+      "to": 1146,
+      "kind": "example",
+      "gloss_en": "The whole trick and the magic is in the next step: chmod 2775.",
+      "terms": [
+        "chmod 2775"
+      ],
+      "numbers": [
+        "2775"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1147,
+      "to": 1160,
+      "kind": "claim",
+      "gloss_en": "The 2 at the start is what we call the SGID bit, and it does a great move.",
+      "terms": [
+        "SGID"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1161,
+      "to": 1174,
+      "kind": "claim",
+      "gloss_en": "It forces any new file created inside the folder to automatically take the folder's group.",
+      "terms": [
+        "SGID",
+        "group"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1175,
+      "to": 1194,
+      "kind": "claim",
+      "gloss_en": "So all team members can work on and edit each other's files smoothly, without anyone locking the work away from the other.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1195,
+      "to": 1213,
+      "kind": "recap",
+      "gloss_en": "These basics we have seen eliminate guesswork in emergencies and keep us understanding and in control of our system with full confidence.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1214,
+      "to": 1240,
+      "kind": "question",
+      "gloss_en": "The question now is: after you have acquired these powerful tools, what complex systems will you be able to build, or what workflows will you secure and automate with ease?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1241,
+      "to": 1249,
+      "kind": "prediction",
+      "gloss_en": "That is what we will start to discover together as we progress.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1250,
+      "to": 1264,
+      "kind": "transition",
+      "gloss_en": "In the next explainer we will continue the journey into the details of services and SSH basics. Thank you very much for watching.",
+      "terms": [
+        "SSH"
+      ],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:10:48Z"
+}

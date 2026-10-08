@@ -1,0 +1,2640 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P15",
+  "asr_words": 1318,
+  "final_words": 1293,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 80,
+      "orig": "البايبلاين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        80,
+        80
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 87,
+      "orig": "السجيل",
+      "to": "السجل",
+      "why": "mishear",
+      "final": [
+        87,
+        87
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 94,
+      "orig": "إكستراكت",
+      "to": "Extract",
+      "why": "term",
+      "final": [
+        94,
+        94
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 116,
+      "orig": "الترانسفورم",
+      "to": "الـtransform",
+      "why": "term",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 125,
+      "orig": "بايزة",
+      "to": "بايظة",
+      "why": "mishear",
+      "final": [
+        125,
+        125
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 136,
+      "orig": "لود",
+      "to": "load",
+      "why": "term",
+      "final": [
+        136,
+        136
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 139,
+      "orig": "للكونسيومر",
+      "to": "للـconsumer",
+      "why": "term",
+      "final": [
+        139,
+        139
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 151,
+      "orig": "الفاليديت؟",
+      "to": "الـvalidate؟",
+      "why": "term",
+      "final": [
+        151,
+        151
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 177,
+      "orig": "السكيمة",
+      "to": "الـschema",
+      "why": "term",
+      "final": [
+        177,
+        177
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 179,
+      "orig": "الديتا",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        179,
+        179
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 180,
+      "orig": "تايبس",
+      "to": "types",
+      "why": "term",
+      "final": [
+        180,
+        180
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 185,
+      "orig": "المنداتري",
+      "to": "mandatory",
+      "why": "term",
+      "final": [
+        185,
+        185
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 186,
+      "orig": "فيلز",
+      "to": "fields",
+      "why": "term",
+      "final": [
+        186,
+        186
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 191,
+      "orig": "دوبليكاتس؟",
+      "to": "duplicates؟",
+      "why": "term",
+      "final": [
+        191,
+        191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 192,
+      "orig": "الكيز",
+      "to": "الـkeys",
+      "why": "term",
+      "final": [
+        192,
+        192
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 197,
+      "orig": "الفالي",
+      "to": "الـvalid",
+      "why": "term",
+      "final": [
+        197,
+        197
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 198,
+      "orig": "رينجز",
+      "to": "ranges",
+      "why": "term",
+      "final": [
+        198,
+        198
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 204,
+      "orig": "الكاونت",
+      "to": "الـcount",
+      "why": "term",
+      "final": [
+        204,
+        204
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 205,
+      "orig": "ماتشز",
+      "to": "matches",
+      "why": "term",
+      "final": [
+        205,
+        205
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 206,
+      "orig": "سورس؟",
+      "to": "source؟",
+      "why": "term",
+      "final": [
+        206,
+        206
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 220,
+      "orig": "مادات",
+      "to": "ما الداتا",
+      "why": "split",
+      "final": [
+        220,
+        221
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 226,
+      "orig": "عددات",
+      "to": "عدادات",
+      "why": "mishear",
+      "final": [
+        227,
+        227
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 233,
+      "orig": "عددات",
+      "to": "عدادات",
+      "why": "mishear",
+      "final": [
+        234,
+        234
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 243,
+      "orig": "كومبليتنس،",
+      "to": "completeness،",
+      "why": "term",
+      "final": [
+        244,
+        244
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 244,
+      "orig": "يونيكنس،",
+      "to": "uniqueness،",
+      "why": "term",
+      "final": [
+        245,
+        245
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 245,
+      "orig": "فاليديتي،",
+      "to": "validity،",
+      "why": "term",
+      "final": [
+        246,
+        246
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 246,
+      "orig": "تايملينس،",
+      "to": "timeliness،",
+      "why": "term",
+      "final": [
+        247,
+        247
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 247,
+      "orig": "كونسستنسي",
+      "to": "consistency",
+      "why": "term",
+      "final": [
+        248,
+        248
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 248,
+      "orig": "وأكيرسي",
+      "to": "وaccuracy",
+      "why": "term",
+      "final": [
+        249,
+        249
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 249,
+      "orig": "العددات",
+      "to": "العدادات",
+      "why": "mishear",
+      "final": [
+        250,
+        250
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 270,
+      "orig": "البايبلاين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        271,
+        271
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 289,
+      "orig": "كم",
+      "to": "كام",
+      "why": "mishear",
+      "final": [
+        290,
+        290
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 295,
+      "orig": "هليفشل",
+      "to": "هيفشل",
+      "why": "mishear",
+      "final": [
+        296,
+        296
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 375,
+      "orig": "الكوارنتين",
+      "to": "الـquarantine",
+      "why": "term",
+      "final": [
+        376,
+        376
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 398,
+      "orig": "مع",
+      "to": "معماري",
+      "why": "merge",
+      "final": [
+        399,
+        399
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 399,
+      "orig": "ماري",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 407,
+      "orig": "ال",
+      "to": "الـETL",
+      "why": "merge",
+      "final": [
+        407,
+        407
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 408,
+      "orig": "-ETL",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 409,
+      "orig": "وال",
+      "to": "والـELT؟",
+      "why": "merge",
+      "final": [
+        408,
+        408
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 410,
+      "orig": "-ELT؟",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 412,
+      "orig": "ال",
+      "to": "الـETL",
+      "why": "merge",
+      "final": [
+        410,
+        410
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 413,
+      "orig": "-ETL",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 424,
+      "orig": "ال",
+      "to": "الـELT",
+      "why": "merge",
+      "final": [
+        421,
+        421
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 425,
+      "orig": "-ELT",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 428,
+      "orig": "row",
+      "to": "raw",
+      "why": "mishear",
+      "final": [
+        424,
+        424
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 456,
+      "orig": "الكمبيوت",
+      "to": "الـcompute",
+      "why": "term",
+      "final": [
+        452,
+        452
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 463,
+      "orig": "واللتنسي",
+      "to": "والـlatency",
+      "why": "term",
+      "final": [
+        459,
+        459
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "الداج",
+      "to": "الـDAG",
+      "why": "term",
+      "final": [
+        475,
+        475
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 487,
+      "orig": "جراف",
+      "to": "graph",
+      "why": "term",
+      "final": [
+        483,
+        483
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 515,
+      "orig": "الداك",
+      "to": "الـDAG",
+      "why": "term",
+      "final": [
+        511,
+        511
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 518,
+      "orig": "التاسكس",
+      "to": "الـtasks",
+      "why": "term",
+      "final": [
+        514,
+        514
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 533,
+      "orig": "الداكس",
+      "to": "الـDAGs",
+      "why": "term",
+      "final": [
+        529,
+        529
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 557,
+      "orig": "المونيتورينج",
+      "to": "الـmonitoring",
+      "why": "term",
+      "final": [
+        553,
+        553
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 562,
+      "orig": "الشكاجولر",
+      "to": "الـScheduler",
+      "why": "term",
+      "final": [
+        558,
+        558
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 569,
+      "orig": "وقرر",
+      "to": "وبيقرر",
+      "why": "mishear",
+      "final": [
+        565,
+        565
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 578,
+      "orig": "بينفزوا",
+      "to": "بينفذوا",
+      "why": "mishear",
+      "final": [
+        574,
+        574
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "الميتا",
+      "to": "الـMetadata",
+      "why": "term",
+      "final": [
+        581,
+        581
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 586,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 587,
+      "orig": "تا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 588,
+      "orig": "دي",
+      "to": "DB",
+      "why": "term",
+      "final": [
+        582,
+        582
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 589,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 609,
+      "orig": "لذاك",
+      "to": "لـDAG",
+      "why": "term",
+      "final": [
+        602,
+        602
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 612,
+      "orig": "ShopFlow",
+      "to": "shopflow_daily_analytics",
+      "why": "term",
+      "final": [
+        605,
+        605
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 613,
+      "orig": "Underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 614,
+      "orig": "Daily",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 615,
+      "orig": "Underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 616,
+      "orig": "Analytics",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 633,
+      "orig": "والإكسيكيوشن",
+      "to": "والـexecution",
+      "why": "term",
+      "final": [
+        622,
+        622
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 634,
+      "orig": "تايم",
+      "to": "timeout",
+      "why": "term",
+      "final": [
+        623,
+        623
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 635,
+      "orig": "آوت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 639,
+      "orig": "للتاسك",
+      "to": "للـtask",
+      "why": "term",
+      "final": [
+        627,
+        627
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 643,
+      "orig": "السكيجول",
+      "to": "الـschedule",
+      "why": "term",
+      "final": [
+        631,
+        631
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 647,
+      "orig": "ستار",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 648,
+      "orig": "ستار",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 649,
+      "orig": "ستار",
+      "why": "term",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 657,
+      "orig": "والستار",
+      "to": "والـstart_date",
+      "why": "term",
+      "final": [
+        642,
+        642
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 658,
+      "orig": "ديت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 670,
+      "orig": "البايبلين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        654,
+        654
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 692,
+      "orig": "تاسك",
+      "to": "task",
+      "why": "term",
+      "final": [
+        676,
+        676
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 694,
+      "orig": "Transform",
+      "to": "transform_clean",
+      "why": "term",
+      "final": [
+        678,
+        678
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 695,
+      "orig": "Clean",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 696,
+      "orig": "Facialit",
+      "to": "فشلت",
+      "why": "mishear",
+      "final": [
+        679,
+        679
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 697,
+      "orig": "أحفدها",
+      "to": "أحفادها",
+      "why": "mishear",
+      "final": [
+        680,
+        680
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 701,
+      "orig": "بيتأسروا",
+      "to": "بيتأثروا",
+      "why": "mishear",
+      "final": [
+        684,
+        684
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 729,
+      "orig": "البايبلاين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        712,
+        712
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 740,
+      "orig": "تاسك",
+      "to": "task",
+      "why": "term",
+      "final": [
+        723,
+        723
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 743,
+      "orig": "لود",
+      "to": "load",
+      "why": "term",
+      "final": [
+        726,
+        726
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 746,
+      "orig": "مص",
+      "to": "نص",
+      "why": "mishear",
+      "final": [
+        729,
+        729
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 767,
+      "orig": "لتاسك",
+      "to": "لـtask",
+      "why": "term",
+      "final": [
+        750,
+        750
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 791,
+      "orig": "الصفوه",
+      "to": "الصفوف",
+      "why": "mishear",
+      "final": [
+        774,
+        774
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 795,
+      "orig": "التاسك",
+      "to": "الـtask",
+      "why": "term",
+      "final": [
+        778,
+        778
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 812,
+      "orig": "العمل",
+      "to": "اللي عمل",
+      "why": "mishear",
+      "final": [
+        795,
+        796
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 813,
+      "orig": "الفسدة",
+      "to": "الفساد",
+      "why": "mishear",
+      "final": [
+        797,
+        797
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 839,
+      "orig": "item",
+      "to": "idempotency",
+      "why": "term",
+      "final": [
+        823,
+        823
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 840,
+      "orig": "potency",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 845,
+      "orig": "retrial",
+      "to": "retry",
+      "why": "term",
+      "final": [
+        828,
+        828
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 853,
+      "orig": "ال",
+      "to": "الـidempotency",
+      "why": "term",
+      "final": [
+        836,
+        836
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 854,
+      "orig": "item",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 855,
+      "orig": "potency",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 863,
+      "orig": "لللود",
+      "to": "للـload",
+      "why": "term",
+      "final": [
+        844,
+        844
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 865,
+      "orig": "batch",
+      "to": "batch_id",
+      "why": "term",
+      "final": [
+        846,
+        846
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 866,
+      "orig": "id",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 881,
+      "orig": "الباتش",
+      "to": "الـbatch",
+      "why": "term",
+      "final": [
+        861,
+        861
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 902,
+      "orig": "التاسك",
+      "to": "الـtask",
+      "why": "term",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1065,
+      "orig": "البابلشنج",
+      "to": "الـpublishing",
+      "why": "term",
+      "final": [
+        1045,
+        1045
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1075,
+      "orig": "التاسكس",
+      "to": "الـtasks",
+      "why": "term",
+      "final": [
+        1055,
+        1055
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1089,
+      "orig": "الكونسيومر",
+      "to": "الـconsumer",
+      "why": "term",
+      "final": [
+        1069,
+        1069
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1091,
+      "orig": "الداشبورد",
+      "to": "الـdashboard",
+      "why": "term",
+      "final": [
+        1071,
+        1071
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1096,
+      "orig": "يسترديز",
+      "to": "yesterday's",
+      "why": "term",
+      "final": [
+        1076,
+        1076
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1097,
+      "orig": "داشبورد",
+      "to": "dashboard",
+      "why": "term",
+      "final": [
+        1077,
+        1077
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1106,
+      "orig": "بايزة",
+      "to": "بايظة",
+      "why": "mishear",
+      "final": [
+        1086,
+        1086
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1112,
+      "orig": "والبايبلاين",
+      "to": "والـpipeline",
+      "why": "term",
+      "final": [
+        1092,
+        1092
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1121,
+      "orig": "السنسورز",
+      "to": "الـSensors",
+      "why": "term",
+      "final": [
+        1101,
+        1101
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1132,
+      "orig": "وسيكوال",
+      "to": "وSqlSensor",
+      "why": "term",
+      "final": [
+        1112,
+        1112
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1133,
+      "orig": "سنسور",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1143,
+      "orig": "لبرانشينج",
+      "to": "الـBranching",
+      "why": "term",
+      "final": [
+        1122,
+        1122
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1152,
+      "orig": "الديناميك",
+      "to": "الـDynamic",
+      "why": "term",
+      "final": [
+        1131,
+        1131
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1153,
+      "orig": "ديجز",
+      "to": "DAGs",
+      "why": "term",
+      "final": [
+        1132,
+        1132
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1154,
+      "orig": "والكولباكس",
+      "to": "والـcallbacks",
+      "why": "term",
+      "final": [
+        1133,
+        1133
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1169,
+      "orig": "التاسك",
+      "to": "الـTaskFlow",
+      "why": "term",
+      "final": [
+        1148,
+        1148
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1170,
+      "orig": "فلو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1175,
+      "orig": "الديجز",
+      "to": "الـDAGs",
+      "why": "term",
+      "final": [
+        1153,
+        1153
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1192,
+      "orig": "الايدم",
+      "to": "الـidempotency",
+      "why": "term",
+      "final": [
+        1170,
+        1170
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1193,
+      "orig": "بوتنس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1197,
+      "orig": "الأتوميسيتي",
+      "to": "الـatomicity",
+      "why": "term",
+      "final": [
+        1174,
+        1174
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1199,
+      "orig": "التاسك",
+      "to": "الـtask",
+      "why": "term",
+      "final": [
+        1176,
+        1176
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1210,
+      "orig": "تاسك",
+      "to": "task",
+      "why": "term",
+      "final": [
+        1187,
+        1187
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1211,
+      "orig": "جرانيولاريتي",
+      "to": "granularity",
+      "why": "term",
+      "final": [
+        1188,
+        1188
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1214,
+      "orig": "تاسك",
+      "to": "task",
+      "why": "term",
+      "final": [
+        1191,
+        1191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1223,
+      "orig": "بصوردات",
+      "to": "passwords",
+      "why": "term",
+      "final": [
+        1200,
+        1200
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1231,
+      "orig": "الداج",
+      "to": "الـDAG",
+      "why": "term",
+      "final": [
+        1208,
+        1208
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1235,
+      "orig": "الداج",
+      "to": "الـDagBag",
+      "why": "term",
+      "final": [
+        1212,
+        1212
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1236,
+      "orig": "باج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1241,
+      "orig": "سايكلز",
+      "to": "cycles",
+      "why": "term",
+      "final": [
+        1217,
+        1217
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1254,
+      "orig": "البايبلاين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        1230,
+        1230
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1299,
+      "orig": "ال",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        1275,
+        1275
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1300,
+      "orig": "data",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1302,
+      "orig": "والstar",
+      "to": "والـstar",
+      "why": "term",
+      "final": [
+        1277,
+        1277
+      ]
+    }
+  ],
+  "notes": "Pack a:S4:P15, 1318 words. Edits are limited to Latin technical terms written in Arabic script (Extract, transform, load, consumer, validate, schema, data types, mandatory fields, duplicates, keys, valid ranges, count matches source, the six quality dimensions, quarantine, ETL/ELT, compute, latency, DAG/DAGs, graph, tasks, Scheduler, Metadata DB, schedule/start_date/execution timeout, cron stars '* * *', idempotency, batch, publishing, dashboard, Sensors/SqlSensor, Branching, Dynamic DAGs, callbacks, TaskFlow, atomicity, task granularity, passwords, DagBag, cycles), token merges for split terms (ال-ETL/ELT, item potency -> idempotency, ShopFlow Underscore Daily Underscore Analytics -> shopflow_daily_analytics, Transform Clean -> transform_clean, batch id -> batch_id, Metadata DB, execution timeout, مع ماري -> معماري), and mishearings proven by source_excerpt (السجيل->السجل, بايزة->بايظة, كم->كام, هليفشل->هيفشل, عددات->عدادات, row->raw, بينفزوا->بينفذوا, أحفدها->أحفادها, بيتأسروا->بيتأثروا, مص->نص, الصفوه->الصفوف, العمل الفسدة->اللي عمل الفساد, Facialit->فشلت (sounds like fashalit; failing task per sc10), الشكاجولر->Scheduler, لذاك->لـDAG, بصوردات->passwords). NOT edited (Arabic wording not provable from source_excerpt, listed for later review): 15 بتحصر(بتحصل), 62 'camela' (probably كاملة), 128/782 كرسة(كارثة), 178 معتشت(ماتشت/متطابقة), 363 وتختيفي(وتختفي), 385-386 من وقف(ما نوقف), 455 حسمة(حاسمة), 473 الليلة(العملية), 519 تتنفس(تتنفذ), 540 معمرية(معمارية), 551 افتناغهم(انسجامهم), 558 وانتابع(ونتابع), 568 كوردينيشن(coordination, not in latin_terms), 591 الزاكرة(الذاكرة), 681 بوزت(بوظت), 686/859 زكاء/زكية(ذكاء/ذكية), 802/977 الأديمة(القديمة), 815 وبوز(وبوظ), 919 سابت(ثابت), 980 تيم(تام), 1024/1045 عادت/العمل(عدد/العملاء), 1032 يؤف(يوقف), 1176 سالسة(سلسة), 1281 وديتهيكل(وبتتهيكل). DROPOUT, not inserted (words not certain): between word 1227 (خمساً) and 1228 (وأخيراً) there is a 1840 ms gap; the fifth practice is almost certainly 'monitoring' (sc16 on-screen: monitoring, logging, metadata in XCom, alerts) but the spoken words are not provable, so no insert. Also the speaker lists only three decision criteria (compute, governance, latency) while the excerpt has four (platform); no timing gap, so treated as not said. Number words (خمس, السبع, ستة, اتنين, شهر واحد يوم واحد, ساعة, عشر) were left as spoken and listed as digits in sentence.numbers; 0 6 * * * is the cron schedule (6 AM daily), start_date 2024-01-01, retries 3, retry_delay 5 min, execution_timeout 1 h, 14 clean rows, 2 failing checks (order 1007 -> customer 9 orphan key; order 1010 status refunded), AOV < 10 warning, FileSensor 5 min to 1 h, SqlSensor 300 s / 7200 s, SLA 2 hours, 2X row count after retry. Sentence 1227-1243 spans the dropout. Deleted tokens (to='') are inside sentence ranges; sentence word counts are by original index.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 5,
+      "kind": "transition",
+      "gloss_en": "Welcome to today's explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 6,
+      "to": 21,
+      "kind": "transition",
+      "gloss_en": "Let's dive straight into the fascinating details of what happens behind the scenes in data engineering.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 22,
+      "to": 40,
+      "kind": "claim",
+      "gloss_en": "This journey is full of secrets about how big companies organize and manage their data without everything falling apart.",
+      "terms": [
+        "data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 41,
+      "to": 62,
+      "kind": "transition",
+      "gloss_en": "To understand this practically, we will follow a single data record, one row, as it moves inside an orchestration pipeline.",
+      "terms": [
+        "orchestration",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 63,
+      "to": 79,
+      "kind": "claim",
+      "gloss_en": "We will see what really happens and the real problems that suddenly show up, not just the ideal scenarios we read about.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 80,
+      "to": 91,
+      "kind": "claim",
+      "gloss_en": "Our pipeline is five main stations that this record passes through.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 92,
+      "to": 96,
+      "kind": "claim",
+      "gloss_en": "First thing is extract: we pull the data.",
+      "terms": [
+        "extract"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 97,
+      "to": 102,
+      "kind": "transition",
+      "gloss_en": "The second station is the crucial point.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 118,
+      "kind": "claim",
+      "gloss_en": "We must make sure the data is sound before entering the third station, which is transform.",
+      "terms": [
+        "transform"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 119,
+      "to": 132,
+      "kind": "claim",
+      "gloss_en": "Why? Because transforming bad data gives a disastrous result that is very expensive to handle.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 133,
+      "to": 143,
+      "kind": "claim",
+      "gloss_en": "After that we load, and finally we reach the consumer who receives this work.",
+      "terms": [
+        "load",
+        "consumer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 144,
+      "to": 151,
+      "kind": "question",
+      "gloss_en": "So what exactly happens in the validate stage?",
+      "terms": [
+        "validate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 152,
+      "to": 163,
+      "kind": "claim",
+      "gloss_en": "This process may look routine and boring, but there is no doing without it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 164,
+      "to": 175,
+      "kind": "claim",
+      "gloss_en": "We have seven core checks running one after another to catch any problem early.",
+      "terms": [],
+      "numbers": [
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 176,
+      "to": 188,
+      "kind": "question",
+      "gloss_en": "Does the schema match? Are the data types right? Are the mandatory fields all present?",
+      "terms": [
+        "schema",
+        "datatype",
+        "mandatory fields"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 189,
+      "to": 200,
+      "kind": "question",
+      "gloss_en": "Are there duplicates? Are the keys present and sound? Are the values within the allowed valid ranges?",
+      "terms": [
+        "duplicates",
+        "keys",
+        "valid ranges"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 201,
+      "to": 218,
+      "kind": "question",
+      "gloss_en": "And last, does the count match the source, meaning is the number of rows that arrived the same as the number the source sent?",
+      "terms": [
+        "count matches source"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 219,
+      "to": 229,
+      "kind": "claim",
+      "gloss_en": "As soon as the data passes these checks, the quality counters start running.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 230,
+      "to": 249,
+      "kind": "claim",
+      "gloss_en": "We have six dimensions, or counters, calculated in real time, not just theory: completeness, uniqueness, validity, timeliness, consistency and accuracy.",
+      "terms": [
+        "completeness",
+        "uniqueness",
+        "validity",
+        "timeliness",
+        "consistency",
+        "accuracy"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 250,
+      "to": 261,
+      "kind": "claim",
+      "gloss_en": "These counters now act on the 14 data rows that came out of the cleaning stage.",
+      "terms": [],
+      "numbers": [
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 262,
+      "to": 271,
+      "kind": "claim",
+      "gloss_en": "We can treat them as the true health measure of these 14 rows inside the pipeline.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 272,
+      "to": 277,
+      "kind": "transition",
+      "gloss_en": "Here comes the time for an important question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 278,
+      "to": 288,
+      "kind": "prediction",
+      "gloss_en": "Imagine the data now looks clean and perfect after being cleaned.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 289,
+      "to": 296,
+      "kind": "question",
+      "gloss_en": "How many of the checks we talked about do you think will fail?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 297,
+      "to": 306,
+      "kind": "question",
+      "gloss_en": "Could data that looks clean fail when it lands in the real world?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 307,
+      "to": 310,
+      "kind": "claim",
+      "gloss_en": "The surprising answer is two.",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 311,
+      "to": 323,
+      "kind": "claim",
+      "gloss_en": "Reality always reveals hidden flaws; we have two real defects that showed up in the 14 rows.",
+      "terms": [],
+      "numbers": [
+        "2",
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 324,
+      "to": 341,
+      "kind": "example",
+      "gloss_en": "Row 1007 has an orphan key problem: it points to customer 9, who does not even exist in the system.",
+      "terms": [
+        "orphan key",
+        "customer"
+      ],
+      "numbers": [
+        "1007",
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 342,
+      "to": 356,
+      "kind": "example",
+      "gloss_en": "And row 1010 has status refunded, which is outside our domain, out of domain.",
+      "terms": [
+        "status",
+        "refunded",
+        "domain"
+      ],
+      "numbers": [
+        "1010"
+      ],
+      "entities": []
+    },
+    {
+      "from": 357,
+      "to": 366,
+      "kind": "claim",
+      "gloss_en": "Most important, these rows are not deleted or silently made to vanish.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 367,
+      "to": 391,
+      "kind": "claim",
+      "gloss_en": "No: they get quarantine routing, meaning they are isolated and sent to the quarantine table with the reason stated clearly, so they can be handled later without stopping the rest of the clean data.",
+      "terms": [
+        "quarantine"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 392,
+      "to": 403,
+      "kind": "transition",
+      "gloss_en": "Before we continue the record's journey, there is a very important architectural decision to be made.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 404,
+      "to": 408,
+      "kind": "question",
+      "gloss_en": "What is the difference between ETL and ELT?",
+      "terms": [
+        "ETL",
+        "ELT"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 409,
+      "to": 419,
+      "kind": "claim",
+      "gloss_en": "Simply, ETL means transform before load, meaning the transformation happens before the loading.",
+      "terms": [
+        "ETL",
+        "transform",
+        "load"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 420,
+      "to": 438,
+      "kind": "claim",
+      "gloss_en": "ELT means load raw, transform in the warehouse: we load the raw data as it is, then transform it inside the data warehouse.",
+      "terms": [
+        "ELT",
+        "load",
+        "raw",
+        "transform",
+        "warehouse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 439,
+      "to": 451,
+      "kind": "claim",
+      "gloss_en": "The choice between them is not about which is newer; it is a decision that depends on decisive questions.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 452,
+      "to": 463,
+      "kind": "question",
+      "gloss_en": "Where will the compute happen? What are the governance requirements? And how much latency do we need?",
+      "terms": [
+        "compute",
+        "governance",
+        "latency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 464,
+      "to": 471,
+      "kind": "question",
+      "gloss_en": "So who is the conductor that organizes this whole process?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 472,
+      "to": 484,
+      "kind": "claim",
+      "gloss_en": "This conductor is called the DAG, or Directed Acyclic Graph, which is a directed graph.",
+      "terms": [
+        "DAG",
+        "Directed Acyclic Graph",
+        "graph"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 485,
+      "to": 497,
+      "kind": "claim",
+      "gloss_en": "It has no closed loops, no cycles, which gives us a firm promise about the execution order.",
+      "terms": [
+        "cycles"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 498,
+      "to": 510,
+      "kind": "claim",
+      "gloss_en": "Things run one after another in a precise order without getting stuck in an endless loop.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 511,
+      "to": 523,
+      "kind": "claim",
+      "gloss_en": "The DAG guarantees the tasks execute in the right order through something called topological sorting.",
+      "terms": [
+        "DAG",
+        "tasks",
+        "topological",
+        "sort"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 524,
+      "to": 532,
+      "kind": "claim",
+      "gloss_en": "One of the most famous tools that manage these DAGs is Airflow.",
+      "terms": [
+        "DAGs",
+        "Airflow"
+      ],
+      "numbers": [],
+      "entities": [
+        "Airflow"
+      ]
+    },
+    {
+      "from": 533,
+      "to": 548,
+      "kind": "claim",
+      "gloss_en": "Looking at Airflow's architecture from the inside, we find it split into four parts that work together in great harmony.",
+      "terms": [
+        "Airflow"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": [
+        "Airflow"
+      ]
+    },
+    {
+      "from": 549,
+      "to": 557,
+      "kind": "claim",
+      "gloss_en": "The web UI is for monitoring and following what is happening.",
+      "terms": [
+        "Web",
+        "UI",
+        "monitoring"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 558,
+      "to": 568,
+      "kind": "claim",
+      "gloss_en": "The Scheduler is the mastermind that does the coordination and decides who runs and when.",
+      "terms": [
+        "Scheduler"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 569,
+      "to": 579,
+      "kind": "claim",
+      "gloss_en": "The Workers are the ones who actually carry out the execution on the ground.",
+      "terms": [
+        "Workers"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 580,
+      "to": 596,
+      "kind": "claim",
+      "gloss_en": "And finally the Metadata DB is the memory that keeps state tracking, so the Scheduler can make correct decisions.",
+      "terms": [
+        "Metadata",
+        "DB",
+        "Scheduler"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 597,
+      "to": 605,
+      "kind": "transition",
+      "gloss_en": "Let's look at real code for a working DAG, named shopflow_daily_analytics.",
+      "terms": [
+        "DAG",
+        "shopflow_daily_analytics"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 606,
+      "to": 621,
+      "kind": "claim",
+      "gloss_en": "The main parameters here show that we set the retries to three times and the retry delay to 5 minutes.",
+      "terms": [
+        "retries",
+        "retry_delay"
+      ],
+      "numbers": [
+        "3",
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 622,
+      "to": 630,
+      "kind": "claim",
+      "gloss_en": "And the execution timeout, the maximum time allowed for a task, is one hour.",
+      "terms": [
+        "execution_timeout",
+        "task"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 631,
+      "to": 641,
+      "kind": "claim",
+      "gloss_en": "The schedule is written 0 6 star star star, meaning it runs every day at six in the morning.",
+      "terms": [
+        "schedule"
+      ],
+      "numbers": [
+        "0",
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 642,
+      "to": 648,
+      "kind": "claim",
+      "gloss_en": "And the start date is from 2024, month one, day one.",
+      "terms": [
+        "start_date"
+      ],
+      "numbers": [
+        "2024-01-01"
+      ],
+      "entities": []
+    },
+    {
+      "from": 649,
+      "to": 658,
+      "kind": "recap",
+      "gloss_en": "These settings are what make the pipeline run like clockwork.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 659,
+      "to": 667,
+      "kind": "question",
+      "gloss_en": "But what happens if something breaks in the middle?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 668,
+      "to": 673,
+      "kind": "transition",
+      "gloss_en": "Here the cleverness of the DAG graph shows.",
+      "terms": [
+        "DAG",
+        "graph"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 674,
+      "to": 688,
+      "kind": "example",
+      "gloss_en": "If we have a task named transform_clean that fails, only its descendants are affected, turn red and stop.",
+      "terms": [
+        "task",
+        "transform_clean"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 689,
+      "to": 707,
+      "kind": "claim",
+      "gloss_en": "But the parallel branches, the ones that do not depend on it, stay green and carry on with their work as if nothing happened.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 708,
+      "to": 714,
+      "kind": "recap",
+      "gloss_en": "This isolates the failure and makes the pipeline very robust.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 715,
+      "to": 720,
+      "kind": "transition",
+      "gloss_en": "And here we reach the second and most important prediction question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 721,
+      "to": 739,
+      "kind": "question",
+      "gloss_en": "If we have a task that was loading the data, wrote half the rows, then suddenly failed and crashed, what happens to the final row count?",
+      "terms": [
+        "task",
+        "load"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 740,
+      "to": 762,
+      "kind": "question",
+      "gloss_en": "When Airflow does an automated retry, an automatic re-run of that task, will things go smoothly and the count stay as it is?",
+      "terms": [
+        "Airflow",
+        "automated retry",
+        "task"
+      ],
+      "numbers": [],
+      "entities": [
+        "Airflow"
+      ]
+    },
+    {
+      "from": 763,
+      "to": 769,
+      "kind": "claim",
+      "gloss_en": "Unfortunately this is a real disaster that we call a Retry Disaster.",
+      "terms": [
+        "Retry Disaster"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 770,
+      "to": 777,
+      "kind": "claim",
+      "gloss_en": "The answer is that the row count doubles, 2X.",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 778,
+      "to": 789,
+      "kind": "claim",
+      "gloss_en": "The task ran again from the start and wrote the same old rows, with the new rows on top of them as well.",
+      "terms": [
+        "task"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 790,
+      "to": 801,
+      "kind": "claim",
+      "gloss_en": "So the automatic recovery itself is what did the damage: it corrupted the data and created duplication.",
+      "terms": [
+        "duplication"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 802,
+      "to": 813,
+      "kind": "claim",
+      "gloss_en": "This is a very dangerous trap that can ruin any analytics built on this data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 814,
+      "to": 825,
+      "kind": "transition",
+      "gloss_en": "To solve this problem we enter a magical concept called idempotency; the difference is huge.",
+      "terms": [
+        "idempotency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 826,
+      "to": 834,
+      "kind": "claim",
+      "gloss_en": "A basic retry normally just repeats the data, as we saw.",
+      "terms": [
+        "retry"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 835,
+      "to": 841,
+      "kind": "claim",
+      "gloss_en": "But idempotency solves the matter with a very clever mechanism.",
+      "terms": [
+        "idempotency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 842,
+      "to": 851,
+      "kind": "claim",
+      "gloss_en": "We give our load a specific batch id, and we apply a delete-insert mechanism.",
+      "terms": [
+        "load",
+        "batch_id",
+        "delete",
+        "insert"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 852,
+      "to": 874,
+      "kind": "claim",
+      "gloss_en": "Meaning, before writing anything new, we go and delete that batch if it already exists, and then insert it again cleanly.",
+      "terms": [
+        "batch",
+        "insert"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 875,
+      "to": 899,
+      "kind": "claim",
+      "gloss_en": "The result is a 100% stable row count: whether the task ran once, twice, or even ten times because of retries, the final count always stays exactly the same.",
+      "terms": [
+        "task",
+        "retries",
+        "row count"
+      ],
+      "numbers": [
+        "100",
+        "2",
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 900,
+      "to": 914,
+      "kind": "recap",
+      "gloss_en": "Idempotency is what makes automated retries completely safe, and protects them from the nightmares of data duplication.",
+      "terms": [
+        "idempotency",
+        "automated retries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 915,
+      "to": 927,
+      "kind": "claim",
+      "gloss_en": "This concept also solves the backfilling problem, that is, when we want to process old data.",
+      "terms": [
+        "backfilling"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 928,
+      "to": 946,
+      "kind": "example",
+      "gloss_en": "As shown in the timeline, we can process wave 1, wave 2 and wave 3 of the past dates.",
+      "terms": [],
+      "numbers": [
+        "1",
+        "2",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 947,
+      "to": 960,
+      "kind": "claim",
+      "gloss_en": "Thanks to idempotency and defining the partitions, we can run that old data safely.",
+      "terms": [
+        "idempotency",
+        "partitions",
+        "data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 961,
+      "to": 974,
+      "kind": "claim",
+      "gloss_en": "Without any overwriting or any effect on today's work, which stays protected and blocked.",
+      "terms": [
+        "overwriting",
+        "blocked"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 975,
+      "to": 993,
+      "kind": "transition",
+      "gloss_en": "Before the pipeline finishes its work and publishes the data to the consumer, we must pass the inspection gates, the quality gate checks.",
+      "terms": [
+        "pipeline",
+        "data",
+        "quality gate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 994,
+      "to": 1001,
+      "kind": "claim",
+      "gloss_en": "These gates are very strict and verify the final numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1002,
+      "to": 1012,
+      "kind": "example",
+      "gloss_en": "For example, if the order count comes back as Zero Orders, that is a Critical state and it must stop.",
+      "terms": [
+        "Zero Orders",
+        "Critical"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1013,
+      "to": 1023,
+      "kind": "example",
+      "gloss_en": "If the average order value, AOV, is less than 10, that gives a Warning.",
+      "terms": [
+        "AOV",
+        "Warning"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1024,
+      "to": 1031,
+      "kind": "example",
+      "gloss_en": "And if the customer count comes back as Zero Customers, that is also Critical.",
+      "terms": [
+        "Zero Customers",
+        "Critical"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1032,
+      "to": 1048,
+      "kind": "claim",
+      "gloss_en": "If any of these checks fails, the result is Gate Activated, and publishing is Blocked immediately.",
+      "terms": [
+        "Gate",
+        "Blocked",
+        "publishing"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1049,
+      "to": 1065,
+      "kind": "claim",
+      "gloss_en": "Why do we do this? Because the mere fact that the tasks are green and ran does not mean the data itself is right.",
+      "terms": [
+        "tasks"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1066,
+      "to": 1088,
+      "kind": "claim",
+      "gloss_en": "The gate protects the consumer and keeps the dashboard showing yesterday's data, yesterday's dashboard, which is sound, instead of showing today's data while it is bad and causing confusion.",
+      "terms": [
+        "consumer",
+        "dashboard"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1089,
+      "to": 1099,
+      "kind": "transition",
+      "gloss_en": "And when the work grows and the pipeline gets complex, Airflow offers very powerful advanced tools.",
+      "terms": [
+        "pipeline",
+        "Airflow"
+      ],
+      "numbers": [],
+      "entities": [
+        "Airflow"
+      ]
+    },
+    {
+      "from": 1100,
+      "to": 1111,
+      "kind": "claim",
+      "gloss_en": "We have sensors, like File Sensor, which waits for a file from 5 minutes up to an hour.",
+      "terms": [
+        "Sensors",
+        "File Sensor"
+      ],
+      "numbers": [
+        "5",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1112,
+      "to": 1120,
+      "kind": "claim",
+      "gloss_en": "And SqlSensor, which checks the data every 300 seconds up to 7200.",
+      "terms": [
+        "SqlSensor"
+      ],
+      "numbers": [
+        "300",
+        "7200"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1121,
+      "to": 1129,
+      "kind": "claim",
+      "gloss_en": "And there is branching, so we can choose different execution paths depending on the situation.",
+      "terms": [
+        "Branching"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1130,
+      "to": 1146,
+      "kind": "claim",
+      "gloss_en": "And also dynamic DAGs and callbacks that send the alert if we run late against the SLA, which is two hours.",
+      "terms": [
+        "Dynamic",
+        "DAGs",
+        "callbacks",
+        "SLA"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1147,
+      "to": 1156,
+      "kind": "claim",
+      "gloss_en": "And of course the TaskFlow API, which makes writing DAGs smooth and much easier.",
+      "terms": [
+        "TaskFlow",
+        "API",
+        "DAGs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1157,
+      "to": 1168,
+      "kind": "recap",
+      "gloss_en": "That is why the whole summary is gathered in these 6 pipeline best practices.",
+      "terms": [
+        "Pipeline",
+        "Best Practices"
+      ],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1169,
+      "to": 1172,
+      "kind": "recap",
+      "gloss_en": "First, the idempotency we explained.",
+      "terms": [
+        "idempotency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1173,
+      "to": 1185,
+      "kind": "recap",
+      "gloss_en": "Second, atomicity: the task finishes entirely and succeeds, or fails entirely, and does not leave half the work.",
+      "terms": [
+        "atomicity",
+        "task"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1186,
+      "to": 1196,
+      "kind": "recap",
+      "gloss_en": "Third, task granularity: each task does one specific thing only.",
+      "terms": [
+        "task",
+        "granularity"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1197,
+      "to": 1203,
+      "kind": "recap",
+      "gloss_en": "Fourth, no passwords written in the code.",
+      "terms": [
+        "passwords"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1204,
+      "to": 1219,
+      "kind": "recap",
+      "gloss_en": "Fifth, and finally, we must test the DAG itself and make sure the DagBag equals zero and that no cycles were made by mistake.",
+      "terms": [
+        "DAG",
+        "DagBag",
+        "cycles"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1220,
+      "to": 1238,
+      "kind": "recap",
+      "gloss_en": "And so our data passed all the gates and reached the end of the pipeline successfully, with no duplication or quality problems left in it.",
+      "terms": [
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1239,
+      "to": 1254,
+      "kind": "question",
+      "gloss_en": "But the question that comes up now is where exactly will this clean, perfect data be loaded after all of this?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1255,
+      "to": 1264,
+      "kind": "question",
+      "gloss_en": "And how will it be organized and structured so deep analysis and complex analytics can be done on it?",
+      "terms": [
+        "deep analysis"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1265,
+      "to": 1284,
+      "kind": "transition",
+      "gloss_en": "That is what opens the door to a very big world of data warehouses and star schemas, which certainly needs a full explanation on its own.",
+      "terms": [
+        "data warehouses",
+        "star schemas"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1285,
+      "to": 1292,
+      "kind": "transition",
+      "gloss_en": "Thank you very much for following along, and I hope you enjoyed this journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:52Z"
+}

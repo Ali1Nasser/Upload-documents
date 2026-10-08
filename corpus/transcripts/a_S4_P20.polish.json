@@ -1,0 +1,1970 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P20",
+  "asr_words": 998,
+  "final_words": 994,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 45,
+      "orig": "الDIMM",
+      "to": "الD&IM",
+      "why": "term",
+      "final": [
+        45,
+        45
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 58,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        58,
+        58
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 70,
+      "orig": "النات",
+      "to": "الnet",
+      "why": "term",
+      "final": [
+        70,
+        70
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 71,
+      "orig": "توتل",
+      "to": "total",
+      "why": "term",
+      "final": [
+        71,
+        71
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 104,
+      "orig": "الإسم",
+      "to": "القسم",
+      "why": "mishear",
+      "final": [
+        104,
+        104
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 163,
+      "orig": "المطبقة",
+      "to": "المطابقة",
+      "why": "mishear",
+      "final": [
+        163,
+        163
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 196,
+      "orig": "سانية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        196,
+        196
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 223,
+      "orig": "النت",
+      "to": "الnet",
+      "why": "term",
+      "final": [
+        223,
+        223
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 224,
+      "orig": "توتل",
+      "to": "total",
+      "why": "term",
+      "final": [
+        224,
+        224
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 226,
+      "orig": "بيجدب",
+      "to": "بيكدب",
+      "why": "mishear",
+      "final": [
+        226,
+        226
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 246,
+      "orig": "الحزبة",
+      "to": "الحسبة",
+      "why": "mishear",
+      "final": [
+        246,
+        246
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 281,
+      "orig": "متطبقة",
+      "to": "متطابقة",
+      "why": "mishear",
+      "final": [
+        281,
+        281
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 288,
+      "orig": "الترانسبوزيشن",
+      "to": "الtransposition",
+      "why": "term",
+      "final": [
+        288,
+        288
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 317,
+      "orig": "ميسنج",
+      "to": "missing",
+      "why": "term",
+      "final": [
+        317,
+        317
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 319,
+      "orig": "أكسترا",
+      "to": "extra",
+      "why": "term",
+      "final": [
+        319,
+        319
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 321,
+      "orig": "دوبليكيت",
+      "to": "duplicate",
+      "why": "term",
+      "final": [
+        321,
+        321
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 325,
+      "orig": "طبور",
+      "to": "طابور",
+      "why": "mishear",
+      "final": [
+        325,
+        325
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 358,
+      "orig": "Howie",
+      "to": "Huawei",
+      "why": "term",
+      "final": [
+        358,
+        358
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 381,
+      "orig": "OET",
+      "to": "OAT",
+      "why": "mishear",
+      "final": [
+        381,
+        381
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 388,
+      "orig": "الكات",
+      "to": "الCAT",
+      "why": "term",
+      "final": [
+        388,
+        388
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 414,
+      "orig": "مصفوف",
+      "to": "مصفوفة",
+      "why": "mishear",
+      "final": [
+        414,
+        414
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 439,
+      "orig": "للتك",
+      "to": "للtechnical",
+      "why": "term",
+      "final": [
+        439,
+        439
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 440,
+      "orig": "فاليديشن",
+      "to": "validation",
+      "why": "term",
+      "final": [
+        440,
+        440
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 444,
+      "orig": "البرتشنز",
+      "to": "الpartitions",
+      "why": "term",
+      "final": [
+        444,
+        444
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 456,
+      "orig": "الانتجريتي",
+      "to": "الintegrity",
+      "why": "term",
+      "final": [
+        456,
+        456
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 466,
+      "orig": "الويب",
+      "to": "الweb",
+      "why": "term",
+      "final": [
+        466,
+        466
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 467,
+      "orig": "بورتل",
+      "to": "portal",
+      "why": "term",
+      "final": [
+        467,
+        467
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 470,
+      "orig": "للLD",
+      "to": "للLLD",
+      "why": "term",
+      "final": [
+        470,
+        470
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 472,
+      "orig": "صغرة",
+      "to": "ثغرة",
+      "why": "mishear",
+      "final": [
+        472,
+        472
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 478,
+      "orig": "والديتا",
+      "to": "والdata",
+      "why": "term",
+      "final": [
+        478,
+        478
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "برايباسي",
+      "to": "privacy",
+      "why": "term",
+      "final": [
+        479,
+        479
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 486,
+      "orig": "النيا",
+      "to": "الnear",
+      "why": "term",
+      "final": [
+        486,
+        486
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 487,
+      "orig": "الريل",
+      "to": "real",
+      "why": "term",
+      "final": [
+        487,
+        487
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 488,
+      "orig": "تايم",
+      "to": "time",
+      "why": "term",
+      "final": [
+        488,
+        488
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 492,
+      "orig": "الكافكا",
+      "to": "الKafka",
+      "why": "term",
+      "final": [
+        492,
+        492
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 493,
+      "orig": "إن",
+      "to": "in",
+      "why": "term",
+      "final": [
+        493,
+        493
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 494,
+      "orig": "آوت",
+      "to": "out",
+      "why": "term",
+      "final": [
+        494,
+        494
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 495,
+      "orig": "أكوريسي",
+      "to": "accuracy",
+      "why": "term",
+      "final": [
+        495,
+        495
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 496,
+      "orig": "والريديس",
+      "to": "والRedis",
+      "why": "term",
+      "final": [
+        496,
+        496
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 497,
+      "orig": "كاش",
+      "to": "cache",
+      "why": "term",
+      "final": [
+        497,
+        497
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 498,
+      "orig": "أكوريسي",
+      "to": "accuracy",
+      "why": "term",
+      "final": [
+        498,
+        498
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 502,
+      "orig": "كريتيكال",
+      "to": "Critical",
+      "why": "term",
+      "final": [
+        502,
+        502
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 508,
+      "orig": "ميسماتشز",
+      "to": "mismatches",
+      "why": "term",
+      "final": [
+        508,
+        508
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 513,
+      "orig": "ضشرة",
+      "to": "ضرورة",
+      "why": "mishear",
+      "final": [
+        513,
+        513
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 523,
+      "orig": "سي",
+      "to": "CSV",
+      "why": "term",
+      "final": [
+        523,
+        523
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 524,
+      "orig": "أس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 525,
+      "orig": "في",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 526,
+      "orig": "لجي",
+      "to": "لJSON",
+      "why": "term",
+      "final": [
+        524,
+        524
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 527,
+      "orig": "سون",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 532,
+      "orig": "داتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        529,
+        529
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 533,
+      "orig": "لوس",
+      "to": "loss",
+      "why": "term",
+      "final": [
+        530,
+        530
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 535,
+      "orig": "الريتانشن",
+      "to": "الretention",
+      "why": "term",
+      "final": [
+        532,
+        532
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 551,
+      "orig": "والكي",
+      "to": "والk-anonymity",
+      "why": "term",
+      "final": [
+        548,
+        548
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 552,
+      "orig": "آنا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 553,
+      "orig": "نامتي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 583,
+      "orig": "جنراليزيشن",
+      "to": "generalization",
+      "why": "term",
+      "final": [
+        578,
+        578
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 594,
+      "orig": "الكيلة",
+      "to": "الKل",
+      "why": "mishear",
+      "final": [
+        589,
+        589
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 600,
+      "orig": "السبريشن",
+      "to": "الsuppression",
+      "why": "term",
+      "final": [
+        595,
+        595
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 602,
+      "orig": "حسف",
+      "to": "حذف",
+      "why": "mishear",
+      "final": [
+        597,
+        597
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 604,
+      "orig": "الشزة",
+      "to": "الشاذة",
+      "why": "mishear",
+      "final": [
+        599,
+        599
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 615,
+      "orig": "السبريشن",
+      "to": "الsuppression",
+      "why": "term",
+      "final": [
+        610,
+        610
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 642,
+      "orig": "بMTLS",
+      "to": "بmTLS",
+      "why": "term",
+      "final": [
+        637,
+        637
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 772,
+      "orig": "الكارسة",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        767,
+        767
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 818,
+      "orig": "إجبال",
+      "to": "إجباري",
+      "why": "mishear",
+      "final": [
+        813,
+        813
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 826,
+      "orig": "ضعف",
+      "to": "ضاع في",
+      "why": "mishear",
+      "final": [
+        821,
+        822
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 854,
+      "orig": "أرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        850,
+        850
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 900,
+      "orig": "كافكا",
+      "to": "Kafka",
+      "why": "term",
+      "final": [
+        896,
+        896
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 901,
+      "orig": "وساعي",
+      "to": "وسعة",
+      "why": "mishear",
+      "final": [
+        897,
+        897
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 906,
+      "orig": "تيرابايت",
+      "to": "TB",
+      "why": "term",
+      "final": [
+        902,
+        902
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 908,
+      "orig": "هادوب",
+      "to": "Hadoop",
+      "why": "term",
+      "final": [
+        904,
+        904
+      ]
+    }
+  ],
+  "notes": "No inserts: no whisper dropout is certain from source_excerpt (the excerpt is the rebuilt script, not the NotebookLM speech). Only timing gap > 1s is 617->618 (2.98s), a pause before the section-4 body, not a dropout. Policy: kept Arabic-ized loan words that are not in latin_terms (داتا/الديتا, سوفتوير/الصوفت وير, السورس, البلاتفورم, الفورمات); converted latin_terms jargon (net total, missing/extra/duplicate, transposition, Huawei, OAT, CAT, LLD, partitions, integrity, web portal, near real time, Kafka in/out accuracy, Redis cache accuracy, Critical, mismatches, CSV/JSON, data loss, retention, k-anonymity, generalization, suppression, mTLS, Hadoop, TB, error, data privacy). Edits with to='' (524, 525, 527, 552, 553) use why=merge: they are absorbed by the preceding Latin token (CSV, لJSON, k-anonymity). Mishears fixed from context (not literally in the excerpt; revert if unwanted): 104 الإسم->القسم (sections 2-5 follow the same pattern), 196 سانية->ثانية, 226 بيجدب->بيكدب, 246 الحزبة->الحسبة, 472 صغرة->ثغرة, 513 ضشرة->ضرورة, 602 حسف->حذف, 604 الشزة->الشاذة, 772 الكارسة->الكارثة, 818 إجبال->إجباري, 826 ضعف->'ضاع في' (827 النص unchanged), 901 وساعي->وسعة, 594 الكيلة->الKل (K plus the preposition ل before the 2). Proven by excerpt: 58 المعمارية, 163 المطابقة, 281 متطابقة, 325 طابور, 358 Huawei, 381 OAT, 470 LLD, 45 D&IM. 439 للtechnical comes from 'Technical Validation' on screen; the speaker may have said 'tech'. Left unedited as uncertain: 140 المعمالي (maybe المعملي), 218 العين (maybe للعين), 241 بعض (maybe ببعض), 398 الساعة in 'اختبار الساعة تحت الضغط' (likely السعة or الأداء), 838 حارك (unclear, maybe حاسم/حرج), 805 بي, 995-996 بتتبيني/بتتحيني (likely بتتبني/بتتحمي or similar, unclear), 623 بنصطبه (Egyptian تسطيب). 917 '%' after 95 in 'من 95% تقرير' looks like a whisper artifact (probably '95 تقرير'); kept as transcribed, number recorded as 95. 13 countries and 95 live reports are not visible in the excerpt (its sc15 text is truncated); flag for the fact-checker. Word 831 'على' has confidence 0.11 over 1.3s, possible mishearing of 'على مستوى الحجم ده'. RPO figures (Kafka In <3 min, Kafka Out <10 min, total <30 min) and RTO <60 min match the excerpt's DR section.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 6,
+      "kind": "transition",
+      "gloss_en": "Welcome to the detailed walkthrough of this source.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 7,
+      "to": 16,
+      "kind": "claim",
+      "gloss_en": "We always see the numbers on our screens and take them as absolute truth.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 17,
+      "to": 24,
+      "kind": "question",
+      "gloss_en": "But what is actually happening behind the scenes?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 25,
+      "to": 32,
+      "kind": "transition",
+      "gloss_en": "Today's journey is in the world of back-end governance.",
+      "terms": [
+        "back-end governance"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 33,
+      "to": 40,
+      "kind": "claim",
+      "gloss_en": "It will reveal how huge platforms build this trust.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 41,
+      "to": 52,
+      "kind": "transition",
+      "gloss_en": "We will talk about reconciliation, the D&IM tests and governance, and how real disaster recovery is done.",
+      "terms": [
+        "reconciliation",
+        "D&IM",
+        "governance",
+        "disaster recovery"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 53,
+      "to": 61,
+      "kind": "transition",
+      "gloss_en": "Let's get into the details and see how this architecture is built.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 62,
+      "to": 67,
+      "kind": "transition",
+      "gloss_en": "Today's agenda is quick, split into five points.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 68,
+      "to": 80,
+      "kind": "transition",
+      "gloss_en": "We start with the net total myth, then the 5 phases and the T1 to T4 matrix.",
+      "terms": [
+        "net total",
+        "phases",
+        "T1",
+        "T4",
+        "matrix"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 81,
+      "to": 95,
+      "kind": "transition",
+      "gloss_en": "Next the NRT tests and data privacy, then security and disaster recovery.",
+      "terms": [
+        "NRT",
+        "tests",
+        "Data Privacy",
+        "Security",
+        "Disaster Recovery"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 96,
+      "to": 101,
+      "kind": "transition",
+      "gloss_en": "We close with scale and the final verdict.",
+      "terms": [
+        "Scale",
+        "Final Verdict"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 102,
+      "to": 105,
+      "kind": "transition",
+      "gloss_en": "Shall we go? Section one.",
+      "terms": [],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 106,
+      "to": 115,
+      "kind": "claim",
+      "gloss_en": "The math of the net total, or the myth of the net total.",
+      "terms": [
+        "The Math of the Net Total",
+        "net total"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 116,
+      "to": 129,
+      "kind": "claim",
+      "gloss_en": "The essence of reconciliation: proving two different systems fully agree on the same financial truth.",
+      "terms": [
+        "reconciliation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 130,
+      "to": 138,
+      "kind": "example",
+      "gloss_en": "Imagine two ledgers in front of us, matching their records row by row.",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 139,
+      "to": 145,
+      "kind": "claim",
+      "gloss_en": "This test must cover two basic scenarios.",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 146,
+      "to": 151,
+      "kind": "claim",
+      "gloss_en": "1VS2 means comparing the source with the platform.",
+      "terms": [
+        "1VS2",
+        "source",
+        "platform"
+      ],
+      "numbers": [
+        "1",
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 152,
+      "to": 162,
+      "kind": "claim",
+      "gloss_en": "And 2VS3 means comparing the platform with the final destination, the report destination.",
+      "terms": [
+        "2VS3",
+        "platform",
+        "report destination"
+      ],
+      "numbers": [
+        "2",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 163,
+      "to": 169,
+      "kind": "claim",
+      "gloss_en": "The matching here cannot be just a single final number.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 170,
+      "to": 175,
+      "kind": "transition",
+      "gloss_en": "Here comes the very important prediction question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 176,
+      "to": 185,
+      "kind": "question",
+      "gloss_en": "If we decide to take the easy way and compare only the total, what will we see?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 186,
+      "to": 193,
+      "kind": "claim",
+      "gloss_en": "This question imposes itself when designing any system.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 194,
+      "to": 205,
+      "kind": "prediction",
+      "gloss_en": "Let's think for a second about the likely result before we reveal the answer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 206,
+      "to": 219,
+      "kind": "example",
+      "gloss_en": "The result may simply come out as plus 66 euro, a very small, almost acceptable number, right?",
+      "terms": [],
+      "numbers": [
+        "+66"
+      ],
+      "entities": [
+        "Euro"
+      ]
+    },
+    {
+      "from": 220,
+      "to": 226,
+      "kind": "claim",
+      "gloss_en": "But the truth is that this net total lies.",
+      "terms": [
+        "net total"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 227,
+      "to": 237,
+      "kind": "claim",
+      "gloss_en": "Relying on it may be hiding behind 3 or 4 catastrophic failures.",
+      "terms": [],
+      "numbers": [
+        "3",
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 238,
+      "to": 247,
+      "kind": "claim",
+      "gloss_en": "They have no relation to each other, but they cancel each other out in the final tally.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 248,
+      "to": 258,
+      "kind": "claim",
+      "gloss_en": "So the net figure, the plus 66, gets completely wiped out.",
+      "terms": [],
+      "numbers": [
+        "66"
+      ],
+      "entities": []
+    },
+    {
+      "from": 259,
+      "to": 266,
+      "kind": "claim",
+      "gloss_en": "Reconciliation must be at the record level, one to one.",
+      "terms": [
+        "Reconciliation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 267,
+      "to": 275,
+      "kind": "claim",
+      "gloss_en": "Real reconciliation sorts these differences into clear queues.",
+      "terms": [
+        "Reconciliation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 276,
+      "to": 282,
+      "kind": "example",
+      "gloss_en": "Here for example we have seven records matching completely.",
+      "terms": [],
+      "numbers": [
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 283,
+      "to": 292,
+      "kind": "example",
+      "gloss_en": "But if we focus on the transposition queue we find a difference of minus 36.",
+      "terms": [
+        "transposition"
+      ],
+      "numbers": [
+        "-36"
+      ],
+      "entities": []
+    },
+    {
+      "from": 293,
+      "to": 300,
+      "kind": "claim",
+      "gloss_en": "The distinctive thing is that this number is divisible by 9.",
+      "terms": [],
+      "numbers": [
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 301,
+      "to": 308,
+      "kind": "claim",
+      "gloss_en": "And that is the classic signature of a digit-swap error at data entry.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 309,
+      "to": 315,
+      "kind": "transition",
+      "gloss_en": "After that everything goes to its own queue.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 316,
+      "to": 321,
+      "kind": "example",
+      "gloss_en": "A missing record, an extra record, and a duplicate record.",
+      "terms": [
+        "missing",
+        "extra",
+        "duplicate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 322,
+      "to": 331,
+      "kind": "recap",
+      "gloss_en": "Each problem has its queue and its cause, and that is the strength of real matching.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 332,
+      "to": 336,
+      "kind": "transition",
+      "gloss_en": "Section two, the five phases.",
+      "terms": [
+        "The Five Phases"
+      ],
+      "numbers": [
+        "2",
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 337,
+      "to": 345,
+      "kind": "transition",
+      "gloss_en": "And the T1-T4 matrix, to build this trust methodically.",
+      "terms": [
+        "T1",
+        "T4",
+        "matrix"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 346,
+      "to": 354,
+      "kind": "claim",
+      "gloss_en": "The Acceptance Testing phases happen in five strict steps.",
+      "terms": [
+        "Acceptance Testing"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 355,
+      "to": 366,
+      "kind": "claim",
+      "gloss_en": "It starts with the Huawei Functional Test, testing the software end to end.",
+      "terms": [
+        "Functional Test",
+        "software"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": [
+        "Huawei"
+      ]
+    },
+    {
+      "from": 367,
+      "to": 377,
+      "kind": "claim",
+      "gloss_en": "Then we go up to SIT to confirm integration with third parties.",
+      "terms": [
+        "SIT"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 378,
+      "to": 385,
+      "kind": "claim",
+      "gloss_en": "The third step is OAT, to ensure the requirements of the group as a whole.",
+      "terms": [
+        "OAT"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 386,
+      "to": 393,
+      "kind": "claim",
+      "gloss_en": "The fourth is the CAT, covering each country's own requirements.",
+      "terms": [
+        "CAT"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 394,
+      "to": 400,
+      "kind": "claim",
+      "gloss_en": "And finally the performance test, testing under pressure.",
+      "terms": [
+        "performance test"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 401,
+      "to": 410,
+      "kind": "claim",
+      "gloss_en": "Acceptance here is by evidence, not just the word passed being written.",
+      "terms": [
+        "passed"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 411,
+      "to": 422,
+      "kind": "claim",
+      "gloss_en": "Looking at the T1 to T4 matrix, it is the beating heart of the data tests.",
+      "terms": [
+        "T1",
+        "T4",
+        "matrix"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 423,
+      "to": 435,
+      "kind": "claim",
+      "gloss_en": "T1 is about integration and row differences must be zero, always the first step.",
+      "terms": [
+        "T1",
+        "integration"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 436,
+      "to": 448,
+      "kind": "claim",
+      "gloss_en": "Then T2 for technical validation, to confirm old partitions are deleted on time.",
+      "terms": [
+        "T2",
+        "technical validation",
+        "partitions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 449,
+      "to": 456,
+      "kind": "claim",
+      "gloss_en": "T3 compares the data using SQL logic to guarantee integrity.",
+      "terms": [
+        "T3",
+        "SQL",
+        "integrity"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 457,
+      "to": 473,
+      "kind": "claim",
+      "gloss_en": "Finally T4 ensures the format coming out of the web portal matches the LLD exactly; no gap slips through.",
+      "terms": [
+        "T4",
+        "web portal",
+        "LLD",
+        "gap"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 474,
+      "to": 479,
+      "kind": "transition",
+      "gloss_en": "Section three, the NRT tests and data privacy.",
+      "terms": [
+        "NRT",
+        "data privacy"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 480,
+      "to": 491,
+      "kind": "claim",
+      "gloss_en": "When dealing with real-time, near real time data, the conditions are complex.",
+      "terms": [
+        "near real time"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 492,
+      "to": 502,
+      "kind": "claim",
+      "gloss_en": "Kafka in-out accuracy and Redis cache accuracy are both classified Critical.",
+      "terms": [
+        "Kafka",
+        "in-out accuracy",
+        "Redis",
+        "cache accuracy",
+        "Critical"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": [
+        "Kafka",
+        "Redis"
+      ]
+    },
+    {
+      "from": 503,
+      "to": 508,
+      "kind": "claim",
+      "gloss_en": "The expected result for them is zero mismatches.",
+      "terms": [
+        "mismatches"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 509,
+      "to": 518,
+      "kind": "claim",
+      "gloss_en": "Zero here is not an ambition, it is a basic necessity for the system to work at all.",
+      "terms": [],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 519,
+      "to": 530,
+      "kind": "claim",
+      "gloss_en": "Also the move of data from CSV to JSON must happen without any data loss.",
+      "terms": [
+        "CSV",
+        "JSON",
+        "data loss"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 531,
+      "to": 543,
+      "kind": "claim",
+      "gloss_en": "And finally automatic retention must correctly delete data that falls outside the set time.",
+      "terms": [
+        "retention"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 544,
+      "to": 548,
+      "kind": "transition",
+      "gloss_en": "We come to the point of privacy protection and k-anonymity.",
+      "terms": [
+        "k-anonymity"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 549,
+      "to": 553,
+      "kind": "example",
+      "gloss_en": "Imagine a table of 9 rows.",
+      "terms": [],
+      "numbers": [
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 554,
+      "to": 563,
+      "kind": "claim",
+      "gloss_en": "If we remove direct identifiers like names from it, the risk is still there.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 564,
+      "to": 574,
+      "kind": "claim",
+      "gloss_en": "The K value stays one, meaning each row can still be identified on its own.",
+      "terms": [
+        "K"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 575,
+      "to": 584,
+      "kind": "claim",
+      "gloss_en": "Even if we generalize the country, K can still stay one.",
+      "terms": [
+        "generalization",
+        "K"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 585,
+      "to": 600,
+      "kind": "claim",
+      "gloss_en": "The actual solution to raise K to at least 2 is applying suppression, or removing the outlier data entirely.",
+      "terms": [
+        "K",
+        "suppression"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 601,
+      "to": 610,
+      "kind": "recap",
+      "gloss_en": "Hiding the names is just the beginning; real privacy comes from suppression.",
+      "terms": [
+        "suppression"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 611,
+      "to": 618,
+      "kind": "transition",
+      "gloss_en": "Section four: security here is not just software we install.",
+      "terms": [
+        "software"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 619,
+      "to": 627,
+      "kind": "claim",
+      "gloss_en": "These are Defense in Depth layers built into the foundation of the architecture.",
+      "terms": [
+        "Defense in Depth"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 628,
+      "to": 633,
+      "kind": "claim",
+      "gloss_en": "The network is fully isolated with no direct internet.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 634,
+      "to": 640,
+      "kind": "claim",
+      "gloss_en": "Data transmission is protected with mTLS and TLS 1.2.",
+      "terms": [
+        "mTLS",
+        "TLS"
+      ],
+      "numbers": [
+        "1.2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 641,
+      "to": 645,
+      "kind": "claim",
+      "gloss_en": "Permissions are governed by very strict RBAC.",
+      "terms": [
+        "RBAC"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 646,
+      "to": 650,
+      "kind": "claim",
+      "gloss_en": "And the data itself is encrypted with AES 256.",
+      "terms": [
+        "AES"
+      ],
+      "numbers": [
+        "256"
+      ],
+      "entities": []
+    },
+    {
+      "from": 651,
+      "to": 661,
+      "kind": "claim",
+      "gloss_en": "Most importantly, compliance with laws like GDPR and AML is backed by immutable logs.",
+      "terms": [
+        "GDPR",
+        "AML",
+        "Immutable Logs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 662,
+      "to": 668,
+      "kind": "claim",
+      "gloss_en": "Meaning audit records that can never be deleted or altered.",
+      "terms": [
+        "audit"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 669,
+      "to": 678,
+      "kind": "example",
+      "gloss_en": "Suddenly the Disaster Recovery Drill begins and the primary site goes down completely.",
+      "terms": [
+        "Disaster Recovery Drill"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 679,
+      "to": 690,
+      "kind": "example",
+      "gloss_en": "The outage clock starts counting immediately to measure the manual switch time to the backup site.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 691,
+      "to": 698,
+      "kind": "claim",
+      "gloss_en": "That moment is what tests all the engineering planning.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 699,
+      "to": 709,
+      "kind": "claim",
+      "gloss_en": "It moves it from mere theory on paper to a harsh working reality under pressure.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 710,
+      "to": 721,
+      "kind": "transition",
+      "gloss_en": "The clock is running and what governs us here is the RPO, the Recovery Point Objective.",
+      "terms": [
+        "RPO",
+        "Recovery Point Objective"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 722,
+      "to": 727,
+      "kind": "claim",
+      "gloss_en": "It measures the maximum data we could lose.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 728,
+      "to": 740,
+      "kind": "claim",
+      "gloss_en": "Kafka In under 3 minutes and Kafka Out under 10 minutes.",
+      "terms": [
+        "Kafka In",
+        "Kafka Out"
+      ],
+      "numbers": [
+        "3",
+        "10"
+      ],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 741,
+      "to": 761,
+      "kind": "claim",
+      "gloss_en": "But for the whole system, the Total System, it may lose at most data covering under 30 minutes.",
+      "terms": [
+        "Total System"
+      ],
+      "numbers": [
+        "30"
+      ],
+      "entities": []
+    },
+    {
+      "from": 762,
+      "to": 771,
+      "kind": "claim",
+      "gloss_en": "These are the limits that guarantee the disaster does not destroy the platform's accuracy.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 772,
+      "to": 781,
+      "kind": "transition",
+      "gloss_en": "And here the second measure appears, the RTO, the Recovery Time Objective.",
+      "terms": [
+        "RTO",
+        "Recovery Time Objective"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 782,
+      "to": 795,
+      "kind": "claim",
+      "gloss_en": "The system must be fully back up on the Active-Standby setup in under 60 minutes.",
+      "terms": [
+        "Active-Standby"
+      ],
+      "numbers": [
+        "60"
+      ],
+      "entities": []
+    },
+    {
+      "from": 796,
+      "to": 804,
+      "kind": "claim",
+      "gloss_en": "Meaning the maximum allowed downtime is one hour only.",
+      "terms": [],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 805,
+      "to": 823,
+      "kind": "claim",
+      "gloss_en": "And as soon as the system is safely back, a mandatory reconciliation is enforced to confirm not a single record was lost midway.",
+      "terms": [
+        "reconciliation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 824,
+      "to": 830,
+      "kind": "transition",
+      "gloss_en": "Section five and last: at this scale.",
+      "terms": [],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 831,
+      "to": 835,
+      "kind": "claim",
+      "gloss_en": "Tenant isolation becomes very critical.",
+      "terms": [
+        "tenant isolation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 836,
+      "to": 845,
+      "kind": "example",
+      "gloss_en": "If a cross-border query tries to reach another country's data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 846,
+      "to": 857,
+      "kind": "example",
+      "gloss_en": "The response is not just an ordinary error but: request rejected at the boundary.",
+      "terms": [
+        "error",
+        "request rejected at the boundary"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 858,
+      "to": 867,
+      "kind": "claim",
+      "gloss_en": "This data isolation is tested precisely to guarantee full sovereignty.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 868,
+      "to": 876,
+      "kind": "claim",
+      "gloss_en": "And no query can ever breach these borders.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 877,
+      "to": 881,
+      "kind": "transition",
+      "gloss_en": "The numbers here show the scale of the challenge.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 882,
+      "to": 888,
+      "kind": "claim",
+      "gloss_en": "The NFRs impose 99.99% reliability.",
+      "terms": [
+        "NFRs",
+        "Reliability"
+      ],
+      "numbers": [
+        "99.99%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 889,
+      "to": 896,
+      "kind": "claim",
+      "gloss_en": "We are talking about 10,000 TPS on Kafka.",
+      "terms": [
+        "TPS"
+      ],
+      "numbers": [
+        "10,000"
+      ],
+      "entities": [
+        "Kafka"
+      ]
+    },
+    {
+      "from": 897,
+      "to": 904,
+      "kind": "claim",
+      "gloss_en": "And storage capacity reaches 352 TB on Hadoop.",
+      "terms": [
+        "TB"
+      ],
+      "numbers": [
+        "352"
+      ],
+      "entities": [
+        "Hadoop"
+      ]
+    },
+    {
+      "from": 905,
+      "to": 909,
+      "kind": "claim",
+      "gloss_en": "This platform serves 13 countries.",
+      "terms": [],
+      "numbers": [
+        "13"
+      ],
+      "entities": []
+    },
+    {
+      "from": 910,
+      "to": 918,
+      "kind": "claim",
+      "gloss_en": "And it handles 95 live reports at the same time.",
+      "terms": [],
+      "numbers": [
+        "95"
+      ],
+      "entities": []
+    },
+    {
+      "from": 919,
+      "to": 936,
+      "kind": "claim",
+      "gloss_en": "All these tests are made specifically to prove the platform can withstand this huge volume without any problems.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 937,
+      "to": 954,
+      "kind": "claim",
+      "gloss_en": "In the end, if the system cannot survive a collapse test like this and cannot prove its accuracy row by row.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 955,
+      "to": 963,
+      "kind": "question",
+      "gloss_en": "Can we even trust the numbers that appear in front of us?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 964,
+      "to": 979,
+      "kind": "recap",
+      "gloss_en": "The answer is clear: proper engineering and strict back-end governance are what give weight and value to any number we see.",
+      "terms": [
+        "back-end governance"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 980,
+      "to": 985,
+      "kind": "transition",
+      "gloss_en": "Thank you for following the detailed walkthrough of this source.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 986,
+      "to": 993,
+      "kind": "transition",
+      "gloss_en": "And we hope it made clear how data is built and refreshed correctly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:21Z"
+}

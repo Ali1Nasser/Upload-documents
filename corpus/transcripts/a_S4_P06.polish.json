@@ -1,0 +1,2892 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P06",
+  "asr_words": 1190,
+  "final_words": 1169,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 40,
+      "orig": "A",
+      "to": "a",
+      "why": "term",
+      "final": [
+        40,
+        40
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 43,
+      "orig": "-2",
+      "to": "2",
+      "why": "number",
+      "final": [
+        43,
+        43
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 47,
+      "orig": "B",
+      "to": "b",
+      "why": "term",
+      "final": [
+        47,
+        47
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 49,
+      "orig": "A",
+      "to": "a",
+      "why": "term",
+      "final": [
+        49,
+        49
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 53,
+      "orig": "A",
+      "to": "a",
+      "why": "term",
+      "final": [
+        53,
+        53
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 65,
+      "orig": "B",
+      "to": "b",
+      "why": "term",
+      "final": [
+        65,
+        65
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 67,
+      "orig": "A",
+      "to": "إيه",
+      "why": "mishear",
+      "final": [
+        67,
+        67
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 75,
+      "orig": "بتباين",
+      "to": "بتبان",
+      "why": "mishear",
+      "final": [
+        75,
+        75
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 79,
+      "orig": "الستاك",
+      "to": "الـstack",
+      "why": "term",
+      "final": [
+        79,
+        79
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 80,
+      "orig": "والهيب",
+      "to": "والـheap",
+      "why": "term",
+      "final": [
+        80,
+        80
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 83,
+      "orig": "A",
+      "to": "a",
+      "why": "term",
+      "final": [
+        83,
+        83
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 85,
+      "orig": "B",
+      "to": "b",
+      "why": "term",
+      "final": [
+        85,
+        85
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 92,
+      "orig": "الأوبجيكت",
+      "to": "الـobject",
+      "why": "term",
+      "final": [
+        92,
+        92
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 94,
+      "orig": "النود",
+      "to": "الـnode",
+      "why": "term",
+      "final": [
+        94,
+        94
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 99,
+      "orig": "الهيب",
+      "to": "الـheap",
+      "why": "term",
+      "final": [
+        99,
+        99
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 102,
+      "orig": "B",
+      "to": "b",
+      "why": "term",
+      "final": [
+        102,
+        102
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 118,
+      "orig": "القمتين",
+      "to": "القيمتين",
+      "why": "mishear",
+      "final": [
+        118,
+        118
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 121,
+      "orig": "S",
+      "to": "is",
+      "why": "term",
+      "final": [
+        121,
+        121
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 126,
+      "orig": "الأوبجيكت",
+      "to": "الـobject",
+      "why": "term",
+      "final": [
+        126,
+        126
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 136,
+      "orig": "شالو",
+      "to": "shallow",
+      "why": "term",
+      "final": [
+        136,
+        136
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 137,
+      "orig": "كابي",
+      "to": "copy",
+      "why": "term",
+      "final": [
+        137,
+        137
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 146,
+      "orig": "الليست",
+      "to": "الـlist",
+      "why": "term",
+      "final": [
+        146,
+        146
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 165,
+      "orig": "الديب",
+      "to": "الـdeep",
+      "why": "term",
+      "final": [
+        165,
+        165
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 166,
+      "orig": "كابي",
+      "to": "copy",
+      "why": "term",
+      "final": [
+        166,
+        166
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 186,
+      "orig": "كوارس",
+      "to": "كوارث",
+      "why": "mishear",
+      "final": [
+        186,
+        186
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 191,
+      "orig": "البروداكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        191,
+        191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 201,
+      "orig": "الميوتابل",
+      "to": "الـmutable",
+      "why": "term",
+      "final": [
+        201,
+        201
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 202,
+      "orig": "ديفولت",
+      "to": "default",
+      "why": "term",
+      "final": [
+        202,
+        202
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 209,
+      "orig": "لست",
+      "to": "list",
+      "why": "term",
+      "final": [
+        209,
+        209
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 216,
+      "orig": "ac",
+      "to": "acc",
+      "why": "term",
+      "final": [
+        216,
+        216
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 223,
+      "orig": "الديفولت",
+      "to": "الـdefault",
+      "why": "term",
+      "final": [
+        223,
+        223
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 225,
+      "orig": "بيتعامل",
+      "to": "بيتعمل",
+      "why": "mishear",
+      "final": [
+        225,
+        225
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 231,
+      "orig": "الفونكشن",
+      "to": "الـfunction",
+      "why": "term",
+      "final": [
+        231,
+        231
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 232,
+      "orig": "فبيضل",
+      "to": "فبيفضل",
+      "why": "mishear",
+      "final": [
+        232,
+        232
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 242,
+      "orig": "بيجبر",
+      "to": "بيكبر",
+      "why": "mishear",
+      "final": [
+        242,
+        242
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 246,
+      "orig": "1",
+      "to": "1,",
+      "why": "number",
+      "final": [
+        246,
+        246
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 247,
+      "orig": ".2",
+      "to": "2",
+      "why": "number",
+      "final": [
+        247,
+        247
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 248,
+      "orig": "ومعدين",
+      "to": "وبعدين",
+      "why": "mishear",
+      "final": [
+        248,
+        248
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 249,
+      "orig": "1",
+      "to": "1,",
+      "why": "number",
+      "final": [
+        249,
+        249
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 250,
+      "orig": ".2",
+      "to": "2,",
+      "why": "number",
+      "final": [
+        250,
+        250
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 251,
+      "orig": ".3",
+      "to": "3",
+      "why": "number",
+      "final": [
+        251,
+        251
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 255,
+      "orig": "non",
+      "to": "None",
+      "why": "term",
+      "final": [
+        255,
+        255
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 259,
+      "orig": "الفونكشن",
+      "to": "الـfunction",
+      "why": "term",
+      "final": [
+        259,
+        259
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 261,
+      "orig": "الليست",
+      "to": "الـlist",
+      "why": "term",
+      "final": [
+        261,
+        261
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 269,
+      "orig": "الزاكرة",
+      "to": "الذاكرة",
+      "why": "mishear",
+      "final": [
+        269,
+        269
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 272,
+      "orig": "الليست",
+      "to": "الـlist",
+      "why": "term",
+      "final": [
+        272,
+        272
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 299,
+      "orig": "الجنيريتور",
+      "to": "الـgenerator",
+      "why": "term",
+      "final": [
+        299,
+        299
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 301,
+      "orig": "ييلد",
+      "to": "yield",
+      "why": "term",
+      "final": [
+        301,
+        301
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 309,
+      "orig": "سابت",
+      "to": "ثابت",
+      "why": "mishear",
+      "final": [
+        309,
+        309
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 321,
+      "orig": "لست",
+      "to": "list",
+      "why": "term",
+      "final": [
+        321,
+        321
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 325,
+      "orig": "ميجا",
+      "to": "MB",
+      "why": "term",
+      "final": [
+        325,
+        325
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 326,
+      "orig": "بايت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 335,
+      "orig": "جنريتور",
+      "to": "generator",
+      "why": "term",
+      "final": [
+        334,
+        334
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 339,
+      "orig": "بايت",
+      "to": "byte",
+      "why": "term",
+      "final": [
+        338,
+        338
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 366,
+      "orig": "الجنريتور",
+      "to": "الـgenerator",
+      "why": "term",
+      "final": [
+        365,
+        365
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 372,
+      "orig": "مصورة",
+      "to": "ماسورة",
+      "why": "mishear",
+      "final": [
+        371,
+        371
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 375,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        374,
+        374
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 378,
+      "orig": "بفيتش",
+      "to": "بـfetch_orders",
+      "why": "term",
+      "final": [
+        377,
+        377
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 379,
+      "orig": "أوردرز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 385,
+      "orig": "قمتها",
+      "to": "قيمتها",
+      "why": "mishear",
+      "final": [
+        383,
+        383
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 395,
+      "orig": "الانالتكس",
+      "to": "الـanalytics",
+      "why": "term",
+      "final": [
+        393,
+        393
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 412,
+      "orig": "الزاكرة",
+      "to": "الذاكرة",
+      "why": "mishear",
+      "final": [
+        410,
+        410
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 426,
+      "orig": "السينتكس",
+      "to": "الـsyntax",
+      "why": "term",
+      "final": [
+        424,
+        424
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 427,
+      "orig": "ايرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        425,
+        425
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 435,
+      "orig": "والرون",
+      "to": "والـruntime",
+      "why": "term",
+      "final": [
+        433,
+        433
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 436,
+      "orig": "تايم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 437,
+      "orig": "ايرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        434,
+        434
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 449,
+      "orig": "اللوجيك",
+      "to": "الـlogic",
+      "why": "term",
+      "final": [
+        446,
+        446
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 450,
+      "orig": "ايرور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        447,
+        447
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 483,
+      "orig": "بيفوك",
+      "to": "بيفك",
+      "why": "mishear",
+      "final": [
+        480,
+        480
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 484,
+      "orig": "الفريمز",
+      "to": "الـframes",
+      "why": "term",
+      "final": [
+        481,
+        481
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 491,
+      "orig": "accept",
+      "to": "except",
+      "why": "term",
+      "final": [
+        488,
+        488
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 499,
+      "orig": "بتراي",
+      "to": "بـtry",
+      "why": "term",
+      "final": [
+        496,
+        496
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 504,
+      "orig": "للإكسابت",
+      "to": "للـexcept",
+      "why": "term",
+      "final": [
+        501,
+        501
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 505,
+      "orig": "الألس",
+      "to": "الـelse",
+      "why": "term",
+      "final": [
+        502,
+        502
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 530,
+      "orig": "الداتابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        527,
+        527
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 541,
+      "orig": "الحقيقة",
+      "to": "الحقيقية",
+      "why": "mishear",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 556,
+      "orig": "Payment",
+      "to": "PaymentFailedError",
+      "why": "term",
+      "final": [
+        553,
+        553
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 557,
+      "orig": "Failed",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 558,
+      "orig": "Error",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 561,
+      "orig": "Insufficient",
+      "to": "InsufficientStockError",
+      "why": "term",
+      "final": [
+        556,
+        556
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 562,
+      "orig": "Stock",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 563,
+      "orig": "Error",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 584,
+      "orig": "الحسمة",
+      "to": "الحاسمة",
+      "why": "mishear",
+      "final": [
+        577,
+        577
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 599,
+      "orig": "accept",
+      "to": "except",
+      "why": "term",
+      "final": [
+        592,
+        592
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 620,
+      "orig": "نسجر",
+      "to": "نسجل",
+      "why": "mishear",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 640,
+      "orig": "للفنكشن",
+      "to": "للـfunction",
+      "why": "term",
+      "final": [
+        633,
+        633
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 651,
+      "orig": "الديكوريتور",
+      "to": "الـdecorator",
+      "why": "term",
+      "final": [
+        644,
+        644
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 657,
+      "orig": "بي",
+      "to": "بيه",
+      "why": "mishear",
+      "final": [
+        650,
+        650
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 658,
+      "orig": "الفونكشن",
+      "to": "الـfunction",
+      "why": "term",
+      "final": [
+        651,
+        651
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 660,
+      "orig": "add",
+      "to": "@timer",
+      "why": "term",
+      "final": [
+        653,
+        653
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 661,
+      "orig": "timer",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 665,
+      "orig": "add",
+      "to": "@retry",
+      "why": "term",
+      "final": [
+        657,
+        657
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 666,
+      "orig": "retry",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 670,
+      "orig": "خصل",
+      "to": "حصل",
+      "why": "mishear",
+      "final": [
+        661,
+        661
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 673,
+      "orig": "add",
+      "to": "@lru_cache",
+      "why": "term",
+      "final": [
+        664,
+        664
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 674,
+      "orig": "lru",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 675,
+      "orig": "cache",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 684,
+      "orig": "add",
+      "to": "@functools.wraps",
+      "why": "term",
+      "final": [
+        673,
+        673
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 685,
+      "orig": "func",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 686,
+      "orig": "tools",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 687,
+      "orig": "wraps",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 692,
+      "orig": "الفونكشن",
+      "to": "الـfunction",
+      "why": "term",
+      "final": [
+        678,
+        678
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 697,
+      "orig": "وإلى",
+      "to": "وإلا",
+      "why": "mishear",
+      "final": [
+        683,
+        683
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 699,
+      "orig": "الديبوجينج",
+      "to": "الـdebugging",
+      "why": "term",
+      "final": [
+        685,
+        685
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 715,
+      "orig": "database",
+      "to": "DatabaseConnection",
+      "why": "term",
+      "final": [
+        701,
+        701
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 716,
+      "orig": "connection",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 718,
+      "orig": "con",
+      "to": "conn",
+      "why": "term",
+      "final": [
+        703,
+        703
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "دلت",
+      "to": "دالة",
+      "why": "mishear",
+      "final": [
+        706,
+        706
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 722,
+      "orig": "underscore",
+      "to": "__enter__",
+      "why": "term",
+      "final": [
+        707,
+        707
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 723,
+      "orig": "underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 724,
+      "orig": "enter",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 729,
+      "orig": "ودلت",
+      "to": "ودالة",
+      "why": "mishear",
+      "final": [
+        712,
+        712
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 730,
+      "orig": "underscore",
+      "to": "__exit__",
+      "why": "term",
+      "final": [
+        713,
+        713
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 731,
+      "orig": "underscore",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 732,
+      "orig": "exit",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 740,
+      "orig": "كومت",
+      "to": "commit",
+      "why": "term",
+      "final": [
+        721,
+        721
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 761,
+      "orig": "السابت",
+      "to": "الثابت",
+      "why": "mishear",
+      "final": [
+        742,
+        742
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 763,
+      "orig": "لتاست",
+      "to": "لـtest",
+      "why": "term",
+      "final": [
+        744,
+        744
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 774,
+      "orig": "تاست",
+      "to": "test",
+      "why": "term",
+      "final": [
+        755,
+        755
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 786,
+      "orig": "التست",
+      "to": "الـtest",
+      "why": "term",
+      "final": [
+        767,
+        767
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 800,
+      "orig": "أسرت",
+      "to": "assert",
+      "why": "term",
+      "final": [
+        781,
+        781
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 812,
+      "orig": "التست",
+      "to": "الـtest",
+      "why": "term",
+      "final": [
+        793,
+        793
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 817,
+      "orig": "ريفاكتورينج",
+      "to": "refactoring",
+      "why": "term",
+      "final": [
+        798,
+        798
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 828,
+      "orig": "التست",
+      "to": "الـtest",
+      "why": "term",
+      "final": [
+        809,
+        809
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 837,
+      "orig": "وأسرت",
+      "to": "وAssert",
+      "why": "term",
+      "final": [
+        818,
+        818
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 847,
+      "orig": "نصغ",
+      "to": "نثق",
+      "why": "mishear",
+      "final": [
+        828,
+        828
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 851,
+      "orig": "متأسمة",
+      "to": "متقسمة",
+      "why": "mishear",
+      "final": [
+        832,
+        832
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 893,
+      "orig": "نقصة",
+      "to": "ناقصة",
+      "why": "mishear",
+      "final": [
+        874,
+        874
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 914,
+      "orig": "بالزبط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        895,
+        895
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 929,
+      "orig": "التريسباك",
+      "to": "الـtraceback",
+      "why": "term",
+      "final": [
+        910,
+        910
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 934,
+      "orig": "الفوق",
+      "to": "لفوق",
+      "why": "mishear",
+      "final": [
+        915,
+        915
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 951,
+      "orig": "الدباجينج",
+      "to": "الـdebugging",
+      "why": "term",
+      "final": [
+        932,
+        932
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 976,
+      "orig": "الدباجر",
+      "to": "الـdebugger",
+      "why": "term",
+      "final": [
+        957,
+        957
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 988,
+      "orig": "Get",
+      "to": "Git",
+      "why": "term",
+      "final": [
+        969,
+        969
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1003,
+      "orig": "Hours",
+      "to": "Ours",
+      "why": "mishear",
+      "final": [
+        984,
+        984
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1009,
+      "orig": "Dears",
+      "to": "Theirs",
+      "why": "mishear",
+      "final": [
+        990,
+        990
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1013,
+      "orig": "الزمل",
+      "to": "الزميل",
+      "why": "mishear",
+      "final": [
+        994,
+        994
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1016,
+      "orig": "Get",
+      "to": "Git",
+      "why": "term",
+      "final": [
+        997,
+        997
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1019,
+      "orig": "بايز",
+      "to": "بايظ",
+      "why": "mishear",
+      "final": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1065,
+      "orig": "التيكت؟",
+      "to": "الـticket؟",
+      "why": "term",
+      "final": [
+        1046,
+        1046
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1068,
+      "orig": "صحة",
+      "to": "صح",
+      "why": "mishear",
+      "final": [
+        1049,
+        1049
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1086,
+      "orig": "الجيت",
+      "to": "الـGit",
+      "why": "term",
+      "final": [
+        1067,
+        1067
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1089,
+      "orig": "كميت",
+      "to": "commit",
+      "why": "term",
+      "final": [
+        1070,
+        1070
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1091,
+      "orig": "جيت",
+      "to": "git",
+      "why": "term",
+      "final": [
+        1072,
+        1072
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1092,
+      "orig": "ريفلوج",
+      "to": "reflog",
+      "why": "term",
+      "final": [
+        1073,
+        1073
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1101,
+      "orig": "ضوعت",
+      "to": "ضاعت",
+      "why": "mishear",
+      "final": [
+        1082,
+        1082
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1115,
+      "orig": "تلت",
+      "to": "3",
+      "why": "number",
+      "final": [
+        1096,
+        1096
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1117,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        1098,
+        1098
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1120,
+      "orig": "الباي",
+      "to": "الـpytest",
+      "why": "term",
+      "final": [
+        1101,
+        1101
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1121,
+      "orig": "تاست",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1122,
+      "orig": "ناتجته",
+      "to": "نتيجته",
+      "why": "mishear",
+      "final": [
+        1102,
+        1102
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1132,
+      "orig": "دي",
+      "to": "debug",
+      "why": "term",
+      "final": [
+        1112,
+        1112
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1133,
+      "orig": "باج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1134,
+      "orig": "وعشرة",
+      "to": "و10",
+      "why": "number",
+      "final": [
+        1113,
+        1113
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1135,
+      "orig": "كوميتس",
+      "to": "commits",
+      "why": "term",
+      "final": [
+        1114,
+        1114
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1155,
+      "orig": "بنتلع",
+      "to": "بنطلع",
+      "why": "mishear",
+      "final": [
+        1134,
+        1134
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1163,
+      "orig": "بور",
+      "to": "pull",
+      "why": "term",
+      "final": [
+        1142,
+        1142
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1164,
+      "orig": "ريكويست",
+      "to": "request",
+      "why": "term",
+      "final": [
+        1143,
+        1143
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1169,
+      "orig": "وكونفليكتس",
+      "to": "وconflicts",
+      "why": "term",
+      "final": [
+        1148,
+        1148
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1174,
+      "orig": "متوسق",
+      "to": "متوثق",
+      "why": "mishear",
+      "final": [
+        1153,
+        1153
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1188,
+      "orig": "البرودوكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        1167,
+        1167
+      ]
+    }
+  ],
+  "notes": "NotebookLM paraphrases the source, so only clear whisper misspellings/mishearings were fixed. Terms Latinized with the الـX convention; a/b lowercased to match on-screen code; 'A' at 67 is the Egyptian 'إيه' (on-screen: هي b بقت إيه؟). Merges (to='' on the trailing words): 8 MB (325-326), fetch_orders (378-379), runtime (435-436), PaymentFailedError (556-558), InsufficientStockError (561-563), @timer/@retry/@lru_cache/@functools.wraps (660-687), DatabaseConnection (715-716), __enter__/__exit__ (722-724, 730-732), pytest (1120-1121), debug (1132-1133). Judgement calls: 721/729 'دلت' read as 'دالة' (idafa 'دالِت', agrees with feminine بتجهز/بتقفل); 847 'نصغ'->'نثق'; 1013 'الزمل'->'الزميل'; 372 'مصورة'->'ماسورة'. Left as heard: 841 'ضع' (maybe 'ده'), 1083-1084 'حصلوا تهنة' (probably 'حصل وتهنا'), 208 'كان', 922 'اللي فعلي'. Possible dropouts, not inserted (source not certain): 1280 ms gap before 556 (narration may have listed ValidationError 400 first; source maps 400/409/402/500) and 2700 ms gap before 1175. Narration differs from source: says 'Out of Memory' and 'stack unwinding' in English; omits Airflow/idempotent and len caveat.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 16,
+      "kind": "claim",
+      "gloss_en": "Hi everyone; to move our code from simple lines we read to strong systems built with a real engineering mindset,",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 17,
+      "to": 28,
+      "kind": "claim",
+      "gloss_en": "the first thing we need is to picture what memory looks like inside.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 29,
+      "to": 33,
+      "kind": "transition",
+      "gloss_en": "Let's start the explanation right away.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 34,
+      "to": 43,
+      "kind": "example",
+      "gloss_en": "OK, say we have simple code that says a equals 1, 2.",
+      "terms": [],
+      "numbers": [
+        "1",
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 44,
+      "to": 49,
+      "kind": "example",
+      "gloss_en": "Then we said b equals a.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 50,
+      "to": 55,
+      "kind": "example",
+      "gloss_en": "And after that we did a.append 3.",
+      "terms": [
+        "a.append"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 56,
+      "to": 68,
+      "kind": "prediction",
+      "gloss_en": "The question before we reveal the answer: what has b's value become now?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 69,
+      "to": 72,
+      "kind": "prediction",
+      "gloss_en": "This needs a second of thought.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 73,
+      "to": 80,
+      "kind": "claim",
+      "gloss_en": "In short, the answer shows when we draw the stack and heap board.",
+      "terms": [
+        "stack",
+        "heap"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 81,
+      "to": 99,
+      "kind": "claim",
+      "gloss_en": "We find arrows from both a and b pointing at the same object, the same node lighting up in the heap.",
+      "terms": [
+        "object",
+        "node",
+        "heap"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 100,
+      "to": 107,
+      "kind": "claim",
+      "gloss_en": "That's why b also became 1, 2, 3.",
+      "terms": [],
+      "numbers": [
+        "1",
+        "2",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 108,
+      "to": 111,
+      "kind": "transition",
+      "gloss_en": "And here the essential difference shows up.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 112,
+      "to": 119,
+      "kind": "claim",
+      "gloss_en": "The equals-equals sign asks whether the two values are equal.",
+      "terms": [
+        "=="
+      ],
+      "numbers": [],
+      "entities": [
+        "=="
+      ]
+    },
+    {
+      "from": 120,
+      "to": 129,
+      "kind": "claim",
+      "gloss_en": "But is asks whether they are exactly the same object in memory.",
+      "terms": [
+        "is",
+        "object"
+      ],
+      "numbers": [],
+      "entities": [
+        "is"
+      ]
+    },
+    {
+      "from": 130,
+      "to": 133,
+      "kind": "transition",
+      "gloss_en": "That brings us to copying.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 134,
+      "to": 149,
+      "kind": "claim",
+      "gloss_en": "With a shallow copy, the outer wrapper is new, but the inner list is still shared.",
+      "terms": [
+        "shallow copy",
+        "list"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 150,
+      "to": 162,
+      "kind": "example",
+      "gloss_en": "So if we add an order to the copy, the original will also have 3 orders instead of 2.",
+      "terms": [
+        "order"
+      ],
+      "numbers": [
+        "3",
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 163,
+      "to": 175,
+      "kind": "claim",
+      "gloss_en": "But with a deep copy everything is separated; every level is copied and becomes independent.",
+      "terms": [
+        "deep copy"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 176,
+      "to": 181,
+      "kind": "example",
+      "gloss_en": "So the original stays at 2, as it is.",
+      "terms": [],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 182,
+      "to": 191,
+      "kind": "claim",
+      "gloss_en": "This literally saves you from disasters of accidentally modified data in production.",
+      "terms": [
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 192,
+      "to": 202,
+      "kind": "transition",
+      "gloss_en": "And here comes one of the most famous and dangerous classic mistakes: the mutable default.",
+      "terms": [
+        "mutable default"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 203,
+      "to": 219,
+      "kind": "example",
+      "gloss_en": "If the code defines the default value as an empty list like this: def f x, acc equals square brackets.",
+      "terms": [
+        "list",
+        "def",
+        "acc"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 220,
+      "to": 231,
+      "kind": "claim",
+      "gloss_en": "The scary problem is that this default is created only once, when the function is defined.",
+      "terms": [
+        "default",
+        "function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 232,
+      "to": 241,
+      "kind": "claim",
+      "gloss_en": "So it keeps accumulating data and fails in total silence with every call.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 242,
+      "to": 251,
+      "kind": "example",
+      "gloss_en": "It grows from 1 to 1, 2 and then 1, 2, 3.",
+      "terms": [],
+      "numbers": [
+        "1",
+        "2",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 252,
+      "to": 262,
+      "kind": "claim",
+      "gloss_en": "The right fix? Give it None as the default value, and inside the function create the new list.",
+      "terms": [
+        "None",
+        "function",
+        "list"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 263,
+      "to": 278,
+      "kind": "claim",
+      "gloss_en": "Now if we do a quick memory-use comparison, we see the list tries to read all the data at once.",
+      "terms": [
+        "list"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 279,
+      "to": 295,
+      "kind": "claim",
+      "gloss_en": "And the memory column keeps rising until the program gets killed, or an OOM crash, out of memory, happens.",
+      "terms": [
+        "OOM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 296,
+      "to": 311,
+      "kind": "claim",
+      "gloss_en": "On the other side, the generator yields one item at a time, so the memory column stays flat and stable.",
+      "terms": [
+        "generator",
+        "yield"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 312,
+      "to": 327,
+      "kind": "claim",
+      "gloss_en": "To picture this huge difference in numbers: a million items in a list take about 8 MB of memory.",
+      "terms": [
+        "list",
+        "MB"
+      ],
+      "numbers": [
+        "1000000",
+        "8"
+      ],
+      "entities": []
+    },
+    {
+      "from": 328,
+      "to": 339,
+      "kind": "claim",
+      "gloss_en": "But the same million items with a generator take only about 100 bytes.",
+      "terms": [
+        "generator",
+        "byte"
+      ],
+      "numbers": [
+        "1000000",
+        "100"
+      ],
+      "entities": []
+    },
+    {
+      "from": 340,
+      "to": 343,
+      "kind": "claim",
+      "gloss_en": "Can you imagine? That's a scary difference.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 344,
+      "to": 361,
+      "kind": "claim",
+      "gloss_en": "We're not talking about minor optimizations here; it's a matter of the system staying up without crashing at all.",
+      "terms": [
+        "optimization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 362,
+      "to": 374,
+      "kind": "claim",
+      "gloss_en": "Another nice thing is that generators compose together like a data pipe, or pipeline.",
+      "terms": [
+        "generator",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 375,
+      "to": 393,
+      "kind": "example",
+      "gloss_en": "We fetch the data with fetch_orders, extract the data, filter orders worth over 500, add customer data, and finally save to analytics.",
+      "terms": [
+        "fetch_orders",
+        "extract_order_data",
+        "filter_high_value",
+        "enrich_with_customer",
+        "save_to_analytics"
+      ],
+      "numbers": [
+        "500"
+      ],
+      "entities": []
+    },
+    {
+      "from": 394,
+      "to": 414,
+      "kind": "claim",
+      "gloss_en": "Each item passes through this chain step by step on its own, very efficiently, without using all the memory in one step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 415,
+      "to": 422,
+      "kind": "transition",
+      "gloss_en": "OK, let's move on to the kinds of errors we can run into.",
+      "terms": [
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 423,
+      "to": 432,
+      "kind": "claim",
+      "gloss_en": "There's the syntax error, which stops the program from even starting.",
+      "terms": [
+        "syntax",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 433,
+      "to": 439,
+      "kind": "claim",
+      "gloss_en": "And the runtime error, which crashes the program while it runs.",
+      "terms": [
+        "runtime",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 440,
+      "to": 447,
+      "kind": "claim",
+      "gloss_en": "But the most dangerous kind, by far, is the logic error.",
+      "terms": [
+        "logic",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 448,
+      "to": 461,
+      "kind": "claim",
+      "gloss_en": "Why? Because the program runs perfectly normally but outputs wrong data and calculations in total silence.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 462,
+      "to": 468,
+      "kind": "claim",
+      "gloss_en": "That's what makes it a real nightmare to detect.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 469,
+      "to": 478,
+      "kind": "claim",
+      "gloss_en": "When an error or exception happens, something called stack unwinding happens.",
+      "terms": [
+        "exception",
+        "stack"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 479,
+      "to": 489,
+      "kind": "claim",
+      "gloss_en": "The code pops the frames from top to bottom until it finds an except that catches it.",
+      "terms": [
+        "frames",
+        "except"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 490,
+      "to": 494,
+      "kind": "claim",
+      "gloss_en": "The order of the blocks here is very important.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 495,
+      "to": 501,
+      "kind": "claim",
+      "gloss_en": "We start with try, and if an error happens we go to except.",
+      "terms": [
+        "try",
+        "except"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 502,
+      "to": 509,
+      "kind": "claim",
+      "gloss_en": "else runs only if there are no errors.",
+      "terms": [
+        "else"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 510,
+      "to": 530,
+      "kind": "claim",
+      "gloss_en": "And the most important part of all this is the finally block, because it guarantees cleanup code runs, like closing files or the database, whatever the outcome.",
+      "terms": [
+        "finally",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 531,
+      "to": 535,
+      "kind": "claim",
+      "gloss_en": "That way we prevent any resource leak.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 536,
+      "to": 550,
+      "kind": "claim",
+      "gloss_en": "In real, large applications we always build a tree of custom exceptions and map them to HTTP status codes.",
+      "terms": [
+        "custom",
+        "exceptions",
+        "HTTP"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 551,
+      "to": 564,
+      "kind": "example",
+      "gloss_en": "For example, PaymentFailedError gets 402, InsufficientStockError gets 409, and anything unexpected gets 500.",
+      "terms": [
+        "PaymentFailedError",
+        "InsufficientStockError"
+      ],
+      "numbers": [
+        "402",
+        "409",
+        "500"
+      ],
+      "entities": []
+    },
+    {
+      "from": 565,
+      "to": 575,
+      "kind": "claim",
+      "gloss_en": "This organization makes a strong API that is clear and easy to work with.",
+      "terms": [
+        "API"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 576,
+      "to": 584,
+      "kind": "transition",
+      "gloss_en": "The decisive point here is how we catch these errors in the first place.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 585,
+      "to": 597,
+      "kind": "claim",
+      "gloss_en": "The biggest engineering sin you can commit is using a bare except like this without specifying anything,",
+      "terms": [
+        "except"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 598,
+      "to": 606,
+      "kind": "claim",
+      "gloss_en": "because it simply swallows the error silently and completely hides the problem.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 607,
+      "to": 612,
+      "kind": "claim",
+      "gloss_en": "The right way is always to catch a specific exception.",
+      "terms": [
+        "exception"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 613,
+      "to": 627,
+      "kind": "claim",
+      "gloss_en": "Log the error with logging and use raise from e to keep the original traceback and the real cause of the problem.",
+      "terms": [
+        "logging",
+        "raise",
+        "from",
+        "traceback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 628,
+      "to": 640,
+      "kind": "claim",
+      "gloss_en": "Sometimes we need to add certain behavior to a function without changing its inner code.",
+      "terms": [
+        "function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 641,
+      "to": 644,
+      "kind": "transition",
+      "gloss_en": "This is where the decorator comes in.",
+      "terms": [
+        "decorator"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 645,
+      "to": 651,
+      "kind": "claim",
+      "gloss_en": "It's a wrapper we wrap the function with.",
+      "terms": [
+        "function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 652,
+      "to": 668,
+      "kind": "example",
+      "gloss_en": "Like @timer to measure time, or @retry to retry on failure, or @lru_cache to save cached memory.",
+      "terms": [
+        "@timer",
+        "@retry",
+        "@lru_cache"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 669,
+      "to": 688,
+      "kind": "claim",
+      "gloss_en": "And always, always use @functools.wraps to keep the original function's name and metadata, otherwise debugging becomes a real nightmare.",
+      "terms": [
+        "@functools.wraps",
+        "function",
+        "debugging"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 689,
+      "to": 698,
+      "kind": "claim",
+      "gloss_en": "As for managing shared resources, context managers are the best solution.",
+      "terms": [
+        "context manager"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 699,
+      "to": 716,
+      "kind": "example",
+      "gloss_en": "Using with DatabaseConnection as conn guarantees that the __enter__ function prepares the connection at the start and the __exit__ function closes it at the end.",
+      "terms": [
+        "with DatabaseConnection(...) as conn",
+        "__enter__",
+        "__exit__"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 717,
+      "to": 733,
+      "kind": "claim",
+      "gloss_en": "Whether the work succeeded and we did a commit, or an error happened and we did a rollback, safety and avoiding resource leaks are fully guaranteed.",
+      "terms": [
+        "commit",
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 734,
+      "to": 753,
+      "kind": "claim",
+      "gloss_en": "Now on to tests: if we look at this fixed red frame of a test that failed when run, that's not a problem, it's a necessary step.",
+      "terms": [
+        "test"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 754,
+      "to": 760,
+      "kind": "claim",
+      "gloss_en": "Any test we write, we must see it fail first.",
+      "terms": [
+        "test"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 761,
+      "to": 775,
+      "kind": "claim",
+      "gloss_en": "As we always say in engineering: a test that never failed never proved anything.",
+      "terms": [
+        "test"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 776,
+      "to": 785,
+      "kind": "claim",
+      "gloss_en": "Maybe its code doesn't assert anything at all.",
+      "terms": [
+        "assert"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 786,
+      "to": 792,
+      "kind": "claim",
+      "gloss_en": "And as soon as we fix the code, the green frame appears.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 793,
+      "to": 805,
+      "kind": "claim",
+      "gloss_en": "The test passed, and now we can refactor, restructure the code, feeling very safe.",
+      "terms": [
+        "test",
+        "refactor"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 806,
+      "to": 821,
+      "kind": "claim",
+      "gloss_en": "The basic pattern for building these tests is Arrange to prepare data, Act to run the code, and Assert to check the result.",
+      "terms": [
+        "test",
+        "Arrange",
+        "Act",
+        "assert"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 822,
+      "to": 829,
+      "kind": "claim",
+      "gloss_en": "It lays the foundation for any code we can trust.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 830,
+      "to": 833,
+      "kind": "transition",
+      "gloss_en": "These tests are divided into layers.",
+      "terms": [
+        "tests"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 834,
+      "to": 840,
+      "kind": "claim",
+      "gloss_en": "A unit test tests one function on its own.",
+      "terms": [
+        "unit",
+        "test",
+        "function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 841,
+      "to": 850,
+      "kind": "claim",
+      "gloss_en": "An integration test tests components when they're connected and working together.",
+      "terms": [
+        "integration",
+        "test"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 851,
+      "to": 862,
+      "kind": "claim",
+      "gloss_en": "And an acceptance test is what checks that the business requirements themselves were met.",
+      "terms": [
+        "acceptance",
+        "test"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 863,
+      "to": 876,
+      "kind": "claim",
+      "gloss_en": "It's the only one that can detect missing data or requirements that were missing from the start.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 877,
+      "to": 885,
+      "kind": "example",
+      "gloss_en": "Now we have a long traceback in front of us that can look scary at first glance.",
+      "terms": [
+        "traceback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 886,
+      "to": 890,
+      "kind": "prediction",
+      "gloss_en": "Let's think together for a second.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 891,
+      "to": 905,
+      "kind": "prediction",
+      "gloss_en": "Which line exactly, in all this noise, is the real cause of the failure?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 906,
+      "to": 915,
+      "kind": "claim",
+      "gloss_en": "The simple secret is that a traceback is always read from the bottom up.",
+      "terms": [
+        "traceback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 916,
+      "to": 930,
+      "kind": "claim",
+      "gloss_en": "The last line at the bottom is the actual problem that happened, and the lines above it are the path that led there.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 931,
+      "to": 937,
+      "kind": "transition",
+      "gloss_en": "The right debugging method follows clear steps.",
+      "terms": [
+        "debugging"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 938,
+      "to": 957,
+      "kind": "claim",
+      "gloss_en": "Read the message from the bottom, reproduce the problem, narrow the search by changing only one thing at a time, use the debugger.",
+      "terms": [
+        "debugger"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 958,
+      "to": 963,
+      "kind": "claim",
+      "gloss_en": "And finally, of course, document the fix.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 964,
+      "to": 976,
+      "kind": "transition",
+      "gloss_en": "And when we talk about the annoying Git conflict, let's split the scene into three regions.",
+      "terms": [
+        "git",
+        "conflict"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": [
+        "Git"
+      ]
+    },
+    {
+      "from": 977,
+      "to": 982,
+      "kind": "claim",
+      "gloss_en": "Base, which is the file's original state.",
+      "terms": [
+        "base"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 983,
+      "to": 988,
+      "kind": "claim",
+      "gloss_en": "Ours, which is our own changes.",
+      "terms": [
+        "ours"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 989,
+      "to": 995,
+      "kind": "claim",
+      "gloss_en": "And Theirs, which is the other colleague's changes.",
+      "terms": [
+        "theirs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 996,
+      "to": 1006,
+      "kind": "claim",
+      "gloss_en": "Git isn't broken here; it just refuses to guess what people meant,",
+      "terms": [
+        "git"
+      ],
+      "numbers": [],
+      "entities": [
+        "Git"
+      ]
+    },
+    {
+      "from": 1007,
+      "to": 1019,
+      "kind": "claim",
+      "gloss_en": "when two people change the same line, and it leaves the merge decision to us to pick the right one.",
+      "terms": [
+        "merge"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1020,
+      "to": 1036,
+      "kind": "claim",
+      "gloss_en": "And the pull request, or PR, isn't just merging code and that's it; it's a space for collaboration and decision-making.",
+      "terms": [
+        "pull",
+        "request",
+        "PR"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1037,
+      "to": 1046,
+      "kind": "question",
+      "gloss_en": "In review we ask ourselves: does the code achieve what the ticket asks for?",
+      "terms": [
+        "review",
+        "ticket"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1047,
+      "to": 1053,
+      "kind": "question",
+      "gloss_en": "Does it handle the edge cases correctly?",
+      "terms": [
+        "edge",
+        "case"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1054,
+      "to": 1062,
+      "kind": "question",
+      "gloss_en": "And will anyone else be able to understand it 6 months from now?",
+      "terms": [],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1063,
+      "to": 1082,
+      "kind": "claim",
+      "gloss_en": "And if we get lost in Git or lose a commit, the git reflog command is always there as an excellent safety net to recover anything lost.",
+      "terms": [
+        "git",
+        "commit",
+        "git reflog"
+      ],
+      "numbers": [],
+      "entities": [
+        "Git"
+      ]
+    },
+    {
+      "from": 1083,
+      "to": 1089,
+      "kind": "transition",
+      "gloss_en": "We've reached the last stage, the culmination of all this work.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1090,
+      "to": 1100,
+      "kind": "recap",
+      "gloss_en": "The final assessment gate includes clear achievements: 3 Python programs that run efficiently,",
+      "terms": [
+        "gate",
+        "Python"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": [
+        "Python"
+      ]
+    },
+    {
+      "from": 1101,
+      "to": 1116,
+      "kind": "recap",
+      "gloss_en": "pytest results green over 90%, full documentation of a debug task, and 10 clear, useful commits.",
+      "terms": [
+        "pytest",
+        "debug",
+        "commits"
+      ],
+      "numbers": [
+        "90",
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1117,
+      "to": 1129,
+      "kind": "recap",
+      "gloss_en": "This is where the real shift happens, from just writing scripts to professional, enjoyable software engineering practice.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1130,
+      "to": 1153,
+      "kind": "recap",
+      "gloss_en": "In the end, what we come out with isn't just lines of written code; it's a merged pull request backed by strong tests, carefully resolved conflicts and documented decision context.",
+      "terms": [
+        "pull",
+        "request",
+        "tests",
+        "conflict"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1154,
+      "to": 1168,
+      "kind": "question",
+      "gloss_en": "All these practices? Are we ready to write code that lives and runs steadily in a real production environment?",
+      "terms": [
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:05Z"
+}

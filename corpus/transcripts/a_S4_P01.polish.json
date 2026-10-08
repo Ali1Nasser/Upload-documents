@@ -1,0 +1,1546 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P01",
+  "asr_words": 1505,
+  "final_words": 1503,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 363,
+      "orig": "ai",
+      "to": "AI",
+      "why": "term",
+      "final": [
+        363,
+        363
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 381,
+      "orig": "four",
+      "to": "4",
+      "why": "number",
+      "final": [
+        381,
+        381
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 386,
+      "orig": "one",
+      "to": "1",
+      "why": "number",
+      "final": [
+        386,
+        386
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 395,
+      "orig": "two",
+      "to": "2",
+      "why": "number",
+      "final": [
+        395,
+        395
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 402,
+      "orig": "three",
+      "to": "3",
+      "why": "number",
+      "final": [
+        402,
+        402
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 417,
+      "orig": "four",
+      "to": "4",
+      "why": "number",
+      "final": [
+        417,
+        417
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 657,
+      "orig": "المترجم",
+      "why": "mishear",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 658,
+      "orig": "للقناة",
+      "why": "mishear",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 763,
+      "orig": "idimpotency.",
+      "to": "idempotency.",
+      "why": "term",
+      "final": [
+        761,
+        761
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 775,
+      "orig": "idimpotent,",
+      "to": "idempotent,",
+      "why": "term",
+      "final": [
+        773,
+        773
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1156,
+      "orig": "REACT,",
+      "to": "ReAct,",
+      "why": "term",
+      "final": [
+        1154,
+        1154
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1254,
+      "orig": "Three",
+      "to": "3",
+      "why": "number",
+      "final": [
+        1252,
+        1252
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1264,
+      "orig": "one",
+      "to": "1",
+      "why": "number",
+      "final": [
+        1262,
+        1262
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1280,
+      "orig": "two",
+      "to": "2",
+      "why": "number",
+      "final": [
+        1278,
+        1278
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1284,
+      "orig": "cred",
+      "to": "CRUD",
+      "why": "mishear",
+      "final": [
+        1282,
+        1282
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1292,
+      "orig": "three",
+      "to": "3",
+      "why": "number",
+      "final": [
+        1290,
+        1290
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1300,
+      "orig": "Pipeline",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        1298,
+        1298
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1309,
+      "orig": "three",
+      "to": "3",
+      "why": "number",
+      "final": [
+        1307,
+        1307
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1325,
+      "orig": "stock",
+      "to": "-stack",
+      "why": "mishear",
+      "final": [
+        1323,
+        1323
+      ]
+    }
+  ],
+  "notes": "LANGUAGE MISMATCH: this audio (a:S4:P01) is an English NotebookLM 'The Explainer' overview of the DA Camp Blueprint, not the Egyptian-Arabic P01 narration; the source_excerpt (Arabic P01 script sc01-sc12) does not match it line by line, so only edits it or the audio itself prove were made. Flag for the archivist/transcription-aligner: the audio-to-script mapping for S4/P01 may be wrong. Edits: idimpotency/idimpotent -> idempotency/idempotent; REACT -> ReAct; 'cred service' -> 'CRUD service' (source sc04: Python and Java doing CRUD); 'full stock' -> 'full-stack' (matches i49-50); spoken step and count numbers -> digits (4-step, step 1-4, 3 projects, Number 1/2, And 3, These 3); casing fixes ai->AI and Pipeline->pipeline; i657-658 'المترجم للقناة' is a Whisper hallucination over non-speech (222.08-232.24 s), deleted (to='') and covered by the Part 4 heading sentence. 'zero' left as a word ('absolute zero', 'zero to hired' are idioms). Possible dropouts (not inserted, words not certain): (1) after i426 'prove the system has actually' a word is missing; i427 'It's' spans 1.12 s at p=0.52, and source sc10 'عشان نثبت إنه رجع' suggests 'recovered'. (2) 222.1-252.5 s: about 30 s with no real transcript between 'hired expert.' and 'Part 4.' (hallucination then a 20.3 s gap). It may be music or a lost passage; check by ear. (3) 341.0-346.9 s gap (5.9 s) before i937 'Let's move to this next phase': the headings run Part 2, Section 3, Part 4, Section 6, so a 'Section 5' heading (AI and agent era) was probably spoken there. Doubtful but unedited: i332 'need' (p=0.79) is probably 'meet' ('You'll meet every single concept twice'); i521 'pivots' is a grammar slip in the speech; i1440 'working machine' was kept. Whisper dropped punctuation and capitals in i338-426 and the capitals are odd in i1209-1307; sentence boundaries follow meaning and pauses there. Mid-clause splits (to keep each sentence at 28 words or fewer): 33-55/56-73, 458-473/474-486, 1160-1181/1182-1188.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 5,
+      "kind": "transition",
+      "gloss_en": "Hi everyone, welcome to The Explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": [
+        "The Explainer"
+      ]
+    },
+    {
+      "from": 6,
+      "to": 11,
+      "kind": "transition",
+      "gloss_en": "Today we tackle something big.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 12,
+      "to": 32,
+      "kind": "claim",
+      "gloss_en": "We distill a 24-week curriculum, the DA Camp Blueprint, into one master roadmap.",
+      "terms": [],
+      "numbers": [
+        "24"
+      ],
+      "entities": [
+        "DA Camp Blueprint"
+      ]
+    },
+    {
+      "from": 33,
+      "to": 55,
+      "kind": "claim",
+      "gloss_en": "If you wonder what it takes to become a well-paid full-stack data analyst or data engineer,",
+      "terms": [
+        "full-stack",
+        "data analyst",
+        "data engineer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 56,
+      "to": 73,
+      "kind": "claim",
+      "gloss_en": "in today's AI-driven world, you are in the right place.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 74,
+      "to": 83,
+      "kind": "transition",
+      "gloss_en": "We will unpack the whole thing step by step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 84,
+      "to": 88,
+      "kind": "transition",
+      "gloss_en": "Let's dive in.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 89,
+      "to": 95,
+      "kind": "claim",
+      "gloss_en": "The learner may start from absolute zero.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 96,
+      "to": 102,
+      "kind": "question",
+      "gloss_en": "How ambitious is that?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 111,
+      "kind": "claim",
+      "gloss_en": "That is the founding premise of the whole curriculum.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 112,
+      "to": 119,
+      "kind": "claim",
+      "gloss_en": "We are mapping a hero's journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 120,
+      "to": 146,
+      "kind": "claim",
+      "gloss_en": "You start at a blank terminal with no coding experience and end up building AI agents and deploying scalable data pipelines.",
+      "terms": [
+        "terminal",
+        "AI agents",
+        "data pipelines"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 147,
+      "to": 167,
+      "kind": "claim",
+      "gloss_en": "It is a steep climb, but the structure makes it doable.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 168,
+      "to": 172,
+      "kind": "transition",
+      "gloss_en": "Here is our game plan.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 173,
+      "to": 179,
+      "kind": "transition",
+      "gloss_en": "We go from zero to hired.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 180,
+      "to": 200,
+      "kind": "transition",
+      "gloss_en": "We cover the failure-first philosophy, the data core, systems and logic, and the AI and agent era,",
+      "terms": [
+        "failure-first",
+        "data core",
+        "AI",
+        "agent"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 201,
+      "to": 208,
+      "kind": "transition",
+      "gloss_en": "and finish with landing the data job.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 209,
+      "to": 212,
+      "kind": "transition",
+      "gloss_en": "Let's get started.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 213,
+      "to": 221,
+      "kind": "transition",
+      "gloss_en": "Part 2: The failure-first philosophy, learning by breaking.",
+      "terms": [
+        "failure-first"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 222,
+      "to": 230,
+      "kind": "question",
+      "gloss_en": "How do you actually learn all this?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 231,
+      "to": 234,
+      "kind": "claim",
+      "gloss_en": "You break it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 235,
+      "to": 241,
+      "kind": "claim",
+      "gloss_en": "This is not about memorizing a textbook.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 242,
+      "to": 261,
+      "kind": "claim",
+      "gloss_en": "The curriculum makes deliberately breaking pipelines, systems and code your main learning tool.",
+      "terms": [
+        "pipelines",
+        "systems",
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 262,
+      "to": 268,
+      "kind": "transition",
+      "gloss_en": "This illustrates the whole idea.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 269,
+      "to": 274,
+      "kind": "claim",
+      "gloss_en": "There is the naive approach.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 275,
+      "to": 295,
+      "kind": "example",
+      "gloss_en": "You write a few lines of code, it seems to work, and you celebrate.",
+      "terms": [
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 296,
+      "to": 315,
+      "kind": "example",
+      "gloss_en": "But we all know the pain of a data pipeline silently failing at 2 a.m.",
+      "terms": [
+        "data pipeline"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 316,
+      "to": 322,
+      "kind": "claim",
+      "gloss_en": "That naive approach is a trap.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 323,
+      "to": 330,
+      "kind": "claim",
+      "gloss_en": "Instead, you must expose where it breaks.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 331,
+      "to": 347,
+      "kind": "claim",
+      "gloss_en": "Every concept comes up twice: first working perfectly, then a hidden defect is injected,",
+      "terms": [
+        "defect"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 348,
+      "to": 364,
+      "kind": "example",
+      "gloss_en": "such as a database deadlock, a corrupted pipeline, or a prompt injection in your AI agent;",
+      "terms": [
+        "database",
+        "deadlock",
+        "pipeline",
+        "prompt injection",
+        "AI agent"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 365,
+      "to": 371,
+      "kind": "claim",
+      "gloss_en": "you have to experience the crash.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 372,
+      "to": 384,
+      "kind": "claim",
+      "gloss_en": "To handle crashes you use a 4-step diagnostic loop.",
+      "terms": [
+        "diagnostic loop"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 385,
+      "to": 393,
+      "kind": "claim",
+      "gloss_en": "Step 1: predict the system's outcome.",
+      "terms": [
+        "system"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 394,
+      "to": 400,
+      "kind": "claim",
+      "gloss_en": "Step 2: inject a targeted failure.",
+      "terms": [
+        "failure"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 401,
+      "to": 413,
+      "kind": "claim",
+      "gloss_en": "Step 3: dig into the logs and diagnose the root cause.",
+      "terms": [
+        "logs",
+        "root cause"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 414,
+      "to": 426,
+      "kind": "claim",
+      "gloss_en": "Finally, step 4: fix the code and prove the system has actually [recovered?].",
+      "terms": [
+        "fix",
+        "code",
+        "system"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 427,
+      "to": 433,
+      "kind": "claim",
+      "gloss_en": "It is not about memorizing syntax.",
+      "terms": [
+        "syntax"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 434,
+      "to": 448,
+      "kind": "claim",
+      "gloss_en": "This loop turns abstract programming theory into fast, practical engineering reflexes.",
+      "terms": [
+        "programming",
+        "engineering"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 449,
+      "to": 457,
+      "kind": "transition",
+      "gloss_en": "Section 3: Mastering the data core, SQL and code.",
+      "terms": [
+        "SQL",
+        "code"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 458,
+      "to": 473,
+      "kind": "claim",
+      "gloss_en": "The hard truth of data engineering is that you cannot do the advanced work,",
+      "terms": [
+        "data engineering"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 474,
+      "to": 486,
+      "kind": "claim",
+      "gloss_en": "like performance optimization or AI integration, unless you know SQL deeply.",
+      "terms": [
+        "performance optimization",
+        "AI",
+        "SQL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 487,
+      "to": 502,
+      "kind": "transition",
+      "gloss_en": "Look at the pacing of the first few months and how layered it is.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 503,
+      "to": 515,
+      "kind": "claim",
+      "gloss_en": "Weeks 1 to 4 cover SQL basics and complex joins.",
+      "terms": [
+        "SQL",
+        "joins"
+      ],
+      "numbers": [
+        "1",
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 516,
+      "to": 530,
+      "kind": "claim",
+      "gloss_en": "Weeks 5 to 7 move to query optimization to make queries fast.",
+      "terms": [
+        "query optimization",
+        "queries"
+      ],
+      "numbers": [
+        "5",
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 531,
+      "to": 554,
+      "kind": "claim",
+      "gloss_en": "Then weeks 8 to 10 add Python logic and weeks 12 to 14 add Java APIs.",
+      "terms": [
+        "Python",
+        "Java",
+        "APIs"
+      ],
+      "numbers": [
+        "8",
+        "10",
+        "12",
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 555,
+      "to": 573,
+      "kind": "recap",
+      "gloss_en": "You build the skill to query data, process it and serve it to real applications.",
+      "terms": [
+        "query",
+        "data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 574,
+      "to": 590,
+      "kind": "transition",
+      "gloss_en": "During query optimization you need a cheat sheet of key concepts.",
+      "terms": [
+        "query optimization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 591,
+      "to": 603,
+      "kind": "example",
+      "gloss_en": "Imagine an interviewer asks how to speed up a slow database.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 604,
+      "to": 613,
+      "kind": "claim",
+      "gloss_en": "You must know exactly which index to add.",
+      "terms": [
+        "index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 614,
+      "to": 627,
+      "kind": "claim",
+      "gloss_en": "A B-tree is the default for range queries and sorting.",
+      "terms": [
+        "B-tree",
+        "range queries",
+        "sorting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 628,
+      "to": 631,
+      "kind": "question",
+      "gloss_en": "And a hash index?",
+      "terms": [
+        "hash index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 632,
+      "to": 638,
+      "kind": "claim",
+      "gloss_en": "That is only for exact-match lookups.",
+      "terms": [
+        "exact match",
+        "lookups"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 639,
+      "to": 656,
+      "kind": "claim",
+      "gloss_en": "This practical knowledge separates the novice from the hired expert.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 657,
+      "to": 666,
+      "kind": "transition",
+      "gloss_en": "Part 4: Building systems and logic, orchestration and big data.",
+      "terms": [
+        "Orchestration",
+        "Big Data"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 667,
+      "to": 680,
+      "kind": "transition",
+      "gloss_en": "With the data core in place, it is time to scale up.",
+      "terms": [
+        "data core"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 681,
+      "to": 703,
+      "kind": "claim",
+      "gloss_en": "We move from querying one database on a laptop to orchestrating large data platforms with Apache Spark and Airflow.",
+      "terms": [
+        "database",
+        "data platforms",
+        "Apache Spark",
+        "Airflow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 704,
+      "to": 720,
+      "kind": "claim",
+      "gloss_en": "You will meet jargon like DAG, which stands for Directed Acyclic Graph.",
+      "terms": [
+        "DAG",
+        "Directed Acyclic Graph"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 721,
+      "to": 738,
+      "kind": "claim",
+      "gloss_en": "In Airflow, a DAG is a flowchart where tasks move in only one direction.",
+      "terms": [
+        "Airflow",
+        "DAG",
+        "flowchart",
+        "tasks"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 739,
+      "to": 743,
+      "kind": "example",
+      "gloss_en": "Extract, then transform, then load.",
+      "terms": [
+        "Extract",
+        "transform",
+        "load"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 744,
+      "to": 749,
+      "kind": "claim",
+      "gloss_en": "It never loops back on itself.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 750,
+      "to": 761,
+      "kind": "claim",
+      "gloss_en": "The crucial concept to grasp here is idempotency.",
+      "terms": [
+        "idempotency"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 762,
+      "to": 785,
+      "kind": "claim",
+      "gloss_en": "If a task fails and retries, it must be idempotent so it does not double-load data and break your metrics.",
+      "terms": [
+        "task",
+        "retries",
+        "idempotent",
+        "metrics"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 786,
+      "to": 800,
+      "kind": "transition",
+      "gloss_en": "That leads to a classic diagnostic quiz from the curriculum.",
+      "terms": [
+        "diagnostic"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 801,
+      "to": 807,
+      "kind": "question",
+      "gloss_en": "What causes a shuffle in Apache Spark?",
+      "terms": [
+        "shuffle",
+        "Apache Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 808,
+      "to": 814,
+      "kind": "question",
+      "gloss_en": "And why is it so expensive?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 815,
+      "to": 820,
+      "kind": "prediction",
+      "gloss_en": "Think about it for a second.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 821,
+      "to": 835,
+      "kind": "claim",
+      "gloss_en": "In big data systems, moving data across the network is the main bottleneck.",
+      "terms": [
+        "big data",
+        "network",
+        "bottleneck"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 836,
+      "to": 850,
+      "kind": "transition",
+      "gloss_en": "Here is the diagnostic fix you would apply in the real world.",
+      "terms": [
+        "fix"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 851,
+      "to": 858,
+      "kind": "claim",
+      "gloss_en": "Step 1: check whether you have data skew.",
+      "terms": [
+        "data skew"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 859,
+      "to": 874,
+      "kind": "example",
+      "gloss_en": "That means one machine in your cluster does 90% of the work.",
+      "terms": [
+        "cluster"
+      ],
+      "numbers": [
+        "90%"
+      ],
+      "entities": []
+    },
+    {
+      "from": 875,
+      "to": 887,
+      "kind": "claim",
+      "gloss_en": "Step 2: repartition the data or resize the cluster so the load is even.",
+      "terms": [
+        "repartition",
+        "cluster"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 888,
+      "to": 904,
+      "kind": "claim",
+      "gloss_en": "Step 3: when joining a huge table with a tiny one, use a broadcast join.",
+      "terms": [
+        "table",
+        "broadcast join"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 905,
+      "to": 920,
+      "kind": "claim",
+      "gloss_en": "It sends the small table to every node and removes the network shuffle.",
+      "terms": [
+        "table",
+        "node",
+        "network",
+        "shuffle"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 921,
+      "to": 934,
+      "kind": "recap",
+      "gloss_en": "This is the systems-level thinking you will develop.",
+      "terms": [
+        "systems-level"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 935,
+      "to": 949,
+      "kind": "transition",
+      "gloss_en": "Next phase: how it all builds into the modern era.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 950,
+      "to": 956,
+      "kind": "claim",
+      "gloss_en": "We are no longer just moving data around.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 957,
+      "to": 963,
+      "kind": "claim",
+      "gloss_en": "We are wiring AI directly into business logic.",
+      "terms": [
+        "AI",
+        "business logic"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 964,
+      "to": 974,
+      "kind": "recap",
+      "gloss_en": "Remember the SQL and big data pipelines we built?",
+      "terms": [
+        "SQL",
+        "big data",
+        "pipelines"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 975,
+      "to": 985,
+      "kind": "claim",
+      "gloss_en": "They are the foundation that makes enterprise AI possible.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 986,
+      "to": 998,
+      "kind": "claim",
+      "gloss_en": "To do this you need RAG, Retrieval Augmented Generation.",
+      "terms": [
+        "RAG",
+        "Retrieval Augmented Generation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 999,
+      "to": 1015,
+      "kind": "claim",
+      "gloss_en": "RAG combines a powerful LLM with your company's private data.",
+      "terms": [
+        "LLM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1016,
+      "to": 1025,
+      "kind": "claim",
+      "gloss_en": "So the AI is not just guessing.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1026,
+      "to": 1042,
+      "kind": "claim",
+      "gloss_en": "It builds context from your data pipelines, gives exact citations and cuts hallucinations.",
+      "terms": [
+        "context",
+        "data pipelines",
+        "citations",
+        "hallucinations"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1043,
+      "to": 1053,
+      "kind": "claim",
+      "gloss_en": "Without core data engineering skills, RAG does not work.",
+      "terms": [
+        "data engineering",
+        "RAG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1054,
+      "to": 1062,
+      "kind": "transition",
+      "gloss_en": "Building on RAG, we move up to AI agents.",
+      "terms": [
+        "RAG",
+        "AI agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1063,
+      "to": 1076,
+      "kind": "claim",
+      "gloss_en": "An AI agent is very different from a simple chatbot.",
+      "terms": [
+        "AI agent",
+        "chatbot"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1077,
+      "to": 1082,
+      "kind": "claim",
+      "gloss_en": "A chatbot only outputs text.",
+      "terms": [
+        "chatbot"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1083,
+      "to": 1088,
+      "kind": "claim",
+      "gloss_en": "An agent is an autonomous system.",
+      "terms": [
+        "agent"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1089,
+      "to": 1108,
+      "kind": "claim",
+      "gloss_en": "It uses the LLM as its brain to pick tools, like running a SQL query or calling an API.",
+      "terms": [
+        "LLM",
+        "tools",
+        "SQL query",
+        "API"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1109,
+      "to": 1120,
+      "kind": "claim",
+      "gloss_en": "It makes decisions and keeps state, remembering what it just did.",
+      "terms": [
+        "state"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1121,
+      "to": 1137,
+      "kind": "claim",
+      "gloss_en": "It is a system that does real work, guarded by the code you write.",
+      "terms": [
+        "code"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1138,
+      "to": 1147,
+      "kind": "transition",
+      "gloss_en": "The key point is how these agents think.",
+      "terms": [
+        "agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1148,
+      "to": 1157,
+      "kind": "claim",
+      "gloss_en": "They run on a loop called ReAct: reasoning and acting.",
+      "terms": [
+        "ReAct"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1158,
+      "to": 1179,
+      "kind": "claim",
+      "gloss_en": "The agent reasons about the user's prompt and takes an action, like fetching data from your database,",
+      "terms": [
+        "agent",
+        "prompt",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1180,
+      "to": 1186,
+      "kind": "claim",
+      "gloss_en": "then observes the result and reasons again.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1187,
+      "to": 1206,
+      "kind": "recap",
+      "gloss_en": "By interleaving reasoning and action, agents solve complex business problems without breaking down or making things up.",
+      "terms": [
+        "agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1207,
+      "to": 1215,
+      "kind": "transition",
+      "gloss_en": "Section 6: Securing the data job, the final defense.",
+      "terms": [],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1216,
+      "to": 1242,
+      "kind": "claim",
+      "gloss_en": "Technical skills mean nothing if you cannot survive the interview loop and prove your worth to a hiring manager.",
+      "terms": [
+        "interview loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1243,
+      "to": 1248,
+      "kind": "claim",
+      "gloss_en": "You do that through artifacts.",
+      "terms": [
+        "artifacts"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1249,
+      "to": 1260,
+      "kind": "claim",
+      "gloss_en": "The curriculum requires 3 mandatory portfolio projects that make you stand out.",
+      "terms": [
+        "portfolio"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1261,
+      "to": 1276,
+      "kind": "example",
+      "gloss_en": "Number 1: a SQL tuning notebook with explained screenshots, proving you know performance.",
+      "terms": [
+        "SQL",
+        "tuning",
+        "notebook",
+        "performance"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1277,
+      "to": 1288,
+      "kind": "example",
+      "gloss_en": "Number 2: a fully tested CRUD service built in Python or Java.",
+      "terms": [
+        "CRUD",
+        "service",
+        "Python",
+        "Java"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1289,
+      "to": 1305,
+      "kind": "example",
+      "gloss_en": "And 3, the crown jewel: a live Airflow pipeline connected to a working AI agent demo.",
+      "terms": [
+        "Airflow",
+        "pipeline",
+        "AI agent"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1306,
+      "to": 1324,
+      "kind": "recap",
+      "gloss_en": "These 3 artifacts prove you went from zero to full-stack capability.",
+      "terms": [
+        "artifacts",
+        "full-stack"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1325,
+      "to": 1340,
+      "kind": "transition",
+      "gloss_en": "In the interview room, expect rapid-fire questions.",
+      "terms": [
+        "interview"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1341,
+      "to": 1354,
+      "kind": "question",
+      "gloss_en": "SQL: what is the difference between an inner join and a left join?",
+      "terms": [
+        "SQL",
+        "inner join",
+        "left join"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1355,
+      "to": 1369,
+      "kind": "question",
+      "gloss_en": "Big data: how do you guarantee no duplicate data in a pipeline?",
+      "terms": [
+        "Big Data",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1370,
+      "to": 1381,
+      "kind": "question",
+      "gloss_en": "AI: how do you systematically evaluate LLM outputs for accuracy?",
+      "terms": [
+        "AI",
+        "LLM",
+        "outputs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1382,
+      "to": 1406,
+      "kind": "claim",
+      "gloss_en": "The curriculum ensures you can not only do these things but explain the why behind every technical decision.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1407,
+      "to": 1427,
+      "kind": "transition",
+      "gloss_en": "That brings us to the end and to one important question for you.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1428,
+      "to": 1439,
+      "kind": "question",
+      "gloss_en": "Will you start your journey from zero to working machine today?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1440,
+      "to": 1464,
+      "kind": "recap",
+      "gloss_en": "We covered the whole map: failure-first, deep SQL optimization, distributed big data pipelines and AI agents.",
+      "terms": [
+        "failure-first",
+        "SQL optimization",
+        "big data",
+        "pipelines",
+        "AI agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1465,
+      "to": 1480,
+      "kind": "claim",
+      "gloss_en": "It is a demanding path, but the blueprint is right here.",
+      "terms": [
+        "blueprint"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1481,
+      "to": 1502,
+      "kind": "transition",
+      "gloss_en": "Thanks for joining; I hope it sparks your curiosity to start building.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:10:32Z"
+}

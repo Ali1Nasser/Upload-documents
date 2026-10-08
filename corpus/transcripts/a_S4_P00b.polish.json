@@ -1,0 +1,2410 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P00b",
+  "asr_words": 1178,
+  "final_words": 1166,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 34,
+      "orig": "البلو",
+      "to": "الـblueprint",
+      "why": "term",
+      "final": [
+        34,
+        34
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 35,
+      "orig": "برينت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 61,
+      "orig": "والداتا",
+      "to": "والـdata",
+      "why": "term",
+      "final": [
+        60,
+        60
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 62,
+      "orig": "كونتراكت",
+      "to": "contract",
+      "why": "term",
+      "final": [
+        61,
+        61
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 92,
+      "orig": "الشغلان",
+      "to": "الشغلانة",
+      "why": "mishear",
+      "final": [
+        91,
+        91
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 154,
+      "orig": "الروز",
+      "to": "الـrows",
+      "why": "term",
+      "final": [
+        153,
+        153
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 231,
+      "orig": "Kyro",
+      "to": "Cairo",
+      "why": "mishear",
+      "final": [
+        230,
+        230
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 234,
+      "orig": "Kyro",
+      "to": "cairo",
+      "why": "mishear",
+      "final": [
+        233,
+        233
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 237,
+      "orig": "Kyro",
+      "to": "Cairo",
+      "why": "mishear",
+      "final": [
+        236,
+        236
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 256,
+      "orig": "دلة",
+      "to": "دالة",
+      "why": "mishear",
+      "final": [
+        255,
+        255
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 279,
+      "orig": "زكية",
+      "to": "ذكية",
+      "why": "mishear",
+      "final": [
+        278,
+        278
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 288,
+      "orig": "نايل",
+      "to": "NilePay",
+      "why": "term",
+      "final": [
+        287,
+        287
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 289,
+      "orig": "باي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 292,
+      "orig": "موبايل",
+      "to": "mobile",
+      "why": "term",
+      "final": [
+        290,
+        290
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 293,
+      "orig": "موني",
+      "to": "money",
+      "why": "term",
+      "final": [
+        291,
+        291
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 316,
+      "orig": "نجحين",
+      "to": "ناجحين",
+      "why": "mishear",
+      "final": [
+        314,
+        314
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 319,
+      "orig": "أوكي",
+      "to": "OK",
+      "why": "term",
+      "final": [
+        317,
+        317
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 324,
+      "orig": "فيلد",
+      "to": "FAILED",
+      "why": "term",
+      "final": [
+        322,
+        322
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 334,
+      "orig": "أحسبوا",
+      "to": "احسبوها",
+      "why": "mishear",
+      "final": [
+        332,
+        332
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 335,
+      "orig": "هانته",
+      "to": "إنتو",
+      "why": "mishear",
+      "final": [
+        333,
+        333
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 337,
+      "orig": "66",
+      "to": "66.67",
+      "why": "number",
+      "final": [
+        335,
+        335
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 338,
+      "orig": ".67",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 370,
+      "orig": "الترانزاكشن",
+      "to": "الـtransaction",
+      "why": "term",
+      "final": [
+        367,
+        367
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 388,
+      "orig": "والديتا",
+      "to": "والـdata",
+      "why": "term",
+      "final": [
+        385,
+        385
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 389,
+      "orig": "كونتراكت",
+      "to": "contract",
+      "why": "term",
+      "final": [
+        386,
+        386
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 399,
+      "orig": "بالزيت",
+      "to": "بالذات",
+      "why": "mishear",
+      "final": [
+        396,
+        396
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 407,
+      "orig": "ديتا",
+      "to": "Data",
+      "why": "term",
+      "final": [
+        404,
+        404
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 408,
+      "orig": "أنا",
+      "to": "Analyst",
+      "why": "term",
+      "final": [
+        405,
+        405
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 409,
+      "orig": "لاستعيدي",
+      "to": "عادي",
+      "why": "mishear",
+      "final": [
+        406,
+        406
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 411,
+      "orig": "ديتا",
+      "to": "Data",
+      "why": "term",
+      "final": [
+        408,
+        408
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 412,
+      "orig": "إنجينير",
+      "to": "Engineer",
+      "why": "term",
+      "final": [
+        409,
+        409
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 430,
+      "orig": "الإكسيكيوشن",
+      "to": "الـexecution",
+      "why": "term",
+      "final": [
+        427,
+        427
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 431,
+      "orig": "بلانز",
+      "to": "plans",
+      "why": "term",
+      "final": [
+        428,
+        428
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 433,
+      "orig": "تيونينج",
+      "to": "tuning",
+      "why": "term",
+      "final": [
+        430,
+        430
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 444,
+      "orig": "ببيثون",
+      "to": "بـPython",
+      "why": "term",
+      "final": [
+        441,
+        441
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 445,
+      "orig": "وجافا",
+      "to": "وJava",
+      "why": "term",
+      "final": [
+        442,
+        442
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 451,
+      "orig": "داتة",
+      "to": "داتا",
+      "why": "mishear",
+      "final": [
+        448,
+        448
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 457,
+      "orig": "للبيك",
+      "to": "للـBig",
+      "why": "term",
+      "final": [
+        454,
+        454
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 458,
+      "orig": "ديتا",
+      "to": "Data",
+      "why": "term",
+      "final": [
+        455,
+        455
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 463,
+      "orig": "للألقى",
+      "to": "للـLLMs",
+      "why": "term",
+      "final": [
+        460,
+        460
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 464,
+      "orig": "الأمس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 496,
+      "orig": "مرحل",
+      "to": "مراحل",
+      "why": "mishear",
+      "final": [
+        492,
+        492
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 529,
+      "orig": "صوفتوير",
+      "to": "software",
+      "why": "term",
+      "final": [
+        525,
+        525
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 534,
+      "orig": "وحمية",
+      "to": "وحماية",
+      "why": "mishear",
+      "final": [
+        530,
+        530
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 536,
+      "orig": "DataBees",
+      "to": "database",
+      "why": "term",
+      "final": [
+        532,
+        532
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 572,
+      "orig": "بفولدر",
+      "to": "بـfolder",
+      "why": "term",
+      "final": [
+        568,
+        568
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 582,
+      "orig": "وندفع",
+      "to": "وندافع",
+      "why": "mishear",
+      "final": [
+        578,
+        578
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 587,
+      "orig": "الترانزاكشن",
+      "to": "الـtransaction",
+      "why": "term",
+      "final": [
+        583,
+        583
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 591,
+      "orig": "معينا",
+      "to": "معانا",
+      "why": "mishear",
+      "final": [
+        587,
+        587
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 605,
+      "orig": "فيلد",
+      "to": "field",
+      "why": "term",
+      "final": [
+        601,
+        601
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 606,
+      "orig": "السابتين",
+      "to": "الثابتين",
+      "why": "mishear",
+      "final": [
+        602,
+        602
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 608,
+      "orig": "الاسكيما",
+      "to": "الـschema",
+      "why": "term",
+      "final": [
+        604,
+        604
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 627,
+      "orig": "الأمونت",
+      "to": "الـamount",
+      "why": "term",
+      "final": [
+        623,
+        623
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 632,
+      "orig": "كديسيمل",
+      "to": "كـdecimal",
+      "why": "term",
+      "final": [
+        628,
+        628
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 634,
+      "orig": "فلوت",
+      "to": "float",
+      "why": "term",
+      "final": [
+        630,
+        630
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 637,
+      "orig": "الفلوت",
+      "to": "الـfloat",
+      "why": "term",
+      "final": [
+        633,
+        633
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 646,
+      "orig": "جليتش",
+      "to": "glitch",
+      "why": "term",
+      "final": [
+        642,
+        642
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 649,
+      "orig": "سيسم",
+      "to": "سيستم",
+      "why": "mishear",
+      "final": [
+        645,
+        645
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 651,
+      "orig": "معنا",
+      "to": "معناه",
+      "why": "mishear",
+      "final": [
+        647,
+        647
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 665,
+      "orig": "الإيفن",
+      "to": "الـevent",
+      "why": "term",
+      "final": [
+        661,
+        661
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 666,
+      "orig": "تايم",
+      "to": "time",
+      "why": "term",
+      "final": [
+        662,
+        662
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 669,
+      "orig": "الإنجسجن",
+      "to": "الـingestion",
+      "why": "term",
+      "final": [
+        665,
+        665
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 670,
+      "orig": "تايم",
+      "to": "time",
+      "why": "term",
+      "final": [
+        666,
+        666
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 681,
+      "orig": "الباتش",
+      "to": "الـbatch",
+      "why": "term",
+      "final": [
+        677,
+        677
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 682,
+      "orig": "آي",
+      "to": "ID",
+      "why": "term",
+      "final": [
+        678,
+        678
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 683,
+      "orig": "دي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 685,
+      "orig": "المنقص",
+      "to": "المنقذ",
+      "why": "mishear",
+      "final": [
+        680,
+        680
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 689,
+      "orig": "الآيدن",
+      "to": "الـidempotency",
+      "why": "term",
+      "final": [
+        684,
+        684
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 690,
+      "orig": "بوتنسي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 698,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        692,
+        692
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 703,
+      "orig": "وتبوز",
+      "to": "وتبوظ",
+      "why": "mishear",
+      "final": [
+        697,
+        697
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 707,
+      "orig": "EI01",
+      "to": "A-01",
+      "why": "mishear",
+      "final": [
+        701,
+        701
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 713,
+      "orig": "إيكو",
+      "to": "ecosystem",
+      "why": "term",
+      "final": [
+        707,
+        707
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 714,
+      "orig": "سيستم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 718,
+      "orig": "الماي",
+      "to": "الـMySQL",
+      "why": "term",
+      "final": [
+        711,
+        711
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 719,
+      "orig": "سيكول",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "Post",
+      "to": "PostgreSQL",
+      "why": "term",
+      "final": [
+        713,
+        713
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 722,
+      "orig": "-Grey",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 732,
+      "orig": "الإيرفلو",
+      "to": "الـAirflow",
+      "why": "term",
+      "final": [
+        723,
+        723
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "سابتة",
+      "to": "ثابتة",
+      "why": "mishear",
+      "final": [
+        746,
+        746
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 779,
+      "orig": "ريب",
+      "to": "repo",
+      "why": "term",
+      "final": [
+        770,
+        770
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 781,
+      "orig": "تستس",
+      "to": "tests",
+      "why": "term",
+      "final": [
+        772,
+        772
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 789,
+      "orig": "هتتميلي",
+      "to": "هتتملي",
+      "why": "mishear",
+      "final": [
+        780,
+        780
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 828,
+      "orig": "الستاك",
+      "to": "الـstack",
+      "why": "term",
+      "final": [
+        819,
+        819
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 830,
+      "orig": "الكيو",
+      "to": "الـqueue",
+      "why": "term",
+      "final": [
+        821,
+        821
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 840,
+      "orig": "بروسس",
+      "to": "process",
+      "why": "term",
+      "final": [
+        831,
+        831
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 847,
+      "orig": "بلاي",
+      "to": "play",
+      "why": "term",
+      "final": [
+        838,
+        838
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 848,
+      "orig": "وبوز",
+      "to": "وpause",
+      "why": "term",
+      "final": [
+        839,
+        839
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 856,
+      "orig": "البروسس",
+      "to": "الـprocess",
+      "why": "term",
+      "final": [
+        847,
+        847
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 864,
+      "orig": "فيمتهيش",
+      "to": "فهمتهاش",
+      "why": "mishear",
+      "final": [
+        855,
+        855
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 868,
+      "orig": "برامتر",
+      "to": "parameter",
+      "why": "term",
+      "final": [
+        859,
+        859
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 878,
+      "orig": "بعانينا",
+      "to": "بعينينا",
+      "why": "mishear",
+      "final": [
+        869,
+        869
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 895,
+      "orig": "الفيليور",
+      "to": "الـFailure-first",
+      "why": "term",
+      "final": [
+        886,
+        886
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 896,
+      "orig": "فيرست",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 898,
+      "orig": "ميكانز",
+      "to": "ميكانيزم",
+      "why": "mishear",
+      "final": [
+        888,
+        888
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 908,
+      "orig": "بويس",
+      "to": "بايظ",
+      "why": "mishear",
+      "final": [
+        898,
+        898
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 914,
+      "orig": "السمتم",
+      "to": "الـsymptom",
+      "why": "term",
+      "final": [
+        904,
+        904
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 923,
+      "orig": "الأفيدنس",
+      "to": "الـevidence",
+      "why": "term",
+      "final": [
+        913,
+        913
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 930,
+      "orig": "الجزري",
+      "to": "الجذري",
+      "why": "mishear",
+      "final": [
+        920,
+        920
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 932,
+      "orig": "الروت",
+      "to": "الـroot",
+      "why": "term",
+      "final": [
+        922,
+        922
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 933,
+      "orig": "كوز",
+      "to": "cause",
+      "why": "term",
+      "final": [
+        923,
+        923
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 937,
+      "orig": "بريفنشن",
+      "to": "prevention",
+      "why": "term",
+      "final": [
+        927,
+        927
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 943,
+      "orig": "بيش",
+      "to": "مش",
+      "why": "mishear",
+      "final": [
+        933,
+        933
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 960,
+      "orig": "رايت",
+      "to": "write-up",
+      "why": "term",
+      "final": [
+        950,
+        950
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 961,
+      "orig": "أب",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 969,
+      "orig": "بورتوفاليو",
+      "to": "portfolio",
+      "why": "term",
+      "final": [
+        958,
+        958
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1000,
+      "orig": "فيجول",
+      "to": "visual",
+      "why": "term",
+      "final": [
+        989,
+        989
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1009,
+      "orig": "بأركم",
+      "to": "بأرقام",
+      "why": "mishear",
+      "final": [
+        998,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1015,
+      "orig": "نايل",
+      "to": "NilePay",
+      "why": "term",
+      "final": [
+        1004,
+        1004
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1016,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1021,
+      "orig": "براميطر",
+      "to": "parameter",
+      "why": "term",
+      "final": [
+        1009,
+        1009
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1041,
+      "orig": "ريكوست",
+      "to": "request",
+      "why": "term",
+      "final": [
+        1029,
+        1029
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1046,
+      "orig": "شنا",
+      "to": "شلنا",
+      "why": "mishear",
+      "final": [
+        1034,
+        1034
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1059,
+      "orig": "معنا",
+      "to": "معنى",
+      "why": "mishear",
+      "final": [
+        1047,
+        1047
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1061,
+      "orig": "الآلب",
+      "to": "القالب",
+      "why": "mishear",
+      "final": [
+        1049,
+        1049
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1075,
+      "orig": "كولباك",
+      "to": "callback",
+      "why": "term",
+      "final": [
+        1063,
+        1063
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1085,
+      "orig": "الأوتبوت",
+      "to": "الـoutput",
+      "why": "term",
+      "final": [
+        1073,
+        1073
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1086,
+      "orig": "أرتيفاكت",
+      "to": "artifact",
+      "why": "term",
+      "final": [
+        1074,
+        1074
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1088,
+      "orig": "العمل",
+      "to": "العملي",
+      "why": "mishear",
+      "final": [
+        1076,
+        1076
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1090,
+      "orig": "بنتلع",
+      "to": "بنطلع",
+      "why": "mishear",
+      "final": [
+        1078,
+        1078
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1124,
+      "orig": "نمازج",
+      "to": "نماذج",
+      "why": "mishear",
+      "final": [
+        1112,
+        1112
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1127,
+      "orig": "الأوتبوتس",
+      "to": "الـoutputs",
+      "why": "term",
+      "final": [
+        1115,
+        1115
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1132,
+      "orig": "بدرابيس",
+      "to": "بـdatabases",
+      "why": "term",
+      "final": [
+        1120,
+        1120
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1135,
+      "orig": "لايف",
+      "to": "live",
+      "why": "term",
+      "final": [
+        1123,
+        1123
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1153,
+      "orig": "اتفعلوا",
+      "to": "اتفاعلوا",
+      "why": "mishear",
+      "final": [
+        1141,
+        1141
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1163,
+      "orig": "لي",
+      "to": "ليه",
+      "why": "mishear",
+      "final": [
+        1151,
+        1151
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1170,
+      "orig": "القريطة",
+      "to": "الخريطة",
+      "why": "mishear",
+      "final": [
+        1158,
+        1158
+      ]
+    }
+  ],
+  "notes": "Source excerpt held only the P00-sc01 on-screen rules, so term/mishear fixes were cross-checked against corpus/canon/chapters.json (CH-00..CH-02 narration) and master §5.2 (NilePay T1..T6 table: OK/FAILED, 4/6 = 66.67%, 400 EGP, A=250, B=150) and §5.4 (asset A-01 architecture: MySQL, PostgreSQL star schema, Airflow). Key fixes: Kyro->Cairo/cairo/Cairo (trailing-space example), EI01->A-01, Post-Grey->PostgreSQL (speaker may have said 'Postgre'), 'ديتا أنا لاستعيدي'->'Data Analyst عادي', 'للألقى الأمس'->'للـLLMs', 'بالزيت'->'بالذات', 'المنقص'->'المنقذ', 'بيش'->'مش', 'الآلب'->'القالب', 'فيمتهيش'->'فهمتهاش'. 66 + .67 merged into 66.67; 'من 100%' left as spoken. Number words (ستة/أربعة/اتنين/سبع/تسع) kept as spoken; digits are in sentence numbers. Integrated loanwords kept in Arabic script (سيستم, داتا/ديتا, كود, فيديو, ميكس, سكيل, لستة, شات, أنيميشن). Uncertain, left unchanged for review: i132 'صغفة' (canon says 'ألف صف' = rows; could also be 'صفحة'), i578 'نعود' (maybe 'نعرضه'/'نقعد'), i661 'لجب' (probably 'لازم'/'واجب'), i688 'وحدة' (maybe 'وحده'), i695 'أفلنا' (= 'قفلنا' in Egyptian speech, or 'فشلنا'), i1051 'ديكت' (probably 'دي كانت'), i1095 'بلس' (unclear; maybe 'pulse'/'flash'). Possible dropout: a 4.68 s gap after i782 ('tests بتنجح'), with low confidence (0.22) on i783; the list of tangible deliverables may continue there, but no source text confirms the missing words, so nothing was inserted. Sentence 246-279 is split at i266/i267 (subject | predicate) to stay at 28 words or fewer.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 8,
+      "kind": "transition",
+      "gloss_en": "Welcome, our explanation this time is a bit different.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 9,
+      "to": 28,
+      "kind": "claim",
+      "gloss_en": "Today we lay the foundation: the real map we will follow throughout our DA Camp journey, which is split into 25 parts.",
+      "terms": [],
+      "numbers": [
+        "25"
+      ],
+      "entities": [
+        "DA Camp"
+      ]
+    },
+    {
+      "from": 29,
+      "to": 43,
+      "kind": "claim",
+      "gloss_en": "This is not just an intro; it is the blueprint and the language we will use to understand everything that follows.",
+      "terms": [
+        "blueprint"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 44,
+      "to": 47,
+      "kind": "transition",
+      "gloss_en": "Ready? Let's begin.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 48,
+      "to": 62,
+      "kind": "transition",
+      "gloss_en": "Our agenda is quick and direct: the real nature of the job, then the journey map and our data contract.",
+      "terms": [
+        "data contract"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 63,
+      "to": 74,
+      "kind": "transition",
+      "gloss_en": "Then our visual language for systems, and finally the simulation rules and the thinking template.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 75,
+      "to": 84,
+      "kind": "recap",
+      "gloss_en": "Four points that are the foundation before we write any line of code.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 85,
+      "to": 97,
+      "kind": "transition",
+      "gloss_en": "Straight into the first point: the real nature of the job, away from theory.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 98,
+      "to": 110,
+      "kind": "example",
+      "gloss_en": "Picture this: a shop owner with a cardboard box full of jumbled receipts.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 111,
+      "to": 119,
+      "kind": "example",
+      "gloss_en": "She has just one question: which day of the week should she close?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 120,
+      "to": 133,
+      "kind": "claim",
+      "gloss_en": "Of course nobody can answer just by looking, because no one can hold a thousand rows in their head.",
+      "terms": [],
+      "numbers": [
+        "1000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 134,
+      "to": 145,
+      "kind": "claim",
+      "gloss_en": "So what happens? Exactly what we do in data work.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 146,
+      "to": 153,
+      "kind": "claim",
+      "gloss_en": "First, the receipts get laid out, meaning we get the rows.",
+      "terms": [
+        "rows"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 154,
+      "to": 169,
+      "kind": "claim",
+      "gloss_en": "Second, we see which of them we can rely on and verify; third, we answer the question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 170,
+      "to": 176,
+      "kind": "recap",
+      "gloss_en": "These three steps are literally the whole job.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 177,
+      "to": 198,
+      "kind": "claim",
+      "gloss_en": "Spreadsheets, SQL, Python and Machine Learning are all just different ways of doing the same three steps, at a much bigger scale.",
+      "terms": [
+        "Spreadsheets",
+        "SQL",
+        "Python",
+        "Machine Learning"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 199,
+      "to": 218,
+      "kind": "claim",
+      "gloss_en": "The middle step, make them reliable, takes the most time and effort, and nobody talks about it much.",
+      "terms": [
+        "make them reliable"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 219,
+      "to": 244,
+      "kind": "example",
+      "gloss_en": "In real work, time is lost discovering that the computer sees Cairo capitalised, cairo lowercase and Cairo with a trailing space as 3 completely different cities.",
+      "terms": [
+        "Cairo",
+        "cairo"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 245,
+      "to": 265,
+      "kind": "claim",
+      "gloss_en": "The time we spend cleaning this data, using something like the Trim function to merge them all into one and make it trustworthy,",
+      "terms": [
+        "Trim"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 266,
+      "to": 278,
+      "kind": "claim",
+      "gloss_en": "takes far longer than the time we spend building anything clever.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 279,
+      "to": 298,
+      "kind": "example",
+      "gloss_en": "That is why we look at this table from NilePay, a fictional Egyptian mobile-money service we will follow to the end of the journey.",
+      "terms": [
+        "mobile money"
+      ],
+      "numbers": [],
+      "entities": [
+        "NilePay"
+      ]
+    },
+    {
+      "from": 299,
+      "to": 307,
+      "kind": "example",
+      "gloss_en": "Here we have six payments, from T1 to T6.",
+      "terms": [],
+      "numbers": [
+        "6"
+      ],
+      "entities": [
+        "T1",
+        "T6"
+      ]
+    },
+    {
+      "from": 308,
+      "to": 322,
+      "kind": "example",
+      "gloss_en": "Look closely: four succeeded and are marked green OK, and two failed and are labelled FAILED.",
+      "terms": [
+        "OK",
+        "FAILED"
+      ],
+      "numbers": [
+        "4",
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 323,
+      "to": 333,
+      "kind": "question",
+      "gloss_en": "So four out of six succeeded. What do you think the success rate is? Work it out yourselves.",
+      "terms": [],
+      "numbers": [
+        "4",
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 334,
+      "to": 344,
+      "kind": "claim",
+      "gloss_en": "Exactly: 66.67 out of 100%, and the total successful amount is 400 pounds.",
+      "terms": [],
+      "numbers": [
+        "66.67",
+        "100",
+        "400"
+      ],
+      "entities": []
+    },
+    {
+      "from": 345,
+      "to": 353,
+      "kind": "claim",
+      "gloss_en": "Split as 250 from Operator A and 150 from Operator B.",
+      "terms": [],
+      "numbers": [
+        "250",
+        "150"
+      ],
+      "entities": [
+        "Operator A",
+        "Operator B"
+      ]
+    },
+    {
+      "from": 354,
+      "to": 362,
+      "kind": "claim",
+      "gloss_en": "These numbers are not random; keep them well in mind.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 363,
+      "to": 376,
+      "kind": "claim",
+      "gloss_en": "Because we will follow this same transaction through our whole platform in the coming parts.",
+      "terms": [
+        "transaction"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 377,
+      "to": 386,
+      "kind": "transition",
+      "gloss_en": "Now let's move to the second part: the journey map and the data contract.",
+      "terms": [
+        "data contract"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 387,
+      "to": 396,
+      "kind": "question",
+      "gloss_en": "What are the requirements of the system we will build, and why this job in particular?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 397,
+      "to": 413,
+      "kind": "claim",
+      "gloss_en": "The role we are preparing for is not just a regular Data Analyst or only a Data Engineer; it is a complete mix.",
+      "terms": [
+        "Data Analyst",
+        "Data Engineer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 414,
+      "to": 437,
+      "kind": "claim",
+      "gloss_en": "As the three columns show, we need strong SQL, able to read execution plans and do tuning on databases like MySQL and PostgreSQL.",
+      "terms": [
+        "SQL",
+        "execution plans",
+        "tuning",
+        "MySQL",
+        "PostgreSQL"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 438,
+      "to": 450,
+      "kind": "claim",
+      "gloss_en": "And we need to write code in Python and Java to do CRUD operations on real data safely.",
+      "terms": [
+        "Python",
+        "Java",
+        "CRUD operations"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 451,
+      "to": 471,
+      "kind": "claim",
+      "gloss_en": "And of course a practical grasp of Big Data and DAGs, up to LLMs and AI agents that run tools and do real work, not just chat.",
+      "terms": [
+        "Big Data",
+        "DAGs",
+        "LLMs",
+        "AI agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 472,
+      "to": 486,
+      "kind": "claim",
+      "gloss_en": "This journey is not just a list of tools lined up; it is a whole system growing before our eyes step by step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 487,
+      "to": 492,
+      "kind": "claim",
+      "gloss_en": "We will walk this journey in seven stages.",
+      "terms": [],
+      "numbers": [
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 493,
+      "to": 509,
+      "kind": "claim",
+      "gloss_en": "We start from zero: setting up the machine, just files, folders and the terminal, and writing the first line of code.",
+      "terms": [
+        "files",
+        "folders",
+        "terminal"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 510,
+      "to": 519,
+      "kind": "claim",
+      "gloss_en": "Then from code we move to data organised in tables with SQL.",
+      "terms": [
+        "data",
+        "tables",
+        "SQL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 520,
+      "to": 530,
+      "kind": "claim",
+      "gloss_en": "From a small program to a real software system with APIs, networking and security.",
+      "terms": [
+        "software",
+        "APIs",
+        "Networking"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 531,
+      "to": 540,
+      "kind": "claim",
+      "gloss_en": "From a single database to a huge data platform with pipelines and warehouses.",
+      "terms": [
+        "database",
+        "Data Platform",
+        "Pipelines",
+        "Warehouses"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 541,
+      "to": 549,
+      "kind": "claim",
+      "gloss_en": "Then from the platform to a real business and near-real-time reporting.",
+      "terms": [
+        "Near Real Time"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 550,
+      "to": 556,
+      "kind": "claim",
+      "gloss_en": "And finally we reach AI models and agents.",
+      "terms": [
+        "AI Models",
+        "Agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 557,
+      "to": 566,
+      "kind": "claim",
+      "gloss_en": "We will apply all of this to one project that runs with us, called ShopFlow.",
+      "terms": [],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 567,
+      "to": 581,
+      "kind": "claim",
+      "gloss_en": "It starts as a small folder and ends as a strong system we can bring to any interview and defend with confidence.",
+      "terms": [
+        "folder",
+        "interview"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 582,
+      "to": 590,
+      "kind": "claim",
+      "gloss_en": "And the same transaction we saw will continue with us at every step.",
+      "terms": [
+        "transaction"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 591,
+      "to": 605,
+      "kind": "claim",
+      "gloss_en": "What is special is that every example we work on uses the same 14 fixed fields in this schema.",
+      "terms": [
+        "field",
+        "schema"
+      ],
+      "numbers": [
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 606,
+      "to": 617,
+      "kind": "claim",
+      "gloss_en": "This is very deliberate so knowledge accumulates, rather than every lesson starting from zero.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 618,
+      "to": 630,
+      "kind": "claim",
+      "gloss_en": "Focus here on the amount line: money is always, always stored as decimal, not float.",
+      "terms": [
+        "amount",
+        "decimal",
+        "float"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 631,
+      "to": 640,
+      "kind": "claim",
+      "gloss_en": "Why? Because float cannot compute simple fractions with perfect precision.",
+      "terms": [
+        "float"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 641,
+      "to": 651,
+      "kind": "claim",
+      "gloss_en": "And any small glitch in a payments system means a customer's money truly lost.",
+      "terms": [
+        "glitch"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 652,
+      "to": 666,
+      "kind": "claim",
+      "gloss_en": "There are two very important concepts we must know from now: event time is not ingestion time.",
+      "terms": [
+        "event time",
+        "ingestion time"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 667,
+      "to": 675,
+      "kind": "claim",
+      "gloss_en": "The difference between them is what causes the late-data problem.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 676,
+      "to": 681,
+      "kind": "claim",
+      "gloss_en": "Also, the batch ID is our saviour.",
+      "terms": [
+        "batch ID"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 682,
+      "to": 697,
+      "kind": "claim",
+      "gloss_en": "It is the idempotency unit that guarantees that if we stop and rerun any pipeline, the data does not duplicate and break.",
+      "terms": [
+        "idempotency",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 698,
+      "to": 706,
+      "kind": "claim",
+      "gloss_en": "And this is the A-01 architecture, the final goal we will reach.",
+      "terms": [],
+      "numbers": [],
+      "entities": [
+        "A-01"
+      ]
+    },
+    {
+      "from": 707,
+      "to": 723,
+      "kind": "claim",
+      "gloss_en": "A full ecosystem from MySQL to PostgreSQL star schemas and AI agents, all orchestrated by Airflow as the maestro.",
+      "terms": [
+        "ecosystem",
+        "MySQL",
+        "PostgreSQL",
+        "Star Schemas",
+        "AI Agents",
+        "Airflow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 724,
+      "to": 731,
+      "kind": "claim",
+      "gloss_en": "We do not need to memorise this scary diagram at all right now.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 732,
+      "to": 744,
+      "kind": "prediction",
+      "gloss_en": "The idea is that after every part we finish, we come back to this diagram and light up the part we understood.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 745,
+      "to": 752,
+      "kind": "claim",
+      "gloss_en": "The diagram is fixed; it is our understanding that grows and becomes clearer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 753,
+      "to": 769,
+      "kind": "claim",
+      "gloss_en": "Our progress is not measured by how many lessons we finished, but by tangible things we can hold and show people.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 770,
+      "to": 773,
+      "kind": "example",
+      "gloss_en": "A repo that works, tests that pass.",
+      "terms": [
+        "repo",
+        "tests"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 774,
+      "to": 786,
+      "kind": "prediction",
+      "gloss_en": "All these are empty boxes now, but they will fill up one by one with every step we take.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 787,
+      "to": 794,
+      "kind": "transition",
+      "gloss_en": "Now to the third section: our visual language for systems.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 795,
+      "to": 803,
+      "kind": "question",
+      "gloss_en": "How will we see and read these systems in the coming lessons?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 804,
+      "to": 811,
+      "kind": "transition",
+      "gloss_en": "We have four core visual elements; the first three are:",
+      "terms": [],
+      "numbers": [
+        "4",
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 812,
+      "to": 827,
+      "kind": "claim",
+      "gloss_en": "Anything that controls behaviour, like the stack or the queue, must be drawn, not just described in words.",
+      "terms": [
+        "stack",
+        "queue"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 828,
+      "to": 841,
+      "kind": "claim",
+      "gloss_en": "Second, any running process we treat like a video, with play, pause, forward and back buttons.",
+      "terms": [
+        "process",
+        "play",
+        "pause"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 842,
+      "to": 855,
+      "kind": "claim",
+      "gloss_en": "Because if you cannot stop the process midway and see its state, you have not understood it yet.",
+      "terms": [
+        "process"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 856,
+      "to": 877,
+      "kind": "claim",
+      "gloss_en": "Third, any parameter we change must show its effect on screen immediately, so we see with our own eyes exactly what it does, not just a written name.",
+      "terms": [
+        "parameter"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 878,
+      "to": 886,
+      "kind": "claim",
+      "gloss_en": "The fourth rule, the most important of all: the Failure-first approach.",
+      "terms": [
+        "Failure-first"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 887,
+      "to": 898,
+      "kind": "claim",
+      "gloss_en": "Every mechanism we see twice: once working correctly and once broken.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 899,
+      "to": 910,
+      "kind": "example",
+      "gloss_en": "We see the system working, then suddenly the symptom appears that something is wrong.",
+      "terms": [
+        "symptom"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 911,
+      "to": 931,
+      "kind": "example",
+      "gloss_en": "We follow the evidence until we reach the root cause, fix the problem and add prevention so it does not happen again.",
+      "terms": [
+        "evidence",
+        "root cause",
+        "prevention"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 932,
+      "to": 944,
+      "kind": "claim",
+      "gloss_en": "This is not a waste of time; this is the real job, and we get paid to solve these problems.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 945,
+      "to": 958,
+      "kind": "claim",
+      "gloss_en": "Every failure we fix leaves behind a small write-up, and that is the strongest evidence in any portfolio.",
+      "terms": [
+        "write-up",
+        "portfolio"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 959,
+      "to": 965,
+      "kind": "transition",
+      "gloss_en": "Finally, the fourth section: simulation rules and the thinking template.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 966,
+      "to": 972,
+      "kind": "question",
+      "gloss_en": "How will we go about learning any new concept?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 973,
+      "to": 982,
+      "kind": "claim",
+      "gloss_en": "Every new concept we study will follow a nine-step template.",
+      "terms": [],
+      "numbers": [
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 983,
+      "to": 992,
+      "kind": "claim",
+      "gloss_en": "We start with the problem and build a mental model, then a visual is built gradually in front of us.",
+      "terms": [
+        "visual"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 993,
+      "to": 1004,
+      "kind": "claim",
+      "gloss_en": "Step four: we see a small example with real numbers, like the ones in the NilePay table.",
+      "terms": [],
+      "numbers": [
+        "4"
+      ],
+      "entities": [
+        "NilePay"
+      ]
+    },
+    {
+      "from": 1005,
+      "to": 1010,
+      "kind": "claim",
+      "gloss_en": "Step five is our prediction when a parameter changes.",
+      "terms": [
+        "parameter"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1011,
+      "to": 1022,
+      "kind": "claim",
+      "gloss_en": "And here we must stress one thing: no motion or animation is mere decoration.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1023,
+      "to": 1032,
+      "kind": "claim",
+      "gloss_en": "Every moving arrow represents real data or a real request inside the system.",
+      "terms": [
+        "request"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1033,
+      "to": 1047,
+      "kind": "claim",
+      "gloss_en": "If we removed the animation and lost nothing, it was extra motion; that is why everything has a meaning.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1048,
+      "to": 1058,
+      "kind": "claim",
+      "gloss_en": "Continuing the template: step six is the failure that happens, and seven is the fix.",
+      "terms": [],
+      "numbers": [
+        "6",
+        "7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1059,
+      "to": 1068,
+      "kind": "claim",
+      "gloss_en": "In step eight we do a callback, linking what we learned to what came before.",
+      "terms": [
+        "callback"
+      ],
+      "numbers": [
+        "8"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1069,
+      "to": 1079,
+      "kind": "claim",
+      "gloss_en": "The ninth and final step is the output artifact, the practical result we come away with.",
+      "terms": [
+        "output artifact"
+      ],
+      "numbers": [
+        "9"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1080,
+      "to": 1094,
+      "kind": "claim",
+      "gloss_en": "Any warning or signal that appears has a real cause in the system state, and we must understand it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1095,
+      "to": 1106,
+      "kind": "transition",
+      "gloss_en": "Before we close, we have an honesty agreement that we will state only once.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1107,
+      "to": 1123,
+      "kind": "claim",
+      "gloss_en": "The simulations we see here are teaching models showing the real outputs, but they are not connected to real live databases.",
+      "terms": [
+        "outputs",
+        "databases",
+        "live"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1124,
+      "to": 1130,
+      "kind": "claim",
+      "gloss_en": "The numbers are calculated and deliberate, and they will come back when we need them.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1131,
+      "to": 1142,
+      "kind": "question",
+      "gloss_en": "What we always ask of you: before the animation plays, predict out loud, engage and answer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1143,
+      "to": 1156,
+      "kind": "claim",
+      "gloss_en": "Being wrong consciously, predicting wrong and understanding why we were wrong, is the fastest and strongest way to learn.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1157,
+      "to": 1165,
+      "kind": "recap",
+      "gloss_en": "This is our map; get ready, and let's start the journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:10:32Z"
+}

@@ -1,0 +1,2951 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P18",
+  "asr_words": 1390,
+  "final_words": 1368,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 88,
+      "orig": "البيك",
+      "to": "big",
+      "why": "term",
+      "final": [
+        88,
+        88
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 89,
+      "orig": "داتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        89,
+        89
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 93,
+      "orig": "المابريديوس",
+      "to": "الـMapReduce",
+      "why": "term",
+      "final": [
+        93,
+        93
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 100,
+      "orig": "السبارك",
+      "to": "الـSpark",
+      "why": "term",
+      "final": [
+        100,
+        100
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 106,
+      "orig": "الاسكيو",
+      "to": "الـskew",
+      "why": "term",
+      "final": [
+        106,
+        106
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 112,
+      "orig": "بباي",
+      "to": "بـPySpark",
+      "why": "term",
+      "final": [
+        112,
+        112
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 113,
+      "orig": "سبارك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 117,
+      "orig": "البيك",
+      "to": "big",
+      "why": "term",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 118,
+      "orig": "داتا",
+      "to": "data",
+      "why": "term",
+      "final": [
+        117,
+        117
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 121,
+      "orig": "الدياتا",
+      "to": "الداتا",
+      "why": "term",
+      "final": [
+        120,
+        120
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 143,
+      "orig": "لألفين",
+      "to": "لـ2004",
+      "why": "number",
+      "final": [
+        142,
+        142
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 144,
+      "orig": "واربعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 145,
+      "orig": "جوجل",
+      "to": "Google",
+      "why": "term",
+      "final": [
+        143,
+        143
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 157,
+      "orig": "وما",
+      "to": "وMapReduce",
+      "why": "term",
+      "final": [
+        155,
+        155
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 158,
+      "orig": "بريديوس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 162,
+      "orig": "ألفين",
+      "to": "2006",
+      "why": "number",
+      "final": [
+        159,
+        159
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 163,
+      "orig": "وستة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 164,
+      "orig": "دوك",
+      "to": "Doug",
+      "why": "term",
+      "final": [
+        160,
+        160
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 165,
+      "orig": "كاتينج",
+      "to": "Cutting",
+      "why": "term",
+      "final": [
+        161,
+        161
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 171,
+      "orig": "بهدوب",
+      "to": "بـHadoop",
+      "why": "term",
+      "final": [
+        167,
+        167
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 178,
+      "orig": "لألفين",
+      "to": "لـ2009",
+      "why": "number",
+      "final": [
+        174,
+        174
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 179,
+      "orig": "وتسعة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 182,
+      "orig": "بيركلي",
+      "to": "Berkeley",
+      "why": "term",
+      "final": [
+        177,
+        177
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 185,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        180,
+        180
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 209,
+      "orig": "بلوك",
+      "to": "block",
+      "why": "term",
+      "final": [
+        204,
+        204
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 212,
+      "orig": "ميجا",
+      "to": "MB",
+      "why": "term",
+      "final": [
+        207,
+        207
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 213,
+      "orig": "بايت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 215,
+      "orig": "البلوكس",
+      "to": "الـblocks",
+      "why": "term",
+      "final": [
+        209,
+        209
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 220,
+      "orig": "الكلاستر",
+      "to": "الـcluster",
+      "why": "term",
+      "final": [
+        214,
+        214
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 225,
+      "orig": "Data",
+      "to": "DataNodes",
+      "why": "term",
+      "final": [
+        219,
+        219
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 226,
+      "orig": "Nodes",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 235,
+      "orig": "بلوك",
+      "to": "block",
+      "why": "term",
+      "final": [
+        228,
+        228
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 245,
+      "orig": "راكس",
+      "to": "racks",
+      "why": "term",
+      "final": [
+        238,
+        238
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 256,
+      "orig": "جيجا",
+      "to": "GB",
+      "why": "term",
+      "final": [
+        249,
+        249
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 260,
+      "orig": "بلوكس",
+      "to": "blocks",
+      "why": "term",
+      "final": [
+        253,
+        253
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 264,
+      "orig": "ثلاث",
+      "to": "3",
+      "why": "number",
+      "final": [
+        257,
+        257
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 285,
+      "orig": "النام",
+      "to": "الـNameNode",
+      "why": "term",
+      "final": [
+        278,
+        278
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 286,
+      "orig": "نود",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 291,
+      "orig": "الكلاستر",
+      "to": "الـcluster",
+      "why": "term",
+      "final": [
+        283,
+        283
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 295,
+      "orig": "الميمري",
+      "to": "الـmemory",
+      "why": "term",
+      "final": [
+        287,
+        287
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 297,
+      "orig": "كمتا",
+      "to": "metadata",
+      "why": "term",
+      "final": [
+        289,
+        289
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 298,
+      "orig": "ديتا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 306,
+      "orig": "النام",
+      "to": "الـNameNode",
+      "why": "term",
+      "final": [
+        297,
+        297
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 307,
+      "orig": "نود",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 312,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "term",
+      "final": [
+        302,
+        302
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 322,
+      "orig": "النام",
+      "to": "الـNameNode",
+      "why": "term",
+      "final": [
+        312,
+        312
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 323,
+      "orig": "نود",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 327,
+      "orig": "كارست",
+      "to": "كارثة",
+      "why": "mishear",
+      "final": [
+        316,
+        316
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 328,
+      "orig": "متا",
+      "to": "metadata",
+      "why": "term",
+      "final": [
+        317,
+        317
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 329,
+      "orig": "ديتا",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 331,
+      "orig": "كارست",
+      "to": "كارثة",
+      "why": "mishear",
+      "final": [
+        319,
+        319
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 332,
+      "orig": "ديتا",
+      "to": "داتا",
+      "why": "term",
+      "final": [
+        320,
+        320
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 361,
+      "orig": "ال",
+      "to": "الـDataNodes",
+      "why": "term",
+      "final": [
+        349,
+        349
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 362,
+      "orig": "data",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 363,
+      "orig": "notes",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 377,
+      "orig": "الكلاستر",
+      "to": "الـcluster",
+      "why": "term",
+      "final": [
+        363,
+        363
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 387,
+      "orig": "الكلاستر",
+      "to": "الـcluster",
+      "why": "term",
+      "final": [
+        373,
+        373
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 390,
+      "orig": "البلوكس",
+      "to": "الـblocks",
+      "why": "term",
+      "final": [
+        376,
+        376
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 417,
+      "orig": "السيف",
+      "to": "الـsafe",
+      "why": "term",
+      "final": [
+        403,
+        403
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 418,
+      "orig": "مود",
+      "to": "mode",
+      "why": "term",
+      "final": [
+        404,
+        404
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 438,
+      "orig": "الماء",
+      "to": "الـMapReduce",
+      "why": "term",
+      "final": [
+        424,
+        424
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 439,
+      "orig": "بريديوس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 448,
+      "orig": "الديتا",
+      "to": "الداتا",
+      "why": "term",
+      "final": [
+        433,
+        433
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 471,
+      "orig": "الماب",
+      "to": "الـmap",
+      "why": "term",
+      "final": [
+        456,
+        456
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 483,
+      "orig": "الشفل",
+      "to": "الـshuffle",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 497,
+      "orig": "بايتس",
+      "to": "bytes",
+      "why": "term",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 504,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "term",
+      "final": [
+        489,
+        489
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 518,
+      "orig": "الريديوس",
+      "to": "الـreduce",
+      "why": "term",
+      "final": [
+        503,
+        503
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 536,
+      "orig": "هايف",
+      "to": "Hive",
+      "why": "term",
+      "final": [
+        521,
+        521
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 550,
+      "orig": "HBZ",
+      "to": "HBase",
+      "why": "term",
+      "final": [
+        535,
+        535
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 558,
+      "orig": "زوكيبر",
+      "to": "ZooKeeper",
+      "why": "term",
+      "final": [
+        543,
+        543
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 575,
+      "orig": "سكوب",
+      "to": "Sqoop",
+      "why": "term",
+      "final": [
+        560,
+        560
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 576,
+      "orig": "وفلوم",
+      "to": "وFlume",
+      "why": "term",
+      "final": [
+        561,
+        561
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 606,
+      "orig": "جافا",
+      "to": "Java",
+      "why": "term",
+      "final": [
+        591,
+        591
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 609,
+      "orig": "وأربع",
+      "to": "و4",
+      "why": "number",
+      "final": [
+        594,
+        594
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 611,
+      "orig": "كونفيك",
+      "to": "config",
+      "why": "term",
+      "final": [
+        596,
+        596
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 619,
+      "orig": "فورمات",
+      "to": "format",
+      "why": "term",
+      "final": [
+        604,
+        604
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 620,
+      "orig": "للنيم",
+      "to": "للـNameNode",
+      "why": "term",
+      "final": [
+        605,
+        605
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 621,
+      "orig": "نود",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 629,
+      "orig": "الديمنز",
+      "to": "الـdaemons",
+      "why": "term",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 632,
+      "orig": "البرتات",
+      "to": "الـports",
+      "why": "term",
+      "final": [
+        616,
+        616
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 638,
+      "orig": "لليارن",
+      "to": "لـYARN",
+      "why": "term",
+      "final": [
+        622,
+        622
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 643,
+      "orig": "الاسبارك",
+      "to": "الـSpark",
+      "why": "term",
+      "final": [
+        627,
+        627
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 646,
+      "orig": "الميموري",
+      "to": "الـmemory",
+      "why": "term",
+      "final": [
+        630,
+        630
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 650,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        634,
+        634
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 671,
+      "orig": "الماب",
+      "to": "الـMapReduce",
+      "why": "term",
+      "final": [
+        655,
+        655
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 672,
+      "orig": "ريديوس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 679,
+      "orig": "الدسك",
+      "to": "الـdisk",
+      "why": "term",
+      "final": [
+        662,
+        662
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 683,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        666,
+        666
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 690,
+      "orig": "الزاكرة",
+      "to": "الذاكرة",
+      "why": "mishear",
+      "final": [
+        673,
+        673
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 692,
+      "orig": "الماموري",
+      "to": "الـmemory",
+      "why": "term",
+      "final": [
+        675,
+        675
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 698,
+      "orig": "مئة",
+      "to": "100",
+      "why": "number",
+      "final": [
+        681,
+        681
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 705,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        688,
+        688
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 706,
+      "orig": "واسكيو",
+      "to": "وSQL",
+      "why": "term",
+      "final": [
+        689,
+        689
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 707,
+      "orig": "أل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 719,
+      "orig": "هادوب",
+      "to": "Hadoop",
+      "why": "term",
+      "final": [
+        701,
+        701
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 723,
+      "orig": "وسبارك",
+      "to": "وSpark",
+      "why": "term",
+      "final": [
+        705,
+        705
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 731,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        713,
+        713
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 748,
+      "orig": "ترانسفورميشنز",
+      "to": "transformations",
+      "why": "term",
+      "final": [
+        730,
+        730
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 754,
+      "orig": "الداج",
+      "to": "الـDAG",
+      "why": "term",
+      "final": [
+        736,
+        736
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 778,
+      "orig": "أكشن",
+      "to": "action",
+      "why": "term",
+      "final": [
+        760,
+        760
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 804,
+      "orig": "لستيجز",
+      "to": "لـstages",
+      "why": "term",
+      "final": [
+        786,
+        786
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 810,
+      "orig": "النارو",
+      "to": "الـnarrow",
+      "why": "term",
+      "final": [
+        792,
+        792
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 827,
+      "orig": "وايد",
+      "to": "wide",
+      "why": "term",
+      "final": [
+        809,
+        809
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 835,
+      "orig": "الاستيج",
+      "to": "الـstage",
+      "why": "term",
+      "final": [
+        817,
+        817
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 838,
+      "orig": "الاستيجز",
+      "to": "الـstages",
+      "why": "term",
+      "final": [
+        820,
+        820
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 842,
+      "orig": "الشوفلز",
+      "to": "الـshuffles",
+      "why": "term",
+      "final": [
+        824,
+        824
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 860,
+      "orig": "قرية",
+      "to": "قراءة",
+      "why": "mishear",
+      "final": [
+        842,
+        842
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 864,
+      "orig": "الإكسيكيوشن",
+      "to": "الـexecution",
+      "why": "term",
+      "final": [
+        846,
+        846
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 865,
+      "orig": "بلان",
+      "to": "plan",
+      "why": "term",
+      "final": [
+        847,
+        847
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 867,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        849,
+        849
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 878,
+      "orig": "الإكسشينج",
+      "to": "الـExchange",
+      "why": "term",
+      "final": [
+        860,
+        860
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 880,
+      "orig": "الشفل",
+      "to": "الـshuffle",
+      "why": "term",
+      "final": [
+        862,
+        862
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 889,
+      "orig": "للكاتاليست",
+      "to": "للـCatalyst",
+      "why": "term",
+      "final": [
+        871,
+        871
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 890,
+      "orig": "أوبتومايزر",
+      "to": "Optimizer",
+      "why": "term",
+      "final": [
+        872,
+        872
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 977,
+      "orig": "السكيو",
+      "to": "الـskew",
+      "why": "term",
+      "final": [
+        959,
+        959
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 986,
+      "orig": "البجداتا",
+      "to": "الـbig data",
+      "why": "term",
+      "final": [
+        968,
+        969
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 993,
+      "orig": "ستيج",
+      "to": "stage",
+      "why": "term",
+      "final": [
+        976,
+        976
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 995,
+      "orig": "امتين",
+      "to": "200",
+      "why": "number",
+      "final": [
+        978,
+        978
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1024,
+      "orig": "السكيو",
+      "to": "الـskew",
+      "why": "term",
+      "final": [
+        1007,
+        1007
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1034,
+      "orig": "الكلاستر",
+      "to": "الـcluster",
+      "why": "term",
+      "final": [
+        1017,
+        1017
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1047,
+      "orig": "ساعة",
+      "to": "سعة",
+      "why": "mishear",
+      "final": [
+        1030,
+        1030
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1062,
+      "orig": "ثلاث",
+      "to": "3",
+      "why": "number",
+      "final": [
+        1045,
+        1045
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1084,
+      "orig": "الكي",
+      "to": "الـkey",
+      "why": "term",
+      "final": [
+        1067,
+        1067
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1099,
+      "orig": "البرودكاست",
+      "to": "الـbroadcast",
+      "why": "term",
+      "final": [
+        1082,
+        1082
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1100,
+      "orig": "جوين",
+      "to": "join",
+      "why": "term",
+      "final": [
+        1083,
+        1083
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1113,
+      "orig": "الشفل",
+      "to": "الـshuffle",
+      "why": "term",
+      "final": [
+        1096,
+        1096
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1122,
+      "orig": "ببي",
+      "to": "بـPySpark",
+      "why": "term",
+      "final": [
+        1105,
+        1105
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1123,
+      "orig": "سبارك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1143,
+      "orig": "السكيمة",
+      "to": "الـschema",
+      "why": "term",
+      "final": [
+        1125,
+        1125
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1144,
+      "orig": "سبئديكم",
+      "to": "بإيديكم",
+      "why": "mishear",
+      "final": [
+        1126,
+        1126
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1146,
+      "orig": "Struct",
+      "to": "StructType",
+      "why": "term",
+      "final": [
+        1128,
+        1128
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1147,
+      "orig": "Type",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1151,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        1132,
+        1132
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1175,
+      "orig": "Built",
+      "to": "Built-in",
+      "why": "term",
+      "final": [
+        1156,
+        1156
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1176,
+      "orig": "-in",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1179,
+      "orig": "سبارك",
+      "to": "Spark",
+      "why": "term",
+      "final": [
+        1159,
+        1159
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1198,
+      "orig": "Windows",
+      "to": "Window",
+      "why": "term",
+      "final": [
+        1178,
+        1178
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1211,
+      "orig": "والرانكينج",
+      "to": "والـranking",
+      "why": "term",
+      "final": [
+        1191,
+        1191
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1244,
+      "orig": "داتة",
+      "to": "داتا",
+      "why": "term",
+      "final": [
+        1224,
+        1224
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1273,
+      "orig": "Pie",
+      "to": "PySpark",
+      "why": "term",
+      "final": [
+        1253,
+        1253
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1274,
+      "orig": "Spark",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1286,
+      "orig": "والجولد",
+      "to": "والـGold",
+      "why": "term",
+      "final": [
+        1265,
+        1265
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1324,
+      "orig": "الباتش",
+      "to": "الـbatch",
+      "why": "term",
+      "final": [
+        1303,
+        1303
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1325,
+      "orig": "بروساسنج",
+      "to": "processing",
+      "why": "term",
+      "final": [
+        1304,
+        1304
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1356,
+      "orig": "الريل",
+      "to": "الـreal-time",
+      "why": "term",
+      "final": [
+        1335,
+        1335
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1357,
+      "orig": "تايم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1358,
+      "orig": "ستريمين",
+      "to": "streaming",
+      "why": "term",
+      "final": [
+        1336,
+        1336
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1362,
+      "orig": "كافكا",
+      "to": "Kafka",
+      "why": "term",
+      "final": [
+        1340,
+        1340
+      ]
+    }
+  ],
+  "notes": "No dropouts certain enough to insert (no inserts). Edits: Latin forms for terms (Spark, Hadoop, Hive, HBase, ZooKeeper, Sqoop, Flume, MapReduce, NameNode, DataNodes, YARN, PySpark, DAG, Catalyst Optimizer, skew, key, blocks, racks, shuffle...), numbers to digits (2004, 2006, 2009, 3, 4, 100, 200, MB/GB), and multi-token terms merged into one token with the following word(s) set to '' (e.g. 285/286 NameNode, 297-298 and 327-329 metadata, 361-363 DataNodes, 112-113 and 1122-1123 PySpark, 1273-1274 PySpark, 1356-1358 real-time streaming). Mishears fixed only where source_excerpt supports them: 327/331 كارست->كارثة, 690 الزاكرة->الذاكرة, 860 قرية->قراءة (sc12 'تقرا plan'), 1047 ساعة->سعة (sc14 'مش سعة'), 1144 سبئديكم->بإيديكم (sc15 'بإيدك'). Left unedited because source_excerpt does not prove them (likely mishearings, flag for audio check): 6 مؤادمات (مقدمات), 78 نلتبق, 100/184/642 صورة/فورة (ثورة), 104 طلاصم (طلاسم), 136-137 الرايا البيضة (الراية البيضاء), 181 جمعت (جامعة), 392 وعد (فقد/ضاع?), 398 المزهل (المذهل), 481 أتأل (أغلى/أتقل?), 487-491 عن كبوتية منورة وصلة (عنكبوتية ... موصلة), 496-499 عدات/عمالي/عد (عدادات ... عمال يعد), 519 بيلمت (بيلم), 585 وتراص (وتراث), 586-590 'ظهر بعضهم أدوات' (ظهر بدالهم?), 605 تصبيطات, 613 التركال (unclear), 673-675 'كانت إيه القوي' (unclear), 693-695 'ودخل لقى أطير', 708 الفجرة and 711 بينفسوا (المفاجأة / بينافسوا), 720 يشير (يشيل), 963 تصبيت (تظبيط), 987 اخيالوا (تخيلوا), 1025 الكارسة (الكارثة), 1030 سيربرات (سيرفرات), 1037 هتتحلق (هتتحلحل), 1142 حديدوا (حددوا), 1205 المجميع (المجموع), 1277 وموصوق (وموثوق), 1282 تأسيمات (تقسيمات), 1303 التغزين (التخزين), 1321 عملين (عمالين). Word 1279-1280 'Partition 1' kept as whisper wrote it (speaker likely says one partition). Sentence glosses reflect the intended meaning of these words. Edited/deleted indices are still covered by sentences; all sentences are 4-28 index-words.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 13,
+      "kind": "transition",
+      "gloss_en": "Welcome, and no long introductions - let's dive straight into the details.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 14,
+      "to": 25,
+      "kind": "transition",
+      "gloss_en": "In today's review of the sources we face a technological puzzle we all live with.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 26,
+      "to": 49,
+      "kind": "question",
+      "gloss_en": "What really happens when data volume explodes so far that no single computer, however powerful or advanced, can hold or process it?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 50,
+      "to": 65,
+      "kind": "claim",
+      "gloss_en": "This is exactly where we must leave the idea of one super machine and move to distributed systems, the distributed approach.",
+      "terms": [
+        "distributed approach"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 66,
+      "to": 76,
+      "kind": "transition",
+      "gloss_en": "Let's see how this technology grew and evolved to solve this crisis.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 77,
+      "to": 85,
+      "kind": "transition",
+      "gloss_en": "To organise our thoughts, this is the main outline we will follow.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 86,
+      "to": 89,
+      "kind": "transition",
+      "gloss_en": "We start with the big data era.",
+      "terms": [
+        "big data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 90,
+      "to": 95,
+      "kind": "transition",
+      "gloss_en": "Then we move to MapReduce and its ecosystem.",
+      "terms": [
+        "MapReduce"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 96,
+      "to": 101,
+      "kind": "transition",
+      "gloss_en": "Third, we look at the fast Spark revolution.",
+      "terms": [
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 102,
+      "to": 107,
+      "kind": "transition",
+      "gloss_en": "Fourth, we unravel the skew problem and its solutions.",
+      "terms": [
+        "skew"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 108,
+      "to": 112,
+      "kind": "transition",
+      "gloss_en": "Finally we close with hands-on practice in PySpark.",
+      "terms": [
+        "PySpark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 113,
+      "to": 117,
+      "kind": "transition",
+      "gloss_en": "First, the big data era.",
+      "terms": [
+        "big data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 118,
+      "to": 124,
+      "kind": "claim",
+      "gloss_en": "The moment when data broke every limit.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 125,
+      "to": 139,
+      "kind": "claim",
+      "gloss_en": "The whole story began the moment a single machine raised the white flag in front of the volume of data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 140,
+      "to": 150,
+      "kind": "claim",
+      "gloss_en": "Going back to 2004, Google were the first people to hit this wall.",
+      "terms": [],
+      "numbers": [
+        "2004"
+      ],
+      "entities": [
+        "Google"
+      ]
+    },
+    {
+      "from": 151,
+      "to": 155,
+      "kind": "claim",
+      "gloss_en": "They published their papers on GFS and MapReduce.",
+      "terms": [
+        "GFS",
+        "MapReduce"
+      ],
+      "numbers": [],
+      "entities": [
+        "Google"
+      ]
+    },
+    {
+      "from": 156,
+      "to": 167,
+      "kind": "claim",
+      "gloss_en": "Two years later, in 2006, Doug Cutting took those papers and produced Hadoop for us.",
+      "terms": [
+        "Hadoop"
+      ],
+      "numbers": [
+        "2006"
+      ],
+      "entities": [
+        "Doug Cutting"
+      ]
+    },
+    {
+      "from": 168,
+      "to": 174,
+      "kind": "claim",
+      "gloss_en": "And development kept going until we reached 2009.",
+      "terms": [],
+      "numbers": [
+        "2009"
+      ],
+      "entities": []
+    },
+    {
+      "from": 175,
+      "to": 187,
+      "kind": "claim",
+      "gloss_en": "When Berkeley set off the Spark revolution to make work much faster and in a different way.",
+      "terms": [
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": [
+        "Berkeley"
+      ]
+    },
+    {
+      "from": 188,
+      "to": 195,
+      "kind": "transition",
+      "gloss_en": "Imagine this scene with me as if it were in 3D in front of us.",
+      "terms": [
+        "3D"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 196,
+      "to": 200,
+      "kind": "example",
+      "gloss_en": "A giant file gets cut into small pieces.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 201,
+      "to": 208,
+      "kind": "example",
+      "gloss_en": "Each piece, or block, is exactly 128 MB in size.",
+      "terms": [
+        "block"
+      ],
+      "numbers": [
+        "128 MB"
+      ],
+      "entities": []
+    },
+    {
+      "from": 209,
+      "to": 214,
+      "kind": "example",
+      "gloss_en": "These blocks literally fly across the cluster.",
+      "terms": [
+        "blocks",
+        "cluster"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 215,
+      "to": 219,
+      "kind": "example",
+      "gloss_en": "And get lodged into machines called DataNodes.",
+      "terms": [
+        "DataNodes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 220,
+      "to": 231,
+      "kind": "example",
+      "gloss_en": "And to make sure nothing gets lost, each block is copied 3 times.",
+      "terms": [
+        "block"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 232,
+      "to": 243,
+      "kind": "claim",
+      "gloss_en": "And the copies are spread over different racks in the servers for the sake of safety.",
+      "terms": [
+        "racks"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 244,
+      "to": 253,
+      "kind": "example",
+      "gloss_en": "So if we have a 1 GB file, it will be broken into 8 blocks.",
+      "terms": [
+        "blocks"
+      ],
+      "numbers": [
+        "1 GB",
+        "8"
+      ],
+      "entities": []
+    },
+    {
+      "from": 254,
+      "to": 263,
+      "kind": "example",
+      "gloss_en": "And each one has 3 copies, so that is 24 copies, fully protected.",
+      "terms": [],
+      "numbers": [
+        "3",
+        "24"
+      ],
+      "entities": []
+    },
+    {
+      "from": 264,
+      "to": 274,
+      "kind": "question",
+      "gloss_en": "So who is driving this show, and knows the locations of those 24 copies?",
+      "terms": [],
+      "numbers": [
+        "24"
+      ],
+      "entities": []
+    },
+    {
+      "from": 275,
+      "to": 289,
+      "kind": "claim",
+      "gloss_en": "The maestro here is called the NameNode; it holds the map of the whole cluster and keeps it in memory, as metadata.",
+      "terms": [
+        "NameNode",
+        "cluster",
+        "memory",
+        "metadata"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 290,
+      "to": 296,
+      "kind": "transition",
+      "gloss_en": "But pay attention to this detail, it is very important.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 297,
+      "to": 308,
+      "kind": "claim",
+      "gloss_en": "The NameNode never touches the actual data with its own hands; it holds the map and that is all.",
+      "terms": [
+        "NameNode"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 309,
+      "to": 320,
+      "kind": "claim",
+      "gloss_en": "So if the NameNode goes down, that is literally a metadata disaster, not a data disaster.",
+      "terms": [
+        "NameNode",
+        "metadata"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 321,
+      "to": 340,
+      "kind": "claim",
+      "gloss_en": "From here comes the importance of always having a high availability backup or a ready replacement that steps in within a fraction of a second.",
+      "terms": [
+        "high availability",
+        "backup"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 341,
+      "to": 345,
+      "kind": "transition",
+      "gloss_en": "Let's imagine a slightly scary scenario.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 346,
+      "to": 356,
+      "kind": "example",
+      "gloss_en": "Suddenly one of these DataNodes dies, and its heartbeat stops.",
+      "terms": [
+        "DataNodes",
+        "heartbeat"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 357,
+      "to": 365,
+      "kind": "example",
+      "gloss_en": "After exactly 10 minutes and 30 seconds, the cluster notices.",
+      "terms": [
+        "cluster"
+      ],
+      "numbers": [
+        "10 minutes",
+        "30 seconds"
+      ],
+      "entities": []
+    },
+    {
+      "from": 366,
+      "to": 369,
+      "kind": "question",
+      "gloss_en": "Does everything stop? Not at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 370,
+      "to": 383,
+      "kind": "claim",
+      "gloss_en": "There is total calm; the cluster starts copying the lost blocks from the other healthy machines.",
+      "terms": [
+        "cluster",
+        "blocks"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 384,
+      "to": 395,
+      "kind": "claim",
+      "gloss_en": "And the amazing part is that the file keeps being read perfectly normally, as if nothing happened.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 396,
+      "to": 418,
+      "kind": "claim",
+      "gloss_en": "All that happens is the system enters safe mode, which only blocks writing temporarily until it confirms everything is back to the required safety level.",
+      "terms": [
+        "safe mode"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 419,
+      "to": 426,
+      "kind": "transition",
+      "gloss_en": "Let's move on to the second section: MapReduce and the surrounding ecosystem.",
+      "terms": [
+        "MapReduce"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 427,
+      "to": 435,
+      "kind": "claim",
+      "gloss_en": "The brilliant idea is that we send the computation to where the data is, not the other way round.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 436,
+      "to": 448,
+      "kind": "claim",
+      "gloss_en": "The heart of the matter is that we move the processing power itself and send it right to the data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 449,
+      "to": 453,
+      "kind": "claim",
+      "gloss_en": "The steps are very simple, yet brilliant.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 454,
+      "to": 463,
+      "kind": "claim",
+      "gloss_en": "First comes the map, which processes the data in place on the machine.",
+      "terms": [
+        "map"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 464,
+      "to": 468,
+      "kind": "transition",
+      "gloss_en": "Then comes the heaviest stage, the shuffle.",
+      "terms": [
+        "shuffle"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 469,
+      "to": 485,
+      "kind": "example",
+      "gloss_en": "Picture it as a huge spider-web network linking all the machines, with bytes counters ticking up like crazy.",
+      "terms": [
+        "bytes"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 486,
+      "to": 495,
+      "kind": "claim",
+      "gloss_en": "This is the moment when the data travels across the network to be gathered.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 496,
+      "to": 500,
+      "kind": "claim",
+      "gloss_en": "This stage is very expensive and slow.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 501,
+      "to": 510,
+      "kind": "claim",
+      "gloss_en": "And finally the reduce collects all these results and produces the summary for us.",
+      "terms": [
+        "reduce"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 511,
+      "to": 519,
+      "kind": "claim",
+      "gloss_en": "Over time this technology built a whole ecosystem around itself.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 520,
+      "to": 534,
+      "kind": "example",
+      "gloss_en": "For example Hive brought the easy SQL language and applied it to HDFS files, and it is still working today.",
+      "terms": [
+        "Hive",
+        "SQL",
+        "HDFS"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 535,
+      "to": 541,
+      "kind": "example",
+      "gloss_en": "HBase was built specifically for fast random reads and writes.",
+      "terms": [
+        "HBase"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 542,
+      "to": 556,
+      "kind": "example",
+      "gloss_en": "And we have ZooKeeper, which is like the referee that organises the work and picks the leader among machines, and its presence is still essential.",
+      "terms": [
+        "ZooKeeper"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 557,
+      "to": 570,
+      "kind": "example",
+      "gloss_en": "As for things like Sqoop and Flume that used to move data, those have become just history and heritage.",
+      "terms": [
+        "Sqoop",
+        "Flume"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 571,
+      "to": 578,
+      "kind": "claim",
+      "gloss_en": "Because newer tools appeared that did the job and more.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 579,
+      "to": 590,
+      "kind": "transition",
+      "gloss_en": "If we want to try this hands-on on our own machine, it needs a few set-up steps.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 591,
+      "to": 597,
+      "kind": "example",
+      "gloss_en": "Java and an SSH setup, and four small config files.",
+      "terms": [
+        "Java",
+        "SSH",
+        "config"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 598,
+      "to": 610,
+      "kind": "example",
+      "gloss_en": "The only important point is that we run format on the NameNode once only in a lifetime.",
+      "terms": [
+        "format",
+        "NameNode"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 611,
+      "to": 622,
+      "kind": "example",
+      "gloss_en": "After that we start the daemons and check the ports are open, like 9870 for HDFS and 8088 for YARN.",
+      "terms": [
+        "daemons",
+        "ports",
+        "HDFS",
+        "YARN"
+      ],
+      "numbers": [
+        "9870",
+        "8088"
+      ],
+      "entities": []
+    },
+    {
+      "from": 623,
+      "to": 632,
+      "kind": "transition",
+      "gloss_en": "We have reached the third section, the fast Spark revolution: how memory changed the game.",
+      "terms": [
+        "Spark",
+        "memory"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 633,
+      "to": 638,
+      "kind": "claim",
+      "gloss_en": "Spark came along and turned the balance upside down.",
+      "terms": [
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 639,
+      "to": 649,
+      "kind": "claim",
+      "gloss_en": "It did not change the basic concepts but changed the way of execution by 180 degrees.",
+      "terms": [],
+      "numbers": [
+        "180"
+      ],
+      "entities": []
+    },
+    {
+      "from": 650,
+      "to": 665,
+      "kind": "claim",
+      "gloss_en": "If we look at the comparison we find MapReduce reads and writes from the disk after every step.",
+      "terms": [
+        "MapReduce",
+        "disk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 666,
+      "to": 675,
+      "kind": "claim",
+      "gloss_en": "Spark said no: I will keep the data in memory.",
+      "terms": [
+        "Spark",
+        "memory"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 676,
+      "to": 682,
+      "kind": "claim",
+      "gloss_en": "And it turned out faster, up to 100 times.",
+      "terms": [],
+      "numbers": [
+        "100"
+      ],
+      "entities": []
+    },
+    {
+      "from": 683,
+      "to": 689,
+      "kind": "claim",
+      "gloss_en": "It also supports many languages like Python and SQL.",
+      "terms": [
+        "Python",
+        "SQL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 690,
+      "to": 700,
+      "kind": "claim",
+      "gloss_en": "The surprise is that they do not compete with each other; mostly you find them working together.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 701,
+      "to": 708,
+      "kind": "claim",
+      "gloss_en": "Hadoop holds and stores the data, and Spark does the rocket-fast processing.",
+      "terms": [
+        "Hadoop",
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 709,
+      "to": 720,
+      "kind": "claim",
+      "gloss_en": "One of the most enjoyable things about Spark is that it is a very lazy system, but lazy with a purpose.",
+      "terms": [
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 721,
+      "to": 730,
+      "kind": "claim",
+      "gloss_en": "We can stack lots and lots of operations on top of each other, the transformations.",
+      "terms": [
+        "transformations"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 731,
+      "to": 738,
+      "kind": "claim",
+      "gloss_en": "And keep building its map, the DAG, from the inside.",
+      "terms": [
+        "DAG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 739,
+      "to": 749,
+      "kind": "claim",
+      "gloss_en": "While it just sits watching and nothing at all happens, literally zero execution.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 750,
+      "to": 760,
+      "kind": "claim",
+      "gloss_en": "It stays waiting and postpones the work until we give it an explicit command, an action.",
+      "terms": [
+        "action"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 761,
+      "to": 773,
+      "kind": "claim",
+      "gloss_en": "This patience is what lets it study the whole map, filter it and optimise performance in an amazing way.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 774,
+      "to": 779,
+      "kind": "claim",
+      "gloss_en": "Then it explodes into action and gets going within seconds.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 780,
+      "to": 788,
+      "kind": "claim",
+      "gloss_en": "And once it starts executing, it splits the work into stages.",
+      "terms": [
+        "stages"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 789,
+      "to": 803,
+      "kind": "claim",
+      "gloss_en": "The light, narrow operations like filtering stay and run in place on the same machine.",
+      "terms": [
+        "narrow"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 804,
+      "to": 819,
+      "kind": "claim",
+      "gloss_en": "But as soon as we need a wide operation, meaning we must move data between machines, the stage gets cut right there.",
+      "terms": [
+        "wide",
+        "stage"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 820,
+      "to": 833,
+      "kind": "claim",
+      "gloss_en": "The stages are cut precisely at the shuffles, because that is the high-cost point that consumes network resources.",
+      "terms": [
+        "stages",
+        "shuffles"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 834,
+      "to": 849,
+      "kind": "transition",
+      "gloss_en": "So if we want to be real professionals in reading the execution plan of Spark.",
+      "terms": [
+        "execution plan",
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 850,
+      "to": 855,
+      "kind": "claim",
+      "gloss_en": "The secret is not memorising the names of operations.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 856,
+      "to": 866,
+      "kind": "claim",
+      "gloss_en": "The secret is to look for the Exchange, the shuffle, and understand why it happens.",
+      "terms": [
+        "Exchange",
+        "shuffle"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 867,
+      "to": 884,
+      "kind": "claim",
+      "gloss_en": "And here we must salute the Catalyst Optimizer, the mastermind that rewrites our code so it filters the data early on.",
+      "terms": [
+        "Catalyst",
+        "Optimizer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 885,
+      "to": 899,
+      "kind": "claim",
+      "gloss_en": "That is what makes using DataFrames much, much better and faster than the old-days RDDs.",
+      "terms": [
+        "DataFrames",
+        "RDDs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 900,
+      "to": 906,
+      "kind": "transition",
+      "gloss_en": "All of this brings us back to a pivotal point, the partition.",
+      "terms": [
+        "partition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 907,
+      "to": 917,
+      "kind": "claim",
+      "gloss_en": "The partition is the basic unit of work; the equation here needs a golden balance.",
+      "terms": [
+        "partition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 918,
+      "to": 931,
+      "kind": "claim",
+      "gloss_en": "If the partitions are too few, half the cluster's machines will sit idle doing nothing.",
+      "terms": [
+        "partitions",
+        "cluster"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 932,
+      "to": 944,
+      "kind": "claim",
+      "gloss_en": "And if there are too many, the system drowns in organising and scheduling thousands of tiny tasks, and performance collapses.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 945,
+      "to": 953,
+      "kind": "claim",
+      "gloss_en": "Getting this number right is what opens the door to real speed.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 954,
+      "to": 960,
+      "kind": "transition",
+      "gloss_en": "We move on to the fourth section: the skew problem and its solutions.",
+      "terms": [
+        "skew"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 961,
+      "to": 974,
+      "kind": "transition",
+      "gloss_en": "The problem that drives crazy anyone working in big data - imagine this infuriating situation with me.",
+      "terms": [
+        "big data"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 975,
+      "to": 986,
+      "kind": "example",
+      "gloss_en": "We have a stage with 200 tasks, 199 of which finished like a bullet in a single second.",
+      "terms": [
+        "stage"
+      ],
+      "numbers": [
+        "200",
+        "199"
+      ],
+      "entities": []
+    },
+    {
+      "from": 987,
+      "to": 998,
+      "kind": "example",
+      "gloss_en": "And one single huge task, stuck, kept running and refused to finish, holding up all the work.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 999,
+      "to": 1007,
+      "kind": "example",
+      "gloss_en": "All the machines finished and sat idle - that is the skew.",
+      "terms": [
+        "skew"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1008,
+      "to": 1022,
+      "kind": "claim",
+      "gloss_en": "The disaster here is that if we bring new servers and stack them in the cluster, the problem will not budge a single step.",
+      "terms": [
+        "cluster"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1023,
+      "to": 1038,
+      "kind": "claim",
+      "gloss_en": "Because this is not a problem of machine power or capacity; it is that the data is wrongly distributed from the ground up.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1039,
+      "to": 1042,
+      "kind": "question",
+      "gloss_en": "So how do we solve it?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1043,
+      "to": 1049,
+      "kind": "claim",
+      "gloss_en": "The sources put forward 3 magic solutions to this problem.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1050,
+      "to": 1060,
+      "kind": "claim",
+      "gloss_en": "The first is that we do a Repartition, meaning we redistribute the data again evenly.",
+      "terms": [
+        "Repartition"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1061,
+      "to": 1078,
+      "kind": "claim",
+      "gloss_en": "The second is called Salting: we take the key causing the congestion and glue a random suffix onto it to break it up and split it.",
+      "terms": [
+        "Salting",
+        "key"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1079,
+      "to": 1083,
+      "kind": "claim",
+      "gloss_en": "The third solution is the broadcast join.",
+      "terms": [
+        "broadcast join"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1084,
+      "to": 1099,
+      "kind": "claim",
+      "gloss_en": "If we have a small table, we take it and copy it in full to all machines, and so avoid the shuffle and congestion at the root.",
+      "terms": [
+        "shuffle"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1100,
+      "to": 1105,
+      "kind": "transition",
+      "gloss_en": "And finally the fifth section: hands-on practice in PySpark.",
+      "terms": [
+        "PySpark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1106,
+      "to": 1112,
+      "kind": "transition",
+      "gloss_en": "How do we translate all this talk into real code?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1113,
+      "to": 1122,
+      "kind": "claim",
+      "gloss_en": "There are a few golden rules so that we write clean and fast code.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1123,
+      "to": 1135,
+      "kind": "claim",
+      "gloss_en": "Always define the schema yourselves with StructType instead of leaving Spark to guess it and waste our time.",
+      "terms": [
+        "schema",
+        "StructType",
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1136,
+      "to": 1150,
+      "kind": "claim",
+      "gloss_en": "Second, always make Parquet your basic storage format, because it is smart, space-saving and fast.",
+      "terms": [
+        "Parquet"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1151,
+      "to": 1159,
+      "kind": "claim",
+      "gloss_en": "And third, and most important, use the built-in functions of Spark.",
+      "terms": [
+        "Built-in",
+        "Functions",
+        "Spark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1160,
+      "to": 1171,
+      "kind": "claim",
+      "gloss_en": "And completely avoid Python UDFs, because they literally destroy performance and make it very slow.",
+      "terms": [
+        "Python",
+        "UDFs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1172,
+      "to": 1183,
+      "kind": "claim",
+      "gloss_en": "And when we want to do advanced work, Window Functions finish complex calculations for us.",
+      "terms": [
+        "Window Functions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1184,
+      "to": 1192,
+      "kind": "example",
+      "gloss_en": "Like cumulative sums or running totals, and ranking, with ease.",
+      "terms": [
+        "Running Totals",
+        "ranking"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1193,
+      "to": 1201,
+      "kind": "transition",
+      "gloss_en": "And the trick that really makes a difference is when we come to write the results.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1202,
+      "to": 1212,
+      "kind": "claim",
+      "gloss_en": "Use Partition By and put inside it, say, Order Date - this move is magic.",
+      "terms": [
+        "Partition By",
+        "Order Date"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1213,
+      "to": 1226,
+      "kind": "claim",
+      "gloss_en": "Because it splits the files by date, so any query afterwards that needs the data of a certain day.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1227,
+      "to": 1239,
+      "kind": "claim",
+      "gloss_en": "Will go and read that day's files only and ignore the rest entirely, so query speed becomes amazing.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1240,
+      "to": 1256,
+      "kind": "recap",
+      "gloss_en": "All the details we discussed finally come together to give us a strong and reliable Daily PySpark Job.",
+      "terms": [
+        "PySpark",
+        "Job"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1257,
+      "to": 1274,
+      "kind": "example",
+      "gloss_en": "It reads one partition, calculates customer segments like VIP and Gold, and writes the KPIs for just that day.",
+      "terms": [
+        "Partition",
+        "VIP",
+        "Gold",
+        "KPIs"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 1275,
+      "to": 1287,
+      "kind": "recap",
+      "gloss_en": "This counts as the ideal hands-on application of all the distributed storage and processing concepts we dissected today.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1288,
+      "to": 1296,
+      "kind": "transition",
+      "gloss_en": "But before we wrap up, a question forces itself on us strongly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1297,
+      "to": 1311,
+      "kind": "question",
+      "gloss_en": "All along we have been talking about batch processing, meaning processing data after it has been stored and gathered.",
+      "terms": [
+        "batch processing"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1312,
+      "to": 1320,
+      "kind": "claim",
+      "gloss_en": "But in our fast era, data does not wait for anyone.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1321,
+      "to": 1340,
+      "kind": "question",
+      "gloss_en": "So what happens when we need to know the information at that very moment, through real-time streaming with tools like Kafka?",
+      "terms": [
+        "real-time streaming",
+        "Kafka"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1341,
+      "to": 1351,
+      "kind": "prediction",
+      "gloss_en": "That is the new puzzle we need to think about and learn next time.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1352,
+      "to": 1359,
+      "kind": "recap",
+      "gloss_en": "I hope you benefited from our analysis of these sources today.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1360,
+      "to": 1367,
+      "kind": "recap",
+      "gloss_en": "And that the idea of distributed systems has become clearer and more enjoyable.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:08Z"
+}

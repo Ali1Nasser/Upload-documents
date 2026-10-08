@@ -1,0 +1,2207 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P16",
+  "asr_words": 1026,
+  "final_words": 1021,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 28,
+      "orig": "لرؤة",
+      "to": "لرؤى",
+      "why": "mishear",
+      "final": [
+        28,
+        28
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 40,
+      "orig": "للديتا",
+      "to": "للـdata",
+      "why": "term",
+      "final": [
+        40,
+        40
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 41,
+      "orig": "ويرهاوز",
+      "to": "warehouse",
+      "why": "term",
+      "final": [
+        41,
+        41
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 75,
+      "orig": "البردوكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        75,
+        75
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 85,
+      "orig": "توطر",
+      "to": "توتر",
+      "why": "mishear",
+      "final": [
+        85,
+        85
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 109,
+      "orig": "التنقض",
+      "to": "التناقض",
+      "why": "mishear",
+      "final": [
+        109,
+        109
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 128,
+      "orig": "الكويرز",
+      "to": "الـqueries",
+      "why": "term",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 139,
+      "orig": "الأولاب",
+      "to": "الـOLAP",
+      "why": "term",
+      "final": [
+        139,
+        139
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 141,
+      "orig": "الكويرز",
+      "to": "الـqueries",
+      "why": "term",
+      "final": [
+        141,
+        141
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 153,
+      "orig": "بالكويري",
+      "to": "بالـquery",
+      "why": "term",
+      "final": [
+        153,
+        153
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 158,
+      "orig": "البروداكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        158,
+        158
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 182,
+      "orig": "الديتا",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        182,
+        182
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 183,
+      "orig": "ويرهاوس",
+      "to": "warehouse",
+      "why": "term",
+      "final": [
+        183,
+        183
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 198,
+      "orig": "بالsources",
+      "to": "بالـsources",
+      "why": "term",
+      "final": [
+        198,
+        198
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 202,
+      "orig": "الods",
+      "to": "الـODS",
+      "why": "term",
+      "final": [
+        202,
+        202
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 213,
+      "orig": "للdata",
+      "to": "للـdata",
+      "why": "term",
+      "final": [
+        213,
+        213
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 221,
+      "orig": "الads",
+      "to": "الـADS",
+      "why": "term",
+      "final": [
+        221,
+        221
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 222,
+      "orig": "والmarts",
+      "to": "والـmarts",
+      "why": "term",
+      "final": [
+        222,
+        222
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 228,
+      "orig": "الingestion",
+      "to": "الـingestion",
+      "why": "term",
+      "final": [
+        228,
+        228
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 231,
+      "orig": "الstorage",
+      "to": "الـstorage",
+      "why": "term",
+      "final": [
+        231,
+        231
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 232,
+      "orig": "والstorage",
+      "to": "والـstorage",
+      "why": "term",
+      "final": [
+        232,
+        232
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 249,
+      "orig": "الwarehouse",
+      "to": "الـwarehouse",
+      "why": "term",
+      "final": [
+        249,
+        249
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 254,
+      "orig": "والعبقاري",
+      "to": "والعبقري",
+      "why": "mishear",
+      "final": [
+        254,
+        254
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 260,
+      "orig": "الستار",
+      "to": "الـstar",
+      "why": "term",
+      "final": [
+        260,
+        260
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 261,
+      "orig": "سكيمة",
+      "to": "schema",
+      "why": "term",
+      "final": [
+        261,
+        261
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 277,
+      "orig": "الجرين",
+      "to": "الـgrain",
+      "why": "term",
+      "final": [
+        277,
+        277
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 279,
+      "orig": "الفاكت",
+      "to": "الـfact",
+      "why": "term",
+      "final": [
+        279,
+        279
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 293,
+      "orig": "الجرين",
+      "to": "الـgrain",
+      "why": "term",
+      "final": [
+        293,
+        293
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 294,
+      "orig": "بتاوه",
+      "to": "بتاعه",
+      "why": "mishear",
+      "final": [
+        294,
+        294
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 306,
+      "orig": "الجرين",
+      "to": "الـgrain",
+      "why": "term",
+      "final": [
+        306,
+        306
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 331,
+      "orig": "الفاكت",
+      "to": "الـfact",
+      "why": "term",
+      "final": [
+        331,
+        331
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 336,
+      "orig": "الديمانشنز",
+      "to": "الـdimensions",
+      "why": "term",
+      "final": [
+        336,
+        336
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 352,
+      "orig": "الديت",
+      "to": "الـdate",
+      "why": "term",
+      "final": [
+        352,
+        352
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 361,
+      "orig": "الكاستمر",
+      "to": "الـcustomer",
+      "why": "term",
+      "final": [
+        361,
+        361
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 362,
+      "orig": "والبرودكت",
+      "to": "والـproduct",
+      "why": "term",
+      "final": [
+        362,
+        362
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 367,
+      "orig": "سارجت",
+      "to": "surrogate",
+      "why": "term",
+      "final": [
+        367,
+        367
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 368,
+      "orig": "كيز",
+      "to": "keys",
+      "why": "term",
+      "final": [
+        368,
+        368
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 373,
+      "orig": "الناتشرال",
+      "to": "الـnatural",
+      "why": "term",
+      "final": [
+        373,
+        373
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 374,
+      "orig": "كيز",
+      "to": "keys",
+      "why": "term",
+      "final": [
+        374,
+        374
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 399,
+      "orig": "اربع",
+      "to": "4",
+      "why": "number",
+      "final": [
+        399,
+        399
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 402,
+      "orig": "الماجرز",
+      "to": "الـmeasures",
+      "why": "term",
+      "final": [
+        402,
+        402
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 404,
+      "orig": "الادتف",
+      "to": "الـadditive",
+      "why": "term",
+      "final": [
+        404,
+        404
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 415,
+      "orig": "السيمي",
+      "to": "الـsemi-additive",
+      "why": "merge",
+      "final": [
+        415,
+        415
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 416,
+      "orig": "اعدتف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 418,
+      "orig": "ارصيدة",
+      "to": "أرصدة",
+      "why": "mishear",
+      "final": [
+        417,
+        417
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 422,
+      "orig": "للعملة",
+      "to": "للعملاء",
+      "why": "mishear",
+      "final": [
+        421,
+        421
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 429,
+      "orig": "النون",
+      "to": "الـnon-additive",
+      "why": "merge",
+      "final": [
+        428,
+        428
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 430,
+      "orig": "اعدتف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 433,
+      "orig": "المقاوية",
+      "to": "المئوية",
+      "why": "mishear",
+      "final": [
+        431,
+        431
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 439,
+      "orig": "الكاونترز",
+      "to": "الـcounters",
+      "why": "term",
+      "final": [
+        437,
+        437
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 442,
+      "orig": "العمل",
+      "to": "العملاء",
+      "why": "mishear",
+      "final": [
+        440,
+        440
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 465,
+      "orig": "مزهل",
+      "to": "مذهل",
+      "why": "mishear",
+      "final": [
+        463,
+        463
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 468,
+      "orig": "كيوب",
+      "to": "cube",
+      "why": "term",
+      "final": [
+        466,
+        466
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 474,
+      "orig": "بالسلايس",
+      "to": "بالـslice",
+      "why": "term",
+      "final": [
+        472,
+        472
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 477,
+      "orig": "بالدايس",
+      "to": "بالـdice",
+      "why": "term",
+      "final": [
+        475,
+        475
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 487,
+      "orig": "رولاب",
+      "to": "roll up",
+      "why": "term",
+      "final": [
+        485,
+        486
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 502,
+      "orig": "بتنكامش",
+      "to": "بتنكمش",
+      "why": "mishear",
+      "final": [
+        501,
+        501
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 512,
+      "orig": "الغلفية",
+      "to": "الخلفية",
+      "why": "mishear",
+      "final": [
+        511,
+        511
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 538,
+      "orig": "الدريل",
+      "to": "الـdrill",
+      "why": "term",
+      "final": [
+        537,
+        537
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 539,
+      "orig": "داون",
+      "to": "down",
+      "why": "term",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 550,
+      "orig": "بيديء",
+      "to": "بيضيق",
+      "why": "mishear",
+      "final": [
+        549,
+        549
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 596,
+      "orig": "الثلاث",
+      "to": "الـ3",
+      "why": "number",
+      "final": [
+        595,
+        595
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 600,
+      "orig": "ثلاثة؟",
+      "to": "3؟",
+      "why": "number",
+      "final": [
+        599,
+        599
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 603,
+      "orig": "سواني",
+      "to": "ثواني",
+      "why": "mishear",
+      "final": [
+        602,
+        602
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 629,
+      "orig": "ومشتوبة",
+      "to": "ومشطوبة",
+      "why": "mishear",
+      "final": [
+        628,
+        628
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 635,
+      "orig": "non",
+      "to": "non-additive",
+      "why": "merge",
+      "final": [
+        634,
+        634
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 636,
+      "orig": "additive",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 639,
+      "orig": "الصحة",
+      "to": "الصح",
+      "why": "mishear",
+      "final": [
+        637,
+        637
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 646,
+      "orig": "إجمال",
+      "to": "إجمالي",
+      "why": "mishear",
+      "final": [
+        644,
+        644
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 651,
+      "orig": "إجمال",
+      "to": "إجمالي",
+      "why": "mishear",
+      "final": [
+        649,
+        649
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 715,
+      "orig": "سيلفر",
+      "to": "Silver",
+      "why": "term",
+      "final": [
+        713,
+        713
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 730,
+      "orig": "جولد",
+      "to": "Gold",
+      "why": "term",
+      "final": [
+        728,
+        728
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 780,
+      "orig": "إيمة",
+      "to": "قيمة",
+      "why": "mishear",
+      "final": [
+        778,
+        778
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 814,
+      "orig": "والFrequency",
+      "to": "والـFrequency",
+      "why": "term",
+      "final": [
+        812,
+        812
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 815,
+      "orig": "والMonetary",
+      "to": "والـMonetary",
+      "why": "term",
+      "final": [
+        813,
+        813
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 817,
+      "orig": "دلة",
+      "to": "دالة",
+      "why": "mishear",
+      "final": [
+        815,
+        815
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 819,
+      "orig": "Intel",
+      "to": "NTILE",
+      "why": "term",
+      "final": [
+        817,
+        817
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 841,
+      "orig": "-Risk",
+      "to": "Risk",
+      "why": "term",
+      "final": [
+        839,
+        839
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 860,
+      "orig": "كويريز",
+      "to": "queries",
+      "why": "term",
+      "final": [
+        858,
+        858
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 873,
+      "orig": "البرودكت",
+      "to": "الـproduct",
+      "why": "term",
+      "final": [
+        871,
+        871
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 874,
+      "orig": "أفينيتي",
+      "to": "affinity",
+      "why": "term",
+      "final": [
+        872,
+        872
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 878,
+      "orig": "بتتبع",
+      "to": "بتتباع",
+      "why": "mishear",
+      "final": [
+        876,
+        876
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 884,
+      "orig": "سلف",
+      "to": "self",
+      "why": "term",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 885,
+      "orig": "جوين",
+      "to": "join",
+      "why": "term",
+      "final": [
+        883,
+        883
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 889,
+      "orig": "نصطوض",
+      "to": "نصطاد",
+      "why": "mishear",
+      "final": [
+        887,
+        887
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 890,
+      "orig": "الأنوماليز",
+      "to": "الـanomalies",
+      "why": "term",
+      "final": [
+        888,
+        888
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 893,
+      "orig": "الشذة",
+      "to": "الشاذة",
+      "why": "mishear",
+      "final": [
+        891,
+        891
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 895,
+      "orig": "زي",
+      "to": "z-score",
+      "why": "merge",
+      "final": [
+        893,
+        893
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 896,
+      "orig": "سكور",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 912,
+      "orig": "الويرهاوس",
+      "to": "الـwarehouse",
+      "why": "term",
+      "final": [
+        909,
+        909
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 918,
+      "orig": "الداشبورد",
+      "to": "الـdashboard",
+      "why": "term",
+      "final": [
+        915,
+        915
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 922,
+      "orig": "كي",
+      "to": "KPI",
+      "why": "merge",
+      "final": [
+        919,
+        919
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 923,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 924,
+      "orig": "آي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 934,
+      "orig": "الديتا",
+      "to": "الـdata",
+      "why": "term",
+      "final": [
+        929,
+        929
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 935,
+      "orig": "لاينج",
+      "to": "lineage",
+      "why": "term",
+      "final": [
+        930,
+        930
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 945,
+      "orig": "الداشبورد",
+      "to": "الـdashboard",
+      "why": "term",
+      "final": [
+        940,
+        940
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 951,
+      "orig": "للميجر",
+      "to": "للـmeasure",
+      "why": "term",
+      "final": [
+        946,
+        946
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 952,
+      "orig": "والمارت",
+      "to": "والـmart",
+      "why": "term",
+      "final": [
+        947,
+        947
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 954,
+      "orig": "للديتا",
+      "to": "للـdata",
+      "why": "term",
+      "final": [
+        949,
+        949
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 955,
+      "orig": "ويرهاوس",
+      "to": "warehouse",
+      "why": "term",
+      "final": [
+        950,
+        950
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 957,
+      "orig": "الترانسفورميشن",
+      "to": "الـtransformation",
+      "why": "term",
+      "final": [
+        952,
+        952
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 962,
+      "orig": "السورس",
+      "to": "الـsource",
+      "why": "term",
+      "final": [
+        957,
+        957
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 963,
+      "orig": "انجستشن",
+      "to": "ingestion",
+      "why": "term",
+      "final": [
+        958,
+        958
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 972,
+      "orig": "جزرها",
+      "to": "جذرها",
+      "why": "mishear",
+      "final": [
+        967,
+        967
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 991,
+      "orig": "الداشبورد",
+      "to": "الـdashboard",
+      "why": "term",
+      "final": [
+        986,
+        986
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 994,
+      "orig": "اللينج",
+      "to": "الـlineage",
+      "why": "term",
+      "final": [
+        989,
+        989
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 998,
+      "orig": "الجدري؟",
+      "to": "الجذري؟",
+      "why": "mishear",
+      "final": [
+        993,
+        993
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1010,
+      "orig": "لينج",
+      "to": "lineage",
+      "why": "term",
+      "final": [
+        1005,
+        1005
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1020,
+      "orig": "معمرية",
+      "to": "معمارية",
+      "why": "mishear",
+      "final": [
+        1015,
+        1015
+      ]
+    }
+  ],
+  "notes": "NotebookLM narration paraphrases the P16 script (S4 DW chapter), not a verbatim read; no edits forced toward script wording. No dropouts: word timings are contiguous (max inter-word gap 0.86 s at 754/755), so no inserts. Edits: Arabic-script terms -> Latin with الـ prefix (warehouse, production, queries, OLAP, grain, fact, dimensions, measures, surrogate/natural keys, cube, slice/dice, roll up, drill down, lineage, NTILE, self join, z-score, KPI...); split terms merged with to='' on the trailing token(s): 415-416 semi-additive, 429-430 non-additive, 635-636 non-additive, 895-896 z-score, 922-924 KPI. Number words -> digits: 399 (4), 596/600 (3). Homophone misspellings fixed (توتر, التناقض, مذهل, الخلفية, ثواني, قيمة, دالة, نصطاد, جذرها, الجذري, معمارية); source-proven fixes: 422 للعملاء and 442 العملاء (sc05 'على العملاء', 'عدد العملاء المميزين'), 550 بيضيق (sc06 'النطاق يضيق'), 629 ومشطوبة, 639 الصح, 646/651 إجمالي (sc07), 893 الشاذة and 878 بتتباع (sc12 'الأيام الشاذة', 'بتتشرا مع بعض'), 819 Intel->NTILE (sc11 NTILE(5)). Left as-is, uncertain (not proven by source): 103 مطورة (likely موتور 'engine'), 365 الترك (likely التريك 'trick'), 710 لعملنا (likely لعميلنا), 919 نوارد (likely نوّر 'lit up'), 943 الوراء (لورا). Standalone 'الـ' + Latin token pairs (117-118, 120-121, 682-683, 687-688, 755-756, 784-785, 789-790, 806-807, 812-813, 818-819, 822-823, 831-832, 839-840, 866-867) left unmerged; Database/Dashboards capitalization left. No NilePay/ShopFlow/T1-T6 entities in this part.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 6,
+      "kind": "transition",
+      "gloss_en": "Let's get right into the topic.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 7,
+      "to": 10,
+      "kind": "transition",
+      "gloss_en": "Today's journey is a really fun one.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 11,
+      "to": 32,
+      "kind": "transition",
+      "gloss_en": "We'll follow the data step by step, from the moment it comes out raw from its sources until it becomes insights and numbers that drive the whole business.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 33,
+      "to": 49,
+      "kind": "transition",
+      "gloss_en": "The exciting part is how we build a strong data warehouse environment and uncover the layers working in the background, layer by layer.",
+      "terms": [
+        "data",
+        "warehouse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 50,
+      "to": 58,
+      "kind": "transition",
+      "gloss_en": "Let's discover these secrets together and build the foundation right.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 59,
+      "to": 67,
+      "kind": "transition",
+      "gloss_en": "OK, let's dive into this topic and start with an important question.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 68,
+      "to": 80,
+      "kind": "question",
+      "gloss_en": "Why can simply running analytical queries on production data slow down the whole site and even stop it?",
+      "terms": [
+        "Analytical Queries",
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 81,
+      "to": 88,
+      "kind": "claim",
+      "gloss_en": "This question always stresses out any data engineer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 89,
+      "to": 108,
+      "kind": "example",
+      "gloss_en": "Because messing with a live database is exactly like someone trying to take apart and fix a car's engine while it is running at full speed.",
+      "terms": [
+        "database",
+        "Live"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 109,
+      "to": 113,
+      "kind": "transition",
+      "gloss_en": "The contrast here is clear and plain in front of us.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 114,
+      "to": 134,
+      "kind": "claim",
+      "gloss_en": "On one side we have OLTP, the site's database, designed to serve thousands of small, very fast queries in fractions of a second.",
+      "terms": [
+        "OLTP",
+        "database",
+        "queries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 135,
+      "to": 150,
+      "kind": "claim",
+      "gloss_en": "On the other side we have OLAP: the heavy analytical queries that scan and read, say, a whole year of data.",
+      "terms": [
+        "OLAP",
+        "queries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 151,
+      "to": 161,
+      "kind": "prediction",
+      "gloss_en": "If we ran that heavy query on the production environment, the whole system would go down.",
+      "terms": [
+        "query",
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 173,
+      "kind": "claim",
+      "gloss_en": "That's why we badly need to separate the analytical environment into its own independent place.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 174,
+      "to": 192,
+      "kind": "claim",
+      "gloss_en": "To build that environment right, we must understand that the data warehouse isn't just one database we dump everything into.",
+      "terms": [
+        "data",
+        "warehouse",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 193,
+      "to": 196,
+      "kind": "claim",
+      "gloss_en": "No, it's ordered layers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 197,
+      "to": 210,
+      "kind": "claim",
+      "gloss_en": "We start with the sources, then go into the ODS, to keep the data close to the source's shape.",
+      "terms": [
+        "Sources",
+        "ODS"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 211,
+      "to": 218,
+      "kind": "claim",
+      "gloss_en": "Then we reach the data warehouse, which integrates and keeps history.",
+      "terms": [
+        "data",
+        "warehouse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 219,
+      "to": 222,
+      "kind": "claim",
+      "gloss_en": "And finally the ADS layer and the marts.",
+      "terms": [
+        "ADS",
+        "marts"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 223,
+      "to": 237,
+      "kind": "claim",
+      "gloss_en": "It's very important to grasp that ingestion is not storage, and storage is not the final presentation layer.",
+      "terms": [
+        "ingestion",
+        "storage",
+        "presentation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 238,
+      "to": 241,
+      "kind": "recap",
+      "gloss_en": "Each layer has its own role.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 242,
+      "to": 249,
+      "kind": "transition",
+      "gloss_en": "Now it's time to build our foundation inside the warehouse.",
+      "terms": [
+        "warehouse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 250,
+      "to": 261,
+      "kind": "claim",
+      "gloss_en": "Here the classic, brilliant design that has worked efficiently for years shows up: the star schema.",
+      "terms": [
+        "star",
+        "schema"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 262,
+      "to": 272,
+      "kind": "claim",
+      "gloss_en": "It's the design that keeps huge data organized and very fast to query.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 273,
+      "to": 277,
+      "kind": "claim",
+      "gloss_en": "The key point here is the grain.",
+      "terms": [
+        "grain"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 278,
+      "to": 284,
+      "kind": "claim",
+      "gloss_en": "The fact table sits in the middle as the hub of the group.",
+      "terms": [
+        "fact"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 285,
+      "to": 303,
+      "kind": "claim",
+      "gloss_en": "But more important than it just existing is that we define its grain clearly and have it written explicitly, not merely inferred.",
+      "terms": [
+        "grain"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 304,
+      "to": 313,
+      "kind": "example",
+      "gloss_en": "In our case, the grain is one row per order line item.",
+      "terms": [
+        "grain",
+        "one",
+        "row",
+        "order",
+        "line",
+        "item"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 314,
+      "to": 328,
+      "kind": "claim",
+      "gloss_en": "This is the cornerstone we build everything on, and any mess in it breaks all the numbers later.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 329,
+      "to": 338,
+      "kind": "claim",
+      "gloss_en": "Around this central fact table, the dimension tables attach like stars.",
+      "terms": [
+        "fact",
+        "dimensions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 339,
+      "to": 348,
+      "kind": "claim",
+      "gloss_en": "These are the tables that answer who, what, where and when.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 349,
+      "to": 362,
+      "kind": "example",
+      "gloss_en": "For example, the date table generated from 2020 to 2030, or the customer and product tables.",
+      "terms": [
+        "date",
+        "customer",
+        "product"
+      ],
+      "numbers": [
+        "2020",
+        "2030"
+      ],
+      "entities": []
+    },
+    {
+      "from": 363,
+      "to": 376,
+      "kind": "claim",
+      "gloss_en": "And here's the trick: we rely on surrogate keys, meaning internal keys instead of the source's natural keys.",
+      "terms": [
+        "surrogate",
+        "keys",
+        "natural"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 377,
+      "to": 386,
+      "kind": "claim",
+      "gloss_en": "So we can preserve history even if the source data changes.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 387,
+      "to": 397,
+      "kind": "transition",
+      "gloss_en": "But watch out: not all the numbers we analyze are treated the same way.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 398,
+      "to": 402,
+      "kind": "claim",
+      "gloss_en": "We have 4 types of measures.",
+      "terms": [
+        "measures"
+      ],
+      "numbers": [
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 403,
+      "to": 413,
+      "kind": "claim",
+      "gloss_en": "First, additive ones like revenue: we can sum them freely along any axis.",
+      "terms": [
+        "additive",
+        "revenue"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 414,
+      "to": 426,
+      "kind": "claim",
+      "gloss_en": "Second, semi-additive ones like bank balances: they sum across customers but can never be summed across time.",
+      "terms": [
+        "semi-additive"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 427,
+      "to": 435,
+      "kind": "claim",
+      "gloss_en": "Third, non-additive ones like percentages, which never sum at all.",
+      "terms": [
+        "non-additive"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 436,
+      "to": 441,
+      "kind": "claim",
+      "gloss_en": "Fourth, counters, like the number of distinct customers.",
+      "terms": [
+        "counters",
+        "COUNT DISTINCT"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 442,
+      "to": 453,
+      "kind": "recap",
+      "gloss_en": "So not every number can simply be summed, especially when moving across the time dimension.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 454,
+      "to": 463,
+      "kind": "transition",
+      "gloss_en": "From here, let's imagine our data inside an amazing geometric shape.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 464,
+      "to": 468,
+      "kind": "question",
+      "gloss_en": "Can you picture with me a transparent, rotating cube?",
+      "terms": [
+        "cube"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 469,
+      "to": 477,
+      "kind": "claim",
+      "gloss_en": "We can cut it into slices with slice and pick parts of it with dice, freely.",
+      "terms": [
+        "slice",
+        "dice"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 478,
+      "to": 497,
+      "kind": "claim",
+      "gloss_en": "The really interesting thing happens when we roll up, meaning we summarize the data from month level up to quarter level.",
+      "terms": [
+        "roll",
+        "up"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 498,
+      "to": 508,
+      "kind": "example",
+      "gloss_en": "The visible grid in front of us shrinks from 18 cells to just 6.",
+      "terms": [],
+      "numbers": [
+        "18",
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 509,
+      "to": 523,
+      "kind": "example",
+      "gloss_en": "But in the background, the actual rows backing each cell grow from 12 to 36 rows.",
+      "terms": [],
+      "numbers": [
+        "12",
+        "36"
+      ],
+      "entities": []
+    },
+    {
+      "from": 524,
+      "to": 531,
+      "kind": "claim",
+      "gloss_en": "The picture gets smaller, but the data density behind it rises a lot.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 532,
+      "to": 546,
+      "kind": "claim",
+      "gloss_en": "The exact opposite happens in drill down, when we need more detail and focus on a specific point.",
+      "terms": [
+        "drill",
+        "down"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 547,
+      "to": 562,
+      "kind": "example",
+      "gloss_en": "Our range narrows: we go from 216 rows in total down to exactly 72 rows representing the cell we entered.",
+      "terms": [],
+      "numbers": [
+        "216",
+        "72"
+      ],
+      "entities": []
+    },
+    {
+      "from": 563,
+      "to": 571,
+      "kind": "claim",
+      "gloss_en": "This control gives us huge power to explore fine-grained numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 572,
+      "to": 582,
+      "kind": "transition",
+      "gloss_en": "Here we have to stop for a second and ask a logical question that trips up a lot of people.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 583,
+      "to": 599,
+      "kind": "question",
+      "gloss_en": "Is a full quarter's average order value simply summing the 3 monthly averages and dividing by 3?",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 600,
+      "to": 607,
+      "kind": "prediction",
+      "gloss_en": "Think about it for a few seconds; intuition might say yes, of course.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 608,
+      "to": 612,
+      "kind": "claim",
+      "gloss_en": "But the mathematical truth is completely different.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 613,
+      "to": 618,
+      "kind": "claim",
+      "gloss_en": "And this neatly shows a classic analytical trap.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 619,
+      "to": 629,
+      "kind": "example",
+      "gloss_en": "The method on the left, the average of averages, is completely wrong and crossed out in red.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 630,
+      "to": 634,
+      "kind": "claim",
+      "gloss_en": "Because the average is simply a non-additive number.",
+      "terms": [
+        "non-additive"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 635,
+      "to": 654,
+      "kind": "claim",
+      "gloss_en": "The only correct method is always the one on the right: compute total revenue and divide it by total orders, for each cell anew.",
+      "terms": [
+        "revenue"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 655,
+      "to": 669,
+      "kind": "claim",
+      "gloss_en": "Falling into the average-of-averages trap can produce misleading numbers for business decisions and cost the company real money.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 670,
+      "to": 676,
+      "kind": "question",
+      "gloss_en": "So how do we preserve the data's history?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 677,
+      "to": 688,
+      "kind": "claim",
+      "gloss_en": "This is where Slowly Changing Dimensions come in, specifically SCD Type 2.",
+      "terms": [
+        "slowly",
+        "changing",
+        "dimensions",
+        "SCD Type 2"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 689,
+      "to": 701,
+      "kind": "claim",
+      "gloss_en": "The whole idea is that we keep the state as it was, not as it is now.",
+      "terms": [
+        "as-was",
+        "as-is"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 702,
+      "to": 710,
+      "kind": "transition",
+      "gloss_en": "Let's walk through this customer's timeline step by step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 711,
+      "to": 723,
+      "kind": "example",
+      "gloss_en": "The customer was Silver in the past, so that row gets closed and becomes part of history.",
+      "terms": [
+        "Silver"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 724,
+      "to": 741,
+      "kind": "example",
+      "gloss_en": "When the customer was promoted to Gold, the system didn't delete the old row; it opened a new row with a new effective date for the present.",
+      "terms": [
+        "Gold"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 742,
+      "to": 752,
+      "kind": "example",
+      "gloss_en": "And gave it an expiration date far in the future, like the year 9999.",
+      "terms": [
+        "expiration_date"
+      ],
+      "numbers": [
+        "9999"
+      ],
+      "entities": []
+    },
+    {
+      "from": 753,
+      "to": 768,
+      "kind": "recap",
+      "gloss_en": "SCD Type 2 protects history by opening new rows and closing the old ones instead of overwriting them.",
+      "terms": [
+        "SCD Type 2",
+        "overwrite"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 769,
+      "to": 784,
+      "kind": "transition",
+      "gloss_en": "After building all this, it's time to get real business value using analytical queries.",
+      "terms": [
+        "Analytical Queries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 785,
+      "to": 798,
+      "kind": "question",
+      "gloss_en": "How do we make our dashboards open in under a second and give us accurate daily summaries?",
+      "terms": [
+        "dashboard"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 799,
+      "to": 805,
+      "kind": "claim",
+      "gloss_en": "One of the most powerful of these analyses is RFM.",
+      "terms": [
+        "RFM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 806,
+      "to": 821,
+      "kind": "claim",
+      "gloss_en": "We classify customers by Recency, Frequency and Monetary using the NTILE 5 function in SQL.",
+      "terms": [
+        "Recency",
+        "Frequency",
+        "Monetary",
+        "NTILE(5",
+        "SQL"
+      ],
+      "numbers": [
+        "5"
+      ],
+      "entities": []
+    },
+    {
+      "from": 822,
+      "to": 827,
+      "kind": "claim",
+      "gloss_en": "This classification splits customers into clear segments.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 828,
+      "to": 847,
+      "kind": "example",
+      "gloss_en": "From the Champions, the top-spending tier, to the At-Risk, who used to buy a lot but have been gone for a while.",
+      "terms": [
+        "Champions",
+        "At",
+        "Risk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 848,
+      "to": 854,
+      "kind": "claim",
+      "gloss_en": "This lets marketing teams target precisely.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 855,
+      "to": 862,
+      "kind": "claim",
+      "gloss_en": "We can also write complex, practical queries very easily.",
+      "terms": [
+        "queries"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 863,
+      "to": 869,
+      "kind": "example",
+      "gloss_en": "We compute the annual Year-over-Year growth.",
+      "terms": [
+        "YoY"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 870,
+      "to": 884,
+      "kind": "example",
+      "gloss_en": "And we discover product affinity, meaning products that always sell together, through a simple self join.",
+      "terms": [
+        "product",
+        "affinity",
+        "self-join"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 885,
+      "to": 901,
+      "kind": "example",
+      "gloss_en": "Most importantly, we can catch anomalies, or abnormal sales, when the z-score exceeds 2 compared with the average of the last 28 days.",
+      "terms": [
+        "Anomaly",
+        "z-score"
+      ],
+      "numbers": [
+        "2",
+        "28"
+      ],
+      "entities": []
+    },
+    {
+      "from": 902,
+      "to": 909,
+      "kind": "recap",
+      "gloss_en": "All these insights come from the strength of the warehouse design.",
+      "terms": [
+        "warehouse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 910,
+      "to": 914,
+      "kind": "question",
+      "gloss_en": "But what if the nightmare happens?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 915,
+      "to": 924,
+      "kind": "question",
+      "gloss_en": "The dashboard lights up red and a KPI comes out wrong: how do we fix that?",
+      "terms": [
+        "dashboard",
+        "KPI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 925,
+      "to": 930,
+      "kind": "claim",
+      "gloss_en": "The solution is always in data lineage.",
+      "terms": [
+        "data",
+        "lineage"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 931,
+      "to": 938,
+      "kind": "transition",
+      "gloss_en": "Let's see how we trace the problem backwards, step by step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 939,
+      "to": 959,
+      "kind": "example",
+      "gloss_en": "From the dashboard where the error showed, we go down to the measure and the mart, then the data warehouse, then the transformation, until we reach source ingestion itself.",
+      "terms": [
+        "dashboard",
+        "measure",
+        "mart",
+        "data",
+        "warehouse",
+        "transformation",
+        "source",
+        "ingestion"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 960,
+      "to": 972,
+      "kind": "claim",
+      "gloss_en": "This tracing shows we fix causes at the root, not just tweak formulas.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 973,
+      "to": 979,
+      "kind": "transition",
+      "gloss_en": "And our last question, which we'll leave for you to think about:",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 980,
+      "to": 993,
+      "kind": "question",
+      "gloss_en": "When a number breaks, do we take the easy way and patch the dashboard, or trace the lineage to fix the root cause?",
+      "terms": [
+        "dashboard",
+        "lineage"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 994,
+      "to": 1002,
+      "kind": "recap",
+      "gloss_en": "The final output of any successful warehouse isn't just a bunch of tables.",
+      "terms": [
+        "warehouse"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1003,
+      "to": 1011,
+      "kind": "recap",
+      "gloss_en": "It's lineage maps, a strong ERD design and solid DDL code.",
+      "terms": [
+        "lineage",
+        "ERD",
+        "DDL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1012,
+      "to": 1020,
+      "kind": "recap",
+      "gloss_en": "That's what lets the data architecture withstand the toughest business challenges.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:53Z"
+}

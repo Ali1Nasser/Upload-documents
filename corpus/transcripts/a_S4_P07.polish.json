@@ -1,0 +1,3284 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P07",
+  "asr_words": 1097,
+  "final_words": 1061,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 21,
+      "orig": "لPandas",
+      "to": "لـpandas",
+      "why": "term",
+      "final": [
+        21,
+        21
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 59,
+      "orig": "الديتا",
+      "to": "الـDataFrame",
+      "why": "term",
+      "final": [
+        59,
+        59
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 60,
+      "orig": "فريم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 65,
+      "orig": "الجروبينج",
+      "to": "الـgrouping",
+      "why": "term",
+      "final": [
+        64,
+        64
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 67,
+      "orig": "الميرج",
+      "to": "الـmerge",
+      "why": "term",
+      "final": [
+        66,
+        66
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 71,
+      "orig": "تصبيت",
+      "to": "تظبيط",
+      "why": "mishear",
+      "final": [
+        70,
+        70
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 75,
+      "orig": "بالداتابيس",
+      "to": "بالـdatabase",
+      "why": "term",
+      "final": [
+        74,
+        74
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 80,
+      "orig": "البالك",
+      "to": "الـbulk",
+      "why": "term",
+      "final": [
+        79,
+        79
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 81,
+      "orig": "لود",
+      "to": "load",
+      "why": "term",
+      "final": [
+        80,
+        80
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 102,
+      "orig": "باندس",
+      "to": "pandas",
+      "why": "term",
+      "final": [
+        101,
+        101
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 105,
+      "orig": "الـ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 106,
+      "orig": "DataFrame",
+      "to": "الـDataFrame",
+      "why": "merge",
+      "final": [
+        104,
+        104
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 114,
+      "orig": "ثناء",
+      "to": "ثنائي",
+      "why": "mishear",
+      "final": [
+        112,
+        112
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 117,
+      "orig": "أندكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        115,
+        115
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 122,
+      "orig": "وقلمز",
+      "to": "وcolumns",
+      "why": "term",
+      "final": [
+        120,
+        120
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 130,
+      "orig": "شاير",
+      "to": "شايل",
+      "why": "mishear",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 137,
+      "orig": "نام",
+      "to": "NumPy",
+      "why": "term",
+      "final": [
+        135,
+        135
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 138,
+      "orig": "باي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 139,
+      "orig": "أري",
+      "to": "array",
+      "why": "term",
+      "final": [
+        136,
+        136
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 146,
+      "orig": "أو",
+      "to": "أوامر",
+      "why": "mishear",
+      "final": [
+        143,
+        143
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 147,
+      "orig": "أمر",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 150,
+      "orig": "انفو",
+      "to": "info",
+      "why": "term",
+      "final": [
+        146,
+        146
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 151,
+      "orig": "وديسكرايب",
+      "to": "وdescribe",
+      "why": "term",
+      "final": [
+        147,
+        147
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 165,
+      "orig": "نقصة",
+      "to": "ناقصة",
+      "why": "mishear",
+      "final": [
+        161,
+        161
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 175,
+      "orig": "i",
+      "to": "iloc",
+      "why": "term",
+      "final": [
+        171,
+        171
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 176,
+      "orig": "-look",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 181,
+      "orig": "look",
+      "to": "loc",
+      "why": "term",
+      "final": [
+        176,
+        176
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 192,
+      "orig": "بتختيفي",
+      "to": "بتختفي",
+      "why": "mishear",
+      "final": [
+        187,
+        187
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 206,
+      "orig": "NP",
+      "to": "np.select",
+      "why": "term",
+      "final": [
+        201,
+        201
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 207,
+      "orig": ".Select",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 215,
+      "orig": "Apply",
+      "to": "apply",
+      "why": "term",
+      "final": [
+        209,
+        209
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 227,
+      "orig": "الاسم",
+      "to": "القسم",
+      "why": "mishear",
+      "final": [
+        221,
+        221
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 248,
+      "orig": "في",
+      "to": "فخاخ",
+      "why": "mishear",
+      "final": [
+        242,
+        242
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 249,
+      "orig": "خاخ",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 252,
+      "orig": "الجروب",
+      "to": "الـgroupby",
+      "why": "term",
+      "final": [
+        245,
+        245
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 253,
+      "orig": "باي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 258,
+      "orig": "ثلاث",
+      "to": "3",
+      "why": "number",
+      "final": [
+        250,
+        250
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 260,
+      "orig": "سبلت،",
+      "to": "split،",
+      "why": "term",
+      "final": [
+        252,
+        252
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 261,
+      "orig": "أبلاي،",
+      "to": "apply،",
+      "why": "term",
+      "final": [
+        253,
+        253
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 262,
+      "orig": "كومباين",
+      "to": "combine",
+      "why": "term",
+      "final": [
+        254,
+        254
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 270,
+      "orig": "باكتز",
+      "to": "buckets",
+      "why": "term",
+      "final": [
+        262,
+        262
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 272,
+      "orig": "جراد",
+      "to": "groups",
+      "why": "mishear",
+      "final": [
+        264,
+        264
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 278,
+      "orig": "السبلت",
+      "to": "الـsplit",
+      "why": "term",
+      "final": [
+        270,
+        270
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 285,
+      "orig": "باكت",
+      "to": "bucket",
+      "why": "term",
+      "final": [
+        277,
+        277
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 288,
+      "orig": "الأبلاي",
+      "to": "الـapply",
+      "why": "term",
+      "final": [
+        280,
+        280
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 294,
+      "orig": "الكمباين",
+      "to": "الـcombine",
+      "why": "term",
+      "final": [
+        286,
+        286
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 299,
+      "orig": "AGG",
+      "to": "agg",
+      "why": "term",
+      "final": [
+        291,
+        291
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 306,
+      "orig": "ترانسفورم",
+      "to": "transform",
+      "why": "term",
+      "final": [
+        298,
+        298
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 317,
+      "orig": "يضمر",
+      "to": "يدمر",
+      "why": "mishear",
+      "final": [
+        309,
+        309
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 328,
+      "orig": "المرج",
+      "to": "الـmerge",
+      "why": "term",
+      "final": [
+        320,
+        320
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 339,
+      "orig": "الفان",
+      "to": "الـfan-out",
+      "why": "term",
+      "final": [
+        331,
+        331
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 340,
+      "orig": "اوت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 341,
+      "orig": "ارور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        332,
+        332
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 346,
+      "orig": "الكيز",
+      "to": "الـkeys",
+      "why": "term",
+      "final": [
+        337,
+        337
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 348,
+      "orig": "والضعف",
+      "to": "وتضاعف",
+      "why": "mishear",
+      "final": [
+        339,
+        339
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 356,
+      "orig": "الكارسة",
+      "to": "الكارثة",
+      "why": "mishear",
+      "final": [
+        347,
+        347
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 360,
+      "orig": "فاليديت",
+      "to": "validate",
+      "why": "term",
+      "final": [
+        351,
+        351
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 362,
+      "orig": "مني",
+      "to": "many_to_one",
+      "why": "term",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 363,
+      "orig": "تو",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 364,
+      "orig": "وان",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 367,
+      "orig": "ارور",
+      "to": "error",
+      "why": "term",
+      "final": [
+        356,
+        356
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 372,
+      "orig": "واندكيتور",
+      "to": "وindicator",
+      "why": "term",
+      "final": [
+        361,
+        361
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 374,
+      "orig": "ترو",
+      "to": "True",
+      "why": "term",
+      "final": [
+        363,
+        363
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 381,
+      "orig": "بالزلط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        370,
+        370
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 393,
+      "orig": "Drop",
+      "to": "dropna",
+      "why": "term",
+      "final": [
+        382,
+        382
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 394,
+      "orig": "NAA",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 400,
+      "orig": "50",
+      "to": "50%",
+      "why": "number",
+      "final": [
+        388,
+        388
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 401,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 409,
+      "orig": "عمره",
+      "to": "عبارة",
+      "why": "mishear",
+      "final": [
+        396,
+        396
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 418,
+      "orig": "لNAN",
+      "to": "لـNaN",
+      "why": "term",
+      "final": [
+        405,
+        405
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 428,
+      "orig": "50",
+      "to": "50%",
+      "why": "number",
+      "final": [
+        415,
+        415
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 429,
+      "orig": "%",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 433,
+      "orig": "الأوتلايرز",
+      "to": "الـoutliers",
+      "why": "term",
+      "final": [
+        419,
+        419
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 435,
+      "orig": "لزاد",
+      "to": "الـz-score",
+      "why": "term",
+      "final": [
+        421,
+        421
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 436,
+      "orig": "سكور",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 438,
+      "orig": "معادي",
+      "to": "معدي",
+      "why": "mishear",
+      "final": [
+        423,
+        423
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 443,
+      "orig": "بروفايل",
+      "to": "profile",
+      "why": "term",
+      "final": [
+        428,
+        428
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 450,
+      "orig": "PD",
+      "to": "pd.concat",
+      "why": "term",
+      "final": [
+        435,
+        435
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 451,
+      "orig": ".concat",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 478,
+      "orig": "القادة",
+      "to": "القاعدة",
+      "why": "mishear",
+      "final": [
+        462,
+        462
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "الزهبية",
+      "to": "الذهبية",
+      "why": "mishear",
+      "final": [
+        463,
+        463
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 481,
+      "orig": "بانداز",
+      "to": "pandas",
+      "why": "term",
+      "final": [
+        465,
+        465
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 485,
+      "orig": "الVictorization",
+      "to": "الـvectorization",
+      "why": "term",
+      "final": [
+        469,
+        469
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 493,
+      "orig": "البيثون",
+      "to": "الـPython",
+      "why": "term",
+      "final": [
+        477,
+        477
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 494,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        478,
+        478
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 497,
+      "orig": "اللامدا",
+      "to": "الـlambda",
+      "why": "term",
+      "final": [
+        481,
+        481
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 498,
+      "orig": "أبلاي",
+      "to": "apply",
+      "why": "term",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 502,
+      "orig": "NP",
+      "to": "np.where",
+      "why": "term",
+      "final": [
+        486,
+        486
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 503,
+      "orig": ".Ware",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 506,
+      "orig": "Victorization",
+      "to": "vectorization",
+      "why": "term",
+      "final": [
+        489,
+        489
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 527,
+      "orig": "انت",
+      "to": "int64",
+      "why": "term",
+      "final": [
+        510,
+        510
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 528,
+      "orig": "سكستي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 529,
+      "orig": "فور",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 533,
+      "orig": "بايت",
+      "to": "bytes",
+      "why": "term",
+      "final": [
+        514,
+        514
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 534,
+      "orig": "لانت",
+      "to": "لـint16",
+      "why": "term",
+      "final": [
+        515,
+        515
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 535,
+      "orig": "سكستين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 539,
+      "orig": "بايت",
+      "to": "bytes",
+      "why": "term",
+      "final": [
+        519,
+        519
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 541,
+      "orig": "حاولنا",
+      "to": "حولنا",
+      "why": "mishear",
+      "final": [
+        521,
+        521
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 544,
+      "orig": "لكاتيجوري",
+      "to": "لـcategory",
+      "why": "term",
+      "final": [
+        524,
+        524
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 551,
+      "orig": "ديتابيس",
+      "to": "Database",
+      "why": "term",
+      "final": [
+        531,
+        531
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 552,
+      "orig": "كونكشن",
+      "to": "Connection",
+      "why": "term",
+      "final": [
+        532,
+        532
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 553,
+      "orig": "ميثودز",
+      "to": "Methods",
+      "why": "term",
+      "final": [
+        533,
+        533
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 558,
+      "orig": "باندز",
+      "to": "pandas",
+      "why": "term",
+      "final": [
+        538,
+        538
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 562,
+      "orig": "الديتابيس",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        542,
+        542
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 564,
+      "orig": "أربع",
+      "to": "4",
+      "why": "number",
+      "final": [
+        544,
+        544
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 570,
+      "orig": "الديتابيس",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        550,
+        550
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "بايثون",
+      "to": "Python",
+      "why": "term",
+      "final": [
+        553,
+        553
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 584,
+      "orig": "الرود",
+      "to": "الـraw",
+      "why": "mishear",
+      "final": [
+        564,
+        564
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 585,
+      "orig": "رايفر",
+      "to": "driver",
+      "why": "term",
+      "final": [
+        565,
+        565
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 592,
+      "orig": "الSQL",
+      "to": "الـSQLAlchemy",
+      "why": "term",
+      "final": [
+        572,
+        572
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 593,
+      "orig": "Alchemy",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 598,
+      "orig": "للPipelines",
+      "to": "للـpipelines",
+      "why": "term",
+      "final": [
+        577,
+        577
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 599,
+      "orig": "الORM",
+      "to": "الـORM",
+      "why": "term",
+      "final": [
+        578,
+        578
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 610,
+      "orig": "الN",
+      "to": "الـN+1",
+      "why": "term",
+      "final": [
+        589,
+        589
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 611,
+      "orig": "Plus",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 612,
+      "orig": "One",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 613,
+      "orig": "Queries",
+      "to": "queries",
+      "why": "term",
+      "final": [
+        590,
+        590
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 616,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        593,
+        593
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 620,
+      "orig": "Pandas",
+      "to": "pandas.read_sql",
+      "why": "mishear",
+      "final": [
+        597,
+        597
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 621,
+      "orig": ".3d",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 622,
+      "orig": "SQL",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 635,
+      "orig": "Parameters",
+      "to": "parameters",
+      "why": "term",
+      "final": [
+        610,
+        610
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 636,
+      "orig": "بأدينا",
+      "to": "بإيدينا",
+      "why": "mishear",
+      "final": [
+        611,
+        611
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 638,
+      "orig": "الSQL",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        613,
+        613
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 642,
+      "orig": "الأمنة",
+      "to": "الآمنة",
+      "why": "mishear",
+      "final": [
+        617,
+        617
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 645,
+      "orig": "الSQL",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        620,
+        620
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 646,
+      "orig": "Injection",
+      "to": "injection",
+      "why": "term",
+      "final": [
+        621,
+        621
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 656,
+      "orig": "للإصارة؟",
+      "to": "للإثارة؟",
+      "why": "mishear",
+      "final": [
+        631,
+        631
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 670,
+      "orig": "عشر",
+      "to": "10,000",
+      "why": "number",
+      "final": [
+        645,
+        645
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 671,
+      "orig": "تلاف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 685,
+      "orig": "للداتابيس",
+      "to": "للـdatabase",
+      "why": "term",
+      "final": [
+        659,
+        659
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 688,
+      "orig": "عشر",
+      "to": "10,000",
+      "why": "number",
+      "final": [
+        662,
+        662
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 689,
+      "orig": "تلاف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 695,
+      "orig": "ستين",
+      "to": "60",
+      "why": "number",
+      "final": [
+        668,
+        668
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 700,
+      "orig": "بpandas",
+      "to": "بـpandas.to_sql",
+      "why": "term",
+      "final": [
+        673,
+        673
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 701,
+      "orig": ".2sql",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 703,
+      "orig": "لثلاث",
+      "to": "لـ3",
+      "why": "number",
+      "final": [
+        675,
+        675
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 707,
+      "orig": "execute",
+      "to": "executemany",
+      "why": "term",
+      "final": [
+        679,
+        679
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 708,
+      "orig": "mini",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 713,
+      "orig": "multi",
+      "to": "multi-row",
+      "why": "term",
+      "final": [
+        684,
+        684
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 714,
+      "orig": "row",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 715,
+      "orig": "values",
+      "to": "VALUES",
+      "why": "term",
+      "final": [
+        685,
+        685
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 718,
+      "orig": "سانية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        688,
+        688
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 720,
+      "orig": "والload",
+      "to": "والـLOAD",
+      "why": "term",
+      "final": [
+        690,
+        690
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "data",
+      "to": "DATA",
+      "why": "term",
+      "final": [
+        691,
+        691
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 722,
+      "orig": "in",
+      "to": "INFILE",
+      "why": "term",
+      "final": [
+        692,
+        692
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 723,
+      "orig": "file",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 728,
+      "orig": "سانية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        697,
+        697
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 741,
+      "orig": "الأبسرت",
+      "to": "الـupsert",
+      "why": "term",
+      "final": [
+        710,
+        710
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 748,
+      "orig": "لوش",
+      "to": "لو مش",
+      "why": "split",
+      "final": [
+        717,
+        718
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 753,
+      "orig": "ال",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 754,
+      "orig": "-ETL",
+      "to": "الـETL",
+      "why": "term",
+      "final": [
+        723,
+        723
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 764,
+      "orig": "chunk",
+      "to": "chunksize",
+      "why": "term",
+      "final": [
+        733,
+        733
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 765,
+      "orig": "size",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 779,
+      "orig": "الأبسيرت",
+      "to": "الـupsert",
+      "why": "term",
+      "final": [
+        747,
+        747
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 787,
+      "orig": "الووترمارك",
+      "to": "الـwatermark",
+      "why": "term",
+      "final": [
+        755,
+        755
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 792,
+      "orig": "البايبلاين",
+      "to": "الـpipeline",
+      "why": "term",
+      "final": [
+        760,
+        760
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 801,
+      "orig": "نجيبي",
+      "to": "نجيب",
+      "why": "mishear",
+      "final": [
+        769,
+        769
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 808,
+      "orig": "تحميل",
+      "to": "التحميل",
+      "why": "mishear",
+      "final": [
+        776,
+        776
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 810,
+      "orig": "بكامل",
+      "to": "بالكامل",
+      "why": "mishear",
+      "final": [
+        778,
+        778
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 812,
+      "orig": "قابله",
+      "to": "قبله",
+      "why": "mishear",
+      "final": [
+        780,
+        780
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 830,
+      "orig": "الداتابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        798,
+        798
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 833,
+      "orig": "طوع",
+      "to": "توقع",
+      "why": "mishear",
+      "final": [
+        801,
+        801
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 843,
+      "orig": "بالداتابيز",
+      "to": "بالـdatabase",
+      "why": "term",
+      "final": [
+        811,
+        811
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 851,
+      "orig": "سنية",
+      "to": "ثانية",
+      "why": "mishear",
+      "final": [
+        819,
+        819
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 859,
+      "orig": "الكونكشن",
+      "to": "الـconnection",
+      "why": "term",
+      "final": [
+        827,
+        827
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 860,
+      "orig": "بول",
+      "to": "pool",
+      "why": "term",
+      "final": [
+        828,
+        828
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 865,
+      "orig": "وجهزة",
+      "to": "وجاهزة",
+      "why": "mishear",
+      "final": [
+        833,
+        833
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 869,
+      "orig": "للبول",
+      "to": "للـpool",
+      "why": "term",
+      "final": [
+        837,
+        837
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 870,
+      "orig": "الحزبة",
+      "to": "الحسبة",
+      "why": "mishear",
+      "final": [
+        838,
+        838
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 871,
+      "orig": "هلا",
+      "to": "هنا",
+      "why": "mishear",
+      "final": [
+        839,
+        839
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 891,
+      "orig": "34",
+      "to": "4 في 30",
+      "why": "number",
+      "final": [
+        859,
+        861
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 892,
+      "orig": "ب120",
+      "to": "بـ120",
+      "why": "number",
+      "final": [
+        862,
+        862
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 902,
+      "orig": "لماي",
+      "to": "لـMySQL",
+      "why": "term",
+      "final": [
+        872,
+        872
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 903,
+      "orig": "سيكول",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 908,
+      "orig": "التايم",
+      "to": "الـtimeline",
+      "why": "term",
+      "final": [
+        877,
+        877
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 909,
+      "orig": "لاين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 914,
+      "orig": "الترانزاكشن",
+      "to": "الـtransaction",
+      "why": "term",
+      "final": [
+        882,
+        882
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 924,
+      "orig": "خلص",
+      "to": "خالص",
+      "why": "mishear",
+      "final": [
+        892,
+        892
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 926,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        894,
+        894
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 929,
+      "orig": "ناصة",
+      "to": "ناقصة",
+      "why": "mishear",
+      "final": [
+        897,
+        897
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 940,
+      "orig": "فخصلت",
+      "to": "فحصلت",
+      "why": "mishear",
+      "final": [
+        908,
+        908
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 945,
+      "orig": "السيف",
+      "to": "الـsavepoint",
+      "why": "term",
+      "final": [
+        913,
+        913
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 946,
+      "orig": "بوينت",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 949,
+      "orig": "roll",
+      "to": "rollback",
+      "why": "term",
+      "final": [
+        916,
+        916
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 950,
+      "orig": "back",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 955,
+      "orig": "الفشلة",
+      "to": "الفاشلة",
+      "why": "mishear",
+      "final": [
+        921,
+        921
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 971,
+      "orig": "ينام",
+      "to": "ننام",
+      "why": "mishear",
+      "final": [
+        937,
+        937
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 973,
+      "orig": "متطامنين",
+      "to": "متطمنين",
+      "why": "mishear",
+      "final": [
+        939,
+        939
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 980,
+      "orig": "بيونت",
+      "to": "بـunit",
+      "why": "term",
+      "final": [
+        946,
+        946
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 981,
+      "orig": "تاست",
+      "to": "tests",
+      "why": "term",
+      "final": [
+        947,
+        947
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 984,
+      "orig": "موك",
+      "to": "Mock",
+      "why": "term",
+      "final": [
+        950,
+        950
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 986,
+      "orig": "إنتيجريشن",
+      "to": "integration",
+      "why": "term",
+      "final": [
+        952,
+        952
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 987,
+      "orig": "تاست",
+      "to": "tests",
+      "why": "term",
+      "final": [
+        953,
+        953
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 989,
+      "orig": "ديتابيس",
+      "to": "database",
+      "why": "term",
+      "final": [
+        955,
+        955
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 991,
+      "orig": "التركة",
+      "to": "التريكة",
+      "why": "mishear",
+      "final": [
+        957,
+        957
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 999,
+      "orig": "ترانزاكشن",
+      "to": "transaction",
+      "why": "term",
+      "final": [
+        965,
+        965
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1002,
+      "orig": "رول",
+      "to": "rollback",
+      "why": "term",
+      "final": [
+        968,
+        968
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1003,
+      "orig": "باك",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1012,
+      "orig": "والديتابيس",
+      "to": "والـdatabase",
+      "why": "term",
+      "final": [
+        977,
+        977
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1025,
+      "orig": "أسورشنز",
+      "to": "assertions",
+      "why": "term",
+      "final": [
+        990,
+        990
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1033,
+      "orig": "النتج",
+      "to": "الناتج",
+      "why": "mishear",
+      "final": [
+        998,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1037,
+      "orig": "بالزبط",
+      "to": "بالظبط",
+      "why": "mishear",
+      "final": [
+        1002,
+        1002
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1038,
+      "orig": "الشرحة",
+      "to": "الشرح",
+      "why": "mishear",
+      "final": [
+        1003,
+        1003
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1049,
+      "orig": "باندس",
+      "to": "pandas",
+      "why": "term",
+      "final": [
+        1014,
+        1014
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1053,
+      "orig": "الداتا",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        1018,
+        1018
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 1054,
+      "orig": "بيس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 1070,
+      "orig": "للديتا",
+      "to": "للـdata",
+      "why": "term",
+      "final": [
+        1034,
+        1034
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1071,
+      "orig": "بايبلاين",
+      "to": "pipeline",
+      "why": "term",
+      "final": [
+        1035,
+        1035
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1079,
+      "orig": "وتخطط",
+      "to": "وتخطت",
+      "why": "mishear",
+      "final": [
+        1043,
+        1043
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1080,
+      "orig": "الساعة",
+      "to": "السعة",
+      "why": "mishear",
+      "final": [
+        1044,
+        1044
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1082,
+      "orig": "للبول",
+      "to": "للـpool",
+      "why": "term",
+      "final": [
+        1046,
+        1046
+      ]
+    }
+  ],
+  "notes": "Terms Latinised per latin_terms (pandas, DataFrame, index/columns, NumPy array, info/describe, iloc/loc, np.select/np.where, apply, groupby, split/apply/combine, agg/transform, merge, validate=many_to_one, indicator=True, dropna, NaN, z-score, pd.concat, int64/int16, category, SQLAlchemy Core, ORM, N+1 queries, executemany, multi-row VALUES, LOAD DATA INFILE, upsert, ETL, chunksize, watermark, connection pool, MySQL, savepoint, rollback, unit/integration tests, Mock) with Arabic clitics as الـ/لـ/بـ/وـ prefixes; split ASR tokens merged by blanking the extra index. Source-proven fixes: 620 '.3d SQL' -> pandas.read_sql (sc08 table row 'pandas.read_sql | تحليل', distinct from the later '.2sql' = to_sql at 700); 891 '34' -> '4 في 30' (4 servers x 30 = 120, ASR heard 'في' as 'و' = 34); 1079-1082 'وتخطط الساعة القصوى للبول' -> 'وتخطت السعة القصوى للـpool' (sc11 'سعة الـpool'); 870-871 'الحزبة هلا' -> 'الحسبة هنا' (sc11 'الحسبة'); 812 'قابله' -> 'قبله' (sc10 'مش قبله'); 348 'والضعف' -> 'وتضاعف' (sc04 'يضاعف الصفوف'); 584 'الرود رايفر' -> 'الـraw driver'. Spelled-out cardinals converted to Western digits (3, 4, 10,000 x2, 60, 3); duals/fractions kept as words (لثانيتين, نص ثانية, واحد من عشرة ثانية) with digits in sentence numbers. Phonetic ث->س/ص renderings normalised (سانية/سنية->ثانية, الكارسة->الكارثة, للإصارة->للإثارة). Lower-confidence fixes: 272 'جراد' -> 'groups' (best fit for 'buckets أو ... المختلفة'); 991 'التركة' -> 'التريكة' (trick; source says الحيلة); 833 'طوع' -> 'توقع' (Egyptian 'fall'); 438 'معادي' -> 'معدي' (exceeds); 908-909 'التايم لاين' -> الـtimeline; 1070 للديتا -> للـdata (compound 'data pipeline'). Left unchanged, flagged: 230 'Merged' in the English section title (probably 'Merge Traps'; not verifiable from the excerpt); 454 'ونرأي' (likely 'ونراعي'/'نراقب', unclear); 838 'شغالينا' (likely 'شغلنا'); 526 'بين' (likely 'من'); 28-29 'Database Pipelines' and 785-786 'Update Watermark' kept title-cased as spoken headings. No dropouts detected (largest gap 1.1 s at 199/200 is a pause), so insert is empty.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 5,
+      "kind": "transition",
+      "gloss_en": "Welcome to our explainer today.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 6,
+      "to": 15,
+      "kind": "transition",
+      "gloss_en": "We'll dive straight into the topic and take a very enjoyable journey.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 16,
+      "to": 34,
+      "kind": "transition",
+      "gloss_en": "We'll start from the simple basics of pandas DataFrames and go all the way to building strong, solid database pipelines we can rely on.",
+      "terms": [
+        "pandas",
+        "DataFrame",
+        "database",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 35,
+      "to": 49,
+      "kind": "claim",
+      "gloss_en": "This explainer is designed to move us from any data chaos to full control over it, step by step.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 50,
+      "to": 56,
+      "kind": "transition",
+      "gloss_en": "To stay organized, here is our roadmap.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 57,
+      "to": 66,
+      "kind": "transition",
+      "gloss_en": "We'll start with DataFrame basics and filtering, then move to grouping and merge problems.",
+      "terms": [
+        "DataFrame",
+        "grouping",
+        "merge"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 67,
+      "to": 80,
+      "kind": "transition",
+      "gloss_en": "Then we'll reveal the secrets of performance tuning and ways to connect to the database, and enter the bulk-load speed race.",
+      "terms": [
+        "database",
+        "bulk load"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 81,
+      "to": 89,
+      "kind": "transition",
+      "gloss_en": "Finally we'll wrap up with how to secure our connections and write tests.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 90,
+      "to": 95,
+      "kind": "transition",
+      "gloss_en": "Section one: DataFrame Basics and Filtering.",
+      "terms": [
+        "DataFrame"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 96,
+      "to": 101,
+      "kind": "transition",
+      "gloss_en": "Let's lay a solid foundation with pandas.",
+      "terms": [
+        "pandas"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 102,
+      "to": 107,
+      "kind": "example",
+      "gloss_en": "Let's picture the DataFrame as a living table in front of us.",
+      "terms": [
+        "DataFrame"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 108,
+      "to": 123,
+      "kind": "claim",
+      "gloss_en": "It is basically a two-dimensional table, with an index on the left that identifies the rows and columns on top.",
+      "terms": [
+        "index",
+        "columns"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 124,
+      "to": 136,
+      "kind": "claim",
+      "gloss_en": "And deep underneath, what holds all these numbers and makes them work is a NumPy array.",
+      "terms": [
+        "NumPy",
+        "array"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 137,
+      "to": 161,
+      "kind": "claim",
+      "gloss_en": "As soon as we get any new data, simple commands like info and describe are our first exploration tools, to understand the types and see if any values are missing.",
+      "terms": [
+        "info",
+        "describe"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 176,
+      "kind": "claim",
+      "gloss_en": "When we filter data, to select by position we use iloc, but by name we use loc.",
+      "terms": [
+        "iloc",
+        "loc"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 177,
+      "to": 189,
+      "kind": "example",
+      "gloss_en": "As we can see, the rows that don't meet the condition disappear right away.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 190,
+      "to": 194,
+      "kind": "transition",
+      "gloss_en": "The key point and the secret here is:",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 195,
+      "to": 215,
+      "kind": "claim",
+      "gloss_en": "With compound conditions, using np.select is much faster and cleaner than using apply and walking over the data row by row.",
+      "terms": [
+        "np.select",
+        "apply"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 216,
+      "to": 220,
+      "kind": "claim",
+      "gloss_en": "Because that slows performance down a lot.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 221,
+      "to": 227,
+      "kind": "transition",
+      "gloss_en": "Section two: Grouping, Merge Traps and Cleaning.",
+      "terms": [
+        "grouping",
+        "merge"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 228,
+      "to": 233,
+      "kind": "transition",
+      "gloss_en": "Let's start aggregating the data and joining it together.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 234,
+      "to": 244,
+      "kind": "claim",
+      "gloss_en": "But watch out: we're entering an area full of very dangerous traps.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 245,
+      "to": 254,
+      "kind": "claim",
+      "gloss_en": "The idea of groupby boils down to three steps: split, apply, combine.",
+      "terms": [
+        "groupby",
+        "split",
+        "apply",
+        "combine"
+      ],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 255,
+      "to": 270,
+      "kind": "example",
+      "gloss_en": "Picture the rows moving and being distributed into different buckets or groups by category; that's the split stage.",
+      "terms": [
+        "buckets",
+        "groups",
+        "split"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 271,
+      "to": 280,
+      "kind": "example",
+      "gloss_en": "Then we compute the sum or the mean for each bucket; that's the apply stage.",
+      "terms": [
+        "bucket",
+        "apply"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 281,
+      "to": 286,
+      "kind": "example",
+      "gloss_en": "Finally we gather them in the combine step.",
+      "terms": [
+        "combine"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 287,
+      "to": 304,
+      "kind": "claim",
+      "gloss_en": "The key difference: agg returns one row per group, while transform keeps the same shape and size as the original table.",
+      "terms": [
+        "agg",
+        "transform"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 305,
+      "to": 310,
+      "kind": "transition",
+      "gloss_en": "And that leads us to a bug that can wreck the work.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 311,
+      "to": 328,
+      "kind": "example",
+      "gloss_en": "Looking at the row count: it was 6 rows before the merge, and suddenly it blew up into a huge red number after it.",
+      "terms": [
+        "merge"
+      ],
+      "numbers": [
+        6
+      ],
+      "entities": []
+    },
+    {
+      "from": 329,
+      "to": 332,
+      "kind": "claim",
+      "gloss_en": "This is called the fan-out error.",
+      "terms": [
+        "fan-out",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 333,
+      "to": 344,
+      "kind": "claim",
+      "gloss_en": "It happens when the keys repeat and multiply the rows in a way we don't expect.",
+      "terms": [
+        "keys"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 345,
+      "to": 360,
+      "kind": "claim",
+      "gloss_en": "To avoid this disaster we always use validate equals many_to_one, so it throws an error early if there's a problem.",
+      "terms": [
+        "validate",
+        "many_to_one",
+        "error"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 361,
+      "to": 370,
+      "kind": "claim",
+      "gloss_en": "And indicator equals True, so we know exactly where each row came from.",
+      "terms": [
+        "indicator",
+        "True"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 371,
+      "to": 377,
+      "kind": "claim",
+      "gloss_en": "Cleaning data doesn't mean we just delete and that's it.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 378,
+      "to": 393,
+      "kind": "claim",
+      "gloss_en": "The biggest mistake is using dropna blindly, because we could lose 50% of our data in a second.",
+      "terms": [
+        "dropna"
+      ],
+      "numbers": [
+        50
+      ],
+      "entities": []
+    },
+    {
+      "from": 394,
+      "to": 416,
+      "kind": "claim",
+      "gloss_en": "Cleaning is a set of deliberate decisions, like converting empty strings to NaN, or dropping a column only if more than 50% of its data is missing.",
+      "terms": [
+        "NaN"
+      ],
+      "numbers": [
+        50
+      ],
+      "entities": []
+    },
+    {
+      "from": 417,
+      "to": 424,
+      "kind": "claim",
+      "gloss_en": "And we flag outliers if their z-score exceeds 3.",
+      "terms": [
+        "outliers",
+        "z-score"
+      ],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 425,
+      "to": 441,
+      "kind": "example",
+      "gloss_en": "When we build a full customer profile like Customer 360, we use pd.concat step by step and always watch the row count.",
+      "terms": [
+        "profile",
+        "pd.concat"
+      ],
+      "numbers": [
+        360
+      ],
+      "entities": [
+        "Customer 360"
+      ]
+    },
+    {
+      "from": 442,
+      "to": 447,
+      "kind": "transition",
+      "gloss_en": "Section three: Secrets of Performance Tuning.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 448,
+      "to": 454,
+      "kind": "transition",
+      "gloss_en": "Now we shift our focus to speed and memory consumption.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 455,
+      "to": 461,
+      "kind": "example",
+      "gloss_en": "There's a race between different ways of writing the code.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 462,
+      "to": 469,
+      "kind": "claim",
+      "gloss_en": "The golden rule in pandas is: always use vectorization.",
+      "terms": [
+        "pandas",
+        "vectorization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 470,
+      "to": 480,
+      "kind": "example",
+      "gloss_en": "As we see in this race, the Python loop is very slow.",
+      "terms": [
+        "Python",
+        "loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 481,
+      "to": 494,
+      "kind": "example",
+      "gloss_en": "The lambda apply is a bit faster, but np.where, running vectorized, wins by a landslide and takes first place.",
+      "terms": [
+        "lambda",
+        "apply",
+        "np.where",
+        "vectorization"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 495,
+      "to": 504,
+      "kind": "claim",
+      "gloss_en": "The secret isn't only in the code; it's in the data itself.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 505,
+      "to": 528,
+      "kind": "claim",
+      "gloss_en": "If we change a column's type from int64, which takes 8 bytes, to int16, which takes 2 bytes, or convert repeated strings to category, we save a huge amount of memory.",
+      "terms": [
+        "int64",
+        "int16",
+        "bytes",
+        "category"
+      ],
+      "numbers": [
+        8,
+        2
+      ],
+      "entities": []
+    },
+    {
+      "from": 529,
+      "to": 533,
+      "kind": "transition",
+      "gloss_en": "Section four: Database Connection Methods.",
+      "terms": [
+        "database",
+        "connection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 534,
+      "to": 542,
+      "kind": "transition",
+      "gloss_en": "Now we leave the world of pandas and enter the world of the database.",
+      "terms": [
+        "pandas",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 543,
+      "to": 553,
+      "kind": "claim",
+      "gloss_en": "We have four main ways to talk to the database from inside Python.",
+      "terms": [
+        "database",
+        "Python"
+      ],
+      "numbers": [
+        4
+      ],
+      "entities": []
+    },
+    {
+      "from": 554,
+      "to": 563,
+      "kind": "claim",
+      "gloss_en": "This comparison table is very important and we can't ignore it in any way.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 564,
+      "to": 571,
+      "kind": "claim",
+      "gloss_en": "The raw driver is very fast but its work is fully manual.",
+      "terms": [
+        "raw driver"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 572,
+      "to": 577,
+      "kind": "claim",
+      "gloss_en": "SQLAlchemy Core is excellent and very well suited for pipelines.",
+      "terms": [
+        "SQLAlchemy Core",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 578,
+      "to": 595,
+      "kind": "claim",
+      "gloss_en": "The ORM is great for web apps, but we must watch out for the N+1 queries trap, which runs a deadly loop of queries.",
+      "terms": [
+        "ORM",
+        "N+1",
+        "queries",
+        "loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 596,
+      "to": 601,
+      "kind": "claim",
+      "gloss_en": "And finally pandas.read_sql, the best option for analysis.",
+      "terms": [
+        "pandas.read_sql"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 602,
+      "to": 613,
+      "kind": "claim",
+      "gloss_en": "The key point here: the biggest mistake is typing parameters by hand inside the SQL.",
+      "terms": [
+        "parameters",
+        "SQL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 614,
+      "to": 622,
+      "kind": "claim",
+      "gloss_en": "We must use the safe methods to fully prevent SQL injection.",
+      "terms": [
+        "SQL",
+        "injection"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 623,
+      "to": 629,
+      "kind": "transition",
+      "gloss_en": "Section five: The bulk load speed race.",
+      "terms": [
+        "bulk load"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 630,
+      "to": 637,
+      "kind": "transition",
+      "gloss_en": "Ready for some excitement? We're now in the bulk-loading section.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 638,
+      "to": 649,
+      "kind": "claim",
+      "gloss_en": "This is literally a race against time to move 10,000 rows as fast as possible.",
+      "terms": [],
+      "numbers": [
+        10000
+      ],
+      "entities": []
+    },
+    {
+      "from": 650,
+      "to": 653,
+      "kind": "prediction",
+      "gloss_en": "The exact numbers here will shock you.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 654,
+      "to": 659,
+      "kind": "claim",
+      "gloss_en": "The whole secret is reducing round-trips to the database.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 660,
+      "to": 672,
+      "kind": "example",
+      "gloss_en": "If we do 10,000 individual inserts, it takes about 60 seconds of boring waiting.",
+      "terms": [
+        "INSERT"
+      ],
+      "numbers": [
+        10000,
+        60
+      ],
+      "entities": []
+    },
+    {
+      "from": 673,
+      "to": 676,
+      "kind": "example",
+      "gloss_en": "With pandas.to_sql it drops to 3 seconds.",
+      "terms": [
+        "pandas.to_sql"
+      ],
+      "numbers": [
+        3
+      ],
+      "entities": []
+    },
+    {
+      "from": 677,
+      "to": 681,
+      "kind": "example",
+      "gloss_en": "If we use executemany it drops to 2 seconds.",
+      "terms": [
+        "executemany"
+      ],
+      "numbers": [
+        2
+      ],
+      "entities": []
+    },
+    {
+      "from": 682,
+      "to": 689,
+      "kind": "example",
+      "gloss_en": "And with multi-row VALUES it's just half a second.",
+      "terms": [
+        "multi-row",
+        "VALUES"
+      ],
+      "numbers": [
+        0.5
+      ],
+      "entities": []
+    },
+    {
+      "from": 690,
+      "to": 699,
+      "kind": "example",
+      "gloss_en": "And LOAD DATA INFILE takes a tenth of a second, like a flash.",
+      "terms": [
+        "LOAD DATA INFILE"
+      ],
+      "numbers": [
+        0.1
+      ],
+      "entities": []
+    },
+    {
+      "from": 700,
+      "to": 719,
+      "kind": "claim",
+      "gloss_en": "To make loading safe and re-runnable without problems, we use upsert: update the data if it exists and add it if it doesn't.",
+      "terms": [
+        "upsert"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 720,
+      "to": 724,
+      "kind": "transition",
+      "gloss_en": "That brings us to the full ETL cycle.",
+      "terms": [
+        "ETL"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 725,
+      "to": 733,
+      "kind": "claim",
+      "gloss_en": "Step one, extract: we read the data in batches using chunksize.",
+      "terms": [
+        "extract",
+        "chunksize"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 734,
+      "to": 742,
+      "kind": "claim",
+      "gloss_en": "Step two, transform: we clean the data and compute what we need.",
+      "terms": [
+        "transform"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 743,
+      "to": 749,
+      "kind": "claim",
+      "gloss_en": "Step three, load: we use upsert in batches.",
+      "terms": [
+        "load",
+        "upsert"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 750,
+      "to": 754,
+      "kind": "claim",
+      "gloss_en": "And fourth, the most important: update the watermark.",
+      "terms": [
+        "update",
+        "watermark"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 755,
+      "to": 771,
+      "kind": "claim",
+      "gloss_en": "The watermark is simply the pipeline's memory: it tells us when data was last pulled, so next time we fetch only what's new.",
+      "terms": [
+        "watermark",
+        "pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 772,
+      "to": 781,
+      "kind": "claim",
+      "gloss_en": "And we always update it after the load fully succeeds, never before.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 782,
+      "to": 789,
+      "kind": "transition",
+      "gloss_en": "Section six and last: Connection Safety, Transactions and Tests.",
+      "terms": [
+        "connection",
+        "transactions",
+        "tests"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 790,
+      "to": 808,
+      "kind": "transition",
+      "gloss_en": "We've reached the last section; here we focus on protecting the database from collapsing under pressure and testing our work safely.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 809,
+      "to": 823,
+      "kind": "claim",
+      "gloss_en": "Opening a database connection is expensive, costing 10 to 50 milliseconds as a penalty every time.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [
+        10,
+        50
+      ],
+      "entities": []
+    },
+    {
+      "from": 824,
+      "to": 837,
+      "kind": "claim",
+      "gloss_en": "The magic fix is the connection pool: warm, ready connections that are borrowed and returned to the pool.",
+      "terms": [
+        "connection",
+        "pool"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 838,
+      "to": 845,
+      "kind": "claim",
+      "gloss_en": "The math here is very important so we don't exceed the limits.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 846,
+      "to": 862,
+      "kind": "example",
+      "gloss_en": "If we have 4 servers and the base plus backup connections per server total 30, that's 4 times 30, 120.",
+      "terms": [],
+      "numbers": [
+        4,
+        30,
+        120
+      ],
+      "entities": []
+    },
+    {
+      "from": 863,
+      "to": 876,
+      "kind": "claim",
+      "gloss_en": "That number is very safe because we're within MySQL's default maximum of 151 connections.",
+      "terms": [
+        "MySQL"
+      ],
+      "numbers": [
+        151
+      ],
+      "entities": []
+    },
+    {
+      "from": 877,
+      "to": 881,
+      "kind": "transition",
+      "gloss_en": "This timeline explains transactions perfectly.",
+      "terms": [
+        "timeline",
+        "transactions"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 882,
+      "to": 897,
+      "kind": "claim",
+      "gloss_en": "A transaction guarantees the work either completes fully or isn't recorded at all, so the data is never left incomplete.",
+      "terms": [
+        "transaction"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 898,
+      "to": 909,
+      "kind": "example",
+      "gloss_en": "Imagine we recorded the order and recorded the items, then went to update the stock and a problem occurred.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 910,
+      "to": 923,
+      "kind": "claim",
+      "gloss_en": "This is where the savepoint comes in: it lets us roll back just that failed step.",
+      "terms": [
+        "savepoint",
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 924,
+      "to": 935,
+      "kind": "claim",
+      "gloss_en": "And continue the rest of the batch and commit it safely, without losing all the work.",
+      "terms": [
+        "commit"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 936,
+      "to": 942,
+      "kind": "claim",
+      "gloss_en": "And to sleep soundly, we must test the code.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 943,
+      "to": 956,
+      "kind": "claim",
+      "gloss_en": "The testing pyramid starts with fast unit tests using Mock, then integration tests on a real database.",
+      "terms": [
+        "unit",
+        "tests",
+        "Mock",
+        "integration",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 957,
+      "to": 970,
+      "kind": "claim",
+      "gloss_en": "The clever trick here is putting each test inside a transaction that gets rolled back at the end.",
+      "terms": [
+        "transaction",
+        "rollback"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 971,
+      "to": 987,
+      "kind": "claim",
+      "gloss_en": "That guarantees every test starts with a perfectly clean database, with no data from the previous test.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 988,
+      "to": 1002,
+      "kind": "example",
+      "gloss_en": "And of course we write clear assertions: if the price is 999 and the quantity 2, the result must be exactly 1998.",
+      "terms": [
+        "assertions"
+      ],
+      "numbers": [
+        999,
+        2,
+        1998
+      ],
+      "entities": []
+    },
+    {
+      "from": 1003,
+      "to": 1020,
+      "kind": "recap",
+      "gloss_en": "This explainer covered the data's journey from chaos in pandas until it entered the database safely and quickly.",
+      "terms": [
+        "pandas",
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1021,
+      "to": 1029,
+      "kind": "transition",
+      "gloss_en": "But at the end we'll leave a very important question to think about.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1030,
+      "to": 1050,
+      "kind": "question",
+      "gloss_en": "What could happen to our data pipeline if orders suddenly surged and exceeded the maximum pool capacity we just calculated?",
+      "terms": [
+        "data pipeline",
+        "pool"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1051,
+      "to": 1060,
+      "kind": "transition",
+      "gloss_en": "That's what we'll discover in the next explainer. Thank you very much.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:11:06Z"
+}

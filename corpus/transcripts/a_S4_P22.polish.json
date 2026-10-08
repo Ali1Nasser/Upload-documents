@@ -1,0 +1,2791 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P22",
+  "asr_words": 1091,
+  "final_words": 1074,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 14,
+      "orig": "السندوق",
+      "to": "الصندوق",
+      "why": "mishear",
+      "final": [
+        14,
+        14
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 17,
+      "orig": "الافتنائي",
+      "to": "الاصطناعي",
+      "why": "mishear",
+      "final": [
+        17,
+        17
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 19,
+      "orig": "سواء",
+      "to": "سوا",
+      "why": "mishear",
+      "final": [
+        19,
+        19
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 23,
+      "orig": "جوابه",
+      "to": "جواه",
+      "why": "mishear",
+      "final": [
+        23,
+        23
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 29,
+      "orig": "النيورن",
+      "to": "الـneuron",
+      "why": "term",
+      "final": [
+        29,
+        29
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 36,
+      "orig": "لترانسفورمر",
+      "to": "لـTransformer",
+      "why": "term",
+      "final": [
+        36,
+        36
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 58,
+      "orig": "النيورن",
+      "to": "الـneural",
+      "why": "term",
+      "final": [
+        58,
+        58
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 59,
+      "orig": "نتورك",
+      "to": "network",
+      "why": "term",
+      "final": [
+        59,
+        59
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 68,
+      "orig": "ترانسفورمر",
+      "to": "Transformer",
+      "why": "term",
+      "final": [
+        68,
+        68
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 71,
+      "orig": "والجينريشن",
+      "to": "والـgeneration",
+      "why": "term",
+      "final": [
+        71,
+        71
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 75,
+      "orig": "القلق",
+      "to": "الـLLMs",
+      "why": "term",
+      "final": [
+        75,
+        75
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 76,
+      "orig": "الأمز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 78,
+      "orig": "والبرومتينج",
+      "to": "والـprompting",
+      "why": "term",
+      "final": [
+        77,
+        77
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 84,
+      "orig": "النيورال",
+      "to": "الـneural",
+      "why": "term",
+      "final": [
+        83,
+        83
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 85,
+      "orig": "ناتورك",
+      "to": "network",
+      "why": "term",
+      "final": [
+        84,
+        84
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 89,
+      "orig": "اللابنات",
+      "to": "اللبنات",
+      "why": "mishear",
+      "final": [
+        88,
+        88
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 97,
+      "orig": "ماث",
+      "to": "math",
+      "why": "term",
+      "final": [
+        96,
+        96
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 102,
+      "orig": "النيورون",
+      "to": "الـneuron",
+      "why": "term",
+      "final": [
+        101,
+        101
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 117,
+      "orig": "الإنبوتس",
+      "to": "الـinputs",
+      "why": "term",
+      "final": [
+        116,
+        116
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 140,
+      "orig": "المجموعة",
+      "to": "المجموع",
+      "why": "mishear",
+      "final": [
+        139,
+        139
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 155,
+      "orig": "النيورون",
+      "to": "الـneuron",
+      "why": "term",
+      "final": [
+        154,
+        154
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 202,
+      "orig": "المعقبة",
+      "to": "المعقدة",
+      "why": "mishear",
+      "final": [
+        201,
+        201
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 211,
+      "orig": "والبرامترس",
+      "to": "والـparameters",
+      "why": "term",
+      "final": [
+        210,
+        210
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 218,
+      "orig": "الموضل",
+      "to": "الموديل",
+      "why": "mishear",
+      "final": [
+        217,
+        217
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 297,
+      "orig": "الباك",
+      "to": "الـback",
+      "why": "term",
+      "final": [
+        296,
+        296
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 298,
+      "orig": "بروباجيشن",
+      "to": "propagation",
+      "why": "term",
+      "final": [
+        297,
+        297
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 303,
+      "orig": "بالتشين",
+      "to": "بالـchain",
+      "why": "term",
+      "final": [
+        302,
+        302
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 304,
+      "orig": "رول",
+      "to": "rule",
+      "why": "term",
+      "final": [
+        303,
+        303
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 307,
+      "orig": "الويد",
+      "to": "الـweight",
+      "why": "term",
+      "final": [
+        306,
+        306
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 310,
+      "orig": "اللص",
+      "to": "الـloss",
+      "why": "term",
+      "final": [
+        309,
+        309
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 314,
+      "orig": "البساطة",
+      "to": "ببساطة",
+      "why": "mishear",
+      "final": [
+        313,
+        313
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 316,
+      "orig": "الجريدينت",
+      "to": "الـgradient",
+      "why": "term",
+      "final": [
+        315,
+        315
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 318,
+      "orig": "مين",
+      "to": "ميل",
+      "why": "mishear",
+      "final": [
+        317,
+        317
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 319,
+      "orig": "ليه",
+      "to": "وليه",
+      "why": "mishear",
+      "final": [
+        318,
+        318
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 324,
+      "orig": "الويت",
+      "to": "الـweight",
+      "why": "term",
+      "final": [
+        323,
+        323
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 338,
+      "orig": "الليرنينج",
+      "to": "الـlearning",
+      "why": "term",
+      "final": [
+        337,
+        337
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 339,
+      "orig": "ريت",
+      "to": "rate",
+      "why": "term",
+      "final": [
+        338,
+        338
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 343,
+      "orig": "اللص",
+      "to": "الـloss",
+      "why": "term",
+      "final": [
+        342,
+        342
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 353,
+      "orig": "الليرنينج",
+      "to": "الـlearning",
+      "why": "term",
+      "final": [
+        352,
+        352
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 354,
+      "orig": "ريت",
+      "to": "rate",
+      "why": "term",
+      "final": [
+        353,
+        353
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 358,
+      "orig": "المنحنة",
+      "to": "المنحنى",
+      "why": "mishear",
+      "final": [
+        357,
+        357
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 364,
+      "orig": "بتبوز",
+      "to": "بتبوظ",
+      "why": "mishear",
+      "final": [
+        363,
+        363
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 377,
+      "orig": "بهم",
+      "to": "بحجم",
+      "why": "mishear",
+      "final": [
+        376,
+        376
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 378,
+      "orig": "كبر",
+      "to": "كبير",
+      "why": "mishear",
+      "final": [
+        377,
+        377
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 382,
+      "orig": "الناص",
+      "to": "النص",
+      "why": "mishear",
+      "final": [
+        381,
+        381
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 412,
+      "orig": "توكنز",
+      "to": "tokens",
+      "why": "term",
+      "final": [
+        411,
+        411
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 413,
+      "orig": "التوكنز",
+      "to": "الـtokens",
+      "why": "term",
+      "final": [
+        412,
+        412
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 419,
+      "orig": "التوكن",
+      "to": "الـtoken",
+      "why": "term",
+      "final": [
+        418,
+        418
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 423,
+      "orig": "أربع",
+      "to": "4",
+      "why": "number",
+      "final": [
+        422,
+        422
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 426,
+      "orig": "تلات",
+      "to": "3",
+      "why": "number",
+      "final": [
+        425,
+        425
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 427,
+      "orig": "أربع",
+      "to": "أرباع",
+      "why": "mishear",
+      "final": [
+        426,
+        426
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 432,
+      "orig": "توكن",
+      "to": "token",
+      "why": "term",
+      "final": [
+        431,
+        431
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 434,
+      "orig": "لفكتور",
+      "to": "لـvector",
+      "why": "term",
+      "final": [
+        433,
+        433
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 437,
+      "orig": "الامبادنج",
+      "to": "الـembedding",
+      "why": "term",
+      "final": [
+        436,
+        436
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 457,
+      "orig": "جول",
+      "to": "حول",
+      "why": "mishear",
+      "final": [
+        456,
+        456
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 458,
+      "orig": "ترانسفورمر",
+      "to": "Transformer",
+      "why": "term",
+      "final": [
+        457,
+        457
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 460,
+      "orig": "الاتنشن",
+      "to": "الـattention",
+      "why": "term",
+      "final": [
+        459,
+        459
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 461,
+      "orig": "ماكنزم",
+      "to": "mechanism",
+      "why": "term",
+      "final": [
+        460,
+        460
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 469,
+      "orig": "ترانسفورمر",
+      "to": "Transformer",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 474,
+      "orig": "الدي",
+      "to": "الـd_model",
+      "why": "term",
+      "final": [
+        473,
+        473
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 475,
+      "orig": "موديل",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 480,
+      "orig": "هيد",
+      "to": "heads",
+      "why": "term",
+      "final": [
+        478,
+        478
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 481,
+      "orig": "والدي",
+      "to": "والـd_head",
+      "why": "term",
+      "final": [
+        479,
+        479
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 482,
+      "orig": "هيد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 485,
+      "orig": "بلوك",
+      "to": "block",
+      "why": "term",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 519,
+      "orig": "توكن",
+      "to": "token",
+      "why": "term",
+      "final": [
+        516,
+        516
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 531,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        528,
+        528
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 533,
+      "orig": "التوكن",
+      "to": "الـtoken",
+      "why": "term",
+      "final": [
+        530,
+        530
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 540,
+      "orig": "الكي",
+      "to": "الـkey",
+      "why": "term",
+      "final": [
+        537,
+        537
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 543,
+      "orig": "التوكن",
+      "to": "الـtoken",
+      "why": "term",
+      "final": [
+        540,
+        540
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 587,
+      "orig": "مسلس",
+      "to": "مثلث",
+      "why": "mishear",
+      "final": [
+        584,
+        584
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 598,
+      "orig": "دلة",
+      "to": "دالة",
+      "why": "mishear",
+      "final": [
+        595,
+        595
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 599,
+      "orig": "soft",
+      "to": "softmax",
+      "why": "term",
+      "final": [
+        596,
+        596
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 600,
+      "orig": "max",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 637,
+      "orig": "بلوك",
+      "to": "block",
+      "why": "term",
+      "final": [
+        633,
+        633
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 642,
+      "orig": "المالتي",
+      "to": "الـmulti-head",
+      "why": "term",
+      "final": [
+        638,
+        638
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 643,
+      "orig": "هيد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 644,
+      "orig": "أتنشن",
+      "to": "attention",
+      "why": "term",
+      "final": [
+        639,
+        639
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 647,
+      "orig": "هيد",
+      "to": "head",
+      "why": "term",
+      "final": [
+        642,
+        642
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 653,
+      "orig": "التوكنز",
+      "to": "الـtokens",
+      "why": "term",
+      "final": [
+        648,
+        648
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 656,
+      "orig": "الفاليوز",
+      "to": "الـvalues",
+      "why": "term",
+      "final": [
+        651,
+        651
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 664,
+      "orig": "الريزيجي",
+      "to": "residual",
+      "why": "term",
+      "final": [
+        659,
+        659
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 665,
+      "orig": "والستريم",
+      "to": "stream",
+      "why": "term",
+      "final": [
+        660,
+        660
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 666,
+      "orig": "القشم",
+      "to": "القسم",
+      "why": "mishear",
+      "final": [
+        661,
+        661
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 673,
+      "orig": "الموضل",
+      "to": "الموديل",
+      "why": "mishear",
+      "final": [
+        668,
+        668
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 693,
+      "orig": "التمبرتشر",
+      "to": "الـtemperature",
+      "why": "term",
+      "final": [
+        688,
+        688
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 697,
+      "orig": "زيرو",
+      "to": "0",
+      "why": "number",
+      "final": [
+        692,
+        692
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 698,
+      "orig": "لزيرو",
+      "to": "ل",
+      "why": "number",
+      "final": [
+        693,
+        693
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 699,
+      "orig": "بوينت",
+      "to": "0",
+      "why": "number",
+      "final": [
+        694,
+        694
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 700,
+      "orig": "تلاتة",
+      "to": ".3",
+      "why": "number",
+      "final": [
+        695,
+        695
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 720,
+      "orig": "وتناوع",
+      "to": "وتنوع",
+      "why": "mishear",
+      "final": [
+        715,
+        715
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 724,
+      "orig": "الطوب",
+      "to": "الـtop-p",
+      "why": "term",
+      "final": [
+        719,
+        719
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 725,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 728,
+      "orig": "دي",
+      "to": "ديل",
+      "why": "mishear",
+      "final": [
+        722,
+        722
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 729,
+      "orig": "للتوزيع",
+      "to": "التوزيع",
+      "why": "mishear",
+      "final": [
+        723,
+        723
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 736,
+      "orig": "توكن",
+      "to": "token",
+      "why": "term",
+      "final": [
+        730,
+        730
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 738,
+      "orig": "بالسامبلينج",
+      "to": "بالـsampling",
+      "why": "term",
+      "final": [
+        732,
+        732
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 752,
+      "orig": "للألأ",
+      "to": "للـLLMs",
+      "why": "term",
+      "final": [
+        746,
+        746
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 753,
+      "orig": "الأمز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 755,
+      "orig": "النمازج",
+      "to": "النماذج",
+      "why": "mishear",
+      "final": [
+        748,
+        748
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 760,
+      "orig": "لسكيل",
+      "to": "لـscale",
+      "why": "term",
+      "final": [
+        753,
+        753
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 761,
+      "orig": "الألأ",
+      "to": "الـLLMs",
+      "why": "term",
+      "final": [
+        754,
+        754
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 762,
+      "orig": "الأمز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 768,
+      "orig": "الترانسفورمر",
+      "to": "الـTransformer",
+      "why": "term",
+      "final": [
+        760,
+        760
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 773,
+      "orig": "أملاق",
+      "to": "عملاق",
+      "why": "mishear",
+      "final": [
+        765,
+        765
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 776,
+      "orig": "داتة",
+      "to": "داتا",
+      "why": "mishear",
+      "final": [
+        768,
+        768
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 783,
+      "orig": "الكونتكست",
+      "to": "الـcontext",
+      "why": "term",
+      "final": [
+        775,
+        775
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 784,
+      "orig": "ويندو",
+      "to": "window",
+      "why": "term",
+      "final": [
+        776,
+        776
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 789,
+      "orig": "توكنز",
+      "to": "tokens",
+      "why": "term",
+      "final": [
+        781,
+        781
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 800,
+      "orig": "الهالوسينيشن",
+      "to": "الـhallucination",
+      "why": "term",
+      "final": [
+        792,
+        792
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 816,
+      "orig": "جراوندينج",
+      "to": "grounding",
+      "why": "term",
+      "final": [
+        808,
+        808
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 823,
+      "orig": "دقنية",
+      "to": "تقنية",
+      "why": "mishear",
+      "final": [
+        815,
+        815
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 824,
+      "orig": "الراج",
+      "to": "الـRAG",
+      "why": "term",
+      "final": [
+        816,
+        816
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 829,
+      "orig": "البرومتينغ",
+      "to": "الـprompting",
+      "why": "term",
+      "final": [
+        821,
+        821
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 841,
+      "orig": "البرومت",
+      "to": "الـprompt",
+      "why": "term",
+      "final": [
+        833,
+        833
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 858,
+      "orig": "السكيمة",
+      "to": "الـschema",
+      "why": "term",
+      "final": [
+        850,
+        850
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 860,
+      "orig": "رول",
+      "to": "role",
+      "why": "term",
+      "final": [
+        852,
+        852
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 861,
+      "orig": "برسونا",
+      "to": "persona",
+      "why": "term",
+      "final": [
+        853,
+        853
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 870,
+      "orig": "تكنيكز",
+      "to": "techniques",
+      "why": "term",
+      "final": [
+        862,
+        862
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 872,
+      "orig": "زيرو",
+      "to": "zero-shot",
+      "why": "term",
+      "final": [
+        864,
+        864
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 873,
+      "orig": "شاط",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 874,
+      "orig": "وفيو",
+      "to": "وfew-shot",
+      "why": "term",
+      "final": [
+        865,
+        865
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 875,
+      "orig": "شاط",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 883,
+      "orig": "فليديت",
+      "to": "validate",
+      "why": "term",
+      "final": [
+        873,
+        873
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 886,
+      "orig": "السيكول",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        876,
+        876
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 889,
+      "orig": "بارس",
+      "to": "parse",
+      "why": "term",
+      "final": [
+        879,
+        879
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 890,
+      "orig": "للجيسون",
+      "to": "للـJSON",
+      "why": "term",
+      "final": [
+        880,
+        880
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 902,
+      "orig": "الانسايتس",
+      "to": "الـInsightsGenerator",
+      "why": "term",
+      "final": [
+        892,
+        892
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 903,
+      "orig": "جنريتر",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 906,
+      "orig": "مقييس",
+      "to": "مقاييس",
+      "why": "mishear",
+      "final": [
+        895,
+        895
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 911,
+      "orig": "وإراد",
+      "to": "وإيراد",
+      "why": "mishear",
+      "final": [
+        900,
+        900
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 919,
+      "orig": "بتمبرتشر",
+      "to": "بـtemperature",
+      "why": "term",
+      "final": [
+        908,
+        908
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 926,
+      "orig": "الأدات",
+      "to": "الأداة",
+      "why": "mishear",
+      "final": [
+        915,
+        915
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 930,
+      "orig": "الانومالي",
+      "to": "الـAnomalyExplainer",
+      "why": "term",
+      "final": [
+        919,
+        919
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 931,
+      "orig": "اكسپلينر",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 947,
+      "orig": "متهلوس",
+      "to": "متهلوسش",
+      "why": "mishear",
+      "final": [
+        935,
+        935
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 954,
+      "orig": "إرادات",
+      "to": "إيرادات",
+      "why": "mishear",
+      "final": [
+        942,
+        942
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 955,
+      "orig": "خمسين",
+      "to": "50,000",
+      "why": "number",
+      "final": [
+        943,
+        943
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 956,
+      "orig": "ألف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 958,
+      "orig": "الفعل",
+      "to": "الفعلي",
+      "why": "mishear",
+      "final": [
+        945,
+        945
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 960,
+      "orig": "تمانية",
+      "to": "28,500",
+      "why": "number",
+      "final": [
+        947,
+        947
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 961,
+      "orig": "وعشرين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 962,
+      "orig": "ألف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 963,
+      "orig": "وخمسمية",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 975,
+      "orig": "تايم",
+      "to": "timeouts",
+      "why": "term",
+      "final": [
+        959,
+        959
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 976,
+      "orig": "اوتس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 983,
+      "orig": "لأربعة",
+      "to": "لـ4",
+      "why": "number",
+      "final": [
+        966,
+        966
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 986,
+      "orig": "عصفة",
+      "to": "عاصفة",
+      "why": "mishear",
+      "final": [
+        969,
+        969
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 987,
+      "orig": "تلجية",
+      "to": "ثلجية",
+      "why": "mishear",
+      "final": [
+        970,
+        970
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1015,
+      "orig": "ألا",
+      "to": "آلة",
+      "why": "mishear",
+      "final": [
+        998,
+        998
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1034,
+      "orig": "سليسة",
+      "to": "سلسة",
+      "why": "mishear",
+      "final": [
+        1017,
+        1017
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1046,
+      "orig": "نيورون",
+      "to": "neuron",
+      "why": "term",
+      "final": [
+        1029,
+        1029
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1047,
+      "orig": "بأدينا",
+      "to": "بإيدينا",
+      "why": "mishear",
+      "final": [
+        1030,
+        1030
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 1055,
+      "orig": "transformer",
+      "to": "Transformer",
+      "why": "term",
+      "final": [
+        1038,
+        1038
+      ]
+    }
+  ],
+  "notes": "Edits: 154 word-level fixes, all Latin-script/term, digit or mishear. Terms converted to Latin using the pack's tatweel style (ال~neuron); multi-word terms merged by emptying the trailing word (LLMs 75-76, 752-753, 761-762; multi-head 642-644; softmax 599-600; d_model 474-475; d_head 481-482; top-p 724-725; zero-shot/few-shot 872-875; InsightsGenerator 902-903; AnomalyExplainer 930-931; timeouts 975-976). Spoken numbers turned to digits: 'من زيرو لزيرو بوينت تلاتة' -> '0 ل 0 .3' (697-700, matches the pack's '0' + '.N' split style); 'أربع حروف' -> 4 (423); 'تلات أربع كلمة' -> '3 أرباع' (426-427; on-screen says 3/4 word); 'خمسين ألف' -> 50,000 (955-956); 'تمانية وعشرين ألف وخمسمية' -> 28,500 (960-963; sc15 says ونص); 'لأربعة' -> 'لـ4' (983). Mishears fixed with excerpt/on-screen proof: السندوق->الصندوق (sc01), مسلس->مثلث (sc10 'المثلث العلوي'), مين ليه->ميل وليه (sc04), بتبوز->بتبوظ (sc16), دي للتوزيع->ديل التوزيع (sc12 'بتقص ديله'), عصفة تلجية->عاصفة ثلجية (sc15), بهم كبر->بحجم كبير (sc05 'على حجم كبير'), الطوب بي->top-p (sc12). Fixed by fixed-phrase/near-certain context (not literally in excerpt): الافتنائي->الاصطناعي, سواء->سوا, جوابه->جواه, اللابنات->اللبنات, المجموعة->المجموع, المعقبة->المعقدة, المنحنة->المنحنى, القشم->القسم, الناص->النص, جول->حول, ألا->آلة (آلة حسبة), الفعل->الفعلي, دقنية->تقنية, أملاق->عملاق, داتة->داتا, تناوع->تنوع, النمازج->النماذج, سليسة->سلسة, مقييس->مقاييس, إراد(ات)->إيراد(ات), متهلوس->متهلوسش, البساطة->ببساطة, الموضل->الموديل (x2), الأدات->الأداة, بأدينا->بإيدينا. DROPOUT (no insert, wording not certain): gap of 2.68 s between word 189 (خطية, 82140 ms) and word 190 (كيفك, 84820 ms); roughly 6-8 words are missing, most likely a sentence like 'but when we add the activation function...'. 'كيفك' (conf 0.38) is probably a garble of the start of that clause; left unchanged. Left unchanged because intended word is not provable: 'سيكا' (309; source says 'شوية', but may be real Egyptian 'سيكا'), 'تركاية' (569), 'بيكتر' (674; maybe بيفكر/بيكتب), 'وفتكره' (676; maybe وافتكر), 'أوليب منصمة' (851-852; probably 'output منظم' per sc14 'حدد شكل الـoutput'), 'دخل حل للداتا' (967-969; maybe حلل الداتا), 'إيه' at 362, 'بهم كبر' handled as بحجم كبير with moderate confidence, 'ف14' (501, fused 'في 14', left as whisper wrote it), 'دخلين' (226, = داخلين). Numbers 45890 and 294 (912, 914) are what whisper heard; on-screen text is 45,890.50 and 294.17, so the speaker may have said the longer values; not changed. Sentence 66-79 and 56-65 are agenda lines; sentences 190-194 and 666-675 and 848-861 glosses flag the unclear words.",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 9,
+      "kind": "transition",
+      "gloss_en": "Welcome to a new explainer where we simplify the most complex topics.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 10,
+      "to": 24,
+      "kind": "claim",
+      "gloss_en": "Today we open the black box of AI and understand together exactly what happens inside it.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 25,
+      "to": 36,
+      "kind": "claim",
+      "gloss_en": "From computing a single neuron by hand all the way to the Transformer.",
+      "terms": [
+        "neuron",
+        "Transformer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 37,
+      "to": 47,
+      "kind": "claim",
+      "gloss_en": "Trust me, there is no magic here; it is all just calculations and numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 48,
+      "to": 55,
+      "kind": "transition",
+      "gloss_en": "Ready? Let's go; our agenda is very quick.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 56,
+      "to": 65,
+      "kind": "transition",
+      "gloss_en": "We start with neural network basics, then see how we prepare the text for the model.",
+      "terms": [
+        "neural network"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 66,
+      "to": 78,
+      "kind": "transition",
+      "gloss_en": "Then we get inside the Transformer, then prediction and generation, and finally the core LLM concepts and prompting with its layers.",
+      "terms": [
+        "Transformer",
+        "generation",
+        "LLM",
+        "prompting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 79,
+      "to": 89,
+      "kind": "transition",
+      "gloss_en": "Part one: neural network basics, or the basic building blocks.",
+      "terms": [
+        "neural network"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 90,
+      "to": 97,
+      "kind": "claim",
+      "gloss_en": "As agreed, there is no magic; it is all math and data.",
+      "terms": [
+        "math"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 98,
+      "to": 102,
+      "kind": "question",
+      "gloss_en": "So how do we compute a single neuron?",
+      "terms": [
+        "neuron"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 113,
+      "kind": "claim",
+      "gloss_en": "It is very simple: the equation is W times X plus B.",
+      "terms": [
+        "W",
+        "X",
+        "B"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 114,
+      "to": 126,
+      "kind": "example",
+      "gloss_en": "We take our inputs, for example the number of the customer's orders or their LTV.",
+      "terms": [
+        "inputs",
+        "LTV"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 127,
+      "to": 138,
+      "kind": "claim",
+      "gloss_en": "We multiply them by the weights, then add the bias to them.",
+      "terms": [
+        "weights",
+        "bias"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 139,
+      "to": 152,
+      "kind": "claim",
+      "gloss_en": "This sum then passes through something called an activation function, and all of this is computed step by step.",
+      "terms": [
+        "Activation Function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 153,
+      "to": 161,
+      "kind": "claim",
+      "gloss_en": "So that the neuron gives us its opinion on the result at the end.",
+      "terms": [
+        "neuron"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 162,
+      "to": 169,
+      "kind": "question",
+      "gloss_en": "Why do you think the activation function is necessary?",
+      "terms": [
+        "Activation Function"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 170,
+      "to": 179,
+      "kind": "claim",
+      "gloss_en": "Without it, simply, the layers all collapse and become just a straight line.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 180,
+      "to": 188,
+      "kind": "claim",
+      "gloss_en": "Because a linear function followed by a linear function gives a linear result again.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 189,
+      "to": 193,
+      "kind": "claim",
+      "gloss_en": "It starts to bend and curves get formed (the opening words were lost in the audio).",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 194,
+      "to": 206,
+      "kind": "claim",
+      "gloss_en": "And that is literally what lets it understand the patterns and complex data that no straight line could ever capture.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 207,
+      "to": 220,
+      "kind": "transition",
+      "gloss_en": "Let's count the numbers and parameters together to know where the size of this model comes from.",
+      "terms": [
+        "parameters"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 221,
+      "to": 237,
+      "kind": "example",
+      "gloss_en": "If we have 3 inputs going into 2 neurons, we get 6 weights plus 2 bias, so 8.",
+      "terms": [
+        "inputs",
+        "neurons",
+        "weights",
+        "bias"
+      ],
+      "numbers": [
+        "3",
+        "2",
+        "6",
+        "2",
+        "8"
+      ],
+      "entities": []
+    },
+    {
+      "from": 238,
+      "to": 253,
+      "kind": "example",
+      "gloss_en": "And when these 2 neurons go to the output neuron 1, we add 2 weights and 1 bias.",
+      "terms": [
+        "neurons",
+        "output",
+        "neuron",
+        "weights",
+        "bias"
+      ],
+      "numbers": [
+        "2",
+        "1",
+        "2",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 254,
+      "to": 259,
+      "kind": "example",
+      "gloss_en": "That is 3 more, so the total is exactly 11.",
+      "terms": [],
+      "numbers": [
+        "3",
+        "11"
+      ],
+      "entities": []
+    },
+    {
+      "from": 260,
+      "to": 268,
+      "kind": "claim",
+      "gloss_en": "See how? By counting them we understand exactly how the network is built.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 269,
+      "to": 274,
+      "kind": "question",
+      "gloss_en": "Great. Now how does the model learn?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 275,
+      "to": 282,
+      "kind": "claim",
+      "gloss_en": "This loop starts with a forward pass, from which we get a prediction.",
+      "terms": [
+        "forward pass"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 283,
+      "to": 291,
+      "kind": "claim",
+      "gloss_en": "And we measure how wrong we were, which is what we call the loss.",
+      "terms": [
+        "loss"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 292,
+      "to": 303,
+      "kind": "claim",
+      "gloss_en": "Here comes the role of backpropagation: we go in exactly the reverse direction and ask with the chain rule.",
+      "terms": [
+        "backpropagation",
+        "chain rule"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 304,
+      "to": 311,
+      "kind": "question",
+      "gloss_en": "If we move this weight a little, how will the loss change?",
+      "terms": [
+        "weight",
+        "loss"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 312,
+      "to": 319,
+      "kind": "claim",
+      "gloss_en": "Simply put, that is the gradient, just a slope with a sign.",
+      "terms": [
+        "gradient"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 320,
+      "to": 330,
+      "kind": "claim",
+      "gloss_en": "It tells us to move the weight in whichever direction reduces this error.",
+      "terms": [
+        "weight"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 331,
+      "to": 338,
+      "kind": "claim",
+      "gloss_en": "The size of the step we take is the learning rate.",
+      "terms": [
+        "learning rate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 339,
+      "to": 349,
+      "kind": "prediction",
+      "gloss_en": "At first you will find the loss going down calmly and smoothly, but focus with me.",
+      "terms": [
+        "loss"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 350,
+      "to": 360,
+      "kind": "claim",
+      "gloss_en": "As soon as the learning rate passes 0.35, the curve scatters completely and blows up.",
+      "terms": [
+        "learning rate"
+      ],
+      "numbers": [
+        "0.35"
+      ],
+      "entities": []
+    },
+    {
+      "from": 361,
+      "to": 365,
+      "kind": "claim",
+      "gloss_en": "The calculations break and the model collapses.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 366,
+      "to": 377,
+      "kind": "recap",
+      "gloss_en": "By the way, this loop is the foundation of any model in the world, at large scale.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 378,
+      "to": 382,
+      "kind": "transition",
+      "gloss_en": "Part two: preparing the text for the model.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 383,
+      "to": 390,
+      "kind": "claim",
+      "gloss_en": "These networks do not understand words; they only understand numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 391,
+      "to": 396,
+      "kind": "claim",
+      "gloss_en": "So we must convert any text into numbers first.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 397,
+      "to": 400,
+      "kind": "claim",
+      "gloss_en": "This point is extremely important.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 401,
+      "to": 411,
+      "kind": "claim",
+      "gloss_en": "The model does not see words or letters; it sees something called tokens.",
+      "terms": [
+        "tokens"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 412,
+      "to": 416,
+      "kind": "claim",
+      "gloss_en": "These tokens are determined by frequency.",
+      "terms": [
+        "tokens"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 417,
+      "to": 428,
+      "kind": "claim",
+      "gloss_en": "So one token is roughly 4 characters, or three quarters of an English word.",
+      "terms": [
+        "token"
+      ],
+      "numbers": [
+        "4",
+        "3/4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 429,
+      "to": 436,
+      "kind": "claim",
+      "gloss_en": "Then each token is turned into a vector, which is the embedding.",
+      "terms": [
+        "token",
+        "vector",
+        "embedding"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 437,
+      "to": 451,
+      "kind": "claim",
+      "gloss_en": "And we add its position in the sentence; without this position the model would not know the word order at all.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 452,
+      "to": 465,
+      "kind": "transition",
+      "gloss_en": "We move on to part three: about the Transformer, specifically the attention mechanism, which is the heart of the whole technology.",
+      "terms": [
+        "Transformer",
+        "attention",
+        "mechanism"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 466,
+      "to": 472,
+      "kind": "example",
+      "gloss_en": "Suppose we designed a very small Transformer so that we can understand it.",
+      "terms": [
+        "Transformer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 473,
+      "to": 484,
+      "kind": "example",
+      "gloss_en": "Its d_model is 8, it has 2 heads, d_head is 4, and it has 1 block only.",
+      "terms": [
+        "d_model",
+        "heads",
+        "d_head",
+        "block"
+      ],
+      "numbers": [
+        "8",
+        "2",
+        "4",
+        "1"
+      ],
+      "entities": []
+    },
+    {
+      "from": 485,
+      "to": 488,
+      "kind": "claim",
+      "gloss_en": "In total, 696 weights.",
+      "terms": [
+        "weights"
+      ],
+      "numbers": [
+        "696"
+      ],
+      "entities": []
+    },
+    {
+      "from": 489,
+      "to": 500,
+      "kind": "claim",
+      "gloss_en": "The advantage here is that we can follow the data step by step through 14 detailed stages.",
+      "terms": [],
+      "numbers": [
+        "14"
+      ],
+      "entities": []
+    },
+    {
+      "from": 501,
+      "to": 508,
+      "kind": "claim",
+      "gloss_en": "And we see the numbers being multiplied with each other right before our eyes.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 509,
+      "to": 514,
+      "kind": "transition",
+      "gloss_en": "Here the Attention process begins.",
+      "terms": [
+        "Attention"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 515,
+      "to": 525,
+      "kind": "claim",
+      "gloss_en": "Each token produces 3 things: Query, Key and Value.",
+      "terms": [
+        "token",
+        "Query",
+        "Key",
+        "Value"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 526,
+      "to": 543,
+      "kind": "claim",
+      "gloss_en": "The idea is that the query of the token we are standing at starts scanning and asks the key of every other token in the sentence.",
+      "terms": [
+        "query",
+        "token",
+        "key"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 544,
+      "to": 562,
+      "kind": "claim",
+      "gloss_en": "This process gives us a grid, or heat map, of width 8, full of raw scores telling us exactly who attends to whom.",
+      "terms": [
+        "heat map"
+      ],
+      "numbers": [
+        "8"
+      ],
+      "entities": []
+    },
+    {
+      "from": 563,
+      "to": 576,
+      "kind": "question",
+      "gloss_en": "But here there is a catch: a model that predicts the next word cannot look at the future, right?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 577,
+      "to": 592,
+      "kind": "claim",
+      "gloss_en": "That is why we put a causal mask, in a triangle shape, that switches off the upper half of this grid entirely.",
+      "terms": [
+        "causal mask"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 593,
+      "to": 605,
+      "kind": "claim",
+      "gloss_en": "Then comes the softmax function, which turns these scores into weights, and the result is very precise.",
+      "terms": [
+        "softmax"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 606,
+      "to": 622,
+      "kind": "claim",
+      "gloss_en": "The sum of each row must come out to exactly one, 1.000, which sets the share of attention for each earlier word.",
+      "terms": [],
+      "numbers": [
+        "1.000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 623,
+      "to": 637,
+      "kind": "claim",
+      "gloss_en": "Now we reach the residual stream, the main pathway of information that every block reads from and writes to.",
+      "terms": [
+        "residual stream",
+        "block"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 638,
+      "to": 648,
+      "kind": "claim",
+      "gloss_en": "Multi-head attention makes each head focus on a specific relationship between the tokens.",
+      "terms": [
+        "multi-head attention",
+        "head",
+        "tokens"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 649,
+      "to": 660,
+      "kind": "claim",
+      "gloss_en": "Then they mix the values with the weights and write this result straight into the residual stream.",
+      "terms": [
+        "values",
+        "residual stream"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 661,
+      "to": 670,
+      "kind": "transition",
+      "gloss_en": "Part four: prediction and word generation; here we will see how the model works (one word is unclear in the audio).",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 671,
+      "to": 680,
+      "kind": "claim",
+      "gloss_en": "And remember, it does not give us a definitive answer; it gives us a probability distribution.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 681,
+      "to": 686,
+      "kind": "question",
+      "gloss_en": "So how do we control this distribution?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 687,
+      "to": 695,
+      "kind": "claim",
+      "gloss_en": "We have the temperature: if we set it from 0 to 0.3...",
+      "terms": [
+        "temperature"
+      ],
+      "numbers": [
+        "0",
+        "0.3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 696,
+      "to": 703,
+      "kind": "claim",
+      "gloss_en": "The distribution becomes sharp and specific, which is perfect for data analysis.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 704,
+      "to": 716,
+      "kind": "claim",
+      "gloss_en": "But if we raise it above 0.7, the distribution spreads out and there is more creativity and diversity.",
+      "terms": [],
+      "numbers": [
+        "0.7"
+      ],
+      "entities": []
+    },
+    {
+      "from": 717,
+      "to": 728,
+      "kind": "claim",
+      "gloss_en": "There is also top-p, which trims the tail of this distribution so that the text stays logical.",
+      "terms": [
+        "top-p"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 729,
+      "to": 741,
+      "kind": "claim",
+      "gloss_en": "We take one token by sampling and append it, and this whole circle goes round again from the start.",
+      "terms": [
+        "token",
+        "sampling"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 742,
+      "to": 750,
+      "kind": "transition",
+      "gloss_en": "Part five: the core concepts of LLMs, or large language models.",
+      "terms": [
+        "LLMs"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 751,
+      "to": 769,
+      "kind": "claim",
+      "gloss_en": "When we scale up, these LLMs are nothing but the same Transformer we explained, only at a giant size and run on huge data.",
+      "terms": [
+        "scale",
+        "LLMs",
+        "Transformer"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 770,
+      "to": 774,
+      "kind": "transition",
+      "gloss_en": "There are some terms we need to know.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 775,
+      "to": 790,
+      "kind": "claim",
+      "gloss_en": "The context window, for example, is the maximum number of tokens the model can see at one time, and it ranges from 4000 to 128000.",
+      "terms": [
+        "context window",
+        "tokens"
+      ],
+      "numbers": [
+        "4000",
+        "128000"
+      ],
+      "entities": []
+    },
+    {
+      "from": 791,
+      "to": 803,
+      "kind": "claim",
+      "gloss_en": "And there is hallucination, which happens when the model says very convincing but completely wrong things.",
+      "terms": [
+        "hallucination"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 804,
+      "to": 816,
+      "kind": "claim",
+      "gloss_en": "That is why we need grounding, or to tie the outputs to real sources, like the RAG technique.",
+      "terms": [
+        "grounding",
+        "RAG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 817,
+      "to": 823,
+      "kind": "transition",
+      "gloss_en": "Part six and last with us: prompting and its practical applications.",
+      "terms": [
+        "prompting"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 824,
+      "to": 839,
+      "kind": "claim",
+      "gloss_en": "How we put everything we understood into practice at work: writing the right prompt, not just chatting with the model.",
+      "terms": [
+        "prompt"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 840,
+      "to": 853,
+      "kind": "claim",
+      "gloss_en": "We must give it a structured format (the word is unclear in the audio), like a daily summary, give it the schema, and assign it a role persona.",
+      "terms": [
+        "schema",
+        "role",
+        "persona"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 854,
+      "to": 860,
+      "kind": "example",
+      "gloss_en": "That means we ask it to talk to us as an engineer or as a manager.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 861,
+      "to": 865,
+      "kind": "claim",
+      "gloss_en": "We use techniques like zero-shot and few-shot.",
+      "terms": [
+        "techniques",
+        "zero-shot",
+        "few-shot"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 866,
+      "to": 885,
+      "kind": "claim",
+      "gloss_en": "And most important of all, we must always validate the results: extract the SQL or parse the JSON to make sure it is all sound.",
+      "terms": [
+        "validate",
+        "SQL",
+        "parse",
+        "JSON"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 886,
+      "to": 892,
+      "kind": "transition",
+      "gloss_en": "Let's see a practical application: we have two tools, the InsightsGenerator.",
+      "terms": [
+        "InsightsGenerator"
+      ],
+      "numbers": [],
+      "entities": [
+        "InsightsGenerator"
+      ]
+    },
+    {
+      "from": 893,
+      "to": 903,
+      "kind": "example",
+      "gloss_en": "It takes daily metrics such as 156 orders, revenue 45890 and AOV 294.",
+      "terms": [
+        "AOV"
+      ],
+      "numbers": [
+        "156",
+        "45890",
+        "294"
+      ],
+      "entities": []
+    },
+    {
+      "from": 904,
+      "to": 914,
+      "kind": "example",
+      "gloss_en": "And it produces a summary in business language, with a very low temperature of 0.3 to be more precise.",
+      "terms": [
+        "temperature"
+      ],
+      "numbers": [
+        "0.3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 915,
+      "to": 924,
+      "kind": "claim",
+      "gloss_en": "The second tool is the AnomalyExplainer, which investigates the strange numbers.",
+      "terms": [],
+      "numbers": [],
+      "entities": [
+        "AnomalyExplainer"
+      ]
+    },
+    {
+      "from": 925,
+      "to": 935,
+      "kind": "claim",
+      "gloss_en": "The models here rely on external tools that fetch this data so that they do not hallucinate.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 936,
+      "to": 948,
+      "kind": "example",
+      "gloss_en": "Imagine with me: the expected revenue on Sunday was 50,000, but the actual came out at only 28,500.",
+      "terms": [],
+      "numbers": [
+        "50,000",
+        "28,500"
+      ],
+      "entities": [
+        "Sunday"
+      ]
+    },
+    {
+      "from": 949,
+      "to": 953,
+      "kind": "example",
+      "gloss_en": "The model here went into the data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 954,
+      "to": 970,
+      "kind": "example",
+      "gloss_en": "And it explained to us that the cause was timeouts in the payment gateway from 2 to 4 in the afternoon, because of a snowstorm.",
+      "terms": [
+        "timeouts"
+      ],
+      "numbers": [
+        "2",
+        "4"
+      ],
+      "entities": []
+    },
+    {
+      "from": 971,
+      "to": 978,
+      "kind": "claim",
+      "gloss_en": "All of this explanation comes out based on the real data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 979,
+      "to": 987,
+      "kind": "transition",
+      "gloss_en": "This sentence is the takeaway for anyone who works with data.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 988,
+      "to": 995,
+      "kind": "claim",
+      "gloss_en": "SQL does the calculations, and the LLM just explains.",
+      "terms": [
+        "SQL",
+        "LLM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 996,
+      "to": 1005,
+      "kind": "claim",
+      "gloss_en": "The model is not an accurate calculator; the code is what computes correctly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1006,
+      "to": 1017,
+      "kind": "claim",
+      "gloss_en": "The role of the LLM is to phrase, summarize and clarify these numbers for us in a smooth way.",
+      "terms": [
+        "LLM"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1018,
+      "to": 1030,
+      "kind": "recap",
+      "gloss_en": "And with that we have reached the end of the explainer; we walked the journey from when we computed a neuron by hand.",
+      "terms": [
+        "neuron"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1031,
+      "to": 1044,
+      "kind": "recap",
+      "gloss_en": "We saw the learning rate problems, took the transformer apart step by step, and ended up at the prompt templates.",
+      "terms": [
+        "learning rate",
+        "Transformer",
+        "prompt templates"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1045,
+      "to": 1054,
+      "kind": "recap",
+      "gloss_en": "After all these numbers and details have become transparent and clear in front of you.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1055,
+      "to": 1062,
+      "kind": "question",
+      "gloss_en": "I wonder what you could build with these tools.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1063,
+      "to": 1066,
+      "kind": "claim",
+      "gloss_en": "All the options are open for experimentation.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 1067,
+      "to": 1073,
+      "kind": "transition",
+      "gloss_en": "Thank you so much, and see you in a new explainer.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:24Z"
+}

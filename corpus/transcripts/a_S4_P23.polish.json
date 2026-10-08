@@ -1,0 +1,2505 @@
+{
+  "v": 1,
+  "audio_id": "a:S4:P23",
+  "asr_words": 892,
+  "final_words": 885,
+  "edits": [
+    {
+      "op": "replace",
+      "i": 32,
+      "orig": "الproduction",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        32,
+        32
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 33,
+      "orig": "ومحروض",
+      "to": "ومحروس",
+      "why": "mishear",
+      "final": [
+        33,
+        33
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 34,
+      "orig": "بطلقات",
+      "to": "بطبقات",
+      "why": "mishear",
+      "final": [
+        34,
+        34
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 49,
+      "orig": "سلسية",
+      "to": "تلاتية",
+      "why": "mishear",
+      "final": [
+        49,
+        49
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 55,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        55,
+        55
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 73,
+      "orig": "ستة",
+      "to": "6",
+      "why": "number",
+      "final": [
+        73,
+        73
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 80,
+      "orig": "Rag",
+      "to": "RAG",
+      "why": "term",
+      "final": [
+        80,
+        80
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 107,
+      "orig": "الامبادنغز",
+      "to": "الـembeddings",
+      "why": "term",
+      "final": [
+        107,
+        107
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 114,
+      "orig": "معنا",
+      "to": "معنى",
+      "why": "mishear",
+      "final": [
+        114,
+        114
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 128,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        128,
+        128
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 153,
+      "orig": "الكوساين",
+      "to": "cosine",
+      "why": "term",
+      "final": [
+        153,
+        153
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 154,
+      "orig": "سيميلاريتي",
+      "to": "similarity",
+      "why": "term",
+      "final": [
+        154,
+        154
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 157,
+      "orig": "لأدوات",
+      "to": "الأدوات",
+      "why": "mishear",
+      "final": [
+        157,
+        157
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 162,
+      "orig": "ثلاثة",
+      "to": "3",
+      "why": "number",
+      "final": [
+        162,
+        162
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 166,
+      "orig": "اللكسيكال",
+      "to": "الـlexical",
+      "why": "term",
+      "final": [
+        166,
+        166
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 167,
+      "orig": "بي",
+      "to": "BM25",
+      "why": "term",
+      "final": [
+        167,
+        167
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 168,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 169,
+      "orig": "أم",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 170,
+      "orig": "25",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 189,
+      "orig": "الدنس",
+      "to": "الـdense",
+      "why": "term",
+      "final": [
+        186,
+        186
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 190,
+      "orig": "سيرتش",
+      "to": "search",
+      "why": "term",
+      "final": [
+        187,
+        187
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 197,
+      "orig": "البرودكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        194,
+        194
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 199,
+      "orig": "الهايبرد",
+      "to": "الـhybrid",
+      "why": "term",
+      "final": [
+        196,
+        196
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 210,
+      "orig": "الفكتور",
+      "to": "الـvector",
+      "why": "term",
+      "final": [
+        207,
+        207
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 211,
+      "orig": "دي",
+      "to": "DB",
+      "why": "term",
+      "final": [
+        208,
+        208
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 212,
+      "orig": "بي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 213,
+      "orig": "اندكس",
+      "to": "index",
+      "why": "term",
+      "final": [
+        209,
+        209
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 215,
+      "orig": "فلات",
+      "to": "Flat",
+      "why": "term",
+      "final": [
+        211,
+        211
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 237,
+      "orig": "Rag",
+      "to": "RAG",
+      "why": "term",
+      "final": [
+        233,
+        233
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 252,
+      "orig": "لتشونكس",
+      "to": "لـchunks",
+      "why": "term",
+      "final": [
+        248,
+        248
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 260,
+      "orig": "الكويري",
+      "to": "الـquery",
+      "why": "term",
+      "final": [
+        256,
+        256
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 262,
+      "orig": "ريتريف",
+      "to": "retrieve",
+      "why": "term",
+      "final": [
+        258,
+        258
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 274,
+      "orig": "ريرانك",
+      "to": "rerank",
+      "why": "term",
+      "final": [
+        270,
+        270
+      ]
+    },
+    {
+      "op": "insert",
+      "after_i": 309,
+      "text": "how do I stop a job loading the same rows twice",
+      "why": "dropout",
+      "final": [
+        306,
+        316
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 321,
+      "orig": "الصحية",
+      "to": "الصح",
+      "why": "mishear",
+      "final": [
+        328,
+        328
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 332,
+      "orig": "0",
+      "to": "0.165",
+      "why": "number",
+      "final": [
+        339,
+        339
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 333,
+      "orig": ".165",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 337,
+      "orig": "التشونك",
+      "to": "الـchunk",
+      "why": "term",
+      "final": [
+        343,
+        343
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 346,
+      "orig": "رودماب",
+      "to": "roadmap",
+      "why": "term",
+      "final": [
+        352,
+        352
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 390,
+      "orig": "التشنك",
+      "to": "الـchunk",
+      "why": "term",
+      "final": [
+        396,
+        396
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 391,
+      "orig": "الصحي",
+      "to": "الصح",
+      "why": "mishear",
+      "final": [
+        397,
+        397
+      ]
+    },
+    {
+      "op": "insert",
+      "after_i": 394,
+      "text": "الـidempotency",
+      "why": "dropout",
+      "final": [
+        401,
+        401
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 395,
+      "orig": "نطل",
+      "to": "طلع",
+      "why": "mishear",
+      "final": [
+        402,
+        402
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 398,
+      "orig": "ودركته",
+      "to": "ودرجته",
+      "why": "mishear",
+      "final": [
+        405,
+        405
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 399,
+      "orig": "باقت",
+      "to": "بقت",
+      "why": "mishear",
+      "final": [
+        406,
+        406
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 400,
+      "orig": "0",
+      "to": "0.227",
+      "why": "number",
+      "final": [
+        407,
+        407
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 401,
+      "orig": ".227",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 408,
+      "orig": "الراج",
+      "to": "الـRAG",
+      "why": "term",
+      "final": [
+        414,
+        414
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 414,
+      "orig": "الريتريفل",
+      "to": "الـretrieval",
+      "why": "term",
+      "final": [
+        420,
+        420
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 416,
+      "orig": "الجنريشن",
+      "to": "الـgeneration",
+      "why": "term",
+      "final": [
+        422,
+        422
+      ]
+    },
+    {
+      "op": "insert",
+      "after_i": 419,
+      "text": "Failures and Eval",
+      "why": "dropout",
+      "final": [
+        426,
+        428
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 428,
+      "orig": "خطوطين",
+      "to": "خطين",
+      "why": "mishear",
+      "final": [
+        437,
+        437
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 435,
+      "orig": "الصحة",
+      "to": "الصح",
+      "why": "mishear",
+      "final": [
+        444,
+        444
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 439,
+      "orig": "بريكول",
+      "to": "بـrecall@k",
+      "why": "term",
+      "final": [
+        448,
+        448
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 440,
+      "orig": "أد",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 441,
+      "orig": "كي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 442,
+      "orig": "وإندي",
+      "to": "وnDCG",
+      "why": "term",
+      "final": [
+        449,
+        449
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 443,
+      "orig": "سي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 444,
+      "orig": "جي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 453,
+      "orig": "الموضل",
+      "to": "الموديل",
+      "why": "mishear",
+      "final": [
+        458,
+        458
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 455,
+      "orig": "يقلف",
+      "to": "يألّف",
+      "why": "mishear",
+      "final": [
+        460,
+        460
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 457,
+      "orig": "الجراوند",
+      "to": "الـgroundedness",
+      "why": "term",
+      "final": [
+        462,
+        462
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 458,
+      "orig": "نس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 464,
+      "orig": "البات",
+      "to": "الـbad",
+      "why": "term",
+      "final": [
+        468,
+        468
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 465,
+      "orig": "تونكينج",
+      "to": "chunking",
+      "why": "term",
+      "final": [
+        469,
+        469
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 468,
+      "orig": "النصين",
+      "to": "نصين",
+      "why": "mishear",
+      "final": [
+        472,
+        472
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 471,
+      "orig": "ناصة",
+      "to": "ناقصة",
+      "why": "mishear",
+      "final": [
+        475,
+        475
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 474,
+      "orig": "الستيل",
+      "to": "الـstale",
+      "why": "term",
+      "final": [
+        478,
+        478
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 475,
+      "orig": "إندي",
+      "to": "indices",
+      "why": "term",
+      "final": [
+        479,
+        479
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 476,
+      "orig": "سيز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 479,
+      "orig": "داتة",
+      "to": "داتا",
+      "why": "mishear",
+      "final": [
+        482,
+        482
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 486,
+      "orig": "ريتريبل",
+      "to": "Retrieval",
+      "why": "term",
+      "final": [
+        489,
+        489
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 487,
+      "orig": "سيكيورتي",
+      "to": "Security",
+      "why": "term",
+      "final": [
+        490,
+        490
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 489,
+      "orig": "الدهبية",
+      "to": "الذهبية",
+      "why": "mishear",
+      "final": [
+        492,
+        492
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 494,
+      "orig": "كويري",
+      "to": "query",
+      "why": "term",
+      "final": [
+        497,
+        497
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 499,
+      "orig": "التونك",
+      "to": "الـchunk",
+      "why": "term",
+      "final": [
+        502,
+        502
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 522,
+      "orig": "الكنتاكست",
+      "to": "الـcontext",
+      "why": "term",
+      "final": [
+        525,
+        525
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 523,
+      "orig": "ويندو",
+      "to": "window",
+      "why": "term",
+      "final": [
+        526,
+        526
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 527,
+      "orig": "الداتة",
+      "to": "الداتا",
+      "why": "mishear",
+      "final": [
+        530,
+        530
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 528,
+      "orig": "اتصربت",
+      "to": "اتسربت",
+      "why": "mishear",
+      "final": [
+        531,
+        531
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 530,
+      "orig": "شفع",
+      "to": "شافها",
+      "why": "mishear",
+      "final": [
+        533,
+        533
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 541,
+      "orig": "الراج",
+      "to": "الـRAG",
+      "why": "term",
+      "final": [
+        544,
+        544
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 543,
+      "orig": "الفاين",
+      "to": "الـfine-tuning",
+      "why": "term",
+      "final": [
+        546,
+        546
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 544,
+      "orig": "تيونيج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 545,
+      "orig": "الراج",
+      "to": "الـRAG",
+      "why": "term",
+      "final": [
+        547,
+        547
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 549,
+      "orig": "نغزي",
+      "to": "نغذي",
+      "why": "mishear",
+      "final": [
+        551,
+        551
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 557,
+      "orig": "الفاين",
+      "to": "الـfine-tuning",
+      "why": "term",
+      "final": [
+        559,
+        559
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 558,
+      "orig": "تيونيج",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 573,
+      "orig": "اللي",
+      "to": "الاتنين",
+      "why": "mishear",
+      "final": [
+        574,
+        574
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 574,
+      "orig": "اتنين",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 584,
+      "orig": "الاجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        584,
+        584
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 588,
+      "orig": "شاتبوت",
+      "to": "chatbot",
+      "why": "term",
+      "final": [
+        588,
+        588
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 590,
+      "orig": "الشاتبوت",
+      "to": "الـchatbot",
+      "why": "term",
+      "final": [
+        590,
+        590
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 599,
+      "orig": "الستيت",
+      "to": "الـstate",
+      "why": "term",
+      "final": [
+        599,
+        599
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 601,
+      "orig": "الاجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        601,
+        601
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 605,
+      "orig": "بيحفز",
+      "to": "بيحفظ",
+      "why": "mishear",
+      "final": [
+        605,
+        605
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 607,
+      "orig": "الستيت",
+      "to": "الـstate",
+      "why": "term",
+      "final": [
+        607,
+        607
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 608,
+      "orig": "ماموري",
+      "to": "memory",
+      "why": "term",
+      "final": [
+        608,
+        608
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 611,
+      "orig": "وينفزها",
+      "to": "وينفذها",
+      "why": "mishear",
+      "final": [
+        611,
+        611
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 616,
+      "orig": "الاجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        616,
+        616
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 627,
+      "orig": "الأيجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        627,
+        627
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 629,
+      "orig": "الأيجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        629,
+        629
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 630,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        630,
+        630
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 645,
+      "orig": "البوليسي",
+      "to": "الـpolicy",
+      "why": "term",
+      "final": [
+        645,
+        645
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 686,
+      "orig": "جات",
+      "to": "get_schema",
+      "why": "term",
+      "final": [
+        686,
+        686
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 687,
+      "orig": "سكيمة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 688,
+      "orig": "وكالكوليت",
+      "to": "وcalculate_metrics",
+      "why": "term",
+      "final": [
+        687,
+        687
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 689,
+      "orig": "ماتريكس",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 691,
+      "orig": "سابتة",
+      "to": "ثابتة",
+      "why": "mishear",
+      "final": [
+        689,
+        689
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 692,
+      "orig": "وإكسيكيوت",
+      "to": "وexecute_sql",
+      "why": "term",
+      "final": [
+        690,
+        690
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 693,
+      "orig": "SQL",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 694,
+      "orig": "بلمت",
+      "to": "بـlimit",
+      "why": "term",
+      "final": [
+        691,
+        691
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 702,
+      "orig": "التامبريتشر",
+      "to": "الـtemperature",
+      "why": "term",
+      "final": [
+        699,
+        699
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 713,
+      "orig": "الفاليديشن",
+      "to": "الـvalidation",
+      "why": "term",
+      "final": [
+        710,
+        710
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 720,
+      "orig": "له",
+      "to": "لو",
+      "why": "mishear",
+      "final": [
+        717,
+        717
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 721,
+      "orig": "الإيجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        718,
+        718
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 728,
+      "orig": "ديليت",
+      "to": "DELETE",
+      "why": "term",
+      "final": [
+        725,
+        725
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 735,
+      "orig": "هيغبط",
+      "to": "هيخبط",
+      "why": "mishear",
+      "final": [
+        732,
+        732
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 742,
+      "orig": "الSQL",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        739,
+        739
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 743,
+      "orig": "Allowlist",
+      "to": "allowlist",
+      "why": "term",
+      "final": [
+        740,
+        740
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 749,
+      "orig": "السلكت",
+      "to": "الـSELECT",
+      "why": "term",
+      "final": [
+        746,
+        746
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 752,
+      "orig": "عدة",
+      "to": "عدّى",
+      "why": "mishear",
+      "final": [
+        749,
+        749
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 753,
+      "orig": "هيغبط",
+      "to": "هيخبط",
+      "why": "mishear",
+      "final": [
+        750,
+        750
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 763,
+      "orig": "الديتابيز",
+      "to": "الـdatabase",
+      "why": "term",
+      "final": [
+        760,
+        760
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 765,
+      "orig": "الديليت",
+      "to": "الـDELETE",
+      "why": "term",
+      "final": [
+        762,
+        762
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 772,
+      "orig": "الضبل",
+      "to": "الـdouble",
+      "why": "mishear",
+      "final": [
+        769,
+        769
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 773,
+      "orig": "جيت",
+      "to": "gate",
+      "why": "mishear",
+      "final": [
+        770,
+        770
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 776,
+      "orig": "المعمرية",
+      "to": "المعمارية",
+      "why": "mishear",
+      "final": [
+        773,
+        773
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 781,
+      "orig": "لانكتشين",
+      "to": "LangChain",
+      "why": "term",
+      "final": [
+        778,
+        778
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 783,
+      "orig": "بايدانتك",
+      "to": "بـPydantic",
+      "why": "term",
+      "final": [
+        780,
+        780
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 789,
+      "orig": "لزي",
+      "to": "الـz-score",
+      "why": "term",
+      "final": [
+        786,
+        786
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 790,
+      "orig": "سكورة",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 791,
+      "orig": "عدة",
+      "to": "عدّى",
+      "why": "mishear",
+      "final": [
+        787,
+        787
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 801,
+      "orig": "الفيل",
+      "to": "الـfail-safe",
+      "why": "term",
+      "final": [
+        797,
+        797
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 802,
+      "orig": "سيف",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 803,
+      "orig": "الماكس",
+      "to": "الـmax_iterations",
+      "why": "term",
+      "final": [
+        798,
+        798
+      ]
+    },
+    {
+      "op": "delete",
+      "i": 804,
+      "orig": "اي",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "delete",
+      "i": 805,
+      "orig": "تريشنز",
+      "why": "merge",
+      "final": null
+    },
+    {
+      "op": "replace",
+      "i": 811,
+      "orig": "الإيجنت",
+      "to": "الـagent",
+      "why": "term",
+      "final": [
+        804,
+        804
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 814,
+      "orig": "إنفينت",
+      "to": "infinite",
+      "why": "term",
+      "final": [
+        807,
+        807
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 815,
+      "orig": "لوب",
+      "to": "loop",
+      "why": "term",
+      "final": [
+        808,
+        808
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 828,
+      "orig": "راج",
+      "to": "RAG",
+      "why": "term",
+      "final": [
+        821,
+        821
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 835,
+      "orig": "وإيجنت",
+      "to": "وagent",
+      "why": "term",
+      "final": [
+        828,
+        828
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 837,
+      "orig": "محروص",
+      "to": "محروس",
+      "why": "mishear",
+      "final": [
+        830,
+        830
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 840,
+      "orig": "وقدت",
+      "to": "وaudit",
+      "why": "term",
+      "final": [
+        833,
+        833
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 841,
+      "orig": "لوج",
+      "to": "log",
+      "why": "term",
+      "final": [
+        834,
+        834
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 844,
+      "orig": "الاسكيويل",
+      "to": "الـSQL",
+      "why": "term",
+      "final": [
+        837,
+        837
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 848,
+      "orig": "الزكاء",
+      "to": "الذكاء",
+      "why": "mishear",
+      "final": [
+        841,
+        841
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 869,
+      "orig": "الزاتي",
+      "to": "الذاتي",
+      "why": "mishear",
+      "final": [
+        862,
+        862
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 871,
+      "orig": "للاي",
+      "to": "للـAI",
+      "why": "term",
+      "final": [
+        864,
+        864
+      ]
+    },
+    {
+      "op": "replace",
+      "i": 874,
+      "orig": "البرودكشن",
+      "to": "الـproduction",
+      "why": "term",
+      "final": [
+        867,
+        867
+      ]
+    }
+  ],
+  "notes": "Pack: 892 words (0-891). Timing audit found 3 whisper dropouts (gaps >0.8s with no words): (1) 309->310, 2.92s: speaker says 'بالانجليزي' then reads the English query; inserted the on-screen query from source_excerpt [P23-sc05] verbatim ('how do I stop a job loading the same rows twice') - gap length fits ~10 spoken English words; exact wording is the on-screen text, not independently heard. (2) 394->395, 0.84s: 'اللي بيتكلم عن [?] نطل للمركز الأول' - source sc05 says the winning section is the idempotency section (score 0.227, takes first place), so inserted 'الـidempotency' after 394 and read 395 'نطل' as 'طلع' (source verb 'يطلع'; whisper fused the tail of 'idempotency' with 'طلع'). Medium-high confidence; the article 'الـ' is a guess. (3) 419->420, 2.22s: 'ونروح لقسم الثالث [?] عشان التقييم...' - the opening roadmap (words 82-84) names section 3 as 'Failures and Eval' (same pattern as 236-238, 580-583, 669-673), so inserted 'Failures and Eval' after 419. Edits: Arabic-script terms converted to Latin with the Arabic definite article joined by U+0640 (الـquery, الـRAG, الـagent, الـchunk, الـstate, ...); multi-token terms merged into the first token and the rest emptied (BM25 = 167-170, بـrecall@k = 439-441, وnDCG = 442-444, الـfine-tuning, الـgroundedness, الـstale indices, get_schema, calculate_metrics, execute_sql, الـz-score, الـfail-safe, الـmax_iterations). Numbers: ستة->6 (73), ثلاثة->3 (162), 0 + .165 -> 0.165 (332-333), 0 + .227 -> 0.227 (400-401); 50, 2, 10, 10 already digits. 'ثلاثة أنواع' = lexical, dense, hybrid (matches 3). Mishearings fixed with source or in-transcript proof: بطلقات->بطبقات (layers; cf. 838 بطبقتين), سلسية->تلاتية (sc01 'تلاتية الأبعاد'), معنا->معنى (114, sc01 'المعنى كموضع'), ودركته باقت->ودرجته بقت, ناصة->ناقصة, يقلف->يألّف (sc07 'بتألّف'), الموضل->الموديل, سيف الماكس اي تريشنز-> fail-safe max_iterations (sc11/sc15), الضبل جيت->double gate (sc13 two gates), لانكتشين/بايدانتك->LangChain/Pydantic (sc15), قدت لوج->audit log (sc16 'audit log'), اتصربت->اتسربت (sc08 'تسرّب'), هيغبط->هيخبط, نغزي->نغذي, الدهبية->الذهبية, الزكاء/الزاتي->الذكاء/الذاتي, المعمرية->المعمارية, محروض/محروص->محروس, عدة->عدّى (x2), سابتة->ثابتة, لزي سكورة->z-score, الصحة/الصحي/الصحية->الصح (short words 0.3-0.4s, source 'المستند الصح'), الستيل إندي سيز->stale indices (index قديم, sc06), البات تونكينج->bad chunking (sc06 'chunk مقطوع غلط'), اللي اتنين->الاتنين (sc09 'والاتنين'), خطوطين->خطين, التونك/التشنك/التشونك->chunk. Moderate-confidence edits: 530 شفع->شافها (sc08 'قبل ما النموذج يشوفه'), 605 بيحفز->بيحفظ (keeps state memory), 694 بلمت->بـlimit (execute_sql with LIMIT 50; sc15 'أول 50 صف'), 720 له->لو. Left unedited but uncertain: 378 'بيتقريب' (probably 'بيتغير'), 456 'وديه' (probably 'وده/ودي'), 662 'ويرقب' (likely 'ويراقب'), 767 'ويرتدي' (likely 'ويرتد' or 'ويترد' = bounces back), 524-526 'عليه العوض' kept as idiom. Generic loanwords الداتا/السيستم/الموديل/الكمبيوتر kept in Arabic script (P00 precedent); 'الديتابيز' converted to الـdatabase because it names the read-only role/DB layer. Fact-check flags: spoken execute_sql limit is 50 rows (matches sc15; sc12 on-screen says 100 for the earlier tool listing), z-score threshold 2, memory window 10, max_iterations 10, scores 0.165 and 0.227 all match source. Spoken 'القسم الثالث/الرابع/الخامس/السادس' ordinals not listed as numbers. Inserts sit inside sentences 297-309 (after 309), 389-401 (after 394) and 417-428 (after 419).",
+  "sentences": [
+    {
+      "from": 0,
+      "to": 10,
+      "kind": "transition",
+      "gloss_en": "Welcome to this explainer; let's get straight into the topic.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 11,
+      "to": 37,
+      "kind": "claim",
+      "gloss_en": "Today's journey starts from a slightly mathematical bit, 3D vectors, and ends with us building together an AI Data Analyst that is production-ready and well guarded with strong safety layers.",
+      "terms": [
+        "3D vectors",
+        "production"
+      ],
+      "numbers": [],
+      "entities": [
+        "AI Data Analyst"
+      ]
+    },
+    {
+      "from": 38,
+      "to": 44,
+      "kind": "question",
+      "gloss_en": "But first, how does a computer understand meaning at all?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 45,
+      "to": 52,
+      "kind": "example",
+      "gloss_en": "Let's imagine a three-dimensional space, a 3D Space.",
+      "terms": [
+        "3D Space"
+      ],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 53,
+      "to": 65,
+      "kind": "example",
+      "gloss_en": "In it there is a query point moving through the space to look for its nearest neighbors.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 66,
+      "to": 74,
+      "kind": "transition",
+      "gloss_en": "And this is simply our roadmap; we'll go through six steps.",
+      "terms": [],
+      "numbers": [
+        "6"
+      ],
+      "entities": []
+    },
+    {
+      "from": 75,
+      "to": 94,
+      "kind": "transition",
+      "gloss_en": "The steps: Meaning in Space, then The RAG Pipeline, Failures and Eval, Retrieval Security and Building Agents, and we finish with The AI Analyst.",
+      "terms": [
+        "Meaning in Space",
+        "RAG pipeline",
+        "Failures and Eval",
+        "Retrieval Security",
+        "Building Agents",
+        "AI Analyst"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 95,
+      "to": 102,
+      "kind": "transition",
+      "gloss_en": "Let's start with our first part, Meaning in Space.",
+      "terms": [
+        "Meaning in Space"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 103,
+      "to": 115,
+      "kind": "claim",
+      "gloss_en": "Here we see the magic of embeddings: the whole idea is that we take the meaning of the text.",
+      "terms": [
+        "embeddings"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 116,
+      "to": 126,
+      "kind": "claim",
+      "gloss_en": "And we turn it into an actual physical place inside the 3D Space we imagined.",
+      "terms": [
+        "3D Space"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 127,
+      "to": 138,
+      "kind": "claim",
+      "gloss_en": "The query point keeps moving through the space until it finds its nearest neighbors.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 139,
+      "to": 145,
+      "kind": "claim",
+      "gloss_en": "So meaning here is literally location and distance.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 146,
+      "to": 154,
+      "kind": "claim",
+      "gloss_en": "To measure this closeness precisely we use the cosine similarity formula.",
+      "terms": [
+        "cosine similarity"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 155,
+      "to": 160,
+      "kind": "question",
+      "gloss_en": "So what are the tools we use for search?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 161,
+      "to": 164,
+      "kind": "claim",
+      "gloss_en": "We have three main types.",
+      "terms": [],
+      "numbers": [
+        "3"
+      ],
+      "entities": []
+    },
+    {
+      "from": 165,
+      "to": 177,
+      "kind": "claim",
+      "gloss_en": "We use lexical BM25 when we are looking for a literal match, like codes or product names.",
+      "terms": [
+        "lexical",
+        "BM25"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 178,
+      "to": 190,
+      "kind": "claim",
+      "gloss_en": "But when the questions need understanding from meaning and concepts, dense search is the best fit.",
+      "terms": [
+        "dense search"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 191,
+      "to": 205,
+      "kind": "claim",
+      "gloss_en": "In production, hybrid is usually the one that wins, because it takes the best of both.",
+      "terms": [
+        "production",
+        "hybrid"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 206,
+      "to": 215,
+      "kind": "claim",
+      "gloss_en": "And my choice of vector DB index, either Flat for accuracy or HNSW for speed.",
+      "terms": [
+        "vector DB",
+        "index",
+        "Flat",
+        "HNSW"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 216,
+      "to": 226,
+      "kind": "claim",
+      "gloss_en": "That depends on the shape of our data, not on a trend we just follow.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 227,
+      "to": 234,
+      "kind": "transition",
+      "gloss_en": "Let's move on to the second section, The RAG Pipeline.",
+      "terms": [
+        "RAG pipeline"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 235,
+      "to": 244,
+      "kind": "example",
+      "gloss_en": "We want to picture this system like a metro line, station by station exactly.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 245,
+      "to": 259,
+      "kind": "claim",
+      "gloss_en": "We start by cutting documents into chunks, then we embed and index, and at the third station the query retrieves the data.",
+      "terms": [
+        "chunks",
+        "Embed and Index",
+        "query",
+        "retrieve"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 260,
+      "to": 279,
+      "kind": "claim",
+      "gloss_en": "After that we must pass the Access Control Filter, then rerank the candidates, and finally the context goes to the model so it can answer.",
+      "terms": [
+        "Access Control Filter",
+        "rerank",
+        "context"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 280,
+      "to": 292,
+      "kind": "claim",
+      "gloss_en": "The danger here is that any of these stations can fail and bring the whole system down.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 293,
+      "to": 316,
+      "kind": "prediction",
+      "gloss_en": "And here is the question, predict: let's think about it together, if we asked the system in English:",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 317,
+      "to": 333,
+      "kind": "question",
+      "gloss_en": "Do you think the result that gets the top rank will be the right answer from the first try? What do you think?",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 334,
+      "to": 346,
+      "kind": "example",
+      "gloss_en": "Look at this shocking number, 0.165: this was the score of the chunk that came out first.",
+      "terms": [
+        "chunk"
+      ],
+      "numbers": [
+        "0.165"
+      ],
+      "entities": []
+    },
+    {
+      "from": 347,
+      "to": 357,
+      "kind": "claim",
+      "gloss_en": "And the surprise is that it was talking about a roadmap that has no relation to the question at all.",
+      "terms": [
+        "roadmap"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 358,
+      "to": 363,
+      "kind": "claim",
+      "gloss_en": "The model was very confident, but wrong.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 364,
+      "to": 368,
+      "kind": "claim",
+      "gloss_en": "This problem we call vocabulary mismatch.",
+      "terms": [
+        "vocabulary mismatch"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 369,
+      "to": 379,
+      "kind": "claim",
+      "gloss_en": "And here the retrieval process completely failed to understand what we want.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 380,
+      "to": 394,
+      "kind": "example",
+      "gloss_en": "But see how the ranking shifts when we did query expansion, meaning we widened the question with a few synonyms.",
+      "terms": [
+        "query expansion"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 395,
+      "to": 407,
+      "kind": "example",
+      "gloss_en": "Suddenly the right chunk, the one talking about idempotency, jumped to first place and its score became 0.227.",
+      "terms": [
+        "chunk",
+        "idempotency"
+      ],
+      "numbers": [
+        "0.227"
+      ],
+      "entities": []
+    },
+    {
+      "from": 408,
+      "to": 422,
+      "kind": "recap",
+      "gloss_en": "And this confirms to us that most RAG problems come from failure in the retrieval stage, not generation.",
+      "terms": [
+        "RAG",
+        "retrieval",
+        "generation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 423,
+      "to": 437,
+      "kind": "transition",
+      "gloss_en": "We go to the third section, Failures and Eval: for our evaluation to be right it must happen on two tracks.",
+      "terms": [
+        "Failures and Eval"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 438,
+      "to": 445,
+      "kind": "question",
+      "gloss_en": "First thing, did retrieval fetch the right documents at all?",
+      "terms": [
+        "retrieval"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 446,
+      "to": 449,
+      "kind": "claim",
+      "gloss_en": "And this we measure with recall@k and nDCG.",
+      "terms": [
+        "recall@k",
+        "nDCG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 450,
+      "to": 462,
+      "kind": "question",
+      "gloss_en": "Second thing, did the generation stick to these sources, or did the model start making things up; that is groundedness.",
+      "terms": [
+        "groundedness"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 463,
+      "to": 475,
+      "kind": "example",
+      "gloss_en": "Among the most common failures, for example, is bad chunking splitting the idea in half, so you get an incomplete answer.",
+      "terms": [
+        "bad chunking"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 476,
+      "to": 484,
+      "kind": "example",
+      "gloss_en": "Or a stale index fetching you very old data.",
+      "terms": [
+        "stale index"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 485,
+      "to": 490,
+      "kind": "transition",
+      "gloss_en": "The fourth section is very important: Retrieval Security.",
+      "terms": [
+        "Retrieval Security"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 491,
+      "to": 500,
+      "kind": "claim",
+      "gloss_en": "The golden rule here: retrieval is just a query, not a pass.",
+      "terms": [
+        "query"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 501,
+      "to": 511,
+      "kind": "claim",
+      "gloss_en": "Meaning the forbidden chunk may be very suitable for the question in terms of meaning.",
+      "terms": [
+        "chunk"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 512,
+      "to": 520,
+      "kind": "claim",
+      "gloss_en": "But it must be blocked at retrieval, before it reaches the model.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 521,
+      "to": 534,
+      "kind": "claim",
+      "gloss_en": "If we wait and the data enters the context window, then the loss is on it: the data leaked and the model saw it, done.",
+      "terms": [
+        "context window"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 535,
+      "to": 546,
+      "kind": "transition",
+      "gloss_en": "This is a comparison that solves a big puzzle in the field: when RAG and when fine-tuning.",
+      "terms": [
+        "RAG",
+        "fine-tuning"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 547,
+      "to": 557,
+      "kind": "claim",
+      "gloss_en": "We use RAG when we want to feed the system new information, like company files.",
+      "terms": [
+        "RAG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 558,
+      "to": 573,
+      "kind": "claim",
+      "gloss_en": "But fine-tuning we need in order to change the tone of voice, adjust the behavior, or have the model understand the terminology of a specific domain.",
+      "terms": [
+        "fine-tuning"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 574,
+      "to": 579,
+      "kind": "recap",
+      "gloss_en": "The two are never substitutes for each other.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 580,
+      "to": 583,
+      "kind": "transition",
+      "gloss_en": "The fifth section: Building Agents.",
+      "terms": [
+        "Building Agents"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 584,
+      "to": 589,
+      "kind": "claim",
+      "gloss_en": "The agent, folks, is not a longer chatbot.",
+      "terms": [
+        "agent",
+        "chatbot"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 590,
+      "to": 599,
+      "kind": "claim",
+      "gloss_en": "The chatbot at most replies to the text without remembering the state.",
+      "terms": [
+        "chatbot",
+        "state"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 600,
+      "to": 612,
+      "kind": "claim",
+      "gloss_en": "Whereas the agent plans, chooses the tools, keeps the state memory, and takes steps and executes them on its own.",
+      "terms": [
+        "agent",
+        "state",
+        "memory"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 613,
+      "to": 624,
+      "kind": "recap",
+      "gloss_en": "In short, the agent needs a brain, tools, memory and a system it can plan with.",
+      "terms": [
+        "agent"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 625,
+      "to": 635,
+      "kind": "claim",
+      "gloss_en": "The agent lifecycle, or the agent loop, starts with evaluating the goal and choosing the tool.",
+      "terms": [
+        "agent loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 636,
+      "to": 645,
+      "kind": "claim",
+      "gloss_en": "But focus on this step: we must pass through the policy gate.",
+      "terms": [
+        "policy"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 646,
+      "to": 659,
+      "kind": "claim",
+      "gloss_en": "This gate halts execution and runs a security check to prevent any disaster before it happens.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 660,
+      "to": 667,
+      "kind": "claim",
+      "gloss_en": "And after that it executes, watches the result, and goes back to repeat the loop again.",
+      "terms": [
+        "loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 668,
+      "to": 673,
+      "kind": "transition",
+      "gloss_en": "And finally the sixth section, The AI Analyst.",
+      "terms": [
+        "AI Analyst"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 674,
+      "to": 681,
+      "kind": "transition",
+      "gloss_en": "Now let's build our ShopFlow AI Analyst.",
+      "terms": [
+        "AI Analyst"
+      ],
+      "numbers": [],
+      "entities": [
+        "ShopFlow"
+      ]
+    },
+    {
+      "from": 682,
+      "to": 693,
+      "kind": "claim",
+      "gloss_en": "We give it some tools like get_schema, calculate_metrics with fixed formulas, and execute_sql with a limit of 50 rows.",
+      "terms": [
+        "get_schema",
+        "calculate_metrics",
+        "execute_sql",
+        "limit"
+      ],
+      "numbers": [
+        "50"
+      ],
+      "entities": []
+    },
+    {
+      "from": 694,
+      "to": 708,
+      "kind": "claim",
+      "gloss_en": "For safety, and the most important thing, we set the temperature to zero to make sure the generation is very accurate and logical.",
+      "terms": [
+        "temperature",
+        "generation"
+      ],
+      "numbers": [
+        "0"
+      ],
+      "entities": []
+    },
+    {
+      "from": 709,
+      "to": 714,
+      "kind": "claim",
+      "gloss_en": "And of course validation runs before any execution.",
+      "terms": [
+        "validation"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 715,
+      "to": 728,
+      "kind": "question",
+      "gloss_en": "Now imagine the agent hangs and decides on its own to write a DELETE command; what will happen?",
+      "terms": [
+        "agent",
+        "DELETE"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 729,
+      "to": 740,
+      "kind": "claim",
+      "gloss_en": "This generated command will hit hard against the first wall, which is the SQL allowlist.",
+      "terms": [
+        "SQL",
+        "allowlist"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 741,
+      "to": 746,
+      "kind": "claim",
+      "gloss_en": "Which blocks anything other than SELECT.",
+      "terms": [
+        "SELECT"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 747,
+      "to": 760,
+      "kind": "claim",
+      "gloss_en": "And if by chance it passes, it will hit the second wall, which is a read-only role on the database.",
+      "terms": [
+        "database"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 761,
+      "to": 770,
+      "kind": "claim",
+      "gloss_en": "So the DELETE will be blocked and bounce back completely; that is what we call the double gate.",
+      "terms": [
+        "DELETE",
+        "double gate"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 771,
+      "to": 780,
+      "kind": "recap",
+      "gloss_en": "If we put this architecture together, we find LangChain tools secured with Pydantic.",
+      "terms": [
+        "LangChain",
+        "Pydantic"
+      ],
+      "numbers": [],
+      "entities": [
+        "LangChain",
+        "Pydantic"
+      ]
+    },
+    {
+      "from": 781,
+      "to": 788,
+      "kind": "claim",
+      "gloss_en": "We have a check that raises an alarm if the z-score passes 2.",
+      "terms": [
+        "z-score"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 789,
+      "to": 794,
+      "kind": "claim",
+      "gloss_en": "And a memory that remembers only the last 10 steps.",
+      "terms": [
+        "memory"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 795,
+      "to": 800,
+      "kind": "claim",
+      "gloss_en": "And the most important thing, the fail-safe: max_iterations equals 10.",
+      "terms": [
+        "fail-safe",
+        "max_iterations"
+      ],
+      "numbers": [
+        "10"
+      ],
+      "entities": []
+    },
+    {
+      "from": 801,
+      "to": 813,
+      "kind": "claim",
+      "gloss_en": "And this prevents the agent from entering an infinite loop or staying going around itself.",
+      "terms": [
+        "agent",
+        "infinite loop"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 814,
+      "to": 827,
+      "kind": "recap",
+      "gloss_en": "This is exactly what we achieved in this explainer: an evaluated, solid RAG with a permissions filter at retrieval.",
+      "terms": [
+        "RAG"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 828,
+      "to": 837,
+      "kind": "recap",
+      "gloss_en": "And an analysis agent guarded with two protection layers and a full audit log of the SQL commands.",
+      "terms": [
+        "agent",
+        "audit log",
+        "SQL"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": []
+    },
+    {
+      "from": 838,
+      "to": 852,
+      "kind": "recap",
+      "gloss_en": "The takeaway is that real AI engineering is not only the model; it is the systems we build and secure around it.",
+      "terms": [
+        "AI"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 853,
+      "to": 867,
+      "kind": "question",
+      "gloss_en": "I'll leave you to think about this question: how will you be able to secure your next autonomous AI decision in production?",
+      "terms": [
+        "AI",
+        "production"
+      ],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 868,
+      "to": 871,
+      "kind": "claim",
+      "gloss_en": "Security starts from the design.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 872,
+      "to": 878,
+      "kind": "transition",
+      "gloss_en": "Thank you so much for completing the explainer to the end.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    },
+    {
+      "from": 879,
+      "to": 884,
+      "kind": "transition",
+      "gloss_en": "And let's see you in other great explainers.",
+      "terms": [],
+      "numbers": [],
+      "entities": []
+    }
+  ],
+  "sentence_notes": [],
+  "created": "2026-10-08T14:12:37Z"
+}
