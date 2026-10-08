@@ -58,6 +58,7 @@ def spoken_en(tok):
     if not t:
         return ""
     out = []
+    t = re.sub(r"([€£$])(\d[\d,]*(?:\.\d+)?)", r"\2 \1", t)  # "$3,948.50" is said "3,948.50 dollars"
     for run in re.findall(r"\d+(?:,\d{3})*(?:\.\d+)?|[A-Za-z']+|[%€£$]", t):
         if run[0].isdigit():
             ip, _, fp = run.replace(",", "").partition(".")
@@ -265,13 +266,15 @@ def cue_check(words):
         k.setdefault(c["chapter"], []).append(c)
     for ch, cs in k.items():
         ws = per_ch.get(ch, [])
-        if sum(c["words"] for c in cs) != len(ws):
-            skipped.append([ch, sum(c["words"] for c in cs), len(ws)])
+        counts = [len(AL.tokenise(c["text"])) for c in cs]  # alignable tokens (standalone dashes are not words)
+        if sum(counts) != len(ws):
+            skipped.append([ch, sum(counts), len(ws)])
             continue
         pos = 0
-        for c in cs:
-            diffs.append(ws[pos]["start_ms"] - c["start_ms"])
-            pos += c["words"]
+        for c, nw in zip(cs, counts):
+            if nw:
+                diffs.append(ws[pos]["start_ms"] - c["start_ms"])
+            pos += nw
     ad = [abs(d) for d in diffs]
     res = {"captions": len(cues), "compared": len(diffs), "chapters_skipped_word_count_mismatch": skipped}
     if ad:

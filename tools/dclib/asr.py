@@ -393,10 +393,13 @@ def cmd_agreement(args):
               "| timer | segments | median signed diff (ms) | median abs (ms) | within 120 ms | within 250 ms |", "|---|---|---|---|---|---|"]
         for k, v in onset.items():
             L.append(f"| {k} | {v['n']} | {v['median_signed_ms']:+.0f} | {v['median_abs_ms']:.0f} | {100 * v['within_120ms']:.1f} % | {100 * v['within_250ms']:.1f} % |")
+        m, w = onset["MMS forced alignment"], onset["whisper turbo"]
         L += ["", "The VAD onset carries a 30 ms pad and its own granularity (32 ms frames), so +-60 ms is noise. Whisper's word starts after a pause are "
-              "systematically late (median +219 ms against the acoustic onset), which is why the whisper-vs-MMS agreement above is far below 95 %: the "
-              "disagreement is mostly whisper's DTW timing, not the aligner. MMS onsets sit within 120 ms of the acoustic onset for about two thirds of "
-              "pauses and within 250 ms for most of the rest."]
+              f"systematically late ({w['median_signed_ms']:+.0f} ms against the acoustic onset, {100 * w['within_120ms']:.0f} % within 120 ms), which is why the whisper-vs-MMS agreement "
+              f"above stays below 95 %: the disagreement is mostly whisper's DTW timing, not the aligner. MMS onsets sit {m['median_signed_ms']:+.0f} ms from the acoustic onset "
+              f"({100 * m['within_120ms']:.1f} % within 120 ms, {100 * m['within_250ms']:.1f} % within 250 ms). The independent two-CTC check is in reports/asr/s1_agreement_w2v.md.",
+              "", "Correction (P3b): the first S1 alignment used emissions that lost one 20 ms frame per 30 s window (harness/lib/align.py), so word times ran early by "
+              "up to 0.4 s inside each 10-min emission block (a 40 ms/min sawtooth). Fixed and re-aligned; word ids are unchanged."]
     os.makedirs(C.p("reports", "asr"), exist_ok=True)
     with open(C.p("reports", "asr", "s1_agreement.md"), "w", encoding="utf-8") as f:
         f.write("\n".join(L) + "\n")

@@ -28,7 +28,7 @@
     "script_ref": "T1:§8-AR",
     "alignment": {
       "method": "mms_fa",
-      "median_conf": 0.8261
+      "median_conf": 0.8264
     },
     "role": "trunk"
   },
