@@ -500,9 +500,8 @@ def apply_one(aid, words, segs, out, args):
            "created": C.now_iso()}
     C.write_json(os.path.join(dest, A.fid(aid) + ".align.json"), rep)
     C.write_json(os.path.join(dest, A.fid(aid) + ".polish.json"),
-                 {"v": 1, "audio_id": aid, "asr_words": len(words), "final_words": len(recs), "edits": log, "notes": out.get("notes", ""), "created": C.now_iso()})
-    os.makedirs(POLISH_DIR, exist_ok=True)
-    C.write_json(os.path.join(dest if args.dest else POLISH_DIR, A.fid(aid) + ".applied.json"), {"audio_id": aid, "sentences": sents, "notes": notes})
+                 {"v": 1, "audio_id": aid, "asr_words": len(words), "final_words": len(recs), "edits": log, "notes": out.get("notes", ""),
+                  "sentences": sents, "sentence_notes": notes, "created": C.now_iso()})
     if not args.dest:
         A.set_alignment(aid, "asr+mms_fa", rep["median_conf"])
     print(f"polish-apply {aid}: {len(words)} asr words -> {len(recs)} (edits {rep['polish']['edits']}, deletes {rep['polish']['deletes']}, inserted "
@@ -625,7 +624,7 @@ def cmd_sentences(args):
         if a == S1:
             raw = s1_raw_sentences(words, stats)
         else:
-            ap = os.path.join(POLISH_DIR if not args.src else args.src, A.fid(a) + ".applied.json")
+            ap = os.path.join(args.src or TRANS, A.fid(a) + ".polish.json")
             if not os.path.exists(ap):
                 C.fail(f"{C.rel(ap)} missing: run `dc asr polish-apply {a}` first", 2)
             raw = [{k: s[k] for k in ("from", "to", "kind", "gloss_en", "terms", "numbers", "entities")} for s in C.read_json(ap)["sentences"]]

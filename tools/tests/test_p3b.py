@@ -62,5 +62,7 @@ eq(W2.latin_to_ar("sh"), "ش")
 vocab = {"|": 4, "ا": 12, "ب": 13, "ت": 15, "م": 37, "و": 40, "ي": 42, "َ": 46}
 s, mp = W2.to_vocab("ال model", vocab)
 eq(mp, 5, "latin chars mapped")
-eq(all(ch in vocab for ch in s), True, "only vocabulary letters survive")
+eq(all(ch in vocab for ch in s) and len(s) >= 3, True, "only vocabulary letters survive, and Arabic letters are kept")
+eq(W2.to_vocab("هَات الصفوف", {"ه": 39, "ا": 12, "ت": 15, "ص": 26, "ف": 33, "و": 40, "ل": 36})[0], "هاتالصفوف")
+eq(P.word_flags("٣ مرات"), (False, True), "Arabic-Indic digits")
 print(f"{n} checks passed")

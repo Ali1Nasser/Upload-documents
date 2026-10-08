@@ -151,7 +151,7 @@ def build():
     s.set_defaults(fn="polish.cmd_polish_apply")
     s = asr.add_parser("sentences", help="P3.8: corpus/sentences/<audio>.jsonl from the applied polish output (S4) or the S1 gloss batches (a:S1:ar-natural | s1)")
     s.add_argument("audio_id", help="a:S4:Pnn | all | s1")
-    s.add_argument("--src", help="directory with words.jsonl/applied.json (tests)")
+    s.add_argument("--src", help="directory with words.jsonl / polish.json (tests)")
     s.add_argument("--dest", help="output directory (default corpus/sentences)")
     s.set_defaults(fn="polish.cmd_sentences")
     s = asr.add_parser("emphasis", help="P3.9: prominence z-score (RMS + pitch range + duration) + lexical priority -> words.prominence, sentences.impact_words (queue)")
