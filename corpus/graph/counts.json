@@ -1,21 +1,25 @@
 {
   "v": 1,
-  "created": "2026-10-08T19:59:58Z",
+  "created": "2026-10-08T20:19:12Z",
   "nodes": {
     "Concept": 454,
     "Pattern": 22,
     "Chapter": 37,
     "AudioAsset": 28,
+    "DataFact": 127,
     "Sentence": 3126,
-    "IdeaUnit": 2974,
+    "IdeaUnit": 2957,
     "VisualAsset": 1303
   },
   "edges": {
+    "requires": 935,
     "uses": 166,
+    "version_of": 1,
     "contains": 3126,
     "says": 3126,
-    "about": 3668,
-    "duplicates": 386,
-    "illustrates": 1891
+    "about": 8666,
+    "illustrates": 16676,
+    "states": 284,
+    "duplicates": 323
   }
 }

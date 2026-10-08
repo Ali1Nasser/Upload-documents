@@ -1,0 +1,47 @@
+{
+  "gate": "G4",
+  "pass": true,
+  "checks": [
+    {
+      "name": "threshold_f1",
+      "pass": true,
+      "detail": "F1 0.876 (P 0.811, R 0.952) at tau 0.81 on 200 labelled pairs; rule: number veto -> adjudication if present -> cos >= tau; cosine only 0.803; 5-fold CV 0.876"
+    },
+    {
+      "name": "batches_judged",
+      "pass": true,
+      "detail": "15/15 batches fully judged"
+    },
+    {
+      "name": "schemas",
+      "pass": true,
+      "detail": "nodes, edges and sentence files valid"
+    },
+    {
+      "name": "edge_endpoints",
+      "pass": true,
+      "detail": "33303 edges, 0 with a missing endpoint"
+    },
+    {
+      "name": "sentences_in_idea_units",
+      "pass": true,
+      "detail": "3126/3126 sentences carry an idea_unit; 0 disagree with the `says` edge"
+    },
+    {
+      "name": "sentences_with_concept",
+      "pass": true,
+      "detail": "3126/3126 sentences reach >= 1 concept via their unit; unit link method {'none': 0, 'term': 2010, 'embedding': 742, 'context': 205}"
+    },
+    {
+      "name": "visual_candidates",
+      "pass": true,
+      "detail": "2893/2957 units (97.8 %) have >= 3 candidates >= floor 0.567"
+    },
+    {
+      "name": "reports",
+      "pass": true,
+      "detail": "7/7 reports; novelty covers 27/27 S4 parts"
+    }
+  ],
+  "created": "2026-10-08T20:20:43Z"
+}

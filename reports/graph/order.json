@@ -1,0 +1,1896 @@
+{
+  "v": 1,
+  "created": "2026-10-08T20:20:01Z",
+  "requires_edges": 935,
+  "concepts_in_trunk": 296,
+  "violations": [
+    {
+      "concept": "c:disaster-recovery",
+      "requires": "c:incident-response",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0527",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 511
+    },
+    {
+      "concept": "c:metric-type",
+      "requires": "c:metrics",
+      "concept_first": "s:S1:ar-natural:0031",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0525",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 494
+    },
+    {
+      "concept": "c:tracing",
+      "requires": "c:correlation-id",
+      "concept_first": "s:S1:ar-natural:0037",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0526",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 489
+    },
+    {
+      "concept": "c:neural-network",
+      "requires": "c:loss",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0473",
+      "req_chapter": "CH-31",
+      "same_chapter": false,
+      "gap_sentences": 456
+    },
+    {
+      "concept": "c:neural-network",
+      "requires": "c:weight",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0466",
+      "req_chapter": "CH-31",
+      "same_chapter": false,
+      "gap_sentences": 449
+    },
+    {
+      "concept": "c:neural-network",
+      "requires": "c:activation",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0466",
+      "req_chapter": "CH-31",
+      "same_chapter": false,
+      "gap_sentences": 449
+    },
+    {
+      "concept": "c:neural-network",
+      "requires": "c:neuron",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0465",
+      "req_chapter": "CH-31",
+      "same_chapter": false,
+      "gap_sentences": 448
+    },
+    {
+      "concept": "c:container",
+      "requires": "c:container-image",
+      "concept_first": "s:S1:ar-natural:0095",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0516",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 421
+    },
+    {
+      "concept": "c:offset",
+      "requires": "c:topic",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0392",
+      "req_chapter": "CH-26",
+      "same_chapter": false,
+      "gap_sentences": 363
+    },
+    {
+      "concept": "c:offset",
+      "requires": "c:consumer",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0391",
+      "req_chapter": "CH-26",
+      "same_chapter": false,
+      "gap_sentences": 362
+    },
+    {
+      "concept": "c:disaster-recovery",
+      "requires": "c:replication",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0365",
+      "req_chapter": "CH-24",
+      "same_chapter": false,
+      "gap_sentences": 349
+    },
+    {
+      "concept": "c:data-governance",
+      "requires": "c:metadata",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0364",
+      "req_chapter": "CH-24",
+      "same_chapter": false,
+      "gap_sentences": 348
+    },
+    {
+      "concept": "c:baseline",
+      "requires": "c:metrics",
+      "concept_first": "s:S1:ar-natural:0205",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0525",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 320
+    },
+    {
+      "concept": "c:nrt",
+      "requires": "c:batch",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0336",
+      "req_chapter": "CH-22",
+      "same_chapter": false,
+      "gap_sentences": 320
+    },
+    {
+      "concept": "c:reconciliation",
+      "requires": "c:etl",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0323",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 307
+    },
+    {
+      "concept": "c:acceptance-testing",
+      "requires": "c:integration-test",
+      "concept_first": "s:S1:ar-natural:0216",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0519",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 303
+    },
+    {
+      "concept": "c:reconciliation",
+      "requires": "c:data-quality",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0317",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 301
+    },
+    {
+      "concept": "c:data-governance",
+      "requires": "c:data-quality",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0317",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 301
+    },
+    {
+      "concept": "c:quality-gate",
+      "requires": "c:continuous-integration",
+      "concept_first": "s:S1:ar-natural:0230",
+      "concept_chapter": "CH-15",
+      "req_first": "s:S1:ar-natural:0519",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 289
+    },
+    {
+      "concept": "c:apis",
+      "requires": "c:http",
+      "concept_first": "s:S1:ar-natural:0014",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0299",
+      "req_chapter": "CH-20",
+      "same_chapter": false,
+      "gap_sentences": 285
+    },
+    {
+      "concept": "c:airflow",
+      "requires": "c:task",
+      "concept_first": "s:S1:ar-natural:0065",
+      "concept_chapter": "CH-04",
+      "req_first": "s:S1:ar-natural:0329",
+      "req_chapter": "CH-22",
+      "same_chapter": false,
+      "gap_sentences": 264
+    },
+    {
+      "concept": "c:dashboard",
+      "requires": "c:kpi",
+      "concept_first": "s:S1:ar-natural:0006",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0261",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 255
+    },
+    {
+      "concept": "c:dashboard",
+      "requires": "c:measure",
+      "concept_first": "s:S1:ar-natural:0006",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 249
+    },
+    {
+      "concept": "c:b-tree",
+      "requires": "c:tree",
+      "concept_first": "s:S1:ar-natural:0210",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0453",
+      "req_chapter": "CH-30",
+      "same_chapter": false,
+      "gap_sentences": 243
+    },
+    {
+      "concept": "c:streaming",
+      "requires": "c:batch",
+      "concept_first": "s:S1:ar-natural:0099",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0336",
+      "req_chapter": "CH-22",
+      "same_chapter": false,
+      "gap_sentences": 237
+    },
+    {
+      "concept": "c:statistics",
+      "requires": "c:cardinality",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0254",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 237
+    },
+    {
+      "concept": "c:statistics",
+      "requires": "c:distribution",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0244",
+      "req_chapter": "CH-16",
+      "same_chapter": false,
+      "gap_sentences": 227
+    },
+    {
+      "concept": "c:metric-type",
+      "requires": "c:measure",
+      "concept_first": "s:S1:ar-natural:0031",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 224
+    },
+    {
+      "concept": "c:nosql",
+      "requires": "c:schema",
+      "concept_first": "s:S1:ar-natural:0097",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0313",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 216
+    },
+    {
+      "concept": "c:index",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0047",
+      "concept_chapter": "CH-03",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 208
+    },
+    {
+      "concept": "c:api",
+      "requires": "c:http",
+      "concept_first": "s:S1:ar-natural:0104",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0299",
+      "req_chapter": "CH-20",
+      "same_chapter": false,
+      "gap_sentences": 195
+    },
+    {
+      "concept": "c:nrt",
+      "requires": "c:latency",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0206",
+      "req_chapter": "CH-14",
+      "same_chapter": false,
+      "gap_sentences": 190
+    },
+    {
+      "concept": "c:dict",
+      "requires": "c:hash-table",
+      "concept_first": "s:S1:ar-natural:0097",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0286",
+      "req_chapter": "CH-19",
+      "same_chapter": false,
+      "gap_sentences": 189
+    },
+    {
+      "concept": "c:set",
+      "requires": "c:hash-table",
+      "concept_first": "s:S1:ar-natural:0098",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0286",
+      "req_chapter": "CH-19",
+      "same_chapter": false,
+      "gap_sentences": 188
+    },
+    {
+      "concept": "c:directed-acyclic-graph",
+      "requires": "c:graph",
+      "concept_first": "s:S1:ar-natural:0015",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0200",
+      "req_chapter": "CH-13",
+      "same_chapter": false,
+      "gap_sentences": 185
+    },
+    {
+      "concept": "c:group-by",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0070",
+      "concept_chapter": "CH-05",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 185
+    },
+    {
+      "concept": "c:transaction",
+      "requires": "c:dml",
+      "concept_first": "s:S1:ar-natural:0013",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0193",
+      "req_chapter": "CH-13",
+      "same_chapter": false,
+      "gap_sentences": 180
+    },
+    {
+      "concept": "c:tracing",
+      "requires": "c:latency",
+      "concept_first": "s:S1:ar-natural:0037",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0206",
+      "req_chapter": "CH-14",
+      "same_chapter": false,
+      "gap_sentences": 169
+    },
+    {
+      "concept": "c:index",
+      "requires": "c:query",
+      "concept_first": "s:S1:ar-natural:0047",
+      "concept_chapter": "CH-03",
+      "req_first": "s:S1:ar-natural:0214",
+      "req_chapter": "CH-14",
+      "same_chapter": false,
+      "gap_sentences": 167
+    },
+    {
+      "concept": "c:http-request",
+      "requires": "c:http",
+      "concept_first": "s:S1:ar-natural:0136",
+      "concept_chapter": "CH-09",
+      "req_first": "s:S1:ar-natural:0299",
+      "req_chapter": "CH-20",
+      "same_chapter": false,
+      "gap_sentences": 163
+    },
+    {
+      "concept": "c:constraint",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0098",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 157
+    },
+    {
+      "concept": "c:offset",
+      "requires": "c:partition",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0182",
+      "req_chapter": "CH-12",
+      "same_chapter": false,
+      "gap_sentences": 153
+    },
+    {
+      "concept": "c:csv",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0103",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 152
+    },
+    {
+      "concept": "c:floating-point",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0022",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 120
+    },
+    {
+      "concept": "c:container-registry",
+      "requires": "c:container-image",
+      "concept_first": "s:S1:ar-natural:0401",
+      "concept_chapter": "CH-26",
+      "req_first": "s:S1:ar-natural:0516",
+      "req_chapter": "CH-34",
+      "same_chapter": false,
+      "gap_sentences": 115
+    },
+    {
+      "concept": "c:primary-key",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0144",
+      "concept_chapter": "CH-10",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 111
+    },
+    {
+      "concept": "c:airflow-operator",
+      "requires": "c:task",
+      "concept_first": "s:S1:ar-natural:0220",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0329",
+      "req_chapter": "CH-22",
+      "same_chapter": false,
+      "gap_sentences": 109
+    },
+    {
+      "concept": "c:test",
+      "requires": "c:assert",
+      "concept_first": "s:S1:ar-natural:0014",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0121",
+      "req_chapter": "CH-09",
+      "same_chapter": false,
+      "gap_sentences": 107
+    },
+    {
+      "concept": "c:streaming",
+      "requires": "c:latency",
+      "concept_first": "s:S1:ar-natural:0099",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0206",
+      "req_chapter": "CH-14",
+      "same_chapter": false,
+      "gap_sentences": 107
+    },
+    {
+      "concept": "c:database",
+      "requires": "c:csv",
+      "concept_first": "s:S1:ar-natural:0002",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0103",
+      "req_chapter": "CH-07",
+      "same_chapter": false,
+      "gap_sentences": 101
+    },
+    {
+      "concept": "c:boolean-logic",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0046",
+      "concept_chapter": "CH-03",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 96
+    },
+    {
+      "concept": "c:funnel",
+      "requires": "c:filtering",
+      "concept_first": "s:S1:ar-natural:0162",
+      "concept_chapter": "CH-11",
+      "req_first": "s:S1:ar-natural:0258",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 96
+    },
+    {
+      "concept": "c:select",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0160",
+      "concept_chapter": "CH-11",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 95
+    },
+    {
+      "concept": "c:dbt",
+      "requires": "c:elt",
+      "concept_first": "s:S1:ar-natural:0231",
+      "concept_chapter": "CH-15",
+      "req_first": "s:S1:ar-natural:0323",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 92
+    },
+    {
+      "concept": "c:apis",
+      "requires": "c:json",
+      "concept_first": "s:S1:ar-natural:0014",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0104",
+      "req_chapter": "CH-07",
+      "same_chapter": false,
+      "gap_sentences": 90
+    },
+    {
+      "concept": "c:skew",
+      "requires": "c:task",
+      "concept_first": "s:S1:ar-natural:0242",
+      "concept_chapter": "CH-16",
+      "req_first": "s:S1:ar-natural:0329",
+      "req_chapter": "CH-22",
+      "same_chapter": false,
+      "gap_sentences": 87
+    },
+    {
+      "concept": "c:kafka",
+      "requires": "c:streaming",
+      "concept_first": "s:S1:ar-natural:0015",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0099",
+      "req_chapter": "CH-07",
+      "same_chapter": false,
+      "gap_sentences": 84
+    },
+    {
+      "concept": "c:b-tree",
+      "requires": "c:sorting",
+      "concept_first": "s:S1:ar-natural:0210",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0293",
+      "req_chapter": "CH-19",
+      "same_chapter": false,
+      "gap_sentences": 83
+    },
+    {
+      "concept": "c:nrt",
+      "requires": "c:streaming",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0099",
+      "req_chapter": "CH-07",
+      "same_chapter": false,
+      "gap_sentences": 83
+    },
+    {
+      "concept": "c:test",
+      "requires": "c:function",
+      "concept_first": "s:S1:ar-natural:0014",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0090",
+      "req_chapter": "CH-06",
+      "same_chapter": false,
+      "gap_sentences": 76
+    },
+    {
+      "concept": "c:fan-out",
+      "requires": "c:cardinality",
+      "concept_first": "s:S1:ar-natural:0178",
+      "concept_chapter": "CH-12",
+      "req_first": "s:S1:ar-natural:0254",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 76
+    },
+    {
+      "concept": "c:query-optimization",
+      "requires": "c:explain",
+      "concept_first": "s:S1:ar-natural:0204",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0278",
+      "req_chapter": "CH-18",
+      "same_chapter": false,
+      "gap_sentences": 74
+    },
+    {
+      "concept": "c:root-cause",
+      "requires": "c:debugging",
+      "concept_first": "s:S1:ar-natural:0037",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0109",
+      "req_chapter": "CH-08",
+      "same_chapter": false,
+      "gap_sentences": 72
+    },
+    {
+      "concept": "c:class",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0071",
+      "concept_chapter": "CH-05",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 71
+    },
+    {
+      "concept": "c:stack",
+      "requires": "c:list",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0096",
+      "req_chapter": "CH-07",
+      "same_chapter": false,
+      "gap_sentences": 67
+    },
+    {
+      "concept": "c:queue",
+      "requires": "c:list",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0096",
+      "req_chapter": "CH-07",
+      "same_chapter": false,
+      "gap_sentences": 67
+    },
+    {
+      "concept": "c:distinct",
+      "requires": "c:duplicates",
+      "concept_first": "s:S1:ar-natural:0161",
+      "concept_chapter": "CH-11",
+      "req_first": "s:S1:ar-natural:0226",
+      "req_chapter": "CH-15",
+      "same_chapter": false,
+      "gap_sentences": 65
+    },
+    {
+      "concept": "c:data-cleaning",
+      "requires": "c:duplicates",
+      "concept_first": "s:S1:ar-natural:0163",
+      "concept_chapter": "CH-11",
+      "req_first": "s:S1:ar-natural:0226",
+      "req_chapter": "CH-15",
+      "same_chapter": false,
+      "gap_sentences": 63
+    },
+    {
+      "concept": "c:acceptance-testing",
+      "requires": "c:acceptance-criteria",
+      "concept_first": "s:S1:ar-natural:0216",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0277",
+      "req_chapter": "CH-18",
+      "same_chapter": false,
+      "gap_sentences": 61
+    },
+    {
+      "concept": "c:systemd",
+      "requires": "c:linux",
+      "concept_first": "s:S1:ar-natural:0010",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0068",
+      "req_chapter": "CH-05",
+      "same_chapter": false,
+      "gap_sentences": 58
+    },
+    {
+      "concept": "c:cardinality-estimate",
+      "requires": "c:explain",
+      "concept_first": "s:S1:ar-natural:0220",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0278",
+      "req_chapter": "CH-18",
+      "same_chapter": false,
+      "gap_sentences": 58
+    },
+    {
+      "concept": "c:parameter",
+      "requires": "c:function",
+      "concept_first": "s:S1:ar-natural:0032",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0090",
+      "req_chapter": "CH-06",
+      "same_chapter": false,
+      "gap_sentences": 58
+    },
+    {
+      "concept": "c:shell",
+      "requires": "c:filesystem",
+      "concept_first": "s:S1:ar-natural:0012",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0061",
+      "req_chapter": "CH-04",
+      "same_chapter": false,
+      "gap_sentences": 49
+    },
+    {
+      "concept": "c:git",
+      "requires": "c:filesystem",
+      "concept_first": "s:S1:ar-natural:0014",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0061",
+      "req_chapter": "CH-04",
+      "same_chapter": false,
+      "gap_sentences": 47
+    },
+    {
+      "concept": "c:list",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0096",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 46
+    },
+    {
+      "concept": "c:dict",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0097",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 45
+    },
+    {
+      "concept": "c:constraint",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0098",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 44
+    },
+    {
+      "concept": "c:root-cause",
+      "requires": "c:logging",
+      "concept_first": "s:S1:ar-natural:0037",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0079",
+      "req_chapter": "CH-05",
+      "same_chapter": false,
+      "gap_sentences": 42
+    },
+    {
+      "concept": "c:on-call",
+      "requires": "c:production",
+      "concept_first": "s:S1:ar-natural:0077",
+      "concept_chapter": "CH-05",
+      "req_first": "s:S1:ar-natural:0118",
+      "req_chapter": "CH-08",
+      "same_chapter": false,
+      "gap_sentences": 41
+    },
+    {
+      "concept": "c:selectivity",
+      "requires": "c:cardinality",
+      "concept_first": "s:S1:ar-natural:0214",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0254",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 40
+    },
+    {
+      "concept": "c:retry",
+      "requires": "c:error",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0066",
+      "req_chapter": "CH-04",
+      "same_chapter": false,
+      "gap_sentences": 37
+    },
+    {
+      "concept": "c:cardinality-estimate",
+      "requires": "c:cardinality",
+      "concept_first": "s:S1:ar-natural:0220",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0254",
+      "req_chapter": "CH-17",
+      "same_chapter": false,
+      "gap_sentences": 34
+    },
+    {
+      "concept": "c:aliasing",
+      "requires": "c:mutability",
+      "concept_first": "s:S1:ar-natural:0083",
+      "concept_chapter": "CH-06",
+      "req_first": "s:S1:ar-natural:0114",
+      "req_chapter": "CH-08",
+      "same_chapter": false,
+      "gap_sentences": 31
+    },
+    {
+      "concept": "c:variable",
+      "requires": "c:ram",
+      "concept_first": "s:S1:ar-natural:0013",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0044",
+      "req_chapter": "CH-03",
+      "same_chapter": false,
+      "gap_sentences": 31
+    },
+    {
+      "concept": "c:mutability",
+      "requires": "c:data-type",
+      "concept_first": "s:S1:ar-natural:0114",
+      "concept_chapter": "CH-08",
+      "req_first": "s:S1:ar-natural:0142",
+      "req_chapter": "CH-10",
+      "same_chapter": false,
+      "gap_sentences": 28
+    },
+    {
+      "concept": "c:case-expression",
+      "requires": "c:select",
+      "concept_first": "s:S1:ar-natural:0133",
+      "concept_chapter": "CH-09",
+      "req_first": "s:S1:ar-natural:0160",
+      "req_chapter": "CH-11",
+      "same_chapter": false,
+      "gap_sentences": 27
+    },
+    {
+      "concept": "c:merge",
+      "requires": "c:join",
+      "concept_first": "s:S1:ar-natural:0130",
+      "concept_chapter": "CH-09",
+      "req_first": "s:S1:ar-natural:0156",
+      "req_chapter": "CH-11",
+      "same_chapter": false,
+      "gap_sentences": 26
+    },
+    {
+      "concept": "c:systemd",
+      "requires": "c:process",
+      "concept_first": "s:S1:ar-natural:0010",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0030",
+      "req_chapter": "CH-02",
+      "same_chapter": false,
+      "gap_sentences": 20
+    },
+    {
+      "concept": "c:class",
+      "requires": "c:function",
+      "concept_first": "s:S1:ar-natural:0071",
+      "concept_chapter": "CH-05",
+      "req_first": "s:S1:ar-natural:0090",
+      "req_chapter": "CH-06",
+      "same_chapter": false,
+      "gap_sentences": 19
+    },
+    {
+      "concept": "c:shell",
+      "requires": "c:process",
+      "concept_first": "s:S1:ar-natural:0012",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0030",
+      "req_chapter": "CH-02",
+      "same_chapter": false,
+      "gap_sentences": 18
+    },
+    {
+      "concept": "c:control-flow",
+      "requires": "c:boolean-logic",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0046",
+      "req_chapter": "CH-03",
+      "same_chapter": false,
+      "gap_sentences": 17
+    },
+    {
+      "concept": "c:narrow-wide-dependency",
+      "requires": "c:shuffle",
+      "concept_first": "s:S1:ar-natural:0353",
+      "concept_chapter": "CH-23",
+      "req_first": "s:S1:ar-natural:0370",
+      "req_chapter": "CH-24",
+      "same_chapter": false,
+      "gap_sentences": 17
+    },
+    {
+      "concept": "c:debugging",
+      "requires": "c:traceback",
+      "concept_first": "s:S1:ar-natural:0109",
+      "concept_chapter": "CH-08",
+      "req_first": "s:S1:ar-natural:0125",
+      "req_chapter": "CH-09",
+      "same_chapter": false,
+      "gap_sentences": 16
+    },
+    {
+      "concept": "c:tuple",
+      "requires": "c:mutability",
+      "concept_first": "s:S1:ar-natural:0098",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0114",
+      "req_chapter": "CH-08",
+      "same_chapter": false,
+      "gap_sentences": 16
+    },
+    {
+      "concept": "c:stack",
+      "requires": "c:ram",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0044",
+      "req_chapter": "CH-03",
+      "same_chapter": false,
+      "gap_sentences": 15
+    },
+    {
+      "concept": "c:kafka",
+      "requires": "c:queue",
+      "concept_first": "s:S1:ar-natural:0015",
+      "concept_chapter": "CH-01",
+      "req_first": "s:S1:ar-natural:0029",
+      "req_chapter": "CH-02",
+      "same_chapter": false,
+      "gap_sentences": 14
+    },
+    {
+      "concept": "c:process",
+      "requires": "c:ram",
+      "concept_first": "s:S1:ar-natural:0030",
+      "concept_chapter": "CH-02",
+      "req_first": "s:S1:ar-natural:0044",
+      "req_chapter": "CH-03",
+      "same_chapter": false,
+      "gap_sentences": 14
+    },
+    {
+      "concept": "c:vector-database",
+      "requires": "c:cosine-similarity",
+      "concept_first": "s:S1:ar-natural:0483",
+      "concept_chapter": "CH-32",
+      "req_first": "s:S1:ar-natural:0496",
+      "req_chapter": "CH-33",
+      "same_chapter": false,
+      "gap_sentences": 13
+    },
+    {
+      "concept": "c:row",
+      "requires": "c:table",
+      "concept_first": "s:S1:ar-natural:0001",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0013",
+      "req_chapter": "CH-01",
+      "same_chapter": false,
+      "gap_sentences": 12
+    },
+    {
+      "concept": "c:vector-database",
+      "requires": "c:embedding",
+      "concept_first": "s:S1:ar-natural:0483",
+      "concept_chapter": "CH-32",
+      "req_first": "s:S1:ar-natural:0495",
+      "req_chapter": "CH-33",
+      "same_chapter": false,
+      "gap_sentences": 12
+    },
+    {
+      "concept": "c:attention",
+      "requires": "c:embedding",
+      "concept_first": "s:S1:ar-natural:0483",
+      "concept_chapter": "CH-32",
+      "req_first": "s:S1:ar-natural:0495",
+      "req_chapter": "CH-33",
+      "same_chapter": false,
+      "gap_sentences": 12
+    },
+    {
+      "concept": "c:data-contract",
+      "requires": "c:data-quality",
+      "concept_first": "s:S1:ar-natural:0305",
+      "concept_chapter": "CH-20",
+      "req_first": "s:S1:ar-natural:0317",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 12
+    },
+    {
+      "concept": "c:chunk",
+      "requires": "c:context-window",
+      "concept_first": "s:S1:ar-natural:0498",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0509",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 11
+    },
+    {
+      "concept": "c:machine-learning",
+      "requires": "c:artificial-intelligence",
+      "concept_first": "s:S1:ar-natural:0006",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0017",
+      "req_chapter": "CH-01",
+      "same_chapter": false,
+      "gap_sentences": 11
+    },
+    {
+      "concept": "c:machine-learning",
+      "requires": "c:statistics",
+      "concept_first": "s:S1:ar-natural:0006",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0017",
+      "req_chapter": "CH-01",
+      "same_chapter": false,
+      "gap_sentences": 11
+    },
+    {
+      "concept": "c:query-optimization",
+      "requires": "c:query",
+      "concept_first": "s:S1:ar-natural:0204",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0214",
+      "req_chapter": "CH-14",
+      "same_chapter": true,
+      "gap_sentences": 10
+    },
+    {
+      "concept": "c:bias-variance",
+      "requires": "c:loss",
+      "concept_first": "s:S1:ar-natural:0463",
+      "concept_chapter": "CH-30",
+      "req_first": "s:S1:ar-natural:0473",
+      "req_chapter": "CH-31",
+      "same_chapter": false,
+      "gap_sentences": 10
+    },
+    {
+      "concept": "c:dense-retrieval",
+      "requires": "c:retrieval",
+      "concept_first": "s:S1:ar-natural:0496",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0506",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 10
+    },
+    {
+      "concept": "c:bm25",
+      "requires": "c:retrieval",
+      "concept_first": "s:S1:ar-natural:0496",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0506",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 10
+    },
+    {
+      "concept": "c:retrieval-augmented-generation",
+      "requires": "c:retrieval",
+      "concept_first": "s:S1:ar-natural:0497",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0506",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 9
+    },
+    {
+      "concept": "c:query-key-value",
+      "requires": "c:embedding",
+      "concept_first": "s:S1:ar-natural:0486",
+      "concept_chapter": "CH-32",
+      "req_first": "s:S1:ar-natural:0495",
+      "req_chapter": "CH-33",
+      "same_chapter": false,
+      "gap_sentences": 9
+    },
+    {
+      "concept": "c:ensemble",
+      "requires": "c:bias-variance",
+      "concept_first": "s:S1:ar-natural:0454",
+      "concept_chapter": "CH-30",
+      "req_first": "s:S1:ar-natural:0463",
+      "req_chapter": "CH-30",
+      "same_chapter": true,
+      "gap_sentences": 9
+    },
+    {
+      "concept": "c:data-contract",
+      "requires": "c:schema",
+      "concept_first": "s:S1:ar-natural:0305",
+      "concept_chapter": "CH-20",
+      "req_first": "s:S1:ar-natural:0313",
+      "req_chapter": "CH-21",
+      "same_chapter": false,
+      "gap_sentences": 8
+    },
+    {
+      "concept": "c:sql",
+      "requires": "c:table",
+      "concept_first": "s:S1:ar-natural:0006",
+      "concept_chapter": "CH-00",
+      "req_first": "s:S1:ar-natural:0013",
+      "req_chapter": "CH-01",
+      "same_chapter": false,
+      "gap_sentences": 7
+    },
+    {
+      "concept": "c:code-review",
+      "requires": "c:pull-request",
+      "concept_first": "s:S1:ar-natural:0129",
+      "concept_chapter": "CH-09",
+      "req_first": "s:S1:ar-natural:0136",
+      "req_chapter": "CH-09",
+      "same_chapter": true,
+      "gap_sentences": 7
+    },
+    {
+      "concept": "c:leakage",
+      "requires": "c:train-validation-test",
+      "concept_first": "s:S1:ar-natural:0443",
+      "concept_chapter": "CH-29",
+      "req_first": "s:S1:ar-natural:0449",
+      "req_chapter": "CH-29",
+      "same_chapter": true,
+      "gap_sentences": 6
+    },
+    {
+      "concept": "c:reranker",
+      "requires": "c:retrieval",
+      "concept_first": "s:S1:ar-natural:0500",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0506",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 6
+    },
+    {
+      "concept": "c:ram",
+      "requires": "c:byte",
+      "concept_first": "s:S1:ar-natural:0044",
+      "concept_chapter": "CH-03",
+      "req_first": "s:S1:ar-natural:0049",
+      "req_chapter": "CH-03",
+      "same_chapter": true,
+      "gap_sentences": 5
+    },
+    {
+      "concept": "c:residual-stream",
+      "requires": "c:embedding",
+      "concept_first": "s:S1:ar-natural:0490",
+      "concept_chapter": "CH-32",
+      "req_first": "s:S1:ar-natural:0495",
+      "req_chapter": "CH-33",
+      "same_chapter": false,
+      "gap_sentences": 5
+    },
+    {
+      "concept": "c:citation",
+      "requires": "c:retrieval",
+      "concept_first": "s:S1:ar-natural:0501",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0506",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 5
+    },
+    {
+      "concept": "c:disk",
+      "requires": "c:byte",
+      "concept_first": "s:S1:ar-natural:0045",
+      "concept_chapter": "CH-03",
+      "req_first": "s:S1:ar-natural:0049",
+      "req_chapter": "CH-03",
+      "same_chapter": true,
+      "gap_sentences": 4
+    },
+    {
+      "concept": "c:fetch-decode-execute",
+      "requires": "c:ram",
+      "concept_first": "s:S1:ar-natural:0041",
+      "concept_chapter": "CH-03",
+      "req_first": "s:S1:ar-natural:0044",
+      "req_chapter": "CH-03",
+      "same_chapter": true,
+      "gap_sentences": 3
+    },
+    {
+      "concept": "c:absolute-path",
+      "requires": "c:filesystem",
+      "concept_first": "s:S1:ar-natural:0058",
+      "concept_chapter": "CH-04",
+      "req_first": "s:S1:ar-natural:0061",
+      "req_chapter": "CH-04",
+      "same_chapter": true,
+      "gap_sentences": 3
+    },
+    {
+      "concept": "c:filter-context",
+      "requires": "c:filtering",
+      "concept_first": "s:S1:ar-natural:0255",
+      "concept_chapter": "CH-17",
+      "req_first": "s:S1:ar-natural:0258",
+      "req_chapter": "CH-17",
+      "same_chapter": true,
+      "gap_sentences": 3
+    },
+    {
+      "concept": "c:roll-up",
+      "requires": "c:additivity",
+      "concept_first": "s:S1:ar-natural:0352",
+      "concept_chapter": "CH-23",
+      "req_first": "s:S1:ar-natural:0355",
+      "req_chapter": "CH-23",
+      "same_chapter": true,
+      "gap_sentences": 3
+    },
+    {
+      "concept": "c:attention",
+      "requires": "c:query-key-value",
+      "concept_first": "s:S1:ar-natural:0483",
+      "concept_chapter": "CH-32",
+      "req_first": "s:S1:ar-natural:0486",
+      "req_chapter": "CH-32",
+      "same_chapter": true,
+      "gap_sentences": 3
+    },
+    {
+      "concept": "c:file-permissions",
+      "requires": "c:kernel",
+      "concept_first": "s:S1:ar-natural:0069",
+      "concept_chapter": "CH-05",
+      "req_first": "s:S1:ar-natural:0071",
+      "req_chapter": "CH-05",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:leakage",
+      "requires": "c:feature",
+      "concept_first": "s:S1:ar-natural:0443",
+      "concept_chapter": "CH-29",
+      "req_first": "s:S1:ar-natural:0445",
+      "req_chapter": "CH-29",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:deadlock",
+      "requires": "c:locking",
+      "concept_first": "s:S1:ar-natural:0201",
+      "concept_chapter": "CH-13",
+      "req_first": "s:S1:ar-natural:0203",
+      "req_chapter": "CH-13",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:hdfs",
+      "requires": "c:replication",
+      "concept_first": "s:S1:ar-natural:0363",
+      "concept_chapter": "CH-24",
+      "req_first": "s:S1:ar-natural:0365",
+      "req_chapter": "CH-24",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:rack-awareness",
+      "requires": "c:replication",
+      "concept_first": "s:S1:ar-natural:0363",
+      "concept_chapter": "CH-24",
+      "req_first": "s:S1:ar-natural:0365",
+      "req_chapter": "CH-24",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:mapreduce",
+      "requires": "c:shuffle",
+      "concept_first": "s:S1:ar-natural:0368",
+      "concept_chapter": "CH-24",
+      "req_first": "s:S1:ar-natural:0370",
+      "req_chapter": "CH-24",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:seek",
+      "requires": "c:b-tree",
+      "concept_first": "s:S1:ar-natural:0208",
+      "concept_chapter": "CH-14",
+      "req_first": "s:S1:ar-natural:0210",
+      "req_chapter": "CH-14",
+      "same_chapter": true,
+      "gap_sentences": 2
+    },
+    {
+      "concept": "c:window-function",
+      "requires": "c:partition",
+      "concept_first": "s:S1:ar-natural:0181",
+      "concept_chapter": "CH-12",
+      "req_first": "s:S1:ar-natural:0182",
+      "req_chapter": "CH-12",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:retrieval-augmented-generation",
+      "requires": "c:chunk",
+      "concept_first": "s:S1:ar-natural:0497",
+      "concept_chapter": "CH-33",
+      "req_first": "s:S1:ar-natural:0498",
+      "req_chapter": "CH-33",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:virtual-environment",
+      "requires": "c:package-manager",
+      "concept_first": "s:S1:ar-natural:0106",
+      "concept_chapter": "CH-07",
+      "req_first": "s:S1:ar-natural:0107",
+      "req_chapter": "CH-07",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:producer",
+      "requires": "c:topic",
+      "concept_first": "s:S1:ar-natural:0391",
+      "concept_chapter": "CH-26",
+      "req_first": "s:S1:ar-natural:0392",
+      "req_chapter": "CH-26",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:neuron",
+      "requires": "c:weight",
+      "concept_first": "s:S1:ar-natural:0465",
+      "concept_chapter": "CH-31",
+      "req_first": "s:S1:ar-natural:0466",
+      "req_chapter": "CH-31",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:mutable-default-argument",
+      "requires": "c:mutability",
+      "concept_first": "s:S1:ar-natural:0113",
+      "concept_chapter": "CH-08",
+      "req_first": "s:S1:ar-natural:0114",
+      "req_chapter": "CH-08",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:rack-awareness",
+      "requires": "c:namenode",
+      "concept_first": "s:S1:ar-natural:0363",
+      "concept_chapter": "CH-24",
+      "req_first": "s:S1:ar-natural:0364",
+      "req_chapter": "CH-24",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:bias-variance",
+      "requires": "c:overfitting",
+      "concept_first": "s:S1:ar-natural:0463",
+      "concept_chapter": "CH-30",
+      "req_first": "s:S1:ar-natural:0464",
+      "req_chapter": "CH-30",
+      "same_chapter": true,
+      "gap_sentences": 1
+    },
+    {
+      "concept": "c:cardinality",
+      "requires": "c:column",
+      "concept_first": "s:S1:ar-natural:0254",
+      "concept_chapter": "CH-17",
+      "req_first": "s:S1:ar-natural:0255",
+      "req_chapter": "CH-17",
+      "same_chapter": true,
+      "gap_sentences": 1
+    }
+  ],
+  "cross_chapter_violations": 109,
+  "missing_prereq_in_trunk": [
+    {
+      "concept": "c:token",
+      "requires": "c:string",
+      "concept_first": "s:S1:ar-natural:0308",
+      "concept_chapter": "CH-20"
+    },
+    {
+      "concept": "c:window-function",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0181",
+      "concept_chapter": "CH-12"
+    },
+    {
+      "concept": "c:pipeline",
+      "requires": "c:pipe",
+      "concept_first": "s:S1:ar-natural:0064",
+      "concept_chapter": "CH-04"
+    },
+    {
+      "concept": "c:spark",
+      "requires": "c:big-data",
+      "concept_first": "s:S1:ar-natural:0015",
+      "concept_chapter": "CH-01"
+    },
+    {
+      "concept": "c:spark",
+      "requires": "c:dataframe",
+      "concept_first": "s:S1:ar-natural:0015",
+      "concept_chapter": "CH-01"
+    },
+    {
+      "concept": "c:iam",
+      "requires": "c:access-control",
+      "concept_first": "s:S1:ar-natural:0522",
+      "concept_chapter": "CH-34"
+    },
+    {
+      "concept": "c:dml",
+      "requires": "c:sql-sublanguages",
+      "concept_first": "s:S1:ar-natural:0193",
+      "concept_chapter": "CH-13"
+    },
+    {
+      "concept": "c:group-by",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0070",
+      "concept_chapter": "CH-05"
+    },
+    {
+      "concept": "c:leakage",
+      "requires": "c:label",
+      "concept_first": "s:S1:ar-natural:0443",
+      "concept_chapter": "CH-29"
+    },
+    {
+      "concept": "c:retrieval-augmented-generation",
+      "requires": "c:large-language-model",
+      "concept_first": "s:S1:ar-natural:0497",
+      "concept_chapter": "CH-33"
+    },
+    {
+      "concept": "c:airflow",
+      "requires": "c:cron",
+      "concept_first": "s:S1:ar-natural:0065",
+      "concept_chapter": "CH-04"
+    },
+    {
+      "concept": "c:process",
+      "requires": "c:cpu",
+      "concept_first": "s:S1:ar-natural:0030",
+      "concept_chapter": "CH-02"
+    },
+    {
+      "concept": "c:metric-type",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0031",
+      "concept_chapter": "CH-02"
+    },
+    {
+      "concept": "c:retry",
+      "requires": "c:timeout",
+      "concept_first": "s:S1:ar-natural:0029",
+      "concept_chapter": "CH-02"
+    },
+    {
+      "concept": "c:data-cleaning",
+      "requires": "c:string",
+      "concept_first": "s:S1:ar-natural:0163",
+      "concept_chapter": "CH-11"
+    },
+    {
+      "concept": "c:chunk",
+      "requires": "c:string",
+      "concept_first": "s:S1:ar-natural:0498",
+      "concept_chapter": "CH-33"
+    },
+    {
+      "concept": "c:fetch-decode-execute",
+      "requires": "c:cpu",
+      "concept_first": "s:S1:ar-natural:0041",
+      "concept_chapter": "CH-03"
+    },
+    {
+      "concept": "c:json",
+      "requires": "c:string",
+      "concept_first": "s:S1:ar-natural:0104",
+      "concept_chapter": "CH-07"
+    },
+    {
+      "concept": "c:ai-agent",
+      "requires": "c:large-language-model",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01"
+    },
+    {
+      "concept": "c:ai-agent",
+      "requires": "c:tool-calling",
+      "concept_first": "s:S1:ar-natural:0017",
+      "concept_chapter": "CH-01"
+    },
+    {
+      "concept": "c:path",
+      "requires": "c:environment-variable",
+      "concept_first": "s:S1:ar-natural:0057",
+      "concept_chapter": "CH-04"
+    },
+    {
+      "concept": "c:dns",
+      "requires": "c:ip-address",
+      "concept_first": "s:S1:ar-natural:0296",
+      "concept_chapter": "CH-20"
+    },
+    {
+      "concept": "c:context-window",
+      "requires": "c:large-language-model",
+      "concept_first": "s:S1:ar-natural:0509",
+      "concept_chapter": "CH-33"
+    },
+    {
+      "concept": "c:hdfs",
+      "requires": "c:big-data",
+      "concept_first": "s:S1:ar-natural:0363",
+      "concept_chapter": "CH-24"
+    },
+    {
+      "concept": "c:encoding",
+      "requires": "c:string",
+      "concept_first": "s:S1:ar-natural:0052",
+      "concept_chapter": "CH-03"
+    },
+    {
+      "concept": "c:data-mart",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0347",
+      "concept_chapter": "CH-23"
+    },
+    {
+      "concept": "c:slowly-changing-dimension",
+      "requires": "c:surrogate-key",
+      "concept_first": "s:S1:ar-natural:0358",
+      "concept_chapter": "CH-23"
+    },
+    {
+      "concept": "c:measure",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0255",
+      "concept_chapter": "CH-17"
+    },
+    {
+      "concept": "c:additivity",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0355",
+      "concept_chapter": "CH-23"
+    },
+    {
+      "concept": "c:byte",
+      "requires": "c:bit",
+      "concept_first": "s:S1:ar-natural:0049",
+      "concept_chapter": "CH-03"
+    },
+    {
+      "concept": "c:filtering",
+      "requires": "c:dataframe",
+      "concept_first": "s:S1:ar-natural:0258",
+      "concept_chapter": "CH-17"
+    },
+    {
+      "concept": "c:linux",
+      "requires": "c:cpu",
+      "concept_first": "s:S1:ar-natural:0068",
+      "concept_chapter": "CH-05"
+    },
+    {
+      "concept": "c:confidence-interval",
+      "requires": "c:sampling",
+      "concept_first": "s:S1:ar-natural:0246",
+      "concept_chapter": "CH-16"
+    },
+    {
+      "concept": "c:data-governance",
+      "requires": "c:access-control",
+      "concept_first": "s:S1:ar-natural:0016",
+      "concept_chapter": "CH-01"
+    },
+    {
+      "concept": "c:pii-masking",
+      "requires": "c:pii",
+      "concept_first": "s:S1:ar-natural:0430",
+      "concept_chapter": "CH-28"
+    },
+    {
+      "concept": "c:pii-masking",
+      "requires": "c:access-control",
+      "concept_first": "s:S1:ar-natural:0430",
+      "concept_chapter": "CH-28"
+    },
+    {
+      "concept": "c:http",
+      "requires": "c:ip-address",
+      "concept_first": "s:S1:ar-natural:0299",
+      "concept_chapter": "CH-20"
+    },
+    {
+      "concept": "c:temperature",
+      "requires": "c:large-language-model",
+      "concept_first": "s:S1:ar-natural:0492",
+      "concept_chapter": "CH-32"
+    },
+    {
+      "concept": "c:solid",
+      "requires": "c:object-oriented-programming",
+      "concept_first": "s:S1:ar-natural:0271",
+      "concept_chapter": "CH-18"
+    },
+    {
+      "concept": "c:tcp-handshake",
+      "requires": "c:ip-address",
+      "concept_first": "s:S1:ar-natural:0297",
+      "concept_chapter": "CH-20"
+    },
+    {
+      "concept": "c:tcp-handshake",
+      "requires": "c:port",
+      "concept_first": "s:S1:ar-natural:0297",
+      "concept_chapter": "CH-20"
+    },
+    {
+      "concept": "c:roll-up",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0352",
+      "concept_chapter": "CH-23"
+    },
+    {
+      "concept": "c:container-image",
+      "requires": "c:docker",
+      "concept_first": "s:S1:ar-natural:0516",
+      "concept_chapter": "CH-34"
+    },
+    {
+      "concept": "c:train-validation-test",
+      "requires": "c:sampling",
+      "concept_first": "s:S1:ar-natural:0449",
+      "concept_chapter": "CH-29"
+    },
+    {
+      "concept": "c:refactoring",
+      "requires": "c:clean-code",
+      "concept_first": "s:S1:ar-natural:0124",
+      "concept_chapter": "CH-09"
+    },
+    {
+      "concept": "c:mapreduce",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0368",
+      "concept_chapter": "CH-24"
+    },
+    {
+      "concept": "c:integration-test",
+      "requires": "c:test-double",
+      "concept_first": "s:S1:ar-natural:0519",
+      "concept_chapter": "CH-34"
+    },
+    {
+      "concept": "c:mae",
+      "requires": "c:label",
+      "concept_first": "s:S1:ar-natural:0437",
+      "concept_chapter": "CH-29"
+    },
+    {
+      "concept": "c:incident-response",
+      "requires": "c:alerting",
+      "concept_first": "s:S1:ar-natural:0527",
+      "concept_chapter": "CH-34"
+    },
+    {
+      "concept": "c:suppression",
+      "requires": "c:k-anonymity",
+      "concept_first": "s:S1:ar-natural:0429",
+      "concept_chapter": "CH-28"
+    },
+    {
+      "concept": "c:suppression",
+      "requires": "c:pii",
+      "concept_first": "s:S1:ar-natural:0429",
+      "concept_chapter": "CH-28"
+    },
+    {
+      "concept": "c:packet",
+      "requires": "c:ip-address",
+      "concept_first": "s:S1:ar-natural:0296",
+      "concept_chapter": "CH-20"
+    },
+    {
+      "concept": "c:allowlist",
+      "requires": "c:access-control",
+      "concept_first": "s:S1:ar-natural:0513",
+      "concept_chapter": "CH-33"
+    },
+    {
+      "concept": "c:distribution",
+      "requires": "c:sampling",
+      "concept_first": "s:S1:ar-natural:0244",
+      "concept_chapter": "CH-16"
+    },
+    {
+      "concept": "c:cloud",
+      "requires": "c:cpu",
+      "concept_first": "s:S1:ar-natural:0522",
+      "concept_chapter": "CH-34"
+    },
+    {
+      "concept": "c:ensemble",
+      "requires": "c:decision-tree",
+      "concept_first": "s:S1:ar-natural:0454",
+      "concept_chapter": "CH-30"
+    },
+    {
+      "concept": "c:hash-table",
+      "requires": "c:array",
+      "concept_first": "s:S1:ar-natural:0286",
+      "concept_chapter": "CH-19"
+    },
+    {
+      "concept": "c:having",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0159",
+      "concept_chapter": "CH-11"
+    },
+    {
+      "concept": "c:funnel",
+      "requires": "c:logical-execution-order",
+      "concept_first": "s:S1:ar-natural:0162",
+      "concept_chapter": "CH-11"
+    },
+    {
+      "concept": "c:confusion-matrix",
+      "requires": "c:supervised",
+      "concept_first": "s:S1:ar-natural:0458",
+      "concept_chapter": "CH-30"
+    },
+    {
+      "concept": "c:confusion-matrix",
+      "requires": "c:label",
+      "concept_first": "s:S1:ar-natural:0458",
+      "concept_chapter": "CH-30"
+    },
+    {
+      "concept": "c:kpi",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0261",
+      "concept_chapter": "CH-17"
+    },
+    {
+      "concept": "c:conflict",
+      "requires": "c:three-way-merge",
+      "concept_first": "s:S1:ar-natural:0130",
+      "concept_chapter": "CH-09"
+    },
+    {
+      "concept": "c:on-call",
+      "requires": "c:alerting",
+      "concept_first": "s:S1:ar-natural:0077",
+      "concept_chapter": "CH-05"
+    },
+    {
+      "concept": "c:statistical-power",
+      "requires": "c:sampling",
+      "concept_first": "s:S1:ar-natural:0250",
+      "concept_chapter": "CH-16"
+    },
+    {
+      "concept": "c:statistical-power",
+      "requires": "c:p-value",
+      "concept_first": "s:S1:ar-natural:0250",
+      "concept_chapter": "CH-16"
+    },
+    {
+      "concept": "c:container-registry",
+      "requires": "c:docker",
+      "concept_first": "s:S1:ar-natural:0401",
+      "concept_chapter": "CH-26"
+    },
+    {
+      "concept": "c:olap",
+      "requires": "c:aggregate",
+      "concept_first": "s:S1:ar-natural:0351",
+      "concept_chapter": "CH-23"
+    },
+    {
+      "concept": "c:order-by",
+      "requires": "c:logical-execution-order",
+      "concept_first": "s:S1:ar-natural:0160",
+      "concept_chapter": "CH-11"
+    },
+    {
+      "concept": "c:kernel",
+      "requires": "c:cpu",
+      "concept_first": "s:S1:ar-natural:0071",
+      "concept_chapter": "CH-05"
+    },
+    {
+      "concept": "c:scheduler",
+      "requires": "c:cron",
+      "concept_first": "s:S1:ar-natural:0377",
+      "concept_chapter": "CH-25"
+    }
+  ],
+  "cycles": [
+    [
+      "c:statistics",
+      "c:distribution",
+      "c:statistics"
+    ],
+    [
+      "c:sampling",
+      "c:statistics",
+      "c:distribution",
+      "c:sampling"
+    ],
+    [
+      "c:test",
+      "c:assert",
+      "c:test"
+    ],
+    [
+      "c:duplicates",
+      "c:distinct",
+      "c:duplicates"
+    ],
+    [
+      "c:bias-variance",
+      "c:overfitting",
+      "c:bias-variance"
+    ],
+    [
+      "c:container",
+      "c:container-image",
+      "c:docker",
+      "c:container"
+    ],
+    [
+      "c:container-image",
+      "c:docker",
+      "c:container-image"
+    ]
+  ]
+}

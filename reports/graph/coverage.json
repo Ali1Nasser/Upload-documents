@@ -1,0 +1,6693 @@
+{
+  "v": 1,
+  "created": "2026-10-08T20:20:01Z",
+  "totals": {
+    "concepts": 454,
+    "S1": 301,
+    "S4": 430,
+    "S4_only": 142,
+    "S1_only": 13,
+    "no_audio": 11
+  },
+  "domains": [
+    {
+      "domain": "Foundations",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "concepts": 19,
+      "S1": 14,
+      "S4": 19,
+      "scenes": 7,
+      "visual": 16,
+      "no_audio": [],
+      "topics_total": 13,
+      "topics_matched": 10,
+      "topics_unmatched": [
+        "ASCII/Unicode/UTF-8",
+        "what an OS does",
+        "extensions"
+      ]
+    },
+    {
+      "domain": "Terminal & Linux I",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "concepts": 28,
+      "S1": 22,
+      "S4": 28,
+      "scenes": 14,
+      "visual": 25,
+      "no_audio": [],
+      "topics_total": 11,
+      "topics_matched": 10,
+      "topics_unmatched": [
+        "editors"
+      ]
+    },
+    {
+      "domain": "Linux II / operations",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "concepts": 51,
+      "S1": 34,
+      "S4": 48,
+      "scenes": 24,
+      "visual": 35,
+      "no_audio": [
+        "c:slo",
+        "c:three-way-merge"
+      ],
+      "topics_total": 19,
+      "topics_matched": 16,
+      "topics_unmatched": [
+        "networking tools",
+        "hardening",
+        "troubleshooting method"
+      ]
+    },
+    {
+      "domain": "Python core",
+      "chapters": [
+        "CH-06"
+      ],
+      "concepts": 11,
+      "S1": 8,
+      "S4": 11,
+      "scenes": 7,
+      "visual": 8,
+      "no_audio": [],
+      "topics_total": 14,
+      "topics_matched": 13,
+      "topics_unmatched": [
+        "conversion"
+      ]
+    },
+    {
+      "domain": "Python structures & data",
+      "chapters": [
+        "CH-07"
+      ],
+      "concepts": 17,
+      "S1": 12,
+      "S4": 17,
+      "scenes": 12,
+      "visual": 14,
+      "no_audio": [],
+      "topics_total": 16,
+      "topics_matched": 12,
+      "topics_unmatched": [
+        "nesting",
+        "choosing by operation cost",
+        "modules",
+        "project layout"
+      ]
+    },
+    {
+      "domain": "Python state & depth",
+      "chapters": [
+        "CH-08"
+      ],
+      "concepts": 19,
+      "S1": 15,
+      "S4": 19,
+      "scenes": 12,
+      "visual": 19,
+      "no_audio": [],
+      "topics_total": 13,
+      "topics_matched": 12,
+      "topics_unmatched": [
+        "MRO"
+      ]
+    },
+    {
+      "domain": "pandas",
+      "chapters": [
+        "CH-08",
+        "CH-15"
+      ],
+      "concepts": 29,
+      "S1": 23,
+      "S4": 28,
+      "scenes": 15,
+      "visual": 26,
+      "no_audio": [
+        "c:p-value"
+      ],
+      "topics_total": 9,
+      "topics_matched": 9,
+      "topics_unmatched": []
+    },
+    {
+      "domain": "Testing & version control",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "concepts": 66,
+      "S1": 42,
+      "S4": 60,
+      "scenes": 30,
+      "visual": 47,
+      "no_audio": [
+        "c:slo",
+        "c:composition",
+        "c:three-way-merge"
+      ],
+      "topics_total": 20,
+      "topics_matched": 17,
+      "topics_unmatched": [
+        "fixtures",
+        "rebase",
+        "remotes"
+      ]
+    },
+    {
+      "domain": "Relational model",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "concepts": 50,
+      "S1": 37,
+      "S4": 46,
+      "scenes": 20,
+      "visual": 38,
+      "no_audio": [
+        "c:referential-integrity"
+      ],
+      "topics_total": 12,
+      "topics_matched": 11,
+      "topics_unmatched": [
+        "1:1 / 1:N / M:N"
+      ]
+    },
+    {
+      "domain": "SQL querying",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "concepts": 24,
+      "S1": 17,
+      "S4": 23,
+      "scenes": 15,
+      "visual": 18,
+      "no_audio": [
+        "c:anti-join"
+      ],
+      "topics_total": 24,
+      "topics_matched": 23,
+      "topics_unmatched": [
+        "casting"
+      ]
+    },
+    {
+      "domain": "Transactions",
+      "chapters": [
+        "CH-13"
+      ],
+      "concepts": 6,
+      "S1": 5,
+      "S4": 6,
+      "scenes": 1,
+      "visual": 6,
+      "no_audio": [],
+      "topics_total": 9,
+      "topics_matched": 9,
+      "topics_unmatched": []
+    },
+    {
+      "domain": "Performance",
+      "chapters": [
+        "CH-14"
+      ],
+      "concepts": 24,
+      "S1": 13,
+      "S4": 24,
+      "scenes": 13,
+      "visual": 19,
+      "no_audio": [],
+      "topics_total": 19,
+      "topics_matched": 16,
+      "topics_unmatched": [
+        "the tuning workflow",
+        "clustered vs secondary",
+        "honest benchmarking"
+      ]
+    },
+    {
+      "domain": "Database families & dialects",
+      "chapters": [
+        "CH-10",
+        "CH-23",
+        "CH-24"
+      ],
+      "concepts": 69,
+      "S1": 51,
+      "S4": 65,
+      "scenes": 26,
+      "visual": 51,
+      "no_audio": [
+        "c:referential-integrity"
+      ],
+      "topics_total": 6,
+      "topics_matched": 4,
+      "topics_unmatched": [
+        "when to choose each",
+        "lakehouse formats"
+      ]
+    },
+    {
+      "domain": "Analytics",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "concepts": 18,
+      "S1": 14,
+      "S4": 17,
+      "scenes": 8,
+      "visual": 15,
+      "no_audio": [
+        "c:p-value"
+      ],
+      "topics_total": 19,
+      "topics_matched": 15,
+      "topics_unmatched": [
+        "tidy data",
+        "A/B design",
+        "semantic models",
+        "DAX-style evaluation"
+      ]
+    },
+    {
+      "domain": "Software craft",
+      "chapters": [
+        "CH-18"
+      ],
+      "concepts": 31,
+      "S1": 20,
+      "S4": 27,
+      "scenes": 14,
+      "visual": 23,
+      "no_audio": [
+        "c:composition",
+        "c:three-way-merge"
+      ],
+      "topics_total": 19,
+      "topics_matched": 15,
+      "topics_unmatched": [
+        "DRY/KISS/YAGNI",
+        "semantic versioning",
+        "reading unfamiliar code",
+        "documentation"
+      ]
+    },
+    {
+      "domain": "DSA",
+      "chapters": [
+        "CH-19"
+      ],
+      "concepts": 19,
+      "S1": 14,
+      "S4": 19,
+      "scenes": 5,
+      "visual": 17,
+      "no_audio": [],
+      "topics_total": 24,
+      "topics_matched": 20,
+      "topics_unmatched": [
+        "union-find",
+        "searching",
+        "two pointers",
+        "greedy"
+      ]
+    },
+    {
+      "domain": "Systems & the web",
+      "chapters": [
+        "CH-20"
+      ],
+      "concepts": 36,
+      "S1": 21,
+      "S4": 33,
+      "scenes": 13,
+      "visual": 21,
+      "no_audio": [],
+      "topics_total": 37,
+      "topics_matched": 27,
+      "topics_unmatched": [
+        "UDP",
+        "versioning",
+        "routing",
+        "serialization",
+        "background jobs",
+        "JWT",
+        "OAuth2/OIDC",
+        "XSS",
+        "CSRF",
+        "threat modelling"
+      ]
+    },
+    {
+      "domain": "Java / backend depth",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "concepts": 50,
+      "S1": 30,
+      "S4": 47,
+      "scenes": 23,
+      "visual": 33,
+      "no_audio": [],
+      "topics_total": 16,
+      "topics_matched": 12,
+      "topics_unmatched": [
+        "collections",
+        "generics",
+        "transaction boundaries",
+        "concurrency basics"
+      ]
+    },
+    {
+      "domain": "Data engineering",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "concepts": 62,
+      "S1": 42,
+      "S4": 58,
+      "scenes": 24,
+      "visual": 43,
+      "no_audio": [
+        "c:referential-integrity"
+      ],
+      "topics_total": 23,
+      "topics_matched": 21,
+      "topics_unmatched": [
+        "compression",
+        "CDC"
+      ]
+    },
+    {
+      "domain": "Warehousing & OLAP",
+      "chapters": [
+        "CH-23"
+      ],
+      "concepts": 49,
+      "S1": 36,
+      "S4": 45,
+      "scenes": 19,
+      "visual": 37,
+      "no_audio": [
+        "c:referential-integrity"
+      ],
+      "topics_total": 24,
+      "topics_matched": 21,
+      "topics_unmatched": [
+        "staging",
+        "hierarchies",
+        "openness"
+      ]
+    },
+    {
+      "domain": "Big data",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "concepts": 26,
+      "S1": 18,
+      "S4": 26,
+      "scenes": 7,
+      "visual": 17,
+      "no_audio": [],
+      "topics_total": 23,
+      "topics_matched": 22,
+      "topics_unmatched": [
+        "transformations vs actions"
+      ]
+    },
+    {
+      "domain": "Streaming",
+      "chapters": [
+        "CH-26"
+      ],
+      "concepts": 15,
+      "S1": 9,
+      "S4": 13,
+      "scenes": 9,
+      "visual": 12,
+      "no_audio": [],
+      "topics_total": 17,
+      "topics_matched": 15,
+      "topics_unmatched": [
+        "ordering scope",
+        "compatibility"
+      ]
+    },
+    {
+      "domain": "Mobile Money / D&IM",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "concepts": 32,
+      "S1": 21,
+      "S4": 30,
+      "scenes": 13,
+      "visual": 22,
+      "no_audio": [],
+      "topics_total": 20,
+      "topics_matched": 19,
+      "topics_unmatched": [
+        "source of record"
+      ]
+    },
+    {
+      "domain": "Machine learning",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "concepts": 24,
+      "S1": 18,
+      "S4": 23,
+      "scenes": 9,
+      "visual": 17,
+      "no_audio": [
+        "c:regularization"
+      ],
+      "topics_total": 30,
+      "topics_matched": 23,
+      "topics_unmatched": [
+        "problem formulation",
+        "boosting",
+        "SVM",
+        "PCA",
+        "ROC-AUC",
+        "MSE",
+        "interpretability"
+      ]
+    },
+    {
+      "domain": "Deep learning",
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "concepts": 22,
+      "S1": 16,
+      "S4": 21,
+      "scenes": 8,
+      "visual": 16,
+      "no_audio": [
+        "c:regularization"
+      ],
+      "topics_total": 20,
+      "topics_matched": 10,
+      "topics_unmatched": [
+        "initialization",
+        "dropout",
+        "learning curves",
+        "RNNs",
+        "LSTM/GRU",
+        "autoencoders",
+        "VAEs",
+        "GANs",
+        "diffusion",
+        "responsible generative workflows"
+      ]
+    },
+    {
+      "domain": "NLP & Transformers",
+      "chapters": [
+        "CH-32"
+      ],
+      "concepts": 10,
+      "S1": 9,
+      "S4": 10,
+      "scenes": 4,
+      "visual": 9,
+      "no_audio": [],
+      "topics_total": 21,
+      "topics_matched": 17,
+      "topics_unmatched": [
+        "sequence-to-sequence",
+        "autoregressive generation",
+        "knowledge cutoff",
+        "cost"
+      ]
+    },
+    {
+      "domain": "Retrieval & agents",
+      "chapters": [
+        "CH-33"
+      ],
+      "concepts": 18,
+      "S1": 9,
+      "S4": 15,
+      "scenes": 9,
+      "visual": 14,
+      "no_audio": [
+        "c:guardrail",
+        "c:tool-calling"
+      ],
+      "topics_total": 32,
+      "topics_matched": 25,
+      "topics_unmatched": [
+        "context assembly",
+        "answer correctness",
+        "exfiltration",
+        "deterministic workflows",
+        "agent evaluation",
+        "cost",
+        "drift"
+      ]
+    },
+    {
+      "domain": "Ship & operate",
+      "chapters": [
+        "CH-34"
+      ],
+      "concepts": 50,
+      "S1": 33,
+      "S4": 47,
+      "scenes": 23,
+      "visual": 34,
+      "no_audio": [
+        "c:slo",
+        "c:three-way-merge"
+      ],
+      "topics_total": 27,
+      "topics_matched": 24,
+      "topics_unmatched": [
+        "cost",
+        "IaC orientation",
+        "postmortems"
+      ]
+    },
+    {
+      "domain": "Evidence & career",
+      "chapters": [
+        "CH-35",
+        "CH-36"
+      ],
+      "concepts": 12,
+      "S1": 6,
+      "S4": 12,
+      "scenes": 5,
+      "visual": 9,
+      "no_audio": [],
+      "topics_total": 9,
+      "topics_matched": 6,
+      "topics_unmatched": [
+        "the five-minute defence",
+        "completion vs proof",
+        "interview technique"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "gap": "Power BI / Power Query / DAX",
+      "closed_in": [
+        "CH-15",
+        "CH-17"
+      ],
+      "closed_in_raw": "CH-15, CH-17",
+      "line": 1683
+    },
+    {
+      "gap": "Inferential statistics",
+      "closed_in": [
+        "CH-16"
+      ],
+      "closed_in_raw": "CH-16",
+      "line": 1684
+    },
+    {
+      "gap": "Git workflow and merge",
+      "closed_in": [
+        "CH-09"
+      ],
+      "closed_in_raw": "CH-09",
+      "line": 1685
+    },
+    {
+      "gap": "Security and governance mechanics",
+      "closed_in": [
+        "CH-20",
+        "CH-28",
+        "CH-34"
+      ],
+      "closed_in_raw": "CH-20, CH-28, CH-34",
+      "line": 1686
+    },
+    {
+      "gap": "Hadoop ecosystem tooling",
+      "closed_in": [
+        "CH-24"
+      ],
+      "closed_in_raw": "CH-24",
+      "line": 1687
+    },
+    {
+      "gap": "Mobile Money / D&IM",
+      "closed_in": [
+        "CH-27",
+        "CH-28"
+      ],
+      "closed_in_raw": "CH-27, CH-28",
+      "line": 1688
+    },
+    {
+      "gap": "Acceptance and performance testing",
+      "closed_in": [
+        "CH-09",
+        "CH-28",
+        "CH-34"
+      ],
+      "closed_in_raw": "CH-09 (gate), CH-28 (OAT/CAT), CH-34 (load)",
+      "line": 1689
+    },
+    {
+      "gap": "Week-0 environment setup",
+      "closed_in": [
+        "CH-04",
+        "CH-07"
+      ],
+      "closed_in_raw": "CH-04, CH-07",
+      "line": 1690
+    },
+    {
+      "gap": "Containers and cloud",
+      "closed_in": [
+        "CH-34"
+      ],
+      "closed_in_raw": "CH-34",
+      "line": 1691
+    },
+    {
+      "gap": "ML fundamentals from zero",
+      "closed_in": [
+        "CH-29",
+        "CH-31"
+      ],
+      "closed_in_raw": "CH-29, CH-31",
+      "line": 1692
+    }
+  ],
+  "concepts": [
+    {
+      "id": "c:idempotency",
+      "label_en": "idempotency",
+      "chapters": [
+        "CH-20",
+        "CH-21",
+        "CH-22",
+        "CH-23"
+      ],
+      "S1": 4,
+      "S4": 15,
+      "scenes": 7,
+      "visual": 24,
+      "S1_units": 4,
+      "S4_units": 15
+    },
+    {
+      "id": "c:partition",
+      "label_en": "partition",
+      "chapters": [
+        "CH-12",
+        "CH-21",
+        "CH-22",
+        "CH-23"
+      ],
+      "S1": 8,
+      "S4": 15,
+      "scenes": 0,
+      "visual": 25,
+      "S1_units": 8,
+      "S4_units": 15
+    },
+    {
+      "id": "c:grain",
+      "label_en": "grain",
+      "chapters": [
+        "CH-11",
+        "CH-12",
+        "CH-23"
+      ],
+      "S1": 3,
+      "S4": 11,
+      "scenes": 4,
+      "visual": 13,
+      "S1_units": 3,
+      "S4_units": 11
+    },
+    {
+      "id": "c:token",
+      "label_en": "token",
+      "chapters": [],
+      "S1": 8,
+      "S4": 12,
+      "scenes": 7,
+      "visual": 1,
+      "S1_units": 8,
+      "S4_units": 12
+    },
+    {
+      "id": "c:test",
+      "label_en": "test",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 16,
+      "S4": 31,
+      "scenes": 3,
+      "visual": 11,
+      "S1_units": 16,
+      "S4_units": 31
+    },
+    {
+      "id": "c:join",
+      "label_en": "join",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 8,
+      "S4": 21,
+      "scenes": 1,
+      "visual": 54,
+      "S1_units": 8,
+      "S4_units": 22
+    },
+    {
+      "id": "c:dashboard",
+      "label_en": "dashboard",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 6,
+      "S4": 19,
+      "scenes": 1,
+      "visual": 23,
+      "S1_units": 7,
+      "S4_units": 20
+    },
+    {
+      "id": "c:window-function",
+      "label_en": "window function",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 4,
+      "S4": 15,
+      "scenes": 7,
+      "visual": 41,
+      "S1_units": 4,
+      "S4_units": 15
+    },
+    {
+      "id": "c:directed-acyclic-graph",
+      "label_en": "DAG",
+      "chapters": [
+        "CH-19",
+        "CH-22",
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 3,
+      "S4": 17,
+      "scenes": 5,
+      "visual": 22,
+      "S1_units": 3,
+      "S4_units": 16
+    },
+    {
+      "id": "c:etl",
+      "label_en": "ETL",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 10,
+      "scenes": 0,
+      "visual": 24,
+      "S1_units": 1,
+      "S4_units": 10
+    },
+    {
+      "id": "c:offset",
+      "label_en": "offset",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 4,
+      "S4": 2,
+      "scenes": 6,
+      "visual": 11,
+      "S1_units": 4,
+      "S4_units": 2
+    },
+    {
+      "id": "c:embedding",
+      "label_en": "embedding",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 3,
+      "S4": 3,
+      "scenes": 4,
+      "visual": 16,
+      "S1_units": 3,
+      "S4_units": 3
+    },
+    {
+      "id": "c:row",
+      "label_en": "row",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 8,
+      "S4": 19,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 10,
+      "S4_units": 23
+    },
+    {
+      "id": "c:file-permissions",
+      "label_en": "file permissions",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 3,
+      "S4": 37,
+      "scenes": 1,
+      "visual": 13,
+      "S1_units": 3,
+      "S4_units": 37
+    },
+    {
+      "id": "c:container",
+      "label_en": "container",
+      "chapters": [],
+      "S1": 3,
+      "S4": 14,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 4,
+      "S4_units": 14
+    },
+    {
+      "id": "c:skew",
+      "label_en": "skew",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 3,
+      "S4": 5,
+      "scenes": 1,
+      "visual": 6,
+      "S1_units": 3,
+      "S4_units": 5
+    },
+    {
+      "id": "c:fan-out",
+      "label_en": "fan-out",
+      "chapters": [
+        "CH-08",
+        "CH-11",
+        "CH-12",
+        "CH-15"
+      ],
+      "S1": 1,
+      "S4": 6,
+      "scenes": 2,
+      "visual": 6,
+      "S1_units": 2,
+      "S4_units": 6
+    },
+    {
+      "id": "c:lineage",
+      "label_en": "lineage",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 2,
+      "visual": 8,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:index",
+      "label_en": "index",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 10,
+      "S4": 26,
+      "scenes": 1,
+      "visual": 45,
+      "S1_units": 10,
+      "S4_units": 28
+    },
+    {
+      "id": "c:pipeline",
+      "label_en": "pipeline",
+      "chapters": [],
+      "S1": 8,
+      "S4": 39,
+      "scenes": 1,
+      "visual": 37,
+      "S1_units": 8,
+      "S4_units": 43
+    },
+    {
+      "id": "c:sql",
+      "label_en": "SQL",
+      "chapters": [],
+      "S1": 5,
+      "S4": 43,
+      "scenes": 0,
+      "visual": 57,
+      "S1_units": 5,
+      "S4_units": 46
+    },
+    {
+      "id": "c:python",
+      "label_en": "python",
+      "chapters": [],
+      "S1": 3,
+      "S4": 29,
+      "scenes": 0,
+      "visual": 25,
+      "S1_units": 3,
+      "S4_units": 30
+    },
+    {
+      "id": "c:spark",
+      "label_en": "spark",
+      "chapters": [],
+      "S1": 5,
+      "S4": 21,
+      "scenes": 0,
+      "visual": 20,
+      "S1_units": 5,
+      "S4_units": 21
+    },
+    {
+      "id": "c:api",
+      "label_en": "API",
+      "chapters": [],
+      "S1": 3,
+      "S4": 12,
+      "scenes": 6,
+      "visual": 18,
+      "S1_units": 4,
+      "S4_units": 12
+    },
+    {
+      "id": "c:iam",
+      "label_en": "IAM",
+      "chapters": [
+        "CH-20",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 2,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:reconciliation",
+      "label_en": "reconciliation",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-27"
+      ],
+      "S1": 4,
+      "S4": 8,
+      "scenes": 7,
+      "visual": 20,
+      "S1_units": 4,
+      "S4_units": 8
+    },
+    {
+      "id": "c:dml",
+      "label_en": "DML",
+      "chapters": [
+        "CH-11",
+        "CH-12",
+        "CH-14",
+        "CH-33"
+      ],
+      "S1": 6,
+      "S4": 31,
+      "scenes": 12,
+      "visual": 4,
+      "S1_units": 7,
+      "S4_units": 31
+    },
+    {
+      "id": "c:exception",
+      "label_en": "exceptions",
+      "chapters": [
+        "CH-08",
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 2,
+      "S4": 9,
+      "scenes": 8,
+      "visual": 15,
+      "S1_units": 2,
+      "S4_units": 9
+    },
+    {
+      "id": "c:kafka",
+      "label_en": "kafka",
+      "chapters": [],
+      "S1": 3,
+      "S4": 16,
+      "scenes": 0,
+      "visual": 21,
+      "S1_units": 3,
+      "S4_units": 16
+    },
+    {
+      "id": "c:data-warehouse",
+      "label_en": "data warehouses",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 6,
+      "S4": 11,
+      "scenes": 0,
+      "visual": 23,
+      "S1_units": 6,
+      "S4_units": 11
+    },
+    {
+      "id": "c:group-by",
+      "label_en": "group by",
+      "chapters": [
+        "CH-05",
+        "CH-08",
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 10,
+      "S4": 27,
+      "scenes": 5,
+      "visual": 39,
+      "S1_units": 10,
+      "S4_units": 27
+    },
+    {
+      "id": "c:ods",
+      "label_en": "ODS",
+      "chapters": [
+        "CH-23",
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:artificial-intelligence",
+      "label_en": "AI",
+      "chapters": [],
+      "S1": 1,
+      "S4": 42,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 2,
+      "S4_units": 40
+    },
+    {
+      "id": "c:shuffle",
+      "label_en": "shuffle",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 4,
+      "S4": 6,
+      "scenes": 7,
+      "visual": 11,
+      "S1_units": 4,
+      "S4_units": 6
+    },
+    {
+      "id": "c:acceptance-testing",
+      "label_en": "acceptance testing",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 5,
+      "S4": 13,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 5,
+      "S4_units": 14
+    },
+    {
+      "id": "c:task",
+      "label_en": "task",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 7,
+      "S4": 12,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 8,
+      "S4_units": 14
+    },
+    {
+      "id": "c:leakage",
+      "label_en": "leakage",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:commit",
+      "label_en": "commit",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 4,
+      "S4": 8,
+      "scenes": 3,
+      "visual": 1,
+      "S1_units": 4,
+      "S4_units": 9
+    },
+    {
+      "id": "c:constraint",
+      "label_en": "constraints",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 20,
+      "S4": 37,
+      "scenes": 3,
+      "visual": 11,
+      "S1_units": 21,
+      "S4_units": 39
+    },
+    {
+      "id": "c:retrieval-augmented-generation",
+      "label_en": "RAG",
+      "chapters": [],
+      "S1": 2,
+      "S4": 14,
+      "scenes": 0,
+      "visual": 19,
+      "S1_units": 2,
+      "S4_units": 14
+    },
+    {
+      "id": "c:query",
+      "label_en": "query",
+      "chapters": [],
+      "S1": 11,
+      "S4": 43,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 11,
+      "S4_units": 46
+    },
+    {
+      "id": "c:connection-pool",
+      "label_en": "connection pool",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 1,
+      "S4": 13,
+      "scenes": 1,
+      "visual": 8,
+      "S1_units": 1,
+      "S4_units": 13
+    },
+    {
+      "id": "c:groundedness",
+      "label_en": "groundedness",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 2,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:elt",
+      "label_en": "ELT",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:data-validation",
+      "label_en": "data validation",
+      "chapters": [
+        "CH-08",
+        "CH-15",
+        "CH-21",
+        "CH-22"
+      ],
+      "S1": 4,
+      "S4": 9,
+      "scenes": 1,
+      "visual": 15,
+      "S1_units": 4,
+      "S4_units": 9
+    },
+    {
+      "id": "c:airflow",
+      "label_en": "airflow",
+      "chapters": [],
+      "S1": 2,
+      "S4": 14,
+      "scenes": 0,
+      "visual": 9,
+      "S1_units": 2,
+      "S4_units": 14
+    },
+    {
+      "id": "c:boolean-logic",
+      "label_en": "boolean logic",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 17,
+      "S4": 165,
+      "scenes": 7,
+      "visual": 0,
+      "S1_units": 21,
+      "S4_units": 163
+    },
+    {
+      "id": "c:process",
+      "label_en": "process",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 6,
+      "S4": 7,
+      "scenes": 4,
+      "visual": 3,
+      "S1_units": 6,
+      "S4_units": 9
+    },
+    {
+      "id": "c:explain",
+      "label_en": "EXPLAIN",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 4,
+      "S4": 15,
+      "scenes": 3,
+      "visual": 11,
+      "S1_units": 4,
+      "S4_units": 15
+    },
+    {
+      "id": "c:backfill",
+      "label_en": "backfill",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:caching",
+      "label_en": "caching",
+      "chapters": [
+        "CH-20",
+        "CH-24",
+        "CH-25",
+        "CH-33"
+      ],
+      "S1": 2,
+      "S4": 8,
+      "scenes": 1,
+      "visual": 5,
+      "S1_units": 3,
+      "S4_units": 8
+    },
+    {
+      "id": "c:control-flow",
+      "label_en": "control flow",
+      "chapters": [
+        "CH-06",
+        "CH-08"
+      ],
+      "S1": 15,
+      "S4": 206,
+      "scenes": 3,
+      "visual": 6,
+      "S1_units": 27,
+      "S4_units": 207
+    },
+    {
+      "id": "c:sargable",
+      "label_en": "sargable",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:java",
+      "label_en": "java",
+      "chapters": [],
+      "S1": 0,
+      "S4": 15,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 0,
+      "S4_units": 15
+    },
+    {
+      "id": "c:transaction",
+      "label_en": "transactions",
+      "chapters": [
+        "CH-13"
+      ],
+      "S1": 7,
+      "S4": 29,
+      "scenes": 0,
+      "visual": 16,
+      "S1_units": 7,
+      "S4_units": 29
+    },
+    {
+      "id": "c:streaming",
+      "label_en": "streaming",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-21",
+        "CH-22"
+      ],
+      "S1": 4,
+      "S4": 19,
+      "scenes": 0,
+      "visual": 11,
+      "S1_units": 4,
+      "S4_units": 19
+    },
+    {
+      "id": "c:function",
+      "label_en": "function",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 7,
+      "S4": 23,
+      "scenes": 2,
+      "visual": 5,
+      "S1_units": 7,
+      "S4_units": 24
+    },
+    {
+      "id": "c:mean-median",
+      "label_en": "mean / median",
+      "chapters": [],
+      "S1": 9,
+      "S4": 20,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 9,
+      "S4_units": 21
+    },
+    {
+      "id": "c:schema",
+      "label_en": "schema",
+      "chapters": [],
+      "S1": 2,
+      "S4": 13,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 2,
+      "S4_units": 14
+    },
+    {
+      "id": "c:table",
+      "label_en": "table",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 2,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 11
+    },
+    {
+      "id": "c:duplicates",
+      "label_en": "duplicates",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 4,
+      "S4": 15,
+      "scenes": 0,
+      "visual": 13,
+      "S1_units": 4,
+      "S4_units": 15
+    },
+    {
+      "id": "c:topic",
+      "label_en": "topic",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 1,
+      "S4": 13,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 9
+    },
+    {
+      "id": "c:hdfs-block",
+      "label_en": "hdfs block",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 5,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 5,
+      "S4_units": 9
+    },
+    {
+      "id": "c:fact-table",
+      "label_en": "fact table",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 6,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 6,
+      "S4_units": 5
+    },
+    {
+      "id": "c:metric-type",
+      "label_en": "metric type",
+      "chapters": [
+        "CH-29"
+      ],
+      "S1": 5,
+      "S4": 18,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 5,
+      "S4_units": 18
+    },
+    {
+      "id": "c:rollback",
+      "label_en": "rollback",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 10,
+      "scenes": 3,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 10
+    },
+    {
+      "id": "c:logging",
+      "label_en": "logging",
+      "chapters": [
+        "CH-09",
+        "CH-34"
+      ],
+      "S1": 3,
+      "S4": 18,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 3,
+      "S4_units": 19
+    },
+    {
+      "id": "c:list",
+      "label_en": "list",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 3,
+      "S4": 17,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 4,
+      "S4_units": 17
+    },
+    {
+      "id": "c:retry",
+      "label_en": "retry",
+      "chapters": [],
+      "S1": 6,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 6,
+      "S4_units": 9
+    },
+    {
+      "id": "c:baseline",
+      "label_en": "baseline",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 4,
+      "S4": 5,
+      "scenes": 3,
+      "visual": 5,
+      "S1_units": 4,
+      "S4_units": 5
+    },
+    {
+      "id": "c:mobile-money",
+      "label_en": "mobile money",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 3,
+      "S4": 12,
+      "scenes": 3,
+      "visual": 29,
+      "S1_units": 3,
+      "S4_units": 12
+    },
+    {
+      "id": "c:data-cleaning",
+      "label_en": "data cleaning",
+      "chapters": [
+        "CH-00",
+        "CH-08",
+        "CH-15",
+        "CH-16"
+      ],
+      "S1": 2,
+      "S4": 14,
+      "scenes": 2,
+      "visual": 9,
+      "S1_units": 2,
+      "S4_units": 14
+    },
+    {
+      "id": "c:ram",
+      "label_en": "RAM",
+      "chapters": [
+        "CH-03",
+        "CH-04",
+        "CH-08",
+        "CH-15"
+      ],
+      "S1": 7,
+      "S4": 32,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 7,
+      "S4_units": 32
+    },
+    {
+      "id": "c:error",
+      "label_en": "error",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 7,
+      "S4": 25,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 8,
+      "S4_units": 25
+    },
+    {
+      "id": "c:systemd",
+      "label_en": "systemd",
+      "chapters": [
+        "CH-05",
+        "CH-14",
+        "CH-20",
+        "CH-34"
+      ],
+      "S1": 6,
+      "S4": 27,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 6,
+      "S4_units": 27
+    },
+    {
+      "id": "c:loop",
+      "label_en": "loop",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 6,
+      "S4": 20,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 7,
+      "S4_units": 24
+    },
+    {
+      "id": "c:rpo",
+      "label_en": "RPO",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:graph",
+      "label_en": "graph",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 9,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 12,
+      "S1_units": 9,
+      "S4_units": 10
+    },
+    {
+      "id": "c:scan",
+      "label_en": "scan",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 3,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 3,
+      "S4_units": 8
+    },
+    {
+      "id": "c:statistics",
+      "label_en": "statistics",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 3,
+      "S4": 6,
+      "scenes": 2,
+      "visual": 5,
+      "S1_units": 3,
+      "S4_units": 6
+    },
+    {
+      "id": "c:cardinality-estimate",
+      "label_en": "cardinality estimate",
+      "chapters": [
+        "CH-02",
+        "CH-14"
+      ],
+      "S1": 2,
+      "S4": 10,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 3,
+      "S4_units": 10
+    },
+    {
+      "id": "c:chunk",
+      "label_en": "chunk",
+      "chapters": [
+        "CH-08",
+        "CH-33"
+      ],
+      "S1": 3,
+      "S4": 5,
+      "scenes": 4,
+      "visual": 2,
+      "S1_units": 3,
+      "S4_units": 5
+    },
+    {
+      "id": "c:secrets-management",
+      "label_en": "secrets management",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 33,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 33
+    },
+    {
+      "id": "c:fetch-decode-execute",
+      "label_en": "fetch-decode-execute",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 2,
+      "S4": 17,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 17
+    },
+    {
+      "id": "c:json",
+      "label_en": "JSON",
+      "chapters": [
+        "CH-07",
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:ai-agent",
+      "label_en": "ai agents",
+      "chapters": [],
+      "S1": 3,
+      "S4": 29,
+      "scenes": 2,
+      "visual": 26,
+      "S1_units": 3,
+      "S4_units": 28
+    },
+    {
+      "id": "c:consumer",
+      "label_en": "consumer",
+      "chapters": [],
+      "S1": 5,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 5,
+      "S4_units": 8
+    },
+    {
+      "id": "c:big-data",
+      "label_en": "big data",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 0,
+      "S4": 17,
+      "scenes": 0,
+      "visual": 6,
+      "S1_units": 0,
+      "S4_units": 17
+    },
+    {
+      "id": "c:large-language-model",
+      "label_en": "LLM",
+      "chapters": [],
+      "S1": 0,
+      "S4": 10,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 0,
+      "S4_units": 10
+    },
+    {
+      "id": "c:foreign-key",
+      "label_en": "foreign key",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 3,
+      "S4": 3,
+      "scenes": 3,
+      "visual": 7,
+      "S1_units": 3,
+      "S4_units": 3
+    },
+    {
+      "id": "c:injection",
+      "label_en": "injection",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 8,
+      "scenes": 3,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 7
+    },
+    {
+      "id": "c:generator",
+      "label_en": "generator",
+      "chapters": [
+        "CH-08"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 5,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:loss",
+      "label_en": "loss",
+      "chapters": [
+        "CH-29",
+        "CH-30",
+        "CH-31"
+      ],
+      "S1": 4,
+      "S4": 5,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 4,
+      "S4_units": 5
+    },
+    {
+      "id": "c:merge",
+      "label_en": "merge",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:lag",
+      "label_en": "lag",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 5,
+      "visual": 4,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:shell",
+      "label_en": "shell",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 2,
+      "S4": 13,
+      "scenes": 1,
+      "visual": 7,
+      "S1_units": 2,
+      "S4_units": 13
+    },
+    {
+      "id": "c:ads",
+      "label_en": "ADS",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:branch",
+      "label_en": "branch",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 3,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 3,
+      "S4_units": 3
+    },
+    {
+      "id": "c:ci-cd",
+      "label_en": "CI/CD",
+      "chapters": [],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:signal",
+      "label_en": "signal",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 2,
+      "visual": 6,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:logical-execution-order",
+      "label_en": "logical execution order",
+      "chapters": [
+        "CH-11",
+        "CH-12",
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 10,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 9
+    },
+    {
+      "id": "c:absolute-path",
+      "label_en": "absolute path",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 2,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 7
+    },
+    {
+      "id": "c:path",
+      "label_en": "PATH",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 2,
+      "S4": 5,
+      "scenes": 2,
+      "visual": 3,
+      "S1_units": 2,
+      "S4_units": 6
+    },
+    {
+      "id": "c:limit",
+      "label_en": "limit",
+      "chapters": [
+        "CH-09",
+        "CH-11",
+        "CH-12",
+        "CH-18"
+      ],
+      "S1": 2,
+      "S4": 11,
+      "scenes": 5,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 11
+    },
+    {
+      "id": "c:stack-frame",
+      "label_en": "stack frame",
+      "chapters": [
+        "CH-06",
+        "CH-12"
+      ],
+      "S1": 5,
+      "S4": 9,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 5,
+      "S4_units": 9
+    },
+    {
+      "id": "c:common-table-expression",
+      "label_en": "CTE",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 0,
+      "S4": 6,
+      "scenes": 3,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 6
+    },
+    {
+      "id": "c:deadlock",
+      "label_en": "deadlock",
+      "chapters": [
+        "CH-13"
+      ],
+      "S1": 3,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 3,
+      "S4_units": 5
+    },
+    {
+      "id": "c:stack",
+      "label_en": "stack",
+      "chapters": [
+        "CH-08",
+        "CH-19"
+      ],
+      "S1": 4,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 16,
+      "S1_units": 4,
+      "S4_units": 11
+    },
+    {
+      "id": "c:database",
+      "label_en": "database",
+      "chapters": [],
+      "S1": 33,
+      "S4": 182,
+      "scenes": 1,
+      "visual": 5,
+      "S1_units": 38,
+      "S4_units": 180
+    },
+    {
+      "id": "c:git",
+      "label_en": "Git",
+      "chapters": [],
+      "S1": 3,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 9,
+      "S1_units": 3,
+      "S4_units": 4
+    },
+    {
+      "id": "c:tls",
+      "label_en": "TLS",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 3,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:dns",
+      "label_en": "DNS",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 3,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:tracing",
+      "label_en": "tracing",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 4,
+      "S4": 12,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 4,
+      "S4_units": 12
+    },
+    {
+      "id": "c:context-window",
+      "label_en": "context window",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:big-o-notation",
+      "label_en": "big o notation",
+      "chapters": [
+        "CH-07",
+        "CH-19"
+      ],
+      "S1": 4,
+      "S4": 11,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 4,
+      "S4_units": 11
+    },
+    {
+      "id": "c:hdfs",
+      "label_en": "HDFS",
+      "chapters": [],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 10,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:column",
+      "label_en": "column",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:encoding",
+      "label_en": "encoding",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 6,
+      "S1_units": 3,
+      "S4_units": 2
+    },
+    {
+      "id": "c:latency",
+      "label_en": "latency",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 3,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 11,
+      "S1_units": 3,
+      "S4_units": 9
+    },
+    {
+      "id": "c:spark-stage",
+      "label_en": "spark stage",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 2,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:machine-learning",
+      "label_en": "machine learning",
+      "chapters": [],
+      "S1": 3,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 3,
+      "S4_units": 5
+    },
+    {
+      "id": "c:activation",
+      "label_en": "activation",
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 5,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:virtual-environment",
+      "label_en": "virtual environment",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:data-mart",
+      "label_en": "data mart",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 6,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:slowly-changing-dimension",
+      "label_en": "SCD (slowly changing dimension)",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 7,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:pipe",
+      "label_en": "pipes",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 0,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 6
+    },
+    {
+      "id": "c:normalization",
+      "label_en": "normalization",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 6,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:rto",
+      "label_en": "RTO",
+      "chapters": [
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:bug",
+      "label_en": "bug",
+      "chapters": [],
+      "S1": 6,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 6,
+      "S4_units": 3
+    },
+    {
+      "id": "c:measure",
+      "label_en": "measure",
+      "chapters": [],
+      "S1": 5,
+      "S4": 6,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 5,
+      "S4_units": 6
+    },
+    {
+      "id": "c:queue",
+      "label_en": "queue",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 4,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 10,
+      "S1_units": 5,
+      "S4_units": 8
+    },
+    {
+      "id": "c:aliasing",
+      "label_en": "aliasing",
+      "chapters": [
+        "CH-08"
+      ],
+      "S1": 3,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 3,
+      "S4_units": 4
+    },
+    {
+      "id": "c:additivity",
+      "label_en": "additivity",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:byte",
+      "label_en": "bytes",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 5,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 5,
+      "S4_units": 8
+    },
+    {
+      "id": "c:transformer",
+      "label_en": "transformer",
+      "chapters": [],
+      "S1": 0,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 6,
+      "S1_units": 0,
+      "S4_units": 6
+    },
+    {
+      "id": "c:hallucination",
+      "label_en": "hallucination",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 2,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:filtering",
+      "label_en": "filtering",
+      "chapters": [
+        "CH-08",
+        "CH-11",
+        "CH-12",
+        "CH-15"
+      ],
+      "S1": 2,
+      "S4": 8,
+      "scenes": 3,
+      "visual": 5,
+      "S1_units": 2,
+      "S4_units": 8
+    },
+    {
+      "id": "c:http-request",
+      "label_en": "http request",
+      "chapters": [],
+      "S1": 4,
+      "S4": 26,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 4,
+      "S4_units": 26
+    },
+    {
+      "id": "c:linux",
+      "label_en": "linux",
+      "chapters": [],
+      "S1": 1,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 6
+    },
+    {
+      "id": "c:confidence-interval",
+      "label_en": "confidence interval",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 6,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:adr",
+      "label_en": "ADR",
+      "chapters": [
+        "CH-18",
+        "CH-35",
+        "CH-36"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:replication",
+      "label_en": "replication",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:namenode",
+      "label_en": "namenode",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:parameter",
+      "label_en": "parameters",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 5,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 5,
+      "S4_units": 8
+    },
+    {
+      "id": "c:producer",
+      "label_en": "producer",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:data-governance",
+      "label_en": "data governance",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 3,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 14,
+      "S1_units": 3,
+      "S4_units": 7
+    },
+    {
+      "id": "c:pii-masking",
+      "label_en": "PII masking",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:neuron",
+      "label_en": "neuron",
+      "chapters": [],
+      "S1": 2,
+      "S4": 7,
+      "scenes": 3,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 7
+    },
+    {
+      "id": "c:deployment",
+      "label_en": "deployment",
+      "chapters": [],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:selectivity",
+      "label_en": "selectivity",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:dimension-table",
+      "label_en": "dimension table",
+      "chapters": [],
+      "S1": 5,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 5,
+      "S4_units": 5
+    },
+    {
+      "id": "c:yarn",
+      "label_en": "YARN",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 5,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:feature",
+      "label_en": "feature",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:production",
+      "label_en": "production",
+      "chapters": [],
+      "S1": 3,
+      "S4": 16,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 3,
+      "S4_units": 16
+    },
+    {
+      "id": "c:http",
+      "label_en": "HTTP",
+      "chapters": [],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:covering-index",
+      "label_en": "covering index",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:null",
+      "label_en": "null",
+      "chapters": [],
+      "S1": 4,
+      "S4": 10,
+      "scenes": 2,
+      "visual": 9,
+      "S1_units": 4,
+      "S4_units": 10
+    },
+    {
+      "id": "c:dbt",
+      "label_en": "dbt",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:mutable-default-argument",
+      "label_en": "mutable default argument",
+      "chapters": [
+        "CH-08"
+      ],
+      "S1": 2,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:disk",
+      "label_en": "disk",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 2,
+      "S4": 11,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 11
+    },
+    {
+      "id": "c:session",
+      "label_en": "session",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 5,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 5,
+      "S4_units": 9
+    },
+    {
+      "id": "c:docker",
+      "label_en": "Docker",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:watermark",
+      "label_en": "watermark",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:reconciliation-break",
+      "label_en": "reconciliation break",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:precision-recall",
+      "label_en": "precision / recall",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:nosql",
+      "label_en": "nosql",
+      "chapters": [],
+      "S1": 5,
+      "S4": 13,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 5,
+      "S4_units": 13
+    },
+    {
+      "id": "c:n-plus-one-query",
+      "label_en": "N+1 query",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:coupling",
+      "label_en": "coupling",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:rate-limiting",
+      "label_en": "rate limiting",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:residual-stream",
+      "label_en": "residual stream",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:set",
+      "label_en": "set",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 4,
+      "S4": 7,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 4,
+      "S4_units": 7
+    },
+    {
+      "id": "c:slo",
+      "label_en": "SLO",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:guardrail",
+      "label_en": "guardrail",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:airflow-operator",
+      "label_en": "airflow operator",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:causal-mask",
+      "label_en": "causal mask",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:temperature",
+      "label_en": "temperature",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:metrics",
+      "label_en": "metrics",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 9,
+      "scenes": 1,
+      "visual": 4,
+      "S1_units": 2,
+      "S4_units": 10
+    },
+    {
+      "id": "c:topological-sort",
+      "label_en": "topological sort",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 2,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 1
+    },
+    {
+      "id": "c:journald",
+      "label_en": "journald",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:prepared-statement",
+      "label_en": "PreparedStatement",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:global-interpreter-lock",
+      "label_en": "GIL",
+      "chapters": [
+        "CH-08"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:datacube",
+      "label_en": "DataCube",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:select",
+      "label_en": "select",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 1,
+      "S4": 7,
+      "scenes": 5,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 8
+    },
+    {
+      "id": "c:scope",
+      "label_en": "scope (LEGB)",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:filter-context",
+      "label_en": "filter context",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:lazy-evaluation",
+      "label_en": "lazy evaluation",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:broadcast-join",
+      "label_en": "broadcast join",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:threshold",
+      "label_en": "threshold",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:isolation-level",
+      "label_en": "isolation levels",
+      "chapters": [
+        "CH-13"
+      ],
+      "S1": 3,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 3,
+      "S4_units": 6
+    },
+    {
+      "id": "c:hadoop",
+      "label_en": "Hadoop",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:context-manager",
+      "label_en": "context manager",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:upsert",
+      "label_en": "upsert",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:event-time",
+      "label_en": "event time",
+      "chapters": [
+        "CH-26",
+        "CH-27"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:standard-streams",
+      "label_en": "standard streams",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 3,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:consumer-group",
+      "label_en": "consumer group",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 2,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:data-type",
+      "label_en": "data type",
+      "chapters": [
+        "CH-06",
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 2,
+      "S4": 7,
+      "scenes": 2,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 8
+    },
+    {
+      "id": "c:three-valued-logic",
+      "label_en": "three-valued logic",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:slice-and-dice",
+      "label_en": "slice and dice",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:query-key-value",
+      "label_en": "Q / K / V",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:vector-database",
+      "label_en": "vector database",
+      "chapters": [],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:cron",
+      "label_en": "cron",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:airflow-sensor",
+      "label_en": "airflow sensor",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:narrow-wide-dependency",
+      "label_en": "narrow vs wide dependency",
+      "chapters": [
+        "CH-25"
+      ],
+      "S1": 2,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 7
+    },
+    {
+      "id": "c:rest",
+      "label_en": "REST",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 3,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 3,
+      "S4_units": 8
+    },
+    {
+      "id": "c:relative-path",
+      "label_en": "relative path",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:power-query",
+      "label_en": "Power Query",
+      "chapters": [
+        "CH-15",
+        "CH-17"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:react-agent-loop",
+      "label_en": "ReAct",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:runbook",
+      "label_en": "runbook",
+      "chapters": [],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 1,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:solid",
+      "label_en": "SOLID",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 1,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 9
+    },
+    {
+      "id": "c:decorator",
+      "label_en": "decorator",
+      "chapters": [
+        "CH-08"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:multi-tenancy",
+      "label_en": "multi-tenancy",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:backpropagation",
+      "label_en": "backpropagation",
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:reranker",
+      "label_en": "reranker",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:vectorization",
+      "label_en": "vectorization",
+      "chapters": [
+        "CH-08",
+        "CH-15"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:tcp-handshake",
+      "label_en": "TCP handshake",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:jvm",
+      "label_en": "JVM",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:roll-up",
+      "label_en": "roll up",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:lvm",
+      "label_en": "LVM",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:mvcc",
+      "label_en": "MVCC",
+      "chapters": [
+        "CH-13"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:leftmost-prefix",
+      "label_en": "leftmost prefix",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:partition-pruning",
+      "label_en": "partition pruning",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:rebalance",
+      "label_en": "rebalance",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:dead-letter-queue",
+      "label_en": "DLQ",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:schema-registry",
+      "label_en": "schema registry",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:batch",
+      "label_en": "batch",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 8
+    },
+    {
+      "id": "c:timeout",
+      "label_en": "timeout",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:hashing",
+      "label_en": "hashing",
+      "chapters": [],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:rack-awareness",
+      "label_en": "rack awareness",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:tool-calling",
+      "label_en": "tool calling",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:container-image",
+      "label_en": "container image",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:b-tree",
+      "label_en": "B-tree",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 37,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:mysql",
+      "label_en": "mysql",
+      "chapters": [
+        "CH-10",
+        "CH-23",
+        "CH-24"
+      ],
+      "S1": 0,
+      "S4": 8,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 7
+    },
+    {
+      "id": "c:star-schema",
+      "label_en": "star schema",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 10,
+      "S1_units": 0,
+      "S4_units": 6
+    },
+    {
+      "id": "c:query-optimization",
+      "label_en": "query optimization",
+      "chapters": [],
+      "S1": 2,
+      "S4": 10,
+      "scenes": 0,
+      "visual": 14,
+      "S1_units": 2,
+      "S4_units": 10
+    },
+    {
+      "id": "c:pagination",
+      "label_en": "pagination",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:rbac",
+      "label_en": "RBAC",
+      "chapters": [
+        "CH-20",
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:try-with-resources",
+      "label_en": "try with resources",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:quality-gate",
+      "label_en": "quality gate",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 3,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 3,
+      "S1_units": 3,
+      "S4_units": 2
+    },
+    {
+      "id": "c:drill-down",
+      "label_en": "drill down",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:retrieval-metrics",
+      "label_en": "retrieval metrics",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:prompt-injection",
+      "label_en": "prompt injection",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:docker-layer-cache",
+      "label_en": "Docker layer cache",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:locking",
+      "label_en": "locking",
+      "chapters": [
+        "CH-13"
+      ],
+      "S1": 1,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 3,
+      "S4_units": 8
+    },
+    {
+      "id": "c:composition",
+      "label_en": "composition",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:train-validation-test",
+      "label_en": "train / validation / test split",
+      "chapters": [
+        "CH-29"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 7,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:distinct",
+      "label_en": "distinct",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 3,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:hybrid-retrieval",
+      "label_en": "hybrid retrieval",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:refactoring",
+      "label_en": "refactoring",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 3,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 4,
+      "S1_units": 3,
+      "S4_units": 4
+    },
+    {
+      "id": "c:authentication",
+      "label_en": "authentication",
+      "chapters": [],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:aml-cft",
+      "label_en": "AML/CFT",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:where-clause",
+      "label_en": "WHERE",
+      "chapters": [
+        "CH-00",
+        "CH-09",
+        "CH-11"
+      ],
+      "S1": 2,
+      "S4": 9,
+      "scenes": 4,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 9
+    },
+    {
+      "id": "c:heap",
+      "label_en": "heap",
+      "chapters": [
+        "CH-08",
+        "CH-19"
+      ],
+      "S1": 1,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 7
+    },
+    {
+      "id": "c:debugging",
+      "label_en": "debugging",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 10,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:mapreduce",
+      "label_en": "mapreduce",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 13,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:three-way-merge",
+      "label_en": "three-way merge",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:referential-integrity",
+      "label_en": "referential integrity",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:p-value",
+      "label_en": "p-value",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:regularization",
+      "label_en": "regularization",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:cpu",
+      "label_en": "CPU",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 0,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 8
+    },
+    {
+      "id": "c:sorting",
+      "label_en": "sorting",
+      "chapters": [
+        "CH-11",
+        "CH-12",
+        "CH-19"
+      ],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 2,
+      "S4_units": 5
+    },
+    {
+      "id": "c:crash-loop",
+      "label_en": "crash loop",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 4,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:primary-key",
+      "label_en": "primary key",
+      "chapters": [
+        "CH-10"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 7,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:anti-join",
+      "label_en": "anti join",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:learning-rate",
+      "label_en": "learning rate",
+      "chapters": [],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 2,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:directory",
+      "label_en": "directories",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 5,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 5,
+      "S4_units": 3
+    },
+    {
+      "id": "c:variable",
+      "label_en": "variable",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 2,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 6
+    },
+    {
+      "id": "c:bit",
+      "label_en": "bits",
+      "chapters": [],
+      "S1": 0,
+      "S4": 14,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 14
+    },
+    {
+      "id": "c:integration-test",
+      "label_en": "integration test",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 6,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 6
+    },
+    {
+      "id": "c:attention",
+      "label_en": "attention",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 3,
+      "S4_units": 3
+    },
+    {
+      "id": "c:code-review",
+      "label_en": "code review",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 3,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 4,
+      "S4_units": 3
+    },
+    {
+      "id": "c:aggregate",
+      "label_en": "aggregate",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 46,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:http-status-code",
+      "label_en": "http status code",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:bias-variance",
+      "label_en": "bias-variance trade-off",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 5,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:datanode",
+      "label_en": "DataNode",
+      "chapters": [],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:mae",
+      "label_en": "MAE",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:acid",
+      "label_en": "ACID",
+      "chapters": [
+        "CH-13"
+      ],
+      "S1": 1,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:seek",
+      "label_en": "seek",
+      "chapters": [],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:idor",
+      "label_en": "IDOR",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:observability",
+      "label_en": "observability",
+      "chapters": [],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 9,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:dict",
+      "label_en": "dict",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:accumulator",
+      "label_en": "accumulator",
+      "chapters": [],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:lost-update",
+      "label_en": "lost update",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:authorization",
+      "label_en": "authorization",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:overfitting",
+      "label_en": "overfitting",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 6,
+      "S1_units": 2,
+      "S4_units": 1
+    },
+    {
+      "id": "c:incident-response",
+      "label_en": "incident response",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 3,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 3,
+      "S4_units": 4
+    },
+    {
+      "id": "c:pandas",
+      "label_en": "pandas",
+      "chapters": [],
+      "S1": 0,
+      "S4": 10,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 0,
+      "S4_units": 10
+    },
+    {
+      "id": "c:access-control",
+      "label_en": "access control",
+      "chapters": [
+        "CH-20",
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 11,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:port",
+      "label_en": "port",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 7
+    },
+    {
+      "id": "c:failure-drill",
+      "label_en": "failure drills",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 7
+    },
+    {
+      "id": "c:saga",
+      "label_en": "saga",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:page-reads",
+      "label_en": "page reads",
+      "chapters": [
+        "CH-02"
+      ],
+      "S1": 5,
+      "S4": 7,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 5,
+      "S4_units": 8
+    },
+    {
+      "id": "c:data-quality",
+      "label_en": "data quality",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-27"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 21,
+      "S1_units": 2,
+      "S4_units": 1
+    },
+    {
+      "id": "c:sla",
+      "label_en": "SLA",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-27"
+      ],
+      "S1": 0,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 6
+    },
+    {
+      "id": "c:weight",
+      "label_en": "weights",
+      "chapters": [],
+      "S1": 6,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 6,
+      "S4_units": 6
+    },
+    {
+      "id": "c:dataframe",
+      "label_en": "dataframe",
+      "chapters": [
+        "CH-08",
+        "CH-15"
+      ],
+      "S1": 0,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 5
+    },
+    {
+      "id": "c:assert",
+      "label_en": "assert",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:sampling",
+      "label_en": "sampling",
+      "chapters": [],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:accessibility",
+      "label_en": "accessibility",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:suppression",
+      "label_en": "suppression",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:health-check",
+      "label_en": "health check",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:storage",
+      "label_en": "storage",
+      "chapters": [
+        "CH-03",
+        "CH-04",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:neural-network",
+      "label_en": "neural network",
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:load-factor",
+      "label_en": "load factor",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:correlation-id",
+      "label_en": "correlation id",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:subquery",
+      "label_en": "subqueries",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 28,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:packet",
+      "label_en": "packets",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 5
+    },
+    {
+      "id": "c:traceback",
+      "label_en": "traceback",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:cohesion",
+      "label_en": "cohesion",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:cosine-similarity",
+      "label_en": "cosine similarity",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:package-manager",
+      "label_en": "package managers",
+      "chapters": [
+        "CH-04",
+        "CH-07",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:ssh",
+      "label_en": "ssh",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:savepoint",
+      "label_en": "savepoint",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 3,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:msisdn",
+      "label_en": "MSISDN",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 3,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:low-level-design",
+      "label_en": "low level design",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 3,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:apis",
+      "label_en": "apis",
+      "chapters": [],
+      "S1": 2,
+      "S4": 9,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 7
+    },
+    {
+      "id": "c:xcom",
+      "label_en": "XCom",
+      "chapters": [],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 4,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:salting",
+      "label_en": "salting",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:gradient",
+      "label_en": "gradient",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:allowlist",
+      "label_en": "allowlist",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:bfs-frontier",
+      "label_en": "bfs frontier",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 2,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 1
+    },
+    {
+      "id": "c:case-expression",
+      "label_en": "CASE",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 3,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 3,
+      "S4_units": 2
+    },
+    {
+      "id": "c:distribution",
+      "label_en": "distribution",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 4,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 4,
+      "S4_units": 2
+    },
+    {
+      "id": "c:cloud",
+      "label_en": "cloud",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:quarantine",
+      "label_en": "quarantine",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:ensemble",
+      "label_en": "ensemble",
+      "chapters": [],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:metadata",
+      "label_en": "metadata",
+      "chapters": [
+        "CH-23",
+        "CH-24"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:cardinality",
+      "label_en": "cardinality",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:hash-table",
+      "label_en": "hash table",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 5,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:dense-retrieval",
+      "label_en": "dense retrieval",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:fstab",
+      "label_en": "fstab",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:dependency-inversion",
+      "label_en": "dependency inversion",
+      "chapters": [],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:surrogate-key",
+      "label_en": "surrogate key",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:enrichment",
+      "label_en": "enrichment",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:transposition",
+      "label_en": "transposition",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:having",
+      "label_en": "HAVING",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:cross-validation",
+      "label_en": "cross validation",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:at-transactional",
+      "label_en": "@Transactional",
+      "chapters": [],
+      "S1": 0,
+      "S4": 0,
+      "scenes": 3,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:label",
+      "label_en": "label",
+      "chapters": [],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:string",
+      "label_en": "String",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 3,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:csv",
+      "label_en": "CSV",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:time-intelligence",
+      "label_en": "time intelligence",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:shortest-path",
+      "label_en": "shortest paths",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 4
+    },
+    {
+      "id": "c:value-object",
+      "label_en": "value object",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:late-arriving-data",
+      "label_en": "late-arriving data",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:hnsw",
+      "label_en": "HNSW",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:saturation",
+      "label_en": "saturation",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:firewall",
+      "label_en": "firewall",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:tuple",
+      "label_en": "tuple",
+      "chapters": [
+        "CH-07"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:mutability",
+      "label_en": "mutability",
+      "chapters": [
+        "CH-08"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:ab-testing",
+      "label_en": "A/B testing",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:delivery-semantics",
+      "label_en": "delivery semantics",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:continuous-delivery",
+      "label_en": "continuous delivery",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 4,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:correlated-subquery",
+      "label_en": "correlated subquery",
+      "chapters": [],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:mpp",
+      "label_en": "MPP",
+      "chapters": [],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:carbondata",
+      "label_en": "carbondata",
+      "chapters": [
+        "CH-10",
+        "CH-23",
+        "CH-24"
+      ],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:data-contract",
+      "label_en": "data contract",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:symlink",
+      "label_en": "symlink",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:k-anonymity",
+      "label_en": "k-anonymity",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:binary",
+      "label_en": "binary",
+      "chapters": [
+        "CH-03",
+        "CH-04"
+      ],
+      "S1": 2,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 2,
+      "S4_units": 1
+    },
+    {
+      "id": "c:mount",
+      "label_en": "mount",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:filesystem",
+      "label_en": "filesystem",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:clean-code",
+      "label_en": "clean code",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:spring",
+      "label_en": "spring",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:data-retention",
+      "label_en": "data retention",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:processing-time",
+      "label_en": "processing time",
+      "chapters": [
+        "CH-26",
+        "CH-27"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:jdbc",
+      "label_en": "JDBC",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:pull-request",
+      "label_en": "pull requests",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:docker-compose",
+      "label_en": "docker compose",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:funnel",
+      "label_en": "funnel",
+      "chapters": [],
+      "S1": 1,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 8
+    },
+    {
+      "id": "c:deque",
+      "label_en": "deque",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:bfs",
+      "label_en": "BFS",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:confusion-matrix",
+      "label_en": "confusion matrix",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:kpi",
+      "label_en": "KPI",
+      "chapters": [],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 8,
+      "S1_units": 2,
+      "S4_units": 4
+    },
+    {
+      "id": "c:postgresql",
+      "label_en": "postgresql",
+      "chapters": [],
+      "S1": 0,
+      "S4": 8,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 0,
+      "S4_units": 8
+    },
+    {
+      "id": "c:exit-code",
+      "label_en": "exit code",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:distribution-key",
+      "label_en": "distribution key",
+      "chapters": [],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:conflict",
+      "label_en": "conflicts",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:call-graph",
+      "label_en": "call graph",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:ip-address",
+      "label_en": "IP address",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:class",
+      "label_en": "class",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:on-call",
+      "label_en": "on call",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 2,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 2
+    },
+    {
+      "id": "c:statistical-power",
+      "label_en": "statistical power",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:correlation-causation",
+      "label_en": "correlation vs causation",
+      "chapters": [
+        "CH-15",
+        "CH-16",
+        "CH-17",
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:forward-pass",
+      "label_en": "forward pass",
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:continuous-integration",
+      "label_en": "continuous integration",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:array",
+      "label_en": "array",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:decision-tree",
+      "label_en": "decision trees",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:dfs",
+      "label_en": "DFS",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:openapi",
+      "label_en": "OpenAPI",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:query-optimizer",
+      "label_en": "query optimizer",
+      "chapters": [
+        "CH-30",
+        "CH-31"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:top-p",
+      "label_en": "top-p",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:bm25",
+      "label_en": "bm25",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:interface",
+      "label_en": "interfaces",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:pivot",
+      "label_en": "pivot",
+      "chapters": [
+        "CH-23"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:repository",
+      "label_en": "repository",
+      "chapters": [],
+      "S1": 1,
+      "S4": 6,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 6
+    },
+    {
+      "id": "c:root-cause",
+      "label_en": "root cause",
+      "chapters": [],
+      "S1": 2,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 2,
+      "S4_units": 5
+    },
+    {
+      "id": "c:redirection",
+      "label_en": "redirection",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:sudo",
+      "label_en": "sudo",
+      "chapters": [
+        "CH-05",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:erd",
+      "label_en": "ERD",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:columnar-storage",
+      "label_en": "columnar storage",
+      "chapters": [
+        "CH-10",
+        "CH-23",
+        "CH-24"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:http-header",
+      "label_en": "http header",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:small-files-problem",
+      "label_en": "small-files problem",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:broker",
+      "label_en": "brokers",
+      "chapters": [
+        "CH-26"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 2
+    },
+    {
+      "id": "c:knn",
+      "label_en": "kNN",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 0,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:vocabulary",
+      "label_en": "vocabulary",
+      "chapters": [
+        "CH-32"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:citation",
+      "label_en": "citations",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:container-registry",
+      "label_en": "container registry",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 1,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 1
+    },
+    {
+      "id": "c:test-double",
+      "label_en": "test doubles",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:polymorphism",
+      "label_en": "polymorphism",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:dependency-injection",
+      "label_en": "dependency injection",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:alerting",
+      "label_en": "alerting",
+      "chapters": [
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:prompt",
+      "label_en": "prompt",
+      "chapters": [],
+      "S1": 0,
+      "S4": 6,
+      "scenes": 0,
+      "visual": 4,
+      "S1_units": 0,
+      "S4_units": 6
+    },
+    {
+      "id": "c:comprehension",
+      "label_en": "comprehensions",
+      "chapters": [
+        "CH-06"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:pytest",
+      "label_en": "pytest",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:denormalization",
+      "label_en": "denormalization",
+      "chapters": [
+        "CH-10",
+        "CH-23"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:partial-index",
+      "label_en": "partial index",
+      "chapters": [
+        "CH-14"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:encapsulation",
+      "label_en": "encapsulation",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:inheritance",
+      "label_en": "inheritance",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:technical-debt",
+      "label_en": "technical debt",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:avl-tree",
+      "label_en": "AVL tree",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:recursion",
+      "label_en": "recursion",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:http-method",
+      "label_en": "HTTP methods",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:sftp",
+      "label_en": "SFTP",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:nrt",
+      "label_en": "NRT",
+      "chapters": [],
+      "S1": 2,
+      "S4": 5,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 5
+    },
+    {
+      "id": "c:disaster-recovery",
+      "label_en": "disaster recovery",
+      "chapters": [],
+      "S1": 2,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 6,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:retrieval",
+      "label_en": "retrieval",
+      "chapters": [],
+      "S1": 2,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 3,
+      "S1_units": 3,
+      "S4_units": 6
+    },
+    {
+      "id": "c:environment-variable",
+      "label_en": "environment variables",
+      "chapters": [
+        "CH-04",
+        "CH-07"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:reflog",
+      "label_en": "reflog",
+      "chapters": [
+        "CH-09",
+        "CH-18",
+        "CH-34"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:sql-sublanguages",
+      "label_en": "sql sublanguages",
+      "chapters": [
+        "CH-11",
+        "CH-12"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:acceptance-criteria",
+      "label_en": "acceptance criteria",
+      "chapters": [
+        "CH-18"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:backtracking",
+      "label_en": "backtracking",
+      "chapters": [
+        "CH-19"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:cors",
+      "label_en": "CORS",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:password-hashing",
+      "label_en": "password hashing",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 0
+    },
+    {
+      "id": "c:least-privilege",
+      "label_en": "least privilege",
+      "chapters": [
+        "CH-20"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:jpa",
+      "label_en": "JPA",
+      "chapters": [
+        "CH-14",
+        "CH-20",
+        "CH-35"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:backoff",
+      "label_en": "backoff",
+      "chapters": [
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-28"
+      ],
+      "S1": 1,
+      "S4": 0,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 1,
+      "S4_units": 0
+    },
+    {
+      "id": "c:spark-driver",
+      "label_en": "spark driver",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:rdd",
+      "label_en": "RDD",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:catalyst-optimizer",
+      "label_en": "Catalyst",
+      "chapters": [
+        "CH-24",
+        "CH-25"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:freshness",
+      "label_en": "freshness",
+      "chapters": [
+        "CH-27",
+        "CH-28"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:supervised",
+      "label_en": "supervised",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:unsupervised",
+      "label_en": "unsupervised",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:random-forest",
+      "label_en": "random forests",
+      "chapters": [
+        "CH-29",
+        "CH-30"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:pii",
+      "label_en": "PII",
+      "chapters": [
+        "CH-33"
+      ],
+      "S1": 0,
+      "S4": 1,
+      "scenes": 0,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 1
+    },
+    {
+      "id": "c:tree",
+      "label_en": "tree",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 14,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:olap",
+      "label_en": "olap",
+      "chapters": [],
+      "S1": 1,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 6,
+      "S1_units": 1,
+      "S4_units": 3
+    },
+    {
+      "id": "c:design-pattern",
+      "label_en": "design patterns",
+      "chapters": [],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 0,
+      "visual": 7,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:floating-point",
+      "label_en": "binary floating point",
+      "chapters": [
+        "CH-01"
+      ],
+      "S1": 2,
+      "S4": 2,
+      "scenes": 2,
+      "visual": 0,
+      "S1_units": 2,
+      "S4_units": 3
+    },
+    {
+      "id": "c:object-oriented-programming",
+      "label_en": "object oriented programming",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:gaussdb",
+      "label_en": "gaussdb",
+      "chapters": [],
+      "S1": 0,
+      "S4": 4,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 0,
+      "S4_units": 4
+    },
+    {
+      "id": "c:order-by",
+      "label_en": "order by",
+      "chapters": [],
+      "S1": 2,
+      "S4": 1,
+      "scenes": 1,
+      "visual": 1,
+      "S1_units": 2,
+      "S4_units": 1
+    },
+    {
+      "id": "c:parquet",
+      "label_en": "parquet",
+      "chapters": [],
+      "S1": 0,
+      "S4": 3,
+      "scenes": 1,
+      "visual": 0,
+      "S1_units": 0,
+      "S4_units": 3
+    },
+    {
+      "id": "c:kernel",
+      "label_en": "kernel",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 2,
+      "S1_units": 1,
+      "S4_units": 2
+    },
+    {
+      "id": "c:scheduler",
+      "label_en": "scheduler",
+      "chapters": [],
+      "S1": 1,
+      "S4": 2,
+      "scenes": 0,
+      "visual": 1,
+      "S1_units": 1,
+      "S4_units": 2
+    }
+  ]
+}

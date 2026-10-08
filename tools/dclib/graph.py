@@ -25,7 +25,7 @@ GDIR = C.p("data", "derived", "graph")
 VDIR = C.p("data", "derived", "vectors")
 CORP = C.p("corpus", "graph")
 REP = C.p("reports", "graph")
-KINDS = ("sent", "scene", "asset", "concept")
+KINDS = ("sent", "scene", "asset", "concept", "fact")
 ALT_TAKES = {"a:S4:P00b": "a:S4:P00"}       # alternate take of part 0: same brief and voice, different script (word overlap 2.5 %)
 LABEL_SIZE, ADJ_SIZE, DEF_SIZE = 50, 60, 90
 ADJ_LO, ADJ_HI = 0.72, 0.86
@@ -52,8 +52,38 @@ def sentences():
     return out
 
 
+NUM_RX = re.compile(r"-?\d[\d,]*(?:\.\d+)?")
+
+
+def _nnorm(x):
+    """'10,000' -> '10000', '99%' -> '99', '€95' -> '95', '3948.50' -> '3948.5', '18,50' -> '18.5'; ISO dates kept."""
+    x = str(x).strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", x):
+        return x
+    m = NUM_RX.search(x)
+    if not m:
+        return x
+    t = m.group(0)
+    if re.fullmatch(r"-?\d{1,3}(,\d{3})+(\.\d+)?", t):
+        t = t.replace(",", "")
+    elif "," in t:
+        t = t.replace(",", ".")
+    try:
+        f = float(t)
+    except ValueError:
+        return t
+    return str(int(f)) if f.is_integer() and abs(f) < 1e15 else str(round(f, 6))
+
+
 def _nums(s):
-    return sorted(set(s.get("numbers") or []))
+    return sorted({_nnorm(x) for x in (s.get("numbers") or [])})
+
+
+def _num_rel(na, nb):
+    """None when the two number sets agree or one side states none; 'disjoint' | 'partial' otherwise."""
+    if not na or not nb or set(na) == set(nb):
+        return None
+    return "disjoint" if not set(na) & set(nb) else "partial"
 
 
 # ------------------------------------------------------------------ build (concepts + definition batches)
@@ -171,6 +201,9 @@ def _items(kind):
         cc = C.read_jsonl(os.path.join(CORP, "concepts.jsonl"))
         return [c["id"] for c in cc], [f"{c['label_en']} / {c['label_ar']}; " + ", ".join(c["aliases"][:6]) +
                                         (f". {c['def_en']}" if c.get("def_en") else "") for c in cc], 96
+    if kind == "fact":
+        ff = (C.read_json(C.p("corpus", "canon", "data_contract.json")) or {}).get("facts", [])
+        return [f["id"] for f in ff], [f"{f.get('value') or ''}: {(f.get('context') or '')[:400]}" for f in ff], 128
     raise SystemExit(f"unknown kind {kind}")
 
 
@@ -204,7 +237,8 @@ def cmd_embed(args):
     from . import queue as Q
     jobs = []
     for kind, k, n, sig in plan:
-        cmd = [sys.executable, "-I", C.p("tools", "dc.py"), "graph", "embed", "--worker", f"{kind}:{k}/{n}:{sig}"]
+        py = C.p(".venv", "bin", "python") if os.path.exists(C.p(".venv", "bin", "python")) else sys.executable   # torch lives in the venv
+        cmd = [py, "-I", C.p("tools", "dc.py"), "graph", "embed", "--worker", f"{kind}:{k}/{n}:{sig}"]
         if args.inline:
             _embed_worker(f"{kind}:{k}/{n}:{sig}")
             continue
@@ -430,31 +464,19 @@ def _write_pair_batches(prefix, pairs, size, S, instructions):
 
 
 # ------------------------------------------------------------------ apply (threshold, merges, idea units)
+def _truthy(x):
+    """batch outputs carry same as a JSON bool or as the string 'true'/'false' (bool('false') would be True)."""
+    return x is True or str(x).strip().lower() == "true"
+
+
 def _load_outs(prefix):
     out = {}
     for f in sorted(glob.glob(os.path.join(GDIR, f"{prefix}_batch_*.out.json"))):
         for p in (C.read_json(f) or {}).get("pairs", []):
             rel = p.get("relation") if p.get("relation") in RELATIONS else ("same" if p.get("same") else "different")
-            same = bool(p.get("same")) and rel == "same"
+            same = _truthy(p.get("same")) and rel == "same"
             out[(p["a"], p["b"])] = {"same": same, "relation": rel, "why": p.get("why", ""), "file": os.path.basename(f)}
     return out
-
-
-def _sweep(labelled, cos):
-    best = None
-    rows = []
-    for t100 in range(60, 96):
-        t = t100 / 100
-        tp = sum(1 for k, v in labelled.items() if v["same"] and cos[k] >= t)
-        fp = sum(1 for k, v in labelled.items() if not v["same"] and cos[k] >= t)
-        fn = sum(1 for k, v in labelled.items() if v["same"] and cos[k] < t)
-        p = tp / (tp + fp) if tp + fp else 1.0
-        r = tp / (tp + fn) if tp + fn else 0.0
-        f1 = 2 * p * r / (p + r) if p + r else 0.0
-        rows.append({"t": t, "tp": tp, "fp": fp, "fn": fn, "precision": round(p, 3), "recall": round(r, 3), "f1": round(f1, 3)})
-        if best is None or f1 > best["f1"] + 1e-9:
-            best = rows[-1]
-    return best, rows
 
 
 class UF:
@@ -475,268 +497,29 @@ class UF:
 
 
 def cmd_apply(args):
-    S = {s["sent_id"]: s for s in sentences()}
-    cands = C.read_jsonl(os.path.join(GDIR, "candidates.jsonl"))
-    cos = {(c["a"], c["b"]): c["cos"] for c in cands}
-    labels = _load_outs("label")
-    adjs = _load_outs("adj")
-    lab = {k: v for k, v in labels.items() if k in cos}
-    rep = {"v": 1, "created": C.now_iso(), "labelled": len(lab), "adjudicated": len(adjs)}
-    if len(lab) >= 50:
-        best, rows = _sweep(lab, cos)
-        tau = args.threshold or best["t"]
-        rep.update({"threshold": tau, "best": best, "sweep": rows, "f1_at_0.80": next(r["f1"] for r in rows if r["t"] == 0.80)})
-        # adjudicator vs labels on overlap
-        ov = [k for k in lab if k in adjs]
-        if ov:
-            rep["adj_vs_label_agreement"] = round(sum(1 for k in ov if lab[k]["same"] == adjs[k]["same"]) / len(ov), 3)
-    else:
-        tau = args.threshold or 0.80
-        rep.update({"threshold": tau, "best": None, "note": "fewer than 50 labelled pairs: plan default 0.80, provisional"})
-    uf = UF()
-    edges = []
-    nmerge = collections.Counter()
-    for c in cands:
-        a, b, cs = c["a"], c["b"], c["cos"]
-        if a not in S or b not in S:
-            continue
-        key = (a, b)
-        na, nb = _nums(S[a]), _nums(S[b])
-        num_conflict = bool(na and nb and set(na) != set(nb))
-        dec = labels.get(key) or adjs.get(key)
-        src = "label" if key in labels else ("adjudicated" if key in adjs else "threshold")
-        if dec:
-            same, rel = dec["same"], dec["relation"]
-        else:
-            same, rel = cs >= tau, ("same" if cs >= tau else None)
-            if c["kind"] in ("S4-S1", "alternate_take") and ADJ_LO <= cs <= ADJ_HI and c.get("rank", 1) == 1 and adjs:
-                same, rel = False, None           # borderline best-S1 pair without an adjudication: do not merge
-        if same and num_conflict:
-            same, rel = False, "contradicts?"
-        if same:
-            uf.u(a, b)
-            nmerge[src] += 1
-        if c["kind"] == "alternate_take" and rel is None:
-            rel = "alternate_take"
-        if rel and rel != "different":
-            edges.append({"v": 1, "src": a, "dst": b, "type": "duplicates", "w": cs, "relation": rel, "pair_kind": c["kind"],
-                          "evidence": f"cos={cs:.3f}; {src}" + (f"={dec['relation']} ({dec['file']}): {dec['why']}" if dec else f" tau={tau}")
-                          + (f"; numbers {na} vs {nb}" if num_conflict else "")})
-    groups = collections.defaultdict(list)
-    for sid in S:
-        groups[uf.f(sid)].append(sid)
-    ius = []
-    sent_iu = {}
-    for n, (root, mem) in enumerate(sorted(groups.items(), key=lambda kv: min(kv[1]))):
-        iid = f"iu:{n:05d}"
-        srcs = collections.defaultdict(list)
-        for m in sorted(mem):
-            srcs[_sid_audio(m)].append(m)
-            sent_iu[m] = iid
-        rep_by = {a: max(ms, key=lambda m: len(S[m].get("gloss_en") or "")) for a, ms in srcs.items()}
-        has_s1 = any(a.startswith("a:S1") for a in srcs)
-        ius.append({"v": 1, "id": iid, "type": "IdeaUnit", "members": sorted(mem), "rep": rep_by,
-                    "gloss_en": S[rep_by.get("a:S1:ar-natural") or sorted(rep_by.values())[0]].get("gloss_en"),
-                    "sources": sorted(srcs), "in_trunk": has_s1, "novel_vs_trunk": not has_s1,
-                    "kinds": sorted({S[m]["kind"] for m in mem})})
-    C.write_jsonl(os.path.join(GDIR, "idea_units.jsonl"), ius)
-    C.write_jsonl(os.path.join(GDIR, "dup_edges.jsonl"), edges)
-    rep.update({"merges": dict(nmerge), "idea_units": len(ius), "multi_member": sum(1 for i in ius if len(i["members"]) > 1),
-                "novel_s4_only": sum(1 for i in ius if i["novel_vs_trunk"]), "dup_edges": len(edges)})
-    os.makedirs(REP, exist_ok=True)
-    C.write_json(os.path.join(REP, "threshold.json"), rep)
-    print(json.dumps({k: rep[k] for k in rep if k not in ("sweep",)}, ensure_ascii=False)[:1500])
-    assemble()
-    return 0
+    from . import graph_p4
+    return graph_p4.cmd_apply(args)
 
 
-# ------------------------------------------------------------------ assemble nodes/edges
 def assemble():
-    S = sentences()
-    nodes, edges = [], []
-    concepts = C.read_jsonl(os.path.join(CORP, "concepts.jsonl")) if os.path.exists(os.path.join(CORP, "concepts.jsonl")) else []
-    cids = {c["id"] for c in concepts}
-    nodes += concepts
-    for c in concepts:
-        for r in c.get("requires") or []:
-            edges.append({"v": 1, "src": c["id"], "dst": r, "type": "requires", "w": 1.0, "evidence": "definition batch"})
-    for p in (C.read_json(C.p("corpus", "canon", "patterns.json")) or {}).get("patterns", []):
-        nodes.append({"v": 1, "id": f"pat:{p['id']}", "type": "Pattern", "label_en": p["title"], "chapters": p.get("chapters", [])})
-    for ch in (C.read_json(C.p("corpus", "canon", "chapters.json")) or {}).get("chapters", []):
-        nodes.append({"v": 1, "id": f"ch:{ch['id']}", "type": "Chapter", "label_en": ch["title_en"], "act": ch.get("act"),
-                      "core": ch.get("core"), "patterns": ch.get("patterns", [])})
-        for pt in ch.get("patterns", []):
-            edges.append({"v": 1, "src": f"ch:{ch['id']}", "dst": f"pat:{pt}", "type": "uses", "w": 1.0, "evidence": "chapters.json"})
-    audios = sorted({s["audio_id"] for s in S})
-    for a in audios:
-        nodes.append({"v": 1, "id": a, "type": "AudioAsset", "alternate_take_of": ALT_TAKES.get(a)})
-    ments = C.read_json(os.path.join(GDIR, "concept_mentions.json"), {}) or {}
-    s_conc = collections.defaultdict(set)
-    for cid, sids in ments.items():
-        if cid in cids:
-            for sid in sids:
-                s_conc[sid].add(cid)
-    iu_path = os.path.join(GDIR, "idea_units.jsonl")
-    ius = C.read_jsonl(iu_path) if os.path.exists(iu_path) else []
-    sent_iu = {m: iu["id"] for iu in ius for m in iu["members"]}
-    for s in S:
-        nodes.append({"v": 1, "id": s["sent_id"], "type": "Sentence", "audio_id": s["audio_id"], "chapter": s.get("chapter"),
-                      "kind": s["kind"], "start_ms": s["start_ms"], "end_ms": s["end_ms"], "idea_unit": sent_iu.get(s["sent_id"])})
-        edges.append({"v": 1, "src": s["audio_id"], "dst": s["sent_id"], "type": "contains", "w": 1.0})
-        if s["sent_id"] in sent_iu:
-            edges.append({"v": 1, "src": s["sent_id"], "dst": sent_iu[s["sent_id"]], "type": "says", "w": 1.0, "evidence": "idea-unit member"})
-    for iu in ius:
-        about = collections.Counter(c for m in iu["members"] for c in s_conc.get(m, ()))
-        nodes.append({k: v for k, v in iu.items() if k != "members"} | {"n_members": len(iu["members"]), "about": [c for c, _ in about.most_common(6)]})
-        for c, n in about.most_common(6):
-            edges.append({"v": 1, "src": iu["id"], "dst": c, "type": "about", "w": round(n / len(iu["members"]), 3), "evidence": "term mention"})
-    dpath = os.path.join(GDIR, "dup_edges.jsonl")
-    if os.path.exists(dpath):
-        edges += C.read_jsonl(dpath)
-    from . import graph_concepts as GC
-    for a in C.read_jsonl(C.p("corpus", "visual", "assets.jsonl")):
-        nodes.append({"v": 1, "id": a["asset_id"], "type": "VisualAsset", "kind": a["kind"], "source": a["source"], "quality": a.get("quality")})
-        for c in a.get("concepts") or []:
-            k = "c:" + GC.norm_key(c[2:] if c.startswith("c:") else c)
-            if k in cids:
-                edges.append({"v": 1, "src": a["asset_id"], "dst": k, "type": "illustrates", "w": 0.5, "evidence": "caption concept tag"})
-    os.makedirs(CORP, exist_ok=True)
-    C.write_jsonl(os.path.join(CORP, "nodes.jsonl"), nodes)
-    C.write_jsonl(os.path.join(CORP, "edges.jsonl"), edges)
-    cnt = collections.Counter(n["type"] for n in nodes)
-    ecnt = collections.Counter(e["type"] for e in edges)
-    C.write_json(os.path.join(CORP, "counts.json"), {"v": 1, "created": C.now_iso(), "nodes": dict(cnt), "edges": dict(ecnt)})
-    print(f"graph: nodes {dict(cnt)}; edges {dict(ecnt)}")
+    from . import graph_p4
+    return graph_p4.assemble()
+
+
+def cmd_report(args):
+    from . import graph_p4
+    return graph_p4.cmd_report(args)
+
+
+def cmd_export(args):
+    from . import graph_p4
+    return graph_p4.export()
 
 
 # ------------------------------------------------------------------ queries
-def _iu_index():
-    ius = C.read_jsonl(os.path.join(GDIR, "idea_units.jsonl"))
-    return ius, {m: iu for iu in ius for m in iu["members"]}
-
-
-def q_novelty():
-    S = sentences()
-    ius, by_s = _iu_index()
-    parts = collections.defaultdict(list)
-    for s in S:
-        if s["audio_id"].startswith("a:S4"):
-            parts[s["audio_id"]].append(s)
-    out = []
-    for a, ss in sorted(parts.items()):
-        ss.sort(key=lambda s: s["start_ms"])
-        iu_ids = {by_s[s["sent_id"]]["id"] for s in ss}
-        novel = {i for i in iu_ids if by_s_any(ius, i)["novel_vs_trunk"]}
-        runs, cur = [], []
-        for s in ss:
-            if by_s[s["sent_id"]]["novel_vs_trunk"]:
-                cur.append(s)
-            else:
-                if cur:
-                    runs.append(cur)
-                cur = []
-        if cur:
-            runs.append(cur)
-        long = [r for r in runs if r[-1]["end_ms"] - r[0]["start_ms"] >= 20000]
-        dur = sum(s["end_ms"] - s["start_ms"] for s in ss)
-        ndur = sum(s["end_ms"] - s["start_ms"] for s in ss if by_s[s["sent_id"]]["novel_vs_trunk"])
-        out.append({"part": a, "sentences": len(ss), "idea_units": len(iu_ids), "novel_iu_pct": round(100 * len(novel) / max(1, len(iu_ids)), 1),
-                    "novel_time_pct": round(100 * ndur / max(1, dur), 1), "runs_ge_20s": len(long),
-                    "runs_ge_20s_s": round(sum(r[-1]["end_ms"] - r[0]["start_ms"] for r in long) / 1000, 1)})
-    return out
-
-
-_IU_BY_ID = {}
-
-
-def by_s_any(ius, iid):
-    if not _IU_BY_ID:
-        _IU_BY_ID.update({i["id"]: i for i in ius})
-    return _IU_BY_ID[iid]
-
-
-def q_novelty_matrix():
-    """S4 part x S1 chapter: share of the part's idea units that merge with a sentence of that chapter."""
-    S = {s["sent_id"]: s for s in sentences()}
-    ius, by_s = _iu_index()
-    mat = collections.defaultdict(collections.Counter)
-    tot = collections.Counter()
-    for iu in ius:
-        s4parts = {_sid_audio(m) for m in iu["members"] if m.startswith("s:S4")}
-        chs = {S[m].get("chapter") for m in iu["members"] if m.startswith("s:S1")}
-        for p in s4parts:
-            tot[p] += 1
-            for ch in chs:
-                mat[p][ch] += 1
-    return {p: {"idea_units": tot[p], **{ch: round(100 * n / tot[p], 1) for ch, n in sorted(mat[p].items())}} for p in sorted(tot)}
-
-
-def q_coverage():
-    concepts = C.read_jsonl(os.path.join(CORP, "concepts.jsonl"))
-    out = {"concepts": len(concepts), "by_source": {}, "uncovered": []}
-    for c in concepts:
-        m = c["mentions"]
-        if not m["S1"] and not m["S4"]:
-            out["uncovered"].append(c["id"])
-    out["by_source"] = {"S1": sum(1 for c in concepts if c["mentions"]["S1"]), "S4": sum(1 for c in concepts if c["mentions"]["S4"]),
-                        "S4_only": sum(1 for c in concepts if c["mentions"]["S4"] and not c["mentions"]["S1"]),
-                        "S1_only": sum(1 for c in concepts if c["mentions"]["S1"] and not c["mentions"]["S4"])}
-    return out
-
-
-def q_redundancy():
-    ius, _ = _iu_index()
-    multi = [i for i in ius if len({a for a in i["sources"] if a not in ALT_TAKES}) > 1]
-    return {"idea_units": len(ius), "multi_source": len(multi),
-            "top": [{"id": i["id"], "sources": i["sources"], "gloss_en": i["gloss_en"]} for i in sorted(multi, key=lambda i: -len(i["sources"]))[:20]]}
-
-
-def q_contradictions():
-    out = []
-    for e in C.read_jsonl(os.path.join(GDIR, "dup_edges.jsonl")):
-        if "numbers" in (e.get("evidence") or ""):
-            out.append(e)
-    canon = C.read_json(C.p("corpus", "canon", "contradictions.json")) or {}
-    return {"sentence_pairs_with_number_conflict": len(out), "pairs": out[:50], "canon_contradictions": canon.get("items", canon)}
-
-
-def q_order():
-    concepts = C.read_jsonl(os.path.join(CORP, "concepts.jsonl"))
-    req = {c["id"]: c.get("requires") or [] for c in concepts}
-    if not any(req.values()):
-        return {"note": "no requires yet (definition batches not applied)"}
-    first = {}
-    for s in sentences():
-        if s["audio_id"].startswith("a:S1"):
-            pass
-    ments = C.read_json(os.path.join(GDIR, "concept_mentions.json"), {}) or {}
-    for cid, sids in ments.items():
-        s1 = sorted(int(x.split(":")[-1]) for x in sids if x.startswith("s:S1"))
-        if s1:
-            first[cid] = s1[0]
-    viol = [{"concept": c, "first": first[c], "requires": r, "first_req": first[r]} for c, rs in req.items() if c in first
-            for r in rs if r in first and first[r] > first[c]]
-    # cycles
-    import itertools  # noqa: F401
-    color, cyc = {}, []
-
-    def dfs(u, stack):
-        color[u] = 1
-        for v in req.get(u, []):
-            if color.get(v) == 1:
-                cyc.append(stack[stack.index(v):] + [v] if v in stack else [u, v])
-            elif not color.get(v):
-                dfs(v, stack + [v])
-        color[u] = 2
-    for u in req:
-        if not color.get(u):
-            dfs(u, [u])
-    return {"trunk_order_violations": len(viol), "violations": viol[:60], "cycles": cyc[:20]}
-
-
 def q_visual(iu_id, k=8):
     import numpy as np
-    ius, _ = _iu_index()
+    ius = C.read_jsonl(os.path.join(GDIR, "idea_units.jsonl"))
     iu = next(i for i in ius if i["id"] == iu_id)
     sid, sv = load_vecs("sent")
     aid, av = load_vecs("asset")
@@ -749,17 +532,27 @@ def q_visual(iu_id, k=8):
 
 
 def cmd_q(args):
+    from . import graph_p4 as P
     name = args.name
     if name == "novelty":
-        res = {"per_part": q_novelty(), "matrix": q_novelty_matrix()}
+        r = P.novelty()
+        res = {"totals": r["totals"], "per_part": [{k: v for k, v in p.items() if k != "runs"} for p in r["per_part"]]}
     elif name == "coverage":
-        res = q_coverage()
+        r = P.coverage()
+        res = {"totals": r["totals"], "domains": r["domains"]}
     elif name == "redundancy":
-        res = q_redundancy()
+        ius = C.read_jsonl(os.path.join(GDIR, "idea_units.jsonl"))
+        multi = [i for i in ius if len({a for a in i["sources"] if a not in ALT_TAKES}) > 1]
+        res = {"idea_units": len(ius), "multi_source": len(multi),
+               "top": [{"id": i["id"], "sources": i["sources"], "gloss_en": i["gloss_en"]} for i in sorted(multi, key=lambda i: -len(i["sources"]))[:20]]}
     elif name == "contradictions":
-        res = q_contradictions()
+        r = P.contradictions()
+        res = {"sentence_pairs": len(r["sentence_pairs"]), "fact_mismatch": len(r["fact_mismatch"]), "canon": len(r["canon"]),
+               "pairs": r["sentence_pairs"][:20]}
     elif name == "order":
-        res = q_order()
+        r = P.order()
+        res = {"violations": len(r["violations"]), "cross_chapter": r["cross_chapter_violations"], "cycles": r["cycles"][:10],
+               "top": r["violations"][:20]}
     elif name == "visual-candidates":
         res = q_visual(args.arg)
     elif name == "continuity":
@@ -768,25 +561,8 @@ def cmd_q(args):
         raise SystemExit(f"unknown query {name}")
     if args.write:
         os.makedirs(REP, exist_ok=True)
-        C.write_json(os.path.join(REP, f"{name}.json"), {"v": 1, "created": C.now_iso(), "result": res})
+        C.write_json(os.path.join(REP, f"q_{name}.json"), {"v": 1, "created": C.now_iso(), "result": res})
     print(json.dumps(res, ensure_ascii=False, indent=1)[:args.max_chars])
-    return 0
-
-
-def cmd_export(args):
-    cnt = C.read_json(os.path.join(CORP, "counts.json")) or {}
-    lines = ["# Semantic graph overview", "", f"Generated {C.now_iso()} by `dc graph export`.", "", "```mermaid", "graph LR"]
-    for a, b, t in [("AudioAsset", "Sentence", "contains"), ("Sentence", "IdeaUnit", "says"), ("IdeaUnit", "Concept", "about"),
-                    ("Concept", "Concept", "requires"), ("VisualAsset", "Concept", "illustrates"), ("Sentence", "Sentence", "duplicates"),
-                    ("Chapter", "Pattern", "uses")]:
-        na, nb = cnt.get("nodes", {}).get(a, 0), cnt.get("nodes", {}).get(b, 0)
-        lines.append(f"  {a}[\"{a} ({na})\"] -- \"{t} ({cnt.get('edges', {}).get(t, 0)})\" --> {b}[\"{b} ({nb})\"]")
-    lines += ["```", "", "| Node type | Count |", "|---|---|"] + [f"| {k} | {v} |" for k, v in sorted(cnt.get("nodes", {}).items())]
-    lines += ["", "| Edge type | Count |", "|---|---|"] + [f"| {k} | {v} |" for k, v in sorted(cnt.get("edges", {}).items())]
-    os.makedirs(REP, exist_ok=True)
-    with open(os.path.join(REP, "overview.md"), "w", encoding="utf-8") as f:
-        f.write("\n".join(lines) + "\n")
-    print(f"wrote {C.rel(os.path.join(REP, 'overview.md'))}")
     return 0
 
 
@@ -818,5 +594,7 @@ def register(sub):
     s.add_argument("--write", action="store_true", help="also write reports/graph/<name>.json")
     s.add_argument("--max-chars", type=int, default=6000)
     s.set_defaults(fn="graph.cmd_q")
+    s = g.add_parser("report", help="novelty/coverage/contradictions/order/overview reports -> reports/graph/")
+    s.set_defaults(fn="graph.cmd_report")
     s = g.add_parser("export", help="Mermaid overview + counts -> reports/graph/overview.md")
     s.set_defaults(fn="graph.cmd_export")

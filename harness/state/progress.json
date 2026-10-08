@@ -23,7 +23,9 @@
       "checked": "2026-10-08T14:50:34Z"
     },
     "G4": {
-      "status": "pending"
+      "status": "pass",
+      "report": "reports/gates/G4.json",
+      "checked": "2026-10-08T20:20:43Z"
     },
     "G5": {
       "status": "pending"
@@ -63,5 +65,5 @@
   "next_actions": [
     "P4: concepts, embeddings, idea units (calibrated threshold + adjudication), links, novelty/coverage/contradiction/order reports, G4"
   ],
-  "updated": "2026-10-08T15:11:44Z"
+  "updated": "2026-10-08T20:20:43Z"
 }

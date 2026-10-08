@@ -1,0 +1,731 @@
+{
+  "v": 1,
+  "created": "2026-10-08T20:20:01Z",
+  "sentence_pairs": [],
+  "scope_pairs": 3,
+  "fact_mismatch_threshold": 0.599,
+  "fact_mismatch": [
+    {
+      "sent_id": "s:S4:P00b:0023",
+      "fact": "d:5.2:7",
+      "cos": 0.758,
+      "sentence_numbers": [
+        "4",
+        "6"
+      ],
+      "fact_numbers": [
+        "66.67"
+      ],
+      "fact_value": "66.67 %",
+      "gloss_en": "So four out of six succeeded. What do you think the success rate is? Work it out yourselves."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0173",
+      "fact": "d:6.3:6",
+      "cos": 0.728,
+      "sentence_numbers": [
+        "1007",
+        "9"
+      ],
+      "fact_numbers": [
+        "13"
+      ],
+      "fact_value": "13",
+      "gloss_en": "Order ten-oh-seven points at customer 9, who does not exist, so the inner join removes the order entirely, and it does so silently."
+    },
+    {
+      "sent_id": "s:S4:P09:0011",
+      "fact": "d:6.3:6",
+      "cos": 0.685,
+      "sentence_numbers": [
+        "1007",
+        "9"
+      ],
+      "fact_numbers": [
+        "13"
+      ],
+      "fact_value": "13",
+      "gloss_en": "With an inner join, order 1007 points to customer 9, but that customer is not in the customers table for some reason."
+    },
+    {
+      "sent_id": "s:S4:P11:0023",
+      "fact": "d:6.3:6",
+      "cos": 0.677,
+      "sentence_numbers": [
+        "1013"
+      ],
+      "fact_numbers": [
+        "13"
+      ],
+      "fact_value": "13",
+      "gloss_en": "And a customer name that is missing altogether in order 1013."
+    },
+    {
+      "sent_id": "s:S4:P08:0046",
+      "fact": "d:6.3:6",
+      "cos": 0.659,
+      "sentence_numbers": [
+        "1007"
+      ],
+      "fact_numbers": [
+        "13"
+      ],
+      "fact_value": "13",
+      "gloss_en": "Why? Because the JOIN quietly removed the orphan row, order 1007, simply because it can't find its customer."
+    },
+    {
+      "sent_id": "s:S4:P24:0060",
+      "fact": "d:6.11:1",
+      "cos": 0.658,
+      "sentence_numbers": [
+        "95"
+      ],
+      "fact_numbers": [
+        "500"
+      ],
+      "fact_value": "500 ms",
+      "gloss_en": "And here a real crisis arrives, and a question we need to think about: P95 latency climbs frighteningly, yet the error rate is perfectly steady, like a straight line."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0207",
+      "fact": "d:6.5:1",
+      "cos": 0.649,
+      "sentence_numbers": [
+        "12500"
+      ],
+      "fact_numbers": [
+        "1000000"
+      ],
+      "fact_value": "1 000 000 rows",
+      "gloss_en": "Here is the baseline: finding one customer reads twelve thousand five hundred pages."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0010",
+      "fact": "d:5.2:6",
+      "cos": 0.646,
+      "sentence_numbers": [
+        "4",
+        "6"
+      ],
+      "fact_numbers": [
+        "100"
+      ],
+      "fact_value": [
+        "T6",
+        "B",
+        "100",
+        "FAILED"
+      ],
+      "gloss_en": "Here are six payments from NilePay, a mobile-money service we will follow all the way to the end; four succeeded."
+    },
+    {
+      "sent_id": "s:S4:P00b:0021",
+      "fact": "d:5.2:6",
+      "cos": 0.639,
+      "sentence_numbers": [
+        "1",
+        "6"
+      ],
+      "fact_numbers": [
+        "100"
+      ],
+      "fact_value": [
+        "T6",
+        "B",
+        "100",
+        "FAILED"
+      ],
+      "gloss_en": "Here we have six payments, from T1 to T6."
+    },
+    {
+      "sent_id": "s:S4:P05:0022",
+      "fact": "d:6.3:12",
+      "cos": 0.638,
+      "sentence_numbers": [
+        "1000",
+        "10000",
+        "5000"
+      ],
+      "fact_numbers": [
+        "850.2"
+      ],
+      "fact_value": "silver €850.20",
+      "gloss_en": "For example, classifying customers: VIPs paid 10,000 or more, Gold 5,000, and Silver 1,000."
+    },
+    {
+      "sent_id": "s:S4:P11:0018",
+      "fact": "d:6.4:2",
+      "cos": 0.637,
+      "sentence_numbers": [
+        "1001",
+        "1014",
+        "15"
+      ],
+      "fact_numbers": [
+        "4"
+      ],
+      "fact_value": "4",
+      "gloss_en": "15 rows of raw data, just as they came out of the system, from order 1001 to 1014."
+    },
+    {
+      "sent_id": "s:S4:P00b:0079",
+      "fact": "d:5.2:4",
+      "cos": 0.635,
+      "sentence_numbers": [
+        "4"
+      ],
+      "fact_numbers": [
+        "50"
+      ],
+      "fact_value": [
+        "T4",
+        "A",
+        "50",
+        "OK"
+      ],
+      "gloss_en": "Step four: we see a small example with real numbers, like the ones in the NilePay table."
+    },
+    {
+      "sent_id": "s:S4:P12:0054",
+      "fact": "d:6.20:3",
+      "cos": 0.634,
+      "sentence_numbers": [
+        "4"
+      ],
+      "fact_numbers": [
+        "16"
+      ],
+      "fact_value": "16",
+      "gloss_en": "Whereas the binary search halves the space and finds the result in just four comparisons."
+    },
+    {
+      "sent_id": "s:S4:P19:0086",
+      "fact": "d:5.2:7",
+      "cos": 0.634,
+      "sentence_numbers": [
+        "4",
+        "6"
+      ],
+      "fact_numbers": [
+        "66.67"
+      ],
+      "fact_value": "66.67 %",
+      "gloss_en": "From these invoices we derive the final statistic: four successful operations out of six."
+    },
+    {
+      "sent_id": "s:S4:P20:0037",
+      "fact": "d:6.17:3",
+      "cos": 0.632,
+      "sentence_numbers": [
+        "2",
+        "5"
+      ],
+      "fact_numbers": [
+        "14"
+      ],
+      "fact_value": "Fourteen",
+      "gloss_en": "Section two, the five phases."
+    },
+    {
+      "sent_id": "s:S4:P05:0029",
+      "fact": "d:6.3:1",
+      "cos": 0.625,
+      "sentence_numbers": [
+        "3",
+        "5"
+      ],
+      "fact_numbers": [
+        "1",
+        "300"
+      ],
+      "fact_value": "SELECT c.tier, SUM(o.total) AS revenue FROM orders o JOIN customers c ON c.id = o.customer_id WHERE o.status = 'delivered' GROUP BY c.tier HAVING SUM(o.total) > 300 ORDER BY revenue DESC LIMIT 1",
+      "gloss_en": "We have a loop running over five orders, and an accumulator named total that sums only the delivered orders, which are three."
+    },
+    {
+      "sent_id": "s:S4:P20:0059",
+      "fact": "d:6.5:1",
+      "cos": 0.624,
+      "sentence_numbers": [
+        "9"
+      ],
+      "fact_numbers": [
+        "1000000"
+      ],
+      "fact_value": "1 000 000 rows",
+      "gloss_en": "Imagine a table of 9 rows."
+    },
+    {
+      "sent_id": "s:S4:P20:0093",
+      "fact": "d:6.12:1",
+      "cos": 0.622,
+      "sentence_numbers": [
+        "99",
+        "99.99"
+      ],
+      "fact_numbers": [
+        "95"
+      ],
+      "fact_value": "95 %",
+      "gloss_en": "The NFRs impose 99.99% reliability."
+    },
+    {
+      "sent_id": "s:S4:P13:0045",
+      "fact": "d:6.3:6",
+      "cos": 0.621,
+      "sentence_numbers": [
+        "1005"
+      ],
+      "fact_numbers": [
+        "13"
+      ],
+      "fact_value": "13",
+      "gloss_en": "Instead of requesting his own order, he requested GET /orders/1005, which belongs to a completely different user."
+    },
+    {
+      "sent_id": "s:S4:P00:0062",
+      "fact": "d:6.17:3",
+      "cos": 0.616,
+      "sentence_numbers": [
+        "4"
+      ],
+      "fact_numbers": [
+        "14"
+      ],
+      "fact_value": "Fourteen",
+      "gloss_en": "Having built this strong foundation, we move to section four, the future layer: integrating AI."
+    },
+    {
+      "sent_id": "s:S4:P06:0029",
+      "fact": "d:6.20:8",
+      "cos": 0.615,
+      "sentence_numbers": [
+        "1000000",
+        "8"
+      ],
+      "fact_numbers": [
+        "10000"
+      ],
+      "fact_value": "10 000",
+      "gloss_en": "To picture this huge difference in numbers: a million items in a list take about 8 MB of memory."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0162",
+      "fact": "d:6.4:2",
+      "cos": 0.612,
+      "sentence_numbers": [
+        "11",
+        "13",
+        "14",
+        "2"
+      ],
+      "fact_numbers": [
+        "4"
+      ],
+      "fact_value": "4",
+      "gloss_en": "Watch the funnel: fourteen rows in, thirteen after the join drops the orphan, eleven after the filter, two groups out — gold and silver"
+    },
+    {
+      "sent_id": "s:S4:P16:0046",
+      "fact": "d:6.17:2",
+      "cos": 0.612,
+      "sentence_numbers": [
+        "12",
+        "36"
+      ],
+      "fact_numbers": [
+        "1"
+      ],
+      "fact_value": "every row sums to exactly 1.000",
+      "gloss_en": "But in the background, the actual rows backing each cell grow from 12 to 36 rows."
+    },
+    {
+      "sent_id": "s:S4:P20:0039",
+      "fact": "d:6.17:3",
+      "cos": 0.612,
+      "sentence_numbers": [
+        "5"
+      ],
+      "fact_numbers": [
+        "14"
+      ],
+      "fact_value": "Fourteen",
+      "gloss_en": "The Acceptance Testing phases happen in five strict steps."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0163",
+      "fact": "d:6.1:11",
+      "cos": 0.611,
+      "sentence_numbers": [
+        "3948.5"
+      ],
+      "fact_numbers": [
+        "14"
+      ],
+      "fact_value": "14 rows",
+      "gloss_en": "And add them up: three thousand nine hundred and forty-eight fifty, the same total the cleaning chapter will reach from the other direction."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0524",
+      "fact": "d:6.5:8",
+      "cos": 0.611,
+      "sentence_numbers": [
+        "3"
+      ],
+      "fact_numbers": [
+        "2"
+      ],
+      "fact_value": "two",
+      "gloss_en": "Then operations — three signals:"
+    },
+    {
+      "sent_id": "s:S4:P22:0049",
+      "fact": "d:5.2:8",
+      "cos": 0.61,
+      "sentence_numbers": [
+        "696"
+      ],
+      "fact_numbers": [
+        "400"
+      ],
+      "fact_value": "400 EGP",
+      "gloss_en": "In total, 696 weights."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0012",
+      "fact": "d:6.17:3",
+      "cos": 0.608,
+      "sentence_numbers": [
+        "7"
+      ],
+      "fact_numbers": [
+        "14"
+      ],
+      "fact_value": "Fourteen",
+      "gloss_en": "Seven movements: from nothing to a working machine — files, folders, the terminal, your first line of code."
+    },
+    {
+      "sent_id": "s:S4:P08:0027",
+      "fact": "d:6.3:6",
+      "cos": 0.608,
+      "sentence_numbers": [
+        "1007",
+        "9"
+      ],
+      "fact_numbers": [
+        "13"
+      ],
+      "fact_value": "13",
+      "gloss_en": "Look closely and we find this orphan row, order 1007, pointing at customer 9."
+    },
+    {
+      "sent_id": "s:S4:P17:0041",
+      "fact": "d:6.3:11",
+      "cos": 0.608,
+      "sentence_numbers": [
+        "33.33"
+      ],
+      "fact_numbers": [
+        "3098.3"
+      ],
+      "fact_value": "gold €3 098.30",
+      "gloss_en": "When we divide them we get the average of a single transaction, which is 33.33 dollars."
+    },
+    {
+      "sent_id": "s:S4:P06:0034",
+      "fact": "d:6.3:1",
+      "cos": 0.605,
+      "sentence_numbers": [
+        "500"
+      ],
+      "fact_numbers": [
+        "1",
+        "300"
+      ],
+      "fact_value": "SELECT c.tier, SUM(o.total) AS revenue FROM orders o JOIN customers c ON c.id = o.customer_id WHERE o.status = 'delivered' GROUP BY c.tier HAVING SUM(o.total) > 300 ORDER BY revenue DESC LIMIT 1",
+      "gloss_en": "We fetch the data with fetch_orders, extract the data, filter orders worth over 500, add customer data, and finally save to analytics."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0384",
+      "fact": "d:6.11:4",
+      "cos": 0.604,
+      "sentence_numbers": [
+        "200"
+      ],
+      "fact_numbers": [
+        "10"
+      ],
+      "fact_value": "Ten",
+      "gloss_en": "Two hundred tasks finish quickly, and one keeps going."
+    },
+    {
+      "sent_id": "s:S4:P20:0027",
+      "fact": "d:6.3:13",
+      "cos": 0.604,
+      "sentence_numbers": [
+        "66"
+      ],
+      "fact_numbers": [
+        "300"
+      ],
+      "fact_value": "HAVING > 300",
+      "gloss_en": "So the net figure, the plus 66, gets completely wiped out."
+    },
+    {
+      "sent_id": "s:S4:P18:0027",
+      "fact": "d:6.5:3",
+      "cos": 0.603,
+      "sentence_numbers": [
+        "24",
+        "3"
+      ],
+      "fact_numbers": [
+        "12500"
+      ],
+      "fact_value": "12 500 pages",
+      "gloss_en": "And each one has 3 copies, so that is 24 copies, fully protected."
+    },
+    {
+      "sent_id": "s:S4:P17:0081",
+      "fact": "d:6.9:1",
+      "cos": 0.601,
+      "sentence_numbers": [
+        "4"
+      ],
+      "fact_numbers": [
+        "1"
+      ],
+      "fact_value": "k = 1",
+      "gloss_en": "But on the right, after masking, the number is masked and only the last four digits are visible, and the name only the first letter."
+    },
+    {
+      "sent_id": "s:S4:P20:0030",
+      "fact": "d:6.11:4",
+      "cos": 0.601,
+      "sentence_numbers": [
+        "7"
+      ],
+      "fact_numbers": [
+        "10"
+      ],
+      "fact_value": "Ten",
+      "gloss_en": "Here for example we have seven records matching completely."
+    },
+    {
+      "sent_id": "s:S1:ar-natural:0527",
+      "fact": "d:6.11:1",
+      "cos": 0.6,
+      "sentence_numbers": [
+        "95"
+      ],
+      "fact_numbers": [
+        "500"
+      ],
+      "fact_value": "500 ms",
+      "gloss_en": "Here is the incident: the p95 is climbing and the error rate is completely flat, which is the fingerprint of a saturating resource rather than a bug."
+    },
+    {
+      "sent_id": "s:S4:P14:0067",
+      "fact": "d:6.20:8",
+      "cos": 0.599,
+      "sentence_numbers": [
+        "100",
+        "101"
+      ],
+      "fact_numbers": [
+        "10000"
+      ],
+      "fact_value": "10 000",
+      "gloss_en": "That is 101 queries just for 100 records."
+    }
+  ],
+  "canon": [
+    {
+      "kind": "artifact_none",
+      "where": "§8 CH-00 line 523",
+      "detail": "Artifact: 'none — this is the hook.' while §15 requires a named artifact for every chapter",
+      "refs": [
+        "CH-00",
+        "§15"
+      ],
+      "severity": "contradiction",
+      "id": "K001"
+    },
+    {
+      "kind": "prediction_none",
+      "where": "§8 CH-01 line 551",
+      "detail": "Prediction: none (§15 needs >= 1 prediction per act; checked per act below)",
+      "refs": [
+        "CH-01"
+      ],
+      "severity": "contradiction",
+      "id": "K002"
+    },
+    {
+      "kind": "artifact_none",
+      "where": "§8 CH-03 line 608",
+      "detail": "Artifact: 'none.' while §15 requires a named artifact for every chapter",
+      "refs": [
+        "CH-03",
+        "§15"
+      ],
+      "severity": "contradiction",
+      "id": "K003"
+    },
+    {
+      "kind": "artifact_none",
+      "where": "§8 CH-24 line 1201",
+      "detail": "Artifact: 'none — this is context.' while §15 requires a named artifact for every chapter",
+      "refs": [
+        "CH-24",
+        "§15"
+      ],
+      "severity": "contradiction",
+      "id": "K004"
+    },
+    {
+      "kind": "prediction_none",
+      "where": "§8 CH-36 line 1545",
+      "detail": "Prediction: none (§15 needs >= 1 prediction per act; checked per act below)",
+      "refs": [
+        "CH-36"
+      ],
+      "severity": "contradiction",
+      "id": "K005"
+    },
+    {
+      "kind": "act_without_prediction",
+      "where": "Act Close",
+      "detail": "no prediction in CH-36",
+      "refs": [
+        "CH-36"
+      ],
+      "severity": "contradiction",
+      "id": "K006"
+    },
+    {
+      "kind": "act_names_differ",
+      "where": "§7 table 'Act' column vs §7 'Act rhythm' sentence",
+      "detail": "table acts ['AI', 'Analytics', 'Big data', 'Close', 'Craft', 'Domain', 'Ground Zero', 'Orientation', 'Platform', 'Python', 'SQL', 'Ship', 'Systems'] (13); rhythm acts ['Orientation', 'Ground Zero', 'Python', 'SQL', 'Analytics', 'Craft & Systems', 'Platform', 'Big data', 'Domain', 'AI', 'Ship'] (11)",
+      "refs": [
+        "§7"
+      ],
+      "severity": "contradiction",
+      "id": "K007"
+    },
+    {
+      "kind": "3d_scene_without_p19",
+      "where": "§9.1 CH-01",
+      "detail": "§9.1 permits a 3D scene in CH-01 but its §8 Patterns line does not declare P19 (P01 · P20 · P13)",
+      "refs": [
+        "CH-01"
+      ],
+      "severity": "contradiction",
+      "id": "K008"
+    },
+    {
+      "kind": "3d_scene_without_p19",
+      "where": "§9.1 CH-25",
+      "detail": "§9.1 permits a 3D scene in CH-25 but its §8 Patterns line does not declare P19 (P02 · P03 · P04 · P18 · P22)",
+      "refs": [
+        "CH-25"
+      ],
+      "severity": "contradiction",
+      "id": "K009"
+    },
+    {
+      "kind": "3d_scene_without_p19",
+      "where": "§9.1 CH-36",
+      "detail": "§9.1 permits a 3D scene in CH-36 but its §8 Patterns line does not declare P19 (P20 · P01)",
+      "refs": [
+        "CH-36"
+      ],
+      "severity": "contradiction",
+      "id": "K010"
+    },
+    {
+      "kind": "ambiguous_label",
+      "where": "§5.2 'Operator totals: A = 250, B = 150'",
+      "detail": "the figures are OK-only totals; all-status totals are A = 250, B = 450. Label on screen must say 'successful'.",
+      "refs": [
+        "§5.2",
+        "§6.19",
+        "CH-00",
+        "CH-27"
+      ],
+      "severity": "contradiction",
+      "id": "K011"
+    },
+    {
+      "kind": "count_mismatch",
+      "where": "§12.2 heading",
+      "detail": "heading says 'seven gaps' but the table has 10 rows",
+      "refs": [
+        "§12.2"
+      ],
+      "severity": "contradiction",
+      "id": "K012"
+    },
+    {
+      "kind": "label_sets_differ",
+      "severity": "info",
+      "where": "§8 On-screen labels EN vs AR",
+      "detail": "31 of 37 chapters list fewer AR than EN labels (EN 162, AR 121). Most missing ones are technical or numeric labels kept Latin per §0.3, but some carry English explanatory words (e.g. CH-03 EN '1 byte = 8 bits = 256 values' and 'UTF-8' have no AR entry). The Arabic typographer decides per label.",
+      "refs": [
+        "CH-02",
+        "CH-03",
+        "CH-04",
+        "CH-05",
+        "CH-06",
+        "CH-07",
+        "CH-08",
+        "CH-09",
+        "CH-10",
+        "CH-11",
+        "CH-12",
+        "CH-13",
+        "CH-14",
+        "CH-15",
+        "CH-16",
+        "CH-17",
+        "CH-19",
+        "CH-20",
+        "CH-21",
+        "CH-22",
+        "CH-23",
+        "CH-24",
+        "CH-25",
+        "CH-26",
+        "CH-27",
+        "CH-28",
+        "CH-29",
+        "CH-30",
+        "CH-32",
+        "CH-34",
+        "CH-35"
+      ],
+      "id": "K013"
+    },
+    {
+      "kind": "policy_differs",
+      "where": "NotebookLM P00 visual rules vs master §9.1",
+      "detail": "P00 allows 3D in three places only (الـ3D مسموح في تلات أماكن بس: RAM مقابل disk (الجزء 02)، والـcluster (الجزء 18)، ومساحة الـembeddings (الجزء 23) — والباقي 2D.); master §9.1 permits six (CPU/memory/disk, HDFS, Spark executors, embeddings, architecture, atlas)",
+      "refs": [
+        "P00",
+        "§9.1",
+        "P19"
+      ],
+      "severity": "contradiction",
+      "id": "K014"
+    },
+    {
+      "kind": "t5_timestamp_wrap",
+      "severity": "info",
+      "where": "T5 CH-32 line 622",
+      "detail": "timestamps are mm:ss without hours and wrap at 60:00; unwrapped (+3600 s) in cues_70m05.json#ar_lines_t5",
+      "refs": [
+        "T5"
+      ],
+      "id": "K015"
+    }
+  ]
+}
