@@ -10,12 +10,12 @@
     "G1": {
       "status": "pass",
       "report": "reports/gates/G1.json",
-      "checked": "2026-10-07T14:44:38Z"
+      "checked": "2026-10-08T06:38:00Z"
     },
     "G2": {
       "status": "pass",
       "report": "reports/gates/G2.json",
-      "checked": "2026-10-07T16:49:33Z"
+      "checked": "2026-10-08T06:37:54Z"
     },
     "G3": {
       "status": "pending"
@@ -64,5 +64,5 @@
     "P3b todo: S2 not transcribed in full (reads master 8 AR, role reference); align S3 (41 clips) and S5 (needs cues_70m05.json from P2); second CTC aligner for G3 (>=95% within 120 ms): none run yet, whisper-vs-MMS is 45.7%, see reports/asr/s1_agreement.md",
     "P2 context-engineer: run 'python3 tools/dc.py corpus index --dense' once the S4 ASR backlog shrinks (queue RAM guard refused it); then 'dc corpus smoke' reports hybrid. Packs (corpus/packs) wait for EDL/graph."
   ],
-  "updated": "2026-10-07T16:49:33Z"
+  "updated": "2026-10-08T06:38:00Z"
 }

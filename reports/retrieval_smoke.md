@@ -1,6 +1,6 @@
 # Retrieval smoke test
 
-Created 2026-10-07T16:49:33Z by `dc corpus smoke`. Mode: BM25 only (dense vectors not built). Chunks: 15069. Index terms: 23807.
+Created 2026-10-08T06:37:54Z by `dc corpus smoke`. Mode: BM25 only (dense vectors not built). Chunks: 15069. Index terms: 23807.
 
 Result: **10/10** queries return an expected source in the top 3.
 

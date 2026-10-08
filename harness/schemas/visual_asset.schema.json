@@ -99,12 +99,29 @@
     "reviewed": {
       "type": "string",
       "enum": [
-        "pixels"
+        "pixels",
+        "numbers"
       ],
-      "description": "set when corpus/visual/recaptions.jsonl overrides the batch caption after a pixel review"
+      "description": "pixels: caption re-read against the picture; numbers: only text_seen/numbers_seen re-read (set from corpus/visual/recaptions.jsonl)"
     },
     "review_note": {
       "type": "string"
+    },
+    "caption_checked": {
+      "type": "boolean",
+      "description": "true only with reviewed=pixels"
+    },
+    "numbers_pixel_only": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ocr_conf": {
+      "type": [
+        "number",
+        "null"
+      ]
     }
   },
   "required": [

@@ -206,7 +206,18 @@ def _vision_assets(report):
                "path": it["path"], "text_seen": str(d.get("text_seen", "")), "numbers_seen": [str(x) for x in d.get("numbers_seen") or []],
                "caption_src": "vision"}
         if aid in over:
-            rec["reviewed"], rec["review_note"] = over[aid]["reviewed"], over[aid]["review_note"]
+            o_ = over[aid]
+            # 'pixels' means the CAPTION was re-read (rewritten, or confirmed as faithful); a record that only re-read
+            # text_seen/numbers_seen is 'numbers' whatever it says, so it can never pass as a caption review
+            caption_read = (o_.get("caption_en") and o_.get("caption_ar")) or o_.get("caption_confirmed") is True
+            rec["reviewed"] = "pixels" if (o_.get("reviewed") == "pixels" and caption_read) else "numbers"
+            rec["review_note"] = o_["review_note"]
+            if rec["reviewed"] == "pixels":
+                rec["caption_checked"] = True
+                if o_.get("numbers_pixel_only"):
+                    rec["numbers_pixel_only"] = [str(x) for x in o_["numbers_pixel_only"]]
+            elif o_.get("reviewed") == "pixels":
+                report.setdefault("recaption_demoted", []).append(aid)
         if o.get("mean_conf") is not None:
             rec["ocr_conf"] = o["mean_conf"]
         if it.get("chapter"):
@@ -331,6 +342,7 @@ def _write_report(rep, counts, total, collisions):
          f"- images without a caption (not in the merged file): {len(rep['uncaptioned'])}",
          f"- pixel-verified recaptions applied over the batch captions (corpus/visual/recaptions.jsonl): {rep.get('recaptions', 0)}; "
          f"ids not in the image list: {len(rep.get('recaption_unknown_ids', []))}",
+         f"- recaptions that claimed `pixels` without re-reading the caption (kept as `numbers`): {len(rep.get('recaption_demoted', []))}",
          f"- duplicate caption ids across batches (last wins): {len(rep['duplicate_caption_ids'])}",
          f"- asset_id collisions between sources (first kept): {len(collisions)}", ""]
     if short:
@@ -369,3 +381,5 @@ def register_visual(vs):
     s.set_defaults(fn="visual_merge.cmd_merge")
     from . import visual_audit
     visual_audit.register_audit(vs)
+    from . import visual_review
+    visual_review.register(vs)

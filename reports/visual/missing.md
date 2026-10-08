@@ -1,13 +1,14 @@
 # Visual assets merge: completeness
 
-Created 2026-10-07T17:44:12Z by `dc visual merge`.
+Created 2026-10-08T06:37:50Z by `dc visual merge`.
 
 - listed images (images.jsonl): 752; captioned: 752; with OCR: 752
 - merged assets: 1303; by kind: hub_section 150, legacy_shot 400, mermaid 1, png_scene 21, render_keyframe 212, slide 519
 - caption batches: 31; batches with a missing output or fewer lines than items: 0
 - caption lines repaired (unescaped quotes inside a string): 4; unparsable even after repair: 0
 - images without a caption (not in the merged file): 0
-- pixel-verified recaptions applied over the batch captions (corpus/visual/recaptions.jsonl): 168; ids not in the image list: 0
+- pixel-verified recaptions applied over the batch captions (corpus/visual/recaptions.jsonl): 501; ids not in the image list: 0
+- recaptions that claimed `pixels` without re-reading the caption (kept as `numbers`): 0
 - duplicate caption ids across batches (last wins): 0
 - asset_id collisions between sources (first kept): 0
 

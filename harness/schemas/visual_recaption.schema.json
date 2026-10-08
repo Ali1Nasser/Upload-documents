@@ -4,19 +4,121 @@
   "title": "visual/recaptions.jsonl record: pixel-verified override of one vision caption (merged over the batch caption by `dc visual merge`)",
   "type": "object",
   "properties": {
-    "v": {"type": "integer", "minimum": 1},
-    "asset_id": {"type": "string", "pattern": "^v:[0-9a-f]{12}(@\\d+)?$"},
-    "caption_en": {"type": "string", "minLength": 20},
-    "caption_ar": {"type": "string", "minLength": 10},
-    "concepts": {"type": "array", "items": {"type": "string", "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"}},
-    "layout": {"type": "string"},
-    "text_seen": {"type": "string"},
-    "numbers_seen": {"type": "array", "items": {"type": "string"}},
-    "reusable_idea": {"type": "string"},
-    "reuse_mode": {"type": "string", "enum": ["reference", "data", "do-not-use"]},
-    "quality": {"type": "integer", "minimum": 1, "maximum": 5, "description": "librarian scale 1-5 (mapped to 0-3 by the merge)"},
-    "reviewed": {"type": "string", "enum": ["pixels"]},
-    "review_note": {"type": "string", "minLength": 10}
+    "v": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "asset_id": {
+      "type": "string",
+      "pattern": "^v:[0-9a-f]{12}(@\\d+)?$"
+    },
+    "caption_en": {
+      "type": "string",
+      "minLength": 20
+    },
+    "caption_ar": {
+      "type": "string",
+      "minLength": 10
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^c:[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    },
+    "layout": {
+      "type": "string"
+    },
+    "text_seen": {
+      "type": "string"
+    },
+    "numbers_seen": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reusable_idea": {
+      "type": "string"
+    },
+    "reuse_mode": {
+      "type": "string",
+      "enum": [
+        "reference",
+        "data",
+        "do-not-use"
+      ]
+    },
+    "quality": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 5,
+      "description": "librarian scale 1-5 (mapped to 0-3 by the merge)"
+    },
+    "reviewed": {
+      "type": "string",
+      "enum": [
+        "pixels",
+        "numbers"
+      ],
+      "description": "pixels = the caption itself was re-read against the picture (caption_en+caption_ar rewritten, or caption_confirmed true); numbers = only text_seen/numbers_seen were re-read (never counts as a caption review)"
+    },
+    "review_note": {
+      "type": "string",
+      "minLength": 10
+    },
+    "caption_confirmed": {
+      "type": "boolean",
+      "description": "true when the reviewer re-read the existing batch caption against the picture and found it faithful"
+    },
+    "numbers_pixel_only": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "numbers visible in the picture that OCR cannot read (listed so the audit accepts them for a keyframe); needs reviewed=pixels"
+    }
   },
-  "required": ["v", "asset_id", "numbers_seen", "reviewed", "review_note"]
+  "required": [
+    "v",
+    "asset_id",
+    "numbers_seen",
+    "reviewed",
+    "review_note"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "reviewed": {
+            "const": "pixels"
+          }
+        },
+        "required": [
+          "reviewed"
+        ]
+      },
+      "then": {
+        "anyOf": [
+          {
+            "required": [
+              "caption_en",
+              "caption_ar"
+            ]
+          },
+          {
+            "required": [
+              "caption_confirmed"
+            ],
+            "properties": {
+              "caption_confirmed": {
+                "const": true
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

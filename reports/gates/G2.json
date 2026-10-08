@@ -5,7 +5,7 @@
     {
       "name": "canon_validates",
       "pass": true,
-      "detail": "20 canon files schema-valid (0 errors); chapters 37/37, shots 200/200, data-contract facts 103 (arithmetic checks ok: True), glossary terms 232, patterns 22/22"
+      "detail": "20 canon files schema-valid (0 errors); chapters 37/37, shots 200/200, data-contract facts 127 (arithmetic checks ok: True), glossary terms 232, patterns 22/22"
     },
     {
       "name": "nblm_scenes_parsed",
@@ -16,6 +16,11 @@
       "name": "canon_numbers_faithful",
       "pass": true,
       "detail": "687 NotebookLM scene numbers checked against their scene text: 0 split or invented; markdown table escapes left in chapters.json/glossary.json: 0"
+    },
+    {
+      "name": "data_contract_complete",
+      "pass": true,
+      "detail": "127 facts over 21 sections of master.md section 6; 23 spelled-out numbers found in the text, 0 without a fact; facts without a chapter: 0; required numbers (11/7/5/2, 9, 4, 9, 10, 0, 30, 14, 0, 16, 10 000) with their chapters: 14/14"
     },
     {
       "name": "cues_imported",
@@ -30,12 +35,12 @@
     {
       "name": "visual_captions_match_pixels",
       "pass": true,
-      "detail": "752 vision captions audited against the images (ink threshold 0.003); 'blank/corrupt' claims 0, of which contradicted by the pixels 0; numbers_seen not backed by any recorded text 0; unreadable images 0; pixel-verified recaptions in corpus/visual/recaptions.jsonl: 168"
+      "detail": "752 vision captions audited against the images (ink threshold 0.003); 'blank/corrupt' claims 0, of which contradicted by the pixels 0; numbers_seen not backed by any recorded text 0; unreadable images 0; pixel-verified recaptions in corpus/visual/recaptions.jsonl: 501"
     },
     {
       "name": "hub_harvest",
       "pass": true,
-      "detail": "report present (docs/handoffs/PHASE-02-hub.md); knowledge sections 2207/2207, crash steps 79/79, shots 150/150, items 4180"
+      "detail": "report present (docs/handoffs/PHASE-02-hub.md); heading roots {'DA Camp — Consolidated Knowledge Base': 2147, 'DA CAMP — SUPERSET CONSOLIDATED CONTENT': 58} (non-heading roots: none); knowledge sections 2205/2205, crash steps 79/79, shots 150/150, items 4180"
     },
     {
       "name": "text_distilled",
@@ -53,5 +58,5 @@
       "detail": "10/10 queries return the expected source in the top 3 (BM25 only (dense vectors not built); reports/retrieval_smoke.md"
     }
   ],
-  "created": "2026-10-07T17:44:46Z"
+  "created": "2026-10-08T06:37:54Z"
 }
