@@ -9,9 +9,9 @@ G3 passes (13/13): `python3 tools/dc.py gate check G3` -> `reports/gates/G3.json
 | S2 `a:S2:ar-esraa` | 6,644 | 0.806 | optional, none | script text (s2_script_id), MMS |
 | S3 41 TTS clips | 7,126 | 0.869 (no clip < 0.70) | none | script text per clip, MMS (CH-14, CH-33 `_vo` aligned jointly) |
 | S5 `a:S5:en-natural` | 8,643 | 0.997 | none | English script, MMS |
-| S4 27 parts (P00, P00b, P01-P25) | 30,460 (31,008 ASR words) | 0.835 (parts 0.778-0.90, median of parts 0.824) | 2,564 | whisper turbo, polished, MMS re-alignment of the polished text |
+| S4 27 parts (P00, P00b, P01-P25) | 30,460 (31,008 ASR words) | 0.835 (parts 0.778-0.995, median of parts 0.824) | 2,564 | whisper turbo, polished, MMS re-alignment of the polished text |
 
-S4 low-confidence words (< 0.3): 1,201 of 30,460 (3.9 %). Latin terms align worst (median conf about 0.50 on P05: MMS has no Latin letters, uroman guesses). 0 fallback segments. Every sentence has a gloss; `impact_words` on 3,120 of 3,126 S1+S4 sentences (the rest are 1-3 word sentences with only stop words); every word has `prominence` (z-score of RMS, f0 range and duration, plus lexical bonus number 2.0 > term 1.5 > contrast 1.0 > change 0.8).
+S4 low-confidence words (< 0.3): 1,201 of 30,460 (3.9 %). Latin terms align worst (median conf about 0.50 on P05: MMS has no Latin letters, uroman guesses). 0 fallback segments. Every sentence has a gloss; `impact_words` on 3,120 of 3,126 S1+S4 sentences (the 6 others have 5-7 words, all stop words or low confidence); every word has `prominence` (z-score of RMS, f0 range and duration, plus lexical bonus number 2.0 > term 1.5 > contrast 1.0 > change 0.8).
 
 ## Polish (S4; `corpus/transcripts/a_S4_Pnn.polish.json`, original indices kept)
 Inputs: 27/27 `data/derived/polish/a_S4_*.out.json` and 6/6 `S1_batch_*.out.json` present, valid (`validate_out`), sentence ranges contiguous with no gap or overlap, none over 28 words; no repair was needed. Applied with `dc asr polish-apply all` (queued, cached emissions), then `dc asr sentences all`, `dc asr emphasis all`.
