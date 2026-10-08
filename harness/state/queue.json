@@ -639,43 +639,43 @@
       "exit": "0"
     },
     "58": {
-      "label": "hubshots-fusion",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python /home/user/Upload-documents/tools/dc.py corpus hub shots --build fusion --max-shots 25 --worker --force",
+      "label": "g3v-dropout",
+      "cmd": ".venv/bin/python -I /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/dropout.py",
       "tsp_id": 58,
       "status": "done",
-      "mem_gb": 1.8,
-      "expected_gb": 0.3,
+      "mem_gb": 5.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-07T15:21:56Z",
-      "updated": "2026-10-07T15:23:34Z",
-      "exit": "0"
+      "submitted": "2026-10-08T14:56:02Z",
+      "exit": "0",
+      "updated": "2026-10-08T15:01:02Z"
     },
     "59": {
-      "label": "align-S1-mms",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py align scripted a:S1:ar-natural --inline",
+      "label": "g3v-dropout2",
+      "cmd": ".venv/bin/python -I /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/dropout2.py",
       "tsp_id": 59,
       "status": "done",
-      "mem_gb": 2.0,
-      "expected_gb": 0.3,
+      "mem_gb": 5.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-07T15:52:18Z",
+      "submitted": "2026-10-08T15:03:41Z",
       "exit": "0",
-      "updated": "2026-10-07T15:53:33Z"
+      "updated": "2026-10-08T15:04:13Z"
     },
     "60": {
-      "label": "align-S1-mms",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py align scripted a:S1:ar-natural --inline --force",
+      "label": "g3v-s2",
+      "cmd": ".venv/bin/python -I /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/s2chk.py",
       "tsp_id": 60,
       "status": "done",
-      "mem_gb": 2.0,
-      "expected_gb": 0.3,
+      "mem_gb": 4.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-07T16:05:30Z",
+      "submitted": "2026-10-08T15:05:44Z",
       "exit": "0",
-      "updated": "2026-10-07T16:05:54Z"
+      "updated": "2026-10-08T15:10:21Z"
     },
     "61": {
       "label": "align-S1-mms",
