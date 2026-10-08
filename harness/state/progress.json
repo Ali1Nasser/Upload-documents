@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "phase": "P3",
+  "phase": "P4",
   "gates": {
     "G0": {
       "status": "pass",
@@ -61,7 +61,7 @@
   },
   "blockers": [],
   "next_actions": [
-    "P3b: polish S4 (27 parts) + sentences/glosses, re-align, S2/S3/S5 scripted alignment, second CTC aligner (wav2vec2-ar) for agreement, emphasis, cross-checks, G3"
+    "P4: concepts, embeddings, idea units (calibrated threshold + adjudication), links, novelty/coverage/contradiction/order reports, G4"
   ],
-  "updated": "2026-10-08T14:50:34Z"
+  "updated": "2026-10-08T15:11:44Z"
 }
