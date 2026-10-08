@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "created": "2026-10-08T19:59:58Z",
+  "labelled": 0,
+  "adjudicated": 0,
+  "threshold": 0.8,
+  "best": null,
+  "note": "fewer than 50 labelled pairs: plan default 0.80, provisional",
+  "merges": {
+    "threshold": 189
+  },
+  "idea_units": 2974,
+  "multi_member": 100,
+  "novel_s4_only": 2413,
+  "dup_edges": 386
+}

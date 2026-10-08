@@ -5,7 +5,7 @@ import sys
 from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
-    "graph": "P4", "story": "P5", "spec": "P7/P8",
+    "story": "P5", "spec": "P7/P8",
     "render": "P6/P9", "sound": "P11", "qa": "P9", "deliver": "P14", "dag": "P0 (later)",
 }
 
@@ -196,6 +196,10 @@ def build():
     # visual (P2.7): group and subcommands live in visual.py
     from . import visual
     visual.register(sub)
+
+    # graph (P4): group and subcommands live in graph.py
+    from . import graph
+    graph.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():

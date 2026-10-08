@@ -1,0 +1,21 @@
+{
+  "v": 1,
+  "created": "2026-10-08T19:59:58Z",
+  "nodes": {
+    "Concept": 454,
+    "Pattern": 22,
+    "Chapter": 37,
+    "AudioAsset": 28,
+    "Sentence": 3126,
+    "IdeaUnit": 2974,
+    "VisualAsset": 1303
+  },
+  "edges": {
+    "uses": 166,
+    "contains": 3126,
+    "says": 3126,
+    "about": 3668,
+    "duplicates": 386,
+    "illustrates": 1891
+  }
+}
