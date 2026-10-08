@@ -3,6 +3,7 @@
 build       concepts (graph_concepts) -> corpus/graph/concepts.jsonl + definition batches; assembles nodes/edges from what exists
 embed       bge-m3 dense vectors (queued) for sentences, NotebookLM scenes, visual assets, concepts -> data/derived/vectors/g_<kind>.npy
 candidates  S4 -> top-5 S1 and top-3 other-S4 sentences; 200-pair stratified label sample; all borderline S4-S1 pairs for adjudication
+adjudicate2 rounds 2 (--round 2) and 3 (--round 3) of adjudication for S4 sentences still novel after the previous round
 apply       label outputs -> threshold sweep + F1; adjudications -> merge edges; union-find -> IdeaUnits; nodes/edges rewritten
 q           coverage | redundancy | novelty | order | contradictions | visual-candidates <iu> | continuity <chapter>
 export      Mermaid overview + counts -> reports/graph/overview.md
@@ -29,11 +30,22 @@ KINDS = ("sent", "scene", "asset", "concept", "fact")
 ALT_TAKES = {"a:S4:P00b": "a:S4:P00"}       # alternate take of part 0: same brief and voice, different script (word overlap 2.5 %)
 LABEL_SIZE, ADJ_SIZE, DEF_SIZE = 50, 60, 90
 ADJ_LO, ADJ_HI = 0.72, 0.86
+# second adjudication round (G4 verifier, 2026-10-08): restatements below ADJ_LO and at ranks 2-3 were never judged. For every
+# S4 sentence still novel after round 1: rank-1 S1 pairs in [ADJ2_R1_LO, ADJ_LO); rank 2-3 pairs in [ADJ2_RANK_LO, ADJ_LO) or in
+# the round-1 band; any rank <= 3 pair in [ADJ2_LO, ADJ_LO) that shares a number or >= 2 rare terms (S1 document freq <= RARE_DF).
+ADJ2_LO, ADJ2_R1_LO, ADJ2_RANK_LO, ADJ2_RANK_MAX, RARE_DF = 0.62, 0.66, 0.68, 3, 10
+# round 3 (after round 2 was applied; self-audit of the still-novel [0.62, 0.66) band found ~8/40 restatements): pairs whose
+# S4 sentence is still novel and shares >= 1 concept term with the S1 sentence; rank 1 with cos >= ADJ3_R1_LO, rank 2 with
+# cos >= ADJ2_LO
+ADJ3_R1_LO = 0.58
+ADJ_PREFIXES = ("adj", "adj2", "adj3")
 PAIR_FORMAT = {"pairs": [{"a": "<id a>", "b": "<id b>", "same": "true|false",
                           "relation": "same|subsumes|subsumed|related|different", "why": "<= 12 words"}]}
 DEF_FORMAT = {"concepts": [{"id": "c:<slug>", "def_en": "...", "def_ar_eg": "...", "requires": ["c:<id>", "..."],
                             "failure": "one common failure, <= 15 words"}]}
-RELATIONS = {"same", "subsumes", "subsumed", "related", "different"}
+RELATIONS = {"same", "subsumes", "subsumed", "related", "different",
+             "jointly_covered",      # adj2: b plus the S1 sentences in `with` together state all of a
+             "covered_by_other"}     # adj2: the S1 sentences in `with` (not b) state all of a
 
 
 def _sid_audio(sid):
@@ -79,11 +91,19 @@ def _nums(s):
     return sorted({_nnorm(x) for x in (s.get("numbers") or [])})
 
 
+NUM_VETO = {"disjoint", "partial"}          # number relations that block a merge; 'nested' (subset/superset) is compatible
+
+
 def _num_rel(na, nb):
-    """None when the two number sets agree or one side states none; 'disjoint' | 'partial' otherwise."""
-    if not na or not nb or set(na) == set(nb):
+    """None when the two number sets agree or one side states none; 'nested' when one set contains the other ({1007} vs
+    {1007, 9}: compatible, the larger side may add a detail); 'disjoint' (no shared number) | 'partial' (overlap, neither
+    contains the other) otherwise. Only NUM_VETO relations block a merge."""
+    A, B = set(na or ()), set(nb or ())
+    if not A or not B or A == B:
         return None
-    return "disjoint" if not set(na) & set(nb) else "partial"
+    if A <= B or B <= A:
+        return "nested"
+    return "disjoint" if not A & B else "partial"
 
 
 # ------------------------------------------------------------------ build (concepts + definition batches)
@@ -433,6 +453,71 @@ def cmd_candidates(args):
     return 0
 
 
+def load_adjs():
+    out = {}
+    for p in ADJ_PREFIXES:
+        out.update(_load_outs(p))
+    return out
+
+
+def cmd_adjudicate2(args):
+    """Second adjudication round over S4 sentences that are still novel vs the trunk (see ADJ2_* above)."""
+    S = {s["sent_id"]: s for s in sentences()}
+    ius = C.read_jsonl(os.path.join(GDIR, "idea_units.jsonl"))
+    novel = {m for u in ius if u["novel_vs_trunk"] for m in u["members"] if m.startswith("s:S4")}
+    rnd3 = getattr(args, "round", 2) == 3
+    prefix = "adj3" if rnd3 else "adj2"
+    judged = set(_load_outs("label")) | set(load_adjs() if rnd3 else _load_outs("adj"))
+    df = collections.Counter(t for s in S.values() if s["sent_id"].startswith("s:S1") for t in set(s.get("terms") or []))
+    pairs, why = [], collections.Counter()
+    for c in C.read_jsonl(os.path.join(GDIR, "candidates.jsonl")):
+        a, b, cs, r = c["a"], c["b"], c["cos"], c.get("rank", 9)
+        if c["kind"] != "S4-S1" or a not in novel or (a, b) in judged or r > ADJ2_RANK_MAX or a not in S or b not in S:
+            continue
+        shared_num = set(_nums(S[a])) & set(_nums(S[b]))
+        rare = {t for t in set(S[a].get("terms") or []) & set(S[b].get("terms") or []) if df[t] <= RARE_DF}
+        w = None
+        if rnd3:
+            shared_terms = set(S[a].get("terms") or []) & set(S[b].get("terms") or [])
+            if shared_terms and ((r == 1 and ADJ3_R1_LO <= cs < ADJ_LO) or (r == 2 and ADJ2_LO <= cs < ADJ_LO)):
+                why[f"rank{r}_shared_term"] += 1
+                pairs.append(dict(c, why=f"rank{r}_shared_term"))
+            continue
+        if ADJ_LO <= cs <= ADJ_HI:
+            w = f"band_rank{r}"
+        elif r == 1 and ADJ2_R1_LO <= cs < ADJ_LO:
+            w = "rank1_low"
+        elif ADJ2_RANK_LO <= cs < ADJ_LO:
+            w = f"rank{r}_low"
+        elif ADJ2_LO <= cs < ADJ_LO and (shared_num or len(rare) >= 2):
+            w = "shared_number" if shared_num else "shared_rare_terms"
+        if w:
+            why[w] += 1
+            pairs.append(dict(c, why=w))
+    pairs.sort(key=lambda c: (c["a"], c["rank"]))
+    print(json.dumps({"novel_s4_sentences": len(novel), "pairs": len(pairs), "s4_sentences": len({c["a"] for c in pairs}),
+                      "by_reason": dict(why)}))
+    if args.dry_run:
+        return 0
+    if glob.glob(os.path.join(GDIR, f"{prefix}_batch_*.out.json")) and not args.force:
+        raise SystemExit(f"{prefix} outputs exist (the pool depends on the current idea units); pass --force to rewrite the batches")
+    paths = _write_pair_batches(prefix, pairs, ADJ_SIZE, S, (
+        f"Round-{3 if rnd3 else 2} adjudication: S4 (NotebookLM part) sentence a vs trunk (S1) sentence b. Question: does a restate b, i.e. the "
+        "same claim at the same level of detail (a viewer who heard b learns nothing new from a)? same=true only then. If b states "
+        "everything a states and more, relation=subsumed (a is then covered by the trunk). If a adds a detail, number, example or "
+        "qualifier that b lacks, relation=subsumes. Same topic but a different claim => related. Never merge claims that differ in "
+        "numbers or scope. Judge from the Arabic text; gloss_en is a helper. why <= 12 words. Return one object per pair (a, b "
+        "exactly as given) as JSON to output_path."))
+    st = C.read_json(os.path.join(GDIR, "candidates_stats.json")) or {}
+    st["adjudication3" if rnd3 else "adjudication2"] = {
+        "created": C.now_iso(), "pairs": len(pairs), "by_reason": dict(why), "batches": [C.rel(p) for p in paths],
+        "rule": {"ADJ3_R1_LO": ADJ3_R1_LO, "ADJ2_LO": ADJ2_LO, "shared_terms": ">= 1"} if rnd3 else
+        {"ADJ2_LO": ADJ2_LO, "ADJ2_R1_LO": ADJ2_R1_LO, "ADJ2_RANK_LO": ADJ2_RANK_LO, "ADJ2_RANK_MAX": ADJ2_RANK_MAX, "RARE_DF": RARE_DF}}
+    C.write_json(os.path.join(GDIR, "candidates_stats.json"), st)
+    print(f"{prefix} batches: {len(paths)}")
+    return 0
+
+
 def _median(xs):
     xs = sorted(xs)
     return round(xs[len(xs) // 2], 4) if xs else None
@@ -475,7 +560,8 @@ def _load_outs(prefix):
         for p in (C.read_json(f) or {}).get("pairs", []):
             rel = p.get("relation") if p.get("relation") in RELATIONS else ("same" if p.get("same") else "different")
             same = _truthy(p.get("same")) and rel == "same"
-            out[(p["a"], p["b"])] = {"same": same, "relation": rel, "why": p.get("why", ""), "file": os.path.basename(f)}
+            out[(p["a"], p["b"])] = {"same": same, "relation": rel, "why": p.get("why", ""), "file": os.path.basename(f),
+                                     "with": [w for w in (p.get("with") or []) if isinstance(w, str) and w.startswith("s:S1:")]}
     return out
 
 
@@ -585,6 +671,11 @@ def register(sub):
     s.add_argument("--n-label", type=int, default=200)
     s.add_argument("--seed", type=int, default=4)
     s.set_defaults(fn="graph.cmd_candidates")
+    s = g.add_parser("adjudicate2", help="second adjudication round for still-novel S4 sentences (adj2 batches)")
+    s.add_argument("--dry-run", action="store_true")
+    s.add_argument("--force", action="store_true", help="rewrite the batches even when outputs exist")
+    s.add_argument("--round", type=int, choices=(2, 3), default=2, help="3 = shared-term pass after round 2 is applied")
+    s.set_defaults(fn="graph.cmd_adjudicate2")
     s = g.add_parser("apply", help="labels/adjudications -> threshold, merges, idea units, nodes/edges")
     s.add_argument("--threshold", type=float, default=None)
     s.set_defaults(fn="graph.cmd_apply")

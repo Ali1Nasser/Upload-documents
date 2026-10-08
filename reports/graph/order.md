@@ -1,6 +1,6 @@
 # Prerequisite order vs the S1 trunk
 
-Generated 2026-10-08T20:20:01Z by `dc graph report`.
+Generated 2026-10-08T20:50:27Z by `dc graph report`.
 
 935 `requires` edges (definition batches); 296 concepts first mentioned in S1. A violation = concept X first mentioned in S1 before its prerequisite Y.
 

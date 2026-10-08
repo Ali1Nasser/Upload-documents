@@ -1,9 +1,9 @@
 {
   "v": 1,
-  "created": "2026-10-08T20:20:01Z",
+  "created": "2026-10-08T20:50:27Z",
   "sentence_pairs": [],
-  "scope_pairs": 3,
-  "fact_mismatch_threshold": 0.599,
+  "scope_pairs": 0,
+  "fact_mismatch_threshold": 0.602,
   "fact_mismatch": [
     {
       "sent_id": "s:S4:P00b:0023",
@@ -483,59 +483,6 @@
       ],
       "fact_value": "12 500 pages",
       "gloss_en": "And each one has 3 copies, so that is 24 copies, fully protected."
-    },
-    {
-      "sent_id": "s:S4:P17:0081",
-      "fact": "d:6.9:1",
-      "cos": 0.601,
-      "sentence_numbers": [
-        "4"
-      ],
-      "fact_numbers": [
-        "1"
-      ],
-      "fact_value": "k = 1",
-      "gloss_en": "But on the right, after masking, the number is masked and only the last four digits are visible, and the name only the first letter."
-    },
-    {
-      "sent_id": "s:S4:P20:0030",
-      "fact": "d:6.11:4",
-      "cos": 0.601,
-      "sentence_numbers": [
-        "7"
-      ],
-      "fact_numbers": [
-        "10"
-      ],
-      "fact_value": "Ten",
-      "gloss_en": "Here for example we have seven records matching completely."
-    },
-    {
-      "sent_id": "s:S1:ar-natural:0527",
-      "fact": "d:6.11:1",
-      "cos": 0.6,
-      "sentence_numbers": [
-        "95"
-      ],
-      "fact_numbers": [
-        "500"
-      ],
-      "fact_value": "500 ms",
-      "gloss_en": "Here is the incident: the p95 is climbing and the error rate is completely flat, which is the fingerprint of a saturating resource rather than a bug."
-    },
-    {
-      "sent_id": "s:S4:P14:0067",
-      "fact": "d:6.20:8",
-      "cos": 0.599,
-      "sentence_numbers": [
-        "100",
-        "101"
-      ],
-      "fact_numbers": [
-        "10000"
-      ],
-      "fact_value": "10 000",
-      "gloss_en": "That is 101 queries just for 100 records."
     }
   ],
   "canon": [

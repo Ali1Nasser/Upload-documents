@@ -1,8 +1,8 @@
 # Idea-unit threshold calibration (G4)
 
-Generated 2026-10-08T20:19:09Z by `dc graph apply`.
+Generated 2026-10-08T20:50:23Z by `dc graph apply`.
 
-Labelled pairs: **200** (Educator lens; 63 same; kinds {'S4-S4': 90, 'S4-S1': 110}; relations {'subsumes': 21, 'related': 51, 'different': 42, 'same': 63, 'subsumed': 23}). Adjudicated borderline pairs: 241. Missing batch outputs: none (15/15 judged).
+Labelled pairs: **200** (Educator lens; 63 same; kinds {'S4-S4': 90, 'S4-S1': 110}; relations {'subsumes': 21, 'related': 51, 'different': 42, 'same': 63, 'subsumed': 23}). Adjudicated borderline pairs: 1272. Missing batch outputs: none (34/34 batches judged).
 
 ## Result
 
@@ -13,7 +13,7 @@ Labelled pairs: **200** (Educator lens; 63 same; kinds {'S4-S4': 90, 'S4-S1': 11
 
 Cosine alone peaks at F1 0.803 (target 0.85 not reached). The applied rule (claims with different numbers are never merged; a pair in the adjudication band 0.72-0.86 that is a best-S1 match takes the LLM adjudication; everything else uses cos >= tau) reaches F1 0.876 at tau 0.81. The CV column picks tau on 4/5 of the labels and scores the held-out 1/5 (pooled); CV taus: cosine [0.81, 0.81, 0.81, 0.83, 0.81], combined [0.81, 0.81, 0.81, 0.81, 0.81].
 
-Adjudicator vs labels on the 44 pairs present in both: 38/44 agree. Number veto fired on 7 labelled pairs (0 of them labelled same).
+Adjudicator vs labels on the 44 pairs present in both: 38/44 agree. Number veto (disjoint or partially overlapping number sets) fired on 5 labelled pairs (0 of them labelled same). Nested number sets (one contains the other) are compatible: 2 labelled pairs, 0 labelled same.
 
 ## Confusion, applied rule at tau 0.81
 
@@ -69,9 +69,9 @@ Adjudicator vs labels on the 44 pairs present in both: 38/44 agree. Number veto 
 
 ## Merge outcome
 
-- merges by source: {'threshold': 60, 'label': 63, 'adjudicated': 75}
-- pair edges by relation: {'same': 198, 'subsumes': 122, 'scope_differs': 3}
-- idea units: 2957 (121 multi-member; largest 19 sentences; size histogram {'1': 2836, '2': 107, '3': 5, '4': 1, '5': 5, '6': 1, '7': 1, '19': 1})
-- novel vs trunk: 2321 of 2498 units with S4 audio; 75 units count as covered only because an S1 sentence subsumes them
+- merges by source: {'threshold': 60, 'adjudicated': 186, 'label': 63}
+- pair edges by relation: {'same': 309, 'subsumes': 290, 'jointly_covers': 75, 'covers': 99}
+- idea units: 2846 (217 multi-member; largest 19 sentences; size histogram {'1': 2629, '2': 190, '3': 16, '4': 3, '5': 5, '6': 1, '7': 1, '19': 1})
+- novel vs trunk: 1979 of 2484 units with S4 audio; 306 units count as covered only because an S1 sentence subsumes them
 
 Reversibility: every decision (label, adjudication or threshold) is in `data/derived/graph/decisions.jsonl` and on the edge evidence; re-running `dc graph apply --threshold X` rebuilds the units.

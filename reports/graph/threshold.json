@@ -1,10 +1,17 @@
 {
   "v": 1,
-  "created": "2026-10-08T20:19:09Z",
+  "created": "2026-10-08T20:50:23Z",
   "threshold": 0.81,
-  "rule": "number veto -> adjudication if present -> cos >= tau",
+  "rule": "number veto (disjoint or partial number sets; nested sets compatible) -> adjudication (rounds adj, adj2, adj3) if present -> cos >= tau (nested numbers on cosine alone -> directed subsumes, not merged)",
   "missing_batches": [],
-  "adjudicated": 241,
+  "batches": 34,
+  "batches_judged": 34,
+  "adjudicated": 1272,
+  "adjudicated_by_round": {
+    "adj": 241,
+    "adj2": 728,
+    "adj3": 303
+  },
   "labelled": 200,
   "labelled_same": 63,
   "relations": {
@@ -18,8 +25,10 @@
     "S4-S4": 90,
     "S4-S1": 110
   },
-  "number_vetoed": 7,
+  "number_vetoed": 5,
   "number_vetoed_gold_same": 0,
+  "number_nested": 2,
+  "number_nested_gold_same": 0,
   "cos_only": {
     "threshold": 0.81,
     "tp": 55,
@@ -109,30 +118,31 @@
   "f1": 0.876,
   "merges": {
     "threshold": 60,
-    "label": 63,
-    "adjudicated": 75
+    "adjudicated": 186,
+    "label": 63
   },
   "edges": {
-    "same": 198,
-    "subsumes": 122,
-    "scope_differs": 3
+    "same": 309,
+    "subsumes": 290,
+    "jointly_covers": 75,
+    "covers": 99
   },
-  "idea_units": 2957,
-  "multi_member": 121,
+  "idea_units": 2846,
+  "multi_member": 217,
   "largest_unit": 19,
   "size_hist": {
-    "1": 2836,
-    "2": 107,
-    "3": 5,
-    "4": 1,
+    "1": 2629,
+    "2": 190,
+    "3": 16,
+    "4": 3,
     "5": 5,
     "6": 1,
     "7": 1,
     "19": 1
   },
-  "s4_units": 2498,
-  "novel_vs_trunk": 2321,
-  "covered_by_subsumption": 75,
+  "s4_units": 2484,
+  "novel_vs_trunk": 1979,
+  "covered_by_subsumption": 306,
   "sentence_files_rewritten": 28,
   "sentences_with_unit": 3126,
   "sentences": 3126,

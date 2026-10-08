@@ -1,12 +1,12 @@
 {
   "v": 1,
-  "created": "2026-10-08T20:20:01Z",
+  "created": "2026-10-08T20:50:27Z",
   "totals": {
     "concepts": 454,
-    "S1": 301,
-    "S4": 430,
-    "S4_only": 142,
-    "S1_only": 13,
+    "S1": 304,
+    "S4": 432,
+    "S4_only": 139,
+    "S1_only": 11,
     "no_audio": 11
   },
   "domains": [
@@ -176,7 +176,7 @@
       ],
       "concepts": 50,
       "S1": 37,
-      "S4": 46,
+      "S4": 47,
       "scenes": 20,
       "visual": 38,
       "no_audio": [
@@ -251,7 +251,7 @@
       ],
       "concepts": 69,
       "S1": 51,
-      "S4": 65,
+      "S4": 66,
       "scenes": 26,
       "visual": 51,
       "no_audio": [
@@ -338,7 +338,7 @@
       ],
       "concepts": 36,
       "S1": 21,
-      "S4": 33,
+      "S4": 34,
       "scenes": 13,
       "visual": 21,
       "no_audio": [],
@@ -366,7 +366,7 @@
       ],
       "concepts": 50,
       "S1": 30,
-      "S4": 47,
+      "S4": 48,
       "scenes": 23,
       "visual": 33,
       "no_audio": [],
@@ -389,7 +389,7 @@
       ],
       "concepts": 62,
       "S1": 42,
-      "S4": 58,
+      "S4": 59,
       "scenes": 24,
       "visual": 43,
       "no_audio": [
@@ -409,7 +409,7 @@
       ],
       "concepts": 49,
       "S1": 36,
-      "S4": 45,
+      "S4": 46,
       "scenes": 19,
       "visual": 37,
       "no_audio": [
@@ -447,7 +447,7 @@
         "CH-26"
       ],
       "concepts": 15,
-      "S1": 9,
+      "S1": 11,
       "S4": 13,
       "scenes": 9,
       "visual": 12,
@@ -466,8 +466,8 @@
         "CH-28"
       ],
       "concepts": 32,
-      "S1": 21,
-      "S4": 30,
+      "S1": 22,
+      "S4": 31,
       "scenes": 13,
       "visual": 22,
       "no_audio": [],
@@ -726,7 +726,7 @@
       "scenes": 7,
       "visual": 24,
       "S1_units": 4,
-      "S4_units": 15
+      "S4_units": 14
     },
     {
       "id": "c:partition",
@@ -756,7 +756,7 @@
       "S4": 11,
       "scenes": 4,
       "visual": 13,
-      "S1_units": 3,
+      "S1_units": 4,
       "S4_units": 11
     },
     {
@@ -768,7 +768,7 @@
       "scenes": 7,
       "visual": 1,
       "S1_units": 8,
-      "S4_units": 12
+      "S4_units": 13
     },
     {
       "id": "c:test",
@@ -782,7 +782,7 @@
       "scenes": 3,
       "visual": 11,
       "S1_units": 16,
-      "S4_units": 31
+      "S4_units": 32
     },
     {
       "id": "c:join",
@@ -795,7 +795,7 @@
       "S4": 21,
       "scenes": 1,
       "visual": 54,
-      "S1_units": 8,
+      "S1_units": 9,
       "S4_units": 22
     },
     {
@@ -808,7 +808,7 @@
       "S4": 19,
       "scenes": 1,
       "visual": 23,
-      "S1_units": 7,
+      "S1_units": 8,
       "S4_units": 20
     },
     {
@@ -822,7 +822,7 @@
       "S4": 15,
       "scenes": 7,
       "visual": 41,
-      "S1_units": 4,
+      "S1_units": 5,
       "S4_units": 15
     },
     {
@@ -839,7 +839,7 @@
       "scenes": 5,
       "visual": 22,
       "S1_units": 3,
-      "S4_units": 16
+      "S4_units": 17
     },
     {
       "id": "c:etl",
@@ -868,7 +868,7 @@
       "scenes": 6,
       "visual": 11,
       "S1_units": 4,
-      "S4_units": 2
+      "S4_units": 4
     },
     {
       "id": "c:embedding",
@@ -894,8 +894,8 @@
       "S4": 19,
       "scenes": 1,
       "visual": 0,
-      "S1_units": 10,
-      "S4_units": 23
+      "S1_units": 12,
+      "S4_units": 22
     },
     {
       "id": "c:file-permissions",
@@ -909,7 +909,7 @@
       "scenes": 1,
       "visual": 13,
       "S1_units": 3,
-      "S4_units": 37
+      "S4_units": 38
     },
     {
       "id": "c:container",
@@ -920,7 +920,7 @@
       "scenes": 0,
       "visual": 4,
       "S1_units": 4,
-      "S4_units": 14
+      "S4_units": 13
     },
     {
       "id": "c:skew",
@@ -933,7 +933,7 @@
       "S4": 5,
       "scenes": 1,
       "visual": 6,
-      "S1_units": 3,
+      "S1_units": 2,
       "S4_units": 5
     },
     {
@@ -978,8 +978,8 @@
       "S4": 26,
       "scenes": 1,
       "visual": 45,
-      "S1_units": 10,
-      "S4_units": 28
+      "S1_units": 11,
+      "S4_units": 29
     },
     {
       "id": "c:pipeline",
@@ -990,7 +990,7 @@
       "scenes": 1,
       "visual": 37,
       "S1_units": 8,
-      "S4_units": 43
+      "S4_units": 44
     },
     {
       "id": "c:sql",
@@ -1001,7 +1001,7 @@
       "scenes": 0,
       "visual": 57,
       "S1_units": 5,
-      "S4_units": 46
+      "S4_units": 47
     },
     {
       "id": "c:python",
@@ -1107,7 +1107,7 @@
       "scenes": 0,
       "visual": 21,
       "S1_units": 3,
-      "S4_units": 16
+      "S4_units": 17
     },
     {
       "id": "c:data-warehouse",
@@ -1120,7 +1120,7 @@
       "scenes": 0,
       "visual": 23,
       "S1_units": 6,
-      "S4_units": 11
+      "S4_units": 12
     },
     {
       "id": "c:group-by",
@@ -1136,7 +1136,7 @@
       "scenes": 5,
       "visual": 39,
       "S1_units": 10,
-      "S4_units": 27
+      "S4_units": 28
     },
     {
       "id": "c:ods",
@@ -1162,7 +1162,7 @@
       "scenes": 0,
       "visual": 4,
       "S1_units": 2,
-      "S4_units": 40
+      "S4_units": 42
     },
     {
       "id": "c:shuffle",
@@ -1205,7 +1205,7 @@
       "S4": 12,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 8,
+      "S1_units": 10,
       "S4_units": 14
     },
     {
@@ -1235,7 +1235,7 @@
       "scenes": 3,
       "visual": 1,
       "S1_units": 4,
-      "S4_units": 9
+      "S4_units": 10
     },
     {
       "id": "c:constraint",
@@ -1248,8 +1248,8 @@
       "S4": 37,
       "scenes": 3,
       "visual": 11,
-      "S1_units": 21,
-      "S4_units": 39
+      "S1_units": 23,
+      "S4_units": 40
     },
     {
       "id": "c:retrieval-augmented-generation",
@@ -1270,8 +1270,8 @@
       "S4": 43,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 11,
-      "S4_units": 46
+      "S1_units": 13,
+      "S4_units": 48
     },
     {
       "id": "c:connection-pool",
@@ -1341,7 +1341,7 @@
       "S4": 14,
       "scenes": 0,
       "visual": 9,
-      "S1_units": 2,
+      "S1_units": 3,
       "S4_units": 14
     },
     {
@@ -1354,7 +1354,7 @@
       "S4": 165,
       "scenes": 7,
       "visual": 0,
-      "S1_units": 21,
+      "S1_units": 27,
       "S4_units": 163
     },
     {
@@ -1427,8 +1427,8 @@
       "S4": 206,
       "scenes": 3,
       "visual": 6,
-      "S1_units": 27,
-      "S4_units": 207
+      "S1_units": 37,
+      "S4_units": 209
     },
     {
       "id": "c:sargable",
@@ -1441,7 +1441,7 @@
       "scenes": 1,
       "visual": 2,
       "S1_units": 1,
-      "S4_units": 2
+      "S4_units": 3
     },
     {
       "id": "c:java",
@@ -1465,7 +1465,7 @@
       "scenes": 0,
       "visual": 16,
       "S1_units": 7,
-      "S4_units": 29
+      "S4_units": 28
     },
     {
       "id": "c:streaming",
@@ -1480,8 +1480,8 @@
       "S4": 19,
       "scenes": 0,
       "visual": 11,
-      "S1_units": 4,
-      "S4_units": 19
+      "S1_units": 5,
+      "S4_units": 21
     },
     {
       "id": "c:function",
@@ -1529,7 +1529,7 @@
       "S4": 9,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 2,
+      "S1_units": 3,
       "S4_units": 11
     },
     {
@@ -1542,7 +1542,7 @@
       "S4": 15,
       "scenes": 0,
       "visual": 13,
-      "S1_units": 4,
+      "S1_units": 6,
       "S4_units": 15
     },
     {
@@ -1569,7 +1569,7 @@
       "S4": 9,
       "scenes": 0,
       "visual": 1,
-      "S1_units": 5,
+      "S1_units": 6,
       "S4_units": 9
     },
     {
@@ -1582,8 +1582,8 @@
       "S4": 5,
       "scenes": 0,
       "visual": 8,
-      "S1_units": 6,
-      "S4_units": 5
+      "S1_units": 7,
+      "S4_units": 6
     },
     {
       "id": "c:metric-type",
@@ -1595,8 +1595,8 @@
       "S4": 18,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 5,
-      "S4_units": 18
+      "S1_units": 7,
+      "S4_units": 20
     },
     {
       "id": "c:rollback",
@@ -1660,8 +1660,8 @@
       "S4": 5,
       "scenes": 3,
       "visual": 5,
-      "S1_units": 4,
-      "S4_units": 5
+      "S1_units": 5,
+      "S4_units": 6
     },
     {
       "id": "c:mobile-money",
@@ -1690,7 +1690,7 @@
       "S4": 14,
       "scenes": 2,
       "visual": 9,
-      "S1_units": 2,
+      "S1_units": 3,
       "S4_units": 14
     },
     {
@@ -1707,7 +1707,7 @@
       "scenes": 0,
       "visual": 3,
       "S1_units": 7,
-      "S4_units": 32
+      "S4_units": 33
     },
     {
       "id": "c:error",
@@ -1721,7 +1721,7 @@
       "scenes": 1,
       "visual": 1,
       "S1_units": 8,
-      "S4_units": 25
+      "S4_units": 26
     },
     {
       "id": "c:systemd",
@@ -1749,8 +1749,8 @@
       "S4": 20,
       "scenes": 0,
       "visual": 3,
-      "S1_units": 7,
-      "S4_units": 24
+      "S1_units": 8,
+      "S4_units": 25
     },
     {
       "id": "c:rpo",
@@ -1777,7 +1777,7 @@
       "scenes": 0,
       "visual": 12,
       "S1_units": 9,
-      "S4_units": 10
+      "S4_units": 12
     },
     {
       "id": "c:scan",
@@ -1789,8 +1789,8 @@
       "S4": 8,
       "scenes": 0,
       "visual": 4,
-      "S1_units": 3,
-      "S4_units": 8
+      "S1_units": 4,
+      "S4_units": 10
     },
     {
       "id": "c:statistics",
@@ -1803,7 +1803,7 @@
       "scenes": 2,
       "visual": 5,
       "S1_units": 3,
-      "S4_units": 6
+      "S4_units": 7
     },
     {
       "id": "c:cardinality-estimate",
@@ -1816,7 +1816,7 @@
       "S4": 10,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 3,
+      "S1_units": 4,
       "S4_units": 10
     },
     {
@@ -1830,7 +1830,7 @@
       "S4": 5,
       "scenes": 4,
       "visual": 2,
-      "S1_units": 3,
+      "S1_units": 4,
       "S4_units": 5
     },
     {
@@ -1843,7 +1843,7 @@
       "S4": 33,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 2,
+      "S1_units": 5,
       "S4_units": 33
     },
     {
@@ -1857,7 +1857,7 @@
       "S4": 17,
       "scenes": 0,
       "visual": 2,
-      "S1_units": 2,
+      "S1_units": 4,
       "S4_units": 17
     },
     {
@@ -1883,7 +1883,7 @@
       "scenes": 2,
       "visual": 26,
       "S1_units": 3,
-      "S4_units": 28
+      "S4_units": 29
     },
     {
       "id": "c:consumer",
@@ -1893,7 +1893,7 @@
       "S4": 8,
       "scenes": 0,
       "visual": 1,
-      "S1_units": 5,
+      "S1_units": 6,
       "S4_units": 8
     },
     {
@@ -2043,7 +2043,7 @@
       "S4": 3,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 3,
+      "S1_units": 4,
       "S4_units": 3
     },
     {
@@ -2097,7 +2097,7 @@
       "S4": 7,
       "scenes": 0,
       "visual": 2,
-      "S1_units": 2,
+      "S1_units": 3,
       "S4_units": 7
     },
     {
@@ -2142,7 +2142,7 @@
       "scenes": 1,
       "visual": 2,
       "S1_units": 5,
-      "S4_units": 9
+      "S4_units": 10
     },
     {
       "id": "c:common-table-expression",
@@ -2183,7 +2183,7 @@
       "scenes": 0,
       "visual": 16,
       "S1_units": 4,
-      "S4_units": 11
+      "S4_units": 12
     },
     {
       "id": "c:database",
@@ -2193,8 +2193,8 @@
       "S4": 182,
       "scenes": 1,
       "visual": 5,
-      "S1_units": 38,
-      "S4_units": 180
+      "S1_units": 42,
+      "S4_units": 181
     },
     {
       "id": "c:git",
@@ -2244,7 +2244,7 @@
       "scenes": 0,
       "visual": 1,
       "S1_units": 4,
-      "S4_units": 12
+      "S4_units": 13
     },
     {
       "id": "c:context-window",
@@ -2322,7 +2322,7 @@
       "S4": 9,
       "scenes": 0,
       "visual": 11,
-      "S1_units": 3,
+      "S1_units": 4,
       "S4_units": 9
     },
     {
@@ -2336,7 +2336,7 @@
       "S4": 4,
       "scenes": 2,
       "visual": 3,
-      "S1_units": 1,
+      "S1_units": 2,
       "S4_units": 4
     },
     {
@@ -2453,7 +2453,7 @@
       "scenes": 0,
       "visual": 0,
       "S1_units": 6,
-      "S4_units": 3
+      "S4_units": 4
     },
     {
       "id": "c:measure",
@@ -2567,7 +2567,7 @@
       "S4": 26,
       "scenes": 0,
       "visual": 1,
-      "S1_units": 4,
+      "S1_units": 5,
       "S4_units": 26
     },
     {
@@ -2594,7 +2594,7 @@
       "scenes": 1,
       "visual": 6,
       "S1_units": 1,
-      "S4_units": 2
+      "S4_units": 3
     },
     {
       "id": "c:adr",
@@ -2775,7 +2775,7 @@
       "scenes": 0,
       "visual": 1,
       "S1_units": 3,
-      "S4_units": 16
+      "S4_units": 17
     },
     {
       "id": "c:http",
@@ -2826,7 +2826,7 @@
       "scenes": 0,
       "visual": 0,
       "S1_units": 1,
-      "S4_units": 0
+      "S4_units": 1
     },
     {
       "id": "c:mutable-default-argument",
@@ -2853,7 +2853,7 @@
       "scenes": 0,
       "visual": 0,
       "S1_units": 2,
-      "S4_units": 11
+      "S4_units": 10
     },
     {
       "id": "c:session",
@@ -3088,7 +3088,7 @@
       "scenes": 1,
       "visual": 1,
       "S1_units": 2,
-      "S4_units": 1
+      "S4_units": 2
     },
     {
       "id": "c:journald",
@@ -3291,7 +3291,7 @@
       "S4": 2,
       "scenes": 1,
       "visual": 2,
-      "S1_units": 0,
+      "S1_units": 1,
       "S4_units": 2
     },
     {
@@ -3385,7 +3385,7 @@
       "scenes": 0,
       "visual": 0,
       "S1_units": 1,
-      "S4_units": 4
+      "S4_units": 5
     },
     {
       "id": "c:cron",
@@ -3440,8 +3440,8 @@
       "S4": 8,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 3,
-      "S4_units": 8
+      "S1_units": 4,
+      "S4_units": 9
     },
     {
       "id": "c:relative-path",
@@ -3469,7 +3469,7 @@
       "scenes": 1,
       "visual": 0,
       "S1_units": 1,
-      "S4_units": 1
+      "S4_units": 2
     },
     {
       "id": "c:react-agent-loop",
@@ -3797,7 +3797,7 @@
       "S4": 5,
       "scenes": 0,
       "visual": 37,
-      "S1_units": 1,
+      "S1_units": 2,
       "S4_units": 4
     },
     {
@@ -3813,7 +3813,7 @@
       "scenes": 1,
       "visual": 3,
       "S1_units": 0,
-      "S4_units": 7
+      "S4_units": 8
     },
     {
       "id": "c:star-schema",
@@ -3826,7 +3826,7 @@
       "scenes": 0,
       "visual": 10,
       "S1_units": 0,
-      "S4_units": 6
+      "S4_units": 5
     },
     {
       "id": "c:query-optimization",
@@ -3932,7 +3932,7 @@
       "scenes": 1,
       "visual": 0,
       "S1_units": 0,
-      "S4_units": 1
+      "S4_units": 0
     },
     {
       "id": "c:docker-layer-cache",
@@ -3957,7 +3957,7 @@
       "S4": 8,
       "scenes": 0,
       "visual": 2,
-      "S1_units": 3,
+      "S1_units": 4,
       "S4_units": 8
     },
     {
@@ -4077,7 +4077,7 @@
       "S4": 6,
       "scenes": 0,
       "visual": 5,
-      "S1_units": 1,
+      "S1_units": 2,
       "S4_units": 7
     },
     {
@@ -4256,7 +4256,7 @@
       "S4": 3,
       "scenes": 0,
       "visual": 1,
-      "S1_units": 5,
+      "S1_units": 6,
       "S4_units": 3
     },
     {
@@ -4296,7 +4296,7 @@
       "scenes": 1,
       "visual": 1,
       "S1_units": 1,
-      "S4_units": 6
+      "S4_units": 7
     },
     {
       "id": "c:attention",
@@ -4309,7 +4309,7 @@
       "scenes": 0,
       "visual": 8,
       "S1_units": 3,
-      "S4_units": 3
+      "S4_units": 5
     },
     {
       "id": "c:code-review",
@@ -4351,7 +4351,7 @@
       "scenes": 0,
       "visual": 5,
       "S1_units": 1,
-      "S4_units": 5
+      "S4_units": 6
     },
     {
       "id": "c:bias-variance",
@@ -4365,7 +4365,7 @@
       "scenes": 0,
       "visual": 5,
       "S1_units": 2,
-      "S4_units": 4
+      "S4_units": 5
     },
     {
       "id": "c:datanode",
@@ -4513,7 +4513,7 @@
       "S4": 10,
       "scenes": 0,
       "visual": 8,
-      "S1_units": 0,
+      "S1_units": 1,
       "S4_units": 10
     },
     {
@@ -4621,7 +4621,7 @@
       "scenes": 0,
       "visual": 2,
       "S1_units": 6,
-      "S4_units": 6
+      "S4_units": 7
     },
     {
       "id": "c:dataframe",
@@ -4978,7 +4978,7 @@
       "scenes": 0,
       "visual": 0,
       "S1_units": 4,
-      "S4_units": 2
+      "S4_units": 4
     },
     {
       "id": "c:cloud",
@@ -5789,7 +5789,7 @@
       "scenes": 1,
       "visual": 0,
       "S1_units": 1,
-      "S4_units": 1
+      "S4_units": 2
     },
     {
       "id": "c:array",
@@ -6026,7 +6026,7 @@
       "S4": 2,
       "scenes": 0,
       "visual": 0,
-      "S1_units": 0,
+      "S1_units": 1,
       "S4_units": 2
     },
     {
@@ -6278,7 +6278,7 @@
       "scenes": 0,
       "visual": 1,
       "S1_units": 1,
-      "S4_units": 0
+      "S4_units": 1
     },
     {
       "id": "c:sftp",
@@ -6303,7 +6303,7 @@
       "scenes": 0,
       "visual": 1,
       "S1_units": 2,
-      "S4_units": 5
+      "S4_units": 6
     },
     {
       "id": "c:disaster-recovery",
@@ -6325,7 +6325,7 @@
       "scenes": 0,
       "visual": 3,
       "S1_units": 3,
-      "S4_units": 6
+      "S4_units": 7
     },
     {
       "id": "c:environment-variable",

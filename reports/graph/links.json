@@ -1,22 +1,22 @@
 {
   "v": 1,
-  "created": "2026-10-08T20:19:12Z",
-  "tau_concept": 0.545,
-  "tau_visual_floor": 0.567,
-  "tau_fact": 0.499,
+  "created": "2026-10-08T20:50:27Z",
+  "tau_concept": 0.548,
+  "tau_visual_floor": 0.568,
+  "tau_fact": 0.502,
   "thresholds_note": "each tau = 95th percentile of cosine between random (idea unit, target) pairs, 20k samples",
   "about_method": {
     "none": 0,
-    "term": 2010,
-    "embedding": 742,
-    "context": 205
+    "term": 1935,
+    "embedding": 690,
+    "context": 221
   },
-  "about_edges": 8666,
-  "units_with_states": 156,
-  "states_edges": 284,
-  "units_ge3_visual_above_floor": 2893,
-  "units_ge3_visual_centroid_only": 2807,
-  "tau_visual_centroid_only": 0.509,
-  "units": 2957,
-  "visual_top1_median": 0.657
+  "about_edges": 8326,
+  "units_with_states": 140,
+  "states_edges": 255,
+  "units_ge3_visual_above_floor": 2778,
+  "units_ge3_visual_centroid_only": 2694,
+  "tau_visual_centroid_only": 0.51,
+  "units": 2846,
+  "visual_top1_median": 0.658
 }

@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "created": "2026-10-08T20:19:12Z",
+  "created": "2026-10-08T20:50:27Z",
   "nodes": {
     "Concept": 454,
     "Pattern": 22,
@@ -8,7 +8,7 @@
     "AudioAsset": 28,
     "DataFact": 127,
     "Sentence": 3126,
-    "IdeaUnit": 2957,
+    "IdeaUnit": 2846,
     "VisualAsset": 1303
   },
   "edges": {
@@ -17,9 +17,9 @@
     "version_of": 1,
     "contains": 3126,
     "says": 3126,
-    "about": 8666,
-    "illustrates": 16676,
-    "states": 284,
-    "duplicates": 323
+    "about": 8326,
+    "illustrates": 16121,
+    "states": 255,
+    "duplicates": 773
   }
 }

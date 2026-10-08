@@ -5,12 +5,12 @@
     {
       "name": "threshold_f1",
       "pass": true,
-      "detail": "F1 0.876 (P 0.811, R 0.952) at tau 0.81 on 200 labelled pairs; rule: number veto -> adjudication if present -> cos >= tau; cosine only 0.803; 5-fold CV 0.876"
+      "detail": "F1 0.876 (P 0.811, R 0.952) at tau 0.81 on 200 labelled pairs; rule: number veto (disjoint or partial number sets; nested sets compatible) -> adjudication (rounds adj, adj2, adj3) if present -> cos >= tau (nested numbers on cosine alone -> directed subsumes, not merged); cosine only 0.803; 5-fold CV 0.876"
     },
     {
       "name": "batches_judged",
       "pass": true,
-      "detail": "15/15 batches fully judged"
+      "detail": "34/34 batches fully judged"
     },
     {
       "name": "schemas",
@@ -20,7 +20,7 @@
     {
       "name": "edge_endpoints",
       "pass": true,
-      "detail": "33303 edges, 0 with a missing endpoint"
+      "detail": "32829 edges, 0 with a missing endpoint"
     },
     {
       "name": "sentences_in_idea_units",
@@ -30,12 +30,12 @@
     {
       "name": "sentences_with_concept",
       "pass": true,
-      "detail": "3126/3126 sentences reach >= 1 concept via their unit; unit link method {'none': 0, 'term': 2010, 'embedding': 742, 'context': 205}"
+      "detail": "3126/3126 sentences reach >= 1 concept via their unit; unit link method {'none': 0, 'term': 1935, 'embedding': 690, 'context': 221}"
     },
     {
       "name": "visual_candidates",
       "pass": true,
-      "detail": "2893/2957 units (97.8 %) have >= 3 candidates >= floor 0.567"
+      "detail": "2778/2846 units (97.6 %) have >= 3 candidates >= floor 0.568"
     },
     {
       "name": "reports",
@@ -43,5 +43,5 @@
       "detail": "7/7 reports; novelty covers 27/27 S4 parts"
     }
   ],
-  "created": "2026-10-08T20:20:43Z"
+  "created": "2026-10-08T20:50:31Z"
 }

@@ -45,7 +45,8 @@ def _rules(cos, adjs, numrel):
         return lambda k: cos[k] >= t
 
     def combined(t):          # the rule the graph applies: number veto, then adjudication when present, else cosine
-        return lambda k: (not numrel.get(k)) and (adjs[k]["same"] if k in adjs else cos[k] >= t)
+        return lambda k: (numrel.get(k) not in G.NUM_VETO) and (adjs[k]["same"] if k in adjs else
+                                                                (cos[k] >= t and numrel.get(k) != "nested"))
     return cos_only, combined
 
 
@@ -93,7 +94,10 @@ def calibrate(S, cos, labels, adjs):
     return {"labelled": len(keys), "labelled_same": sum(gold.values()),
             "relations": dict(collections.Counter(labels[k]["relation"] for k in keys)),
             "kinds": dict(collections.Counter(("S4-S1" if k[1].startswith("s:S1") else "S4-S4") for k in keys)),
-            "number_vetoed": sum(1 for k in keys if numrel[k]), "number_vetoed_gold_same": sum(1 for k in keys if numrel[k] and gold[k]),
+            "number_vetoed": sum(1 for k in keys if numrel[k] in G.NUM_VETO),
+            "number_vetoed_gold_same": sum(1 for k in keys if numrel[k] in G.NUM_VETO and gold[k]),
+            "number_nested": sum(1 for k in keys if numrel[k] == "nested"),
+            "number_nested_gold_same": sum(1 for k in keys if numrel[k] == "nested" and gold[k]),
             "cos_only": {"threshold": t_cos, **c_cos}, "combined": {"threshold": t_comb, **c_comb},
             "cv5": cv, "adj_overlap": len(ov), "adj_label_agree": sum(1 for k in ov if adjs[k]["same"] == gold[k]),
             "by_bin": {b: dict(v) for b, v in sorted(by_bin.items())}, "sweep": sweep}
@@ -104,8 +108,9 @@ def cmd_apply(args):
     S = {s["sent_id"]: s for s in G.sentences()}
     cands = C.read_jsonl(os.path.join(G.GDIR, "candidates.jsonl"))
     cos = {(c["a"], c["b"]): c["cos"] for c in cands}
-    labels, adjs = G._load_outs("label"), G._load_outs("adj")
-    missing = batch_status()["missing"]
+    labels, adjs = G._load_outs("label"), G.load_adjs()
+    bs = batch_status()
+    missing = bs["missing"]
     cal = calibrate(S, cos, labels, adjs)
     tau = args.threshold or cal["combined"]["threshold"]
     uf = G.UF()
@@ -132,7 +137,12 @@ def cmd_apply(args):
         if nr:
             ev += f"; numbers {na} vs {nb}"
         out = None
-        if same and nr:
+        if same and nr == "nested" and src == "threshold":
+            # cosine-only merge where one number set contains the other: no judge said "same", so the side stating more numbers
+            # is recorded as subsuming the other instead of merging (judged pairs with nested numbers do merge)
+            same, rel = False, ("subsumes" if len(na) > len(nb) else "subsumed")
+            ev += "; nested numbers, threshold only -> directed subsumes"
+        if same and nr in G.NUM_VETO:
             out = "contradicts" if nr == "disjoint" else "scope"
             edges.append({"v": 1, "src": a, "dst": b, "type": "contradicts" if nr == "disjoint" else "duplicates", "w": cs,
                           "relation": "number_conflict" if nr == "disjoint" else "scope_differs", "pair_kind": kind, "merged": False,
@@ -150,13 +160,28 @@ def cmd_apply(args):
             out = "subsumes"
             edges.append({"v": 1, "src": big, "dst": small, "type": "duplicates", "w": cs, "relation": "subsumes", "pair_kind": kind,
                           "merged": False, "evidence": ev + f"; {big} states all of {small} and more"})
-            if big.startswith("s:S1") and small.startswith("s:S4") and not nr:
+            if big.startswith("s:S1") and small.startswith("s:S4") and nr not in G.NUM_VETO:
                 covered_by[small].add(big)
             elif small.startswith("s:S1") and big.startswith("s:S4"):
                 extends[big].add(small)
+        elif rel in ("jointly_covered", "covered_by_other") and a.startswith("s:S4") and b.startswith("s:S1"):
+            cov_by = sorted(set(dec.get("with") or []) | ({b} if rel == "jointly_covered" else set()))
+            cov_by = [x for x in cov_by if x in S]
+            u_nums = sorted({n for x in cov_by for n in G._nums(S[x])})
+            unr = G._num_rel(na, u_nums)
+            if cov_by and unr not in G.NUM_VETO:
+                out = rel
+                covered_by[a].update(cov_by)
+                for x in cov_by:
+                    edges.append({"v": 1, "src": x, "dst": a, "type": "duplicates", "w": cs, "relation": "jointly_covers"
+                                  if len(cov_by) > 1 else "covers", "pair_kind": kind, "merged": False,
+                                  "evidence": ev + f"; {a} is stated by S1 {', '.join(cov_by)}"})
+            else:
+                out = "kept_apart_numbers" if cov_by else None
         if dec or out:
             decisions.append({"a": a, "b": b, "cos": cs, "kind": kind, "source": src, "relation": rel, "outcome": out or "kept_apart",
-                              "numbers": [na, nb] if nr else None, "file": dec["file"] if dec else None})
+                              "numbers": [na, nb] if nr else None, "file": dec["file"] if dec else None,
+                              **({"with": dec["with"]} if dec and dec.get("with") else {})})
     groups = collections.defaultdict(list)
     for sid in S:
         groups[uf.f(sid)].append(sid)
@@ -189,8 +214,10 @@ def cmd_apply(args):
         C.write_jsonl(f, recs)
         nfile += 1
     sizes = collections.Counter(len(i["members"]) for i in ius)
-    rep = {"v": 1, "created": C.now_iso(), "threshold": tau, "rule": "number veto -> adjudication if present -> cos >= tau",
-           "missing_batches": missing, "adjudicated": len(adjs), **{k: v for k, v in cal.items() if k != "sweep"},
+    rep = {"v": 1, "created": C.now_iso(), "threshold": tau, "rule": "number veto (disjoint or partial number sets; nested sets compatible) -> adjudication (rounds adj, adj2, adj3) if "
+                   "present -> cos >= tau (nested numbers on cosine alone -> directed subsumes, not merged)",
+           "missing_batches": missing, "batches": bs["batches"], "batches_judged": bs["judged"], "adjudicated": len(adjs),
+           "adjudicated_by_round": {p: len(G._load_outs(p)) for p in G.ADJ_PREFIXES}, **{k: v for k, v in cal.items() if k != "sweep"},
            "f1": cal["combined"]["f1"] if not args.threshold else None,
            "merges": dict(nmerge), "edges": dict(collections.Counter(e["relation"] for e in edges)),
            "idea_units": len(ius), "multi_member": sum(1 for i in ius if len(i["members"]) > 1),
@@ -240,7 +267,7 @@ def write_threshold_md(rep, cal):
     L = ["# Idea-unit threshold calibration (G4)", "", f"Generated {rep['created']} by `dc graph apply`.", "",
          f"Labelled pairs: **{cal['labelled']}** (Educator lens; {cal['labelled_same']} same; kinds {cal['kinds']}; relations "
          f"{cal['relations']}). Adjudicated borderline pairs: {rep['adjudicated']}. Missing batch outputs: "
-         f"{', '.join(rep['missing_batches']) or 'none'} (15/15 judged).", "",
+         f"{', '.join(rep['missing_batches']) or 'none'} ({rep['batches_judged']}/{rep['batches']} batches judged).", "",
          "## Result", "",
          "| Rule | tau | Precision | Recall | F1 | 5-fold CV F1 |", "|---|---|---|---|---|---|",
          f"| cosine only | {co['threshold']:.2f} | {co['precision']:.3f} | {co['recall']:.3f} | {co['f1']:.3f} | {cv['cos_only']['f1']:.3f} |",
@@ -251,7 +278,9 @@ def write_threshold_md(rep, cal):
          f"else uses cos >= tau) reaches F1 {cb['f1']:.3f} at tau {cb['threshold']:.2f}. The CV column picks tau on 4/5 of the labels "
          f"and scores the held-out 1/5 (pooled); CV taus: cosine {cv['cos_only']['taus']}, combined {cv['combined']['taus']}.", "",
          f"Adjudicator vs labels on the {cal['adj_overlap']} pairs present in both: {cal['adj_label_agree']}/{cal['adj_overlap']} agree. "
-         f"Number veto fired on {cal['number_vetoed']} labelled pairs ({cal['number_vetoed_gold_same']} of them labelled same).", "",
+         f"Number veto (disjoint or partially overlapping number sets) fired on {cal['number_vetoed']} labelled pairs "
+         f"({cal['number_vetoed_gold_same']} of them labelled same). Nested number sets (one contains the other) are compatible: "
+         f"{cal['number_nested']} labelled pairs, {cal['number_nested_gold_same']} labelled same.", "",
          f"## Confusion, applied rule at tau {cb['threshold']:.2f}", ""] + _cm_table(cb) + [
          "", f"## Confusion, cosine only at tau {co['threshold']:.2f}", ""] + _cm_table(co) + [
          "", "## Label rate by cosine bin", "", "| cos bin | pairs | same |", "|---|---|---|"] + [
@@ -523,7 +552,28 @@ def novelty():
            "s4_units_with_terms": sum(1 for u in s4u if unit_conc[u["id"]]),
            "concept_new_pct": round(100 * sum(1 for u in s4u if unit_conc[u["id"]] and not unit_conc[u["id"]] & s1_conc)
                                     / max(1, sum(1 for u in s4u if unit_conc[u["id"]])), 1)}
+    tot["residual"] = _residual(tot, by_s)
     return {"totals": tot, "per_part": per, "matrix_part_x_chapter_pct": matrix}
+
+
+def _residual(tot, by_s):
+    """Novelty as a range: the graph's novel share is an upper bound because restatements below the adjudicated cosine bands stay
+    'novel'. reports/graph/novelty_audit.json (stratified 40-samples of the novel S4 sentences) gives a clear-restatement rate per
+    stratum; the estimate subtracts rate x stratum size (sentences -> units by the novel units/sentences ratio). Stale when the
+    audit's novel-sentence count differs from the graph's."""
+    au = C.read_json(os.path.join(G.REP, "novelty_audit.json"))
+    novel_sent = sum(1 for sid, u in by_s.items() if sid.startswith("s:S4") and u["novel_vs_trunk"])
+    if not au:
+        return {"status": "no audit"}
+    f = tot["novel_units"] / max(1, novel_sent)
+    est = {q: sum(v["size"] * (v["rate"] if q == "point" else v["rate_ci95"][0 if q == "low" else 1]) for v in au["strata"].values())
+           for q in ("point", "low", "high")}
+    pct = {q: round(100 * (tot["novel_units"] - f * n) / tot["s4_units"], 1) for q, n in est.items()}
+    return {"status": "current" if au["novel_sentences"] == novel_sent else f"stale (audit {au['novel_sentences']} vs graph {novel_sent})",
+            "audit": "reports/graph/novelty_audit.json", "kind": au.get("kind"), "novel_sentences": novel_sent,
+            "restated_sentences_est": {q: round(n) for q, n in est.items()},
+            "novel_unit_pct_upper_bound": tot["novel_unit_pct"], "novel_unit_pct_est": pct["point"],
+            "novel_unit_pct_range95": [pct["high"], pct["low"]]}
 
 
 def coverage():
@@ -657,7 +707,20 @@ def cmd_report(args):
          "A unit is *novel* when no S1 sentence is in it and no S1 sentence subsumes any of its members. Runs = maximal stretches of "
          f"consecutive novel sentences in one part, listed when >= {RUN_MIN_MS // 1000} s (start of first to end of last sentence).", "",
          f"Totals: {t['novel_units']} of {t['s4_units']} S4 idea units novel ({t['novel_unit_pct']} %); {t['runs_ge_20s']} runs >= 20 s "
-         f"totalling {t['runs_ge_20s_total_min']} min of {t['s4_span_min']} min S4 span.", "",
+         f"totalling {t['runs_ge_20s_total_min']} min of {t['s4_span_min']} min S4 span.", ""] + ([
+         f"Novelty as a range: {t['novel_unit_pct']} % is an upper bound (restatements that no adjudication band reached stay novel). "
+         f"The stratified residual audit (`{t['residual']['audit']}`, {t['residual']['kind']}; {t['residual']['status']}) puts "
+         f"{t['residual']['restated_sentences_est']['point']} of {t['residual']['novel_sentences']} novel sentences as clear "
+         f"restatements of S1 (95 % range {t['residual']['restated_sentences_est']['low']}-{t['residual']['restated_sentences_est']['high']}), "
+         f"so the estimated novel share is **{t['residual']['novel_unit_pct_est']} %** (95 % range "
+         f"{t['residual']['novel_unit_pct_range95'][0]}-{t['residual']['novel_unit_pct_range95'][1]} %). Run minutes are upper bounds "
+         "on the same footing.", ""] if t.get("residual", {}).get("audit") else []) + [
+         f"Adjudication: round 1 = best-S1 pairs with cos {G.ADJ_LO}-{G.ADJ_HI}; round 2 = still-novel sentences, rank-1 pairs "
+         f"{G.ADJ2_R1_LO}-{G.ADJ_LO}, rank 2-3 pairs >= {G.ADJ2_RANK_LO}, pairs >= {G.ADJ2_LO} sharing a number or >= 2 rare terms; "
+         f"round 3 = still-novel sentences sharing >= 1 concept with a rank-1 (cos >= {G.ADJ3_R1_LO}) or rank-2 (cos >= {G.ADJ2_LO}) "
+         "S1 match. A sentence is covered when an S1 sentence states the same claim (merge), states it and more (subsumed), or when "
+         "several S1 sentences state it jointly (`jointly_covers` / `covers` edges). Nested number sets ({1007} vs {1007, 9}) no "
+         "longer veto a judged merge; disjoint or partially overlapping sets still do.", "",
          f"Claim-level novelty is strict (same claim at the same level of detail). Topic-level check: of the {t['s4_units_with_terms']} S4 "
          f"units with a term mention, {t['concept_new_pct']} % mention only concepts that S1 never mentions; the rest restate S1 topics "
          "with new claims, examples or detail (column *Concept-new %*).", "",

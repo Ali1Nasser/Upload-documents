@@ -1,10 +1,10 @@
 # Contradictions (conflicting numbers across sources)
 
-Generated 2026-10-08T20:20:01Z by `dc graph report`. Candidates for the fact-checker; nothing here was merged.
+Generated 2026-10-08T20:50:27Z by `dc graph report`. Candidates for the fact-checker; nothing here was merged.
 
 - sentence pairs judged the same claim but with disjoint numbers (`contradicts` edges): **0**
-- pairs with partially different numbers (scope differs, kept apart): 3
-- sentences closest to a data-contract fact (cos >= 0.599) that share none of its numbers: **38**
+- pairs with partially different numbers (scope differs, kept apart): 0
+- sentences closest to a data-contract fact (cos >= 0.602) that share none of its numbers: **34**
 - canon (master.md) contradictions preserved by ADR-008: 15
 
 ## Sentence pairs
@@ -50,10 +50,6 @@ Generated 2026-10-08T20:20:01Z by `dc graph report`. Candidates for the fact-che
 | `s:S1:ar-natural:0384` | `d:6.11:4` | 0.604 | 200 | Ten | Two hundred tasks finish quickly, and one keeps going. |
 | `s:S4:P20:0027` | `d:6.3:13` | 0.604 | 66 | HAVING > 300 | So the net figure, the plus 66, gets completely wiped out. |
 | `s:S4:P18:0027` | `d:6.5:3` | 0.603 | 24, 3 | 12 500 pages | And each one has 3 copies, so that is 24 copies, fully protected. |
-| `s:S4:P17:0081` | `d:6.9:1` | 0.601 | 4 | k = 1 | But on the right, after masking, the number is masked and only the last four digits are visible, and the name only the first letter. |
-| `s:S4:P20:0030` | `d:6.11:4` | 0.601 | 7 | Ten | Here for example we have seven records matching completely. |
-| `s:S1:ar-natural:0527` | `d:6.11:1` | 0.6 | 95 | 500 ms | Here is the incident: the p95 is climbing and the error rate is completely flat, which is the fingerprint of a saturating resource rather than a bug. |
-| `s:S4:P14:0067` | `d:6.20:8` | 0.599 | 100, 101 | 10 000 | That is 101 queries just for 100 records. |
 
 ## Canon contradictions (master.md)
 
