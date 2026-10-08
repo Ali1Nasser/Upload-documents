@@ -25,17 +25,18 @@ EMIS_DIR = os.path.join(OUT_DIR, "emis_w2v")
 STRIDE = AL.STRIDE
 BLOCK_S = 600
 
-_M = None
+W2V_EN_DIR = C.p("data", "models", "wav2vec2-base-960h")
+_M = {}
 
 
-def model(threads):
-    global _M
+def model(threads, d=None):
     import torch
     from transformers import Wav2Vec2ForCTC
+    d = str(d or W2V_DIR)
     torch.set_num_threads(int(threads))
-    if _M is None:
-        _M = (Wav2Vec2ForCTC.from_pretrained(str(W2V_DIR), dtype=torch.float32).eval(), json.loads(open(os.path.join(W2V_DIR, "vocab.json"), encoding="utf-8").read()))
-    return _M
+    if d not in _M:
+        _M[d] = (Wav2Vec2ForCTC.from_pretrained(d, dtype=torch.float32).eval(), json.loads(open(os.path.join(d, "vocab.json"), encoding="utf-8").read()))
+    return _M[d]
 
 
 def emissions_chunked(m, x, window_s=30, context_s=2, bs=4):
@@ -57,14 +58,14 @@ def emissions_chunked(m, x, window_s=30, context_s=2, bs=4):
     return torch.cat(outs)[: int(np.ceil(len(x) / sr / STRIDE))]
 
 
-def emissions_cached(aid, threads, force=False):
+def emissions_cached(aid, threads, force=False, mdir=None):
     import numpy as np
     import soundfile as sf
-    m, _ = model(threads)
+    m, _ = model(threads, mdir)
     wav = A.wav16_path(aid)
     info = sf.info(wav)
     sr, total = info.samplerate, info.frames
-    d = os.path.join(EMIS_DIR, A.fid(aid))
+    d = os.path.join(EMIS_DIR + ("_en" if mdir else ""), A.fid(aid))
     os.makedirs(d, exist_ok=True)
     ctx = 2 * sr
     nblk = (total + BLOCK_S * sr - 1) // (BLOCK_S * sr)
@@ -204,8 +205,87 @@ def second_clips(ids, threads):
     return 0
 
 
+# ------------------------------------------------------------------ English second aligner (S5): facebook/wav2vec2-base-960h
+_ONES = "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split()
+_TENS = "_ _ twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+def en_int(n):
+    if n < 20:
+        return _ONES[n]
+    if n < 100:
+        return _TENS[n // 10] + ("" if n % 10 == 0 else " " + _ONES[n % 10])
+    if n < 1000:
+        return _ONES[n // 100] + " hundred" + ("" if n % 100 == 0 else " " + en_int(n % 100))
+    if n < 1000000:
+        return en_int(n // 1000) + " thousand" + ("" if n % 1000 == 0 else " " + en_int(n % 1000))
+    return " ".join(_ONES[int(ch)] for ch in str(n))
+
+
+def en_letters(tok, vocab):
+    """English script token -> string of base-960h vocabulary letters (A-Z and apostrophe); digits are spelled out, other symbols dropped."""
+    t = tok.replace("\u2019", "'")
+    t = re.sub(r"\d+", lambda m: " " + en_int(int(m.group())) + " ", t)
+    t = t.upper()
+    return "".join(ch for ch in t if ch in vocab and len(ch) == 1 and ch.isalpha() or ch == "'")
+
+
+def cmd_second_en(args):
+    import numpy as np
+    import torch
+    aid = args.audio_id
+    if not args.inline and not Q.in_queue():
+        job = Q.submit("align-S5-w2v-en", [sys.executable, "-I", C.p("tools", "dc.py"), "align", "second", aid, "--inline", "--threads", str(args.threads)], mem_gb=2.5, expected_gb=0.1)
+        print(job["tsp_id"])
+        return 0
+    m, vocab = model(args.threads, W2V_EN_DIR)
+    em = emissions_cached(aid, args.threads, mdir=W2V_EN_DIR)
+    words = C.read_jsonl(os.path.join(AL.TRANS, A.fid(aid) + ".words.jsonl"))
+    rep = C.read_json(os.path.join(AL.TRANS, A.fid(aid) + ".align.json"))
+    by = {}
+    for w in words:
+        by.setdefault(w["chapter"], []).append(w)
+    out, per_ch, empty = [], [], 0
+    for c in rep["chapters"]:
+        ch = c["chapter"]
+        ws = by[ch]
+        letters = [en_letters(w["text"], vocab) for w in ws]
+        empty += sum(1 for t in letters if not t)
+        a_s, b_s = c["align_window_s"]
+        f0, f1 = max(0, int(a_s / STRIDE)), min(em.shape[0], int(b_s / STRIDE))
+        sl = torch.from_numpy(em[f0:f1].astype(np.float32))
+        t0 = time.time()
+        try:
+            res = forced_align_w2v(sl, letters, vocab)
+        except Exception as e:  # noqa: BLE001
+            print(f"  {ch}: FAILED {e}", flush=True)
+            res = [None] * len(ws)
+        rows = []
+        for r in res:
+            if r is None:
+                rows.append(None)
+            else:
+                fs, fe, cf, _ = AL.word_span(r)
+                rows.append((int(round((f0 + fs) * STRIDE * 1000)), int(round((f0 + fe) * STRIDE * 1000)), cf))
+        confs = [r[2] for r in rows if r]
+        for w, r in zip(ws, rows):
+            out.append({"v": 1, "word_id": w["word_id"], "audio_id": aid, "i": w["i"], "text": w["text"], "start_ms": r[0] if r else None, "end_ms": r[1] if r else None,
+                        "conf": round(r[2], 4) if r else 0.0, "method": "w2v_fa" if r else "w2v_none", "chapter": ch})
+        per_ch.append({"chapter": ch, "n": len(ws), "aligned": len(confs), "median_conf": round(S.median(confs), 4) if confs else 0.0})
+        print(f"  {ch}: {len(ws)} words, w2v-en median conf {per_ch[-1]['median_conf']} [{time.time() - t0:.1f}s]", flush=True)
+    os.makedirs(OUT_DIR, exist_ok=True)
+    C.write_jsonl(os.path.join(OUT_DIR, A.fid(aid) + ".w2v.words.jsonl"), out)
+    summ = {"v": 1, "audio_id": aid, "model": "facebook/wav2vec2-base-960h", "words": len(out), "empty_tokens": empty,
+            "median_conf": round(S.median([w["conf"] for w in out if w["method"] == "w2v_fa"]), 4), "chapters": per_ch, "created": C.now_iso()}
+    C.write_json(os.path.join(OUT_DIR, A.fid(aid) + ".w2v.json"), summ)
+    print(f"second aligner (en): {len(out)} words, empty {empty}, median conf {summ['median_conf']}")
+    return 0
+
+
 def cmd_second(args):
     aid = args.audio_id
+    if aid == "a:S5:en-natural":
+        return cmd_second_en(args)
     if aid in ("all-s3", "s3") or aid.startswith("a:S3:"):
         ids = sorted(a["audio_id"] for a in A.registry() if a["family"] == "S3") if aid in ("all-s3", "s3") else [aid]
         if not args.inline and not Q.in_queue() and len(ids) > 1:

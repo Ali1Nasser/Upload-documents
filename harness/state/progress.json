@@ -20,7 +20,7 @@
     "G3": {
       "status": "pass",
       "report": "reports/gates/G3.json",
-      "checked": "2026-10-08T14:31:00Z"
+      "checked": "2026-10-08T14:50:00Z"
     },
     "G4": {
       "status": "pending"
@@ -63,5 +63,5 @@
   "next_actions": [
     "P3b: polish S4 (27 parts) + sentences/glosses, re-align, S2/S3/S5 scripted alignment, second CTC aligner (wav2vec2-ar) for agreement, emphasis, cross-checks, G3"
   ],
-  "updated": "2026-10-08T14:31:00Z"
+  "updated": "2026-10-08T14:50:00Z"
 }

@@ -8,7 +8,7 @@ G3 passes (13/13): `python3 tools/dc.py gate check G3` -> `reports/gates/G3.json
 | S1 `a:S1:ar-natural` | 6,644 | 0.826 | 562 (max 26 words, median 11) | script text, MMS-300m forced alignment per chapter window |
 | S2 `a:S2:ar-esraa` | 6,644 | 0.806 | optional, none | script text (s2_script_id), MMS |
 | S3 41 TTS clips | 7,126 | 0.869 (no clip < 0.70) | none | script text per clip, MMS (CH-14, CH-33 `_vo` aligned jointly) |
-| S5 `a:S5:en-natural` | 8,643 | 0.997 | none | English script, MMS |
+| S5 `a:S5:en-natural` | 8,643 | 0.997 | none | English script, MMS; second aligner wav2vec2-base-960h 99.8 % within 120 ms |
 | S4 27 parts (P00, P00b, P01-P25) | 30,460 (31,008 ASR words) | 0.835 (parts 0.778-0.995, median of parts 0.824) | 2,564 | whisper turbo, polished, MMS re-alignment of the polished text |
 
 S4 low-confidence words (< 0.3): 1,201 of 30,460 (3.9 %). Latin terms align worst (median conf about 0.50 on P05: MMS has no Latin letters, uroman guesses). 0 fallback segments. Every sentence has a gloss; `impact_words` on 3,120 of 3,126 S1+S4 sentences (the 6 others have 5-7 words, all stop words or low confidence); every word has `prominence` (z-score of RMS, f0 range and duration, plus lexical bonus number 2.0 > term 1.5 > contrast 1.0 > change 0.8).
@@ -34,7 +34,7 @@ Also: `reports/asr/s1_agreement*.md`, `reports/audio/s1_alignment.md` (VAD speec
 
 ## Open issues
 1. **Three S4 voices** (ECAPA clusters, `corpus/audio/voices.json`): A (S1/S2 voice) P00, P00b, P02, P05, P08, P13, P15, P16, P20, P24; B (S3 TTS voice) P03, P04, P06, P07, P09-P12, P14, P17-P19, P21-P23, P25; C (close to the English S5 voice) P01. P5 must decide voice per part in ADR-001 or the audio lock; nothing in P3 depends on it.
-2. S5 (English) has no second aligner (the Arabic wav2vec2 cannot align English); it is covered by the 637-cue check (median 160 ms). Needs an English CTC model (about 360 MB download) if the Council wants strict G3 parity.
+2. (resolved) S5 now has a second aligner: facebook/wav2vec2-base-960h (English CTC, `data/models/wav2vec2-base-960h`, `dc align second a:S5:en-natural`): 99.8 % of 8,643 words within 120 ms of MMS (median |diff| 20 ms); G3 two_aligner_agreement covers S1, S3 and S5. The 637-cue check stays as an additional S5 check.
 3. Latin technical terms in S1/S3 align with crude letter mapping: conf is lower (S4 Latin median about 0.50), timing within 120 ms still agrees for 96.5 % of S1 Latin words. Use the word start, not the end, for term anchors.
 4. S4 turbo transcripts keep about 3.9 % words under conf 0.3 (mostly Latin terms and fast speech). The polish used the glossary and NotebookLM part sources; no large-v3 re-decode was needed or run.
 5. Word `end_ms` is the tight CTC end, not the acoustic end (see PHASE-03a #6).

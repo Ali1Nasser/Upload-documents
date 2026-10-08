@@ -1,6 +1,6 @@
 # G3 cross-checks (dc align crosscheck)
 
-Generated 2026-10-08T14:30:47Z. Overall: **PASS**.
+Generated 2026-10-08T14:49:48Z. Overall: **PASS**.
 
 | check | threshold | result | verdict |
 |---|---|---|---|
@@ -8,7 +8,7 @@ Generated 2026-10-08T14:30:47Z. Overall: **PASS**.
 | S1 speech inside the 637 cue windows (+-500 ms) | >= 90 % | 96.1 % of word duration, 95.9 % of words, 96.0 % of VAD speech | PASS |
 | S5 caption onsets vs the 637 English cues | median abs <= 300 ms | median 160 ms (signed 157), 81.8 % within 300 ms, 637 compared, chapters skipped none | PASS |
 | S3 vs per-chapter SRTs | the plan names the check, not a number: text identical (>= 99 % tokens), first/last cue within 1 s of first/last word, MMS nearer to Silero onsets than the SRT | tokens matched 100.0 %, envelope max 564 ms; cue-start deviation median 715 ms (signed 484), max 3785 ms, 26.4 % within 300 ms (SRT interior timing is an estimate); median distance to the nearest VAD onset: SRT 449 ms vs MMS 66 ms; 579 cues, 37 chapters | PASS |
-| MMS vs wav2vec2 on S1 and the S3 clips | >= 95 % within 120 ms | S1 97.9 % of 6644 words, median |diff| 0.0 ms; S3 98.1 % of 7126 words in 41 clips, median |diff| 0.0 ms; S5 (English) has no second aligner | PASS |
+| MMS vs a second CTC aligner on S1, S3 clips and S5 | >= 95 % within 120 ms | S1 97.9 % of 6644 words, median |diff| 0.0 ms; S3 98.1 % of 7126 words in 41 clips, median |diff| 0.0 ms; S5 (wav2vec2-base-960h, English) 99.8 % of 8643 words, median |diff| 20 ms | PASS |
 
 ## S3 per chapter
 

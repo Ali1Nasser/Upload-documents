@@ -35,7 +35,7 @@
     {
       "name": "two_aligner_agreement",
       "pass": true,
-      "detail": "MMS vs wav2vec2-xlsr53-arabic within 120 ms (threshold 95 %): S1 97.9 % of 6644 words, S3 98.1 % of 7126 words in 41 clips; S5 (English) has no second aligner: it is checked against the 637 cues instead"
+      "detail": "MMS vs second CTC aligner within 120 ms (threshold 95 %; xlsr53-arabic for S1/S3, wav2vec2-base-960h for S5): S1 97.9 % of 6644 words, S3 98.1 % of 7126 words in 41 clips, S5 99.8 % of 8643 words; S5 is also checked against the 637 cues"
     },
     {
       "name": "s1_inside_chapter_windows",
@@ -68,5 +68,5 @@
       "detail": "198 files validated; schema errors none; files with non-sequential or duplicate word ids none"
     }
   ],
-  "created": "2026-10-08T14:31:00Z"
+  "created": "2026-10-08T14:50:00Z"
 }

@@ -106,10 +106,11 @@ def check(ctx):
     fresh = bool(xc) and os.path.getmtime(ctx.p("reports", "asr", "crosschecks.json")) >= newest
     w2 = xc.get("mms_vs_w2v") or {}
     w23 = w2.get("s3") or {}
-    out.append(C("two_aligner_agreement", w2.get("pass") and w2.get("within_120ms", 0) >= MIN_AGREE and w23.get("within_120ms", 0) >= MIN_AGREE and w23.get("clips") == EXPECT["S3"] and fresh,
-                 f"MMS vs wav2vec2-xlsr53-arabic within 120 ms (threshold 95 %): S1 {100 * w2.get('within_120ms', 0):.1f} % of {w2.get('compared')} words, "
-                 f"S3 {100 * w23.get('within_120ms', 0):.1f} % of {w23.get('compared')} words in {w23.get('clips')} clips; "
-                 f"{'' if fresh else 'crosschecks.json stale or missing: run `dc align crosscheck`; '}S5 (English) has no second aligner: it is checked against the 637 cues instead"))
+    out.append(C("two_aligner_agreement", w2.get("pass") and w2.get("within_120ms", 0) >= MIN_AGREE and w23.get("within_120ms", 0) >= MIN_AGREE and w23.get("clips") == EXPECT["S3"] and (w2.get("s5") or {}).get("pass") and (w2.get("s5") or {}).get("within_120ms", 0) >= MIN_AGREE and fresh,
+                 f"MMS vs second CTC aligner within 120 ms (threshold 95 %; xlsr53-arabic for S1/S3, wav2vec2-base-960h for S5): S1 {100 * w2.get('within_120ms', 0):.1f} % of {w2.get('compared')} words, "
+                 f"S3 {100 * w23.get('within_120ms', 0):.1f} % of {w23.get('compared')} words in {w23.get('clips')} clips, "
+                 f"S5 {100 * (w2.get('s5') or {}).get('within_120ms', 0):.1f} % of {(w2.get('s5') or {}).get('compared')} words; "
+                 f"{'' if fresh else 'crosschecks.json stale or missing: run `dc align crosscheck`; '}S5 is also checked against the 637 cues"))
     w = xc.get("s1_chapter_windows") or {}
     out.append(C("s1_inside_chapter_windows", w.get("pass"), f"{w.get('chapters_all_words_inside')}/{w.get('chapters')} chapters, {w.get('words_outside_window')} words outside, overlaps {w.get('boundary_overlaps')}"))
     c = xc.get("s1_in_cue_windows") or {}

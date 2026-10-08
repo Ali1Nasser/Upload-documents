@@ -215,6 +215,19 @@ def w2v():
                      "median_abs_ms": S.median(dd) if dd else None}
         res["s3"]["pass"] = len(clips) == 41 and len(dd) >= 0.98 * n_s3 and res["s3"]["within_120ms"] >= 0.95
         res["pass"] = res["pass"] and res["s3"]["pass"]
+    # S5 (English): facebook/wav2vec2-base-960h vs MMS, same words, same chapter windows
+    p5 = C.p("data", "derived", "align", "a_S5_en-natural.w2v.words.jsonl")
+    if os.path.exists(p5):
+        m5 = C.read_jsonl(os.path.join(TRANS, "a_S5_en-natural.words.jsonl"))
+        w5 = C.read_jsonl(p5)
+        d5 = [abs(x["start_ms"] - y["start_ms"]) for x, y in zip(m5, w5) if y["start_ms"] is not None and "interp" not in x["method"] and x["word_id"] == y["word_id"]]
+        res["s5"] = {"words": len(m5), "compared": len(d5), "within_120ms": round(sum(1 for x in d5 if x <= 120) / max(1, len(d5)), 4),
+                     "median_abs_ms": S.median(d5) if d5 else None, "model": "facebook/wav2vec2-base-960h"}
+        res["s5"]["pass"] = len(w5) == len(m5) and len(d5) >= 0.98 * len(m5) and res["s5"]["within_120ms"] >= 0.95
+        res["pass"] = res["pass"] and res["s5"]["pass"]
+    else:
+        res["s5"] = {"pass": False, "error": "S5 second aligner words missing"}
+        res["pass"] = False
     return res
 
 
@@ -230,7 +243,7 @@ def cmd_crosscheck(args):
          f"| S1 speech inside the {c['cues']} cue windows (+-{c['pad_ms']} ms) | >= 90 % | {100 * c['share_of_word_duration']:.1f} % of word duration, {100 * c['share_of_words']:.1f} % of words, {100 * (c['share_of_vad_speech'] or 0):.1f} % of VAD speech | {'PASS' if c['pass'] else 'FAIL'} |",
          f"| S5 caption onsets vs the {s5['captions']} English cues | median abs <= 300 ms | median {s5.get('median_abs_ms')} ms (signed {s5.get('median_signed_ms')}), {100 * s5.get('within_300ms', 0):.1f} % within 300 ms, {s5['compared']} compared, chapters skipped {s5['chapters_skipped_word_count_mismatch'] or 'none'} | {'PASS' if s5['pass'] else 'FAIL'} |",
          f"| S3 vs per-chapter SRTs | the plan names the check, not a number: text identical (>= 99 % tokens), first/last cue within 1 s of first/last word, MMS nearer to Silero onsets than the SRT | tokens matched {100 * s3.get('matched_token_share', 0):.1f} %, envelope max {s3.get('envelope_max_ms')} ms; cue-start deviation median {s3.get('median_abs_ms')} ms (signed {s3.get('median_signed_ms')}), max {s3.get('max_abs_ms')} ms, {100 * s3.get('within_300ms', 0):.1f} % within 300 ms (SRT interior timing is an estimate); median distance to the nearest VAD onset: SRT {s3.get('median_dist_to_vad_onset_srt_ms')} ms vs MMS {s3.get('median_dist_to_vad_onset_mms_ms')} ms; {s3.get('compared')} cues, {s3.get('chapters')} chapters | {'PASS' if s3['pass'] else 'FAIL'} |",
-         f"| MMS vs wav2vec2 on S1 and the S3 clips | >= 95 % within 120 ms | S1 {100 * g.get('within_120ms', 0):.1f} % of {g.get('compared')} words, median |diff| {g.get('median_abs_ms')} ms; S3 {100 * g.get('s3', {}).get('within_120ms', 0):.1f} % of {g.get('s3', {}).get('compared')} words in {g.get('s3', {}).get('clips')} clips, median |diff| {g.get('s3', {}).get('median_abs_ms')} ms; S5 (English) has no second aligner | {'PASS' if g['pass'] else 'FAIL'} |", "",
+         f"| MMS vs a second CTC aligner on S1, S3 clips and S5 | >= 95 % within 120 ms | S1 {100 * g.get('within_120ms', 0):.1f} % of {g.get('compared')} words, median |diff| {g.get('median_abs_ms')} ms; S3 {100 * g.get('s3', {}).get('within_120ms', 0):.1f} % of {g.get('s3', {}).get('compared')} words in {g.get('s3', {}).get('clips')} clips, median |diff| {g.get('s3', {}).get('median_abs_ms')} ms; S5 (wav2vec2-base-960h, English) {100 * g.get('s5', {}).get('within_120ms', 0):.1f} % of {g.get('s5', {}).get('compared')} words, median |diff| {g.get('s5', {}).get('median_abs_ms')} ms | {'PASS' if g['pass'] else 'FAIL'} |", "",
          "## S3 per chapter", "", "| chapter | audio | cues | compared | token match | median signed ms | median abs ms | within 300 ms | first word - first cue ms | last word end - last cue end ms | max abs ms |", "|---|---|---|---|---|---|---|---|---|---|---|---|"]
     for r in s3.get("per_chapter", []):
         L.append(f"| {r['chapter']} | {r['audio'].split(':')[2]} | {r['cues']} | {r['compared']} | {r['matched_token_share']} | {r['median_signed_ms']} | {r['median_abs_ms']} | {r['within_300ms']} | {r['first_word_vs_first_cue_ms']} | {r['last_word_end_vs_last_cue_end_ms']} | {r['max_abs_ms']} |")

@@ -626,16 +626,16 @@
       "exit": "0"
     },
     "57": {
-      "label": "asr-calib-large-v3-CH-33",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py asr transcribe a:S1:ar-natural --inline --model large-v3 --threads 2 --start 3715.0 --dur 120.0 --out /home/user/Upload-documents/data/derived/asr/calib/large-v3_CH-33.json",
+      "label": "align-S5-w2v-en",
+      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py align second a:S5:en-natural --inline --threads 3",
       "tsp_id": 57,
       "status": "done",
-      "mem_gb": 2.2,
-      "expected_gb": 0.05,
+      "mem_gb": 2.5,
+      "expected_gb": 0.1,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-07T15:19:24Z",
-      "updated": "2026-10-07T16:02:30Z",
+      "submitted": "2026-10-08T14:42:08Z",
+      "updated": "2026-10-08T14:49:44Z",
       "exit": "0"
     },
     "58": {

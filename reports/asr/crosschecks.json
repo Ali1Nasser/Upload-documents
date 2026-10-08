@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "created": "2026-10-08T14:30:47Z",
+  "created": "2026-10-08T14:49:48Z",
   "s1_chapter_windows": {
     "chapters": 37,
     "chapters_all_words_inside": 37,
@@ -615,6 +615,14 @@
       "compared": 7126,
       "within_120ms": 0.9813,
       "median_abs_ms": 0.0,
+      "pass": true
+    },
+    "s5": {
+      "words": 8643,
+      "compared": 8643,
+      "within_120ms": 0.998,
+      "median_abs_ms": 20,
+      "model": "facebook/wav2vec2-base-960h",
       "pass": true
     }
   },
