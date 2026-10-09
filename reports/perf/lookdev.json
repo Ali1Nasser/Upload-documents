@@ -1,0 +1,534 @@
+{
+ "v": 1,
+ "phase": "P6",
+ "resolution": "1920x1080",
+ "fps": 30,
+ "box": "4 vCPU, no GPU",
+ "definitions": {
+  "s_per_frame": "(wall - overhead) x concurrency / (frames - 1): seconds per frame per render slot (bench definition, reports/perf/render_bench.md)",
+  "fps_throughput": "(frames - 1) / (wall - overhead), whole box",
+  "still_s": "renderStill wall per still, one browser, bundle excluded"
+ },
+ "stills": {
+  "F1-A-hero": {
+   "gl": "swiftshader",
+   "still_s": 1.347,
+   "frame": "F1",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/stills/F1-A-hero.jpg",
+   "preview_kb": 120.8,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F1-A-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.391,
+   "frame": "F1",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F1-A-standard.jpg",
+   "preview_kb": 107.7,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F1-B-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.345,
+   "frame": "F1",
+   "typo": "B",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F1-B-standard.jpg",
+   "preview_kb": 106.3,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F1-C-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.196,
+   "frame": "F1",
+   "typo": "C",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F1-C-standard.jpg",
+   "preview_kb": 104.1,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F2-A-hero": {
+   "gl": "swiftshader",
+   "still_s": 1.278,
+   "frame": "F2",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/stills/F2-A-hero.jpg",
+   "preview_kb": 119.0,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F2-A-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.299,
+   "frame": "F2",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F2-A-standard.jpg",
+   "preview_kb": 106.1,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F2-B-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.269,
+   "frame": "F2",
+   "typo": "B",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F2-B-standard.jpg",
+   "preview_kb": 106.0,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F2-C-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.315,
+   "frame": "F2",
+   "typo": "C",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F2-C-standard.jpg",
+   "preview_kb": 104.7,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F3-A-hero": {
+   "gl": "swiftshader",
+   "still_s": 1.348,
+   "frame": "F3",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/stills/F3-A-hero.jpg",
+   "preview_kb": 118.3,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F3-A-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.259,
+   "frame": "F3",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F3-A-standard.jpg",
+   "preview_kb": 105.6,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F3-B-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.233,
+   "frame": "F3",
+   "typo": "B",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F3-B-standard.jpg",
+   "preview_kb": 105.3,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F3-C-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.315,
+   "frame": "F3",
+   "typo": "C",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F3-C-standard.jpg",
+   "preview_kb": 103.6,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F4-A-hero": {
+   "gl": "swiftshader",
+   "still_s": 3.355,
+   "frame": "F4",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/stills/F4-A-hero.jpg",
+   "preview_kb": 200.8,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F4-A-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.513,
+   "frame": "F4",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F4-A-standard.jpg",
+   "preview_kb": 128.7,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F4-B-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.541,
+   "frame": "F4",
+   "typo": "B",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F4-B-standard.jpg",
+   "preview_kb": 127.6,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F4-C-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.638,
+   "frame": "F4",
+   "typo": "C",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F4-C-standard.jpg",
+   "preview_kb": 124.4,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F5-A-hero": {
+   "gl": "swiftshader",
+   "still_s": 1.431,
+   "frame": "F5",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/stills/F5-A-hero.jpg",
+   "preview_kb": 167.3,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F5-A-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.322,
+   "frame": "F5",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F5-A-standard.jpg",
+   "preview_kb": 152.0,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F5-B-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.327,
+   "frame": "F5",
+   "typo": "B",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F5-B-standard.jpg",
+   "preview_kb": 150.3,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F5-C-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.318,
+   "frame": "F5",
+   "typo": "C",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F5-C-standard.jpg",
+   "preview_kb": 149.1,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F6-A-hero": {
+   "gl": "swiftshader",
+   "still_s": 1.356,
+   "frame": "F6",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/stills/F6-A-hero.jpg",
+   "preview_kb": 93.7,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F6-A-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.283,
+   "frame": "F6",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F6-A-standard.jpg",
+   "preview_kb": 80.8,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F6-B-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.299,
+   "frame": "F6",
+   "typo": "B",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F6-B-standard.jpg",
+   "preview_kb": 77.9,
+   "preview_px": [
+    1600,
+    900
+   ]
+  },
+  "F6-C-standard": {
+   "gl": "swiftshader",
+   "still_s": 1.312,
+   "frame": "F6",
+   "typo": "C",
+   "fx": "standard",
+   "preview": "reports/lookdev/stills/F6-C-standard.jpg",
+   "preview_kb": 76.2,
+   "preview_px": [
+    1600,
+    900
+   ]
+  }
+ },
+ "motion": {
+  "MA-standard@swiftshader": {
+   "gl": "swiftshader",
+   "concurrency": 3,
+   "comp": "LD-MA-Impact",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 300,
+   "wall_s": 43.61,
+   "overhead_s": 3.95,
+   "fps_throughput": 7.539,
+   "s_per_frame": 0.398,
+   "s_per_frame_box": 0.1327,
+   "mp4": "data/renders/lookdev/MA-standard_swiftshader.mp4",
+   "mb": 6.56,
+   "strip": "reports/lookdev/motion/MA-standard.jpg",
+   "strip_frames": [
+    0,
+    100,
+    200,
+    299
+   ]
+  },
+  "MA-hero@swiftshader": {
+   "gl": "swiftshader",
+   "concurrency": 3,
+   "comp": "LD-MA-Impact",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 300,
+   "wall_s": 39.53,
+   "overhead_s": 1.26,
+   "fps_throughput": 7.812,
+   "s_per_frame": 0.384,
+   "s_per_frame_box": 0.128,
+   "mp4": "data/renders/lookdev/MA-hero_swiftshader.mp4",
+   "mb": 9.79,
+   "strip": "reports/lookdev/motion/MA-hero.jpg",
+   "strip_frames": [
+    0,
+    100,
+    200,
+    299
+   ]
+  },
+  "MB-standard@swiftshader": {
+   "gl": "swiftshader",
+   "concurrency": 3,
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 300,
+   "wall_s": 61.84,
+   "overhead_s": 1.49,
+   "fps_throughput": 4.954,
+   "s_per_frame": 0.606,
+   "s_per_frame_box": 0.2018,
+   "mp4": "data/renders/lookdev/MB-standard_swiftshader.mp4",
+   "mb": 9.38,
+   "strip": "reports/lookdev/motion/MB-standard.jpg",
+   "strip_frames": [
+    0,
+    100,
+    200,
+    299
+   ]
+  },
+  "MB-hero@swiftshader": {
+   "gl": "swiftshader",
+   "concurrency": 3,
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 300,
+   "wall_s": 273.89,
+   "overhead_s": 3.6,
+   "fps_throughput": 1.106,
+   "s_per_frame": 2.712,
+   "s_per_frame_box": 0.904,
+   "mp4": "data/renders/lookdev/MB-hero_swiftshader.mp4",
+   "mb": 19.29,
+   "strip": "reports/lookdev/motion/MB-hero.jpg",
+   "strip_frames": [
+    0,
+    100,
+    200,
+    299
+   ]
+  },
+  "MC-standard@swiftshader": {
+   "gl": "swiftshader",
+   "concurrency": 3,
+   "comp": "LD-MC-Streak",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 300,
+   "wall_s": 66.27,
+   "overhead_s": 1.74,
+   "fps_throughput": 4.633,
+   "s_per_frame": 0.647,
+   "s_per_frame_box": 0.2158,
+   "mp4": "data/renders/lookdev/MC-standard_swiftshader.mp4",
+   "mb": 9.04,
+   "strip": "reports/lookdev/motion/MC-standard.jpg",
+   "strip_frames": [
+    140,
+    147,
+    150,
+    153
+   ]
+  },
+  "MC-hero@swiftshader": {
+   "gl": "swiftshader",
+   "concurrency": 3,
+   "comp": "LD-MC-Streak",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 300,
+   "wall_s": 66.74,
+   "overhead_s": 1.63,
+   "fps_throughput": 4.593,
+   "s_per_frame": 0.653,
+   "s_per_frame_box": 0.2177,
+   "mp4": "data/renders/lookdev/MC-hero_swiftshader.mp4",
+   "mb": 12.34,
+   "strip": "reports/lookdev/motion/MC-hero.jpg",
+   "strip_frames": [
+    140,
+    147,
+    150,
+    153
+   ]
+  },
+  "MA-standard@swangle": {
+   "gl": "swangle",
+   "concurrency": 3,
+   "comp": "LD-MA-Impact",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 300,
+   "wall_s": 200.94,
+   "overhead_s": 2.59,
+   "fps_throughput": 1.507,
+   "s_per_frame": 1.99,
+   "s_per_frame_box": 0.6634,
+   "mp4": "data/renders/lookdev/MA-standard_swangle.mp4",
+   "mb": 6.96
+  },
+  "MB-hero@swangle": {
+   "gl": "swangle",
+   "concurrency": 3,
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 300,
+   "wall_s": 506.47,
+   "overhead_s": 4.51,
+   "fps_throughput": 0.596,
+   "s_per_frame": 5.036,
+   "s_per_frame_box": 1.6788,
+   "mp4": "data/renders/lookdev/MB-hero_swangle.mp4",
+   "mb": 20.46
+  }
+ },
+ "contact_sheet": {
+  "path": "reports/lookdev/contact.jpg",
+  "kb": 379.4,
+  "px": [
+   1600,
+   1531
+  ]
+ },
+ "summary_s_per_frame": {
+  "LD-MA-Impact": {
+   "standard@swiftshader": 0.398,
+   "hero@swiftshader": 0.384,
+   "standard@swangle": 1.99
+  },
+  "LD-MB-Galaxy": {
+   "standard@swiftshader": 0.606,
+   "hero@swiftshader": 2.712,
+   "hero@swangle": 5.036
+  },
+  "LD-MC-Streak": {
+   "standard@swiftshader": 0.647,
+   "hero@swiftshader": 0.653
+  }
+ },
+ "psnr_swiftshader_vs_swangle_db": {
+  "MA-standard": 46.2,
+  "MB-hero": 24.9
+ }
+}
