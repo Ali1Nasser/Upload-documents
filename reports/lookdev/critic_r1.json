@@ -1,0 +1,144 @@
+{
+ "round": "r1",
+ "look_mean": 7.61,
+ "parity_mean": 7.1,
+ "parity_family_column_mean": 6.7,
+ "parity_read": {
+  "depth_light": 7.0,
+  "camera_life": 7.0,
+  "kinetic_type": 7.5,
+  "metaphor": 7.0,
+  "rhythm_impact": 7.0
+ },
+ "min_criterion": 5,
+ "min_where": "F4-hero cost (5)",
+ "verdict": "fail",
+ "r0": {
+  "look_mean": 7.4,
+  "parity_mean": 6.9,
+  "min_criterion": 4
+ },
+ "look_mean_F1_F6_standard": 7.81,
+ "per_family": {
+  "F1-standard": {
+   "scores": {
+    "composition": 7,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 7.71
+  },
+  "F2-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 6,
+    "cost": 9
+   },
+   "mean": 7.71
+  },
+  "F3-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 7,
+    "parity": 6,
+    "cost": 9
+   },
+   "mean": 7.57
+  },
+  "F4-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 6
+   },
+   "mean": 7.57
+  },
+  "F4-hero": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 7,
+    "parity": 7,
+    "cost": 5
+   },
+   "mean": 7.29
+  },
+  "F5-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 9,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 7,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 8.0
+  },
+  "F6-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 9,
+    "legibility": 8,
+    "parity": 8,
+    "cost": 10
+   },
+   "mean": 8.29
+  },
+  "F7-standard": {
+   "scores": {
+    "composition": 6,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 6,
+    "parity": 6,
+    "cost": 9
+   },
+   "mean": 7.14
+  },
+  "F8-standard": {
+   "scores": {
+    "composition": 6,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 7,
+    "legibility": 7,
+    "parity": 6,
+    "cost": 9
+   },
+   "mean": 7.14
+  },
+  "F9-standard": {
+   "scores": {
+    "composition": 7,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 7.71
+  }
+ }
+}
