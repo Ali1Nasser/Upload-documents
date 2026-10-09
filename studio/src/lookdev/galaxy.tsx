@@ -326,7 +326,7 @@ const GLNear: React.FC<{cam: Cam}> = ({cam}) => {
     g.setAttribute('color', new THREE.BufferAttribute(f.col, 3));
     return g;
   }, []);
-  const mat = useMemo(() => new THREE.PointsMaterial({size: 0.07, map: spriteTex(), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, sizeAttenuation: true}), []);
+  const mat = useMemo(() => new THREE.PointsMaterial({size: 0.1, map: spriteTex(), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, sizeAttenuation: true}), []);
   return <points geometry={geo} material={mat} />;
 };
 const NearGL: React.FC<{cam: Cam; style?: React.CSSProperties}> = ({cam, style}) => (

@@ -1,0 +1,410 @@
+{
+ "v": 1,
+ "phase": "P6",
+ "round": "r2",
+ "resolution": "1920x1080",
+ "fps": 24,
+ "gl": "swiftshader",
+ "box": "4 vCPU, no GPU",
+ "tokens": "studio/src/tokens.ts (ADR-002 F24 + FX2 + RT5, ADR-003 T-A + LK-F)",
+ "definitions": {
+  "s_per_frame": "(wall - overhead) x concurrency / (frames - 1): seconds per frame per render slot",
+  "box_s_per_frame": "(wall - overhead) / (frames - 1): whole-box seconds per frame, measured with 3 render slots busy (under load)",
+  "fps_throughput": "(frames - 1) / (wall - overhead), whole box",
+  "still_s": "renderStill wall per still, one browser, bundle excluded"
+ },
+ "budget": {
+  "R5_standard_box_s_per_frame": 0.201,
+  "H_band_box_s_per_frame": [
+   0.904,
+   1.038
+  ],
+  "R2_blended_box_s_per_frame": 0.24,
+  "RT5_hero_share": 0.05,
+  "source": "docs/decisions/ADR-002-render-stack.md (cost model S/H, R2, R5)"
+ },
+ "r1_box_s_per_frame": {
+  "MA-standard": 0.185,
+  "MB-standard": 0.38,
+  "MB-hero": 0.916,
+  "MC-standard": 0.216,
+  "MD-standard": 0.257
+ },
+ "stills": {
+  "F1-standard": {
+   "still_s": 2.085,
+   "comp": "LookdevStill",
+   "frame": "F1",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.28,
+   "preview": "reports/lookdev/r2/stills/F1-standard.jpg",
+   "kb": 230.6,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F2-standard": {
+   "still_s": 1.359,
+   "comp": "LookdevStill",
+   "frame": "F2",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.28,
+   "preview": "reports/lookdev/r2/stills/F2-standard.jpg",
+   "kb": 224.6,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F3-standard": {
+   "still_s": 1.346,
+   "comp": "LookdevStill",
+   "frame": "F3",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.34,
+   "preview": "reports/lookdev/r2/stills/F3-standard.jpg",
+   "kb": 193.3,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F4-hero": {
+   "still_s": 2.048,
+   "comp": "LookdevStill",
+   "frame": "F4",
+   "typo": "A",
+   "fx": "hero",
+   "loadavg_1m": 2.28,
+   "preview": "reports/lookdev/r2/stills/F4-hero.jpg",
+   "kb": 213.2,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F4-standard": {
+   "still_s": 1.59,
+   "comp": "LookdevStill",
+   "frame": "F4",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.34,
+   "preview": "reports/lookdev/r2/stills/F4-standard.jpg",
+   "kb": 201.7,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F5-standard": {
+   "still_s": 1.398,
+   "comp": "LookdevStill",
+   "frame": "F5",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.31,
+   "preview": "reports/lookdev/r2/stills/F5-standard.jpg",
+   "kb": 271.2,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F6-standard": {
+   "still_s": 1.371,
+   "comp": "LookdevStill",
+   "frame": "F6",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.31,
+   "preview": "reports/lookdev/r2/stills/F6-standard.jpg",
+   "kb": 163.5,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F7-standard": {
+   "still_s": 1.581,
+   "comp": "LookdevStill",
+   "frame": "F7",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 2.31,
+   "preview": "reports/lookdev/r2/stills/F7-standard.jpg",
+   "kb": 260.0,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F8-standard": {
+   "still_s": 1.588,
+   "comp": "LD-MD-Gates",
+   "frame": 210,
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 5.27,
+   "preview": "reports/lookdev/r2/stills/F8-standard.jpg",
+   "kb": 213.7,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F9-standard": {
+   "still_s": 1.616,
+   "comp": "LD-MD-Gates",
+   "frame": 266,
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 4.93,
+   "preview": "reports/lookdev/r2/stills/F9-standard.jpg",
+   "kb": 256.0,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  }
+ },
+ "motion": {
+  "MA-standard": {
+   "comp": "LD-MA-Impact",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 48.64,
+   "overhead_s": 1.58,
+   "fps_throughput": 5.079,
+   "s_per_frame": 0.591,
+   "s_per_frame_box": 0.1969,
+   "mp4": "data/renders/lookdev/r2/MA-standard_swiftshader.mp4",
+   "mb": 13.37,
+   "loadavg_1m": 6.04,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r2/strips/MA-standard.jpg",
+   "strip_frames": [
+    4,
+    34,
+    91,
+    100,
+    102,
+    103,
+    105,
+    227
+   ],
+   "strip_kb": 126.1,
+   "note": "CH-33 S1 3768.8-3778.8 s on word ids w:S1:ar-natural:005965-005980 (lead 2 f); 3 % push + 40 px track over the shot, far plane (blurred galaxy plate) at 0.4x; carry-over query caption from f0; impact on وغلط = 3-frame light burst + hard glow flash + nudge (no CA on Arabic); `الـroadmap` via display override; SFX hooks exported as MA_SFX_HOOKS"
+  },
+  "MB-standard": {
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 83.43,
+   "overhead_s": 1.89,
+   "fps_throughput": 2.931,
+   "s_per_frame": 1.024,
+   "s_per_frame_box": 0.3412,
+   "mp4": "data/renders/lookdev/r2/MB-standard_swiftshader.mp4",
+   "mb": 14.69,
+   "loadavg_1m": 7.12,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": false,
+   "strip": "reports/lookdev/r2/strips/MB-standard.jpg",
+   "strip_frames": [
+    0,
+    34,
+    68,
+    102,
+    137,
+    171,
+    205,
+    239
+   ],
+   "strip_kb": 173.7,
+   "note": "baked P10 plate (nebula + 1,500 GL points + Bloom, data/derived/plates/galaxy-ch33-push.mp4) under the text-safe mask; live layer = probe, links, cards, 2-line caption; hero adds 360 live near-field GL points (no EffectComposer)"
+  },
+  "MB-hero": {
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 123.75,
+   "overhead_s": 1.87,
+   "fps_throughput": 1.961,
+   "s_per_frame": 1.53,
+   "s_per_frame_box": 0.51,
+   "mp4": "data/renders/lookdev/r2/MB-hero_swiftshader.mp4",
+   "mb": 14.54,
+   "loadavg_1m": 7.44,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 1.038,
+   "budget_ref": "H band top (ADR-002 cost model)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r2/strips/MB-hero.jpg",
+   "strip_frames": [
+    0,
+    34,
+    68,
+    102,
+    137,
+    171,
+    205,
+    239
+   ],
+   "strip_kb": 180.2,
+   "note": "baked P10 plate (nebula + 1,500 GL points + Bloom, data/derived/plates/galaxy-ch33-push.mp4) under the text-safe mask; live layer = probe, links, cards, 2-line caption; hero adds 360 live near-field GL points (no EffectComposer)"
+  },
+  "MC-standard": {
+   "comp": "LD-MC-Streak",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 53.92,
+   "overhead_s": 1.54,
+   "fps_throughput": 4.562,
+   "s_per_frame": 0.658,
+   "s_per_frame_box": 0.2192,
+   "mp4": "data/renders/lookdev/r2/MC-standard_swiftshader.mp4",
+   "mb": 18.72,
+   "loadavg_1m": 6.98,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": false,
+   "strip": "reports/lookdev/r2/strips/MC-standard.jpg",
+   "strip_frames": [
+    108,
+    112,
+    115,
+    118,
+    119,
+    120,
+    121,
+    123
+   ],
+   "strip_kb": 162.8,
+   "note": "whip-pan SQL funnel -> Kafka, 12 frames: 9 out, 3 in; frames cut-2..cut-1 carry 20 % of the incoming scene's light (no black dip); incoming scene runs on its own clock (t0 = cut) so messages slide in after the cut"
+  },
+  "MD-standard": {
+   "comp": "LD-MD-Gates",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 288,
+   "fps": 24,
+   "wall_s": 73.95,
+   "overhead_s": 1.69,
+   "fps_throughput": 3.972,
+   "s_per_frame": 0.755,
+   "s_per_frame_box": 0.2518,
+   "mp4": "data/renders/lookdev/r2/MD-standard_swiftshader.mp4",
+   "mb": 29.81,
+   "loadavg_1m": 7.36,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": false,
+   "strip": "reports/lookdev/r2/strips/MD-standard.jpg",
+   "strip_frames": [
+    0,
+    33,
+    160,
+    210,
+    248,
+    260,
+    262,
+    287
+   ],
+   "strip_kb": 154.8,
+   "note": "TripleGate ignition on S1 CH-00 words (w:000036-000045); camera yawed from f0 (-0.78 -> -0.30 rad, never front-on) + push 13.6 -> 10.8; gates 1.3x at 50 % height with inner rings and light cones; phrase دي الشغلانة كلها (w:000048-000050, impact on كلها)"
+  }
+ },
+ "plates": {
+  "galaxy-ch33-final": {
+   "s": 4.704,
+   "png": "data/derived/plates/galaxy-ch33-final.png",
+   "loadavg": [
+    2.24,
+    2.2,
+    3.22
+   ],
+   "note": "P10 plate, rendered once (hero GL + Bloom); amortised over every use of the shot"
+  },
+  "galaxy-ch33-push": {
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 192.78,
+   "s_per_frame": 2.41,
+   "s_per_frame_box": 0.8033,
+   "mp4": "data/derived/plates/galaxy-ch33-push.mp4",
+   "mb": 9.09,
+   "loadavg": [
+    3.68,
+    3.2,
+    3.45
+   ],
+   "note": "P10 plate, rendered once (hero GL + Bloom); amortised over every use of the shot"
+  }
+ },
+ "blended": {
+  "standard_mean_box_s_per_frame": 0.2523,
+  "hero_box_s_per_frame": 0.51,
+  "hero_share": 0.05,
+  "blended_box_s_per_frame": 0.2652,
+  "R2_limit": 0.24,
+  "within_R2": false,
+  "caveat": "look-dev shots, not a chapter; render-ops re-measures at the first chapter render (ADR-002 R2)"
+ },
+ "contact_sheet": {
+  "path": "reports/lookdev/r2/contact.jpg",
+  "kb": 244.0,
+  "px": [
+   1920,
+   910
+  ]
+ },
+ "mask_ab_mb_standard": {
+  "rings10_multiply_cpu_s": [
+   284.06,
+   287.11
+  ],
+  "single_hard_rect_cpu_s": 262.56,
+  "delta": "+8.7 % CPU for the 10-ring feather",
+  "note": "measured while another agent's process (out of queue) held 1.3 cores; wall s/frame is not comparable between these runs, CPU-s is"
+ }
+}

@@ -164,17 +164,20 @@ export type Rect = {x: number; y: number; w: number; h: number};
 export const textSafeMask = (rects: Rect[], fx: Fx, floor = 0): React.CSSProperties => {
   if (!fx.textSafe || !rects.length) return {};
   const pad = fx.textSafePadPx;
-  // r2 perf: feather = 4 nested rounded rects at stepped grey (no feGaussianBlur). The blurred-SVG mask re-rasterised a
-  // 1920x1080 Gaussian every frame whenever a card moved (MB); stepped rings give the same soft edge with no filter.
-  const f = Math.round(floor * 255);
-  const steps = [1, 0.66, 0.33, 0];
+  // r2 perf: feather = N nested rounded rects composited with mix-blend-mode multiply (no feGaussianBlur). The blurred
+  // SVG mask re-rasterised a 1920x1080 Gaussian every frame whenever a card moved (MB). Each ring multiplies by
+  // v_j / v_(j-1) so the nested product is a linear ramp 1 -> floor across 1.75 x pad; overlapping holes multiply
+  // (never lighten each other). 10 rings read as a soft edge at 1080p (r2: 4 rings showed hard dark panels).
+  const n = 10;
+  const v = (j: number) => 1 - (1 - floor) * (j / n);
   const holes = rects
     .map((r) =>
-      steps
-        .map((k) => {
-          const e = pad * (0.5 + k * 0.5); // outer ring at +pad, solid core at +pad/2
-          const v = Math.round(f + (255 - f) * k * 0.75);
-          return `<rect x='${(r.x - e).toFixed(0)}' y='${(r.y - e).toFixed(0)}' width='${(r.w + 2 * e).toFixed(0)}' height='${(r.h + 2 * e).toFixed(0)}' rx='${e.toFixed(0)}' fill='rgb(${v},${v},${v})'/>`;
+      Array.from({length: n}, (_, i) => i + 1)
+        .map((j) => {
+          const e = pad * (2 - 1.75 * (j / n)); // outer ring at +2 pad, solid core at +0.25 pad
+          const m = v(j - 1) > 0 ? v(j) / v(j - 1) : 0;
+          const g = Math.round(255 * m);
+          return `<rect x='${(r.x - e).toFixed(1)}' y='${(r.y - e).toFixed(1)}' width='${(r.w + 2 * e).toFixed(1)}' height='${(r.h + 2 * e).toFixed(1)}' rx='${Math.max(4, e).toFixed(1)}' fill='rgb(${g},${g},${g})' style='mix-blend-mode:multiply'/>`;
         })
         .join(''),
     )
@@ -503,7 +506,7 @@ export const Burst: React.FC<{at: number; x: number; y: number; r: number; color
         width: r * 2,
         height: r * 1.2,
         borderRadius: '50%',
-        background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.white}${hex(0.22 * a)} 0%, ${color}${hex(0.5 * a)} 30%, ${color}${hex(0.12 * a)} 60%, transparent 75%)`,
+        background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.white}${hex(0.45 * a)} 0%, ${color}${hex(0.6 * a)} 18%, ${color}${hex(0.25 * a)} 45%, transparent 75%)`, // r2: hot core (r2 first pass read as a ring)
         mixBlendMode: 'screen',
         pointerEvents: 'none',
       }}

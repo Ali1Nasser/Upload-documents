@@ -101,7 +101,7 @@ export const F1ColdOpen: React.FC<FrameProps> = ({typo, fx}) => {
       const u = (((frame / fps) * (0.32 + 0.1 * random(`tr${j}${i}`)) + random(`to${j}${i}`)) % 1) * paths[j].p;
       const [x, y] = bez(c, u);
       const a = 0.25 + 0.75 * random(`ta${j}${i}`);
-      return {x, y, r: 1.6 + 3 * random(`tz${j}${i}`), a: a * (0.3 + 0.7 * u), j, i};
+      return {x, y, r: 2.6 + 4 * random(`tz${j}${i}`), a: Math.min(1, a * (0.5 + 0.7 * u)), j, i};
     }),
   );
   return (
@@ -137,6 +137,11 @@ export const F1ColdOpen: React.FC<FrameProps> = ({typo, fx}) => {
               <stop offset="0.5" stopColor={C.signal} stopOpacity={0.18} />
               <stop offset="1" stopColor={C.signal} stopOpacity={0} />
             </radialGradient>
+            <linearGradient id="boxLip" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stopColor={C.signal} stopOpacity={0.55} />
+              <stop offset="0.45" stopColor={C.signal} stopOpacity={0.2} />
+              <stop offset="1" stopColor={C.signal} stopOpacity={0.04} />
+            </linearGradient>
             <filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation={fx.glowInner} />
             </filter>
@@ -146,6 +151,8 @@ export const F1ColdOpen: React.FC<FrameProps> = ({typo, fx}) => {
           <line x1={1390} y1={480} x2={1760} y2={450} stroke={C.ink} strokeOpacity={0.5} strokeWidth={2} />
           {/* opening + inner glow */}
           <polygon points="1290,630 1690,630 1740,595 1340,595" fill="#07090D" />
+          {/* r2 (critic r1 #8): interior light rises to the lip (no longer flat dark glass inside) */}
+          <polygon points="1290,630 1690,630 1740,595 1340,595" fill="url(#boxLip)" />
           <ellipse cx={1515} cy={600} rx={230} ry={120} fill="url(#boxInner)" />
           {/* receipts still in the box */}
           {[0, 1, 2].map((k) => (

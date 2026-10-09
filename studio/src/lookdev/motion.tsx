@@ -71,7 +71,8 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
       </AbsoluteFill>
       {/* r2: 3-frame light burst behind the stressed word وغلط (light, not CA: Arabic stays CA-free) */}
       <AbsoluteFill style={push(frame, durationInFrames, 0.03, 1, 40)}>
-        <Burst at={impactF} x={1280} y={445} r={420} color={C.crit} frames={3} />
+        {/* lands with the word (the impact wipe completes ~2 f after `at`), not before it */}
+        <Burst at={impactF + 1} x={1280} y={445} r={420} color={C.crit} frames={3} />
       </AbsoluteFill>
       <Bokeh fx={fx} seed="ma" drift={frame * 0.5} />
       <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 1, 40), translate: `${nudge}px 0px`} as React.CSSProperties}>

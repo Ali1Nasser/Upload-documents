@@ -193,7 +193,10 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
       <Haze fx={fx} y={820} h={260} k={0.7} />
       {/* r2: 28+ px district tags, canon movement names, state-coloured */}
       {centers.map((v, k) => {
-        const p = project(c, v.clone().setZ(v.z + 0.95));
+        // r2: tag sits just under the district's projected footprint (screen bbox of its tower bases), centred on it
+        const base = towers.filter((t) => t.district === k).flatMap((t) => [-1, 1].flatMap((sx) => [-1, 1].map((sz) => project(c, V(t.x + (sx * t.w) / 2, 0, t.z + (sz * t.d) / 2)))));
+        const xs = base.map((q) => q.x);
+        const p = {x: (Math.min(...xs) + Math.max(...xs)) / 2, y: Math.max(...base.map((q) => q.y)) + 10};
         const col = k === CUR ? C.signal : k < CUR ? C.ink2 : C.ink3;
         return (
           <div key={`tag${k}`} dir="rtl" lang="ar" style={{position: 'absolute', left: p.x, top: p.y, transform: 'translate(-50%, 0)', padding: '2px 16px 6px', borderRadius: 999, background: 'rgba(13,17,23,0.82)', border: `1.5px solid ${col}${k === CUR ? 'FF' : '88'}`, boxShadow: k === CUR ? `0 0 ${fx.glowPx * 0.7}px ${C.signal}88` : undefined, whiteSpace: 'nowrap', fontFamily: `'${typo.body}'`, fontWeight: 600, fontSize: k === CUR ? 34 : 30, lineHeight: 1.3, color: k <= CUR ? C.ink : C.ink2, textShadow: halo}}>
@@ -285,10 +288,12 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   // camera: slow push + orbit through the whole shot (0.6 rad over 12 s ≈ 2.9°/s: a deliberate move, not ambient)
   const k = interpolate(frame, [0, durationInFrames - 1], [0, 1], {easing: EASE.camera});
   // r2 (critic r1 #4): the camera is already yawed from f0 (rings read as ellipses), gates 1.3x, row centred at 50 % height
-  const ang = interpolate(k, [0, 1], [-0.55, 0.22]);
-  const dist = interpolate(k, [0, 1], [13.2, 10.0]);
-  const tgt: [number, number, number] = [0, GATE_CY, 0];
-  const cam: Cam = {pos: [Math.sin(ang) * dist, GATE_CY + 0.9 + 0.5 * (1 - k), Math.cos(ang) * dist], target: tgt};
+  // the yaw never crosses 0 (a front-on pass made the rings read as flat circles at the F8 frame)
+  const ang = interpolate(k, [0, 1], [-0.78, -0.3]);
+  const dist = interpolate(k, [0, 1], [13.6, 10.8]);
+  // target shifted 0.8 toward -x so the near (left) gate keeps >= 80 px from the frame edge under the yaw
+  const tgt: [number, number, number] = [-0.8, GATE_CY, 0];
+  const cam: Cam = {pos: [tgt[0] + Math.sin(ang) * dist, GATE_CY + 0.9 + 0.5 * (1 - k), Math.cos(ang) * dist], target: tgt};
   const c = makeCamera(cam);
   const gx = [4.7, 0, -4.7]; // RTL: the first move sits on the right
   const prog = GATE_WORDS.map((w) => interpolate(frame, [on(w), on(w) + msToFrames(420, fps)], [0, 1], {...cl, easing: EASE.arrive}));
