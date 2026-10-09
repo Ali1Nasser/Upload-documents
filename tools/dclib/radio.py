@@ -12,7 +12,9 @@ radio       (venv)    decode 48 kHz mono (soxr), S4 EQ match (corpus/audio/eq_ma
                       look-ahead peak limiter (-1.5 dBFS sample ceiling), FLAC 48 kHz/24-bit. Writes gains + VO hash into the EDL.
 radio-check (venv)    0 clipped words (static: every segment's first/last word inside its kept region and neighbours outside;
                       MMS re-align of 20 seeded windows across cuts), per-minute loudness within +-1.5 LU, no unplanned gap > 2.5 s.
-lock        (venv)    features at 30 fps per chapter (RMS, onset strength, spectral centroid) + corpus/edl/lock.vN.json.
+lock        (venv)    word map enriched (seconds, frames, sentence id; monotonic) + features at 30 fps per chapter (RMS, onset
+                      strength, spectral centroid; 3 dp) + corpus/edl/lock.json (EDL, word map, VO and feature SHA-256, fps).
+sample      (ffmpeg)  3-minute FYI radio-edit sample spanning trunk -> Deep-Dive -> trunk -> data/delivery/fyi/*.m4a (AAC 160k).
 
 Archive code is never executed; source audio is only decoded by ffmpeg. Heavy steps run through the tsp queue.
 """
@@ -1042,6 +1044,69 @@ def _write_md(edl, r, v):
 
 
 # ===================================================================================================================== lock
+LOCK_JSON = os.path.join(EDL_DIR, "lock.json")
+WM_STATS = {"overlaps": 0, "max_overlap_ms": 0}
+
+
+def _sentence_index():
+    """audio key ('S1:ar-natural') -> sorted [(w_from_idx, w_to_idx, sent_id)] from corpus/sentences/*.jsonl."""
+    idx = {}
+    sd = C.p("corpus", "sentences")
+    for f in sorted(os.listdir(sd)):
+        if not f.endswith(".jsonl"):
+            continue
+        for s in C.read_jsonl(os.path.join(sd, f)):
+            key = s["w_from"][2:].rsplit(":", 1)[0]
+            idx.setdefault(key, []).append((int(s["w_from"].rsplit(":", 1)[1]), int(s["w_to"].rsplit(":", 1)[1]), s["sent_id"]))
+    for k in idx:
+        idx[k].sort()
+    return idx
+
+
+def wm_enrich(v, edl):
+    """Word map -> every kept word with permanent word id, master start/end (s, ms) and frames at 30 fps, sentence id, segment,
+    chapter. Monotonic and complete, or fail. Idempotent; the VO does not change, only the word map's fields."""
+    import bisect
+    idx = _sentence_index()
+    starts = {k: [a for a, _, _ in v_] for k, v_ in idx.items()}
+    seg_sents = {s["seg_id"]: set(s.get("sentences") or []) for s in edl["segments"]}
+    wm = C.read_jsonl(wm_path(v))
+    WM_STATS.update(overlaps=0, max_overlap_ms=0)
+    out, errs, prev, seen = [], [], None, set()
+    for w in wm:
+        key, n = w["word_id"][2:].rsplit(":", 1)
+        n = int(n)
+        j = bisect.bisect_right(starts.get(key, []), n) - 1
+        sid = idx[key][j][2] if j >= 0 and idx[key][j][0] <= n <= idx[key][j][1] else None
+        if sid is None:
+            errs.append(f"{w['word_id']}: in no sentence")
+        elif sid not in seg_sents.get(w["seg_id"], ()):
+            errs.append(f"{w['word_id']}: sentence {sid} not listed in {w['seg_id']}")
+        a, z = w["rec_start_ms"], w["rec_end_ms"]
+        if z < a:
+            errs.append(f"{w['word_id']}: end < start")
+        if prev is not None and a < prev["rec_start_ms"]:
+            errs.append(f"{w['word_id']}: start not monotonic after {prev['word_id']} ({a} < {prev['rec_start_ms']} ms)")
+        if prev is not None and a < prev["rec_end_ms"]:   # source aligner overlap (kept as measured); never across a cut
+            WM_STATS["overlaps"] += 1
+            WM_STATS["max_overlap_ms"] = max(WM_STATS["max_overlap_ms"], prev["rec_end_ms"] - a)
+            if prev["seg_id"] != w["seg_id"]:
+                errs.append(f"{w['word_id']}: overlaps the previous segment's last word")
+        if w["word_id"] in seen:
+            errs.append(f"{w['word_id']}: duplicate")
+        seen.add(w["word_id"])
+        out.append({"v": 1, "word_id": w["word_id"], "rec_start_s": round(a / 1000, 3), "rec_end_s": round(z / 1000, 3),
+                    "rec_start_ms": a, "rec_end_ms": z, "rec_start_frame": ms2frame(a), "rec_end_frame": max(ms2frame(a), ms2frame(z)),
+                    "sent_id": sid, "seg_id": w["seg_id"], "chapter": w["chapter"]})
+        prev = w
+    if errs:
+        C.fail(f"word map: {len(errs)} problems, e.g. {errs[:5]}", 3)
+    if len(out) != edl["stats"]["words"]:
+        C.fail(f"word map has {len(out)} words, EDL stats say {edl['stats']['words']}", 3)
+    C.write_jsonl(wm_path(v), out)
+    return len(out)
+
+
 def cmd_lock(args):
     if not args.inline and _queue_self("lock", ["--inline", "--v", str(args.v)], f"story-lock-v{args.v}", 4.0) is not None:
         return 0
@@ -1055,6 +1120,8 @@ def cmd_lock(args):
     vo = C.p(edl["vo_wav"])
     if sha256(vo) != edl["vo_sha256"]:
         C.fail("VO hash differs from EDL", 3)
+    nwords = wm_enrich(v, edl)
+    print(f"word map: {nwords} words, monotonic, every word in a sentence of its segment", flush=True)
     fdir = C.p("corpus", "edl", "features")
     os.makedirs(fdir, exist_ok=True)
     win = 2048
@@ -1080,9 +1147,9 @@ def cmd_lock(args):
             flux = np.maximum(0, np.diff(lb, axis=0, prepend=lb[:1])).sum(1)
             flux = flux / max(1e-9, float(np.percentile(flux, 99)))
             rec = {"v": 1, "chapter": ch["id"], "fps": FPS, "start_frame": a, "end_frame": b, "vo_sha256": edl["vo_sha256"],
-                   "edl": C.rel(edl_path(v)), "rms_dbfs": [round(float(20 * np.log10(max(r_, 1e-6))), 1) for r_ in rms],
+                   "edl": C.rel(edl_path(v)), "rms_dbfs": [round(float(20 * np.log10(max(r_, 1e-6))), 3) for r_ in rms],
                    "onset_strength": [round(float(min(1.0, q)), 3) for q in flux],
-                   "centroid_hz": [int(c) if r_ > 10 ** (-50 / 20) else 0 for c, r_ in zip(cen, rms)],
+                   "centroid_hz": [round(float(c), 3) if r_ > 10 ** (-50 / 20) else 0.0 for c, r_ in zip(cen, rms)],
                    "notes": "per frame k: window 2048 centred on record frame k (hop 1600 = 1 frame at 30 fps); onset = positive log-band "
                             "spectral flux / chapter p99, clipped to 1; centroid 0 where RMS < -50 dBFS"}
             p = os.path.join(fdir, f"{ch['id']}.json")
@@ -1093,9 +1160,19 @@ def cmd_lock(args):
             "edl": C.rel(edl_path(v)), "edl_sha256": sha256(edl_path(v)),
             "word_map": C.rel(wm_path(v)), "word_map_sha256": sha256(wm_path(v)),
             "vo": edl["vo_wav"], "vo_sha256": edl["vo_sha256"], "vo_bytes": os.path.getsize(vo),
-            "total_frames": edl["total_frames"], "fps": FPS, "features": out,
+            "total_frames": edl["total_frames"], "total_ms": edl["total_ms"], "fps": FPS, "sr": SR, "words": nwords,
+            "word_map_checks": {"start_monotonic": True, "in_sentence_of_segment": True, "source_overlaps_within_segment": WM_STATS["overlaps"],
+                                "max_overlap_ms": WM_STATS["max_overlap_ms"], "overlaps_across_cuts": 0},
+            "chapters": len(edl["chapters"]),
+            "word_map_fields": "word_id, rec_start_s/rec_end_s (3 dp), rec_start_ms/rec_end_ms, rec_start_frame/rec_end_frame "
+                               "(30 fps, timeutil.ms2frame), sent_id, seg_id, chapter",
+            "features_fields": "rms_dbfs, onset_strength (0..1), centroid_hz; one value per record frame at 30 fps, 3 dp",
+            "features": out,
             "rule": "Picture follows this lock. Any change bumps the version (vN+1) and the compiler re-times specs; no manual nudges."}
-    C.write_json(os.path.join(EDL_DIR, f"lock.v{v}.json"), lock)
+    C.write_json(LOCK_JSON, lock)
+    old = os.path.join(EDL_DIR, f"lock.v{v}.json")
+    if os.path.exists(old):
+        os.remove(old)
     print(json.dumps({k: lock[k] for k in ("edl_sha256", "word_map_sha256", "vo_sha256", "total_frames")}))
     return 0
 
@@ -1149,20 +1226,74 @@ def cmd_gapscan(args):
 
 
 # ================================================================================================================ fyi sample
+FYI_DIR = C.p("data", "delivery", "fyi")
+
+
+def _fmt(ms):
+    return f"{ms // 3600000}:{ms % 3600000 // 60000:02d}:{ms % 60000 / 1000:06.3f}"
+
+
 def cmd_sample(args):
-    """3-minute radio-edit FYI sample around a Deep-Dive entry/exit (stream copy of the locked VO, 24-bit FLAC + 192k MP3)."""
-    edl = C.read_json(edl_path(args.v))
-    ch = next(c for c in edl["chapters"] if c["id"] == args.around)
-    a = max(0, ch["start_frame"] * 1000 // FPS - args.lead_s * 1000)
+    """3-minute radio-edit FYI sample spanning trunk -> Deep-Dive -> trunk (a cut of the locked VO, AAC 160 kbps in .m4a).
+
+    The window starts 400 ms before a sentence onset of the trunk chapter before the Deep-Dive, chosen so that the Deep-Dive
+    sits as close to the middle as possible and the end (start + dur) falls in a pause between words. 300 ms fades at both ends.
+    """
+    import bisect
+    v, dur = args.v, args.dur_s * 1000
+    edl = C.read_json(edl_path(v))
+    chs = edl["chapters"]
+    i = next(k for k, c in enumerate(chs) if c["id"] == args.around)
+    dd, pre, post = chs[i], chs[i - 1], chs[i + 1]
+    if dd["kind"] != "deep-dive" or pre["kind"] != "trunk" or post["kind"] != "trunk":
+        C.fail(f"{args.around} is not a Deep-Dive between two trunk chapters", 2)
+    f2ms = lambda f: f * 1000 // FPS  # noqa: E731
+    dd_a, dd_b = f2ms(dd["start_frame"]), f2ms(dd["end_frame"])
+    if dd_b - dd_a > dur - 20000:
+        C.fail(f"{args.around} is {(dd_b - dd_a) / 1000:.1f} s; needs <= {dur / 1000 - 20:.0f} s for a 3-minute window", 2)
+    wm = C.read_jsonl(wm_path(v))
+    ws = [w["rec_start_ms"] for w in wm]
+    lead = (dur - (dd_b - dd_a)) // 2
+    best = None
+    sent_first = {}
+    for w in wm:
+        if w["chapter"] == pre["id"]:
+            sent_first.setdefault(w["sent_id"], w["rec_start_ms"])
+    for t in sent_first.values():
+        st = t - 400
+        end = st + dur
+        k = bisect.bisect_right(ws, end) - 1
+        in_word = k >= 0 and wm[k]["rec_start_ms"] - 60 <= end <= wm[k]["rec_end_ms"] + 90
+        if end > f2ms(post["end_frame"]) or st < f2ms(pre["start_frame"]):
+            continue
+        score = abs((dd_a - st) - lead) + (10 ** 7 if in_word else 0)
+        if best is None or score < best[0]:
+            best = (score, st)
+    if best is None:
+        C.fail("no sentence onset gives a valid window", 3)
+    st = best[1]
+    os.makedirs(FYI_DIR, exist_ok=True)
+    out = os.path.join(FYI_DIR, args.out)
     vo = C.p(edl["vo_wav"])
-    out = os.path.join(DERIVED, f"fyi_radio_sample_v{args.v}_{args.around}")
-    for ext, codec in ((".flac", ["-c:a", "flac", "-sample_fmt", "s32"]), (".mp3", ["-c:a", "libmp3lame", "-b:a", "192k"])):
-        subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{a / 1000:.3f}", "-t", "180", "-i", vo, *codec, out + ext],
-                       check=True)
-    rec = {"v": 1, "edl": C.rel(edl_path(args.v)), "around": args.around, "rec_from_ms": a, "dur_s": 180,
-           "files": {ext: {"path": C.rel(out + ext), "sha256": sha256(out + ext), "bytes": os.path.getsize(out + ext)} for ext in (".flac", ".mp3")}}
-    C.write_json(C.p(REPORT_DIR, f"fyi_sample.v{args.v}.json"), rec)
-    print(json.dumps(rec))
+    d = dur / 1000
+    subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{st / 1000:.3f}", "-t", f"{d:.3f}", "-i", vo,
+                    "-af", f"afade=t=in:d=0.3,afade=t=out:st={d - 0.3:.3f}:d=0.3", "-c:a", "aac", "-b:a", "160k", "-ar", str(SR),
+                    "-ac", "1", "-movflags", "+faststart", "-map_metadata", "-1",
+                    "-metadata", f"title=DA Camp x NilePay - radio edit v{v} FYI sample ({pre['id']} > {dd['id']} > {post['id']})", out],
+                   check=True)
+    win = []
+    for c in (pre, dd, post):
+        a, b = max(st, f2ms(c["start_frame"])), min(st + dur, f2ms(c["end_frame"]))
+        win.append({"chapter": c["id"], "kind": c["kind"], "title_en": c.get("title_en"), "title_ar": c.get("title_ar"),
+                    "master_from_ms": a, "master_to_ms": b, "master_from": _fmt(a), "master_to": _fmt(b),
+                    "sample_from_s": round((a - st) / 1000, 3), "sample_to_s": round((b - st) / 1000, 3)})
+    rec = {"v": 1, "edl": C.rel(edl_path(v)), "vo_sha256": edl["vo_sha256"], "around": dd["id"],
+           "master_from_ms": st, "master_to_ms": st + dur, "master_from": _fmt(st), "master_to": _fmt(st + dur), "dur_s": d,
+           "window": win, "codec": "AAC-LC 160 kbps, 48 kHz mono, .m4a (faststart); 300 ms fades at both ends",
+           "file": {"path": C.rel(out), "sha256": sha256(out), "bytes": os.path.getsize(out)}, "created": C.now_iso(),
+           "user_notice": "ADR-001 waivers: W-001-RT (runtime 3:51:00 > 3.5 h target) and W-001-D2 (103 English P01 idea units not in the film)."}
+    C.write_json(C.p(REPORT_DIR, f"fyi_sample.v{v}.json"), rec)
+    print(json.dumps(rec, ensure_ascii=False))
     return 0
 
 
@@ -1184,12 +1315,13 @@ def register(st):
     s.add_argument("--inline", action="store_true")
     s.add_argument("--tp", action="store_true", help="re-measure true peak on the whole file (reads it into RAM)")
     s.set_defaults(fn="radio.cmd_radio_check")
-    s = st.add_parser("lock", help="G5 lock: per-chapter 30 fps features + corpus/edl/lock.vN.json (queued; needs a passing radio-check)")
+    s = st.add_parser("lock", help="G5 lock: word map fields, per-chapter 30 fps features, corpus/edl/lock.json (queued; needs a passing radio-check)")
     s.add_argument("--v", type=int, default=1)
     s.add_argument("--inline", action="store_true")
     s.set_defaults(fn="radio.cmd_lock")
-    s = st.add_parser("sample", help="3-minute FYI radio-edit sample (FLAC + MP3) starting lead_s before a chapter")
+    s = st.add_parser("sample", help="3-minute FYI radio-edit sample, trunk -> Deep-Dive -> trunk -> data/delivery/fyi/<out> (AAC 160k)")
     s.add_argument("--v", type=int, default=1)
-    s.add_argument("--around", default="DD-P23")
-    s.add_argument("--lead-s", type=int, default=60)
+    s.add_argument("--around", default="DD-P11-3", help="a Deep-Dive between two trunk chapters, shorter than dur - 20 s")
+    s.add_argument("--dur-s", type=int, default=180)
+    s.add_argument("--out", default="radio_edit_sample.m4a")
     s.set_defaults(fn="radio.cmd_sample")

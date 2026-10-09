@@ -28,7 +28,9 @@
       "checked": "2026-10-08T20:51:24Z"
     },
     "G5": {
-      "status": "pending"
+      "status": "pass",
+      "report": "reports/gates/G5.json",
+      "checked": "2026-10-09T16:28:22Z"
     },
     "G6a": {
       "status": "pending"
@@ -65,5 +67,5 @@
   "next_actions": [
     "P5: candidate EDLs, Council ADR-001, EDL cut, radio edit, audio lock (G5) | P6 in parallel: look-dev style frames + motion tests, Council ADR-002..005, freeze (G6a)"
   ],
-  "updated": "2026-10-09T01:05:46Z"
+  "updated": "2026-10-09T16:28:22Z"
 }

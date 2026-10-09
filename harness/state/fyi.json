@@ -1,0 +1,20 @@
+{
+  "v": 1,
+  "items": [
+    {
+      "label": "radio-edit v1 FYI sample (CH-17 > DD-P11-3 > CH-18)",
+      "file": "data/delivery/fyi/radio_edit_sample.m4a",
+      "host": "temp.sh",
+      "url": "https://temp.sh/ziCYR/radio_edit_sample.m4a",
+      "sha256": "1b1457e9ff9e5f7714e67ab29b86e3953b8546aba6a6d69f3a72fdb512a3e855",
+      "bytes": 3243137,
+      "uploaded": "2026-10-09T16:27:19Z",
+      "expires": "2026-10-12T16:27:19Z",
+      "retention_days": 3.0,
+      "verified": true,
+      "verify": "re-downloaded (POST to page URL), SHA-256 and byte count equal",
+      "note": "temp.sh opens a page; press Download (the file is served on POST)"
+    }
+  ],
+  "updated": "2026-10-09T16:27:22Z"
+}

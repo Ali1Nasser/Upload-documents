@@ -1,19 +1,57 @@
 {
   "v": 1,
   "edl": "corpus/edl/master_edl.v1.json",
-  "around": "DD-P06-2",
-  "rec_from_ms": 3675700,
-  "dur_s": 180,
-  "files": {
-    ".flac": {
-      "path": "data/derived/audio/fyi_radio_sample_v1_DD-P06-2.flac",
-      "sha256": "25f3685e8b857d914e88f6ad87b679937180d5db16a861d7e3cd7ef900c25bcd",
-      "bytes": 11254029
+  "vo_sha256": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
+  "around": "DD-P11-3",
+  "master_from_ms": 6373890,
+  "master_to_ms": 6553890,
+  "master_from": "1:46:13.890",
+  "master_to": "1:49:13.890",
+  "dur_s": 180.0,
+  "window": [
+    {
+      "chapter": "CH-17",
+      "kind": "trunk",
+      "title_en": "Semantic models, measures and the report",
+      "title_ar": "Semantic Models وMeasures والتقرير",
+      "master_from_ms": 6373890,
+      "master_to_ms": 6427200,
+      "master_from": "1:46:13.890",
+      "master_to": "1:47:07.200",
+      "sample_from_s": 0.0,
+      "sample_to_s": 53.31
     },
-    ".mp3": {
-      "path": "data/derived/audio/fyi_radio_sample_v1_DD-P06-2.mp3",
-      "sha256": "bf927959c72b3b20ee0460b690a80f695a885be71f8e775fbe1cf7eaf93cb693",
-      "bytes": 4321197
+    {
+      "chapter": "DD-P11-3",
+      "kind": "deep-dive",
+      "title_en": "Analytics: dirty data and applied steps, statistics from mean to A/B, the semantic model and the report (part 3 of 3)",
+      "title_ar": "Analytics: الداتا البايظة والإحصاء والـsemantic model والتقرير (3/3)",
+      "master_from_ms": 6427200,
+      "master_to_ms": 6520066,
+      "master_from": "1:47:07.200",
+      "master_to": "1:48:40.066",
+      "sample_from_s": 53.31,
+      "sample_to_s": 146.176
+    },
+    {
+      "chapter": "CH-18",
+      "kind": "trunk",
+      "title_en": "Software craft — design, refactoring, review",
+      "title_ar": "Software Craft — التصميم والـRefactoring والمراجعة",
+      "master_from_ms": 6520066,
+      "master_to_ms": 6553890,
+      "master_from": "1:48:40.066",
+      "master_to": "1:49:13.890",
+      "sample_from_s": 146.176,
+      "sample_to_s": 180.0
     }
-  }
+  ],
+  "codec": "AAC-LC 160 kbps, 48 kHz mono, .m4a (faststart); 300 ms fades at both ends",
+  "file": {
+    "path": "data/delivery/fyi/radio_edit_sample.m4a",
+    "sha256": "1b1457e9ff9e5f7714e67ab29b86e3953b8546aba6a6d69f3a72fdb512a3e855",
+    "bytes": 3243137
+  },
+  "created": "2026-10-09T16:26:55Z",
+  "user_notice": "ADR-001 waivers: W-001-RT (runtime 3:51:00 > 3.5 h target) and W-001-D2 (103 English P01 idea units not in the film)."
 }

@@ -1,0 +1,67 @@
+{
+  "gate": "G5",
+  "pass": true,
+  "checks": [
+    {
+      "name": "adr001_decided",
+      "pass": true,
+      "detail": "ADR-001 status decided; 1 ADR file(s); EDL corpus/edl/candidates/B100-noC.json"
+    },
+    {
+      "name": "edl_validates",
+      "pass": true,
+      "detail": "corpus/edl/master_edl.v1.json valid; 73 chapters (37 trunk, 36 Deep-Dives), contiguous True, AR/EN titles + acts True; runtime 3:51:00 (415813 frames)"
+    },
+    {
+      "name": "coverage",
+      "pass": true,
+      "detail": "2743/2846 unique idea units included (96.4 %); 103 not included, all in ADR waiver lists (103 waived ids: W-001-D2)"
+    },
+    {
+      "name": "redundancy",
+      "pass": true,
+      "detail": "4.0 % of 3.23 h EDL speech re-says an already covered unit (<= 5.0 %)"
+    },
+    {
+      "name": "prereq_violations",
+      "pass": true,
+      "detail": "0 violations over 2524 sentences (5 prerequisites never mentioned, not violations)"
+    },
+    {
+      "name": "radio_clipped_words",
+      "pass": true,
+      "detail": "static edge fails 0/605, neighbour 0; re-align 0 clipped of 625 words in 20 windows (0 errors)"
+    },
+    {
+      "name": "radio_loudness",
+      "pass": true,
+      "detail": "231 minutes -17.05..-15.07 LUFS, max dev 1.05 LU (<= 1.5); integrated -16.02 LUFS, TP -1.5 dBTP"
+    },
+    {
+      "name": "radio_gaps",
+      "pass": true,
+      "detail": "0 unplanned acoustic gaps > 2500 ms; planned card gaps 68 (max 3000 ms); word-map holes over audible untranscribed speech 9 (transcript follow-up, not gaps)"
+    },
+    {
+      "name": "lock_hashes",
+      "pass": true,
+      "detail": "VO 57abfd2d8ff43a3d.. = lock = EDL: True; EDL and word-map SHA-256 equal lock.json; fps 30"
+    },
+    {
+      "name": "word_map",
+      "pass": true,
+      "detail": "29480 words (EDL 29480), unique ids, start-monotonic, 30 fps frames = ms2frame, sentence id on every word; 0 bad"
+    },
+    {
+      "name": "features",
+      "pass": true,
+      "detail": "73/73 chapters with RMS, onset strength and centroid at 30 fps, one value per frame, hash = lock"
+    },
+    {
+      "name": "fyi_sample",
+      "pass": true,
+      "detail": "temp.sh https://temp.sh/ziCYR/radio_edit_sample.m4a sha256 1b1457e9ff9e5f77.. verified, expires 2026-10-12T16:27:19Z; window 1:46:13.890-1:49:13.890 (CH-17 > DD-P11-3 > CH-18)"
+    }
+  ],
+  "created": "2026-10-09T16:28:22Z"
+}

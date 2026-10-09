@@ -6,7 +6,7 @@ from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
     "spec": "P7/P8",
-    "render": "P6/P9", "sound": "P11", "qa": "P9", "deliver": "P14", "dag": "P0 (later)",
+    "render": "P6/P9", "sound": "P11", "qa": "P9", "dag": "P0 (later)",
 }
 
 
@@ -204,6 +204,10 @@ def build():
     # story (P5): group and subcommands live in story.py
     from . import story
     story.register(sub)
+
+    # deliver: `fyi` from P5 (FYI checkpoints); film delivery subcommands in P14
+    from . import deliver
+    deliver.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():
