@@ -1,1 +1,130 @@
-[]
+[
+ {
+  "id": "ADR-001",
+  "council": "C1",
+  "date": "2026-10-09",
+  "chair": "council-chair",
+  "status": "needs_experiment",
+  "brief": "docs/decisions/C1.brief.md",
+  "why": "Q1 top two within 5% under every aggregation (B100-cap 6.231 vs A 6.138, 1.5%; feasible set B100-cap vs B100 6.100, 2.1%; owner-lens-only flips to B100 6.350 vs 6.275, 1.2%). Q2 V1 6.792 vs V2 6.750 (0.6%). Mean confidence 0.589 < 0.6.",
+  "method": "Per criterion: mean of members who scored it (n/m cells skipped); weighted by brief weights. Egyptian-arabic Q2 keys mapped register_switch_count->audible_continuity, dialect_check_cost->build_qa_cost (excluding them: V1 6.908 vs V2 6.756, 2.2%, still a tie).",
+  "scores": {
+   "Q1": {
+    "A": 6.138,
+    "B": 5.75,
+    "B100": 6.1,
+    "B100-cap": 6.231,
+    "C": 4.938,
+    "D": 4.238
+   },
+   "Q1_confidence_weighted": {
+    "A": 6.124,
+    "B": 5.762,
+    "B100": 6.116,
+    "B100-cap": 6.2,
+    "C": 4.942,
+    "D": 4.244
+   },
+   "Q1_owner_lens_only": {
+    "A": 6.15,
+    "B": 5.975,
+    "B100": 6.35,
+    "B100-cap": 6.275,
+    "C": 4.95,
+    "D": 4.0
+   },
+   "Q2": {
+    "V1": 6.792,
+    "V2": 6.75
+   },
+   "Q3": {
+    "S2-REF": 5.333,
+    "S2-UNUSED": 4.255,
+    "S2-TRUNK": 3.044
+   }
+  },
+  "screened": {
+   "A": "fixed context: needs D2 waiver for 69.2% of idea units vs user intent 'all content covered'",
+   "D": "two deliverables vs 'one film'; redundancy 29.9%",
+   "C": "redundancy 5.2% > G5 5%; 39 violations unreviewed"
+  },
+  "votes": {
+   "Q1": {
+    "B100": [
+     "educator",
+     "technical-accuracy",
+     "egyptian-arabic",
+     "audio-sync"
+    ],
+    "B100-cap": [
+     "director",
+     "motion-design",
+     "producer"
+    ]
+   },
+   "Q2": {
+    "V2": [
+     "director",
+     "educator",
+     "motion-design",
+     "egyptian-arabic",
+     "audio-sync",
+     "producer"
+    ],
+    "V1": [
+     "technical-accuracy"
+    ]
+   },
+   "Q3": {
+    "S2-REF": "7/7"
+   }
+  },
+  "confidence": {
+   "director": 0.6,
+   "educator": 0.62,
+   "motion-design": 0.55,
+   "technical-accuracy": 0.7,
+   "egyptian-arabic": 0.55,
+   "audio-sync": 0.6,
+   "producer": 0.5,
+   "mean": 0.589
+  },
+  "cross_review": {
+   "self_ranked_first": "6 of 7 (self-votes excluded below)",
+   "borda_excl_self": {
+    "director": 22,
+    "motion-design": 21,
+    "educator": 18,
+    "audio-sync": 15,
+    "producer": 14,
+    "egyptian-arabic": 10,
+    "technical-accuracy": 5
+   },
+   "shared_objection": "B100-cap and V2 have no built EDL, no judge read and no prerequisite re-check."
+  },
+  "provisional": {
+   "Q3": "S2-REF (unanimous, +20.2% margin; unchanged provisional role; recorded in ADR-001 when written)"
+  },
+  "experiment": {
+   "id": "E-001",
+   "steps": [
+    "story-editor: build two EDLs deterministically from corpus/edl/candidates/B100.json (no new LLM planning): B100-V2 = B100 + 3.0 min Deep-Dive floor (merge into an adjacent dive of the same part, else move to the next home chapter); B100-cap-V2 = B100-V2, then drop whole dive segments in ascending novel idea units per minute (restatement sentences count 0), skipping any segment that a kept later segment requires, until runtime <= 3:30:00.",
+    "story-editor + graph-engineer: for B100, B100-V2 and B100-cap-V2, report runtime, coverage %, novel S4 % (list dropped unit IDs), redundancy %, prerequisite violations after the same context review as c5d96cd, never-mentioned prerequisites, switches/h, max switches per chapter, projected P8-P9 tokens and render h.",
+    "critic (separate invocation, not story-editor): 2 full-outline coherence judges, same prompt and models as reports/story/candidates.md, on B100-V2 and B100-cap-V2 (4 reads).",
+    "transcription-aligner: text-only dialect probe on existing corpus/transcripts/a_S4_*.words.jsonl, 5 random 2-min windows per voice A, B and C (15 windows), counting Egyptian vs MSA markers; no ASR or CPU queue needed."
+   ],
+   "rules": {
+    "Q2": "V2 if B100-V2 has 0 prerequisite violations, 100.0% coverage, and coherence not >= 1.0 below B100 (6.25); else V1.",
+    "Q1": "B100 is the default (only option meeting user intent 'all content covered'; the 3.5 h ceiling is a plan target set in ADR-001). B100-cap wins only if B100-cap-V2 has 0 violations, redundancy <= 5% and mean coherence >= B100-V2 + 1.0 (judge noise band). If B100 wins: ADR-001 records a runtime waiver (~4:10) and render at <= 5% R3F (4.17 h x 5.57 = ~23.2 h <= 24 h). If B100-cap wins: scoped D2 waiver listing every dropped unit ID, flagged to the user at the ADR-001 FYI checkpoint.",
+    "dialect": "If > 30% of windows read non-Egyptian, reopen criterion 8 before ADR-001 is written."
+   },
+   "not_included": "Radio edit: signal policy is identical across options, so it cannot separate them. It is built for G5 and the user FYI after the decision."
+  },
+  "follow_ups_any_option": [
+   "fact-checker + story-editor: CH-04 'Airflow in 35 minutes' (real gap about 115 min)",
+   "story-editor: 21-27 min orientation stack before CH-03; CH-15-20 zigzag; CH-17 before CH-23",
+   "fact-checker: 7 restating dives (DD-P08a, P08b, P11a, P11b, P15, P22a, P24) checked against trunk numbers",
+   "audio-forensics: declip plan for P01 (21 clip runs) and P00 (2)"
+  ]
+ }
+]
