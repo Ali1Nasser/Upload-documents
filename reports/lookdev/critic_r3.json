@@ -1,0 +1,154 @@
+{
+ "round": "r3",
+ "look_mean": 8.01,
+ "parity_mean": 7.5,
+ "parity_family_column_mean": 7.3,
+ "parity_read": {
+  "depth_light": 7.5,
+  "camera_life": 7.5,
+  "kinetic_type": 7.5,
+  "metaphor": 7.0,
+  "rhythm_impact": 8.0
+ },
+ "min_criterion": 7,
+ "min_where": "several 7s (light/parity on F1-F3, F8, F9 and F5 parity; F7 legibility; F8 typography)",
+ "verdict": "pass (marginal: look 8.01 vs 8.0, parity 7.5 vs 7.5)",
+ "r2": {
+  "look_mean": 7.87,
+  "parity_mean": 7.4,
+  "min_criterion": 6
+ },
+ "look_mean_F1_F6_standard": 8.0,
+ "per_family": {
+  "F1-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 7.86
+  },
+  "F2-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 7.86
+  },
+  "F3-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 7.86
+  },
+  "F4-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 8.0
+  },
+  "F4-hero": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 8,
+    "cost": 9
+   },
+   "mean": 8.14
+  },
+  "F5-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 9,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 8.14
+  },
+  "F6-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 7,
+    "typography": 9,
+    "legibility": 8,
+    "parity": 8,
+    "cost": 10
+   },
+   "mean": 8.29
+  },
+  "F7-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 7,
+    "parity": 8,
+    "cost": 9
+   },
+   "mean": 8.0
+  },
+  "F8-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 7,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 9
+   },
+   "mean": 7.86
+  },
+  "F9-standard": {
+   "scores": {
+    "composition": 8,
+    "palette": 8,
+    "light_depth": 8,
+    "typography": 8,
+    "legibility": 8,
+    "parity": 7,
+    "cost": 10
+   },
+   "mean": 8.14
+  }
+ },
+ "cost_box_s_per_frame_3slot_load": {
+  "MA": 0.1135,
+  "MB-standard": 0.1324,
+  "MB-hero": 0.2011,
+  "MC": 0.1435,
+  "MD": 0.1322,
+  "R5": 0.201,
+  "blended": 0.1339,
+  "R2_limit": 0.24
+ }
+}
