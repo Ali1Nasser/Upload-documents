@@ -1370,17 +1370,17 @@
       "updated": "2026-10-07T18:19:37Z"
     },
     "0": {
-      "label": "lookdev-smoke",
-      "cmd": "bash -c cd studio && node scripts/lookdev_render.mjs stills --gl=swiftshader --only=F1-A-standard,F4-A-standard,F4-A-hero,F6-A-standard",
+      "label": "critic-mc-f140",
+      "cmd": "bash -c for t in standard hero; do ffmpeg -v error -y -i data/renders/lookdev/MC-${t}_swiftshader.mp4 -vf 'select=eq(n\\,140)+eq(n\\,155)+eq(n\\,165),crop=1100:360:120:560' -vsync 0 /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/crit/mc_${t}_%d.png; done",
       "tsp_id": 0,
       "status": "done",
-      "mem_gb": 3.0,
+      "mem_gb": 1.0,
       "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-09T01:21:54Z",
+      "submitted": "2026-10-09T02:06:31Z",
       "exit": "0",
-      "updated": "2026-10-09T01:22:32Z"
+      "updated": "2026-10-09T02:06:36Z"
     },
     "1": {
       "label": "lookdev-smoke2",
