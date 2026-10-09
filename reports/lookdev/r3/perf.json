@@ -1,0 +1,403 @@
+{
+ "v": 1,
+ "phase": "P6",
+ "round": "r3",
+ "resolution": "1920x1080",
+ "fps": 24,
+ "gl": "swiftshader",
+ "box": "4 vCPU, no GPU",
+ "tokens": "studio/src/tokens.ts (ADR-002 F24 + FX2 + RT5, ADR-003 T-A + LK-F)",
+ "definitions": {
+  "s_per_frame": "(wall - overhead) x concurrency / (frames - 1): seconds per frame per render slot",
+  "box_s_per_frame": "(wall - overhead) / (frames - 1): whole-box seconds per frame, measured with 3 render slots busy (under load)",
+  "fps_throughput": "(frames - 1) / (wall - overhead), whole box",
+  "still_s": "renderStill wall per still, one browser, bundle excluded"
+ },
+ "budget": {
+  "R5_standard_box_s_per_frame": 0.201,
+  "H_band_box_s_per_frame": [
+   0.904,
+   1.038
+  ],
+  "R2_blended_box_s_per_frame": 0.24,
+  "RT5_hero_share": 0.05,
+  "source": "docs/decisions/ADR-002-render-stack.md (cost model S/H, R2, R5)"
+ },
+ "r2_box_s_per_frame": {
+  "MA-standard": 0.1969,
+  "MB-standard": 0.3412,
+  "MB-hero": 0.51,
+  "MC-standard": 0.2192,
+  "MD-standard": 0.2518
+ },
+ "stills": {
+  "F1-standard": {
+   "still_s": 1.024,
+   "comp": "LookdevStill",
+   "frame": "F1",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 4.09,
+   "preview": "reports/lookdev/r3/stills/F1-standard.jpg",
+   "kb": 230.6,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F2-standard": {
+   "still_s": 1.016,
+   "comp": "LookdevStill",
+   "frame": "F2",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.84,
+   "preview": "reports/lookdev/r3/stills/F2-standard.jpg",
+   "kb": 240.9,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F3-standard": {
+   "still_s": 0.987,
+   "comp": "LookdevStill",
+   "frame": "F3",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 1.77,
+   "preview": "reports/lookdev/r3/stills/F3-standard.jpg",
+   "kb": 203.9,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F4-hero": {
+   "still_s": 1.381,
+   "comp": "LookdevStill",
+   "frame": "F4",
+   "typo": "A",
+   "fx": "hero",
+   "loadavg_1m": 3.4,
+   "preview": "reports/lookdev/r3/stills/F4-hero.jpg",
+   "kb": 224.0,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F4-standard": {
+   "still_s": 1.069,
+   "comp": "LookdevStill",
+   "frame": "F4",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.84,
+   "preview": "reports/lookdev/r3/stills/F4-standard.jpg",
+   "kb": 209.6,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F5-standard": {
+   "still_s": 0.961,
+   "comp": "LookdevStill",
+   "frame": "F5",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.61,
+   "preview": "reports/lookdev/r3/stills/F5-standard.jpg",
+   "kb": 272.8,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F6-standard": {
+   "still_s": 0.869,
+   "comp": "LookdevStill",
+   "frame": "F6",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.61,
+   "preview": "reports/lookdev/r3/stills/F6-standard.jpg",
+   "kb": 163.9,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F7-standard": {
+   "still_s": 0.968,
+   "comp": "LookdevStill",
+   "frame": "F7",
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.61,
+   "preview": "reports/lookdev/r3/stills/F7-standard.jpg",
+   "kb": 275.3,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F8-standard": {
+   "still_s": 0.988,
+   "comp": "LD-MD-Gates",
+   "frame": 210,
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.4,
+   "preview": "reports/lookdev/r3/stills/F8-standard.jpg",
+   "kb": 257.2,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F9-standard": {
+   "still_s": 0.878,
+   "comp": "LD-MD-Gates",
+   "frame": 266,
+   "typo": "A",
+   "fx": "standard",
+   "loadavg_1m": 3.4,
+   "preview": "reports/lookdev/r3/stills/F9-standard.jpg",
+   "kb": 293.1,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  }
+ },
+ "motion": {
+  "MA-standard": {
+   "comp": "LD-MA-Impact",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 28.25,
+   "overhead_s": 1.13,
+   "fps_throughput": 8.81,
+   "s_per_frame": 0.341,
+   "s_per_frame_box": 0.1135,
+   "mp4": "data/renders/lookdev/r3/MA-standard_swiftshader.mp4",
+   "mb": 13.29,
+   "loadavg_1m": 4.71,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r3/strips/MA-standard.jpg",
+   "strip_frames": [
+    0,
+    4,
+    34,
+    91,
+    102,
+    103,
+    105,
+    227
+   ],
+   "strip_kb": 167.7,
+   "note": "CH-33 S1 3768.8-3778.8 s on word ids w:S1:ar-natural:005965-005980 (lead 2 f); 3 % push + 40 px track; far plane = galaxy plate drawn at 1/4 size and scaled 4x (static defocus, opens at 45 % and settles to 30 %); r3 opening subject = the carried-over query at 56 px mid-frame + the empty score track (fills to 0.165 while it is spoken); impact on وغلط = 3-frame burst + flash + nudge (no CA on Arabic)"
+  },
+  "MB-standard": {
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 32.55,
+   "overhead_s": 0.91,
+   "fps_throughput": 7.553,
+   "s_per_frame": 0.397,
+   "s_per_frame_box": 0.1324,
+   "mp4": "data/renders/lookdev/r3/MB-standard_swiftshader.mp4",
+   "mb": 14.95,
+   "loadavg_1m": 7.03,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r3/strips/MB-standard.jpg",
+   "strip_frames": [
+    0,
+    34,
+    68,
+    102,
+    137,
+    171,
+    205,
+    239
+   ],
+   "strip_kb": 175.0,
+   "note": "baked P10 plate read as a 240-frame JPG sequence (r3; was OffthreadVideo) under the r3 sprite text-safe mask (Gaussian feather to 2.5 x pad, chip/cards/caption keep a 30-35 % field floor); live probe, links, cards, caption; hero adds 360 live GL points as an out-of-focus FOREGROUND (200 specks, 110 soft discs, 50 large bokeh) above the probe layer"
+  },
+  "MB-hero": {
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 49.41,
+   "overhead_s": 1.35,
+   "fps_throughput": 4.973,
+   "s_per_frame": 0.603,
+   "s_per_frame_box": 0.2011,
+   "mp4": "data/renders/lookdev/r3/MB-hero_swiftshader.mp4",
+   "mb": 14.94,
+   "loadavg_1m": 6.52,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 1.038,
+   "budget_ref": "H band top (ADR-002 cost model)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r3/strips/MB-hero.jpg",
+   "strip_frames": [
+    0,
+    34,
+    68,
+    102,
+    137,
+    171,
+    205,
+    239
+   ],
+   "strip_kb": 184.3,
+   "note": "baked P10 plate read as a 240-frame JPG sequence (r3; was OffthreadVideo) under the r3 sprite text-safe mask (Gaussian feather to 2.5 x pad, chip/cards/caption keep a 30-35 % field floor); live probe, links, cards, caption; hero adds 360 live GL points as an out-of-focus FOREGROUND (200 specks, 110 soft discs, 50 large bokeh) above the probe layer"
+  },
+  "MC-standard": {
+   "comp": "LD-MC-Streak",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 35.4,
+   "overhead_s": 1.11,
+   "fps_throughput": 6.97,
+   "s_per_frame": 0.43,
+   "s_per_frame_box": 0.1435,
+   "mp4": "data/renders/lookdev/r3/MC-standard_swiftshader.mp4",
+   "mb": 19.61,
+   "loadavg_1m": 6.59,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r3/strips/MC-standard.jpg",
+   "strip_frames": [
+    108,
+    112,
+    115,
+    118,
+    119,
+    120,
+    121,
+    123
+   ],
+   "strip_kb": 168.9,
+   "note": "whip-pan SQL funnel -> Kafka, 12 frames (9 out, 3 in); 20 % incoming light on cut-2..cut-1; r3: F2 dots glow with halo discs (no per-dot drop-shadow), 28 px stage chips, two-column 28 px SQL band; F3 P1/P2 rows lighter defocus"
+  },
+  "MD-standard": {
+   "comp": "LD-MD-Gates",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 288,
+   "fps": 24,
+   "wall_s": 38.97,
+   "overhead_s": 1.03,
+   "fps_throughput": 7.564,
+   "s_per_frame": 0.397,
+   "s_per_frame_box": 0.1322,
+   "mp4": "data/renders/lookdev/r3/MD-standard_swiftshader.mp4",
+   "mb": 33.36,
+   "loadavg_1m": 8.14,
+   "concurrency": 3,
+   "budget_box_s_per_frame": 0.201,
+   "budget_ref": "R5 (S-hi + 10 %)",
+   "within_budget": true,
+   "strip": "reports/lookdev/r3/strips/MD-standard.jpg",
+   "strip_frames": [
+    0,
+    20,
+    33,
+    160,
+    210,
+    260,
+    262,
+    287
+   ],
+   "strip_kb": 171.9,
+   "note": "TripleGate ignition on S1 CH-00 words (w:000036-000045); yawed push; r3: ghost carry-over title (w:000027-000033) from f0, dormant gates breathe from f0, floor reflections, 4 travelling packets that queue at the first dark gate, leader ticks label->gate, all-gate flare + 1-frame nudge + burst on كلها; no CSS blur filters"
+  }
+ },
+ "plates": {},
+ "blended": {
+  "standard_mean_box_s_per_frame": 0.1304,
+  "hero_box_s_per_frame": 0.2011,
+  "hero_share": 0.05,
+  "blended_box_s_per_frame": 0.1339,
+  "R2_limit": 0.24,
+  "within_R2": true,
+  "caveat": "look-dev shots, not a chapter; render-ops re-measures at the first chapter render (ADR-002 R2)"
+ },
+ "contact_sheet": {
+  "path": "reports/lookdev/r3/contact.jpg",
+  "kb": 256.6,
+  "px": [
+   1920,
+   910
+  ]
+ },
+ "bench_r3": {
+  "run1_mp4_plate": {
+   "none": 0.2085,
+   "blend": 0.1601,
+   "video(still png)": 0.1136,
+   "grain": 0.1557,
+   "post": 0.1544,
+   "mask": 0.1648,
+   "loadavg_1m": "2.6-6.1"
+  },
+  "bench_mb2": {
+   "warm": 0.238,
+   "none": 0.2091,
+   "seq": 0.1572,
+   "grain": 0.1759,
+   "seq,grain": 0.1053
+  },
+  "bench_mc": {
+   "warm": 0.1547,
+   "none": 0.1553
+  },
+  "bench_md": {
+   "warm": 0.1484,
+   "none": 0.1362
+  },
+  "reading": "plate video decode ~0.05-0.095, grain overlay ~0.05, screen blend ~0.05, mask ~0.04 box s/frame; the JPG sequence (seq) took MB-standard 0.209 -> 0.157 in the same run; a normal-blend grain gave no gain and was reverted",
+  "definition": "box s/frame over frames 1..71 minus a 1-frame overhead render; 'warm' = first (cold-cache) run, discarded"
+ }
+}

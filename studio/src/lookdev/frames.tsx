@@ -478,13 +478,13 @@ export const F3Kafka: React.FC<FrameProps & {lagAt?: number; lagEnd?: number; t0
       </Plane>
       {/* far partition P2: 60 % scale, blurred; mid partition P1: 80 %, light blur */}
       {/* r2: P2 and P1 rows are wholly defocused (critic r1 #5: blur the whole row, not just darken it) */}
-      {/* r3 (critic r2 #7): P2 reads as a defocused row (blur 1.9x -> 1.1x DOF, brighter, 0.6 -> 0.66 scale) */}
-      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.012, 'far')} translate(0px, -322px) scale(0.66)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 1.1}px) brightness(0.95)`, opacity: 0.9}}>
+      {/* r3 (critic r2 #7): P2 reads as a defocused row that stays legible (blur 1.9x -> 0.7x DOF, brightness 1.2, 0.6 -> 0.66 scale); P1 0.5x */}
+      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.012, 'far')} translate(0px, -322px) scale(0.66)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 0.7}px) brightness(1.2)`, opacity: 1}}>
         <div style={{position: 'absolute', left: 300, top: 0}}>
           <LaneRow ln={LANES[2]} li={2} x0={x0} y={y0} cw={cw} ch={ch} typo={typo} fx={fx} />
         </div>
       </AbsoluteFill>
-      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.016, 'mid')} translate(0px, -205px) scale(0.8)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 0.8}px) brightness(0.9)`, opacity: 0.92}}>
+      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.016, 'mid')} translate(0px, -205px) scale(0.8)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 0.5}px) brightness(1.05)`, opacity: 0.95}}>
         <div style={{position: 'absolute', left: 120, top: 0}}>
           <LaneRow ln={LANES[1]} li={1} x0={x0} y={y0} cw={cw} ch={ch} typo={typo} fx={fx} />
         </div>

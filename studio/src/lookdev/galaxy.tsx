@@ -299,7 +299,7 @@ export const CAM_FINAL: Cam = {pos: [1.6, 0.9, 7.2], target: [0.1, 0.25, 0.6]};
 export const STATE_FINAL: ProbeState = {q: ANCHOR.q1, probe: 1, roadmap: 1, roadmapFade: 1, idem: 1, third: 1};
 
 // ---------- P10 plate path (critic r1 #2/#3): nebula + 1,500 GL points + Bloom are baked offline; only probe/cards are live ----------
-export const PLATE = {push: 'plates/galaxy-ch33-push.mp4', final: 'plates/galaxy-ch33-final.png'} as const;
+export const PLATE = {push: 'plates/galaxy-ch33-push.mp4', pushSeq: 'plates/galaxy-ch33-push', final: 'plates/galaxy-ch33-final.png'} as const;
 
 /** Plate composition: black + nebula + GL points + Bloom, no text, no masks (masks are applied when compositing). */
 export const GalaxyPlate: React.FC<{mode: 'push' | 'final'}> = ({mode}) => {
@@ -409,11 +409,21 @@ const ForegroundGL: React.FC<{cam: Cam; style?: React.CSSProperties}> = ({cam, s
 
 /** Field layer: the baked plate (video for MB, still for F4) under the text-safe mask. The hero foreground is mounted
  * separately, ABOVE the probe overlay (it is nearer the camera than the probe). */
-const Field: React.FC<{mask: React.CSSProperties; plate: 'push' | 'final'; blend?: boolean; still?: boolean}> = ({mask, plate, blend = true, still = false}) => (
-  <AbsoluteFill style={{...mask, mixBlendMode: blend ? 'screen' : undefined}}>
-    {plate === 'push' && !still ? <OffthreadVideo src={staticFile(PLATE.push)} muted /> : <Img src={staticFile(PLATE.final)} />}
-  </AbsoluteFill>
-);
+const Field: React.FC<{mask: React.CSSProperties; plate: 'push' | 'final'; blend?: boolean; still?: boolean; seq?: boolean}> = ({mask, plate, blend = true, still = false, seq = true}) => {
+  const frame = useCurrentFrame();
+  const src =
+    plate === 'push' && !still ? (
+      seq ? (
+        // r3 perf: the push plate as a pre-extracted JPG sequence (one image decode per frame, no video frame server)
+        <Img src={staticFile(`${PLATE.pushSeq}/${String(frame + 1).padStart(4, '0')}.jpg`)} />
+      ) : (
+        <OffthreadVideo src={staticFile(PLATE.push)} muted toneMapped={false} /* r3 perf: SDR bt709 plate, skip the tone-map pass */ />
+      )
+    ) : (
+      <Img src={staticFile(PLATE.final)} />
+    );
+  return <AbsoluteFill style={{...mask, mixBlendMode: blend ? 'screen' : undefined}}>{src}</AbsoluteFill>;
+};
 
 /** MB camera: push 17 -> 7.4 units + 0.5 rad orbit (shared by the plate and the live overlay, so they stay locked). */
 export const mbCam = (frame: number, dur: number): Cam => {
@@ -455,7 +465,7 @@ export const F4Galaxy: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
 
 /** Motion test (b): camera push + slight orbit + parallax over the galaxy; probe, raw hit, expansion, new top hit. */
 /** `ablate` (perf bench only, never in a spec): comma list: plate, mask, bokeh, post, grain, overlay, title, grid (drop a layer);
- * blend (plate without screen blend), video (plate as a still PNG instead of the decoded MP4). */
+ * blend (plate without screen blend), video (plate as a still PNG), mp4 (r2 path: OffthreadVideo instead of the r3 JPG sequence). */
 export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx; ablate?: string}> = ({typo, fx, ablate = ''}) => {
   const off = new Set(ablate.split(',').filter(Boolean));
   const frame = useCurrentFrame();
@@ -488,7 +498,7 @@ export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx; ablate?: string}> = ({t
           <FloorGrid y={860} drift={frame * 0.3} opacity={0.18} />
         </AbsoluteFill>
       )}
-      {off.has('plate') ? null : <Field mask={mask} plate="push" blend={!off.has('blend')} still={off.has('video')} />}
+      {off.has('plate') ? null : <Field mask={mask} plate="push" blend={!off.has('blend')} still={off.has('video')} seq={!off.has('mp4')} />}
       {titleOn ? <Scrim r={TITLE_RECT} strength={0.5} /> : null}
       {off.has('overlay') ? null : <ProbeOverlay cam={cam} st={st} typo={typo} fx={fx} labelAt={s(1.9)} />}
       {fx.webgl ? <ForegroundGL cam={cam} style={mask} /> : null}

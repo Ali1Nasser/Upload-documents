@@ -1,5 +1,5 @@
 // P6 look-dev r3 render driver (queue only: `python3 tools/dc.py q submit --label ... -- node studio/scripts/lookdev_r3_render.mjs ...`).
-// Usage: node scripts/lookdev_r3_render.mjs <plate|stills|motion|bench> [--only=ID,ID] [--conc=3] [--frames=72] [--ablate=a;b,c;...].
+// Usage: node scripts/lookdev_r3_render.mjs <plate|seq|stills|motion|bench> [--only=ID,ID] [--conc=3] [--frames=72] [--ablate=a;b,c;...].
 // r3: `bench` renders the first N frames of MB-standard once per ablation set (perf attribution only; never a deliverable). `plate` bakes the P10 galaxy plates into
 // data/derived/plates/ (run first); stills/motion copy them into the bundle's public/plates/ so staticFile() resolves them. GL is swiftshader only (ADR-002 GL-SS).
 // Bundles once, opens one browser, renders, and writes timings JSON to data/renders/lookdev/r3/timings_<mode>.json.
@@ -48,6 +48,15 @@ const t0 = Date.now();
 const serveUrl = await bundle({entryPoint: path.join(STUDIO, 'src/index.ts'), publicDir: path.join(STUDIO, 'public')});
 const bundleS = (Date.now() - t0) / 1000;
 const browser = await openBrowser('chrome', {browserExecutable: BROWSER, chromiumOptions});
+if (mode === 'seq') {
+  // r3: extract the push plate to a JPG sequence once (ffmpeg -q:v 2); MB reads it with <Img> (bench: 0.209 -> 0.157 box s/frame)
+  const seqDir = path.join(PLATES, 'galaxy-ch33-push');
+  fs.mkdirSync(seqDir, {recursive: true});
+  const {execFileSync} = await import('node:child_process');
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-i', path.join(PLATES, 'galaxy-ch33-push.mp4'), '-q:v', '2', path.join(seqDir, '%04d.jpg')]);
+  console.log('seq', fs.readdirSync(seqDir).length, 'frames');
+  process.exit(0);
+}
 if (mode !== 'plate') {
   // plates are produced by `plate` mode; copy them into the bundle so staticFile('plates/...') resolves
   const dst = path.join(serveUrl, 'public', 'plates');
@@ -56,6 +65,10 @@ if (mode !== 'plate') {
     if (!fs.existsSync(path.join(PLATES, f))) throw new Error(`missing plate ${f}: run 'plate' mode first`);
     fs.copyFileSync(path.join(PLATES, f), path.join(dst, f));
   }
+  // r3 perf: the push plate as a JPG sequence (extracted once from the MP4 by `seq` mode), copied if present
+  const seqDir = path.join(PLATES, 'galaxy-ch33-push');
+  if (!fs.existsSync(path.join(seqDir, '0240.jpg'))) throw new Error(`missing ${seqDir}: run 'seq' mode after 'plate'`);
+  fs.cpSync(seqDir, path.join(dst, 'galaxy-ch33-push'), {recursive: true});
 }
 const res = {mode, gl, concurrency: mode === 'motion' ? conc : 1, bundle_s: bundleS, loadavg_start: os.loadavg(), items: {}};
 const outFile = path.join(OUT, `timings_${mode}${opt.only ? '_partial' : ''}.json`);
