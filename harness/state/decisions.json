@@ -4,7 +4,7 @@
   "council": "C1",
   "date": "2026-10-09",
   "chair": "council-chair",
-  "status": "needs_experiment",
+  "status": "decided",
   "brief": "docs/decisions/C1.brief.md",
   "why": "Q1 top two within 5% under every aggregation (B100-cap 6.231 vs A 6.138, 1.5%; feasible set B100-cap vs B100 6.100, 2.1%; owner-lens-only flips to B100 6.350 vs 6.275, 1.2%). Q2 V1 6.792 vs V2 6.750 (0.6%). Mean confidence 0.589 < 0.6.",
   "method": "Per criterion: mean of members who scored it (n/m cells skipped); weighted by brief weights. Egyptian-arabic Q2 keys mapped register_switch_count->audible_continuity, dialect_check_cost->build_qa_cost (excluding them: V1 6.908 vs V2 6.756, 2.2%, still a tie).",
@@ -118,7 +118,20 @@
     "Q1": "B100 is the default (only option meeting user intent 'all content covered'; the 3.5 h ceiling is a plan target set in ADR-001). B100-cap wins only if B100-cap-V2 has 0 violations, redundancy <= 5% and mean coherence >= B100-V2 + 1.0 (judge noise band). If B100 wins: ADR-001 records a runtime waiver (~4:10) and render at <= 5% R3F (4.17 h x 5.57 = ~23.2 h <= 24 h). If B100-cap wins: scoped D2 waiver listing every dropped unit ID, flagged to the user at the ADR-001 FYI checkpoint.",
     "dialect": "If > 30% of windows read non-Egyptian, reopen criterion 8 before ADR-001 is written."
    },
-   "not_included": "Radio edit: signal policy is identical across options, so it cannot separate them. It is built for G5 and the user FYI after the decision."
+   "not_included": "Radio edit: signal policy is identical across options, so it cannot separate them. It is built for G5 and the user FYI after the decision.",
+   "status": "complete",
+   "results": {
+    "step1": "B100-V2 4:09:31, 28 dives, 100.0%; B100-cap-V2 3:28:26, 87.4%, 359 units dropped",
+    "step2": "5 prereq violations in both (B100 0); redundancy 3.6% / 1.6%",
+    "step3": "critic sonnet x4: B100-V2 6,6 (6.0); B100-cap-V2 6,6 (6.0); B100 ref 6.25; reasons: front-loaded roadmap dives DD-P00b/DD-P00/DD-P01, dives pre-empt next trunk chapter, DD-P14 Java placement, CH-04 Airflow-35-min promise",
+    "step4": "5/15 (33%) non-Egyptian, all voice C (P01 English); A+B 10/10 Egyptian -> criterion 8 reopened",
+    "rules": {
+     "Q2": "V1",
+     "Q1": "B100",
+     "dialect": "fired"
+    },
+    "report": "reports/story/E-001.md"
+   }
   },
   "follow_ups_any_option": [
    "fact-checker + story-editor: CH-04 'Airflow in 35 minutes' (real gap about 115 min)",
@@ -127,7 +140,7 @@
    "audio-forensics: declip plan for P01 (21 clip runs) and P00 (2)"
   ],
   "criterion8_reopen": {
-   "status": "brief",
+   "status": "decided",
    "date": "2026-10-09",
    "brief": "docs/decisions/C1.reopen-c8.brief.md",
    "trigger": "experiment.rules.dialect fired: 5/15 windows (33%) non-Egyptian, all voice C = P01 English (reports/story/E-001_dialect.md)",
@@ -157,7 +170,290 @@
     "effort_risk": 0.15,
     "runtime": 0.05
    },
-   "next": "7 council-member lenses score O1-O6; synthesis per 02 s3"
+   "next": "E-002 at P8 start (see ADR-001 R1)",
+   "result": "O2",
+   "scores": {
+    "O1": 6.029,
+    "O2": 7.364,
+    "O3": 5.771,
+    "O4": 6.1,
+    "O5": 7.164,
+    "O6": 4.914
+   },
+   "scores_confidence_weighted": {
+    "O1": 6.02,
+    "O2": 7.365,
+    "O3": 5.743,
+    "O4": 6.096,
+    "O5": 7.149,
+    "O6": 4.915
+   },
+   "per_lens_totals": {
+    "director": {
+     "O2": 7.35,
+     "O5": 7.35
+    },
+    "educator": {
+     "O2": 7.25,
+     "O5": 7.4
+    },
+    "motion-design": {
+     "O2": 7.35,
+     "O5": 7.1
+    },
+    "technical-accuracy": {
+     "O2": 7.35,
+     "O5": 7.1
+    },
+    "egyptian-arabic": {
+     "O2": 7.55,
+     "O5": 7.65
+    },
+    "audio-sync": {
+     "O2": 7.35,
+     "O5": 6.3
+    },
+    "producer": {
+     "O2": 7.35,
+     "O5": 7.25
+    }
+   },
+   "votes": {
+    "O2": [
+     "motion-design",
+     "technical-accuracy",
+     "audio-sync",
+     "producer"
+    ],
+    "O5": [
+     "director",
+     "educator",
+     "egyptian-arabic"
+    ]
+   },
+   "confidence": {
+    "director": 0.55,
+    "educator": 0.6,
+    "motion-design": 0.55,
+    "technical-accuracy": 0.6,
+    "egyptian-arabic": 0.62,
+    "audio-sync": 0.68,
+    "producer": 0.62,
+    "mean": 0.603
+   },
+   "top2_gap_pct": 2.72,
+   "rule_applied": "not >=5/7 and not >5% -> higher weighted score (O2), confidence low, reversal trigger R1/E-002",
+   "cross_review": "not run (proposals relayed without blind rankings); chair shared-risk tally: 7/7 D2 waiver needed, 7/7 label risk to 04 s11 or rule 2, 6/7 O2-O5 in band, 6/7 core unconfirmed"
+  },
+  "decided": "2026-10-09",
+  "adr": "docs/decisions/ADR-001-narrative-spine.md",
+  "decision": {
+   "edl": "corpus/edl/candidates/B100-noC.json",
+   "edl_sha256": "fa0faeac95267014492da66daa8d43de2ad63f650d201e0e0c1abf2879777436",
+   "edl_target": "corpus/edl/master_edl.v1.json (P5.3)",
+   "Q1": "B100 (E-001 rule: B100-cap-V2 5 violations, coherence 6.0 < 7.0)",
+   "Q2": "V1 (E-001 rule: B100-V2 5 violations)",
+   "Q3": "S2-REF (7/7, +20.2%)",
+   "criterion8": "O2 drop DD-P01 (B100-noC) + scoped D2 waiver; confidence low; O5 labels = P8 add-on gated by E-002 (R1)",
+   "runtime": "4:01:51",
+   "runtime_s": 14511.1,
+   "metrics": {
+    "sentences": 2524,
+    "trunk_chapters": 37,
+    "deep_dives": 36,
+    "coverage_pct": 96.4,
+    "coverage_non_waived_pct": 100.0,
+    "redundancy_pct": 4.0,
+    "prereq_violations": 0,
+    "prereq_missing": 5,
+    "voice_switches": 64,
+    "voice_switches_per_h": 15.9,
+    "max_switches_per_trunk_chapter": 2,
+    "tokens_M": [
+     12.6,
+     20.2
+    ],
+    "render_h_5pct_r3f_30fps": 22.4
+   },
+   "voice_policy": {
+    "trunk": "S1",
+    "deep_dives": "S4 voice A (62.5 min) + voice B (104.2 min) in recorded voices, V1: 1.5-2.5 s visual cards + sting, speech-gated -16 LUFS, TP limiter, EQ match +-4 dB, <=2 switches/trunk chapter, no 3.0-min floor",
+    "C": "not in film (P01 English); reference source for fact-checking and E-002 only",
+    "S2": "reference only (not in mix)",
+    "synthesised_speech": "none (03 P5.3)"
+   }
+  },
+  "confidence_result": {
+   "Q1": "rule-decided",
+   "Q2": "rule-decided",
+   "Q3": "high (7/7)",
+   "edl_base_B100-noC": "7/7 lenses chose a B100-noC option; margin 18.1% over best P01-speech option (O2 7.364 vs O1 6.029)",
+   "criterion8_O2_vs_O5": "low (4/7, 2.7%)"
+  },
+  "waivers": [
+   {
+    "id": "W-001-RT",
+    "what": "ADR-001 runtime target 2.5-3.5 h (00 s4) -> 4:01:51 (+- radio-edit measurement), this film only",
+    "traded": "31:51 over ceiling for 100% of non-waived units (vs B100-cap 359 dropped units)",
+    "condition": "R3F/real-time WebGL <= 5% of runtime; projection <= 24 h (ADR-002 F24+RT5: 17.3-21.9 h pure at 4:02:00)"
+   },
+   {
+    "id": "W-001-D2",
+    "what": "D2 coverage waiver for exactly 103 idea units from a:S4:P01; 100% still required for every other unit at G5 and L5",
+    "traded": "6.72 min English speech / voice C removed (D1 fit, -1 voice, -8:16, no new text) vs 44 strictly truly-lost units (27 claims), core ~10-15 units",
+    "units": {
+     "truly_lost": [
+      "iu:00737",
+      "iu:00738",
+      "iu:00739",
+      "iu:00740",
+      "iu:00741",
+      "iu:00742",
+      "iu:00743",
+      "iu:00746",
+      "iu:00751",
+      "iu:00752",
+      "iu:00753",
+      "iu:00755",
+      "iu:00756",
+      "iu:00757",
+      "iu:00758",
+      "iu:00760",
+      "iu:00761",
+      "iu:00764",
+      "iu:00765",
+      "iu:00766",
+      "iu:00767",
+      "iu:00771",
+      "iu:00773",
+      "iu:00775",
+      "iu:00785",
+      "iu:00786",
+      "iu:00788",
+      "iu:00791",
+      "iu:00793",
+      "iu:00795",
+      "iu:00798",
+      "iu:00800",
+      "iu:00804",
+      "iu:00806",
+      "iu:00816",
+      "iu:00822",
+      "iu:00827",
+      "iu:00828",
+      "iu:00833",
+      "iu:00834",
+      "iu:00838",
+      "iu:00840",
+      "iu:00842",
+      "iu:00843"
+     ],
+     "partly": [
+      "iu:00735",
+      "iu:00736",
+      "iu:00744",
+      "iu:00747",
+      "iu:00748",
+      "iu:00750",
+      "iu:00754",
+      "iu:00763",
+      "iu:00770",
+      "iu:00777",
+      "iu:00780",
+      "iu:00783",
+      "iu:00790",
+      "iu:00801",
+      "iu:00805",
+      "iu:00811",
+      "iu:00813",
+      "iu:00818",
+      "iu:00819",
+      "iu:00820",
+      "iu:00824",
+      "iu:00826",
+      "iu:00829",
+      "iu:00830",
+      "iu:00837",
+      "iu:00839"
+     ],
+     "topic_covered": [
+      "iu:00745",
+      "iu:00749",
+      "iu:00759",
+      "iu:00772",
+      "iu:00774",
+      "iu:00776",
+      "iu:00778",
+      "iu:00779",
+      "iu:00781",
+      "iu:00782",
+      "iu:00784",
+      "iu:00787",
+      "iu:00789",
+      "iu:00792",
+      "iu:00794",
+      "iu:00797",
+      "iu:00799",
+      "iu:00807",
+      "iu:00808",
+      "iu:00809",
+      "iu:00810",
+      "iu:00812",
+      "iu:00814",
+      "iu:00815",
+      "iu:00817",
+      "iu:00821",
+      "iu:00823",
+      "iu:00825",
+      "iu:00831",
+      "iu:00832",
+      "iu:00835",
+      "iu:00836",
+      "iu:00841"
+     ]
+    },
+    "count": 103,
+    "user_fyi": "flag at ADR-001 FYI checkpoint",
+    "if_E-002_passes": "shown units stay listed, annotated shown_on_screen with anchor event"
+   }
+  ],
+  "next_experiment": {
+   "id": "E-002",
+   "when": "P8 start (after G6b)",
+   "question": "O2 -> O5 (on-screen labels for P01 core), no EDL/lock change",
+   "pass_rule": "O5 only if >=8 core units absent from kept speech AND anchorable to trunk word IDs; >=80% labels pass Egyptian review without MSA fixes (<=6 words); critic >=8/10 sync+density, no list look on a 60 s 3-card preview; cost <=0.5 M tokens; else O2 stands",
+   "owners": [
+    "story-editor",
+    "fact-checker",
+    "egyptian-arabic",
+    "arabic-typographer",
+    "scene-director",
+    "render-ops",
+    "critic",
+    "council-chair"
+   ]
+  },
+  "reversal_triggers": [
+   "R1 E-002 passes -> O5 labels in P8",
+   "R2 user objects to dropping P01 at FYI, or Egyptian speech with >=50% of the 44 specifics at ECAPA>=0.6 found -> P01-speech option (pre-lock; post-lock = new EDL version)",
+   "R3 first-chapter render projects >24 h at R3F<=5% (ADR-002 ladder first) or user asks <=3.5 h -> reopen Q1",
+   "R4 radio edit fails +-1.5 LU / >2.5 s gap at a switch, or G7 dive-framing pacing <7/10 -> reopen Q2",
+   "R5 a topic-covered unit not actually taught -> reclassify; decision changes only if truly lost >60 or core >15",
+   "R6 S1 defects coverable by S2 -> reopen S2 role for those spans"
+  ],
+  "p8_storyboard_notes": [
+   "orientation stack (DD-P00b, DD-P00 before CH-03): visual roadmap spine, A-01 zoom-out, progress cues",
+   "dives that pre-empt next trunk chapter: forward callback card + match-cut callback in trunk",
+   "DD-P14 Java: framing card + bridge from nearest trunk backend/API mention; no move",
+   "CH-04 \"Airflow in 35 minutes\": fix on screen not audio; fact-checker computes real gap (~115 min) from locked word map; card shows spoken figure as the original film's next to locked-EDL figure",
+   "micro-dives 0.8-2 min: consistent side-note card; stacked narrator-less dives 16/13.4/12.3 min: return-to-trunk motif; DD-P07/P10, DD-P17/P19b, CH-15-20 zigzag, CH-17 before CH-23: bridges; 7 restating dives: visual callbacks + fact-check numbers"
+  ],
+  "follow_ups": {
+   "story-editor": "master_edl.v1 from B100-noC, radio edit, lock (SHA-256 + word map), 3-min FYI sample with W-001-D2 notice",
+   "audio-forensics": "P01 declip dropped; P00 declip (2 runs); room tone/loudness at orientation->CH-02 boundary",
+   "sound-designer": "stings for 64 switches",
+   "fact-checker": "CH-04 gap; 7 restating dives; R5 check of topic-covered units",
+   "council-chair": "E-002 ruling at P8 start"
   }
  },
  {
