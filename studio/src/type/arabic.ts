@@ -48,14 +48,20 @@ export const segment = (text: string): Seg[] => {
 };
 
 /**
- * Rule J1 (arabic-typographer r2): a tatweel join (`الـ`) followed by a Latin isolate gets a small gap so the join does not
- * fuse with the first Latin glyph (`الـAI` read as `AIJI`). ALL-CAPS / digit isolates get 0.12em, other Latin 0.06em.
+ * Rule J1 (arabic-typographer r2, size-banded in r3 B2): a tatweel join (`الـ`) followed by a Latin isolate gets a gap so the
+ * tatweel stroke does not fuse with the first Latin glyph (`الـpartition` read as `partitiond!|`). Gaps are in em of the
+ * ARABIC run (callers divide by the Latin scale). Values are the smallest that read clean in the isolated-render OCR sweep
+ * (`scripts/lookdev_typeprobe.mjs --sweep`, tesseract ara+eng; arabic r3 asked 0.20/0.14 display and 0.25/0.10 text, but at
+ * 0.14 em `الـpartition`/`الـroadmap` still read `d|`/`.t]`, and at 0.10-0.25 em the 34 px `الـidempotency` label read `J]`):
+ * display (>= 56 px, Alexandria) ALL-CAPS/digit 0.20 em, mixed-case 0.25 em; text (< 56 px, Plex) ALL-CAPS/digit 0.25 em,
+ * mixed-case 0.30 em. Unknown size = text band (labels).
  * The gap is applied on the isolate's RIGHT edge (physical): in RTL flow that is the side facing the Arabic prefix.
  */
-export const JOIN_GAP = {caps: 0.12, latin: 0.06} as const;
-export const joinGapEm = (prevArabic: string | undefined, latin: string): number => {
+export const JOIN_GAP = {display: {caps: 0.2, latin: 0.25}, text: {caps: 0.25, latin: 0.3}} as const;
+export const joinGapEm = (prevArabic: string | undefined, latin: string, sizePx?: number): number => {
   if (!prevArabic || !/ـ$/.test(prevArabic)) return 0;
-  return /[A-Z]/.test(latin) && /^[A-Z0-9]+$/.test(latin) ? JOIN_GAP.caps : JOIN_GAP.latin;
+  const band = sizePx !== undefined && sizePx >= FONT.arDisplay.minPx ? JOIN_GAP.display : JOIN_GAP.text;
+  return /[A-Z]/.test(latin) && /^[A-Z0-9]+$/.test(latin) ? band.caps : band.latin;
 };
 
 /** True if the string contains Arabic letters (CA must be 0 on these runs, ADR-002). */

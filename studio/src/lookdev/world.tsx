@@ -44,8 +44,9 @@ const Ground: React.FC<{c: THREE.PerspectiveCamera; size?: number; step?: number
 type Tower = {x: number; z: number; w: number; d: number; h: number; district: number};
 const DISTRICTS = 7;
 const CUR = 3; // the district being learned now (lit in signal); 0-2 already learned; 4-6 dark
-/** r2 (critic r1 #1): district names = canon CH-01 labels_ar, the film's seven movements (order 1..7). */
-const DISTRICT_AR = ['الجهاز', 'الداتا', 'الأنظمة', 'المنصة', 'المجال', 'الـAI', 'الدليل'];
+/** r2 (critic r1 #1): district names = canon CH-01 labels_ar, the film's seven movements (order 1..7).
+ * r3 fix (arabic r3 B1): district 6 shows the acronym bare (`AI`, Latin per glossary; a noun tag needs no article): `الـAI` at 32 px read `AIJI`. */
+const DISTRICT_AR = ['الجهاز', 'الداتا', 'الأنظمة', 'المنصة', 'المجال', 'AI', 'الدليل'];
 const districtCenter = (k: number) => {
   const a = (k / DISTRICTS) * Math.PI * 2 - 1.42; // district CUR faces the default camera
   const r = 3.4 + (random(`dr${k}`) - 0.5) * 0.6;
@@ -518,9 +519,13 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
       ))}
       <Scrim r={TITLE} strength={0.6} />
       {/* r3 (critic r2 #4/#6): the line spoken just before the window holds the title slot as a ghost from f0 */}
+      {/* r3 fix (arabic r3 R2): 7 words > 6 per kinetic phrase, so two phrases on two lines (اللي أي حد شغال / في الداتا بيعمله), each
+          its own element anchored to its first word (both onsets precede the window, so both are in at f0); no canon word dropped */}
       {carryOp > 0 ? (
-        <div style={{position: 'absolute', right: 120, top: 84, opacity: carryOp}}>
-          <KWord text={CARRY.map((w) => w.text).join(' ').replace('.', '')} at={-1000} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
+        <div dir="rtl" style={{position: 'absolute', right: 120, top: 84, opacity: carryOp, display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
+          {[CARRY.slice(0, 4), CARRY.slice(4)].map((ph, j) => (
+            <KWord key={j} text={ph.map((w) => w.text).join(' ').replace('.', '')} at={msToFrames(ph[0].start_ms - WIN.window.start_ms, fps) - Math.round((LEAD_FRAMES.kinetic * fps) / 24)} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
+          ))}
         </div>
       ) : null}
       <Burst at={impact + 1} x={900} y={150} r={360} color={C.signal} frames={3} />

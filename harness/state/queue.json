@@ -1433,56 +1433,56 @@
       "updated": "2026-10-09T22:44:10Z"
     },
     "5": {
-      "label": "g5verify-realign10",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/g5v/realign10.py 20261010",
+      "label": "typeprobe-r3fix",
+      "cmd": "bash -c cd /home/user/Upload-documents/studio && node scripts/lookdev_typeprobe.mjs",
       "tsp_id": 5,
-      "status": "failed",
-      "mem_gb": 4.0,
+      "status": "done",
+      "mem_gb": 1.0,
       "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-09T21:49:29Z",
-      "updated": "2026-10-09T21:54:13Z",
-      "exit": "1"
+      "submitted": "2026-10-09T22:58:19Z",
+      "exit": "0",
+      "updated": "2026-10-09T22:58:34Z"
     },
     "6": {
-      "label": "ld-r2-ab-mask10",
-      "cmd": "bash -c cd /home/user/Upload-documents/studio && node scripts/lookdev_r2_render.mjs motion --only=MB-standard --conc=3 && cp ../data/renders/lookdev/r2/timings_motion_partial.json ../data/renders/lookdev/r2/ab/mask10.json",
+      "label": "typeprobe-sweep",
+      "cmd": "bash -c cd /home/user/Upload-documents/studio && node scripts/lookdev_typeprobe.mjs --sweep=0.14,0.2,0.25,0.3,0.35",
       "tsp_id": 6,
       "status": "done",
-      "mem_gb": 3.0,
-      "expected_gb": 0.1,
+      "mem_gb": 1.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-09T21:49:43Z",
-      "updated": "2026-10-09T21:54:13Z",
-      "exit": "0"
+      "submitted": "2026-10-09T22:59:38Z",
+      "exit": "0",
+      "updated": "2026-10-09T23:00:28Z"
     },
     "7": {
-      "label": "g5verify-loudgap",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/g5v/loud_gap.py",
+      "label": "typeprobe-final",
+      "cmd": "bash -c cd /home/user/Upload-documents/studio && node scripts/lookdev_typeprobe.mjs && node scripts/lookdev_r3_render.mjs stills --only=F3-standard,F4-standard,F4-hero,F5-standard,F6-standard,F7-standard,F8-standard",
       "tsp_id": 7,
       "status": "done",
-      "mem_gb": 2.0,
+      "mem_gb": 1.0,
       "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-09T21:53:03Z",
-      "updated": "2026-10-09T21:56:44Z",
-      "exit": "0"
+      "submitted": "2026-10-09T23:01:07Z",
+      "exit": "0",
+      "updated": "2026-10-09T23:01:33Z"
     },
     "8": {
-      "label": "g5verify-realign10b",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/g5v/realign10.py 20261010",
+      "label": "lookdev-r3fix-f8",
+      "cmd": "bash -c cd /home/user/Upload-documents/studio && node scripts/lookdev_r3_render.mjs stills --only=F8-standard",
       "tsp_id": 8,
       "status": "done",
-      "mem_gb": 4.0,
+      "mem_gb": 1.0,
       "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-09T21:54:19Z",
-      "updated": "2026-10-09T21:59:10Z",
-      "exit": "0"
+      "submitted": "2026-10-09T23:02:09Z",
+      "exit": "0",
+      "updated": "2026-10-09T23:02:14Z"
     }
   }
 }

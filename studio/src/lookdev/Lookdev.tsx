@@ -7,6 +7,7 @@ import {F1ColdOpen, F2SqlFunnel, F3Kafka, F5Docker, F6Type} from './frames';
 import {F4Galaxy, GalaxyPlate, MBGalaxyPush} from './galaxy';
 import {MAImpact, MCStreak} from './motion';
 import {GATES_FRAMES, GatesOrbit, HoloCity} from './world';
+import {ProbeProps, TypeProbe} from './TypeProbe';
 import {FPS, H, W} from '../tokens';
 
 loadLookdevFonts();
@@ -40,6 +41,8 @@ export const LookdevCompositions: React.FC = () => (
     {/* r2 P10 plates (critic r1 #2/#3): baked nebula + GL points + Bloom; rendered once by `lookdev_r2_render.mjs plate` */}
     <Composition id="PL-GalaxyPush" component={GalaxyPlate} durationInFrames={TEN_S} fps={FPS} width={W} height={H} defaultProps={{mode: 'push' as const}} />
     <Composition id="PL-GalaxyFinal" component={GalaxyPlate} durationInFrames={1} fps={FPS} width={W} height={H} defaultProps={{mode: 'final' as const}} />
+    {/* r3 fix (arabic r3 B2): isolated type probe for the join-gap OCR gate; 1200x200, one frame */}
+    <Composition id="LD-TypeProbe" component={TypeProbe} durationInFrames={1} fps={FPS} width={1400} height={240} defaultProps={{text: 'الترتيب داخل الـpartition', size: 92, typo: 'A'} as ProbeProps} />
     <Composition id="LD-MD-Gates" component={MD} durationInFrames={GATES_FRAMES} fps={FPS} width={W} height={H} defaultProps={{typo: 'A', fx: 'standard'} as MotionProps} />
   </>
 );

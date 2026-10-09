@@ -597,8 +597,8 @@ export const F5Docker: React.FC<FrameProps> = ({typo, fx}) => {
             <div style={{position: 'absolute', left: badX, top: b.y, width: Math.max(26, (640 * b.s) / DOCKER.seconds.bad), height: 26, borderRadius: 13, background: `linear-gradient(90deg, ${b.col}55, ${b.col})`, boxShadow: `0 0 ${fx.glowPx * 0.6}px ${b.col}88`}} />
             <bdi dir="ltr" style={{position: 'absolute', left: badX + 660, top: b.y - 10, fontFamily: `'${typo.mono}'`, fontSize: 36, fontWeight: 700, color: b.col, textShadow: `${halo}, ${glow(b.col, fx, 0.4)}`, whiteSpace: 'nowrap'}}>
               {b.s}
-              {/* r3 (arabic r2, frozen rule 11): unit at 0.42em in muted ink, like the big counters */}
-              <span style={{fontSize: '0.42em', marginLeft: '0.25em', color: C.ink2, textShadow: 'none'}}>s</span>
+              {/* r3 (arabic r2, frozen rule 11): small unit in muted ink; r3 fix (arabic r3 R3): 0.55em = 19.8 px at 36 px (floor 18) */}
+              <span style={{fontSize: '0.55em', marginLeft: '0.25em', color: C.ink2, textShadow: 'none'}}>s</span>
             </bdi>
           </React.Fragment>
         ))}
@@ -657,10 +657,11 @@ export const F6Type: React.FC<FrameProps> = ({typo, fx}) => {
           <KWord text="وغلط" at={SHOWN} typo={typo} fx={fx} size={176} color={C.crit} preset="impact" />
           <KWord text="وضعيف" at={SHOWN} typo={typo} fx={fx} size={92} color={C.warn} />
         </div>
-        {/* r3 (arabic r2 advisory): each caption is centred under its own number (column flex), ink at 85 % */}
-        <div dir="ltr" style={{position: 'absolute', left: 200, top: 650, display: 'grid', gridTemplateColumns: 'auto auto auto', columnGap: 40, rowGap: 0, alignItems: 'baseline'}}>
+        {/* r3 (arabic r2 advisory): each caption is centred under its own number (column flex), ink at 85 %.
+            r3 fix (arabic r3 R1): the grid flows RTL (roadmap 0.165 at the right, as in F4) and the arrow is ← ; each number stays in its own LTR isolate */}
+        <div dir="rtl" style={{position: 'absolute', left: 200, top: 650, display: 'grid', gridTemplateColumns: 'auto auto auto', columnGap: 40, rowGap: 0, alignItems: 'baseline'}}>
           <Counter from={RAG.before.score} to={RAG.before.score} a={0} b={0} decimals={3} typo={typo} fx={fx} size={200} color={C.crit} impact />
-          <span style={{fontFamily: `'${typo.mono}'`, fontSize: 90, color: C.ink3}}>→</span>
+          <span dir="ltr" style={{fontFamily: `'${typo.mono}'`, fontSize: 90, color: C.ink3, unicodeBidi: 'isolate'}}>←</span>
           <Counter from={RAG.after.score} to={RAG.after.score} a={0} b={0} decimals={3} typo={typo} fx={fx} size={130} color={C.ok} impact />
           {[RAG.before.label, '', RAG.after.label].map((t, i) => (
             <div key={i} style={{justifySelf: 'center', position: 'relative', height: 60, marginTop: -44}}>

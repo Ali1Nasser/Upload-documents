@@ -285,7 +285,9 @@ export const Mix: React.FC<{
   size?: number;
   caLatin?: string;
   style?: React.CSSProperties;
-}> = ({text, arFont, latFont, latWeight, latScale = 0.92, latColor, size, caLatin, style}) => {
+  px?: number; // r3 B2: rendered Arabic size when `size` is inherited (selects the J1 join-gap band)
+  gapOverrideEm?: number; // type-probe sweeps only (TypeProbe); frames never set it
+}> = ({text, arFont, latFont, latWeight, latScale = 0.92, latColor, size, caLatin, style, px, gapOverrideEm}) => {
   const face = size ? arabicFace(size) : null;
   const fam = arFont ?? face?.family ?? 'DC-PlexArabic';
   return (
@@ -300,8 +302,8 @@ export const Mix: React.FC<{
             key={i}
             dir="ltr"
             lang="en"
-            // r3 (arabic r2 J1): gap after a tatweel join, on the side facing the Arabic prefix
-            style={{fontFamily: `'${latFont}', '${fam}'`, fontWeight: latWeight, fontSize: `${latScale}em`, color: latColor, fontVariantNumeric: 'tabular-nums', textShadow: caLatin, marginRight: joinGap(all[i - 1], s.t)}}
+            // r3 (arabic r2 J1, r3 B2): size-banded gap after a tatweel join, on the side facing the Arabic prefix
+            style={{fontFamily: `'${latFont}', '${fam}'`, fontWeight: latWeight, fontSize: `${latScale}em`, color: latColor, fontVariantNumeric: 'tabular-nums', textShadow: caLatin, marginRight: joinGap(all[i - 1], s.t, size ?? px, latScale, gapOverrideEm)}}
           >
             {s.t}
           </bdi>
@@ -313,9 +315,10 @@ export const Mix: React.FC<{
   );
 };
 
-const joinGap = (prev: {t: string; ltr: boolean} | undefined, latin: string): string | undefined => {
-  const g = prev && !prev.ltr ? joinGapEm(prev.t, latin) : 0;
-  return g ? `${g}em` : undefined;
+/** J1 gap in em of the Arabic run; the bdi's own em is `latScale` times smaller, so divide. */
+const joinGap = (prev: {t: string; ltr: boolean} | undefined, latin: string, sizePx: number | undefined, latScale: number, override?: number): string | undefined => {
+  const g = prev && !prev.ltr ? (override !== undefined && joinGapEm(prev.t, latin, sizePx) > 0 ? override : joinGapEm(prev.t, latin, sizePx)) : 0;
+  return g ? `${+(g / latScale).toFixed(4)}em` : undefined;
 };
 
 export type KWordProps = {
@@ -400,7 +403,7 @@ export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C
       }}
     >
       {lang === 'ar' ? (
-        <Mix text={text} arFont={family} latFont={typo.lat} latWeight={typo.latWeight} caLatin={ca ? base + ca : undefined} style={{fontWeight: fw, wordSpacing: face.wordSpacing}} />
+        <Mix text={text} arFont={family} latFont={typo.lat} latWeight={typo.latWeight} caLatin={ca ? base + ca : undefined} px={size} style={{fontWeight: fw, wordSpacing: face.wordSpacing}} />
       ) : (
         <span style={{fontFamily: `'${family}'`}}>{text}</span>
       )}
@@ -492,7 +495,7 @@ export const Label: React.FC<{text: string; typo: Typo; size?: number; color?: s
   const px = Math.max(spoken ? SIZE.labelMin : SIZE.secondaryMin, size);
   return (
     <div dir="rtl" lang="ar" style={{position: 'absolute', fontSize: px, color, fontWeight: weight, whiteSpace: 'nowrap', textShadow: halo, lineHeight: lineHeightFor(text), ...style}}>
-      <Mix text={text} arFont={typo.body} latFont={latinFamily(labelRole(text))} latWeight={labelRole(text) === 'sentence' ? weight : 500} latScale={labelRole(text) === 'sentence' ? 0.92 : 0.9} style={{fontWeight: weight, wordSpacing: LINE.arWordSpacing}} />
+      <Mix text={text} arFont={typo.body} latFont={latinFamily(labelRole(text))} latWeight={labelRole(text) === 'sentence' ? weight : 500} latScale={labelRole(text) === 'sentence' ? 0.92 : 0.9} px={px} style={{fontWeight: weight, wordSpacing: LINE.arWordSpacing}} />
     </div>
   );
 };

@@ -69,9 +69,14 @@ eq("'←' between Arabic blocks passes", assertArrows('الجهاز ← الدا
 eq('unit after the number, Latin, in an isolate', withUnit(57, 's'), '⟦57 s⟧');
 eq('negative value with unit uses U+2212', withUnit(-50, 'EGP'), `⟦${MINUS}50 EGP⟧`);
 
-// tatweel join gap (arabic r2 J1)
-eq('ALL-CAPS Latin after الـ gets 0.12em', joinGapEm('الـ', 'AI'), 0.12);
-eq('mixed-case Latin after الـ gets 0.06em', joinGapEm('قسم الـ', 'roadmap'), 0.06);
+// tatweel join gap (arabic r2 J1, size-banded r3 B2)
+eq('display: ALL-CAPS Latin after الـ gets 0.20em', joinGapEm('الـ', 'AI', 92), 0.2);
+eq('display: mixed-case Latin after الـ gets 0.25em', joinGapEm('الترتيب داخل الـ', 'partition', 92), 0.25);
+eq('display band starts at 56 px', joinGapEm('قسم الـ', 'roadmap', 56), 0.25);
+eq('text: ALL-CAPS Latin after الـ gets 0.25em', joinGapEm('الـ', 'SQL', 34), 0.25);
+eq('text: mixed-case Latin after الـ gets 0.30em', joinGapEm('قسم الـ', 'idempotency', 36), 0.3);
+eq('unknown size = text band', joinGapEm('قسم الـ', 'roadmap'), 0.3);
+eq('display gap >= 18 px at 92 px (r3 F3 title was 5 px)', Math.round(joinGapEm('الـ', 'partition', 92) * 92) >= 18, true);
 eq('no tatweel = no gap', joinGapEm('بترتيب ', 'layers'), 0);
 eq('segment keeps الـ with the Arabic run before the isolate', segment('الـAI').map((x) => x.t).join('|'), 'الـ|AI');
 

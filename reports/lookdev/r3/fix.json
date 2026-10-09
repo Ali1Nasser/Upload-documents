@@ -1,0 +1,131 @@
+{
+ "round": "r3-fix (arabic r3 B1,B2,R1,R2,R3)",
+ "type_suite": "bash studio/scripts/check_type.sh: 43 ok, all type checks passed",
+ "stills": {
+  "F3-standard": "reports/lookdev/r3/stills/F3-standard_fix.jpg",
+  "F4-standard": "reports/lookdev/r3/stills/F4-standard_fix.jpg",
+  "F4-hero": "reports/lookdev/r3/stills/F4-hero_fix.jpg",
+  "F5-standard": "reports/lookdev/r3/stills/F5-standard_fix.jpg",
+  "F6-standard": "reports/lookdev/r3/stills/F6-standard_fix.jpg",
+  "F7-standard": "reports/lookdev/r3/stills/F7-standard_fix.jpg",
+  "F8-standard": "reports/lookdev/r3/stills/F8-standard_fix.jpg"
+ },
+ "still_s_1080p": {
+  "F3-standard": 0.92,
+  "F4-standard": 0.92,
+  "F4-hero": 1.32,
+  "F5-standard": 0.85,
+  "F6-standard": 0.88,
+  "F7-standard": 0.97,
+  "F8-standard": 0.9
+ },
+ "typeprobe_ocr": {
+  "gate_strings": 3,
+  "gate_pass": 3,
+  "gate_exact": 3,
+  "all_pass": 7,
+  "all_exact": 7,
+  "n": 9,
+  "items": [
+   {
+    "id": "F3-title",
+    "size": 92,
+    "gap_em": null,
+    "gate": true,
+    "want": "الترتيب داخل الـpartition",
+    "got": "الترتيب داخل ال ‎partition‏",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "F6-head",
+    "size": 72,
+    "gap_em": null,
+    "gate": false,
+    "want": "أعلى نتيجة: قسم الـroadmap",
+    "got": "roadmap ‏ال‎ awd ‏نتيجة:‎ lel",
+    "score": 0.651,
+    "exact": false,
+    "pass": false
+   },
+   {
+    "id": "roadmap-72",
+    "size": 72,
+    "gap_em": null,
+    "gate": true,
+    "want": "قسم الـroadmap",
+    "got": "قسم ال ‎roadmap‏",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "idem-72",
+    "size": 72,
+    "gap_em": null,
+    "gate": true,
+    "want": "قسم الـidempotency",
+    "got": "قسم ال ‎idempotency‏",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "F4-card-36",
+    "size": 36,
+    "gap_em": null,
+    "gate": false,
+    "want": "قسم الـidempotency",
+    "got": "قسم ال ‎idempotency‏",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "F6-label-roadmap-34",
+    "size": 34,
+    "gap_em": null,
+    "gate": false,
+    "want": "قسم الـroadmap",
+    "got": "قسم ال ‎roadmap‏",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "F6-label-idem-34",
+    "size": 34,
+    "gap_em": null,
+    "gate": false,
+    "want": "قسم الـidempotency",
+    "got": "قسم ال ‎idempotency‏",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "caps-AI-32",
+    "size": 32,
+    "gap_em": null,
+    "gate": false,
+    "want": "الـAI",
+    "got": "Al ‏ال‎",
+    "score": 0.8,
+    "exact": false,
+    "pass": false
+   },
+   {
+    "id": "caps-SQL-92",
+    "size": 92,
+    "gap_em": null,
+    "gate": false,
+    "want": "الـSQL",
+    "got": "SQL ‏ال‎",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   }
+  ]
+ }
+}
