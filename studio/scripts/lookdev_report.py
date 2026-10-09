@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """P6 look-dev report: JPG previews (<= 300 KB), motion strips, contact sheet (<= 400 KB), reports/perf/lookdev.json.
+# SUPERSEDED (r0): re-running rewrites reports/lookdev/README.md without the r1 section. Use lookdev_r1_report.py.
 Reads data/renders/lookdev/timings_*.json written by studio/scripts/lookdev_render.mjs. Run: python3 -I studio/scripts/lookdev_report.py"""
 import glob, io, json, os, subprocess, sys
 from pathlib import Path

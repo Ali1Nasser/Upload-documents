@@ -3,6 +3,7 @@ import React from 'react';
 import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
 import {Backdrop, Bokeh, Counter, KWord, Post, TermChip, drift} from './kit';
 import {C, EASE, Fx, Typo, msToFrames} from './theme';
+import {LEAD_FRAMES, PRESET_MS} from '../tokens';
 import {F2SqlFunnel, F3Kafka} from './frames';
 import WIN from './data/ch33_window.json';
 
@@ -15,10 +16,10 @@ const byId = (n: number): WordRec => {
   return w;
 };
 
-/** Resolve a {word, lead_frames} anchor to a composition frame (04 §4: kinetic word −3 frames at 30 fps = −100 ms). */
+/** Resolve a {word, lead_frames} anchor to a composition frame (ADR-002 24 fps table: kinetic word −2 frames = −83 ms). */
 const useAnchor = () => {
   const {fps} = useVideoConfig();
-  const lead = Math.round(0.1 * fps);
+  const lead = Math.round((LEAD_FRAMES.kinetic * fps) / 24); // the table is in 24 fps frames; rescale for previews
   return {
     on: (n: number, leadFrames = lead) => msToFrames(byId(n).start_ms - WIN.window.start_ms, fps) - leadFrames,
     end: (n: number) => msToFrames(byId(n).end_ms - WIN.window.start_ms, fps),
@@ -39,7 +40,8 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const nudge = frame === impactF ? 4 : frame === impactF + 1 ? -2 : 0; // 04 §3.5 one-frame camera nudge ≤ 4 px
   const counterA = A.on(5970, 0);
   const counterB = A.end(5974);
-  const settle = interpolate(frame, [exit1, exit1 + msToFrames(500, fps)], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.camera});
+  // r1 (critic r0 issue 6): the 0.165 counter leaves WITH its phrase (same exit frame and curve), no orphan left on screen.
+  const settle = interpolate(frame, [exit1, exit1 + msToFrames(300, fps)], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.camera});
   return (
     <AbsoluteFill>
       <Backdrop fx={fx} tint={C.crit} shaft={false} />
@@ -61,14 +63,15 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
             dir="ltr"
             style={{
               position: 'absolute',
-              left: interpolate(settle, [0, 1], [200, 140]),
-              top: interpolate(settle, [0, 1], [650, 120]),
-              transform: `scale(${interpolate(settle, [0, 1], [1, 0.5])})`,
+              left: 200,
+              top: 650,
+              transform: `scale(${1 - 0.04 * settle})`,
               transformOrigin: 'left top',
-              opacity: interpolate(frame, [counterA - 2, counterA + 2], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) * interpolate(settle, [0, 1], [1, 0.55]),
+              filter: settle > 0.01 ? `blur(${8 * settle}px)` : undefined,
+              opacity: interpolate(frame, [counterA - 2, counterA + 2], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) * (1 - settle),
             }}
           >
-            <Counter from={0} to={0.165} a={counterA} b={counterB} decimals={3} typo={typo} fx={fx} size={200} color={C.crit} />
+            <Counter from={0} to={0.165} a={counterA} b={counterB} decimals={3} typo={typo} fx={fx} size={200} color={C.crit} impact />
           </div>
         ) : null}
         <div dir="rtl" style={{position: 'absolute', right: 180, top: 420, display: 'flex', alignItems: 'baseline', gap: 26}}>
@@ -94,7 +97,7 @@ const WhipFilter: React.FC<{id: string; px: number}> = ({id, px}) => (
   </svg>
 );
 
-const Streak: React.FC<{k: number; fx: Fx}> = ({k, fx}) => {
+const Streak: React.FC<{k: number; fx: Fx; wash: boolean}> = ({k, fx, wash}) => {
   // k: -1..1 across the transition; peak at 0. Sweeps right → left (RTL reading direction).
   const {width, height} = useVideoConfig();
   const a = Math.max(0, 1 - Math.abs(k));
@@ -110,36 +113,41 @@ const Streak: React.FC<{k: number; fx: Fx}> = ({k, fx}) => {
         const off = (random(`so${i}`) - 0.5) * 700;
         const o = a * (0.25 + random(`sa${i}`) * 0.6);
         return (
-          <div key={i} style={{position: 'absolute', left: cx + off - len / 2, top: y, width: len, height: th, borderRadius: th, opacity: o, background: `linear-gradient(90deg, transparent, ${i % 4 === 0 ? C.violet : C.signal} 40%, #FFFFFF 50%, ${C.signal} 60%, transparent)`, boxShadow: `0 0 ${fx.glowPx}px ${C.signal}`}} />
+          <div key={i} style={{position: 'absolute', left: cx + off - len / 2, top: y, width: len, height: th, borderRadius: th, opacity: o, background: `linear-gradient(90deg, transparent, ${i % 4 === 0 ? C.violet : C.signal} 40%, ${C.white} 50%, ${C.signal} 60%, transparent)`, boxShadow: `0 0 ${fx.glowPx}px ${C.signal}`}} />
         );
       })}
-      <div style={{position: 'absolute', left: cx - width, top: cy - 3, width: width * 2, height: 6, opacity: a, background: `linear-gradient(90deg, transparent, ${C.signal} 35%, #FFFFFF 50%, ${C.signal} 65%, transparent)`, boxShadow: `0 0 ${fx.glowPx * 1.5}px ${C.signal}, 0 0 ${fx.glowPx * 3}px ${C.signal}88`}} />
-      <AbsoluteFill style={{background: '#FFFFFF', opacity: a * a * 0.12}} />
+      <div style={{position: 'absolute', left: cx - width, top: cy - 3, width: width * 2, height: 6, opacity: a, background: `linear-gradient(90deg, transparent, ${C.signal} 35%, ${C.white} 50%, ${C.signal} 65%, transparent)`, boxShadow: `0 0 ${fx.glowPx * 1.5}px ${C.signal}, 0 0 ${fx.glowPx * 3}px ${C.signal}88`}} />
+      {wash ? <AbsoluteFill style={{background: C.white, opacity: a * a * 0.12}} /> : null}
     </AbsoluteFill>
   );
 };
 
-/** Motion test (c): SQL funnel → whip-pan + light streak → Kafka partitions (cut at 5.0 s, 520 ms transition). */
+/**
+ * Motion test (c): SQL funnel → whip-pan + light streak → Kafka partitions. Cut at 5.0 s; 520 ms total.
+ * r1 (critic r0 issue 7): asymmetric — the outgoing whip takes 520 ms − 3 frames, the incoming scene is fully
+ * de-blurred, settled and back at the tier's black level by cut + 3 frames (no streak, glow or wash after that).
+ */
 export const MCStreak: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const frame = useCurrentFrame();
   const {fps, width} = useVideoConfig();
   const T0 = Math.round(5 * fps);
-  const half = msToFrames(260, fps);
-  const k = interpolate(frame, [T0 - half, T0 + half], [-1, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  const inT = frame >= T0 - half && frame <= T0 + half;
+  const inF = 3; // cut + 3 frames
+  const outF = Math.max(1, msToFrames(PRESET_MS.whipTotal, fps) - inF);
+  const k = frame < T0 ? interpolate(frame, [T0 - outF, T0], [-1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}) : interpolate(frame, [T0, T0 + inF], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  const inT = frame >= T0 - outF && frame < T0 + inF;
   const showA = frame < T0;
-  const eA = interpolate(frame, [T0 - half, T0], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.camera});
-  const eB = interpolate(frame, [T0, T0 + half], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.arrive});
-  const e = showA ? eA : eB;
+  const eA = interpolate(frame, [T0 - outF, T0], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.camera});
+  const eB = interpolate(frame, [T0, T0 + inF], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.arrive});
+  const e = showA ? eA : frame >= T0 + inF ? 0 : eB;
   const shift = showA ? -e * width * 0.3 : e * width * 0.3;
   const blur = Math.round(e * 48);
   return (
     <AbsoluteFill style={{background: C.void}}>
       <WhipFilter id="whip" px={blur} />
-      <AbsoluteFill style={{transform: `translateX(${shift}px)`, filter: blur > 0 ? 'url(#whip)' : undefined}}>
+      <AbsoluteFill style={{transform: shift ? `translateX(${shift}px)` : undefined, filter: blur > 0 ? 'url(#whip)' : undefined}}>
         {showA ? <F2SqlFunnel typo={typo} fx={fx} /> : <F3Kafka typo={typo} fx={fx} />}
       </AbsoluteFill>
-      {inT ? <Streak k={k} fx={fx} /> : null}
+      {inT ? <Streak k={k} fx={fx} wash={showA} /> : null}
     </AbsoluteFill>
   );
 };

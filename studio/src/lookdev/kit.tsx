@@ -1,7 +1,9 @@
 // Look-dev kit: backdrop, grain, vignette, glass, Arabic-first kinetic type. Seeded randomness only.
 import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
-import {C, EASE, Fx, PRESET_MS, Typo, glow, halo, msToFrames} from './theme';
+import {C, EASE, Fx, PRESET_MS, Typo, caShadow, glow, halo, msToFrames} from './theme';
+import {LINE, SIZE} from '../tokens';
+import {arabicFace, lineHeightFor, minus, segment} from '../type/arabic';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -45,7 +47,7 @@ export const FloorGrid: React.FC<{y?: number; drift?: number; opacity?: number}>
           <stop offset="0.35" stopColor={C.grid} stopOpacity={1} />
         </linearGradient>
       </defs>
-      <g stroke="url(#gridfade)" strokeWidth={1.2}>
+      <g stroke="url(#gridfade)" strokeWidth={1.6}>
         {lines}
       </g>
     </svg>
@@ -151,74 +153,122 @@ export const Glass: React.FC<{style?: React.CSSProperties; children?: React.Reac
   </div>
 );
 
-// ---------- Arabic-first text ----------
+// ---------- depth, light and text-safe masks (DepthLayers / FXTier contract, ADR-002 text-safe ON) ----------
 
-const LTR_HINT = /[A-Za-z0-9]/;
-const PUNCT_END = /[.,،:؛!?؟]+$/;
-const AR_PREFIX = /^([؀-ۿـ]*)(.*)$/;
-
-type Seg = {t: string; ltr: boolean};
+export type Rect = {x: number; y: number; w: number; h: number};
 
 /**
- * Split a mixed Arabic/Latin string into Arabic text runs and LTR isolates. Arabic words are never split:
- * the only split inside a token is at an Arabic prefix boundary (`الـKafka` → `الـ` + <bdi>Kafka</bdi>,
- * `وindex` → `و` + <bdi>index</bdi>). Use ⟦…⟧ to force one LTR isolate (e.g. `⟦4 / 6 = 66.67 %⟧`).
+ * CSS mask that removes a layer (particles, haze, bloom) from every text box plus padding, with a feathered edge.
+ * `floor` = residual alpha inside the box (0 = fully masked).
  */
-export const segment = (text: string): Seg[] => {
-  const out: Seg[] = [];
-  const pushAr = (t: string) => {
-    if (!t) return;
-    const last = out[out.length - 1];
-    if (last && !last.ltr) last.t += t;
-    else out.push({t, ltr: false});
-  };
-  const parts = text.split(/(⟦[^⟧]*⟧)/);
-  for (const part of parts) {
-    if (part.startsWith('⟦')) {
-      out.push({t: part.slice(1, -1), ltr: true});
-      continue;
-    }
-    for (const tok of part.split(/(\s+)/)) {
-      if (!tok) continue;
-      if (!LTR_HINT.test(tok)) {
-        pushAr(tok);
-        continue;
-      }
-      const p = (tok.match(PUNCT_END) || [''])[0];
-      const core = p ? tok.slice(0, -p.length) : tok;
-      const m = core.match(AR_PREFIX);
-      const pre = m ? m[1] : '';
-      const rest = m ? m[2] : core;
-      pushAr(pre);
-      out.push({t: rest, ltr: true});
-      pushAr(p);
-    }
-  }
-  return out;
+export const textSafeMask = (rects: Rect[], fx: Fx, floor = 0): React.CSSProperties => {
+  if (!fx.textSafe || !rects.length) return {};
+  const pad = fx.textSafePadPx;
+  const holes = rects
+    .map((r) => `<rect x='${r.x - pad}' y='${r.y - pad}' width='${r.w + 2 * pad}' height='${r.h + 2 * pad}' rx='${pad}' fill='${floor ? `rgb(${Math.round(floor * 255)},${Math.round(floor * 255)},${Math.round(floor * 255)})` : 'black'}'/>`)
+    .join('');
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><filter id='f'><feGaussianBlur stdDeviation='${pad / 2}'/></filter><rect width='1920' height='1080' fill='white'/><g filter='url(#f)'>${holes}</g></svg>`;
+  const url = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+  return {maskImage: url, WebkitMaskImage: url, maskMode: 'luminance', maskSize: '100% 100%', WebkitMaskSize: '100% 100%'} as React.CSSProperties;
 };
 
-/** Mixed Arabic + Latin line: Arabic in `arFont`, Latin isolates in `latFont`. */
-export const Mix: React.FC<{text: string; arFont: string; latFont: string; latWeight?: number; latScale?: number; latColor?: string; style?: React.CSSProperties}> = ({
-  text,
-  arFont,
-  latFont,
-  latWeight,
-  latScale = 0.92,
-  latColor,
-  style,
-}) => (
-  <span dir="rtl" lang="ar" style={{fontFamily: `'${arFont}'`, unicodeBidi: 'isolate', ...style}}>
-    {segment(text).map((s, i) =>
-      s.ltr ? (
-        <bdi key={i} dir="ltr" lang="en" style={{fontFamily: `'${latFont}', '${arFont}'`, fontWeight: latWeight, fontSize: `${latScale}em`, color: latColor, fontVariantNumeric: 'tabular-nums'}}>
-          {s.t}
-        </bdi>
-      ) : (
-        <React.Fragment key={i}>{s.t}</React.Fragment>
-      ),
-    )}
-  </span>
+/** Radial dark scrim behind a text block, so no light layer lowers its contrast. */
+export const Scrim: React.FC<{r: Rect; strength?: number}> = ({r, strength = 0.78}) => (
+  <div
+    style={{
+      position: 'absolute',
+      left: r.x - r.w * 0.25,
+      top: r.y - r.h * 0.6,
+      width: r.w * 1.5,
+      height: r.h * 2.2,
+      background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.void}${hex(strength)} 0%, ${C.void}${hex(strength * 0.6)} 45%, transparent 75%)`,
+      pointerEvents: 'none',
+    }}
+  />
 );
+
+/** Volumetric haze band between depth planes (04 §1.2): soft signal-tinted fog, densest at `y`. */
+export const Haze: React.FC<{fx: Fx; y?: number; h?: number; tint?: string; k?: number; style?: React.CSSProperties}> = ({fx, y = 540, h = 520, tint = C.signal, k = 1, style}) => (
+  <div
+    style={{
+      position: 'absolute',
+      left: -100,
+      right: -100,
+      top: y - h / 2,
+      height: h,
+      background: `radial-gradient(ellipse 60% 50% at 50% 50%, ${tint}${hex(fx.haze * 1.6 * k)} 0%, ${tint}${hex(fx.haze * 0.6 * k)} 50%, transparent 80%)`,
+      mixBlendMode: 'screen',
+      pointerEvents: 'none',
+      ...style,
+    }}
+  />
+);
+
+/**
+ * Parallax plane. depth 0 = subject (sharp), > 0 = farther (smaller, dimmer, blurred), < 0 = foreground.
+ * `cam` is a 0..1 camera parameter; planes translate by (1 - depth) so the far ones move least.
+ */
+export const Plane: React.FC<{depth: number; fx: Fx; cam?: number; pan?: number; children?: React.ReactNode; style?: React.CSSProperties}> = ({depth, fx, cam = 0, pan = 60, children, style}) => {
+  const far = Math.max(0, depth);
+  const s = 1 - far * 0.4;
+  const blur = far * fx.dofBlurPx * 1.2;
+  const m = 1 - depth * 0.7;
+  return (
+    <AbsoluteFill
+      style={{
+        transform: `translate(${-cam * pan * m}px, ${cam * pan * 0.25 * m}px) scale(${s})`,
+        transformOrigin: '50% 45%',
+        filter: blur > 0.2 ? `blur(${blur.toFixed(1)}px) brightness(${1 - far * 0.15})` : undefined,
+        opacity: 1 - far * 0.1,
+        ...style,
+      }}
+    >
+      {children}
+    </AbsoluteFill>
+  );
+};
+
+// ---------- Arabic-first text (rules in src/type/arabic.ts) ----------
+
+export {segment};
+
+/** Mixed Arabic + Latin line: Arabic in the face chosen by size (ADR-003), Latin isolates in `latFont`. CA only on Latin runs. */
+export const Mix: React.FC<{
+  text: string;
+  arFont?: string;
+  latFont: string;
+  latWeight?: number;
+  latScale?: number;
+  latColor?: string;
+  size?: number;
+  caLatin?: string;
+  style?: React.CSSProperties;
+}> = ({text, arFont, latFont, latWeight, latScale = 0.92, latColor, size, caLatin, style}) => {
+  const face = size ? arabicFace(size) : null;
+  const fam = arFont ?? face?.family ?? 'DC-PlexArabic';
+  return (
+    <span
+      dir="rtl"
+      lang="ar"
+      style={{fontFamily: `'${fam}', '${latFont}'`, unicodeBidi: 'isolate', fontWeight: face?.weight, wordSpacing: face?.wordSpacing ?? '0.08em', fontSize: size, ...style}}
+    >
+      {segment(text).map((s, i) =>
+        s.ltr ? (
+          <bdi
+            key={i}
+            dir="ltr"
+            lang="en"
+            style={{fontFamily: `'${latFont}', '${fam}'`, fontWeight: latWeight, fontSize: `${latScale}em`, color: latColor, fontVariantNumeric: 'tabular-nums', textShadow: caLatin}}
+          >
+            {s.t}
+          </bdi>
+        ) : (
+          <React.Fragment key={i}>{s.t}</React.Fragment>
+        ),
+      )}
+    </span>
+  );
+};
 
 export type KWordProps = {
   text: string;
@@ -230,6 +280,7 @@ export type KWordProps = {
   preset?: 'arrive' | 'impact';
   lang?: 'ar' | 'en' | 'mono';
   out?: number; // frame the exit starts
+  outGhost?: number; // exit to this opacity instead of 0 (a receding ghost, critic r0 issue 6)
   glowColor?: string;
   style?: React.CSSProperties;
   weight?: number;
@@ -238,8 +289,10 @@ export type KWordProps = {
 /**
  * Kinetic word/phrase, animated as ONE element (never per letter). Arabic: clip-path wipe right→left,
  * scale 0.92→1, blur 6→0, opacity (04 §3.4). `impact` adds 1.08→1 outBack + 80 ms glow flash (04 §3.5).
+ * Faces, line-height and CA follow ADR-002/003: Alexandria only >= 56 px, line-height 1.6 with tashkeel,
+ * CA on Latin / numeral runs only.
  */
-export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C.ink, preset = 'arrive', lang = 'ar', out, glowColor, style, weight}) => {
+export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C.ink, preset = 'arrive', lang = 'ar', out, outGhost = 0, glowColor, style, weight}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const fa = Math.max(1, msToFrames(PRESET_MS.arrive, fps));
@@ -262,21 +315,25 @@ export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C
   let exitBlur = 0;
   if (out !== undefined && frame >= out) {
     const e = interpolate(frame - out, [0, msToFrames(300, fps)], [0, 1], clamp);
-    op *= 1 - e;
+    op *= 1 - e * (1 - outGhost);
     scale *= 1 - 0.04 * e;
-    exitBlur = 8 * e;
+    exitBlur = (outGhost ? 2 : 8) * e;
   }
   const g = glowColor ?? (color === C.ink ? C.signal : color);
-  const family = lang === 'ar' ? typo.ar : lang === 'en' ? typo.lat : typo.mono;
-  const fw = weight ?? (lang === 'ar' ? typo.arWeight : lang === 'en' ? typo.latWeight : 600);
-  const ca = fx.caPx && preset === 'impact' ? `, ${fx.caPx}px 0 0 rgba(255,107,99,0.55), ${-fx.caPx}px 0 0 rgba(55,216,255,0.55)` : '';
+  const face = arabicFace(size);
+  const family = lang === 'ar' ? face.family : lang === 'en' ? typo.lat : typo.mono;
+  const fw = weight ?? (lang === 'ar' ? face.weight : lang === 'en' ? typo.latWeight : 600);
+  const base = `${halo}, ${glow(g, fx, 0.6 + flash * 1.2)}`;
+  const ca = preset === 'impact' ? caShadow(fx) : '';
+  // Arabic: CA never on the Arabic run; only on its Latin isolates. Latin/mono impact words get CA on the whole word.
+  const shadow = lang === 'ar' ? base : base + ca;
   return (
     <div
       dir={rtl ? 'rtl' : 'ltr'}
       lang={rtl ? 'ar' : 'en'}
       style={{
         fontSize: size,
-        lineHeight: 1.3,
+        lineHeight: rtl ? lineHeightFor(text) : LINE.base,
         color,
         whiteSpace: 'nowrap',
         fontWeight: fw,
@@ -286,19 +343,24 @@ export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C
         filter: !hidden && blur + exitBlur > 0.05 ? `blur(${blur + exitBlur}px)` : undefined,
         opacity: op,
         visibility: hidden ? 'hidden' : undefined,
-        textShadow: `${halo}, ${glow(g, fx, 0.6 + flash * 1.2)}${ca}`,
+        textShadow: shadow,
         fontVariantNumeric: 'tabular-nums',
-        wordSpacing: rtl ? '0.08em' : undefined,
+        wordSpacing: rtl ? face.wordSpacing : undefined,
         ...style,
       }}
     >
-      {lang === 'ar' ? <Mix text={text} arFont={family} latFont={typo.lat} latWeight={typo.latWeight} /> : <span style={{fontFamily: `'${family}'`}}>{text}</span>}
+      {lang === 'ar' ? (
+        <Mix text={text} arFont={family} latFont={typo.lat} latWeight={typo.latWeight} caLatin={ca ? base + ca : undefined} style={{fontWeight: fw, wordSpacing: face.wordSpacing}} />
+      ) : (
+        <span style={{fontFamily: `'${family}'`}}>{text}</span>
+      )}
     </div>
   );
 };
 
-/** Tabular mono counter in an LTR isolate; rolls from→to between frames a..b. */
-export const Counter: React.FC<{from: number; to: number; a: number; b: number; decimals?: number; typo: Typo; fx: Fx; size: number; color?: string; unit?: string; prefix?: string}> = ({
+
+/** Tabular mono counter in an LTR isolate; rolls from→to between frames a..b. `impact` = numeral impact (CA allowed, ADR-002). */
+export const Counter: React.FC<{from: number; to: number; a: number; b: number; decimals?: number; typo: Typo; fx: Fx; size: number; color?: string; unit?: string; prefix?: string; impact?: boolean; font?: string}> = ({
   from,
   to,
   a,
@@ -310,16 +372,18 @@ export const Counter: React.FC<{from: number; to: number; a: number; b: number; 
   color = C.ink,
   unit,
   prefix,
+  impact = false,
+  font,
 }) => {
   const frame = useCurrentFrame();
   const v = b > a ? interpolate(frame, [a, b], [from, to], {...clamp, easing: EASE.arrive}) : frame >= a ? to : from;
   return (
     <bdi
       dir="ltr"
-      style={{fontFamily: `'${typo.mono}'`, fontSize: size, fontWeight: 700, color, fontVariantNumeric: 'tabular-nums', textShadow: `${halo}, ${glow(color, fx, 0.7)}`, whiteSpace: 'nowrap'}}
+      style={{fontFamily: `'${font ?? typo.mono}'`, fontSize: size, fontWeight: 700, color, fontVariantNumeric: 'tabular-nums', textShadow: `${halo}, ${glow(color, fx, 0.7)}${impact ? caShadow(fx) : ''}`, whiteSpace: 'nowrap'}}
     >
-      {prefix}
-      {v.toFixed(decimals)}
+      {prefix ? minus(prefix) : null}
+      {minus(v.toFixed(decimals))}
       {unit ? <span style={{fontSize: '0.42em', marginLeft: '0.25em', color: C.ink2, textShadow: 'none'}}>{unit}</span> : null}
     </bdi>
   );
@@ -354,19 +418,33 @@ export const TermChip: React.FC<{term: string; gloss?: string; typo: Typo; fx: F
       {term}
     </bdi>
     {gloss ? (
-      <span dir="rtl" lang="ar" style={{fontFamily: `'${typo.body}'`, fontWeight: 500, fontSize: size * 0.85, color: C.ink2}}>
+      <span dir="rtl" lang="ar" style={{fontFamily: `'${typo.body}'`, fontWeight: 500, fontSize: Math.max(SIZE.labelMin, size * 0.85), color: C.ink2}}>
         {gloss}
       </span>
     ) : null}
   </div>
 );
 
-/** Object label (28–40 px, Arabic body face). */
-export const Label: React.FC<{text: string; typo: Typo; size?: number; color?: string; style?: React.CSSProperties; weight?: number}> = ({text, typo, size = 32, color = C.ink2, style, weight = 500}) => (
-  <div dir="rtl" lang="ar" style={{position: 'absolute', fontSize: size, color, fontWeight: weight, whiteSpace: 'nowrap', textShadow: halo, ...style}}>
-    <Mix text={text} arFont={typo.body} latFont={typo.mono} latWeight={500} latScale={0.9} />
-  </div>
-);
+/**
+ * Object label, Arabic body face. ADR-003 floors: 28 px for object labels and anything tied to a spoken term or number
+ * (`spoken`, default), 18 px for non-spoken secondary microcopy. Sizes below the floor are raised, never rendered small.
+ */
+export const Label: React.FC<{text: string; typo: Typo; size?: number; color?: string; style?: React.CSSProperties; weight?: number; spoken?: boolean}> = ({
+  text,
+  typo,
+  size = 32,
+  color = C.ink2,
+  style,
+  weight = 500,
+  spoken = true,
+}) => {
+  const px = Math.max(spoken ? SIZE.labelMin : SIZE.secondaryMin, size);
+  return (
+    <div dir="rtl" lang="ar" style={{position: 'absolute', fontSize: px, color, fontWeight: weight, whiteSpace: 'nowrap', textShadow: halo, lineHeight: lineHeightFor(text), ...style}}>
+      <Mix text={text} arFont={typo.body} latFont={typo.mono} latWeight={500} latScale={0.9} style={{fontWeight: weight, wordSpacing: LINE.arWordSpacing}} />
+    </div>
+  );
+};
 
 export function hex(a: number): string {
   return Math.round(Math.max(0, Math.min(1, a)) * 255)

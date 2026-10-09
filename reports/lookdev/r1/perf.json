@@ -1,0 +1,323 @@
+{
+ "v": 1,
+ "phase": "P6",
+ "round": "r1",
+ "resolution": "1920x1080",
+ "fps": 24,
+ "gl": "swiftshader",
+ "box": "4 vCPU, no GPU",
+ "tokens": "studio/src/tokens.ts (ADR-002 F24 + FX2, ADR-003 T-A)",
+ "definitions": {
+  "s_per_frame": "(wall - overhead) x concurrency / (frames - 1): seconds per frame per render slot",
+  "fps_throughput": "(frames - 1) / (wall - overhead), whole box",
+  "still_s": "renderStill wall per still, one browser, bundle excluded"
+ },
+ "r0_s_per_frame_30fps": {
+  "MA-standard": 0.398,
+  "MB-standard": 0.606,
+  "MB-hero(4k pts)": 2.712,
+  "MC-standard": 0.647
+ },
+ "stills": {
+  "F1-standard": {
+   "still_s": 2.127,
+   "comp": "LookdevStill",
+   "frame": "F1",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F1-standard.jpg",
+   "kb": 221.9,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F2-standard": {
+   "still_s": 1.631,
+   "comp": "LookdevStill",
+   "frame": "F2",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F2-standard.jpg",
+   "kb": 222.5,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F3-standard": {
+   "still_s": 1.807,
+   "comp": "LookdevStill",
+   "frame": "F3",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F3-standard.jpg",
+   "kb": 196.5,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F4-hero": {
+   "still_s": 4.523,
+   "comp": "LookdevStill",
+   "frame": "F4",
+   "typo": "A",
+   "fx": "hero",
+   "preview": "reports/lookdev/r1/stills/F4-hero.jpg",
+   "kb": 209.0,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F4-standard": {
+   "still_s": 2.224,
+   "comp": "LookdevStill",
+   "frame": "F4",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F4-standard.jpg",
+   "kb": 199.9,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F5-standard": {
+   "still_s": 2.061,
+   "comp": "LookdevStill",
+   "frame": "F5",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F5-standard.jpg",
+   "kb": 263.7,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F6-standard": {
+   "still_s": 1.496,
+   "comp": "LookdevStill",
+   "frame": "F6",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F6-standard.jpg",
+   "kb": 164.6,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F7-standard": {
+   "still_s": 1.566,
+   "comp": "LookdevStill",
+   "frame": "F7",
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F7-standard.jpg",
+   "kb": 180.0,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F8-standard": {
+   "still_s": 2.091,
+   "comp": "LD-MD-Gates",
+   "frame": 205,
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F8-standard.jpg",
+   "kb": 178.5,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  },
+  "F9-standard": {
+   "still_s": 1.905,
+   "comp": "LD-MD-Gates",
+   "frame": 266,
+   "typo": "A",
+   "fx": "standard",
+   "preview": "reports/lookdev/r1/stills/F9-standard.jpg",
+   "kb": 206.3,
+   "px": [
+    1920,
+    1080
+   ],
+   "q": 88
+  }
+ },
+ "motion": {
+  "MA-standard": {
+   "comp": "LD-MA-Impact",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 45.78,
+   "overhead_s": 1.6,
+   "fps_throughput": 5.41,
+   "s_per_frame": 0.555,
+   "s_per_frame_box": 0.1848,
+   "mp4": "data/renders/lookdev/r1/MA-standard_swiftshader.mp4",
+   "mb": 10.32,
+   "concurrency": 3,
+   "strip": "reports/lookdev/r1/strips/MA-standard.jpg",
+   "strip_frames": [
+    8,
+    34,
+    91,
+    92,
+    102,
+    105,
+    199,
+    227
+   ],
+   "strip_kb": 88.0,
+   "note": "CH-33 S1 3768.8-3778.8 s; impact words on word ids w:S1:ar-natural:005965-005980 (lead 2 f); 0.165 counter lands on the end of خمسة and leaves with its phrase"
+  },
+  "MB-standard": {
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 92.86,
+   "overhead_s": 2,
+   "fps_throughput": 2.631,
+   "s_per_frame": 1.14,
+   "s_per_frame_box": 0.3802,
+   "mp4": "data/renders/lookdev/r1/MB-standard_swiftshader.mp4",
+   "mb": 13.53,
+   "concurrency": 3,
+   "strip": "reports/lookdev/r1/strips/MB-standard.jpg",
+   "strip_frames": [
+    0,
+    34,
+    68,
+    102,
+    137,
+    171,
+    205,
+    239
+   ],
+   "strip_kb": 135.5,
+   "note": "galaxy push 17 -> 7.4 units + 0.5 rad orbit + parallax planes; 1,500 points; text-safe masks; roadmap card dims to 60 % (ghost) beside the new 0.227 hit"
+  },
+  "MB-hero": {
+   "comp": "LD-MB-Galaxy",
+   "props": {
+    "typo": "A",
+    "fx": "hero"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 222.76,
+   "overhead_s": 3.96,
+   "fps_throughput": 1.092,
+   "s_per_frame": 2.746,
+   "s_per_frame_box": 0.9155,
+   "mp4": "data/renders/lookdev/r1/MB-hero_swiftshader.mp4",
+   "mb": 13.93,
+   "concurrency": 3,
+   "strip": "reports/lookdev/r1/strips/MB-hero.jpg",
+   "strip_frames": [
+    0,
+    34,
+    68,
+    102,
+    137,
+    171,
+    205,
+    239
+   ],
+   "strip_kb": 169.9,
+   "note": "galaxy push 17 -> 7.4 units + 0.5 rad orbit + parallax planes; 1,500 points; text-safe masks; roadmap card dims to 60 % (ghost) beside the new 0.227 hit"
+  },
+  "MC-standard": {
+   "comp": "LD-MC-Streak",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 240,
+   "fps": 24,
+   "wall_s": 52.98,
+   "overhead_s": 1.31,
+   "fps_throughput": 4.625,
+   "s_per_frame": 0.649,
+   "s_per_frame_box": 0.2162,
+   "mp4": "data/renders/lookdev/r1/MC-standard_swiftshader.mp4",
+   "mb": 18.75,
+   "concurrency": 3,
+   "strip": "reports/lookdev/r1/strips/MC-standard.jpg",
+   "strip_frames": [
+    108,
+    112,
+    115,
+    118,
+    119,
+    120,
+    121,
+    123
+   ],
+   "strip_kb": 163.5,
+   "note": "whip-pan SQL funnel -> Kafka, 520 ms total = 12 frames at 24 fps: 9 frames out, 3 frames in; incoming scene clean (no blur, streak or wash) from cut + 3"
+  },
+  "MD-standard": {
+   "comp": "LD-MD-Gates",
+   "props": {
+    "typo": "A",
+    "fx": "standard"
+   },
+   "frames": 288,
+   "fps": 24,
+   "wall_s": 75.29,
+   "overhead_s": 1.67,
+   "fps_throughput": 3.898,
+   "s_per_frame": 0.77,
+   "s_per_frame_box": 0.2565,
+   "mp4": "data/renders/lookdev/r1/MD-standard_swiftshader.mp4",
+   "mb": 22.69,
+   "concurrency": 3,
+   "strip": "reports/lookdev/r1/strips/MD-standard.jpg",
+   "strip_frames": [
+    33,
+    124,
+    160,
+    205,
+    213,
+    248,
+    262,
+    287
+   ],
+   "strip_kb": 146.2,
+   "note": "TripleGate ignition on S1 CH-00 words (تجيب / تثق / تجاوب, w:000036-000045) with a camera push + 0.6 rad orbit, then the kinetic phrase دي الشغلانة كلها (w:000048-000050, impact on كلها)"
+  }
+ },
+ "contact_sheet": {
+  "path": "reports/lookdev/r1/contact.jpg",
+  "kb": 227.5,
+  "px": [
+   1920,
+   910
+  ]
+ }
+}

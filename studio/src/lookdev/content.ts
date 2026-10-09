@@ -59,7 +59,21 @@ export const DOCKER = {
 export const RAG = {
   queryAr: 'إزاي أمنع ⟦job⟧ إنها تحمّل نفس الصفوف مرتين', // S1 narration, CH-33 (w:S1:ar-natural:005957–005964)
   queryEn: 'how do I stop a job loading the same rows twice',
-  before: {label: 'قسم الـroadmap', score: 0.165, note: 'من غير توسيع'},
-  after: {label: 'قسم الـidempotency', score: 0.227, note: 'مع توسيع الـquery'},
+  before: {label: 'قسم الـroadmap', score: 0.165, note: 'أعلى نتيجة'}, // S1 w:005965-005967
+  after: {label: 'قسم الـidempotency', score: 0.227, note: 'وسّع الـquery بمرادفات'}, // S1 w:005978-005980
   third: {label: 'chunk'},
 };
+
+// r1: Arabic microcopy is taken verbatim from S1 narration (a:S1:ar-natural words), replacing the r0 authored phrases
+// (critic r0 issue 9). Still subject to the egyptian-arabic / fact-checker pass before P8.
+export const COPY = {
+  f1Table: 'ست عمليات دفع من ⟦NilePay⟧', // CH-00 "دول ست عمليات دفع من NilePay"
+  f1Box: 'علبة فيها فواتير', // CH-00 "عندها علبة فيها فواتير"
+  f2Where: 'أرخص مكسب', // CH-11 "وده أرخص مكسب في اللغة كلها"
+  f2Sub: '⟦SQL⟧ مش بتشتغل بالترتيب اللي إنت كاتبها بيه', // CH-11 first sentence
+  f5Good: 'بترتيب ⟦layers⟧ عاقل', // CH-34 "بترتيب layers عاقل"
+  f5Bad: 'نسخ الكود فوق تنصيب التبعيات', // CH-34 "نقّل نسخ الكود فوق تنصيب التبعيات"
+  f5Sub: 'غيّر سطر واحد في الكود', // CH-34
+  f7Title: 'دي الشغلانة كلها', // CH-00 w:000048-000050
+  gates: ['هات الصفوف', 'خليها موثوقة', 'جاوب على السؤال'], // chapters.json CH-00 labels_ar (canon)
+} as const;

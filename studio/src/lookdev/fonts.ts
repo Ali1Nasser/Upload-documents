@@ -1,16 +1,15 @@
 import {continueRender, delayRender, staticFile} from 'remotion';
+import {FONT} from '../tokens';
 
-// Look-dev candidate faces (all OFL, see public/fonts/FONTS.md). Variable fonts get a weight range.
+// ADR-003 T-A faces (all OFL, see public/fonts/FONTS.md). Variable fonts get a weight range.
 const FACES: [family: string, file: string, weight: string][] = [
-  ['LD-Alexandria', 'Alexandria-VF.ttf', '100 900'],
-  ['LD-Readex', 'ReadexPro-VF.ttf', '160 700'],
-  ['LD-PlexArabic', 'IBMPlexSansArabic-Regular.ttf', '400'],
-  ['LD-PlexArabic', 'IBMPlexSansArabic-Medium.ttf', '500'],
-  ['LD-PlexArabic', 'IBMPlexSansArabic-SemiBold.ttf', '600'],
-  ['LD-PlexArabic', 'IBMPlexSansArabic-Bold.ttf', '700'],
-  ['LD-InterTight', 'InterTight-VF.ttf', '100 900'],
-  ['LD-SpaceGrotesk', 'SpaceGrotesk-VF.ttf', '300 700'],
-  ['LD-JBMono', 'JetBrainsMono-VF.ttf', '100 800'],
+  [FONT.arDisplay.family, 'Alexandria-VF.ttf', '100 900'],
+  [FONT.label.family, 'IBMPlexSansArabic-Regular.ttf', '400'],
+  [FONT.label.family, 'IBMPlexSansArabic-Medium.ttf', '500'],
+  [FONT.label.family, 'IBMPlexSansArabic-SemiBold.ttf', '600'],
+  [FONT.label.family, 'IBMPlexSansArabic-Bold.ttf', '700'],
+  [FONT.lat.family, 'InterTight-VF.ttf', '100 900'],
+  [FONT.mono.family, 'JetBrainsMono-VF.ttf', '100 800'],
 ];
 
 let started = false;
