@@ -1,6 +1,7 @@
 // Unit checks for src/type/arabic.ts. Run: bash studio/scripts/check_type.sh (esbuild bundle -> node).
 import {LINE} from '../tokens';
-import {MINUS, arabicFace, assertFormula, hasLowerMarks, hasTashkeel, lineHeightFor, minus, segment, stackGap} from './arabic';
+import {MINUS, arabicFace, assertArrows, assertFormula, blockLineHeight, breakCaption, hasLowerMarks, hasTashkeel, labelRole, latinFamily, lineHeightFor, minus, segment, stackGap, visLen, withUnit} from './arabic';
+import {displayText} from './overrides';
 
 let fails = 0;
 const eq = (name: string, got: unknown, want: unknown) => {
@@ -44,6 +45,34 @@ eq('tatweel join keeps الـ in the Arabic run', segment('الترتيب داخ
   {t: 'partition', ltr: true},
 ]);
 eq('no Arabic word is split', segment('واثق وغلط وضعيف').length, 1);
+
+// caption breaking (<= 32 visible chars, <= 2 lines, balanced, word boundaries only)
+eq('F2 subtitle splits at the phrase seam', breakCaption('SQL مش بتشتغل بالترتيب اللي إنت كاتبها بيه').lines, ['SQL مش بتشتغل بالترتيب', 'اللي إنت كاتبها بيه']);
+eq('F4 query caption splits before نفس', breakCaption('إزاي أمنع ⟦job⟧ إنها تحمّل نفس الصفوف مرتين').lines, ['إزاي أمنع ⟦job⟧ إنها تحمّل', 'نفس الصفوف مرتين']);
+eq('shadda does not count as a character', visLen('تحمّل'), 4);
+eq('short caption stays one line', breakCaption('دي الشغلانة كلها').lines.length, 1);
+eq('3-line text overflows a 2-line rule', breakCaption('واحد اتنين تلاتة اربعة خمسة ستة سبعة تمانية تسعة عشرة حداشر اتناشر', 12).overflow, true);
+eq('caption block with shadda uses line-height 1.6', blockLineHeight(['إزاي أمنع job إنها تحمّل', 'نفس الصفوف مرتين']), LINE.tashkeel);
+
+// inline Latin face, arrows, units
+eq('Latin inside an Arabic sentence = Inter Tight', latinFamily(labelRole('قسم الـroadmap')), 'DC-InterTight');
+eq('pure Latin data label = mono', latinFamily(labelRole('⟦producer⟧')), 'DC-JBMono');
+eq('→ inside a numeric isolate is fine', assertArrows('⟦0.165 → 0.227⟧ بعد التوسيع'), '⟦0.165 → 0.227⟧ بعد التوسيع');
+let arrowThrew = false;
+try {
+  assertArrows('6 فواتير → 6 صفوف');
+} catch {
+  arrowThrew = true;
+}
+eq("'→' between Arabic blocks is rejected", arrowThrew, true);
+eq("'←' between Arabic blocks passes", assertArrows('الجهاز ← الداتا'), 'الجهاز ← الداتا');
+eq('unit after the number, Latin, in an isolate', withUnit(57, 's'), '⟦57 s⟧');
+eq('negative value with unit uses U+2212', withUnit(-50, 'EGP'), `⟦${MINUS}50 EGP⟧`);
+
+// display overrides (canon untouched)
+eq('roadmap article override', displayText('w:S1:ar-natural:005968', 'roadmap'), 'الـroadmap');
+eq('CH-34 label override drops MSA tanween', hasTashkeel(displayText('CH-34:labels_ar:0', '5 ثوانٍ مقابل 57')), false);
+eq('no override = verbatim', displayText('w:S1:ar-natural:005965', 'أعلى'), 'أعلى');
 
 if (fails) {
   console.error(`${fails} check(s) failed`);

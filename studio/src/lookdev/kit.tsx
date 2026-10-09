@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, EASE, Fx, PRESET_MS, Typo, caShadow, glow, halo, msToFrames} from './theme';
 import {LINE, SIZE} from '../tokens';
-import {arabicFace, lineHeightFor, minus, segment} from '../type/arabic';
+import {arabicFace, blockLineHeight, breakCaption, labelRole, latinFamily, lineHeightFor, minus, segment} from '../type/arabic';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -164,10 +164,22 @@ export type Rect = {x: number; y: number; w: number; h: number};
 export const textSafeMask = (rects: Rect[], fx: Fx, floor = 0): React.CSSProperties => {
   if (!fx.textSafe || !rects.length) return {};
   const pad = fx.textSafePadPx;
+  // r2 perf: feather = 4 nested rounded rects at stepped grey (no feGaussianBlur). The blurred-SVG mask re-rasterised a
+  // 1920x1080 Gaussian every frame whenever a card moved (MB); stepped rings give the same soft edge with no filter.
+  const f = Math.round(floor * 255);
+  const steps = [1, 0.66, 0.33, 0];
   const holes = rects
-    .map((r) => `<rect x='${r.x - pad}' y='${r.y - pad}' width='${r.w + 2 * pad}' height='${r.h + 2 * pad}' rx='${pad}' fill='${floor ? `rgb(${Math.round(floor * 255)},${Math.round(floor * 255)},${Math.round(floor * 255)})` : 'black'}'/>`)
+    .map((r) =>
+      steps
+        .map((k) => {
+          const e = pad * (0.5 + k * 0.5); // outer ring at +pad, solid core at +pad/2
+          const v = Math.round(f + (255 - f) * k * 0.75);
+          return `<rect x='${(r.x - e).toFixed(0)}' y='${(r.y - e).toFixed(0)}' width='${(r.w + 2 * e).toFixed(0)}' height='${(r.h + 2 * e).toFixed(0)}' rx='${e.toFixed(0)}' fill='rgb(${v},${v},${v})'/>`;
+        })
+        .join(''),
+    )
     .join('');
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><filter id='f'><feGaussianBlur stdDeviation='${pad / 2}'/></filter><rect width='1920' height='1080' fill='white'/><g filter='url(#f)'>${holes}</g></svg>`;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><rect width='1920' height='1080' fill='white'/>${holes}</svg>`;
   const url = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
   return {maskImage: url, WebkitMaskImage: url, maskMode: 'luminance', maskSize: '100% 100%', WebkitMaskSize: '100% 100%'} as React.CSSProperties;
 };
@@ -208,7 +220,7 @@ export const Haze: React.FC<{fx: Fx; y?: number; h?: number; tint?: string; k?: 
  * Parallax plane. depth 0 = subject (sharp), > 0 = farther (smaller, dimmer, blurred), < 0 = foreground.
  * `cam` is a 0..1 camera parameter; planes translate by (1 - depth) so the far ones move least.
  */
-export const Plane: React.FC<{depth: number; fx: Fx; cam?: number; pan?: number; children?: React.ReactNode; style?: React.CSSProperties}> = ({depth, fx, cam = 0, pan = 60, children, style}) => {
+export const Plane: React.FC<{depth: number; fx: Fx; cam?: number; pan?: number; post?: string; children?: React.ReactNode; style?: React.CSSProperties}> = ({depth, fx, cam = 0, pan = 60, post = '', children, style}) => {
   const far = Math.max(0, depth);
   const s = 1 - far * 0.4;
   const blur = far * fx.dofBlurPx * 1.2;
@@ -216,7 +228,7 @@ export const Plane: React.FC<{depth: number; fx: Fx; cam?: number; pan?: number;
   return (
     <AbsoluteFill
       style={{
-        transform: `translate(${-cam * pan * m}px, ${cam * pan * 0.25 * m}px) scale(${s})`,
+        transform: `translate(${-cam * pan * m}px, ${cam * pan * 0.25 * m}px) scale(${s}) ${post}`,
         transformOrigin: '50% 45%',
         filter: blur > 0.2 ? `blur(${blur.toFixed(1)}px) brightness(${1 - far * 0.15})` : undefined,
         opacity: 1 - far * 0.1,
@@ -284,6 +296,7 @@ export type KWordProps = {
   glowColor?: string;
   style?: React.CSSProperties;
   weight?: number;
+  flashFrames?: number; // r2: hard flash on the stressed word for N frames from `at` (glow + brightness; no CA on Arabic)
 };
 
 /**
@@ -292,7 +305,7 @@ export type KWordProps = {
  * Faces, line-height and CA follow ADR-002/003: Alexandria only >= 56 px, line-height 1.6 with tashkeel,
  * CA on Latin / numeral runs only.
  */
-export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C.ink, preset = 'arrive', lang = 'ar', out, outGhost = 0, glowColor, style, weight}) => {
+export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C.ink, preset = 'arrive', lang = 'ar', out, outGhost = 0, glowColor, style, weight, flashFrames = 0}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const fa = Math.max(1, msToFrames(PRESET_MS.arrive, fps));
@@ -323,7 +336,8 @@ export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C
   const face = arabicFace(size);
   const family = lang === 'ar' ? face.family : lang === 'en' ? typo.lat : typo.mono;
   const fw = weight ?? (lang === 'ar' ? face.weight : lang === 'en' ? typo.latWeight : 600);
-  const base = `${halo}, ${glow(g, fx, 0.6 + flash * 1.2)}`;
+  const hard = flashFrames > 0 && t >= 0 && t < flashFrames ? 1 - t / flashFrames : 0;
+  const base = `${halo}, ${glow(g, fx, 0.6 + flash * 1.2 + hard * 1.6)}`;
   const ca = preset === 'impact' ? caShadow(fx) : '';
   // Arabic: CA never on the Arabic run; only on its Latin isolates. Latin/mono impact words get CA on the whole word.
   const shadow = lang === 'ar' ? base : base + ca;
@@ -340,7 +354,7 @@ export const KWord: React.FC<KWordProps> = ({text, at, typo, fx, size, color = C
         clipPath: p < 1 && !hidden ? clip : undefined,
         transform: `scale(${scale})`,
         transformOrigin: rtl ? 'right center' : 'left center',
-        filter: !hidden && blur + exitBlur > 0.05 ? `blur(${blur + exitBlur}px)` : undefined,
+        filter: !hidden && (blur + exitBlur > 0.05 || hard > 0) ? `${blur + exitBlur > 0.05 ? `blur(${blur + exitBlur}px)` : ''}${hard > 0 ? ` brightness(${1 + 0.7 * hard})` : ''}` : undefined,
         opacity: op,
         visibility: hidden ? 'hidden' : undefined,
         textShadow: shadow,
@@ -390,13 +404,14 @@ export const Counter: React.FC<{from: number; to: number; a: number; b: number; 
 };
 
 /** Term chip: Latin mono term (+ optional Arabic gloss), sits next to its object (04 §3.2). */
-export const TermChip: React.FC<{term: string; gloss?: string; typo: Typo; fx: Fx; color?: string; size?: number; style?: React.CSSProperties}> = ({
+export const TermChip: React.FC<{term: string; gloss?: string; typo: Typo; fx: Fx; color?: string; size?: number; glossSize?: number; style?: React.CSSProperties}> = ({
   term,
   gloss,
   typo,
   fx,
   color = C.signal,
   size = 32,
+  glossSize,
   style,
 }) => (
   <div
@@ -418,7 +433,7 @@ export const TermChip: React.FC<{term: string; gloss?: string; typo: Typo; fx: F
       {term}
     </bdi>
     {gloss ? (
-      <span dir="rtl" lang="ar" style={{fontFamily: `'${typo.body}'`, fontWeight: 500, fontSize: Math.max(SIZE.labelMin, size * 0.85), color: C.ink2}}>
+      <span dir="rtl" lang="ar" style={{fontFamily: `'${typo.body}'`, fontWeight: 500, fontSize: Math.max(SIZE.labelMin, glossSize ?? size * 0.85), color: C.ink2, textShadow: halo}}>
         {gloss}
       </span>
     ) : null}
@@ -441,9 +456,65 @@ export const Label: React.FC<{text: string; typo: Typo; size?: number; color?: s
   const px = Math.max(spoken ? SIZE.labelMin : SIZE.secondaryMin, size);
   return (
     <div dir="rtl" lang="ar" style={{position: 'absolute', fontSize: px, color, fontWeight: weight, whiteSpace: 'nowrap', textShadow: halo, lineHeight: lineHeightFor(text), ...style}}>
-      <Mix text={text} arFont={typo.body} latFont={typo.mono} latWeight={500} latScale={0.9} style={{fontWeight: weight, wordSpacing: LINE.arWordSpacing}} />
+      <Mix text={text} arFont={typo.body} latFont={latinFamily(labelRole(text))} latWeight={labelRole(text) === 'sentence' ? weight : 500} latScale={labelRole(text) === 'sentence' ? 0.92 : 0.9} style={{fontWeight: weight, wordSpacing: LINE.arWordSpacing}} />
     </div>
   );
+};
+
+/**
+ * Caption block (arabic-typographer r1): broken by `breakCaption` (<= 32 visible chars per line, <= 2 lines, top-heavy),
+ * one KWord per line, block line-height 1.6 when any line carries tashkeel or shadda. Throws on overflow (lint).
+ */
+export const ArCaption: React.FC<{text: string; at: number; typo: Typo; fx: Fx; size: number; color?: string; glowColor?: string; weight?: number; align?: 'right' | 'center'; stagger?: number}> = ({
+  text,
+  at,
+  typo,
+  fx,
+  size,
+  color = C.ink,
+  glowColor = C.void,
+  weight,
+  align = 'right',
+  stagger = 4,
+}) => {
+  const b = breakCaption(text);
+  if (b.overflow) throw new Error(`caption overflows the 32 x 2 rule: "${text}"`);
+  const lh = blockLineHeight(b.lines);
+  return (
+    <div dir="rtl" style={{display: 'flex', flexDirection: 'column', alignItems: align === 'right' ? 'flex-start' : 'center'}}>
+      {b.lines.map((l, i) => (
+        <KWord key={i} text={l} at={at + i * stagger} typo={typo} fx={fx} size={size} color={color} glowColor={glowColor} weight={weight} style={{lineHeight: lh}} />
+      ))}
+    </div>
+  );
+};
+
+/** r2 impact beat: a 3-frame radial light burst behind a stressed word (light, not CA: legal on Arabic). */
+export const Burst: React.FC<{at: number; x: number; y: number; r: number; color: string; frames?: number}> = ({at, x, y, r, color, frames = 3}) => {
+  const t = useCurrentFrame() - at;
+  if (t < 0 || t >= frames + 2) return null;
+  const a = t < frames ? 1 - (t / frames) * 0.6 : 0.25 * (frames + 2 - t);
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: x - r,
+        top: y - r * 0.6,
+        width: r * 2,
+        height: r * 1.2,
+        borderRadius: '50%',
+        background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.white}${hex(0.22 * a)} 0%, ${color}${hex(0.5 * a)} 30%, ${color}${hex(0.12 * a)} 60%, transparent 75%)`,
+        mixBlendMode: 'screen',
+        pointerEvents: 'none',
+      }}
+    />
+  );
+};
+
+/** r2 standard-tier camera: eased slow push over the shot + lateral track; far planes get a fraction `m` of it. */
+export const push = (frame: number, dur: number, pct = 0.04, m = 1, trackPx = 24, origin = '55% 50%'): React.CSSProperties => {
+  const k = interpolate(frame, [0, Math.max(1, dur - 1)], [0, 1], {...clamp, easing: EASE.camera});
+  return {transform: `translateX(${-k * trackPx * m}px) scale(${1 + pct * k * m})`, transformOrigin: origin};
 };
 
 export function hex(a: number): string {

@@ -4,7 +4,7 @@ import {Composition} from 'remotion';
 import {loadLookdevFonts} from './fonts';
 import {FX, FxId, TYPO, TypoId} from './theme';
 import {F1ColdOpen, F2SqlFunnel, F3Kafka, F5Docker, F6Type} from './frames';
-import {F4Galaxy, MBGalaxyPush} from './galaxy';
+import {F4Galaxy, GalaxyPlate, MBGalaxyPush} from './galaxy';
 import {MAImpact, MCStreak} from './motion';
 import {GATES_FRAMES, GatesOrbit, HoloCity} from './world';
 import {FPS, H, W} from '../tokens';
@@ -37,6 +37,9 @@ export const LookdevCompositions: React.FC = () => (
     <Composition id="LD-MA-Impact" component={MA} durationInFrames={TEN_S} fps={FPS} width={W} height={H} defaultProps={{typo: 'A', fx: 'standard'} as MotionProps} />
     <Composition id="LD-MB-Galaxy" component={MB} durationInFrames={TEN_S} fps={FPS} width={W} height={H} defaultProps={{typo: 'A', fx: 'hero'} as MotionProps} />
     <Composition id="LD-MC-Streak" component={MC} durationInFrames={TEN_S} fps={FPS} width={W} height={H} defaultProps={{typo: 'A', fx: 'standard'} as MotionProps} />
+    {/* r2 P10 plates (critic r1 #2/#3): baked nebula + GL points + Bloom; rendered once by `lookdev_r2_render.mjs plate` */}
+    <Composition id="PL-GalaxyPush" component={GalaxyPlate} durationInFrames={TEN_S} fps={FPS} width={W} height={H} defaultProps={{mode: 'push' as const}} />
+    <Composition id="PL-GalaxyFinal" component={GalaxyPlate} durationInFrames={1} fps={FPS} width={W} height={H} defaultProps={{mode: 'final' as const}} />
     <Composition id="LD-MD-Gates" component={MD} durationInFrames={GATES_FRAMES} fps={FPS} width={W} height={H} defaultProps={{typo: 'A', fx: 'standard'} as MotionProps} />
   </>
 );

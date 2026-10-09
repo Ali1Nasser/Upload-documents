@@ -1,7 +1,10 @@
 // P6 motion tests (a) and (c). (b) lives in galaxy.tsx (MBGalaxyPush).
 import React from 'react';
-import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
-import {Backdrop, Bokeh, Counter, KWord, Post, TermChip, drift} from './kit';
+import {AbsoluteFill, Img, interpolate, random, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {ArCaption, Backdrop, Bokeh, Burst, Counter, FloorGrid, Glass, Haze, KWord, Post, TermChip, push} from './kit';
+import {displayText} from '../type/overrides';
+import {PLATE} from './galaxy';
+import {RAG} from './content';
 import {C, EASE, Fx, Typo, msToFrames} from './theme';
 import {LEAD_FRAMES, PRESET_MS} from '../tokens';
 import {F2SqlFunnel, F3Kafka} from './frames';
@@ -23,9 +26,16 @@ const useAnchor = () => {
   return {
     on: (n: number, leadFrames = lead) => msToFrames(byId(n).start_ms - WIN.window.start_ms, fps) - leadFrames,
     end: (n: number) => msToFrames(byId(n).end_ms - WIN.window.start_ms, fps),
-    text: (n: number) => byId(n).text,
+    text: (n: number) => displayText(byId(n).word_id, byId(n).text), // r2: display overrides (e.g. w:005968 -> الـroadmap)
   };
 };
+
+/** P11 sound hooks emitted by MA (anchored to word ids, ADR-002 SFX lead 3 f). Read by the sound-designer, not rendered. */
+export const MA_SFX_HOOKS = [
+  {word: 'w:S1:ar-natural:005976', lead_frames: LEAD_FRAMES.sfx, kind: 'impact-hit', note: 'وغلط: 3-frame flash + nudge'},
+  {word: 'w:S1:ar-natural:005974', lead_frames: LEAD_FRAMES.sfx, kind: 'counter-land', note: '0.165 lands on خمسة'},
+  {word: 'w:S1:ar-natural:005979', lead_frames: LEAD_FRAMES.sfx, kind: 'whoosh-soft', note: 'الـquery expansion'},
+] as const;
 
 /**
  * Motion test (a): Arabic impact words on real S1 timings, CH-33 3768.8–3778.8 s
@@ -33,7 +43,7 @@ const useAnchor = () => {
  */
 export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
+  const {fps, durationInFrames} = useVideoConfig();
   const A = useAnchor();
   const exit1 = msToFrames(3776900 - WIN.window.start_ms, fps); // inside the 4.1 s pause, ≥ 1.2 s after the result word
   const impactF = A.on(5976);
@@ -45,17 +55,36 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   return (
     <AbsoluteFill>
       <Backdrop fx={fx} tint={C.crit} shaft={false} />
+      {/* r2 (critic r1 #9): far plane = the CH-33 galaxy plate (blurred, 30 %) + floor grid, moving at 0.4x of the push */}
+      <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 0.4, 40), opacity: 0.3, filter: `blur(${fx.dofBlurPx * 1.5}px)`, mixBlendMode: 'screen'}}>
+        <Img src={staticFile(PLATE.final)} />
+      </AbsoluteFill>
+      <AbsoluteFill style={push(frame, durationInFrames, 0.03, 0.5, 40)}>
+        <FloorGrid y={800} drift={frame * 0.4} opacity={0.5} />
+      </AbsoluteFill>
+      <Haze fx={fx} y={520} h={560} tint={C.crit} k={0.8} />
+      {/* carry-over: the query just spoken (w:005957-005964) is on screen as the window opens and leaves as أعلى arrives */}
+      <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 0.8, 40), opacity: interpolate(frame, [A.on(5965), A.on(5965) + 8], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
+        <Glass accent={C.signal} style={{right: 180, top: 640, padding: '12px 28px 14px', whiteSpace: 'nowrap'}}>
+          <ArCaption text={RAG.queryAr} at={-1000} typo={typo} fx={fx} size={40} color={C.ink2} weight={600} />
+        </Glass>
+      </AbsoluteFill>
+      {/* r2: 3-frame light burst behind the stressed word وغلط (light, not CA: Arabic stays CA-free) */}
+      <AbsoluteFill style={push(frame, durationInFrames, 0.03, 1, 40)}>
+        <Burst at={impactF} x={1280} y={445} r={420} color={C.crit} frames={3} />
+      </AbsoluteFill>
       <Bokeh fx={fx} seed="ma" drift={frame * 0.5} />
-      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.02)} translateX(${nudge}px)`}}>
+      <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 1, 40), translate: `${nudge}px 0px`} as React.CSSProperties}>
         <div dir="rtl" style={{position: 'absolute', right: 180, top: 170, display: 'flex', gap: 22, alignItems: 'baseline'}}>
           <KWord text={A.text(5965)} at={A.on(5965)} out={exit1} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
           <KWord text={A.text(5966)} at={A.on(5966)} out={exit1} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
           <KWord text={A.text(5967)} at={A.on(5967)} out={exit1} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
-          <KWord text="roadmap" lang="mono" at={A.on(5968)} out={exit1} typo={typo} fx={fx} size={64} color={C.signal} />
+          {/* r2 (arabic r1): 'الـroadmap' via the display override; inline Latin in Inter Tight, same colour (rule L1) */}
+          <KWord text={A.text(5968)} at={A.on(5968)} out={exit1} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
         </div>
         <div dir="rtl" style={{position: 'absolute', right: 180, top: 330, display: 'flex', alignItems: 'center', gap: 56}}>
           <KWord text={A.text(5975)} at={A.on(5975)} out={exit1} typo={typo} fx={fx} size={92} color={C.ink} preset="impact" />
-          <KWord text={A.text(5976)} at={A.on(5976)} out={exit1} typo={typo} fx={fx} size={176} color={C.crit} preset="impact" />
+          <KWord text={A.text(5976)} at={A.on(5976)} out={exit1} typo={typo} fx={fx} size={176} color={C.crit} preset="impact" flashFrames={3} />
           <KWord text={A.text(5977).replace('.', '')} at={A.on(5977)} out={exit1} typo={typo} fx={fx} size={92} color={C.warn} preset="impact" />
         </div>
         {frame >= counterA - 2 ? (
@@ -145,8 +174,14 @@ export const MCStreak: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     <AbsoluteFill style={{background: C.void}}>
       <WhipFilter id="whip" px={blur} />
       <AbsoluteFill style={{transform: shift ? `translateX(${shift}px)` : undefined, filter: blur > 0 ? 'url(#whip)' : undefined}}>
-        {showA ? <F2SqlFunnel typo={typo} fx={fx} /> : <F3Kafka typo={typo} fx={fx} />}
+        {showA ? <F2SqlFunnel typo={typo} fx={fx} /> : <F3Kafka typo={typo} fx={fx} t0={T0} />}
       </AbsoluteFill>
+      {/* r2 (critic r1 #10): the last 2 frames before the cut carry 20 % of the incoming scene's light (no black dip) */}
+      {showA && frame >= T0 - 2 ? (
+        <AbsoluteFill style={{opacity: 0.2, transform: `translateX(${width * 0.3 * 0.6}px)`, filter: 'url(#whip)'}}>
+          <F3Kafka typo={typo} fx={fx} t0={T0} />
+        </AbsoluteFill>
+      ) : null}
       {inT ? <Streak k={k} fx={fx} wash={showA} /> : null}
     </AbsoluteFill>
   );

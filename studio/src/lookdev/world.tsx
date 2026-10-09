@@ -4,7 +4,8 @@
 import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
 import * as THREE from 'three';
-import {Backdrop, Bokeh, Haze, KWord, Post, Rect, Scrim, TermChip, hex, textSafeMask} from './kit';
+import {Backdrop, Bokeh, Haze, KWord, Mix, Post, Rect, Scrim, TermChip, hex, textSafeMask} from './kit';
+import {halo} from './theme';
 import {C, EASE, Fx, Typo, glow} from './theme';
 import {Cam, makeCamera, project} from './galaxy';
 import {COPY} from './content';
@@ -43,6 +44,8 @@ const Ground: React.FC<{c: THREE.PerspectiveCamera; size?: number; step?: number
 type Tower = {x: number; z: number; w: number; d: number; h: number; district: number};
 const DISTRICTS = 7;
 const CUR = 3; // the district being learned now (lit in signal); 0-2 already learned; 4-6 dark
+/** r2 (critic r1 #1): district names = canon CH-01 labels_ar, the film's seven movements (order 1..7). */
+const DISTRICT_AR = ['الجهاز', 'الداتا', 'الأنظمة', 'المنصة', 'المجال', 'الـAI', 'الدليل'];
 const districtCenter = (k: number) => {
   const a = (k / DISTRICTS) * Math.PI * 2 - 1.42; // district CUR faces the default camera
   const r = 3.4 + (random(`dr${k}`) - 0.5) * 0.6;
@@ -94,6 +97,23 @@ const TowerShape: React.FC<{t: Tower; c: THREE.PerspectiveCamera; camPos: THREE.
           return <polygon key={i} points={pts(c, f.v)} fill={state === 'cur' ? col : `${col}${hex(a)}`} fillOpacity={state === 'cur' ? a : 1} stroke={col} strokeOpacity={state === 'off' ? 0.35 : 0.95} strokeWidth={1.4} />;
         }
         const base = state === 'cur' ? 0.18 + lit * 0.22 : state === 'done' ? 0.1 + lit * 0.12 : 0.05 + lit * 0.08;
+        // r2 (critic r1 #1): emissive window grid on every side face (bright when lit, dim but present when dark)
+        const [a0, a1, , a3] = f.v; // a0 bottom-left, a1 bottom-right, a3 top-left
+        const ux = a1.clone().sub(a0);
+        const uy = a3.clone().sub(a0);
+        const rows = Math.max(1, Math.floor(t.h / 0.16));
+        const wins: React.ReactNode[] = [];
+        const wa = state === 'cur' ? 0.9 : state === 'done' ? 0.45 : 0.22;
+        const wc = state === 'cur' ? C.signal : state === 'done' ? C.warn : C.ink2;
+        for (let r = 0; r < rows; r++)
+          for (let q = 0; q < 2; q++) {
+            if (random(`win${t.x.toFixed(2)}${t.z.toFixed(2)}${i}${r}${q}`) < (state === 'off' ? 0.55 : 0.3)) continue;
+            const u0 = 0.16 + q * 0.42;
+            const v0 = (r + 0.3) / rows;
+            const v1 = (r + 0.7) / rows;
+            const P = (u: number, v: number) => a0.clone().add(ux.clone().multiplyScalar(u)).add(uy.clone().multiplyScalar(v));
+            wins.push(<polygon key={`w${r}${q}`} points={pts(c, [P(u0, v0), P(u0 + 0.26, v0), P(u0 + 0.26, v1), P(u0, v1)])} fill={wc} opacity={wa * (0.5 + 0.5 * lit + 0.25)} />);
+          }
         return (
           <React.Fragment key={i}>
           <polygon points={pts(c, f.v)} fill={C.ground} />
@@ -105,6 +125,7 @@ const TowerShape: React.FC<{t: Tower; c: THREE.PerspectiveCamera; camPos: THREE.
             strokeOpacity={state === 'off' ? 0.18 + lit * 0.3 : 0.35 + lit * 0.5}
             strokeWidth={1}
           />
+          {wins}
           </React.Fragment>
         );
       })}
@@ -117,8 +138,8 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
   const {fps} = useVideoConfig();
   const towers = useMemo(buildCity, []);
   const ang = orbit ?? 0.3 + (frame / fps) * ((0.3 * Math.PI) / 180); // 0.3°/s ambient orbit (04 §2)
-  const dist = 11.8;
-  const cam: Cam = {pos: [Math.sin(ang) * dist, 7.6, Math.cos(ang) * dist], target: [0, 0.3, -0.6]};
+  const dist = 11.8 / 1.4; // r2 (critic r1 #1): camera pushed 1.4x so the seven districts fill the frame
+  const cam: Cam = {pos: [Math.sin(ang) * dist, 7.6 / 1.4, Math.cos(ang) * dist], target: [0, 0.2, 0.5]};
   const c = makeCamera(cam);
   const camPos = V(...cam.pos);
   const sorted = [...towers].sort((a, b) => camPos.distanceTo(V(b.x, b.h / 2, b.z)) - camPos.distanceTo(V(a.x, a.h / 2, a.z)));
@@ -151,7 +172,7 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
           const now = r.k === CUR - 1;
           return (
             <g key={r.k}>
-              {now || learned ? <path d={d} fill="none" stroke={now ? C.signal : C.ink2} strokeWidth={now ? 12 : 6} opacity={now ? 0.35 : 0.15} style={{filter: `blur(${fx.glowInner * 0.6}px)`}} /> : null}
+              {now || learned ? <path d={d} fill="none" stroke={now ? C.signal : C.ink2} strokeWidth={now ? 20 : 6} opacity={now ? 0.5 : 0.15} style={{filter: `blur(${fx.glowInner * 0.8}px)`}} /> : null}
               <path d={d} fill="none" stroke={now ? C.signal : learned ? C.ink2 : C.ink3} strokeWidth={now ? 4 : 2.5} strokeOpacity={now ? 1 : learned ? 0.7 : 0.35} strokeDasharray={now || learned ? undefined : '6 10'} />
             </g>
           );
@@ -166,9 +187,24 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
           return <circle key={k} cx={p.x} cy={p.y} r={k === CUR ? 11 : 7} fill={k <= CUR ? col : C.void} stroke={col} strokeWidth={2} style={k === CUR ? {filter: `drop-shadow(0 0 ${fx.glowPx * 0.6}px ${C.signal})`} : undefined} />;
         })}
       </svg>
+      {/* r2: fog planes between the district rows (depth separation) */}
+      <Haze fx={fx} y={330} h={200} k={1.1} />
+      <Haze fx={fx} y={560} h={180} k={0.8} tint={C.violet} />
+      <Haze fx={fx} y={820} h={260} k={0.7} />
+      {/* r2: 28+ px district tags, canon movement names, state-coloured */}
+      {centers.map((v, k) => {
+        const p = project(c, v.clone().setZ(v.z + 0.95));
+        const col = k === CUR ? C.signal : k < CUR ? C.ink2 : C.ink3;
+        return (
+          <div key={`tag${k}`} dir="rtl" lang="ar" style={{position: 'absolute', left: p.x, top: p.y, transform: 'translate(-50%, 0)', padding: '2px 16px 6px', borderRadius: 999, background: 'rgba(13,17,23,0.82)', border: `1.5px solid ${col}${k === CUR ? 'FF' : '88'}`, boxShadow: k === CUR ? `0 0 ${fx.glowPx * 0.7}px ${C.signal}88` : undefined, whiteSpace: 'nowrap', fontFamily: `'${typo.body}'`, fontWeight: 600, fontSize: k === CUR ? 34 : 30, lineHeight: 1.3, color: k <= CUR ? C.ink : C.ink2, textShadow: halo}}>
+            <bdi dir="ltr" style={{fontFamily: `'${typo.lat}'`, fontWeight: 700, color: col, marginLeft: 10}}>{k + 1}</bdi>
+            <Mix text={DISTRICT_AR[k]} arFont={typo.body} latFont={typo.lat} latWeight={600} style={{fontWeight: 600}} />
+          </div>
+        );
+      })}
       {/* light shaft over the lit district */}
       <div style={{position: 'absolute', left: cur.x - 90, top: 0, width: 180, height: cur.y + 120, background: `linear-gradient(180deg, transparent 0%, ${C.signal}${hex(fx.haze * 1.6)} 70%, ${C.signal}${hex(fx.haze * 2.4)} 100%)`, filter: 'blur(14px)', mixBlendMode: 'screen'}} />
-      <TermChip term="SQL" typo={typo} fx={fx} style={{left: cur.x - 52, top: cur.y - 74}} size={34} />
+      <TermChip term="Kafka" typo={typo} fx={fx} style={{left: cur.x - 330, top: cur.y + 40}} size={34} />
       <Scrim r={TITLE} strength={0.6} />
       <div style={{position: 'absolute', right: 120, top: 60}}>
         <KWord text={COPY.f7Title} at={-1000} typo={typo} fx={fx} size={104} preset="impact" />
@@ -191,6 +227,8 @@ const wordAt = (n: number): WordRec => {
 export const GATES_FRAMES = Math.round(((WIN.window.end_ms - WIN.window.start_ms) / 1000) * 24);
 /** Ignition anchors (word ids) per gate, in narration order: تجيب / تثق / تجاوب. Phrase: دي / الشغلانة / كلها. */
 const GATE_WORDS = [36, 42, 45];
+const GATE_R = 1.15 * 1.3;
+const GATE_CY = 2.0;
 const PHRASE_WORDS = [48, 49, 50];
 
 const Ring: React.FC<{c: THREE.PerspectiveCamera; cx: number; cy: number; r: number; prog: number; col: string; fx: Fx; lit: number}> = ({c, cx, cy, r, prog, col, fx, lit}) => {
@@ -209,10 +247,18 @@ const Ring: React.FC<{c: THREE.PerspectiveCamera; cx: number; cy: number; r: num
     <g>
       {/* floor reflection pool */}
       <ellipse cx={floor.x} cy={floor.y} rx={rx * 1.2} ry={ry * 0.18} fill={col} opacity={0.08 + lit * 0.22} style={{filter: `blur(${fx.glowInner * 1.5}px)`}} />
+      {/* r2 (critic r1 #4): vertical light cone from above onto the gate */}
+      {(() => {
+        const top = [project(c, V(cx - 0.25, cy + r + 4.5, 0)), project(c, V(cx + 0.25, cy + r + 4.5, 0))];
+        const bot = [project(c, V(cx + r * 1.15, 0, 0)), project(c, V(cx - r * 1.15, 0, 0))];
+        return <polygon points={[...top, ...bot].map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')} fill={`url(#cone-${col.slice(1)})`} opacity={0.45 + 0.55 * lit} style={{mixBlendMode: 'screen', filter: `blur(${fx.glowInner}px)`}} />;
+      })()}
       {/* portal surface */}
       <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.96} ry={ry * 0.96} fill={`url(#portal-${col.slice(1)})`} opacity={lit} />
-      {/* dormant ring */}
+      {/* dormant ring + r2 inner ring (portal depth) */}
       <path d={d} fill="none" stroke={C.ink3} strokeOpacity={0.35} strokeWidth={3} />
+      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.72} ry={ry * 0.72} fill="none" stroke={prog > 0.99 ? col : C.ink3} strokeOpacity={0.3 + 0.5 * lit} strokeWidth={2} strokeDasharray="14 10" />
+      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.5} ry={ry * 0.5} fill="none" stroke={prog > 0.99 ? col : C.ink3} strokeOpacity={0.15 + 0.35 * lit} strokeWidth={1.2} />
       {/* igniting / lit ring: path-draw */}
       {prog > 0 ? (
         <>
@@ -238,12 +284,13 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
   // camera: slow push + orbit through the whole shot (0.6 rad over 12 s ≈ 2.9°/s: a deliberate move, not ambient)
   const k = interpolate(frame, [0, durationInFrames - 1], [0, 1], {easing: EASE.camera});
-  const ang = interpolate(k, [0, 1], [-0.32, 0.28]);
-  const dist = interpolate(k, [0, 1], [12.5, 9.2]);
-  const tgt: [number, number, number] = [0, 1.25, 0];
-  const cam: Cam = {pos: [Math.sin(ang) * dist, 2.3 + 0.5 * (1 - k), Math.cos(ang) * dist], target: tgt};
+  // r2 (critic r1 #4): the camera is already yawed from f0 (rings read as ellipses), gates 1.3x, row centred at 50 % height
+  const ang = interpolate(k, [0, 1], [-0.55, 0.22]);
+  const dist = interpolate(k, [0, 1], [13.2, 10.0]);
+  const tgt: [number, number, number] = [0, GATE_CY, 0];
+  const cam: Cam = {pos: [Math.sin(ang) * dist, GATE_CY + 0.9 + 0.5 * (1 - k), Math.cos(ang) * dist], target: tgt};
   const c = makeCamera(cam);
-  const gx = [4.1, 0, -4.1]; // RTL: the first move sits on the right
+  const gx = [4.7, 0, -4.7]; // RTL: the first move sits on the right
   const prog = GATE_WORDS.map((w) => interpolate(frame, [on(w), on(w) + msToFrames(420, fps)], [0, 1], {...cl, easing: EASE.arrive}));
   const lit = GATE_WORDS.map((w, i) => {
     const a = interpolate(frame, [on(w) + msToFrames(300, fps), on(w) + msToFrames(700, fps)], [0, 1], cl);
@@ -257,7 +304,7 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     const sp = 0.6 + random(`ps${i}`) * 0.8;
     const t = ((frame / fps) * sp * 0.22 + random(`po${i}`)) % 1;
     const x = 6 - t * 12;
-    const y = 1.25 + (random(`py${i}`) - 0.5) * 1.6;
+    const y = GATE_CY + (random(`py${i}`) - 0.5) * 2.0;
     const z = (random(`pz${i}`) - 0.5) * 1.2;
     const passed = GATE_WORDS.filter((_, g) => x < gx[g] && prog[g] > 0.99).length;
     const reach = gx.findIndex((g, j) => x < g + 0.2 && prog[j] < 0.99);
@@ -265,7 +312,7 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     return {p: project(c, V(x, y, z)), passed, i};
   });
   const labels = GATE_WORDS.map((w, i) => {
-    const p = project(c, V(gx[i], -0.15, 0));
+    const p = project(c, V(gx[i], GATE_CY - GATE_R - 0.32, 0));
     return {p, at: on(w)};
   });
   const labelRects: Rect[] = labels.map((l) => ({x: l.p.x - 220, y: l.p.y, w: 440, h: 96}));
@@ -281,6 +328,13 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
       <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
         <defs>
           {[C.signal, C.ok].map((col) => (
+            <linearGradient key={`c${col}`} id={`cone-${col.slice(1)}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor={col} stopOpacity={0.06} />
+              <stop offset="0.5" stopColor={col} stopOpacity={0.14} />
+              <stop offset="1" stopColor={col} stopOpacity={0.32} />
+            </linearGradient>
+          ))}
+          {[C.signal, C.ok].map((col) => (
             <radialGradient key={col} id={`portal-${col.slice(1)}`} cx="0.5" cy="0.5" r="0.5">
               <stop offset="0" stopColor={col} stopOpacity={0.55} />
               <stop offset="0.6" stopColor={col} stopOpacity={0.16} />
@@ -289,7 +343,7 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
           ))}
         </defs>
         {gx.map((x, i) => (
-          <Ring key={i} c={c} cx={x} cy={1.35} r={1.15} prog={prog[i]} col={colOf(i)} fx={fx} lit={lit[i].a * (1 - 0.35 * lit[i].done)} />
+          <Ring key={i} c={c} cx={x} cy={GATE_CY} r={GATE_R} prog={prog[i]} col={colOf(i)} fx={fx} lit={lit[i].a * (1 - 0.35 * lit[i].done)} />
         ))}
       </svg>
       <AbsoluteFill style={textSafeMask([...labelRects, ...(phraseOn ? [TITLE] : [])], fx)}>
@@ -333,6 +387,7 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
 /** Frames of MD used as stills: F8 = third gate igniting, F9 = impact word landing mid-orbit. */
 export const GATES_STILL_FRAMES = (() => {
   const on = (n: number) => msToFrames(wordAt(n).start_ms - WIN.window.start_ms, 24) - LEAD_FRAMES.kinetic;
-  return {F8: on(45) + 2, F9: on(50) + 6};
+  // r2 (arabic r1): F8 is taken after the arrive wipe of 'جاوب على السؤال' completes (240 ms = 6 f), ring still igniting
+  return {F8: on(45) + 7, F9: on(50) + 6};
 })();
 export {glow};

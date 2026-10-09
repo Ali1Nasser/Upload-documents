@@ -2,12 +2,13 @@
 // standard tier = SVG point sprites, hero tier = R3F points + postprocessing Bloom; both capped at fx.particles (1,500, ADR-002).
 // Text-safe masks (ADR-002): particles, nebula and bloom are masked out of every text box plus padding.
 import React, {useLayoutEffect, useMemo} from 'react';
-import {AbsoluteFill, continueRender, delayRender, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Img, OffthreadVideo, continueRender, delayRender, interpolate, random, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {ThreeCanvas} from '@remotion/three';
 import {Bloom, EffectComposer} from '@react-three/postprocessing';
 import {useThree} from '@react-three/fiber';
 import * as THREE from 'three';
-import {Backdrop, Bokeh, FloorGrid, Glass, KWord, Mix, Post, Rect, Scrim, TermChip, textSafeMask} from './kit';
+import {ArCaption, Backdrop, Bokeh, FloorGrid, Glass, KWord, Mix, Post, Rect, Scrim, TermChip, textSafeMask} from './kit';
+import {FX as FX_TIERS} from '../tokens';
 import {C, EASE, Fx, Typo, caShadow, glow, halo} from './theme';
 import {RAG} from './content';
 
@@ -192,8 +193,10 @@ export const cardRect = (cam: Cam, key: 'idem' | 'roadmap'): Rect => {
   const right = key === 'roadmap';
   return {x: right ? p.x + CARD.off : p.x - CARD.off - CARD.w, y: p.y - CARD.lift, w: CARD.w, h: CARD.h};
 };
-export const TITLE_RECT: Rect = {x: 900, y: 64, w: 900, h: 140};
-export const CAPTION_RECT: Rect = {x: 760, y: 890, w: 1040, h: 96};
+// r2 (critic r1 #2): the title rect now starts at the measured left edge of 'لموضع' (x ~745) minus 24 px
+export const TITLE_RECT: Rect = {x: 720, y: 56, w: 1080, h: 156};
+// r2 (arabic r1 BLOCKING): the query caption is two lines at line-height 1.6 (shadda), bottom-right glass
+export const CAPTION_RECT: Rect = {x: 1150, y: 806, w: 650, h: 180};
 export const CHIP_RECT: Rect = {x: 120, y: 90, w: 420, h: 60};
 
 export type ProbeState = {
@@ -251,11 +254,12 @@ export const ProbeOverlay: React.FC<{cam: Cam; st: ProbeState; typo: Typo; fx: F
             <bdi dir="ltr" style={{fontFamily: `'${typo.mono}'`, fontWeight: 700, fontSize: 64, color: n.col, textShadow: `${halo}, ${glow(n.col, fx, 0.6)}${caShadow(fx)}`, fontVariantNumeric: 'tabular-nums'}}>
               {n.score!.toFixed(3)}
             </bdi>
+            {/* r2: Latin inside Arabic labels in Inter Tight, same colour (rule L1); note raised to 32 px ink2 (arabic r1) */}
             <div>
-              <Mix text={n.label} latFont={typo.mono} latWeight={500} size={36} style={{color: C.ink, textShadow: halo}} />
+              <Mix text={n.label} latFont={typo.lat} latWeight={600} size={36} style={{color: C.ink, textShadow: halo}} />
             </div>
             <div>
-              <Mix text={n.note} latFont={typo.mono} latWeight={500} size={30} style={{color: C.ink2, textShadow: halo}} />
+              <Mix text={n.note} latFont={typo.lat} latWeight={600} size={32} style={{color: C.ink2, textShadow: halo}} />
             </div>
           </div>
         );
@@ -267,8 +271,8 @@ export const ProbeOverlay: React.FC<{cam: Cam; st: ProbeState; typo: Typo; fx: F
           })()
         : null}
       {st.probe > 0 ? (
-        <Glass accent={C.signal} style={{right: 120, bottom: 96, padding: '18px 28px', opacity: st.probe, whiteSpace: 'nowrap'}}>
-          <KWord text={RAG.queryAr} at={labelAt} typo={typo} fx={fx} size={40} color={C.ink} glowColor={C.void} weight={600} />
+        <Glass accent={C.signal} style={{right: 120, bottom: 96, padding: '12px 28px 14px', opacity: st.probe, whiteSpace: 'nowrap'}}>
+          <ArCaption text={RAG.queryAr} at={labelAt} typo={typo} fx={fx} size={40} color={C.ink} weight={600} />
         </Glass>
       ) : null}
     </AbsoluteFill>
@@ -278,18 +282,83 @@ export const ProbeOverlay: React.FC<{cam: Cam; st: ProbeState; typo: Typo; fx: F
 export const CAM_FINAL: Cam = {pos: [1.6, 0.9, 7.2], target: [0.1, 0.25, 0.6]};
 export const STATE_FINAL: ProbeState = {q: ANCHOR.q1, probe: 1, roadmap: 1, roadmapFade: 1, idem: 1, third: 1};
 
-/** Field layers (nebula + points) with the text-safe mask applied. GL keeps screen blending on the masked element itself. */
-const Field: React.FC<{cam: Cam; fx: Fx; rects: Rect[]}> = ({cam, fx, rects}) => {
+// ---------- P10 plate path (critic r1 #2/#3): nebula + 1,500 GL points + Bloom are baked offline; only probe/cards are live ----------
+export const PLATE = {push: 'plates/galaxy-ch33-push.mp4', final: 'plates/galaxy-ch33-final.png'} as const;
+
+/** Plate composition: black + nebula + GL points + Bloom, no text, no masks (masks are applied when compositing). */
+export const GalaxyPlate: React.FC<{mode: 'push' | 'final'}> = ({mode}) => {
+  const frame = useCurrentFrame();
+  const {durationInFrames} = useVideoConfig();
+  const cam = mode === 'final' ? CAM_FINAL : mbCam(frame, durationInFrames);
+  const fx = FX_TIERS.hero;
+  return (
+    <AbsoluteFill style={{background: '#000'}}>
+      <Nebula cam={cam} fx={fx} />
+      <GalaxyGL n={fx.particles} cam={cam} fx={fx} />
+    </AbsoluteFill>
+  );
+};
+
+/** Hero tier live layer over the plate: ~360 near-field GL points around the probe path, NO EffectComposer. */
+const nearField = (n: number) => {
+  const pos = new Float32Array(n * 3);
+  const col = new Float32Array(n * 3);
+  const sig = new THREE.Color(C.signal);
+  const ink = new THREE.Color(C.ink);
+  for (let i = 0; i < n; i++) {
+    const a = [ANCHOR.q0, ANCHOR.q1, ANCHOR.idem, ANCHOR.roadmap][i % 4];
+    pos.set([a.x + gauss(`nx${i}`) * 1.4, a.y + gauss(`ny${i}`) * 0.9, a.z + 1.2 + gauss(`nz${i}`) * 2.2], i * 3);
+    const c = random(`nc${i}`) < 0.7 ? sig : ink;
+    const k = 0.5 + random(`nb${i}`) * 0.5;
+    col.set([c.r * k, c.g * k, c.b * k], i * 3);
+  }
+  return {pos, col};
+};
+const GLNear: React.FC<{cam: Cam}> = ({cam}) => {
+  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+  camera.position.set(...cam.pos);
+  camera.lookAt(new THREE.Vector3(...cam.target));
+  camera.updateMatrixWorld();
+  const geo = useMemo(() => {
+    const f = nearField(360);
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(f.pos, 3));
+    g.setAttribute('color', new THREE.BufferAttribute(f.col, 3));
+    return g;
+  }, []);
+  const mat = useMemo(() => new THREE.PointsMaterial({size: 0.07, map: spriteTex(), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, sizeAttenuation: true}), []);
+  return <points geometry={geo} material={mat} />;
+};
+const NearGL: React.FC<{cam: Cam; style?: React.CSSProperties}> = ({cam, style}) => (
+  <AbsoluteFill style={{mixBlendMode: 'screen', ...style}}>
+    <ThreeCanvas width={W} height={H} camera={{fov: FOV, near: 0.1, far: 200, position: cam.pos}} gl={{alpha: false, antialias: false}}>
+      <color attach="background" args={['#000000']} />
+      <GLNear cam={cam} />
+      <R3FWarmup />
+    </ThreeCanvas>
+  </AbsoluteFill>
+);
+
+/** Field layers: baked plate (video for MB, still for F4) under the text-safe mask; hero adds the live near field. */
+const Field: React.FC<{cam: Cam; fx: Fx; rects: Rect[]; plate: 'push' | 'final'}> = ({cam, fx, rects, plate}) => {
   const mask = textSafeMask(rects, fx);
   return (
     <>
-      <AbsoluteFill style={mask}>
-        <Nebula cam={cam} fx={fx} />
-        {fx.webgl ? null : <GalaxySVG n={fx.particles} cam={cam} fx={fx} />}
+      <AbsoluteFill style={{...mask, mixBlendMode: 'screen'}}>
+        {plate === 'push' ? <OffthreadVideo src={staticFile(PLATE.push)} muted /> : <Img src={staticFile(PLATE.final)} />}
       </AbsoluteFill>
-      {fx.webgl ? <GalaxyGL n={fx.particles} cam={cam} fx={fx} style={mask} /> : null}
+      {fx.webgl ? <NearGL cam={cam} style={mask} /> : null}
     </>
   );
+};
+
+/** MB camera: push 17 -> 7.4 units + 0.5 rad orbit (shared by the plate and the live overlay, so they stay locked). */
+export const mbCam = (frame: number, dur: number): Cam => {
+  const k = interpolate(frame, [0, dur - 1], [0, 1], {easing: EASE.camera});
+  const ang = interpolate(k, [0, 1], [-0.32, 0.18]);
+  const dist = interpolate(k, [0, 1], [17, 7.4]);
+  const tgt: [number, number, number] = [0.1, 0.25, 0.6];
+  return {pos: [tgt[0] + Math.sin(ang) * dist, tgt[1] + 0.6 + 0.3 * (1 - k), tgt[2] + Math.cos(ang) * dist], target: tgt};
 };
 
 const rectsFor = (cam: Cam, st: ProbeState, withTitle: boolean): Rect[] => [
@@ -306,7 +375,7 @@ export const F4Galaxy: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     <AbsoluteFill>
       <Backdrop fx={fx} tint={C.violet} shaft={false} />
       <FloorGrid y={860} drift={frame * 0.3} opacity={0.18} />
-      <Field cam={CAM_FINAL} fx={fx} rects={rectsFor(CAM_FINAL, STATE_FINAL, true)} />
+      <Field cam={CAM_FINAL} fx={fx} rects={rectsFor(CAM_FINAL, STATE_FINAL, true)} plate="final" />
       <Scrim r={TITLE_RECT} />
       <ProbeOverlay cam={CAM_FINAL} st={STATE_FINAL} typo={typo} fx={fx} />
       <div style={{position: 'absolute', right: 120, top: 64, textAlign: 'right'}}>
@@ -326,9 +395,7 @@ export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const s = (sec: number) => Math.round(sec * fps);
   const k = interpolate(frame, [0, durationInFrames - 1], [0, 1], {easing: EASE.camera});
   const ang = interpolate(k, [0, 1], [-0.32, 0.18]);
-  const dist = interpolate(k, [0, 1], [17, 7.4]);
-  const tgt: [number, number, number] = [0.1, 0.25, 0.6];
-  const cam: Cam = {pos: [tgt[0] + Math.sin(ang) * dist, tgt[1] + 0.6 + 0.3 * (1 - k), tgt[2] + Math.cos(ang) * dist], target: tgt};
+  const cam = mbCam(frame, durationInFrames);
   const cl = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
   const qMove = interpolate(frame, [s(5.6), s(6.4)], [0, 1], {...cl, easing: EASE.camera});
   const st: ProbeState = {
@@ -350,7 +417,7 @@ export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
       <AbsoluteFill style={{transform: par(0.6)}}>
         <FloorGrid y={860} drift={frame * 0.3} opacity={0.18} />
       </AbsoluteFill>
-      <Field cam={cam} fx={fx} rects={rectsFor(cam, st, titleOn)} />
+      <Field cam={cam} fx={fx} rects={rectsFor(cam, st, titleOn)} plate="push" />
       {titleOn ? <Scrim r={TITLE_RECT} /> : null}
       <ProbeOverlay cam={cam} st={st} typo={typo} fx={fx} labelAt={s(1.9)} />
       <div style={{position: 'absolute', right: 120, top: 64, textAlign: 'right'}}>

@@ -110,6 +110,86 @@ export const assertFormula = (s: string): string => {
   return s;
 };
 
+// ---------- inline Latin face (ADR-003 r2 freeze; arabic-typographer r1) ----------
+
+export type LatinRole = 'sentence' | 'chip' | 'code' | 'data';
+/**
+ * Rule L1: a Latin run INSIDE an Arabic sentence (title, kinetic word, caption, object label) is set in Inter Tight,
+ * in the same colour and optical size as the Arabic around it (never cyan mono). JetBrains Mono is only for chips,
+ * code and data labels (a label made only of Latin / digits, e.g. `producer`, `T1`, `0.165`).
+ */
+export const latinFamily = (role: LatinRole): string => (role === 'sentence' ? FONT.lat.family : FONT.mono.family);
+/** Role of a label from its text: Arabic present -> sentence (Inter Tight); pure Latin / numeric -> data (mono). */
+export const labelRole = (text: string): LatinRole => (isArabic(text.replace(/⟦[^⟧]*⟧/g, '')) ? 'sentence' : 'data');
+
+// ---------- arrows and units (arabic-typographer r1) ----------
+
+export const ARROW_LTR = '→';
+export const ARROW_RTL = '←';
+/**
+ * Rule A1: `→` only inside a Latin / numeric isolate (`14 → 13`, `0.165 → 0.227`); between Arabic blocks use `←`
+ * (reading direction). Throws on a `→` with Arabic on both sides outside an isolate.
+ */
+export const assertArrows = (text: string): string => {
+  const outside = text.replace(/⟦[^⟧]*⟧/g, ' X ');
+  const m = outside.match(/([^→]*)→([^→]*)/);
+  if (m && isArabic(m[1].slice(-12)) && isArabic(m[2].slice(0, 12))) throw new Error(`'→' between Arabic blocks in "${text}" (use '←')`);
+  return text;
+};
+/** Frozen units, Latin, after the number, in one LTR isolate (Rule U1). */
+export const UNITS = ['EGP', '%', 'ms', 's', 'rows'] as const;
+export type Unit = (typeof UNITS)[number];
+export const withUnit = (n: number | string, u: Unit): string => `⟦${minus(String(n))}${u === '%' ? ' %' : ` ${u}`}⟧`;
+
+// ---------- caption line breaking (arabic-typographer r1: <= 32 chars/line, <= 2 lines) ----------
+
+export const CAPTION = {maxChars: 32, maxLines: 2} as const;
+/** Visible length: combining marks (tashkeel, shadda) do not count; ⟦⟧ isolate brackets do not count. */
+export const visLen = (s: string): number => s.replace(/[ً-ٰٟۖ-ۭ⟦⟧]/g, '').length;
+export type Broken = {lines: string[]; overflow: boolean};
+/**
+ * Break a caption into at most `maxLines` lines of at most `maxChars` visible characters, at word boundaries only
+ * (Arabic words are never split). An explicit ` | ` in the text forces the break (spec authors). Otherwise a
+ * two-line caption is TOP-HEAVY and as balanced as possible (line 1 >= line 2, minimise line 1), which lands on the
+ * phrase seam in the r1 cases (`إزاي أمنع job إنها تحمّل` / `نفس الصفوف مرتين`). `overflow` = the rule cannot be met.
+ */
+export const breakCaption = (text: string, maxChars: number = CAPTION.maxChars, maxLines: number = CAPTION.maxLines): Broken => {
+  if (text.includes(' | ')) {
+    const lines = text.split(' | ').map((l) => l.trim());
+    return {lines, overflow: lines.length > maxLines || lines.some((l) => visLen(l) > maxChars)};
+  }
+  const words = text.trim().split(/\s+/);
+  const join = (a: number, b: number) => words.slice(a, b).join(' ');
+  if (visLen(text) <= maxChars) return {lines: [text.trim()], overflow: false};
+  if (maxLines >= 2) {
+    let best: string[] | null = null;
+    let bestTop = Infinity;
+    for (let k = 1; k < words.length; k++) {
+      const l = [join(0, k), join(k, words.length)];
+      const [a, b] = l.map(visLen);
+      if (a < b || a > maxChars) continue;
+      if (a < bestTop) {
+        bestTop = a;
+        best = l;
+      }
+    }
+    if (best) return {lines: best, overflow: false};
+  }
+  const lines: string[] = [];
+  let cur = '';
+  for (const w of words) {
+    const t = cur ? `${cur} ${w}` : w;
+    if (visLen(t) > maxChars && cur) {
+      lines.push(cur);
+      cur = w;
+    } else cur = t;
+  }
+  if (cur) lines.push(cur);
+  return {lines, overflow: lines.length > maxLines || lines.some((l) => visLen(l) > maxChars)};
+};
+/** Line-height for a multi-line caption block: 1.6 if ANY line carries tashkeel or shadda (rule T1 over the block). */
+export const blockLineHeight = (lines: string[]): number => Math.max(...lines.map((l) => lineHeightFor(l)));
+
 // ---------- auto-fit and overflow ----------
 
 export type Fit = {size: number; width: number; overflow: boolean};
