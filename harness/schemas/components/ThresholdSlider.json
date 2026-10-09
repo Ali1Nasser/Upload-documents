@@ -1,0 +1,188 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "label": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 40,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  },
+  "min": {
+   "type": "number"
+  },
+  "max": {
+   "type": "number"
+  },
+  "value": {
+   "type": "object",
+   "properties": {
+    "value": {
+     "type": "number"
+    },
+    "ref": {
+     "anyOf": [
+      {
+       "type": "string",
+       "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+      },
+      {
+       "type": "string",
+       "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+      }
+     ]
+    },
+    "unit": {
+     "type": "string",
+     "maxLength": 12
+    },
+    "decimals": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 4
+    }
+   },
+   "required": [
+    "value",
+    "ref"
+   ],
+   "additionalProperties": false
+  },
+  "zones": {
+   "minItems": 1,
+   "maxItems": 4,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "upto": {
+      "type": "number"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "idle",
+       "active",
+       "ok",
+       "warn",
+       "fail"
+      ]
+     }
+    },
+    "required": [
+     "upto",
+     "status"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "label",
+  "min",
+  "max",
+  "value"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:ThresholdSlider",
+ "title": "ThresholdSlider",
+ "description": "A threshold handle on a scale; zones flip state as it moves.",
+ "x-family": "Data",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "moveTo": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "value": {
+     "type": "object",
+     "properties": {
+      "value": {
+       "type": "number"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "type": "string",
+         "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+        },
+        {
+         "type": "string",
+         "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+        }
+       ]
+      },
+      "unit": {
+       "type": "string",
+       "maxLength": 12
+      },
+      "decimals": {
+       "type": "integer",
+       "minimum": 0,
+       "maximum": 4
+      }
+     },
+     "required": [
+      "value",
+      "ref"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "value"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

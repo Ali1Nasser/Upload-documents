@@ -121,3 +121,27 @@ export const PRESET_MS = deepFreeze({arrive: 240, impact: 160, impactFlash: 80, 
 export const CAMERA = deepFreeze({driftPctPer5s: 0.02, nudgePxMax: 4, orbitDegPerS: 0.3});
 
 export const msToFrames = (ms: number, fps: number) => Math.round((ms * fps) / 1000);
+
+/** Motion presets (04 §3.5) accepted at look-dev r3 (arabic_r3 "Presets and fonts"; critic_r3). ms is the truth;
+ * `f24` is the frame count at the film rate (ADR-002 F24) and must equal msToFrames(ms, FPS) (checked by scripts/check_catalog.sh).
+ * `count` has no fixed length: it spans the spoken number (anchor word start -> word end) and lands on the word end. */
+export type PresetId = 'arrive' | 'impact' | 'label' | 'count' | 'morph' | 'exit';
+export type Preset = {ms: readonly [number, number]; f24: readonly [number, number] | null; ease: keyof typeof EASE | 'linear'; note: string};
+export const PRESETS: Readonly<Record<PresetId, Preset>> = deepFreeze({
+  arrive: {ms: [240, 240], f24: [6, 6], ease: 'arrive', note: 'masked wipe (RTL for Arabic, whole word) + blur-to-sharp'},
+  impact: {ms: [120, 180], f24: [3, 4], ease: 'impact', note: 'scale 1.08 -> 1.0 + 80 ms (2 f) glow flash; optional 1-frame camera nudge <= 4 px; CA on Latin/numerals only'},
+  label: {ms: [160, 160], f24: [4, 4], ease: 'arrive', note: '160 ms fade + 6 px rise, object labels'},
+  count: {ms: [0, 0], f24: null, ease: 'arrive', note: 'rolls from the previous value over the spoken number; lands on the anchor word end'},
+  morph: {ms: [300, 500], f24: [7, 12], ease: 'camera', note: 'text <-> object via particles (count within the FX tier cap)'},
+  exit: {ms: [200, 400], f24: [5, 10], ease: 'camera', note: 'dissolve to particles or slide back into depth; hard pop-off only for a failure shake'},
+} as Record<PresetId, Preset>);
+export const PRESET_IDS = Object.keys(PRESETS) as PresetId[];
+export const IMPACT = deepFreeze({scaleFrom: 1.08, flashMs: 80, flashF24: 2, nudgePxMax: 4});
+export const LABEL_RISE_PX = 6;
+
+/** Text-safe masks (ADR-002, on): particles, haze, bokeh and bloom are masked out of every text box + FX[tier].textSafePadPx. */
+export const TEXT_SAFE = deepFreeze({on: true, masked: ['particles', 'haze', 'bokeh', 'bloom'] as const, caOnArabic: 0});
+
+/** Freeze marker (03 P6.4). Hashes of this file, studio/src/type/arabic.ts, the fonts and the component catalog are in
+ * harness/state/freeze.json and are re-checked by `dc gate check G6a`. */
+export const TOKENS_VERSION = 'P6-freeze-1 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009)';

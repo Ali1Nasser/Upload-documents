@@ -1,0 +1,77 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "plate": {
+   "type": "string",
+   "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+  },
+  "depth_map": {
+   "type": "string",
+   "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+  },
+  "parallax": {
+   "default": 0.4,
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  }
+ },
+ "required": [
+  "plate",
+  "depth_map"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:AIPlate",
+ "title": "AIPlate",
+ "description": "A generated plate with 2.5D parallax from a depth map; usable only if ADR-006 enables it.",
+ "x-family": "Media",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

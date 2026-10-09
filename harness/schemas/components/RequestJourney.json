@@ -1,0 +1,189 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "hops": {
+   "minItems": 2,
+   "maxItems": 8,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+     },
+     "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "kind": {
+      "type": "string",
+      "enum": [
+       "client",
+       "lb",
+       "service",
+       "db",
+       "cache",
+       "queue",
+       "external"
+      ]
+     },
+     "latency": {
+      "type": "object",
+      "properties": {
+       "value": {
+        "type": "number"
+       },
+       "ref": {
+        "anyOf": [
+         {
+          "type": "string",
+          "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+         },
+         {
+          "type": "string",
+          "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+         }
+        ]
+       },
+       "unit": {
+        "type": "string",
+        "maxLength": 12
+       },
+       "decimals": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4
+       }
+      },
+      "required": [
+       "value",
+       "ref"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "required": [
+     "id",
+     "label",
+     "kind"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "hops"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:RequestJourney",
+ "title": "RequestJourney",
+ "description": "A request travelling hops (client, lb, service, cache, db, queue, external) with per-hop latency.",
+ "x-family": "Structure & flow",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "travel": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "to": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    }
+   },
+   "required": [
+    "to"
+   ],
+   "additionalProperties": false
+  },
+  "fail": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "at": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    }
+   },
+   "required": [
+    "at"
+   ],
+   "additionalProperties": false
+  },
+  "retry": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "at": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    }
+   },
+   "required": [
+    "at"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

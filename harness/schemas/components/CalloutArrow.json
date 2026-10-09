@@ -1,0 +1,107 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "to": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}(\\.[A-Za-z0-9_-]+)?$"
+  },
+  "label": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 40,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  },
+  "side": {
+   "default": "start",
+   "type": "string",
+   "enum": [
+    "start",
+    "end",
+    "top",
+    "bottom"
+   ]
+  },
+  "color": {
+   "default": "signal",
+   "type": "string",
+   "enum": [
+    "void",
+    "ground",
+    "panel",
+    "grid",
+    "ink",
+    "ink2",
+    "ink3",
+    "signal",
+    "ok",
+    "warn",
+    "crit",
+    "violet",
+    "ember",
+    "paper",
+    "paperShade",
+    "paperInk",
+    "paperOk",
+    "paperCrit",
+    "white"
+   ]
+  }
+ },
+ "required": [
+  "to"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:CalloutArrow",
+ "title": "CalloutArrow",
+ "description": "An arrow from a label to a target layer (or a named part of it, 'layer.part').",
+ "x-family": "Type & UI",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

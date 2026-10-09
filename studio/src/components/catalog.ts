@@ -1,0 +1,216 @@
+// FROZEN catalog contract (03 P6.4; 04 §8). Props only: the implementation lands in P7 in this folder.
+// Generated once from the P6 freeze; edit by hand only through a Council ADR (hash in harness/state/freeze.json).
+import type {ComponentSchema} from './contract';
+import * as KineticWord from './KineticWord/schema';
+import * as KineticPhrase from './KineticPhrase/schema';
+import * as TermChip from './TermChip/schema';
+import * as NumberCounter from './NumberCounter/schema';
+import * as EquationLine from './EquationLine/schema';
+import * as LowerThird from './LowerThird/schema';
+import * as ChapterCard from './ChapterCard/schema';
+import * as DeepDiveCard from './DeepDiveCard/schema';
+import * as PredictionTimer from './PredictionTimer/schema';
+import * as CalloutArrow from './CalloutArrow/schema';
+import * as Spotlight from './Spotlight/schema';
+import * as TableGrid from './TableGrid/schema';
+import * as RowFunnel from './RowFunnel/schema';
+import * as JoinFusion from './JoinFusion/schema';
+import * as WindowFrame from './WindowFrame/schema';
+import * as LedgerPair from './LedgerPair/schema';
+import * as Heatmap from './Heatmap/schema';
+import * as BarStack from './BarStack/schema';
+import * as LineTrace from './LineTrace/schema';
+import * as ScatterField from './ScatterField/schema';
+import * as Distribution from './Distribution/schema';
+import * as ConfusionTiles from './ConfusionTiles/schema';
+import * as KpiPanel from './KpiPanel/schema';
+import * as ThresholdSlider from './ThresholdSlider/schema';
+import * as GraphNetwork from './GraphNetwork/schema';
+import * as DagRun from './DagRun/schema';
+import * as TreeView from './TreeView/schema';
+import * as PipelineStations from './PipelineStations/schema';
+import * as LayerStack from './LayerStack/schema';
+import * as StarSchema3D from './StarSchema3D/schema';
+import * as OlapCube from './OlapCube/schema';
+import * as TimelineTrack from './TimelineTrack/schema';
+import * as GitGraph from './GitGraph/schema';
+import * as StackHeap from './StackHeap/schema';
+import * as PartitionLanes from './PartitionLanes/schema';
+import * as BlockReplication from './BlockReplication/schema';
+import * as RequestJourney from './RequestJourney/schema';
+import * as Conveyor from './Conveyor/schema';
+import * as WorldMapA01 from './WorldMapA01/schema';
+import * as Terminal from './Terminal/schema';
+import * as CodeTrace from './CodeTrace/schema';
+import * as SqlStages from './SqlStages/schema';
+import * as VectorGalaxy from './VectorGalaxy/schema';
+import * as NeuralNet3D from './NeuralNet3D/schema';
+import * as AttentionBeams from './AttentionBeams/schema';
+import * as AttentionMatrix from './AttentionMatrix/schema';
+import * as TokenStream from './TokenStream/schema';
+import * as ContextTunnel from './ContextTunnel/schema';
+import * as InferenceCore from './InferenceCore/schema';
+import * as ParticleField from './ParticleField/schema';
+import * as HoloGrid from './HoloGrid/schema';
+import * as DataRibbons from './DataRibbons/schema';
+import * as LossLandscape from './LossLandscape/schema';
+import * as FailureGlitch from './FailureGlitch/schema';
+import * as FixSettle from './FixSettle/schema';
+import * as ShatterToBlocks from './ShatterToBlocks/schema';
+import * as MorphTextToObject from './MorphTextToObject/schema';
+import * as PathDraw from './PathDraw/schema';
+import * as Pulse from './Pulse/schema';
+import * as Shake from './Shake/schema';
+import * as Spin from './Spin/schema';
+import * as LightStreakTransition from './LightStreakTransition/schema';
+import * as WhipPan from './WhipPan/schema';
+import * as MatchCut from './MatchCut/schema';
+import * as CameraRig from './CameraRig/schema';
+import * as DepthLayers from './DepthLayers/schema';
+import * as FXTier from './FXTier/schema';
+import * as AudioReactive from './AudioReactive/schema';
+import * as LoopPlate from './LoopPlate/schema';
+import * as AIPlate from './AIPlate/schema';
+import * as ManimInsert from './ManimInsert/schema';
+import * as TripleGate from './TripleGate/schema';
+import * as LegendOrbs from './LegendOrbs/schema';
+import * as LatencyLadder from './LatencyLadder/schema';
+import * as PermissionLocks from './PermissionLocks/schema';
+import * as Heartbeat from './Heartbeat/schema';
+import * as LogScroll from './LogScroll/schema';
+import * as CollectionMorph from './CollectionMorph/schema';
+import * as VenvDome from './VenvDome/schema';
+import * as TestGate from './TestGate/schema';
+import * as KeyBeams from './KeyBeams/schema';
+import * as TxnCapsule from './TxnCapsule/schema';
+import * as DeadlockCrossing from './DeadlockCrossing/schema';
+import * as PageScan from './PageScan/schema';
+import * as AppliedSteps from './AppliedSteps/schema';
+import * as SampleScoop from './SampleScoop/schema';
+import * as ABSplit from './ABSplit/schema';
+import * as WireTangle from './WireTangle/schema';
+import * as ModuleClusters from './ModuleClusters/schema';
+import * as ComplexityRace from './ComplexityRace/schema';
+import * as HashBuckets from './HashBuckets/schema';
+import * as StatusStamp from './StatusStamp/schema';
+import * as KeycardDoors from './KeycardDoors/schema';
+import * as ConnPoolTaxi from './ConnPoolTaxi/schema';
+import * as RaceCondition from './RaceCondition/schema';
+import * as SagaChain from './SagaChain/schema';
+import * as QualityGauges from './QualityGauges/schema';
+import * as IdempotentStamp from './IdempotentStamp/schema';
+import * as KAnonBlur from './KAnonBlur/schema';
+import * as SplitDeck from './SplitDeck/schema';
+import * as SamplingDial from './SamplingDial/schema';
+import * as GuardedAgentLoop from './GuardedAgentLoop/schema';
+import * as ArtifactChain from './ArtifactChain/schema';
+import * as BranchPaths from './BranchPaths/schema';
+
+/** The 04 §8 catalog, in catalog order. P8 may use only these names (and '<Name>.<action>'). */
+export const CATALOG: Record<string, ComponentSchema> = {
+  KineticWord: KineticWord as unknown as ComponentSchema,
+  KineticPhrase: KineticPhrase as unknown as ComponentSchema,
+  TermChip: TermChip as unknown as ComponentSchema,
+  NumberCounter: NumberCounter as unknown as ComponentSchema,
+  EquationLine: EquationLine as unknown as ComponentSchema,
+  LowerThird: LowerThird as unknown as ComponentSchema,
+  ChapterCard: ChapterCard as unknown as ComponentSchema,
+  DeepDiveCard: DeepDiveCard as unknown as ComponentSchema,
+  PredictionTimer: PredictionTimer as unknown as ComponentSchema,
+  CalloutArrow: CalloutArrow as unknown as ComponentSchema,
+  Spotlight: Spotlight as unknown as ComponentSchema,
+  TableGrid: TableGrid as unknown as ComponentSchema,
+  RowFunnel: RowFunnel as unknown as ComponentSchema,
+  JoinFusion: JoinFusion as unknown as ComponentSchema,
+  WindowFrame: WindowFrame as unknown as ComponentSchema,
+  LedgerPair: LedgerPair as unknown as ComponentSchema,
+  Heatmap: Heatmap as unknown as ComponentSchema,
+  BarStack: BarStack as unknown as ComponentSchema,
+  LineTrace: LineTrace as unknown as ComponentSchema,
+  ScatterField: ScatterField as unknown as ComponentSchema,
+  Distribution: Distribution as unknown as ComponentSchema,
+  ConfusionTiles: ConfusionTiles as unknown as ComponentSchema,
+  KpiPanel: KpiPanel as unknown as ComponentSchema,
+  ThresholdSlider: ThresholdSlider as unknown as ComponentSchema,
+  GraphNetwork: GraphNetwork as unknown as ComponentSchema,
+  DagRun: DagRun as unknown as ComponentSchema,
+  TreeView: TreeView as unknown as ComponentSchema,
+  PipelineStations: PipelineStations as unknown as ComponentSchema,
+  LayerStack: LayerStack as unknown as ComponentSchema,
+  StarSchema3D: StarSchema3D as unknown as ComponentSchema,
+  OlapCube: OlapCube as unknown as ComponentSchema,
+  TimelineTrack: TimelineTrack as unknown as ComponentSchema,
+  GitGraph: GitGraph as unknown as ComponentSchema,
+  StackHeap: StackHeap as unknown as ComponentSchema,
+  PartitionLanes: PartitionLanes as unknown as ComponentSchema,
+  BlockReplication: BlockReplication as unknown as ComponentSchema,
+  RequestJourney: RequestJourney as unknown as ComponentSchema,
+  Conveyor: Conveyor as unknown as ComponentSchema,
+  WorldMapA01: WorldMapA01 as unknown as ComponentSchema,
+  Terminal: Terminal as unknown as ComponentSchema,
+  CodeTrace: CodeTrace as unknown as ComponentSchema,
+  SqlStages: SqlStages as unknown as ComponentSchema,
+  VectorGalaxy: VectorGalaxy as unknown as ComponentSchema,
+  NeuralNet3D: NeuralNet3D as unknown as ComponentSchema,
+  AttentionBeams: AttentionBeams as unknown as ComponentSchema,
+  AttentionMatrix: AttentionMatrix as unknown as ComponentSchema,
+  TokenStream: TokenStream as unknown as ComponentSchema,
+  ContextTunnel: ContextTunnel as unknown as ComponentSchema,
+  InferenceCore: InferenceCore as unknown as ComponentSchema,
+  ParticleField: ParticleField as unknown as ComponentSchema,
+  HoloGrid: HoloGrid as unknown as ComponentSchema,
+  DataRibbons: DataRibbons as unknown as ComponentSchema,
+  LossLandscape: LossLandscape as unknown as ComponentSchema,
+  FailureGlitch: FailureGlitch as unknown as ComponentSchema,
+  FixSettle: FixSettle as unknown as ComponentSchema,
+  ShatterToBlocks: ShatterToBlocks as unknown as ComponentSchema,
+  MorphTextToObject: MorphTextToObject as unknown as ComponentSchema,
+  PathDraw: PathDraw as unknown as ComponentSchema,
+  Pulse: Pulse as unknown as ComponentSchema,
+  Shake: Shake as unknown as ComponentSchema,
+  Spin: Spin as unknown as ComponentSchema,
+  LightStreakTransition: LightStreakTransition as unknown as ComponentSchema,
+  WhipPan: WhipPan as unknown as ComponentSchema,
+  MatchCut: MatchCut as unknown as ComponentSchema,
+  CameraRig: CameraRig as unknown as ComponentSchema,
+  DepthLayers: DepthLayers as unknown as ComponentSchema,
+  FXTier: FXTier as unknown as ComponentSchema,
+  AudioReactive: AudioReactive as unknown as ComponentSchema,
+  LoopPlate: LoopPlate as unknown as ComponentSchema,
+  AIPlate: AIPlate as unknown as ComponentSchema,
+  ManimInsert: ManimInsert as unknown as ComponentSchema,
+  TripleGate: TripleGate as unknown as ComponentSchema,
+  LegendOrbs: LegendOrbs as unknown as ComponentSchema,
+  LatencyLadder: LatencyLadder as unknown as ComponentSchema,
+  PermissionLocks: PermissionLocks as unknown as ComponentSchema,
+  Heartbeat: Heartbeat as unknown as ComponentSchema,
+  LogScroll: LogScroll as unknown as ComponentSchema,
+  CollectionMorph: CollectionMorph as unknown as ComponentSchema,
+  VenvDome: VenvDome as unknown as ComponentSchema,
+  TestGate: TestGate as unknown as ComponentSchema,
+  KeyBeams: KeyBeams as unknown as ComponentSchema,
+  TxnCapsule: TxnCapsule as unknown as ComponentSchema,
+  DeadlockCrossing: DeadlockCrossing as unknown as ComponentSchema,
+  PageScan: PageScan as unknown as ComponentSchema,
+  AppliedSteps: AppliedSteps as unknown as ComponentSchema,
+  SampleScoop: SampleScoop as unknown as ComponentSchema,
+  ABSplit: ABSplit as unknown as ComponentSchema,
+  WireTangle: WireTangle as unknown as ComponentSchema,
+  ModuleClusters: ModuleClusters as unknown as ComponentSchema,
+  ComplexityRace: ComplexityRace as unknown as ComponentSchema,
+  HashBuckets: HashBuckets as unknown as ComponentSchema,
+  StatusStamp: StatusStamp as unknown as ComponentSchema,
+  KeycardDoors: KeycardDoors as unknown as ComponentSchema,
+  ConnPoolTaxi: ConnPoolTaxi as unknown as ComponentSchema,
+  RaceCondition: RaceCondition as unknown as ComponentSchema,
+  SagaChain: SagaChain as unknown as ComponentSchema,
+  QualityGauges: QualityGauges as unknown as ComponentSchema,
+  IdempotentStamp: IdempotentStamp as unknown as ComponentSchema,
+  KAnonBlur: KAnonBlur as unknown as ComponentSchema,
+  SplitDeck: SplitDeck as unknown as ComponentSchema,
+  SamplingDial: SamplingDial as unknown as ComponentSchema,
+  GuardedAgentLoop: GuardedAgentLoop as unknown as ComponentSchema,
+  ArtifactChain: ArtifactChain as unknown as ComponentSchema,
+  BranchPaths: BranchPaths as unknown as ComponentSchema,
+};
+export const COMPONENT_NAMES = Object.keys(CATALOG);

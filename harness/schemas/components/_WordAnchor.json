@@ -1,0 +1,23 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "word": {
+   "type": "string",
+   "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+  },
+  "lead_frames": {
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 90
+  }
+ },
+ "required": [
+  "word",
+  "lead_frames"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:_WordAnchor",
+ "title": "{word, lead_frames}",
+ "description": "Word anchor (golden rule 2); lead_frames at the film fps (ADR-002 F24)."
+}

@@ -1,0 +1,125 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "shell": {
+   "default": "bash",
+   "type": "string",
+   "enum": [
+    "bash",
+    "python",
+    "sql",
+    "docker",
+    "git",
+    "other"
+   ]
+  },
+  "prompt": {
+   "type": "string",
+   "maxLength": 24
+  },
+  "lines": {
+   "minItems": 1,
+   "maxItems": 16,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "kind": {
+      "type": "string",
+      "enum": [
+       "cmd",
+       "out",
+       "err"
+      ]
+     },
+     "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+     },
+     "at": {
+      "type": "object",
+      "properties": {
+       "word": {
+        "type": "string",
+        "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+       },
+       "lead_frames": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 90
+       }
+      },
+      "required": [
+       "word",
+       "lead_frames"
+      ],
+      "additionalProperties": false
+     }
+    },
+    "required": [
+     "kind",
+     "text"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "lines"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:Terminal",
+ "title": "Terminal",
+ "description": "A terminal (LTR isolate) whose lines appear on anchors.",
+ "x-family": "Code",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

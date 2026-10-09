@@ -1,0 +1,187 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "roles": {
+   "minItems": 1,
+   "maxItems": 6,
+   "type": "array",
+   "items": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 40,
+    "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+   }
+  },
+  "resources": {
+   "minItems": 1,
+   "maxItems": 6,
+   "type": "array",
+   "items": {
+    "type": "string",
+    "minLength": 1,
+    "maxLength": 40,
+    "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+   }
+  },
+  "grants": {
+   "minItems": 0,
+   "maxItems": 36,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "role": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "resource": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "level": {
+      "type": "string",
+      "enum": [
+       "none",
+       "read",
+       "write",
+       "admin"
+      ]
+     }
+    },
+    "required": [
+     "role",
+     "resource",
+     "level"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "roles",
+  "resources",
+  "grants"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:PermissionLocks",
+ "title": "PermissionLocks",
+ "description": "Roles x resources with grant levels; locks deny or open.",
+ "x-family": "Domain specials",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "deny": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "role": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    },
+    "resource": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    }
+   },
+   "required": [
+    "role",
+    "resource"
+   ],
+   "additionalProperties": false
+  },
+  "grant": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "role": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    },
+    "resource": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    },
+    "level": {
+     "type": "string",
+     "enum": [
+      "read",
+      "write",
+      "admin"
+     ]
+    }
+   },
+   "required": [
+    "role",
+    "resource",
+    "level"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

@@ -1,0 +1,78 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "to": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "blocks": {
+   "default": 16,
+   "type": "integer",
+   "minimum": 4,
+   "maximum": 64
+  },
+  "seed": {
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 2147483647
+  }
+ },
+ "required": [
+  "to",
+  "seed"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:ShatterToBlocks",
+ "title": "ShatterToBlocks",
+ "description": "A target shatters into seeded blocks.",
+ "x-family": "State & FX",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

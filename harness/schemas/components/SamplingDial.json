@@ -1,0 +1,180 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "params": {
+   "minItems": 1,
+   "maxItems": 3,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "value": {
+      "type": "object",
+      "properties": {
+       "value": {
+        "type": "number"
+       },
+       "ref": {
+        "anyOf": [
+         {
+          "type": "string",
+          "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+         },
+         {
+          "type": "string",
+          "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+         }
+        ]
+       },
+       "unit": {
+        "type": "string",
+        "maxLength": 12
+       },
+       "decimals": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4
+       }
+      },
+      "required": [
+       "value",
+       "ref"
+      ],
+      "additionalProperties": false
+     },
+     "min": {
+      "type": "number"
+     },
+     "max": {
+      "type": "number"
+     }
+    },
+    "required": [
+     "label",
+     "value",
+     "min",
+     "max"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "params"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:SamplingDial",
+ "title": "SamplingDial",
+ "description": "Dials for sampling parameters (temperature, top-p ...).",
+ "x-family": "Domain specials",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "turn": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "param": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 2
+    },
+    "to": {
+     "type": "object",
+     "properties": {
+      "value": {
+       "type": "number"
+      },
+      "ref": {
+       "anyOf": [
+        {
+         "type": "string",
+         "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+        },
+        {
+         "type": "string",
+         "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+        }
+       ]
+      },
+      "unit": {
+       "type": "string",
+       "maxLength": 12
+      },
+      "decimals": {
+       "type": "integer",
+       "minimum": 0,
+       "maximum": 4
+      }
+     },
+     "required": [
+      "value",
+      "ref"
+     ],
+     "additionalProperties": false
+    }
+   },
+   "required": [
+    "param",
+    "to"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "buckets": {
+   "type": "integer",
+   "minimum": 2,
+   "maximum": 16
+  },
+  "keys": {
+   "minItems": 0,
+   "maxItems": 24,
+   "type": "array",
+   "items": {
+    "type": "string",
+    "maxLength": 24
+   }
+  },
+  "hash": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 40,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  }
+ },
+ "required": [
+  "buckets",
+  "keys"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:HashBuckets",
+ "title": "HashBuckets",
+ "description": "Keys hashed into buckets; collisions chain.",
+ "x-family": "Domain specials",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "insert": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "key": {
+     "type": "string",
+     "maxLength": 24
+    }
+   },
+   "required": [
+    "key"
+   ],
+   "additionalProperties": false
+  },
+  "collide": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "bucket": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 15
+    }
+   },
+   "required": [
+    "bucket"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

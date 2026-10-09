@@ -1,0 +1,178 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "words": {
+   "minItems": 1,
+   "maxItems": 6,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 32,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "at": {
+      "type": "object",
+      "properties": {
+       "word": {
+        "type": "string",
+        "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+       },
+       "lead_frames": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 90
+       }
+      },
+      "required": [
+       "word",
+       "lead_frames"
+      ],
+      "additionalProperties": false
+     },
+     "emphasis": {
+      "type": "string",
+      "enum": [
+       "none",
+       "stressed",
+       "number",
+       "term"
+      ]
+     },
+     "color": {
+      "type": "string",
+      "enum": [
+       "void",
+       "ground",
+       "panel",
+       "grid",
+       "ink",
+       "ink2",
+       "ink3",
+       "signal",
+       "ok",
+       "warn",
+       "crit",
+       "violet",
+       "ember",
+       "paper",
+       "paperShade",
+       "paperInk",
+       "paperOk",
+       "paperCrit",
+       "white"
+      ]
+     }
+    },
+    "required": [
+     "text",
+     "at"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "lines": {
+   "default": 1,
+   "type": "integer",
+   "minimum": 1,
+   "maximum": 2
+  },
+  "size": {
+   "default": "kinetic",
+   "type": "string",
+   "enum": [
+    "hero",
+    "impact",
+    "title",
+    "kinetic",
+    "sub",
+    "body",
+    "label",
+    "labelMin",
+    "secondaryMin",
+    "numberHero",
+    "numberBig"
+   ]
+  },
+  "align": {
+   "default": "start",
+   "type": "string",
+   "enum": [
+    "start",
+    "center"
+   ]
+  },
+  "preset": {
+   "default": "arrive",
+   "type": "string",
+   "enum": [
+    "arrive",
+    "impact",
+    "label",
+    "count",
+    "morph",
+    "exit"
+   ]
+  }
+ },
+ "required": [
+  "words"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:KineticPhrase",
+ "title": "KineticPhrase",
+ "description": "Up to 6 kinetic words on at most 2 lines, each word arriving on its own spoken word anchor.",
+ "x-family": "Type & UI",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

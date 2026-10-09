@@ -1,0 +1,120 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "lines": {
+   "minItems": 1,
+   "maxItems": 30,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "level": {
+      "type": "string",
+      "enum": [
+       "debug",
+       "info",
+       "warn",
+       "error"
+      ]
+     },
+     "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+     }
+    },
+    "required": [
+     "level",
+     "text"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "speed": {
+   "default": "normal",
+   "type": "string",
+   "enum": [
+    "slow",
+    "normal",
+    "fast"
+   ]
+  }
+ },
+ "required": [
+  "lines"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:LogScroll",
+ "title": "LogScroll",
+ "description": "Scrolling log lines (LTR isolate) by level.",
+ "x-family": "Domain specials",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "highlight": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "index": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 29
+    }
+   },
+   "required": [
+    "index"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

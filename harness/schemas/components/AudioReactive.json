@@ -1,0 +1,101 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "feature": {
+   "type": "string",
+   "enum": [
+    "rms_dbfs",
+    "onset_strength",
+    "centroid_hz"
+   ]
+  },
+  "to": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "param": {
+   "type": "string",
+   "enum": [
+    "glow",
+    "scale",
+    "opacity",
+    "particles",
+    "haze"
+   ]
+  },
+  "amount": {
+   "default": 0.3,
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "smoothing": {
+   "default": "medium",
+   "type": "string",
+   "enum": [
+    "low",
+    "medium",
+    "high"
+   ]
+  }
+ },
+ "required": [
+  "feature",
+  "to",
+  "param"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:AudioReactive",
+ "title": "AudioReactive",
+ "description": "Modulate one visual parameter of a layer from a locked audio feature (P5 features at 24 fps).",
+ "x-family": "State & FX",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

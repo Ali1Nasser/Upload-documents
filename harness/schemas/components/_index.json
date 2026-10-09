@@ -1,0 +1,711 @@
+{
+ "v": 1,
+ "source": "studio/src/components/*/schema.ts (zod 4, io=input)",
+ "count": 104,
+ "components": {
+  "_WordAnchor": "c2056bf3d67ecff9d57e5773991d8825b9ed168556d8d7569d7703601312e47b",
+  "KineticWord": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "bf78b37cf48706ed1b7d9c6ee9e3ed1a6fc7d388e0e9c761dc6121994823a71d"
+  },
+  "KineticPhrase": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "f7c8c5de46a145f0d12c0a00c64e2873bc009ada72f7b90ae6695040be55227a"
+  },
+  "TermChip": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "9e1760c2251fcfbd6a8b4c50340cfbc811ac648fbac92b000e602407033e14b6"
+  },
+  "NumberCounter": {
+   "family": "Type & UI",
+   "actions": [
+    "set"
+   ],
+   "sha256": "4816b992771667d6600925c7ce3dde3378aadcf59396d1bd5019228ea5a8762d"
+  },
+  "EquationLine": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "665fb222755c8df568176e377fb3de5ba6531bc85e168933800f278da96ec639"
+  },
+  "LowerThird": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "f7c44f2121336a1f1697ccaf03692a147e85d4adb65c66ad0d93126652c92be5"
+  },
+  "ChapterCard": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "631cb0348b413f4466311a5ee58e9ca2eea8b0ccd1c651ae95e8b503e2884b95"
+  },
+  "DeepDiveCard": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "afc51dbaf3fca27b2ad5f515d7eb60735f3f69b3f31c75fc08310711f84a1d85"
+  },
+  "PredictionTimer": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "ff78d4321a1a58a92f8db57ffee8e8116a0e26a7c616778a760f0218c763ee37"
+  },
+  "CalloutArrow": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "fa10b90fb58ad0f94e3ac52ab5ed41e99ada3eecc49f6f184996c1811f7e87f9"
+  },
+  "Spotlight": {
+   "family": "Type & UI",
+   "actions": [],
+   "sha256": "304878de8451e427d719132e3526d9fa47d1cf0b1912ff0ab5e7456d66b2c772"
+  },
+  "TableGrid": {
+   "family": "Data",
+   "actions": [
+    "highlightRows",
+    "filterRows",
+    "sortBy",
+    "addRow"
+   ],
+   "sha256": "c53c82d42a47355a90d905c6ea0219eb4aa46202cc8da3bcb98d94b798de7182"
+  },
+  "RowFunnel": {
+   "family": "Data",
+   "actions": [
+    "advance"
+   ],
+   "sha256": "9be8e4a68207d7bf9054aebf5c7b9893d843fd88afac9ae01f8e260593da3eba"
+  },
+  "JoinFusion": {
+   "family": "Data",
+   "actions": [
+    "fuse",
+    "showUnmatched"
+   ],
+   "sha256": "bb71dfb09efed7943e905fd3b925fdf4d1aa7a5d983d0115eadcf2af35c3f38d"
+  },
+  "WindowFrame": {
+   "family": "Data",
+   "actions": [
+    "slide"
+   ],
+   "sha256": "d6587e502428594d3deee11468d6c5a5cdd735ecb8a71a55a7cab340aeb17557"
+  },
+  "LedgerPair": {
+   "family": "Data",
+   "actions": [
+    "reconcile",
+    "mismatch"
+   ],
+   "sha256": "87745577b1c0a777acf7dea91e9dc4ab21fa2d6fa820acace30cf2622195100a"
+  },
+  "Heatmap": {
+   "family": "Data",
+   "actions": [
+    "highlightCell"
+   ],
+   "sha256": "f12769dbc4072b441637a5d0f31be78bceb2c858c7c2a6ef3dad2d2f0a3fd10d"
+  },
+  "BarStack": {
+   "family": "Data",
+   "actions": [
+    "grow",
+    "highlight"
+   ],
+   "sha256": "544041238e512cd242e1c2be8ce65847a80e1d37208ec90afec51ad7e390c098"
+  },
+  "LineTrace": {
+   "family": "Data",
+   "actions": [
+    "drawTo",
+    "markPoint"
+   ],
+   "sha256": "97599c0057310bd8cec93120c001d7e4828336e10768512e8ce49249c9826743"
+  },
+  "ScatterField": {
+   "family": "Data",
+   "actions": [
+    "highlightCluster",
+    "showOutliers"
+   ],
+   "sha256": "cffc88a6da5977b92d71d0ee0e3bbdfd7c251e0768362eed551bd3a8903f3405"
+  },
+  "Distribution": {
+   "family": "Data",
+   "actions": [
+    "shade"
+   ],
+   "sha256": "7f68921d74f7787c86f0ee84af93ebe824d61925f36b49983c10a6d80f08cfec"
+  },
+  "ConfusionTiles": {
+   "family": "Data",
+   "actions": [
+    "focus"
+   ],
+   "sha256": "6fdb63b0c3b8d473e7dd548d9781fb5a89727d149c5d369f5820ccb0d58386b4"
+  },
+  "KpiPanel": {
+   "family": "Data",
+   "actions": [
+    "update"
+   ],
+   "sha256": "01a67b7cd31c001229b0f02f4033d6e30ab0709c67f0eb8547367d3e01a71b5d"
+  },
+  "ThresholdSlider": {
+   "family": "Data",
+   "actions": [
+    "moveTo"
+   ],
+   "sha256": "7fb3a8c5cf448ddbf4c2c28a3050155c6007ae364782784242706cea323b0ec8"
+  },
+  "GraphNetwork": {
+   "family": "Structure & flow",
+   "actions": [
+    "highlightPath",
+    "pulseNode",
+    "addEdge"
+   ],
+   "sha256": "2b50205f38ba47e223b066df960c2c101bb7c8332c07d42c57d447ea4cc3a3ec"
+  },
+  "DagRun": {
+   "family": "Structure & flow",
+   "actions": [
+    "setState"
+   ],
+   "sha256": "142e694fc7c9e3187964c5df38a7450c054fe9cd36f9bba06e54edadff070ee5"
+  },
+  "TreeView": {
+   "family": "Structure & flow",
+   "actions": [
+    "expand",
+    "highlightPath",
+    "search"
+   ],
+   "sha256": "956b984960cafd3e18b05fbacd89cb430702964e1316741c50096888f885e909"
+  },
+  "PipelineStations": {
+   "family": "Structure & flow",
+   "actions": [
+    "advance",
+    "fail",
+    "fix"
+   ],
+   "sha256": "cd40ec5c93a015c21706cc11ad562b3ab97302a91bd96a2df48806181ca7397d"
+  },
+  "LayerStack": {
+   "family": "Structure & flow",
+   "actions": [
+    "rebuildFrom",
+    "highlight"
+   ],
+   "sha256": "118d429ad4ab9563a5dde407eb07305f365285d0c980dacf10d810c697ea7e82"
+  },
+  "StarSchema3D": {
+   "family": "Structure & flow",
+   "actions": [
+    "focusDim"
+   ],
+   "sha256": "8f350ddb7f8202d637aa104354bbf90391b9d95d0ef0a57c8a5486aafbbb2c5c"
+  },
+  "OlapCube": {
+   "family": "Structure & flow",
+   "actions": [
+    "slice",
+    "dice",
+    "rollup",
+    "drill"
+   ],
+   "sha256": "01f891a7b49fe7c15d30c1b024d81b1d7e8de193591be48527f7f99dd5cb19bb"
+  },
+  "TimelineTrack": {
+   "family": "Structure & flow",
+   "actions": [
+    "cursorTo"
+   ],
+   "sha256": "240c4525e5d4456bc1c8a03c1dd2a835c8bc958dfe2a51556461eca170c16170"
+  },
+  "GitGraph": {
+   "family": "Structure & flow",
+   "actions": [
+    "checkout",
+    "commit",
+    "merge"
+   ],
+   "sha256": "f4583fc75d19d56a601feef51d03ce23801593b5558460268efb9bd20bced643"
+  },
+  "StackHeap": {
+   "family": "Structure & flow",
+   "actions": [
+    "push",
+    "pop",
+    "collect"
+   ],
+   "sha256": "b3eb4371f656cc9a0285e50a7d6442f59cbff04d08673e99b044d516e8032745"
+  },
+  "PartitionLanes": {
+   "family": "Structure & flow",
+   "actions": [
+    "produce",
+    "rebalance",
+    "lag"
+   ],
+   "sha256": "3079a74fcbcef6e9ec5225b8f73a6fe8c448060c48b18cddeab950ba133e6f4d"
+  },
+  "BlockReplication": {
+   "family": "Structure & flow",
+   "actions": [
+    "failNode",
+    "rereplicate"
+   ],
+   "sha256": "0ac0069ddaf2b25d803c435e9a4cf57dfe3bcb204fb659a58eab923f177de5b5"
+  },
+  "RequestJourney": {
+   "family": "Structure & flow",
+   "actions": [
+    "travel",
+    "fail",
+    "retry"
+   ],
+   "sha256": "ae9271ac0ae3cf23c870d921dba6c41f7b0293d75187a95813b72fa289f1bbca"
+  },
+  "Conveyor": {
+   "family": "Structure & flow",
+   "actions": [
+    "stop",
+    "jam",
+    "resume"
+   ],
+   "sha256": "94192b09cfbe669bcbe42cb5ef25cdaa28533eb02466d80b07776d6aebbc4487"
+  },
+  "WorldMapA01": {
+   "family": "Structure & flow",
+   "actions": [
+    "flyTo"
+   ],
+   "sha256": "888c5f39f2812d54d90c6a59b2addfd15434c6aef5b8810770ebb9d2c12f204f"
+  },
+  "Terminal": {
+   "family": "Code",
+   "actions": [],
+   "sha256": "960b9c1da6880f15d403aafb4aedd8cfbb92e1069b8a663d0f2ff50f723a9989"
+  },
+  "CodeTrace": {
+   "family": "Code",
+   "actions": [
+    "step"
+   ],
+   "sha256": "c5dba2a94d4dcc0137f67b77cf6ddb7c021f3fc452369db049deb5221de7682c"
+  },
+  "SqlStages": {
+   "family": "Code",
+   "actions": [
+    "activate"
+   ],
+   "sha256": "3807464c7b295045219601041f7816b5ce90322737160e0648ca548e2dd05024"
+  },
+  "VectorGalaxy": {
+   "family": "Space & 3D",
+   "actions": [
+    "highlightNeighbors",
+    "probe",
+    "zoomCluster"
+   ],
+   "sha256": "e51469592620a35a7b7fc99681277a9f8ef4f848c818841a2d2936acb4ee6a06"
+  },
+  "NeuralNet3D": {
+   "family": "Space & 3D",
+   "actions": [
+    "forward",
+    "backprop",
+    "highlightLayer"
+   ],
+   "sha256": "30833432686f3a1a2fd90a65106f78ef38d02e25509debe5acd906eff82d027a"
+  },
+  "AttentionBeams": {
+   "family": "Space & 3D",
+   "actions": [
+    "attend"
+   ],
+   "sha256": "3de4cc905b4a9ff465d883a11e67722aea7bd8bc83825105909e1c32ac83053b"
+  },
+  "AttentionMatrix": {
+   "family": "Space & 3D",
+   "actions": [
+    "highlightRow"
+   ],
+   "sha256": "883e93a502073d0c0ceee6a679bdfe1b498164eb0852e334c39fc807c9446b26"
+  },
+  "TokenStream": {
+   "family": "Space & 3D",
+   "actions": [
+    "emit"
+   ],
+   "sha256": "c0de800da0646c2e0dc66a4387c10fb760431fa3d351f06f76dd2d3033bb95fb"
+  },
+  "ContextTunnel": {
+   "family": "Space & 3D",
+   "actions": [
+    "push",
+    "evict"
+   ],
+   "sha256": "18ab442c848f719791308ad07252c43195aea14a9878640a68e2b9dca3ad3e24"
+  },
+  "InferenceCore": {
+   "family": "Space & 3D",
+   "actions": [
+    "setState"
+   ],
+   "sha256": "e8e22b40c41be7bb6d776c2ddf0497235f7978baa56ce2a3cf9af39bb1b7ba47"
+  },
+  "ParticleField": {
+   "family": "Space & 3D",
+   "actions": [],
+   "sha256": "0de9e764ac4ccaa8bbc9bfcf05bae3ffde11be54824de598f31ade6fec5a2de9"
+  },
+  "HoloGrid": {
+   "family": "Space & 3D",
+   "actions": [],
+   "sha256": "97f5bd59a9cca55c9f220eb0891b37ee5296a8f04370297aca7922f921395f12"
+  },
+  "DataRibbons": {
+   "family": "Space & 3D",
+   "actions": [],
+   "sha256": "5f428cbf55cded69bc331c369d20c6ac1af283e6bc6295404651679bc64a6eca"
+  },
+  "LossLandscape": {
+   "family": "Space & 3D",
+   "actions": [
+    "step",
+    "overshoot"
+   ],
+   "sha256": "cc2e39b548e3858f01f2ab33203f472220cf1fb9dacee3143e2c936f59d18ca9"
+  },
+  "FailureGlitch": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "1a99977df7273983ba7ab92a18d479d7b13b47d3b24cffd68324ee537a1aef7a"
+  },
+  "FixSettle": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "dc2b6cce589eddfdda0efdee5a346ee40fbcb36ade6d60569a916f9ff859904f"
+  },
+  "ShatterToBlocks": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "854e72f63033fb003796a7cb5645089d77491a69adb285cda221e3f972bc3fc4"
+  },
+  "MorphTextToObject": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "3ceaca35e1697717783b3a73c4ed0c33f1a957dc17353ff300fa9716c129ea5e"
+  },
+  "PathDraw": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "439305294fce1b71989c2f1017b55a72c73a4923af70be710ddc12aab9f383a5"
+  },
+  "Pulse": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "681afa774e2ec7820fca56c67de0b3cf8127e53235739b310336e11a4eb55a77"
+  },
+  "Shake": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "be27ea7602f0ee9aeedc6cd5ebb2293c8b95a3ca8a49c8427fb6a71bb17402fa"
+  },
+  "Spin": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "c9ad92f62409a0ec6b9bdbfb16cc33ff6e4f81ed4fc98391ef4c3e4f942b8bb4"
+  },
+  "LightStreakTransition": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "23760a84714acfcbda1f4e31b14a7b52eaff4d19e9e1e55e2b08a3f3e1ba653d"
+  },
+  "WhipPan": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "068ba2bfce36adcf33eea93615093c27d16d7f1e34793936349aebc279ee7c44"
+  },
+  "MatchCut": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "1ded6bb913dc9f151a72821cc3015ece6ec8e33fd40033a693360be0b20558ac"
+  },
+  "CameraRig": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "426f32db0bd1ff6a8f1f3065f2e99f4a33b627c6820b120a059260ba108f0a9a"
+  },
+  "DepthLayers": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "3168931e2decd83c57f5983529404f637c47c61cbc9d364fd221c67f324723ad"
+  },
+  "FXTier": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "a40f6f48ad8951122cc8bdd7d3c0315033e3785fdeb8b65204f8d91fb2e9bf7f"
+  },
+  "AudioReactive": {
+   "family": "State & FX",
+   "actions": [],
+   "sha256": "eb51f297655c4f3003c67e76af36a18af55c31d0b6db13051f1207d2e2572725"
+  },
+  "LoopPlate": {
+   "family": "Media",
+   "actions": [],
+   "sha256": "45e6c353ee5db8b21ddcd8695d8196b175041697fec57c923ca8df3bfe3e59d9"
+  },
+  "AIPlate": {
+   "family": "Media",
+   "actions": [],
+   "sha256": "be445b5faf4f691871ac282b94f69ca054a66929c825942e62e9b29d72b04d3a"
+  },
+  "ManimInsert": {
+   "family": "Media",
+   "actions": [],
+   "sha256": "1b7fd29fb4c0ad4554a5687d1ca61cb038a80fb83651dc62c368b9253766a393"
+  },
+  "TripleGate": {
+   "family": "Domain specials",
+   "actions": [
+    "ignite",
+    "pass",
+    "reject"
+   ],
+   "sha256": "d7a003cdbf8440cf3556564ed65ade8556f8a45d2bde5d299b3e06e516abde5a"
+  },
+  "LegendOrbs": {
+   "family": "Domain specials",
+   "actions": [
+    "focus"
+   ],
+   "sha256": "84bcd2846e675f1b46ccc698bd5af0b46aeaa916067eed221c2e0ac46e4f0c98"
+  },
+  "LatencyLadder": {
+   "family": "Domain specials",
+   "actions": [
+    "climb"
+   ],
+   "sha256": "77f7103ef46d4478508b105650305516c46e1ad6f9df104c8a22be760325aab2"
+  },
+  "PermissionLocks": {
+   "family": "Domain specials",
+   "actions": [
+    "deny",
+    "grant"
+   ],
+   "sha256": "f36d9b7318c38c09f3df94bf6f9075160f9b42d9795e3867867d58f30f532a7f"
+  },
+  "Heartbeat": {
+   "family": "Domain specials",
+   "actions": [
+    "miss",
+    "recover"
+   ],
+   "sha256": "a63681efafef47e6de257c720095b5e38cbcdb918384933319662755beb366d5"
+  },
+  "LogScroll": {
+   "family": "Domain specials",
+   "actions": [
+    "highlight"
+   ],
+   "sha256": "12c35affcefce0b48464a2cb180c1b4838c0a4559231385dbbb14b74b48f9cf0"
+  },
+  "CollectionMorph": {
+   "family": "Domain specials",
+   "actions": [],
+   "sha256": "a5885cfec63861cf544948ec673d8eee831bc240be1369402dde1161dcf493b4"
+  },
+  "VenvDome": {
+   "family": "Domain specials",
+   "actions": [
+    "isolate",
+    "conflict"
+   ],
+   "sha256": "e1082f926490b373d1ce341db68c77974524b9b40cdbd3615b75380385025471"
+  },
+  "TestGate": {
+   "family": "Domain specials",
+   "actions": [
+    "run",
+    "fail"
+   ],
+   "sha256": "814885723a8d639829daac21e36ba51d181a322e8680c693884ae660b6df77c9"
+  },
+  "KeyBeams": {
+   "family": "Domain specials",
+   "actions": [
+    "unlock"
+   ],
+   "sha256": "6ee623e55b9313e1fd3b00920c4e2d70b9d3a95ce0fbe1e33b2b3b154a4b4ef7"
+  },
+  "TxnCapsule": {
+   "family": "Domain specials",
+   "actions": [
+    "commit",
+    "rollback"
+   ],
+   "sha256": "539e598348069f3872d39a9b57d6ae88ceb6e4066153e85b393612a951132fc2"
+  },
+  "DeadlockCrossing": {
+   "family": "Domain specials",
+   "actions": [
+    "resolve"
+   ],
+   "sha256": "4332a391011b66689a968540b40200af285ab690d184b640289d36621ff841f5"
+  },
+  "PageScan": {
+   "family": "Domain specials",
+   "actions": [
+    "scan"
+   ],
+   "sha256": "e49ad496ca8892b98e99c4484a355bf48ff0ae77c5bdd506aabe7c741e17c176"
+  },
+  "AppliedSteps": {
+   "family": "Domain specials",
+   "actions": [
+    "select"
+   ],
+   "sha256": "224fcc4a02a2bade8cfc43f45f062ab31301a949d6dd54abc9c2c65584d014de"
+  },
+  "SampleScoop": {
+   "family": "Domain specials",
+   "actions": [],
+   "sha256": "08b3e4a3197dcce278b7d3d019c7f81edf0fef6d346906c9a68d44ee7a80f4b5"
+  },
+  "ABSplit": {
+   "family": "Domain specials",
+   "actions": [
+    "reveal"
+   ],
+   "sha256": "2e5e15effdad61b894494f7746204f878cbb720a200d0a83df5f647a3224213c"
+  },
+  "WireTangle": {
+   "family": "Domain specials",
+   "actions": [
+    "untangle"
+   ],
+   "sha256": "11fadd48130bca138beb46b4c07467e8ea20ae56e869684c74893c4da9c1d833"
+  },
+  "ModuleClusters": {
+   "family": "Domain specials",
+   "actions": [
+    "decouple"
+   ],
+   "sha256": "a12174a223d8373087e322df4ede4baf4a41e69e9079cf7ac64bc4ded6b33edb"
+  },
+  "ComplexityRace": {
+   "family": "Domain specials",
+   "actions": [
+    "race"
+   ],
+   "sha256": "c445fad227a877e731d3b06b491e589b90e999578815f1093a8124b2d447ed1d"
+  },
+  "HashBuckets": {
+   "family": "Domain specials",
+   "actions": [
+    "insert",
+    "collide"
+   ],
+   "sha256": "83b3eea45b367d9bbb6d8adba4544002cbbc60d266b73d691a4558c2423a810f"
+  },
+  "StatusStamp": {
+   "family": "Domain specials",
+   "actions": [],
+   "sha256": "cd4d2b28e7e0c87de2d1f950f4829063c425c59ec385967618e4dd430eb9945f"
+  },
+  "KeycardDoors": {
+   "family": "Domain specials",
+   "actions": [
+    "swipe"
+   ],
+   "sha256": "cfeff19b1783b40af66f15d05fc9cba1902df2eb53a8ac98193ce44090305c0c"
+  },
+  "ConnPoolTaxi": {
+   "family": "Domain specials",
+   "actions": [
+    "exhaust",
+    "release"
+   ],
+   "sha256": "45c48af114d11eb51feb7ba903fbb61665d32e691c4edb047db366ae404c9efe"
+  },
+  "RaceCondition": {
+   "family": "Domain specials",
+   "actions": [
+    "collide",
+    "lock"
+   ],
+   "sha256": "d886e73932af7e8a733f7f9f38693ad7ea026322e2ce57cabba26ee0dd5c7ba6"
+  },
+  "SagaChain": {
+   "family": "Domain specials",
+   "actions": [
+    "fail",
+    "compensate"
+   ],
+   "sha256": "485cfb94010d556e909ec232e215a53517ec6c9dded925153ad580c443901d6d"
+  },
+  "QualityGauges": {
+   "family": "Domain specials",
+   "actions": [],
+   "sha256": "5f03eeff0360212a5db518bfd316d4b059fa9359d55a3340a32095f29a85ebf1"
+  },
+  "IdempotentStamp": {
+   "family": "Domain specials",
+   "actions": [
+    "replay"
+   ],
+   "sha256": "390493a12881b74c71d50df07ed69c34da569c2811659ea3ec4bc67275195ccc"
+  },
+  "KAnonBlur": {
+   "family": "Domain specials",
+   "actions": [
+    "generalize"
+   ],
+   "sha256": "a7f91180b0afe72c7190a1d13dd8189fd56a4ed878ac8d79085f5f68d222934d"
+  },
+  "SplitDeck": {
+   "family": "Domain specials",
+   "actions": [
+    "deal"
+   ],
+   "sha256": "518e01221f3066c0789b7a88a79aac152b906026bdcd5f6484e85c1b2ff6b27f"
+  },
+  "SamplingDial": {
+   "family": "Domain specials",
+   "actions": [
+    "turn"
+   ],
+   "sha256": "bb43052c160495472e248843134751b8f3392ea090290a100b691a5ef396d177"
+  },
+  "GuardedAgentLoop": {
+   "family": "Domain specials",
+   "actions": [
+    "iterate",
+    "block"
+   ],
+   "sha256": "b5eea1d5058d583112066d949e444b0b444e43105f7426a80446d4f70a85b995"
+  },
+  "ArtifactChain": {
+   "family": "Domain specials",
+   "actions": [
+    "link"
+   ],
+   "sha256": "00bfbc713bb123e569ef42eeaa9709eaa15c0f6cb069376cce621eaeadb02aa5"
+  },
+  "BranchPaths": {
+   "family": "Domain specials",
+   "actions": [
+    "choose"
+   ],
+   "sha256": "86e14522594b39c571d3ee7151103f871f5ca62d2e71695150a0ef04e0db5f42"
+  }
+ }
+}

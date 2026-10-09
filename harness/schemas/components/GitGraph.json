@@ -1,0 +1,210 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "branches": {
+   "minItems": 1,
+   "maxItems": 6,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 24
+     },
+     "color": {
+      "type": "string",
+      "enum": [
+       "void",
+       "ground",
+       "panel",
+       "grid",
+       "ink",
+       "ink2",
+       "ink3",
+       "signal",
+       "ok",
+       "warn",
+       "crit",
+       "violet",
+       "ember",
+       "paper",
+       "paperShade",
+       "paperInk",
+       "paperOk",
+       "paperCrit",
+       "white"
+      ]
+     }
+    },
+    "required": [
+     "name"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "commits": {
+   "minItems": 1,
+   "maxItems": 30,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+     },
+     "branch": {
+      "type": "string",
+      "maxLength": 24
+     },
+     "msg": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "parents": {
+      "minItems": 0,
+      "maxItems": 2,
+      "type": "array",
+      "items": {
+       "type": "string",
+       "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+      }
+     }
+    },
+    "required": [
+     "id",
+     "branch",
+     "parents"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "branches",
+  "commits"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:GitGraph",
+ "title": "GitGraph",
+ "description": "Commits on branches; checkout, commit and merge on anchors.",
+ "x-family": "Structure & flow",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "checkout": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "branch": {
+     "type": "string",
+     "maxLength": 24
+    }
+   },
+   "required": [
+    "branch"
+   ],
+   "additionalProperties": false
+  },
+  "commit": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "branch": {
+     "type": "string",
+     "maxLength": 24
+    },
+    "msg": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    }
+   },
+   "required": [
+    "branch"
+   ],
+   "additionalProperties": false
+  },
+  "merge": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "from": {
+     "type": "string",
+     "maxLength": 24
+    },
+    "into": {
+     "type": "string",
+     "maxLength": 24
+    }
+   },
+   "required": [
+    "from",
+    "into"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

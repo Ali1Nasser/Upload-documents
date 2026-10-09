@@ -1,0 +1,281 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "columns": {
+   "minItems": 1,
+   "maxItems": 8,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "key": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_]{0,31}$"
+     },
+     "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "kind": {
+      "type": "string",
+      "enum": [
+       "text",
+       "number",
+       "id",
+       "date",
+       "money",
+       "bool"
+      ]
+     }
+    },
+    "required": [
+     "key",
+     "label"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "rows": {
+   "minItems": 0,
+   "maxItems": 12,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "propertyNames": {
+     "type": "string"
+    },
+    "additionalProperties": {
+     "anyOf": [
+      {
+       "type": "string",
+       "maxLength": 40
+      },
+      {
+       "type": "number"
+      },
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "null"
+      }
+     ]
+    }
+   }
+  },
+  "ref": {
+   "anyOf": [
+    {
+     "type": "string",
+     "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+    },
+    {
+     "type": "string",
+     "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+    }
+   ]
+  },
+  "title": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 40,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  }
+ },
+ "required": [
+  "columns",
+  "rows"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:TableGrid",
+ "title": "TableGrid",
+ "description": "A data table (<= 8 columns, <= 12 visible rows); numbers come from a data_ref.",
+ "x-family": "Data",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "highlightRows": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "rows": {
+     "minItems": 1,
+     "maxItems": 12,
+     "type": "array",
+     "items": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 11
+     }
+    },
+    "color": {
+     "default": "signal",
+     "type": "string",
+     "enum": [
+      "void",
+      "ground",
+      "panel",
+      "grid",
+      "ink",
+      "ink2",
+      "ink3",
+      "signal",
+      "ok",
+      "warn",
+      "crit",
+      "violet",
+      "ember",
+      "paper",
+      "paperShade",
+      "paperInk",
+      "paperOk",
+      "paperCrit",
+      "white"
+     ]
+    }
+   },
+   "required": [
+    "rows"
+   ],
+   "additionalProperties": false
+  },
+  "filterRows": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "keep": {
+     "minItems": 0,
+     "maxItems": 12,
+     "type": "array",
+     "items": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 11
+     }
+    }
+   },
+   "required": [
+    "keep"
+   ],
+   "additionalProperties": false
+  },
+  "sortBy": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "key": {
+     "type": "string"
+    },
+    "dir": {
+     "type": "string",
+     "enum": [
+      "asc",
+      "desc"
+     ]
+    }
+   },
+   "required": [
+    "key",
+    "dir"
+   ],
+   "additionalProperties": false
+  },
+  "addRow": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "row": {
+     "type": "object",
+     "propertyNames": {
+      "type": "string"
+     },
+     "additionalProperties": {
+      "anyOf": [
+       {
+        "type": "string",
+        "maxLength": 40
+       },
+       {
+        "type": "number"
+       },
+       {
+        "type": "boolean"
+       },
+       {
+        "type": "null"
+       }
+      ]
+     }
+    }
+   },
+   "required": [
+    "row"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

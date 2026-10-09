@@ -2,17 +2,17 @@
   "v": 1,
   "jobs": {
     "9": {
-      "label": "ld-r2-ab-mask10b",
-      "cmd": "bash -c cd /home/user/Upload-documents/studio && node scripts/lookdev_r2_render.mjs motion --only=MB-standard --conc=3 && cp ../data/renders/lookdev/r2/timings_motion_partial.json ../data/renders/lookdev/r2/ab/mask10b.json",
+      "label": "p6-md-fix-rerender",
+      "cmd": "node studio/scripts/lookdev_r3_render.mjs motion --only=MD-standard --conc=3",
       "tsp_id": 9,
       "status": "done",
-      "mem_gb": 3.0,
+      "mem_gb": 1.0,
       "expected_gb": 0.1,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-09T21:54:23Z",
-      "updated": "2026-10-09T21:56:56Z",
-      "exit": "0"
+      "submitted": "2026-10-09T23:07:57Z",
+      "exit": "0",
+      "updated": "2026-10-09T23:14:08Z"
     },
     "10": {
       "label": "ld-r2-ab-mask1",

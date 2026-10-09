@@ -1,0 +1,140 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "kind": {
+   "type": "string",
+   "enum": [
+    "normal",
+    "skewed",
+    "bimodal",
+    "uniform",
+    "long-tail",
+    "empirical"
+   ]
+  },
+  "values": {
+   "minItems": 2,
+   "maxItems": 400,
+   "type": "array",
+   "items": {
+    "type": "number"
+   }
+  },
+  "ref": {
+   "anyOf": [
+    {
+     "type": "string",
+     "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+    },
+    {
+     "type": "string",
+     "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+    }
+   ]
+  },
+  "markers": {
+   "minItems": 0,
+   "maxItems": 4,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "at_value": {
+      "type": "number"
+     },
+     "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     }
+    },
+    "required": [
+     "at_value",
+     "label"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "required": [
+  "kind",
+  "ref"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:Distribution",
+ "title": "Distribution",
+ "description": "A distribution curve (parametric or empirical) with labelled markers.",
+ "x-family": "Data",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "shade": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "lo": {
+     "type": "number"
+    },
+    "hi": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "lo",
+    "hi"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

@@ -1,0 +1,241 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "axes": {
+   "type": "array",
+   "prefixItems": [
+    {
+     "type": "object",
+     "properties": {
+      "label": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 40,
+       "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+      },
+      "members": {
+       "minItems": 1,
+       "maxItems": 8,
+       "type": "array",
+       "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40,
+        "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+       }
+      }
+     },
+     "required": [
+      "label",
+      "members"
+     ],
+     "additionalProperties": false
+    },
+    {
+     "type": "object",
+     "properties": {
+      "label": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 40,
+       "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+      },
+      "members": {
+       "minItems": 1,
+       "maxItems": 8,
+       "type": "array",
+       "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40,
+        "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+       }
+      }
+     },
+     "required": [
+      "label",
+      "members"
+     ],
+     "additionalProperties": false
+    },
+    {
+     "type": "object",
+     "properties": {
+      "label": {
+       "type": "string",
+       "minLength": 1,
+       "maxLength": 40,
+       "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+      },
+      "members": {
+       "minItems": 1,
+       "maxItems": 8,
+       "type": "array",
+       "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 40,
+        "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+       }
+      }
+     },
+     "required": [
+      "label",
+      "members"
+     ],
+     "additionalProperties": false
+    }
+   ],
+   "items": false,
+   "minItems": 3,
+   "maxItems": 3
+  }
+ },
+ "required": [
+  "axes"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:OlapCube",
+ "title": "OlapCube",
+ "description": "A 3-axis cube supporting slice, dice, roll-up and drill-down.",
+ "x-family": "Structure & flow",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "slice": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "axis": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 2
+    },
+    "member": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    }
+   },
+   "required": [
+    "axis",
+    "member"
+   ],
+   "additionalProperties": false
+  },
+  "dice": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "members": {
+     "minItems": 1,
+     "maxItems": 8,
+     "type": "array",
+     "items": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     }
+    }
+   },
+   "required": [
+    "members"
+   ],
+   "additionalProperties": false
+  },
+  "rollup": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "axis": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 2
+    }
+   },
+   "required": [
+    "axis"
+   ],
+   "additionalProperties": false
+  },
+  "drill": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "axis": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 2
+    }
+   },
+   "required": [
+    "axis"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

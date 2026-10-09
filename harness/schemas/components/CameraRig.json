@@ -1,0 +1,118 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "move": {
+   "default": "push_in",
+   "type": "string",
+   "enum": [
+    "static",
+    "push_in",
+    "pull_out",
+    "truck",
+    "pedestal",
+    "orbit",
+    "yaw",
+    "crane",
+    "dolly_zoom",
+    "follow"
+   ]
+  },
+  "ease": {
+   "default": "inOutCubic",
+   "type": "string",
+   "enum": [
+    "inOutCubic",
+    "outExpo",
+    "linear"
+   ]
+  },
+  "intensity": {
+   "default": 0.5,
+   "type": "number",
+   "minimum": 0,
+   "maximum": 1
+  },
+  "follow": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "nudges": {
+   "minItems": 0,
+   "maxItems": 6,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "word": {
+      "type": "string",
+      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+     },
+     "lead_frames": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 90
+     }
+    },
+    "required": [
+     "word",
+     "lead_frames"
+    ],
+    "additionalProperties": false
+   }
+  }
+ },
+ "additionalProperties": false,
+ "$id": "dc:component:CameraRig",
+ "title": "CameraRig",
+ "description": "The shot camera: move + ease + intensity; drift always on; optional impact nudges (<= 4 px) on anchors.",
+ "x-family": "State & FX",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

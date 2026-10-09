@@ -1,0 +1,87 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "text": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 32,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  },
+  "object": {
+   "type": "string",
+   "maxLength": 48
+  },
+  "direction": {
+   "default": "text_to_object",
+   "type": "string",
+   "enum": [
+    "text_to_object",
+    "object_to_text"
+   ]
+  },
+  "particles": {
+   "default": 600,
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 1500
+  }
+ },
+ "required": [
+  "text",
+  "object"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:MorphTextToObject",
+ "title": "MorphTextToObject",
+ "description": "Text dissolves into particles that become an object, or the reverse (preset morph).",
+ "x-family": "State & FX",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {}
+}

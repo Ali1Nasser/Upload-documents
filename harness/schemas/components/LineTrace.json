@@ -1,0 +1,200 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "series": {
+   "minItems": 1,
+   "maxItems": 4,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "points": {
+      "minItems": 2,
+      "maxItems": 200,
+      "type": "array",
+      "items": {
+       "type": "array",
+       "prefixItems": [
+        {
+         "type": "number"
+        },
+        {
+         "type": "number"
+        }
+       ],
+       "items": false,
+       "minItems": 2,
+       "maxItems": 2
+      }
+     },
+     "ref": {
+      "anyOf": [
+       {
+        "type": "string",
+        "pattern": "^d:\\d+(\\.\\d+)*:\\d+$"
+       },
+       {
+        "type": "string",
+        "pattern": "^s:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{4}$"
+       }
+      ]
+     },
+     "color": {
+      "type": "string",
+      "enum": [
+       "void",
+       "ground",
+       "panel",
+       "grid",
+       "ink",
+       "ink2",
+       "ink3",
+       "signal",
+       "ok",
+       "warn",
+       "crit",
+       "violet",
+       "ember",
+       "paper",
+       "paperShade",
+       "paperInk",
+       "paperOk",
+       "paperCrit",
+       "white"
+      ]
+     }
+    },
+    "required": [
+     "label",
+     "points",
+     "ref"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "x_label": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 40,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  },
+  "y_label": {
+   "type": "string",
+   "minLength": 1,
+   "maxLength": 40,
+   "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+  }
+ },
+ "required": [
+  "series"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:LineTrace",
+ "title": "LineTrace",
+ "description": "Line series drawn on anchors with point markers.",
+ "x-family": "Data",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "drawTo": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "x": {
+     "type": "number"
+    }
+   },
+   "required": [
+    "x"
+   ],
+   "additionalProperties": false
+  },
+  "markPoint": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "series": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 3
+    },
+    "index": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 199
+    },
+    "label": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    }
+   },
+   "required": [
+    "series",
+    "index"
+   ],
+   "additionalProperties": false
+  }
+ }
+}

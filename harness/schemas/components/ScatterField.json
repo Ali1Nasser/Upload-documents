@@ -1,0 +1,157 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "type": "object",
+ "properties": {
+  "id": {
+   "type": "string",
+   "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+  },
+  "slot": {
+   "type": "string",
+   "enum": [
+    "full",
+    "center",
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "upper-third",
+    "lower-third"
+   ]
+  },
+  "depth": {
+   "type": "string",
+   "enum": [
+    "far",
+    "mid",
+    "near",
+    "fg"
+   ]
+  },
+  "until": {
+   "type": "object",
+   "properties": {
+    "word": {
+     "type": "string",
+     "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+    },
+    "lead_frames": {
+     "type": "integer",
+     "minimum": 0,
+     "maximum": 90
+    }
+   },
+   "required": [
+    "word",
+    "lead_frames"
+   ],
+   "additionalProperties": false
+  },
+  "clusters": {
+   "minItems": 1,
+   "maxItems": 8,
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "label": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+     },
+     "n": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 500
+     },
+     "center": {
+      "type": "array",
+      "prefixItems": [
+       {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+       },
+       {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+       }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+     },
+     "spread": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.5
+     }
+    },
+    "required": [
+     "label",
+     "n",
+     "center",
+     "spread"
+    ],
+    "additionalProperties": false
+   }
+  },
+  "outliers": {
+   "default": 0,
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 50
+  },
+  "seed": {
+   "type": "integer",
+   "minimum": 0,
+   "maximum": 2147483647
+  }
+ },
+ "required": [
+  "clusters",
+  "seed"
+ ],
+ "additionalProperties": false,
+ "$id": "dc:component:ScatterField",
+ "title": "ScatterField",
+ "description": "Seeded point clusters (total <= 1,500 points).",
+ "x-family": "Data",
+ "x-status": "frozen-contract",
+ "x-impl": "P7",
+ "x-actions": {
+  "highlightCluster": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    },
+    "label": {
+     "type": "string",
+     "minLength": 1,
+     "maxLength": 40,
+     "pattern": "^[^\\u0660-\\u0669\\u06F0-\\u06F9]*$"
+    }
+   },
+   "required": [
+    "label"
+   ],
+   "additionalProperties": false
+  },
+  "showOutliers": {
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "type": "object",
+   "properties": {
+    "target": {
+     "type": "string",
+     "pattern": "^[a-z][a-z0-9_-]{0,31}$"
+    }
+   },
+   "additionalProperties": false
+  }
+ }
+}

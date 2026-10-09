@@ -127,5 +127,29 @@
     "pass": true
    }
   ]
+ },
+ "motion": {
+  "MD-standard": {
+   "strip": "reports/lookdev/r3/strips/MD-standard_fix.jpg",
+   "strip_frames": [
+    0,
+    20,
+    33,
+    160,
+    210,
+    260,
+    262,
+    287
+   ],
+   "frames": 288,
+   "s_per_frame_box": 0.1369,
+   "r3_s_per_frame_box": 0.1322,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg_1m": 5.76,
+   "mp4": "data/renders/lookdev/r3/MD-standard_swiftshader.mp4",
+   "pre_fix_mp4": "data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4",
+   "note": "ADR-009 condition 3: MD re-rendered after a3b86c1 (R2 ghost title split in two phrases; B2 gaps); same driver and settings as r3; awaits arabic-typographer review and the render-ops condition-4 diff"
+  }
  }
 }
