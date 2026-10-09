@@ -100,3 +100,9 @@ P3b-4. S2 (music bed) aligned as well as S1 with MMS on the raw audio (median co
 P3b-5. S5 English with MMS 'eng': the script is its own romanisation, median char posterior 0.997. Caption k of cues_70m05.json starts at the cumulative count of alignable tokens (`AL.tokenise` of the caption text), not at the caption's `words` field, which also counts standalone dashes.
 P3b-6. Parallel queue jobs that update corpus/audio/assets.json raced on read-modify-write; `audio.set_alignment` now takes a file lock (data/derived/audio/assets.lock).
 P3b-7. The G3 two-aligner clause names S5 (English): a gate-side substitute (cue check) is a different measurement. Fix by adding a second aligner, not by redefining the clause: facebook/wav2vec2-base-960h (360 MB, HF reachable through the proxy) + `forced_align_w2v` reused unchanged (blank = pad id 0, '|' delimiter) gave 99.8 % of 8,643 words within 120 ms in one 3-thread queue job; digits are spelled out for the surrogate.
+
+## 2026-10-09 — x0.at download blocked from the container (P14 risk)
+- The FYI sample was uploaded to x0.at (https://x0.at/tlVA.m4a), and the upload returned a URL. Every GET from this container then returned `403 Forbidden Your IP is banned.` (32 bytes), so the SHA-256 could not be verified. This is not a verified deliverable.
+- The P0 smoke test (budget.json upload_smoke) passed in both directions, so the ban is newer. It may be temporary.
+- temp.sh still works: the same sample is verified at https://temp.sh/ziCYR/radio_edit_sample.m4a (SHA-256 1b1457e9…e855).
+- P14 action: re-test x0.at GET first. If it is still banned, ask the user to verify the x0.at SHA-256 from their side, or deliver on temp.sh only. Do not report an x0.at link as verified until a re-download matches.
