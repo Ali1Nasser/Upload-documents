@@ -159,5 +159,421 @@
    },
    "next": "7 council-member lenses score O1-O6; synthesis per 02 s3"
   }
+ },
+ {
+  "council": "C2",
+  "date": "2026-10-09",
+  "chair": "council-chair",
+  "status": "decided",
+  "brief": "docs/decisions/C2.brief.md",
+  "method": "Per criterion: mean of 7 lens scores (1-10), weighted by brief weights (sum 1.0); confidence-weighted variant also computed. Rule (computed task): decide if >=5/7 agree and top-two margin >5%; else take higher weighted score, confidence low, list reversal triggers; no experiment unless an option is infeasible.",
+  "confidence_members": {
+   "director": 0.6,
+   "educator": 0.6,
+   "motion-design": 0.68,
+   "technical-accuracy": 0.62,
+   "egyptian-arabic": 0.6,
+   "audio-sync": 0.7,
+   "producer": 0.68,
+   "mean": 0.64
+  },
+  "id": "ADR-002",
+  "path": "docs/decisions/ADR-002-render-stack.md",
+  "decision": {
+   "Q2.1": "F24 (1080p24; lead_frames kept, 04 s4 table converted ms-preserving: kinetic 2, state 2, cut 3-5, sfx 3, hold>=29, pause<=144 frames)",
+   "Q2.2": "GL-SS (swiftshader everywhere, never mixed)",
+   "Q2.3": "RT5 (<=5% real-time WebGL; CH-00, CH-33, 3-4 transitions first; CSS hero elsewhere; R3F warmup fix mandatory)",
+   "Q2.4": "FX2 (standard: glow 10/32 px, grain 1.5%, vignette 15%, haze 8%, CA<=0.6 px Latin/numeral impact words only, 0 on Arabic; hero = WebGL only)",
+   "hero_particle_cap": 1500,
+   "text_safe_masks": true
+  },
+  "confidence": {
+   "Q2.1": "low",
+   "Q2.2": "normal",
+   "Q2.3": "normal",
+   "Q2.4": "low"
+  },
+  "scores": {
+   "Q2.1": {
+    "scores": {
+     "F30": 6.35,
+     "F24": 6.55
+    },
+    "conf_weighted": {
+     "F30": 6.344,
+     "F24": 6.554
+    },
+    "margin_pct": 3.15,
+    "top": "F24",
+    "second": "F30"
+   },
+   "Q2.2": {
+    "scores": {
+     "GL-SS": 7.8,
+     "GL-SW": 4.471,
+     "GL-AN": 5.414
+    },
+    "conf_weighted": {
+     "GL-SS": 7.793,
+     "GL-SW": 4.473,
+     "GL-AN": 5.396
+    },
+    "margin_pct": 44.07,
+    "top": "GL-SS",
+    "second": "GL-AN"
+   },
+   "Q2.3": {
+    "scores": {
+     "RT15": 4.743,
+     "RT10": 5.486,
+     "RT5": 7.0,
+     "PL": 5.586,
+     "HY": 6.179
+    },
+    "conf_weighted": {
+     "RT15": 4.735,
+     "RT10": 5.476,
+     "RT5": 6.998,
+     "PL": 5.583,
+     "HY": 6.172
+    },
+    "margin_pct": 13.29,
+    "top": "RT5",
+    "second": "HY"
+   },
+   "Q2.4": {
+    "scores": {
+     "FX2": 6.664,
+     "FX3": 6.4
+    },
+    "conf_weighted": {
+     "FX2": 6.666,
+     "FX3": 6.403
+    },
+    "margin_pct": 4.12,
+    "top": "FX2",
+    "second": "FX3"
+   }
+  },
+  "votes": {
+   "Q2.1": {
+    "F24": [
+     "director",
+     "educator",
+     "motion-design",
+     "technical-accuracy",
+     "producer"
+    ],
+    "F30": [
+     "egyptian-arabic",
+     "audio-sync"
+    ]
+   },
+   "Q2.2": {
+    "GL-SS": "7/7"
+   },
+   "Q2.3": {
+    "RT5": "7/7"
+   },
+   "Q2.4": {
+    "FX2": [
+     "director",
+     "motion-design",
+     "egyptian-arabic",
+     "producer"
+    ],
+    "FX3": [
+     "educator",
+     "technical-accuracy",
+     "audio-sync"
+    ]
+   },
+   "particle_cap_1500": "7/7",
+   "text_safe_masks": "7/7"
+  },
+  "cross_review": "skipped for Q2.1-Q2.3 (agreement >=5/7); not run for Q2.4 (4/7) - resolved by weighted score, confidence low",
+  "projection_h": {
+   "F24_RT5_pure_4h10": [
+    17.9,
+    22.6
+   ],
+   "F24_RT5_plus25": [
+    22.4,
+    28.3
+   ],
+   "F24_RT5_pure_4h02": [
+    17.3,
+    21.9
+   ]
+  },
+  "budget_reading": "24 h = pure P12 final-render projection (00 s7 P12 6-24 h CPU); +25% tracked as contingency (chair reading, challengeable; R2 covers the other reading)",
+  "plan_amendments": [
+   "00 s1 D1: 24 fps invoked",
+   "00 s4 row 002: swiftshader replaces swangle",
+   "04 s1.3 standard row -> FX2 values; hero row <=5% and particles <=1,500",
+   "04 s4 timing table -> 24 fps frames",
+   "04 s5 hero <=15%/chapter -> <=5% film"
+  ],
+  "reversal_triggers": [
+   "R1 F24->F30: G8 sync median>40 ms or p95>100 ms with >=50% from quantisation; or critic cadence<=6 attributed to 24 fps; or blended <=0.170 box s/frame",
+   "R2 blended >0.240 box s/frame at first chapter render (or budget read incl. +25%): hero 3% -> 1% -> scale-up ADR",
+   "R3 GL-AN only if >=1.5x faster on >=3 classes and MB-hero PSNR>=40 dB",
+   "R4 RT10 in arc peaks if G6a parity<7.5 (depth/light lowest) and >=2 h headroom",
+   "R5 FX2->FX3 if legibility<7 attributed to FX2, Arabic fringing, or standard >0.201 box s/frame"
+  ],
+  "g6a": "not waived",
+  "follow_ups": [
+   "render-ops: fps 24 + swiftshader config; first-chapter chunk benchmark",
+   "motion-engineer: R3F warmup, FX2 tokens, cap 1,500, text-safe masks, CA scoping",
+   "loop-engineer/harness-engineer: dc spec lint hero<=5%, particles<=1,500, 24 fps lead table, no backend mix",
+   "sync-verifier: G8 pilot sync at 24 fps",
+   "critic: pilot cadence; G6a re-score after P7"
+  ]
+ },
+ {
+  "council": "C2",
+  "date": "2026-10-09",
+  "chair": "council-chair",
+  "status": "decided",
+  "brief": "docs/decisions/C2.brief.md",
+  "method": "Per criterion: mean of 7 lens scores (1-10), weighted by brief weights (sum 1.0); confidence-weighted variant also computed. Rule (computed task): decide if >=5/7 agree and top-two margin >5%; else take higher weighted score, confidence low, list reversal triggers; no experiment unless an option is infeasible.",
+  "confidence_members": {
+   "director": 0.6,
+   "educator": 0.6,
+   "motion-design": 0.68,
+   "technical-accuracy": 0.62,
+   "egyptian-arabic": 0.6,
+   "audio-sync": 0.7,
+   "producer": 0.68,
+   "mean": 0.64
+  },
+  "id": "ADR-003",
+  "path": "docs/decisions/ADR-003-look-typography.md",
+  "decision": {
+   "typography": "T-A (Alexandria 700 >=56 px; Plex Sans Arabic 600 below, word-spacing 0.08 em; Inter Tight 700; JetBrains Mono; line-height>=1.6 with diacritics; title-subtitle +0.3 em; never mix A/B in a chapter)",
+   "baseline": "LK-F (freeze now; critic fixes 1-5 + 3 missing frames are P7 requirements; G6a re-scored, not waived)",
+   "min_label_px": {
+    "spoken_or_object": 28,
+    "secondary_non_spoken_floor": 18
+   }
+  },
+  "confidence": {
+   "typography": "low",
+   "baseline": "normal",
+   "min_label_28": "normal",
+   "floor_18": "low"
+  },
+  "scores": {
+   "typography": {
+    "scores": {
+     "T-A": 7.293,
+     "T-B": 7.007,
+     "T-C": 6.743
+    },
+    "conf_weighted": {
+     "T-A": 7.289,
+     "T-B": 6.995,
+     "T-C": 6.736
+    },
+    "margin_pct": 4.08,
+    "top": "T-A",
+    "second": "T-B"
+   },
+   "baseline": {
+    "scores": {
+     "LK-F": 6.679,
+     "LK-H": 6.1
+    },
+    "conf_weighted": {
+     "LK-F": 6.671,
+     "LK-H": 6.089
+    },
+    "margin_pct": 9.49,
+    "top": "LK-F",
+    "second": "LK-H"
+   }
+  },
+  "votes": {
+   "typography": {
+    "T-A": "7/7"
+   },
+   "baseline": {
+    "LK-F": "7/7"
+   },
+   "labels": {
+    "28_spoken_object": "7/7",
+    "18_secondary_floor": [
+     "motion-design",
+     "technical-accuracy",
+     "egyptian-arabic",
+     "audio-sync",
+     "producer"
+    ],
+    "28_only": [
+     "director"
+    ],
+    "24_floor": [
+     "educator"
+    ]
+   }
+  },
+  "cross_review": "skipped (agreement 7/7 on scored questions)",
+  "reversal_triggers": [
+   "T-A->T-B whole film: unfixable collision at real script, or post-3-preview re-score T-B >= T-A+0.20",
+   "LK-F->LK-H for failing tokens: re-scored set look<8.0 or parity<7.5 attributed to tokens",
+   "labels: D6 <20 events/min in >=2 chapters -> per-scene label caps review (28 px spoken floor unchanged)"
+  ],
+  "g6a": "not waived",
+  "follow_ups": [
+   "arabic-typographer: real-script collision test; spacing tokens",
+   "motion-engineer: freeze tokens; critic fixes 1-5",
+   "visual-librarian + scene-director: Holo-City, portal ignition, orbit+kinetic word frames",
+   "loop-engineer: label lint 28/18; no A/B mixing",
+   "egyptian-arabic reviewer + fact-checker: microcopy pass",
+   "critic: G6a re-score"
+  ]
+ },
+ {
+  "council": "C2",
+  "date": "2026-10-09",
+  "chair": "council-chair",
+  "status": "decided",
+  "brief": "docs/decisions/C2.brief.md",
+  "method": "Per criterion: mean of 7 lens scores (1-10), weighted by brief weights (sum 1.0); confidence-weighted variant also computed. Rule (computed task): decide if >=5/7 agree and top-two margin >5%; else take higher weighted score, confidence low, list reversal triggers; no experiment unless an option is infeasible.",
+  "confidence_members": {
+   "director": 0.6,
+   "educator": 0.6,
+   "motion-design": 0.68,
+   "technical-accuracy": 0.62,
+   "egyptian-arabic": 0.6,
+   "audio-sync": 0.7,
+   "producer": 0.68,
+   "mean": 0.64
+  },
+  "id": "ADR-004",
+  "path": "docs/decisions/ADR-004-captions.md",
+  "decision": "CAP-AR (soft Arabic mov_text ara + .ar.srt/.ar.vtt from EDL sentences timed to S5 words; RLM + isolates; no English; no burn-in)",
+  "confidence": "normal",
+  "scores": {
+   "scores": {
+    "CAP-AR": 8.114,
+    "CAP-ARENT": 7.486,
+    "CAP-AREN": 6.643,
+    "CAP-BP": 6.371,
+    "CAP-BF": 4.786
+   },
+   "conf_weighted": {
+    "CAP-AR": 8.111,
+    "CAP-ARENT": 7.483,
+    "CAP-AREN": 6.647,
+    "CAP-BP": 6.37,
+    "CAP-BF": 4.779
+   },
+   "margin_pct": 8.39,
+   "top": "CAP-AR",
+   "second": "CAP-ARENT"
+  },
+  "votes": {
+   "CAP-AR": "7/7"
+  },
+  "cross_review": "skipped (agreement 7/7)",
+  "reversal_triggers": [
+   "->CAP-ARENT if user asks or gloss_en trunk verified >=98% on 100-sentence sample",
+   "->CAP-BP named windows if G9a window WER >= 2x film median",
+   "player RTL failure after fixes -> sidecars primary, documented"
+  ],
+  "follow_ups": [
+   "transcription-aligner: cue segmentation",
+   "render-ops/delivery-publisher: mux + 30 s RTL test VLC/QuickTime/Chrome",
+   "sync-verifier: caption timing at G10a"
+  ]
+ },
+ {
+  "council": "C2",
+  "date": "2026-10-09",
+  "chair": "council-chair",
+  "status": "decided",
+  "brief": "docs/decisions/C2.brief.md",
+  "method": "Per criterion: mean of 7 lens scores (1-10), weighted by brief weights (sum 1.0); confidence-weighted variant also computed. Rule (computed task): decide if >=5/7 agree and top-two margin >5%; else take higher weighted score, confidence low, list reversal triggers; no experiment unless an option is infeasible.",
+  "confidence_members": {
+   "director": 0.6,
+   "educator": 0.6,
+   "motion-design": 0.68,
+   "technical-accuracy": 0.62,
+   "egyptian-arabic": 0.6,
+   "audio-sync": 0.7,
+   "producer": 0.68,
+   "mean": 0.64
+  },
+  "id": "ADR-005",
+  "path": "docs/decisions/ADR-005-music-sfx.md",
+  "decision": {
+   "palette": "MS-P (procedural music + ~20 procedural SFX; licences logged)",
+   "bed_under_vo_lufs_s": -26,
+   "bed_fallback_lufs_s": -28,
+   "ducking_release_ms_min": 300,
+   "room_tone_under_digital_silence": true
+  },
+  "confidence": "low",
+  "scores": {
+   "scores": {
+    "MS-P": 7.836,
+    "MS-C": 7.357,
+    "MS-R": 6.45,
+    "MS-S2": 3.707
+   },
+   "conf_weighted": {
+    "MS-P": 7.838,
+    "MS-C": 7.356,
+    "MS-R": 6.45,
+    "MS-S2": 3.709
+   },
+   "margin_pct": 6.51,
+   "top": "MS-P",
+   "second": "MS-C"
+  },
+  "votes": {
+   "palette": {
+    "MS-P": [
+     "educator",
+     "technical-accuracy",
+     "audio-sync",
+     "producer"
+    ],
+    "MS-C": [
+     "director",
+     "motion-design",
+     "egyptian-arabic"
+    ]
+   },
+   "bed": {
+    "-26": [
+     "director",
+     "motion-design",
+     "technical-accuracy",
+     "audio-sync"
+    ],
+    "-28": [
+     "educator",
+     "egyptian-arabic",
+     "producer"
+    ]
+   }
+  },
+  "note": "All 7 lenses own weighted scores rank MS-P first. Bed level is taste, carried by audio-sync lens.",
+  "screened": {
+   "MS-S2": "licence unknown; G9a requires licences logged"
+  },
+  "cross_review": "not run (4/7) - resolved by weighted score, confidence low",
+  "reversal_triggers": [
+   "bed -26->-28 if WER(mix)-WER(VO) > 2 points (P11 60 s check or G9a)",
+   "MS-P->MS-C if SFX premium <=6/10 or repetition flagged, and CC0 host reachable with licence logged",
+   "music->MS-R if premium <=5/10 after one procedural revision and terms logged"
+  ],
+  "follow_ups": [
+   "sound-designer: palette, motifs, stingers, bed, room tone, 60 s WER check, licenses.md (incl. OFL fonts)",
+   "critic: listening review of radio-edit and pilot",
+   "audio-forensics: confirm S2 bed unused"
+  ]
  }
 ]
