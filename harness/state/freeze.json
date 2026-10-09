@@ -2,9 +2,25 @@
  "v": 1,
  "phase": "P6",
  "step": "03 P6.4 freeze (contract between P7 and P8)",
- "status": "frozen",
- "frozen_at": "2026-10-09T23:17:17Z",
- "base_commit": "d6ac265",
+ "status": "provisional",
+ "open_preconditions": [
+  "cond 3: latest arabic_r*.md verdict must be PASS (0 blocking, 0 required) and name MD-standard_fix + all 7 *_fix stills [arabic-typographer]",
+  "cond 4: reports/lookdev/r3/regress.json by render-ops, pass=true, covering the 7 fix stills [render-ops]",
+  "JOIN_GAP {'display': {'caps': 0.2, 'latin': 0.25}, 'text': {'caps': 0.25, 'latin': 0.3}} != ADR-009 B2 {'display': {'caps': 0.2, 'latin': 0.14}, 'text': {'caps': 0.25, 'latin': 0.1}}: a decided Council ADR amending ADR-009 B2 is required [council-chair]"
+ ],
+ "join_gap": {
+  "display": {
+   "caps": 0.2,
+   "latin": 0.25
+  },
+  "text": {
+   "caps": 0.25,
+   "latin": 0.3
+  }
+ },
+ "join_gap_amendment": null,
+ "hashed_at": "2026-10-09T23:23:14Z",
+ "base_commit": "cebb302",
  "by": "motion-engineer",
  "look": "reports/lookdev/r3 (critic_r3: look 8.01, parity 7.5) + arabic r3 fixes a3b86c1 (re-check PASS d6ac265)",
  "adrs": [

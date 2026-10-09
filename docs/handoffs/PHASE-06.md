@@ -46,3 +46,17 @@ The look, the ADRs, the freeze and the render budget all pass. The two failing c
 - **`fx_tier` naming mismatch**: `harness/schemas/scene_spec.schema.json` uses `fx_tier` enum `light`, while tokens and 04 use `lite`. harness-engineer should align it to `lite` before P8 specs are written.
 - **Canon drift**: the canon says `6 الـAI`, but the look-dev shows `6 AI`. The scene-director must decide or log an override (`arabic_r3.md` Open 1).
 - **Carried work**: AT-1..AT-10 from ADR-009, with AT-9 (plate bake cost and disk plan) blocking P10. `dc qa arabic` (AT-10) is still unimplemented, which blocks G6b and G8.
+
+## G6a verifier round 0 (cebb302): freeze voided, ordering enforced (motion-engineer)
+- **Freeze order fixed**: the a773103 freeze ran while ADR-009 conditions 3 and 4 were still open, so it is void.
+  - `studio/scripts/freeze_p6.py` writes `status: frozen` only when all of these hold; otherwise it writes `provisional` (hashes kept, `open_preconditions` listed) and exits 2:
+    - (1-2) OCR gate strings ≥ 0.90 and the type suite passes;
+    - (3) the latest `arabic_r*.md` verdict is PASS, names `MD-standard_fix` and all 7 `*_fix` stills, and is committed after the newest of them;
+    - (4) `regress.json` is by render-ops, has `pass=true`, covers the 7 stills and is newer than them;
+    - `JOIN_GAP` equals ADR-009 B2, or a decided ADR amends B2 (it must name `JOIN_GAP` and `amends ADR-009`).
+  - Re-run now: `provisional`, with 3 preconditions open. G6a is 5/8, which is expected until the freeze is re-run.
+- **Next, in order:**
+  1. arabic-typographer reviews `strips/MD-standard_fix.jpg` (R2 two-phrase ghost, B2 gaps) together with the 7 fix stills, and appends a PASS or FAIL heading to `arabic_r3.md` (or writes `arabic_r4.md`).
+  2. render-ops derives the edited text boxes from the 8f245ee..a3b86c1 source diff and runs `python3 -I studio/scripts/lookdev_regress.py --boxes <boxes.json> --by render-ops` through the queue. Then delete `data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4`.
+  3. Council records the JOIN_GAP amendment: mixed case display 0.25 / text 0.30 em, against B2's 0.14 / 0.10 em, as accepted by the arabic-typographer OCR sweep at d6ac265.
+  4. motion-engineer re-runs `freeze_p6.py`, which must exit 0, then runs `dc gate check G6a`.
