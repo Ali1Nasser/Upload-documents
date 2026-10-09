@@ -7,7 +7,7 @@ import {ThreeCanvas} from '@remotion/three';
 import {Bloom, EffectComposer} from '@react-three/postprocessing';
 import {useThree} from '@react-three/fiber';
 import * as THREE from 'three';
-import {ArCaption, Backdrop, Bokeh, FloorGrid, Glass, KWord, Mix, Post, Rect, Scrim, TermChip, textSafeMask} from './kit';
+import {ArCaption, Backdrop, Bokeh, FloorGrid, Glass, KWord, Mix, Post, Rect, Scrim, TermChip, Vignette, textSafeMask} from './kit';
 import {FX as FX_TIERS} from '../tokens';
 import {C, EASE, Fx, Typo, caShadow, glow, halo} from './theme';
 import {RAG} from './content';
@@ -191,13 +191,16 @@ export const ROADMAP_DIM = 0.6;
 export const cardRect = (cam: Cam, key: 'idem' | 'roadmap'): Rect => {
   const p = project(makeCamera(cam), ANCHOR[key]);
   const right = key === 'roadmap';
-  return {x: right ? p.x + CARD.off : p.x - CARD.off - CARD.w, y: p.y - CARD.lift, w: CARD.w, h: CARD.h};
+  // r3: cards carry their own 0.84-opaque surface, so the field stays at 35 % behind them (no hard hole)
+  return {x: right ? p.x + CARD.off : p.x - CARD.off - CARD.w, y: p.y - CARD.lift, w: CARD.w, h: CARD.h, floor: 0.35};
 };
 // r2 (critic r1 #2): the title rect now starts at the measured left edge of 'لموضع' (x ~745) minus 24 px
 export const TITLE_RECT: Rect = {x: 720, y: 56, w: 1080, h: 156};
 // r2 (arabic r1 BLOCKING): the query caption is two lines at line-height 1.6 (shadda), bottom-right glass
-export const CAPTION_RECT: Rect = {x: 1150, y: 806, w: 650, h: 180};
-export const CHIP_RECT: Rect = {x: 120, y: 90, w: 420, h: 60};
+export const CAPTION_RECT: Rect = {x: 1150, y: 806, w: 650, h: 180, floor: 0.3};
+// r3 (critic r2 #2): the r2 chip rect was 420 px wide for a ~345 px pill, which left a starless box right of the chip
+// (x 460-555); it now matches the pill and keeps 30 % of the field behind its opaque surface
+export const CHIP_RECT: Rect = {x: 120, y: 90, w: 350, h: 58, floor: 0.3};
 
 export type ProbeState = {
   q: THREE.Vector3; // current query position
@@ -222,6 +225,15 @@ export const ProbeOverlay: React.FC<{cam: Cam; st: ProbeState; typo: Typo; fx: F
   return (
     <AbsoluteFill>
       <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
+        <defs>
+          {[C.ok, C.crit, C.ink2, C.signal].map((col) => (
+            <radialGradient key={col} id={`halo-${col.slice(1)}`} cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0" stopColor={col} stopOpacity={0.55} />
+              <stop offset="0.35" stopColor={col} stopOpacity={0.28} />
+              <stop offset="1" stopColor={col} stopOpacity={0} />
+            </radialGradient>
+          ))}
+        </defs>
         {nb.map((n) => {
           if (n.k <= 0) return null;
           const p = project(c, n.v);
@@ -230,8 +242,11 @@ export const ProbeOverlay: React.FC<{cam: Cam; st: ProbeState; typo: Typo; fx: F
           const dashed = n.key === 'roadmap' && st.roadmapFade > 0;
           return (
             <g key={n.key} opacity={Math.min(1, n.k * 1.5) * n.dim}>
-              <line x1={q.x} y1={q.y} x2={ex} y2={ey} stroke={n.col} strokeWidth={n.key === 'third' ? 2 : 3.5} strokeDasharray={dashed || n.key === 'third' ? '8 10' : undefined} style={{filter: `drop-shadow(0 0 ${fx.glowInner}px ${n.col})`}} />
-              <circle cx={p.x} cy={p.y} r={n.key === 'third' ? 9 : 14} fill={n.col} style={{filter: `drop-shadow(0 0 ${fx.glowPx * 0.7}px ${n.col})`}} />
+              {/* r3 perf: glow = wide low-alpha strokes / halo discs (no per-element CSS drop-shadow filter) */}
+              <line x1={q.x} y1={q.y} x2={ex} y2={ey} stroke={n.col} strokeOpacity={0.18} strokeWidth={fx.glowInner * 1.4} strokeLinecap="round" strokeDasharray={dashed || n.key === 'third' ? '8 10' : undefined} />
+              <line x1={q.x} y1={q.y} x2={ex} y2={ey} stroke={n.col} strokeWidth={n.key === 'third' ? 2 : 3.5} strokeDasharray={dashed || n.key === 'third' ? '8 10' : undefined} />
+              <circle cx={p.x} cy={p.y} r={(n.key === 'third' ? 9 : 14) + fx.glowPx * 0.7} fill={`url(#halo-${n.col.slice(1)})`} />
+              <circle cx={p.x} cy={p.y} r={n.key === 'third' ? 9 : 14} fill={n.col} />
               <circle cx={p.x} cy={p.y} r={n.key === 'third' ? 18 : 30} fill="none" stroke={n.col} strokeOpacity={0.5} strokeWidth={1.5} />
             </g>
           );
@@ -239,8 +254,9 @@ export const ProbeOverlay: React.FC<{cam: Cam; st: ProbeState; typo: Typo; fx: F
         {st.probe > 0 ? (
           <g opacity={st.probe}>
             <circle cx={q.x} cy={q.y} r={44 * pulse} fill="none" stroke={C.signal} strokeOpacity={0.35} strokeWidth={2} />
-            <circle cx={q.x} cy={q.y} r={24} fill="none" stroke={C.signal} strokeWidth={3} style={{filter: `drop-shadow(0 0 ${fx.glowPx}px ${C.signal})`}} />
-            <circle cx={q.x} cy={q.y} r={9} fill={C.ink} style={{filter: `drop-shadow(0 0 ${fx.glowInner}px ${C.signal})`}} />
+            <circle cx={q.x} cy={q.y} r={24 + fx.glowPx} fill={`url(#halo-${C.signal.slice(1)})`} opacity={0.7} />
+            <circle cx={q.x} cy={q.y} r={24} fill="none" stroke={C.signal} strokeWidth={3} />
+            <circle cx={q.x} cy={q.y} r={9} fill={C.ink} />
           </g>
         ) : null}
       </svg>
@@ -299,58 +315,105 @@ export const GalaxyPlate: React.FC<{mode: 'push' | 'final'}> = ({mode}) => {
   );
 };
 
-/** Hero tier live layer over the plate: ~360 near-field GL points around the probe path, NO EffectComposer. */
-const nearField = (n: number) => {
+/**
+ * r3 hero (critic r2 #3): the 360 live points are an out-of-focus FOREGROUND, between the camera and the field, so the
+ * push sweeps them across and out of frame at several times the plate's apparent speed (real parallax, not more stars).
+ * Three size classes (sharp specks, soft discs, large bokeh), seeded; half are placed for the opening camera, half for
+ * the final one, so both MB and the F4 still carry them. Additive, dim, masked out of every text box like the plate.
+ */
+const FG = [
+  {n: 200, size: 0.05, k: [0.45, 0.85], soft: false},
+  {n: 110, size: 0.2, k: [0.1, 0.22], soft: true},
+  {n: 50, size: 0.55, k: [0.05, 0.11], soft: true},
+] as const;
+const TGT = new THREE.Vector3(0.1, 0.25, 0.6);
+const fgField = (cls: number) => {
+  const {n, k} = FG[cls];
   const pos = new Float32Array(n * 3);
   const col = new Float32Array(n * 3);
-  const sig = new THREE.Color(C.signal);
-  const ink = new THREE.Color(C.ink);
+  const pal = [new THREE.Color(C.signal), new THREE.Color(C.violet), new THREE.Color(C.ink)];
   for (let i = 0; i < n; i++) {
-    const a = [ANCHOR.q0, ANCHOR.q1, ANCHOR.idem, ANCHOR.roadmap][i % 4];
-    pos.set([a.x + gauss(`nx${i}`) * 1.4, a.y + gauss(`ny${i}`) * 0.9, a.z + 1.2 + gauss(`nz${i}`) * 2.2], i * 3);
-    const c = random(`nc${i}`) < 0.7 ? sig : ink;
-    const k = 0.5 + random(`nb${i}`) * 0.5;
-    col.set([c.r * k, c.g * k, c.b * k], i * 3);
+    const s = `fg${cls}-${i}`;
+    const late = random(s + 'L') < 0.5; // placed for the final camera (dist ~7) or the opening one (dist 17)
+    const camD = late ? 7.2 : 17;
+    const u = late ? 1 + random(s + 'u') * 4.6 : 2 + random(s + 'u') * 12; // distance in front of the target, toward the camera
+    const depth = Math.max(1.2, camD - u); // distance from that camera
+    // frame the subject: soft discs keep to the outer 40-95 % of the frustum (the probe/centre stays clear), specks anywhere
+    const edge = (key: string) => {
+      const r = random(s + key);
+      if (!FG[cls].soft) return (r - 0.5) * 2;
+      const m = 0.4 + random(s + key + 'm') * 0.55;
+      return r < 0.5 ? -m : m;
+    };
+    const x = TGT.x + edge('x') * 0.68 * depth * 0.95;
+    const y = TGT.y + 0.6 + (FG[cls].soft && random(s + 'yy') < 0.6 ? (random(s + 'y') - 0.5) * 2 : edge('y')) * 0.38 * depth * 0.95;
+    pos.set([x, y, TGT.z + u], i * 3);
+    const c = pal[random(s + 'c') < 0.6 ? 0 : random(s + 'c2') < 0.6 ? 1 : 2];
+    const b = k[0] + random(s + 'b') * (k[1] - k[0]);
+    col.set([c.r * b, c.g * b, c.b * b], i * 3);
   }
   return {pos, col};
 };
-const GLNear: React.FC<{cam: Cam}> = ({cam}) => {
+let bokehTex: THREE.Texture | null = null;
+const bokehSprite = () => {
+  if (bokehTex) return bokehTex;
+  const cv = document.createElement('canvas');
+  cv.width = 128;
+  cv.height = 128;
+  const g = cv.getContext('2d')!;
+  const grd = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+  grd.addColorStop(0, 'rgba(255,255,255,0.4)');
+  grd.addColorStop(0.7, 'rgba(255,255,255,0.46)');
+  grd.addColorStop(0.84, 'rgba(255,255,255,0.62)'); // faint rim, like a lens disc
+  grd.addColorStop(0.94, 'rgba(255,255,255,0.18)');
+  grd.addColorStop(1, 'rgba(255,255,255,0)');
+  g.fillStyle = grd;
+  g.fillRect(0, 0, 128, 128);
+  bokehTex = new THREE.CanvasTexture(cv);
+  return bokehTex;
+};
+const GLForeground: React.FC<{cam: Cam}> = ({cam}) => {
   const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
   camera.position.set(...cam.pos);
   camera.lookAt(new THREE.Vector3(...cam.target));
   camera.updateMatrixWorld();
-  const geo = useMemo(() => {
-    const f = nearField(360);
-    const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(f.pos, 3));
-    g.setAttribute('color', new THREE.BufferAttribute(f.col, 3));
-    return g;
-  }, []);
-  const mat = useMemo(() => new THREE.PointsMaterial({size: 0.1, map: spriteTex(), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, sizeAttenuation: true}), []);
-  return <points geometry={geo} material={mat} />;
+  const layers = useMemo(
+    () =>
+      FG.map((c, i) => {
+        const f = fgField(i);
+        const g = new THREE.BufferGeometry();
+        g.setAttribute('position', new THREE.BufferAttribute(f.pos, 3));
+        g.setAttribute('color', new THREE.BufferAttribute(f.col, 3));
+        const m = new THREE.PointsMaterial({size: c.size, map: c.soft ? bokehSprite() : spriteTex(), vertexColors: true, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, sizeAttenuation: true});
+        return {g, m};
+      }),
+    [],
+  );
+  return (
+    <>
+      {layers.map((l, i) => (
+        <points key={i} geometry={l.g} material={l.m} />
+      ))}
+    </>
+  );
 };
-const NearGL: React.FC<{cam: Cam; style?: React.CSSProperties}> = ({cam, style}) => (
+const ForegroundGL: React.FC<{cam: Cam; style?: React.CSSProperties}> = ({cam, style}) => (
   <AbsoluteFill style={{mixBlendMode: 'screen', ...style}}>
-    <ThreeCanvas width={W} height={H} camera={{fov: FOV, near: 0.1, far: 200, position: cam.pos}} gl={{alpha: false, antialias: false}}>
+    <ThreeCanvas width={W} height={H} camera={{fov: FOV, near: 0.8, far: 200, position: cam.pos}} gl={{alpha: false, antialias: false}}>
       <color attach="background" args={['#000000']} />
-      <GLNear cam={cam} />
+      <GLForeground cam={cam} />
       <R3FWarmup />
     </ThreeCanvas>
   </AbsoluteFill>
 );
 
-/** Field layers: baked plate (video for MB, still for F4) under the text-safe mask; hero adds the live near field. */
-const Field: React.FC<{cam: Cam; fx: Fx; rects: Rect[]; plate: 'push' | 'final'}> = ({cam, fx, rects, plate}) => {
-  const mask = textSafeMask(rects, fx);
-  return (
-    <>
-      <AbsoluteFill style={{...mask, mixBlendMode: 'screen'}}>
-        {plate === 'push' ? <OffthreadVideo src={staticFile(PLATE.push)} muted /> : <Img src={staticFile(PLATE.final)} />}
-      </AbsoluteFill>
-      {fx.webgl ? <NearGL cam={cam} style={mask} /> : null}
-    </>
-  );
-};
+/** Field layer: the baked plate (video for MB, still for F4) under the text-safe mask. The hero foreground is mounted
+ * separately, ABOVE the probe overlay (it is nearer the camera than the probe). */
+const Field: React.FC<{mask: React.CSSProperties; plate: 'push' | 'final'; blend?: boolean; still?: boolean}> = ({mask, plate, blend = true, still = false}) => (
+  <AbsoluteFill style={{...mask, mixBlendMode: blend ? 'screen' : undefined}}>
+    {plate === 'push' && !still ? <OffthreadVideo src={staticFile(PLATE.push)} muted /> : <Img src={staticFile(PLATE.final)} />}
+  </AbsoluteFill>
+);
 
 /** MB camera: push 17 -> 7.4 units + 0.5 rad orbit (shared by the plate and the live overlay, so they stay locked). */
 export const mbCam = (frame: number, dur: number): Cam => {
@@ -371,13 +434,15 @@ const rectsFor = (cam: Cam, st: ProbeState, withTitle: boolean): Rect[] => [
 /** (4) style frame: expanded query, three neighbours, 0.165 → 0.227. */
 export const F4Galaxy: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const frame = useCurrentFrame();
+  const mask = textSafeMask(rectsFor(CAM_FINAL, STATE_FINAL, true), fx);
   return (
     <AbsoluteFill>
       <Backdrop fx={fx} tint={C.violet} shaft={false} />
       <FloorGrid y={860} drift={frame * 0.3} opacity={0.18} />
-      <Field cam={CAM_FINAL} fx={fx} rects={rectsFor(CAM_FINAL, STATE_FINAL, true)} plate="final" />
-      <Scrim r={TITLE_RECT} />
+      <Field mask={mask} plate="final" />
+      <Scrim r={TITLE_RECT} strength={0.5} />
       <ProbeOverlay cam={CAM_FINAL} st={STATE_FINAL} typo={typo} fx={fx} />
+      {fx.webgl ? <ForegroundGL cam={CAM_FINAL} style={mask} /> : null}
       <div style={{position: 'absolute', right: 120, top: 64, textAlign: 'right'}}>
         <KWord text="بيحوّل النص لموضع" at={-1000} typo={typo} fx={fx} size={104} preset="impact" />
       </div>
@@ -389,7 +454,10 @@ export const F4Galaxy: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
 };
 
 /** Motion test (b): camera push + slight orbit + parallax over the galaxy; probe, raw hit, expansion, new top hit. */
-export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
+/** `ablate` (perf bench only, never in a spec): comma list: plate, mask, bokeh, post, grain, overlay, title, grid (drop a layer);
+ * blend (plate without screen blend), video (plate as a still PNG instead of the decoded MP4). */
+export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx; ablate?: string}> = ({typo, fx, ablate = ''}) => {
+  const off = new Set(ablate.split(',').filter(Boolean));
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const s = (sec: number) => Math.round(sec * fps);
@@ -409,24 +477,32 @@ export const MBGalaxyPush: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const titleOn = frame < s(5.6);
   // parallax planes: far grid/haze move least, foreground bokeh most (04 §1.2: 3–5 planes)
   const par = (m: number) => `translate(${-ang * 260 * m}px, ${k * 30 * m}px) scale(${1 + k * 0.08 * m})`;
+  const mask = off.has('mask') ? {} : textSafeMask(rectsFor(cam, st, titleOn), fx);
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{transform: par(0.3)}}>
         <Backdrop fx={fx} tint={C.violet} shaft={false} />
       </AbsoluteFill>
-      <AbsoluteFill style={{transform: par(0.6)}}>
-        <FloorGrid y={860} drift={frame * 0.3} opacity={0.18} />
-      </AbsoluteFill>
-      <Field cam={cam} fx={fx} rects={rectsFor(cam, st, titleOn)} plate="push" />
-      {titleOn ? <Scrim r={TITLE_RECT} /> : null}
-      <ProbeOverlay cam={cam} st={st} typo={typo} fx={fx} labelAt={s(1.9)} />
-      <div style={{position: 'absolute', right: 120, top: 64, textAlign: 'right'}}>
-        <KWord text="بيحوّل النص لموضع" at={s(0.4)} typo={typo} fx={fx} size={104} preset="impact" out={s(5.2)} />
-      </div>
-      <AbsoluteFill style={{transform: par(2.2)}}>
-        <Bokeh fx={fx} seed="mb" drift={frame * 0.6} />
-      </AbsoluteFill>
-      <Post fx={fx} />
+      {off.has('grid') ? null : (
+        <AbsoluteFill style={{transform: par(0.6)}}>
+          <FloorGrid y={860} drift={frame * 0.3} opacity={0.18} />
+        </AbsoluteFill>
+      )}
+      {off.has('plate') ? null : <Field mask={mask} plate="push" blend={!off.has('blend')} still={off.has('video')} />}
+      {titleOn ? <Scrim r={TITLE_RECT} strength={0.5} /> : null}
+      {off.has('overlay') ? null : <ProbeOverlay cam={cam} st={st} typo={typo} fx={fx} labelAt={s(1.9)} />}
+      {fx.webgl ? <ForegroundGL cam={cam} style={mask} /> : null}
+      {off.has('title') || frame >= s(5.6) ? null : (
+        <div style={{position: 'absolute', right: 120, top: 64, textAlign: 'right'}}>
+          <KWord text="بيحوّل النص لموضع" at={s(0.4)} typo={typo} fx={fx} size={104} preset="impact" out={s(5.2)} />
+        </div>
+      )}
+      {off.has('bokeh') ? null : (
+        <AbsoluteFill style={{transform: par(2.2)}}>
+          <Bokeh fx={fx} seed="mb" drift={frame * 0.6} />
+        </AbsoluteFill>
+      )}
+      {off.has('post') ? null : off.has('grain') ? <Vignette fx={fx} /> : <Post fx={fx} />}
     </AbsoluteFill>
   );
 };

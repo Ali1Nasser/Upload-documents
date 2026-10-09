@@ -48,6 +48,17 @@ export const segment = (text: string): Seg[] => {
 };
 
 /** True if the string contains Arabic letters (CA must be 0 on these runs, ADR-002). */
+/**
+ * Rule J1 (arabic-typographer r2): a tatweel join (`الـ`) followed by a Latin isolate gets a small gap so the join does not
+ * fuse with the first Latin glyph (`الـAI` read as `AIJI`). ALL-CAPS / digit isolates get 0.12em, other Latin 0.06em.
+ * The gap is applied on the isolate's RIGHT edge (physical): in RTL flow that is the side facing the Arabic prefix.
+ */
+export const JOIN_GAP = {caps: 0.12, latin: 0.06} as const;
+export const joinGapEm = (prevArabic: string | undefined, latin: string): number => {
+  if (!prevArabic || !/ـ$/.test(prevArabic)) return 0;
+  return /[A-Z]/.test(latin) && /^[A-Z0-9]+$/.test(latin) ? JOIN_GAP.caps : JOIN_GAP.latin;
+};
+
 export const isArabic = (s: string) => /[؀-ۿݐ-ݿﭐ-﷿ﹰ-﻿]/.test(s);
 
 // ---------- tashkeel descender clearance (ADR-003; critic r0 issue 2, F5 ثوانٍ over the subtitle) ----------

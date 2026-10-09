@@ -265,6 +265,10 @@ export const F2SqlFunnel: React.FC<FrameProps & {stage?: number; dropAt?: number
               <stop offset="0" stopColor={C.signal} stopOpacity={0.26} />
               <stop offset="1" stopColor={C.signal} stopOpacity={0.03} />
             </linearGradient>
+            <radialGradient id="dotHalo" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0.4" stopColor={C.signal} stopOpacity={0.45} />
+              <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+            </radialGradient>
           </defs>
           {/* whole nine-stage envelope (future stages as a ghost) */}
           <polygon points={`${xs(0)},${trackY - 30} ${env.join(' ')} ${xs(8)},${trackY - 30}`} fill={`${C.signal}0A`} stroke={C.ink3} strokeOpacity={0.25} strokeDasharray="6 8" />
@@ -272,6 +276,10 @@ export const F2SqlFunnel: React.FC<FrameProps & {stage?: number; dropAt?: number
           <polyline points={env.slice(0, stage + 1).join(' ')} fill="none" stroke={C.signal} strokeWidth={3} opacity={0.85} style={{filter: `drop-shadow(0 0 ${fx.glowInner}px ${C.signal})`}} />
           <line x1={xs(0) - 50} y1={trackY} x2={xs(8) + 50} y2={trackY} stroke={C.grid} strokeWidth={5} />
           <line x1={xs(0) - 50} y1={trackY} x2={whereX} y2={trackY} stroke={C.signal} strokeWidth={5} style={{filter: `drop-shadow(0 0 ${fx.glowInner}px ${C.signal})`}} />
+          {/* r3 perf: one halo disc per lit dot instead of a per-dot drop-shadow filter */}
+          {Array.from({length: SQL_FUNNEL[stage].rows}, (_, k) => (
+            <circle key={`h${k}`} cx={xs(stage)} cy={trackY - 44 - k * dot - dot / 2} r={r + fx.glowInner * 1.6} fill="url(#dotHalo)" />
+          ))}
           {SQL_FUNNEL.map((s, i) =>
             Array.from({length: s.rows}, (_, k) => {
               const cur = i === stage;
@@ -287,7 +295,6 @@ export const F2SqlFunnel: React.FC<FrameProps & {stage?: number; dropAt?: number
                   strokeOpacity={0.4}
                   strokeWidth={1.5}
                   opacity={cur ? 1 : past ? 0.6 : 1}
-                  style={cur ? {filter: `drop-shadow(0 0 ${fx.glowInner}px ${C.signal})`} : undefined}
                 />
               );
             }),
@@ -336,10 +343,10 @@ export const F2SqlFunnel: React.FC<FrameProps & {stage?: number; dropAt?: number
                 dir="ltr"
                 style={{
                   display: 'inline-block',
-                  padding: '6px 12px',
+                  padding: '6px 10px',
                   borderRadius: 10,
                   fontFamily: `'${typo.mono}'`,
-                  fontSize: 24,
+                  fontSize: 28, // r3 (arabic r2 B2): ADR-003 28 px floor for labels tied to spoken terms (fits the 172 px pitch)
                   fontWeight: 600,
                   color: cur ? C.void : past ? C.ink : C.ink2,
                   background: cur ? C.signal : 'rgba(22,27,34,0.88)',
@@ -357,15 +364,18 @@ export const F2SqlFunnel: React.FC<FrameProps & {stage?: number; dropAt?: number
           );
         })}
         <TermChip term="WHERE" gloss={COPY.f2Where} typo={typo} fx={fx} style={{left: whereX - 110, top: colTop(13) - 100}} size={30} glossSize={32} />
-        {/* query with the current clause lit (compact, bottom-left, nothing overlaps) */}
-        <Glass style={{right: 130, top: 856, width: 700, height: 196}}>
-          <div dir="ltr" style={{position: 'absolute', left: 26, top: 14, fontFamily: `'${typo.mono}'`, fontSize: 20, lineHeight: '21.5px', color: C.ink3, whiteSpace: 'pre'}}>
-            {SQL_LINES.map((l, i) => (
-              <div key={i} style={l.startsWith('WHERE') ? {color: C.signal, textShadow: glow(C.signal, fx, 0.4)} : undefined}>
-                {l}
-              </div>
-            ))}
-          </div>
+        {/* r3 (critic r2 #7): the query spans the bottom band in two columns at 28 px (legible at 960 px); the current
+            clause is lit, the rest sits in ink2 (written order, top-to-bottom then right column) */}
+        <Glass style={{left: 120, top: 858, width: 1680, height: 178}}>
+          {[SQL_LINES.slice(0, 4), SQL_LINES.slice(4)].map((col, ci) => (
+            <div key={ci} dir="ltr" style={{position: 'absolute', left: 32 + ci * 860, top: 16, fontFamily: `'${typo.mono}'`, fontSize: 28, lineHeight: '37px', color: C.ink2, whiteSpace: 'pre'}}>
+              {col.map((l, i) => (
+                <div key={i} style={l.startsWith('WHERE') ? {color: C.signal, fontWeight: 700, textShadow: `${halo}, ${glow(C.signal, fx, 0.4)}`} : {opacity: 0.8}}>
+                  {l}
+                </div>
+              ))}
+            </div>
+          ))}
         </Glass>
         <div style={{position: 'absolute', right: 130, top: 330}}>
           <div dir="ltr" style={{display: 'flex', alignItems: 'baseline', gap: 26, justifyContent: 'flex-end'}}>
@@ -468,12 +478,13 @@ export const F3Kafka: React.FC<FrameProps & {lagAt?: number; lagEnd?: number; t0
       </Plane>
       {/* far partition P2: 60 % scale, blurred; mid partition P1: 80 %, light blur */}
       {/* r2: P2 and P1 rows are wholly defocused (critic r1 #5: blur the whole row, not just darken it) */}
-      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.012, 'far')} translate(0px, -330px) scale(0.6)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 1.9}px) brightness(0.75)`, opacity: 0.8}}>
+      {/* r3 (critic r2 #7): P2 reads as a defocused row (blur 1.9x -> 1.1x DOF, brighter, 0.6 -> 0.66 scale) */}
+      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.012, 'far')} translate(0px, -322px) scale(0.66)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 1.1}px) brightness(0.95)`, opacity: 0.9}}>
         <div style={{position: 'absolute', left: 300, top: 0}}>
           <LaneRow ln={LANES[2]} li={2} x0={x0} y={y0} cw={cw} ch={ch} typo={typo} fx={fx} />
         </div>
       </AbsoluteFill>
-      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.016, 'mid')} translate(0px, -205px) scale(0.8)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 1.25}px) brightness(0.8)`, opacity: 0.88}}>
+      <AbsoluteFill style={{transform: `${drift(frame, fps, 0.016, 'mid')} translate(0px, -205px) scale(0.8)`, transformOrigin: '0% 50%', filter: `blur(${fx.dofBlurPx * 0.8}px) brightness(0.9)`, opacity: 0.92}}>
         <div style={{position: 'absolute', left: 120, top: 0}}>
           <LaneRow ln={LANES[1]} li={1} x0={x0} y={y0} cw={cw} ch={ch} typo={typo} fx={fx} />
         </div>
@@ -489,7 +500,9 @@ export const F3Kafka: React.FC<FrameProps & {lagAt?: number; lagEnd?: number; t0
           const x = prodX + (tx - prodX) * k;
           return (
             <React.Fragment key={o}>
-              <div style={{position: 'absolute', left: x + cw * 0.4, top: y0 + ch / 2 - 5, width: (prodX - x) * 0.9 + 30, height: 10, borderRadius: 5, background: `linear-gradient(90deg, ${C.warn}AA, ${C.warn}00)`, filter: `blur(3px)`}} />
+              {/* r3 (critic r2 #7): trail 2x (height 10 -> 20, full-alpha head, hot core line) */}
+              <div style={{position: 'absolute', left: x + cw * 0.4, top: y0 + ch / 2 - 10, width: (prodX - x) * 0.9 + 60, height: 20, borderRadius: 10, background: `linear-gradient(90deg, ${C.warn}FF, ${C.warn}55 45%, ${C.warn}00)`, boxShadow: `0 0 ${fx.glowInner * 2}px ${C.warn}66`}} />
+              <div style={{position: 'absolute', left: x + cw * 0.4, top: y0 + ch / 2 - 2, width: (prodX - x) * 0.6 + 30, height: 4, borderRadius: 2, background: `linear-gradient(90deg, ${C.white}EE, ${C.white}00)`}} />
               <div style={{position: 'absolute', left: x, top: y0, width: cw - 14, height: ch, borderRadius: 12, border: `2px solid ${C.warn}`, background: `${C.warn}22`, boxShadow: `0 0 ${fx.glowPx}px ${C.warn}88`}} />
             </React.Fragment>
           );
@@ -509,7 +522,7 @@ export const F3Kafka: React.FC<FrameProps & {lagAt?: number; lagEnd?: number; t0
         {/* formula box fitted to its text, consumer-group chip inside */}
         <div style={{position: 'absolute', left: 960, top: 880, transform: 'translateX(-50%)'}}>
           <Glass accent={C.warn} style={{position: 'relative', display: 'flex', alignItems: 'center', gap: 34, padding: '18px 34px', flexDirection: 'row-reverse', whiteSpace: 'nowrap'}}>
-            <Mix text="التأخر = آخر متاح − آخر معالج" latFont={typo.lat} size={52} style={{color: C.ink, textShadow: halo, lineHeight: 1.3}} />
+            <Mix text="التأخر = آخر متاح ⟦−⟧ آخر معالج" /* r3 (arabic r2): U+2212 in an Inter Tight isolate, the Arabic face draws it short */ latFont={typo.lat} size={52} style={{color: C.ink, textShadow: halo, lineHeight: 1.3}} />
             <TermChip term="consumer group" typo={typo} fx={fx} color={C.violet} style={{position: 'relative'}} size={28} />
           </Glass>
         </div>
@@ -561,7 +574,9 @@ export const F5Docker: React.FC<FrameProps> = ({typo, fx}) => {
   const goodX = 1010;
   const badX = 120;
   const base = 780;
-  const badTop = base - (DOCKER.bad.length - 1) * (h + gap);
+  // r3 (critic r2 #8): the 4-layer stack is lifted one pitch so both stack TOPS align under the shared label line
+  const badBase = base - (DOCKER.good.length - DOCKER.bad.length) * (h + gap);
+  const badTop = badBase - (DOCKER.bad.length - 1) * (h + gap);
   const editedBad = DOCKER.bad.findIndex((l) => l.state === 'edited');
   return (
     <AbsoluteFill>
@@ -581,17 +596,19 @@ export const F5Docker: React.FC<FrameProps> = ({typo, fx}) => {
             <div style={{position: 'absolute', left: badX, top: b.y, width: 640, height: 26, borderRadius: 13, background: `${C.grid}`, border: `1px solid ${C.ink3}33`}} />
             <div style={{position: 'absolute', left: badX, top: b.y, width: Math.max(26, (640 * b.s) / DOCKER.seconds.bad), height: 26, borderRadius: 13, background: `linear-gradient(90deg, ${b.col}55, ${b.col})`, boxShadow: `0 0 ${fx.glowPx * 0.6}px ${b.col}88`}} />
             <bdi dir="ltr" style={{position: 'absolute', left: badX + 660, top: b.y - 10, fontFamily: `'${typo.mono}'`, fontSize: 36, fontWeight: 700, color: b.col, textShadow: `${halo}, ${glow(b.col, fx, 0.4)}`, whiteSpace: 'nowrap'}}>
-              {b.s} s
+              {b.s}
+              {/* r3 (arabic r2, frozen rule 11): unit at 0.42em in muted ink, like the big counters */}
+              <span style={{fontSize: '0.42em', marginLeft: '0.25em', color: C.ink2, textShadow: 'none'}}>s</span>
             </bdi>
           </React.Fragment>
         ))}
         {/* under-light pools from the stacks */}
-        <div style={{position: 'absolute', left: badX - 40, top: base + 20, width: w + 160, height: 120, borderRadius: '50%', background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.crit}${hex(0.2)} 0%, transparent 70%)`}} />
+        <div style={{position: 'absolute', left: badX - 40, top: badBase + 20, width: w + 160, height: 120, borderRadius: '50%', background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.crit}${hex(0.2)} 0%, transparent 70%)`}} />
         <div style={{position: 'absolute', left: goodX - 40, top: base + 20, width: w + 160, height: 120, borderRadius: '50%', background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${C.ok}${hex(0.18)} 0%, transparent 70%)`}} />
         {stack(goodX, base, DOCKER.good)}
-        {stack(badX, base, DOCKER.bad)}
+        {stack(badX, badBase, DOCKER.bad)}
         {/* cascade beam: invalidation runs up from the edited layer */}
-        <div style={{position: 'absolute', left: badX - 40, top: badTop - 10, width: 6, height: base - editedBad * (h + gap) - badTop + h + 10, background: `linear-gradient(0deg, ${C.crit}, ${C.crit}22)`, boxShadow: `0 0 ${fx.glowPx}px ${C.crit}`, borderRadius: 3}} />
+        <div style={{position: 'absolute', left: badX - 40, top: badTop - 10, width: 6, height: badBase - editedBad * (h + gap) - badTop + h + 10, background: `linear-gradient(0deg, ${C.crit}, ${C.crit}22)`, boxShadow: `0 0 ${fx.glowPx}px ${C.crit}`, borderRadius: 3}} />
         <div style={{position: 'absolute', left: badX - 54, top: badTop - 34, width: 0, height: 0, borderLeft: '17px solid transparent', borderRight: '17px solid transparent', borderBottom: `26px solid ${C.crit}`}} />
         {/* r2 (critic r1 #6, arabic r1 BLOCKING): both stack labels raised 40 px, so 'عاقل' clears the top slab edge (~y 418); left label stays aligned */}
         <Label text={COPY.f5Good} typo={typo} size={40} color={C.ink} weight={600} style={{left: goodX, top: base - 5 * (h + gap) - 46}} />
@@ -640,14 +657,17 @@ export const F6Type: React.FC<FrameProps> = ({typo, fx}) => {
           <KWord text="وغلط" at={SHOWN} typo={typo} fx={fx} size={176} color={C.crit} preset="impact" />
           <KWord text="وضعيف" at={SHOWN} typo={typo} fx={fx} size={92} color={C.warn} />
         </div>
-        <div dir="ltr" style={{position: 'absolute', left: 200, top: 650, display: 'flex', alignItems: 'baseline', gap: 40}}>
+        {/* r3 (arabic r2 advisory): each caption is centred under its own number (column flex), ink at 85 % */}
+        <div dir="ltr" style={{position: 'absolute', left: 200, top: 650, display: 'grid', gridTemplateColumns: 'auto auto auto', columnGap: 40, rowGap: 0, alignItems: 'baseline'}}>
           <Counter from={RAG.before.score} to={RAG.before.score} a={0} b={0} decimals={3} typo={typo} fx={fx} size={200} color={C.crit} impact />
           <span style={{fontFamily: `'${typo.mono}'`, fontSize: 90, color: C.ink3}}>→</span>
           <Counter from={RAG.after.score} to={RAG.after.score} a={0} b={0} decimals={3} typo={typo} fx={fx} size={130} color={C.ok} impact />
+          {[RAG.before.label, '', RAG.after.label].map((t, i) => (
+            <div key={i} style={{justifySelf: 'center', position: 'relative', height: 60, marginTop: -44}}>
+              {t ? <Label text={t} typo={typo} size={34} color={C.ink} style={{position: 'relative', opacity: 0.85}} /> : null}
+            </div>
+          ))}
         </div>
-        {/* r2: captions under the numbers in ink at 85 % (was ink2, ~3:1) */}
-        <Label text={RAG.before.label} typo={typo} size={34} color={C.ink} style={{left: 215, top: 905, opacity: 0.85}} />
-        <Label text={RAG.after.label} typo={typo} size={34} color={C.ink} style={{left: 905, top: 905, opacity: 0.85}} />
         <TermChip term="vocabulary mismatch" typo={typo} fx={fx} color={C.signal} size={34} style={{right: 180, top: 900}} />
       </AbsoluteFill>
       <Post fx={fx} />

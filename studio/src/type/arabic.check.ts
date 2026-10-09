@@ -1,6 +1,6 @@
 // Unit checks for src/type/arabic.ts. Run: bash studio/scripts/check_type.sh (esbuild bundle -> node).
 import {LINE} from '../tokens';
-import {MINUS, arabicFace, assertArrows, assertFormula, blockLineHeight, breakCaption, hasLowerMarks, hasTashkeel, labelRole, latinFamily, lineHeightFor, minus, segment, stackGap, visLen, withUnit} from './arabic';
+import {MINUS, arabicFace, assertArrows, assertFormula, blockLineHeight, breakCaption, hasLowerMarks, hasTashkeel, joinGapEm, labelRole, latinFamily, lineHeightFor, minus, segment, stackGap, visLen, withUnit} from './arabic';
 import {displayText} from './overrides';
 
 let fails = 0;
@@ -68,6 +68,12 @@ eq("'→' between Arabic blocks is rejected", arrowThrew, true);
 eq("'←' between Arabic blocks passes", assertArrows('الجهاز ← الداتا'), 'الجهاز ← الداتا');
 eq('unit after the number, Latin, in an isolate', withUnit(57, 's'), '⟦57 s⟧');
 eq('negative value with unit uses U+2212', withUnit(-50, 'EGP'), `⟦${MINUS}50 EGP⟧`);
+
+// tatweel join gap (arabic r2 J1)
+eq('ALL-CAPS Latin after الـ gets 0.12em', joinGapEm('الـ', 'AI'), 0.12);
+eq('mixed-case Latin after الـ gets 0.06em', joinGapEm('قسم الـ', 'roadmap'), 0.06);
+eq('no tatweel = no gap', joinGapEm('بترتيب ', 'layers'), 0);
+eq('segment keeps الـ with the Arabic run before the isolate', segment('الـAI').map((x) => x.t).join('|'), 'الـ|AI');
 
 // display overrides (canon untouched)
 eq('roadmap article override', displayText('w:S1:ar-natural:005968', 'roadmap'), 'الـroadmap');

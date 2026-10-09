@@ -3,7 +3,7 @@ import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
 import {C, EASE, Fx, PRESET_MS, Typo, caShadow, glow, halo, msToFrames} from './theme';
 import {LINE, SIZE} from '../tokens';
-import {arabicFace, blockLineHeight, breakCaption, labelRole, latinFamily, lineHeightFor, minus, segment} from '../type/arabic';
+import {arabicFace, blockLineHeight, breakCaption, joinGapEm, labelRole, latinFamily, lineHeightFor, minus, segment} from '../type/arabic';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -155,36 +155,63 @@ export const Glass: React.FC<{style?: React.CSSProperties; children?: React.Reac
 
 // ---------- depth, light and text-safe masks (DepthLayers / FXTier contract, ADR-002 text-safe ON) ----------
 
-export type Rect = {x: number; y: number; w: number; h: number};
+/** Text box for the text-safe mask. `floor` = residual alpha of the masked layer inside the box (0 = fully removed);
+ * use > 0 only for boxes that carry their own opaque surface (chips, cards, glass), so no hard hole shows around them. */
+export type Rect = {x: number; y: number; w: number; h: number; floor?: number};
+
+/** r3: feather ramp from the solid core (+0.25 pad) to fully open (+2.5 pad) (critic r2 #2: 1.75 pad read as a hard panel). */
+export const MASK_FEATHER = {core: 0.25, out: 2.5, scale: 0.5} as const;
+const holeCache = new Map<string, string>();
 
 /**
- * CSS mask that removes a layer (particles, haze, bloom) from every text box plus padding, with a feathered edge.
- * `floor` = residual alpha inside the box (0 = fully masked).
+ * One feathered hole sprite per (w, h, pad, floor), rasterised ONCE per browser tab on a half-res canvas with a true
+ * Gaussian ramp, then reused on every frame (r3, critic r2 #1: the r2 10-ring SVG mask was re-rasterised on every frame
+ * a card moved). Moving boxes only change the sprite's mask-position, which needs no re-rasterisation.
+ */
+const holeSprite = (w: number, h: number, pad: number, floor: number): string => {
+  const key = `${Math.round(w)}x${Math.round(h)}:${pad}:${floor}`;
+  const hit = holeCache.get(key);
+  if (hit) return hit;
+  if (typeof document === 'undefined') return '';
+  const E = pad * MASK_FEATHER.out;
+  const core = pad * MASK_FEATHER.core;
+  const ramp = E - core;
+  const mid = core + ramp / 2;
+  const k = MASK_FEATHER.scale;
+  const cv = document.createElement('canvas');
+  cv.width = Math.ceil((w + 2 * E) * k);
+  cv.height = Math.ceil((h + 2 * E) * k);
+  const ctx = cv.getContext('2d');
+  if (!ctx) return '';
+  ctx.filter = `blur(${((ramp / 4) * k).toFixed(2)}px)`; // +-2 sigma spans the ramp
+  ctx.fillStyle = `rgba(0,0,0,${1 - floor})`;
+  ctx.beginPath();
+  ctx.roundRect((E - mid) * k, (E - mid) * k, (w + 2 * mid) * k, (h + 2 * mid) * k, Math.max(4, mid) * k);
+  ctx.fill();
+  const url = cv.toDataURL('image/png');
+  holeCache.set(key, url);
+  return url;
+};
+
+/**
+ * CSS mask that removes a layer (particles, haze, plate, bloom) from every text box plus padding, with a Gaussian feather.
+ * Layer stack: an opaque base minus the union of cached hole sprites (mask-composite: subtract over add). Overlapping holes
+ * union (never lighten each other). `floor` = default residual alpha inside the boxes (a Rect's own floor wins).
  */
 export const textSafeMask = (rects: Rect[], fx: Fx, floor = 0): React.CSSProperties => {
   if (!fx.textSafe || !rects.length) return {};
   const pad = fx.textSafePadPx;
-  // r2 perf: feather = N nested rounded rects composited with mix-blend-mode multiply (no feGaussianBlur). The blurred
-  // SVG mask re-rasterised a 1920x1080 Gaussian every frame whenever a card moved (MB). Each ring multiplies by
-  // v_j / v_(j-1) so the nested product is a linear ramp 1 -> floor across 1.75 x pad; overlapping holes multiply
-  // (never lighten each other). 10 rings read as a soft edge at 1080p (r2: 4 rings showed hard dark panels).
-  const n = 10;
-  const v = (j: number) => 1 - (1 - floor) * (j / n);
-  const holes = rects
-    .map((r) =>
-      Array.from({length: n}, (_, i) => i + 1)
-        .map((j) => {
-          const e = pad * (2 - 1.75 * (j / n)); // outer ring at +2 pad, solid core at +0.25 pad
-          const m = v(j - 1) > 0 ? v(j) / v(j - 1) : 0;
-          const g = Math.round(255 * m);
-          return `<rect x='${(r.x - e).toFixed(1)}' y='${(r.y - e).toFixed(1)}' width='${(r.w + 2 * e).toFixed(1)}' height='${(r.h + 2 * e).toFixed(1)}' rx='${Math.max(4, e).toFixed(1)}' fill='rgb(${g},${g},${g})' style='mix-blend-mode:multiply'/>`;
-        })
-        .join(''),
-    )
-    .join('');
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='1920' height='1080'><rect width='1920' height='1080' fill='white'/>${holes}</svg>`;
-  const url = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
-  return {maskImage: url, WebkitMaskImage: url, maskMode: 'luminance', maskSize: '100% 100%', WebkitMaskSize: '100% 100%'} as React.CSSProperties;
+  const E = pad * MASK_FEATHER.out;
+  const holes = rects.map((r) => ({url: holeSprite(r.w, r.h, pad, r.floor ?? floor), r}));
+  if (holes.some((h) => !h.url)) return {};
+  return {
+    maskImage: ['linear-gradient(#000, #000)', ...holes.map((h) => `url("${h.url}")`)].join(', '),
+    maskComposite: ['subtract', ...holes.map(() => 'add')].join(', '),
+    maskPosition: ['0px 0px', ...holes.map((h) => `${(h.r.x - E).toFixed(1)}px ${(h.r.y - E).toFixed(1)}px`)].join(', '),
+    maskSize: ['100% 100%', ...holes.map((h) => `${(h.r.w + 2 * E).toFixed(1)}px ${(h.r.h + 2 * E).toFixed(1)}px`)].join(', '),
+    maskRepeat: 'no-repeat',
+    maskMode: 'alpha',
+  } as React.CSSProperties;
 };
 
 /** Radial dark scrim behind a text block, so no light layer lowers its contrast. */
@@ -267,13 +294,14 @@ export const Mix: React.FC<{
       lang="ar"
       style={{fontFamily: `'${fam}', '${latFont}'`, unicodeBidi: 'isolate', fontWeight: face?.weight, wordSpacing: face?.wordSpacing ?? '0.08em', fontSize: size, ...style}}
     >
-      {segment(text).map((s, i) =>
+      {segment(text).map((s, i, all) =>
         s.ltr ? (
           <bdi
             key={i}
             dir="ltr"
             lang="en"
-            style={{fontFamily: `'${latFont}', '${fam}'`, fontWeight: latWeight, fontSize: `${latScale}em`, color: latColor, fontVariantNumeric: 'tabular-nums', textShadow: caLatin}}
+            // r3 (arabic r2 J1): gap after a tatweel join, on the side facing the Arabic prefix
+            style={{fontFamily: `'${latFont}', '${fam}'`, fontWeight: latWeight, fontSize: `${latScale}em`, color: latColor, fontVariantNumeric: 'tabular-nums', textShadow: caLatin, marginRight: joinGap(all[i - 1], s.t)}}
           >
             {s.t}
           </bdi>
@@ -283,6 +311,11 @@ export const Mix: React.FC<{
       )}
     </span>
   );
+};
+
+const joinGap = (prev: {t: string; ltr: boolean} | undefined, latin: string): string | undefined => {
+  const g = prev && !prev.ltr ? joinGapEm(prev.t, latin) : 0;
+  return g ? `${g}em` : undefined;
 };
 
 export type KWordProps = {

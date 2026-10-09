@@ -13,7 +13,7 @@ loadLookdevFonts();
 
 export type FrameId = 'F1' | 'F2' | 'F3' | 'F4' | 'F5' | 'F6' | 'F7';
 type StillProps = {frame: FrameId; typo: TypoId; fx: FxId};
-type MotionProps = {typo: TypoId; fx: FxId};
+type MotionProps = {typo: TypoId; fx: FxId; ablate?: string}; // ablate: perf bench only (MB)
 
 const FRAMES = {F1: F1ColdOpen, F2: F2SqlFunnel, F3: F3Kafka, F4: F4Galaxy, F5: F5Docker, F6: F6Type, F7: HoloCity};
 
@@ -21,8 +21,8 @@ const Still: React.FC<StillProps> = ({frame, typo, fx}) => {
   const Comp = FRAMES[frame];
   return <Comp typo={TYPO[typo]} fx={FX[fx]} />;
 };
-const wrap = (C: React.FC<{typo: (typeof TYPO)[TypoId]; fx: (typeof FX)[FxId]}>) => {
-  const M: React.FC<MotionProps> = ({typo, fx}) => <C typo={TYPO[typo]} fx={FX[fx]} />;
+const wrap = (C: React.FC<{typo: (typeof TYPO)[TypoId]; fx: (typeof FX)[FxId]; ablate?: string}>) => {
+  const M: React.FC<MotionProps> = ({typo, fx, ablate}) => <C typo={TYPO[typo]} fx={FX[fx]} ablate={ablate} />;
   return M;
 };
 const MA = wrap(MAImpact);

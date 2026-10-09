@@ -56,8 +56,10 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     <AbsoluteFill>
       <Backdrop fx={fx} tint={C.crit} shaft={false} />
       {/* r2 (critic r1 #9): far plane = the CH-33 galaxy plate (blurred, 30 %) + floor grid, moving at 0.4x of the push */}
-      <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 0.4, 40), opacity: 0.3, filter: `blur(${fx.dofBlurPx * 1.5}px)`, mixBlendMode: 'screen'}}>
-        <Img src={staticFile(PLATE.final)} />
+      {/* r3 perf: the far plate is drawn at 1/4 size and scaled up 4x (a free, static defocus) instead of a per-frame
+          CSS blur of a moving 1920x1080 layer; r3 (critic r2 #6) it opens brighter (45 %) and settles to 30 % */}
+      <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 0.4, 40), opacity: interpolate(frame, [0, 48], [0.45, 0.3], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'}), mixBlendMode: 'screen'}}>
+        <Img src={staticFile(PLATE.final)} style={{width: 480, height: 270, transform: 'scale(4)', transformOrigin: '0 0'}} />
       </AbsoluteFill>
       <AbsoluteFill style={push(frame, durationInFrames, 0.03, 0.5, 40)}>
         <FloorGrid y={800} drift={frame * 0.4} opacity={0.5} />
@@ -65,8 +67,9 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
       <Haze fx={fx} y={520} h={560} tint={C.crit} k={0.8} />
       {/* carry-over: the query just spoken (w:005957-005964) is on screen as the window opens and leaves as أعلى arrives */}
       <AbsoluteFill style={{...push(frame, durationInFrames, 0.03, 0.8, 40), opacity: interpolate(frame, [A.on(5965), A.on(5965) + 8], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>
-        <Glass accent={C.signal} style={{right: 180, top: 640, padding: '12px 28px 14px', whiteSpace: 'nowrap'}}>
-          <ArCaption text={RAG.queryAr} at={-1000} typo={typo} fx={fx} size={40} color={C.ink2} weight={600} />
+        {/* r3 (critic r2 #6): the carried-over query is the opening subject (56 px, mid-frame), not a corner caption */}
+        <Glass accent={C.signal} style={{right: 180, top: 520, padding: '16px 36px 20px', whiteSpace: 'nowrap'}}>
+          <ArCaption text={RAG.queryAr} at={-1000} typo={typo} fx={fx} size={56} color={C.ink} weight={600} />
         </Glass>
       </AbsoluteFill>
       {/* r2: 3-frame light burst behind the stressed word وغلط (light, not CA: Arabic stays CA-free) */}
@@ -87,6 +90,11 @@ export const MAImpact: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
           <KWord text={A.text(5975)} at={A.on(5975)} out={exit1} typo={typo} fx={fx} size={92} color={C.ink} preset="impact" />
           <KWord text={A.text(5976)} at={A.on(5976)} out={exit1} typo={typo} fx={fx} size={176} color={C.crit} preset="impact" flashFrames={3} />
           <KWord text={A.text(5977).replace('.', '')} at={A.on(5977)} out={exit1} typo={typo} fx={fx} size={92} color={C.warn} preset="impact" />
+        </div>
+        {/* r3 (critic r2 #6): the score scale is on screen from f0 (empty track, no numerals); it fills to the counter's
+            value while 0.165 is spoken and leaves with the phrase */}
+        <div style={{position: 'absolute', left: 210, top: 912, width: 640, height: 14, borderRadius: 7, background: C.grid, border: `1px solid ${C.ink3}55`, opacity: (frame < counterA ? 0.55 + 0.2 * Math.sin(frame / 8) : 1) * (1 - settle)}}>
+          <div style={{width: 640 * interpolate(frame, [counterA, counterB], [0, 0.165], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: EASE.arrive}), height: 14, borderRadius: 7, background: `linear-gradient(90deg, ${C.crit}66, ${C.crit})`, boxShadow: `0 0 ${fx.glowPx * 0.5}px ${C.crit}AA`}} />
         </div>
         {frame >= counterA - 2 ? (
           <div

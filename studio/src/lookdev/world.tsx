@@ -4,7 +4,7 @@
 import React, {useMemo} from 'react';
 import {AbsoluteFill, interpolate, random, useCurrentFrame, useVideoConfig} from 'remotion';
 import * as THREE from 'three';
-import {Backdrop, Bokeh, Haze, KWord, Mix, Post, Rect, Scrim, TermChip, hex, textSafeMask} from './kit';
+import {Backdrop, Bokeh, Burst, Haze, KWord, Mix, Post, Rect, Scrim, TermChip, hex, textSafeMask} from './kit';
 import {halo} from './theme';
 import {C, EASE, Fx, Typo, glow} from './theme';
 import {Cam, makeCamera, project} from './galaxy';
@@ -133,6 +133,47 @@ const TowerShape: React.FC<{t: Tower; c: THREE.PerspectiveCamera; camPos: THREE.
   );
 };
 
+type Box = {x0: number; y0: number; x1: number; y1: number};
+const hit = (a: Box, b: Box) => a.x0 < b.x1 && a.x1 > b.x0 && a.y0 < b.y1 && a.y1 > b.y0;
+/** Screen bbox of a district (all tower corners, base and roof). */
+const districtBox = (c: THREE.PerspectiveCamera, ts: Tower[]): Box => {
+  const ps = ts.flatMap((t) => [0, t.h].flatMap((y) => [-1, 1].flatMap((sx) => [-1, 1].map((sz) => project(c, V(t.x + (sx * t.w) / 2, y, t.z + (sz * t.d) / 2))))));
+  return {x0: Math.min(...ps.map((q) => q.x)), y0: Math.min(...ps.map((q) => q.y)), x1: Math.max(...ps.map((q) => q.x)), y1: Math.max(...ps.map((q) => q.y))};
+};
+/** r3 (critic r2 #5d): far skyline ring (dim silhouettes beyond the seven districts) so the far plane is not bare grid. */
+const SKY = Array.from({length: 110}, (_, i) => {
+  const a = (i / 110) * Math.PI * 2 + (random(`ska${i}`) - 0.5) * 0.05;
+  const r = 9.4 + random(`skr${i}`) * 2.2;
+  return {x: Math.cos(a) * r * 1.2, z: Math.sin(a) * r, w: 0.22 + random(`skw${i}`) * 0.22, h: 0.35 + random(`skh${i}`) ** 1.6 * 1.5};
+});
+const Skyline: React.FC<{c: THREE.PerspectiveCamera; camPos: THREE.Vector3}> = ({c, camPos}) => (
+  <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
+    <defs>
+      <linearGradient id="skyfade" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor={C.ink3} stopOpacity={0.32} />
+        <stop offset="1" stopColor={C.ink3} stopOpacity={0.04} />
+      </linearGradient>
+    </defs>
+    {SKY.filter((b) => camPos.distanceTo(V(b.x, 0, b.z)) > 9).map((b, i) => {
+      // camera-facing billboard silhouette (far plane: no side faces needed)
+      const right = V(-(camPos.z - b.z), 0, camPos.x - b.x).normalize().multiplyScalar(b.w / 2);
+      const v = [V(b.x, 0, b.z).sub(right), V(b.x, 0, b.z).add(right), V(b.x, b.h, b.z).add(right), V(b.x, b.h, b.z).sub(right)];
+      const pr = v.map((q) => project(c, q));
+      if (pr.some((q) => !q.ok)) return null;
+      if (pr[2].y < 0) return null; // keep whole silhouettes only (no slabs cut by the frame edge)
+      const P = (u: number, v: number) => ({x: pr[0].x + (pr[1].x - pr[0].x) * u, y: pr[0].y + (pr[3].y - pr[0].y) * v});
+      return (
+        <g key={i}>
+          <polygon points={pr.map((q) => `${q.x.toFixed(1)},${q.y.toFixed(1)}`).join(' ')} fill="url(#skyfade)" stroke={C.ink3} strokeOpacity={0.2} strokeWidth={1} />
+          {[0.25, 0.5, 0.75].map((v) =>
+            [0.3, 0.7].map((u) => (random(`skw${i}${u}${v}`) < 0.3 ? <circle key={`${u}${v}`} cx={P(u, v).x} cy={P(u, v).y} r={1.6} fill={random(`skc${i}${v}`) < 0.5 ? C.signal : C.warn} opacity={0.5} /> : null)),
+          )}
+        </g>
+      );
+    })}
+  </svg>
+);
+
 export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, fx, orbit}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
@@ -148,12 +189,43 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
   const routes = centers.map((a, k) => ({a, b: centers[(k + 1) % DISTRICTS], k}));
   const cur = project(c, centers[CUR].clone().setY(2.4));
   const TITLE: Rect = {x: 1100, y: 60, w: 700, h: 150};
+  // r3: screen boxes of every district, the Kafka chip over district 4, then collision-aware tag slots
+  const dBox = centers.map((_, k) => districtBox(c, towers.filter((t) => t.district === k)));
+  // the route being drawn now (district 3 -> 4) carries the act's term: the chip hangs from the route's midpoint
+  const nowR = routes[CUR - 1];
+  const nowMid = nowR.a.clone().add(nowR.b).multiplyScalar(0.5).multiplyScalar(0.72);
+  const rp = [nowR.a, nowMid, nowR.b].map((v) => project(c, v.clone().setY(0.02)));
+  const roof = {x: 0.25 * rp[0].x + 0.5 * rp[1].x + 0.25 * rp[2].x, y: 0.25 * rp[0].y + 0.5 * rp[1].y + 0.25 * rp[2].y}; // Bezier t = 0.5
+  const kafka = {x: roof.x - 75, y: roof.y + 34, w: 150, h: 58};
+  const obstacles: Box[] = [{x0: TITLE.x - 200, y0: TITLE.y, x1: TITLE.x + TITLE.w, y1: TITLE.y + TITLE.h}, {x0: kafka.x, y0: kafka.y, x1: kafka.x + kafka.w, y1: kafka.y + kafka.h}];
+  const tags: {k: number; box: Box; size: number; slot: number}[] = [];
+  centers.forEach((_, k) => {
+    const size = k === CUR ? 36 : 32;
+    const label = DISTRICT_AR[k];
+    const tw = 34 + size * (0.62 * label.length + 1.1);
+    const th = size * 1.3 + 10;
+    const b = dBox[k];
+    const base = towers.filter((t) => t.district === k).flatMap((t) => [-1, 1].flatMap((sx) => [-1, 1].map((sz) => project(c, V(t.x + (sx * t.w) / 2, 0, t.z + (sz * t.d) / 2)))));
+    const cx = (Math.min(...base.map((q) => q.x)) + Math.max(...base.map((q) => q.x))) / 2;
+    const foot = Math.max(...base.map((q) => q.y));
+    const cand: Box[] = [
+      {x0: cx - tw / 2, y0: foot + 10, x1: cx + tw / 2, y1: foot + 10 + th},
+      {x0: cx - tw / 2, y0: b.y0 - th - 12, x1: cx + tw / 2, y1: b.y0 - 12},
+      {x0: b.x0 - tw - 14, y0: (b.y0 + b.y1) / 2 - th / 2, x1: b.x0 - 14, y1: (b.y0 + b.y1) / 2 + th / 2},
+      {x0: b.x1 + 14, y0: (b.y0 + b.y1) / 2 - th / 2, x1: b.x1 + 14 + tw, y1: (b.y0 + b.y1) / 2 + th / 2},
+    ];
+    const free = (q: Box) => q.x0 > 40 && q.x1 < 1880 && q.y0 > 40 && q.y1 < 1040 && !dBox.some((o, j) => j !== k && hit(q, o)) && !obstacles.some((o) => hit(q, o)) && !tags.some((t) => hit(q, t.box));
+    const slot = Math.max(0, cand.findIndex(free));
+    tags.push({k, box: cand[slot], size, slot});
+  });
   return (
     <AbsoluteFill>
       <Backdrop fx={fx} />
       <AbsoluteFill style={{filter: `blur(${fx.dofBlurPx * 0.5}px)`}}>
         <Ground c={c} />
       </AbsoluteFill>
+      <Skyline c={c} camPos={camPos} />
+      <Haze fx={fx} y={250} h={300} k={1.2} tint={C.violet} />
       <Haze fx={fx} y={430} h={380} k={1.6} />
       {/* district light pools */}
       {centers.map((v, k) => {
@@ -191,23 +263,36 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
       <Haze fx={fx} y={330} h={200} k={1.1} />
       <Haze fx={fx} y={560} h={180} k={0.8} tint={C.violet} />
       <Haze fx={fx} y={820} h={260} k={0.7} />
-      {/* r2: 28+ px district tags, canon movement names, state-coloured */}
-      {centers.map((v, k) => {
-        // r2: tag sits just under the district's projected footprint (screen bbox of its tower bases), centred on it
-        const base = towers.filter((t) => t.district === k).flatMap((t) => [-1, 1].flatMap((sx) => [-1, 1].map((sz) => project(c, V(t.x + (sx * t.w) / 2, 0, t.z + (sz * t.d) / 2)))));
-        const xs = base.map((q) => q.x);
-        const p = {x: (Math.min(...xs) + Math.max(...xs)) / 2, y: Math.max(...base.map((q) => q.y)) + 10};
-        const col = k === CUR ? C.signal : k < CUR ? C.ink2 : C.ink3;
+      {/* r3 (critic r2 #5a/#5b, arabic r2 J1): tags try below the footprint, then above the roofs, then left/right, and take
+          the first slot that clears every other district, the title and the Kafka chip; 32 px (36 px on the lit district) */}
+      {/* r3: a tag moved off its footprint slot hangs from its district's station by a thin leader */}
+      <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
+        {tags
+          .filter((g) => g.slot > 0)
+          .map((g) => {
+            const st = project(c, centers[g.k].clone().setY(0.02));
+            const ax = Math.min(g.box.x1, Math.max(g.box.x0, st.x));
+            const ay = Math.min(g.box.y1, Math.max(g.box.y0, st.y));
+            return <line key={g.k} x1={ax} y1={ay} x2={st.x} y2={st.y} stroke={g.k <= CUR ? C.ink2 : C.ink3} strokeOpacity={0.6} strokeWidth={1.5} />;
+          })}
+      </svg>
+      {tags.map((g) => {
+        const col = g.k === CUR ? C.signal : g.k < CUR ? C.ink2 : C.ink3;
         return (
-          <div key={`tag${k}`} dir="rtl" lang="ar" style={{position: 'absolute', left: p.x, top: p.y, transform: 'translate(-50%, 0)', padding: '2px 16px 6px', borderRadius: 999, background: 'rgba(13,17,23,0.82)', border: `1.5px solid ${col}${k === CUR ? 'FF' : '88'}`, boxShadow: k === CUR ? `0 0 ${fx.glowPx * 0.7}px ${C.signal}88` : undefined, whiteSpace: 'nowrap', fontFamily: `'${typo.body}'`, fontWeight: 600, fontSize: k === CUR ? 34 : 30, lineHeight: 1.3, color: k <= CUR ? C.ink : C.ink2, textShadow: halo}}>
-            <bdi dir="ltr" style={{fontFamily: `'${typo.lat}'`, fontWeight: 700, color: col, marginLeft: 10}}>{k + 1}</bdi>
-            <Mix text={DISTRICT_AR[k]} arFont={typo.body} latFont={typo.lat} latWeight={600} style={{fontWeight: 600}} />
+          <div key={`tag${g.k}`} dir="rtl" lang="ar" style={{position: 'absolute', left: g.box.x0, top: g.box.y0, width: g.box.x1 - g.box.x0, height: g.box.y1 - g.box.y0, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 999, background: 'rgba(13,17,23,0.84)', border: `1.5px solid ${col}${g.k === CUR ? 'FF' : '88'}`, boxShadow: g.k === CUR ? `0 0 ${fx.glowPx * 0.7}px ${C.signal}88` : undefined, whiteSpace: 'nowrap', fontFamily: `'${typo.body}'`, fontWeight: 600, fontSize: g.size, lineHeight: 1.3, color: g.k <= CUR ? C.ink : C.ink2, textShadow: halo}}>
+            <bdi dir="ltr" style={{fontFamily: `'${typo.lat}'`, fontWeight: 700, color: col}}>{g.k + 1}</bdi>
+            <Mix text={DISTRICT_AR[g.k]} arFont={typo.body} latFont={typo.lat} latWeight={700} latScale={1} style={{fontWeight: 600}} />
           </div>
         );
       })}
       {/* light shaft over the lit district */}
       <div style={{position: 'absolute', left: cur.x - 90, top: 0, width: 180, height: cur.y + 120, background: `linear-gradient(180deg, transparent 0%, ${C.signal}${hex(fx.haze * 1.6)} 70%, ${C.signal}${hex(fx.haze * 2.4)} 100%)`, filter: 'blur(14px)', mixBlendMode: 'screen'}} />
-      <TermChip term="Kafka" typo={typo} fx={fx} style={{left: cur.x - 330, top: cur.y + 40}} size={34} />
+      {/* r3 (critic r2 #5b): Kafka chip anchored on the glowing route into district 4 (a station pin + short leader) */}
+      <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
+        <line x1={roof.x} y1={roof.y} x2={kafka.x + kafka.w / 2} y2={kafka.y} stroke={C.signal} strokeWidth={2} strokeOpacity={0.85} />
+        <circle cx={roof.x} cy={roof.y} r={7} fill={C.white} stroke={C.signal} strokeWidth={3} />
+      </svg>
+      <TermChip term="Kafka" typo={typo} fx={fx} style={{left: kafka.x, top: kafka.y}} size={34} />
       <Scrim r={TITLE} strength={0.6} />
       <div style={{position: 'absolute', right: 120, top: 60}}>
         <KWord text={COPY.f7Title} at={-1000} typo={typo} fx={fx} size={104} preset="impact" />
@@ -234,43 +319,58 @@ const GATE_R = 1.15 * 1.3;
 const GATE_CY = 2.0;
 const PHRASE_WORDS = [48, 49, 50];
 
-const Ring: React.FC<{c: THREE.PerspectiveCamera; cx: number; cy: number; r: number; prog: number; col: string; fx: Fx; lit: number}> = ({c, cx, cy, r, prog, col, fx, lit}) => {
+const Ring: React.FC<{c: THREE.PerspectiveCamera; cx: number; cy: number; r: number; prog: number; col: string; fx: Fx; lit: number; idle: number; beat: number}> = ({c, cx, cy, r, prog, col, fx, lit, idle, beat}) => {
   const N = 72;
-  const ring = Array.from({length: N + 1}, (_, i) => {
-    const a = Math.PI / 2 - (i / N) * Math.PI * 2; // starts at the top, runs clockwise
-    return V(cx + Math.cos(a) * r, cy + Math.sin(a) * r, 0);
-  });
-  const P = ring.map((v) => project(c, v));
-  const d = P.map((p, i) => `${i ? 'L' : 'M'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+  const ringAt = (sy: number) =>
+    Array.from({length: N + 1}, (_, i) => {
+      const a = Math.PI / 2 - (i / N) * Math.PI * 2; // starts at the top, runs clockwise
+      return project(c, V(cx + Math.cos(a) * r, sy * (cy + Math.sin(a) * r), 0));
+    });
+  const P = ringAt(1);
+  const R = ringAt(-1); // r3 (critic r2 #4): mirror image under the floor plane y = 0
+  const path = (pp: {x: number; y: number}[]) => pp.map((p, i) => `${i ? 'L' : 'M'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ');
+  const d = path(P);
   const ctr = project(c, V(cx, cy, 0));
+  const rctr = project(c, V(cx, -cy, 0));
   const rx = Math.max(...P.map((p) => Math.abs(p.x - ctr.x)));
   const ry = Math.max(...P.map((p) => Math.abs(p.y - ctr.y)));
   const floor = project(c, V(cx, 0, 0));
+  const id = col.slice(1);
+  const glowK = 1 + beat * 0.8;
+  // r3 perf: no CSS/SVG blur filters here; glow = stacked low-alpha strokes and gradient fills
   return (
     <g>
-      {/* floor reflection pool */}
-      <ellipse cx={floor.x} cy={floor.y} rx={rx * 1.2} ry={ry * 0.18} fill={col} opacity={0.08 + lit * 0.22} style={{filter: `blur(${fx.glowInner * 1.5}px)`}} />
-      {/* r2 (critic r1 #4): vertical light cone from above onto the gate */}
-      {(() => {
-        const top = [project(c, V(cx - 0.25, cy + r + 4.5, 0)), project(c, V(cx + 0.25, cy + r + 4.5, 0))];
-        const bot = [project(c, V(cx + r * 1.15, 0, 0)), project(c, V(cx - r * 1.15, 0, 0))];
-        return <polygon points={[...top, ...bot].map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')} fill={`url(#cone-${col.slice(1)})`} opacity={0.45 + 0.55 * lit} style={{mixBlendMode: 'screen', filter: `blur(${fx.glowInner}px)`}} />;
-      })()}
+      {/* reflection on the floor: ring + portal, mirrored, dim */}
+      <g opacity={0.1 + 0.3 * lit + 0.1 * idle}>
+        <ellipse cx={rctr.x} cy={rctr.y} rx={rx * 0.96} ry={ry * 0.96} fill={`url(#portal-${id})`} opacity={0.5 * lit} />
+        <path d={path(R)} fill="none" stroke={prog > 0.99 ? col : C.ink2} strokeWidth={10} strokeOpacity={0.25} />
+        <path d={path(R)} fill="none" stroke={prog > 0.99 ? col : C.ink2} strokeWidth={3} />
+      </g>
+      {/* floor contact pool */}
+      <ellipse cx={floor.x} cy={floor.y} rx={rx * 1.35} ry={Math.max(14, ry * 0.2)} fill={`url(#pool-${id})`} opacity={0.35 + 0.65 * lit} />
+      {/* vertical light cone from above: core + wide soft skirt (two gradient polygons, no blur) */}
+      {[1.0, 1.45].map((w, j) => {
+        const top = [project(c, V(cx - 0.25 * w, cy + r + 4.5, 0)), project(c, V(cx + 0.25 * w, cy + r + 4.5, 0))];
+        const bot = [project(c, V(cx + r * 1.15 * w, 0, 0)), project(c, V(cx - r * 1.15 * w, 0, 0))];
+        return <polygon key={j} points={[...top, ...bot].map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ')} fill={`url(#cone-${id})`} opacity={(0.45 + 0.55 * lit) * (j ? 0.4 : 0.7)} style={{mixBlendMode: 'screen'}} />;
+      })}
       {/* portal surface */}
-      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.96} ry={ry * 0.96} fill={`url(#portal-${col.slice(1)})`} opacity={lit} />
-      {/* dormant ring + r2 inner ring (portal depth) */}
-      <path d={d} fill="none" stroke={C.ink3} strokeOpacity={0.35} strokeWidth={3} />
-      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.72} ry={ry * 0.72} fill="none" stroke={prog > 0.99 ? col : C.ink3} strokeOpacity={0.3 + 0.5 * lit} strokeWidth={2} strokeDasharray="14 10" />
-      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.5} ry={ry * 0.5} fill="none" stroke={prog > 0.99 ? col : C.ink3} strokeOpacity={0.15 + 0.35 * lit} strokeWidth={1.2} />
-      {/* igniting / lit ring: path-draw */}
+      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.96} ry={ry * 0.96} fill={`url(#portal-${id})`} opacity={Math.min(1, lit + beat * 0.5)} />
+      {/* dormant ring (standby breathing before ignition) + inner rings (portal depth) */}
+      <path d={d} fill="none" stroke={C.ink2} strokeOpacity={0.12 * idle} strokeWidth={16} />
+      <path d={d} fill="none" stroke={C.ink2} strokeOpacity={0.3 + 0.25 * idle} strokeWidth={3} />
+      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.72} ry={ry * 0.72} fill="none" stroke={prog > 0.99 ? col : C.ink2} strokeOpacity={0.3 + 0.5 * lit} strokeWidth={2} strokeDasharray="14 10" />
+      <ellipse cx={ctr.x} cy={ctr.y} rx={rx * 0.5} ry={ry * 0.5} fill="none" stroke={prog > 0.99 ? col : C.ink2} strokeOpacity={0.15 + 0.35 * lit} strokeWidth={1.2} />
+      {/* igniting / lit ring: path-draw with a stacked-stroke glow */}
       {prog > 0 ? (
         <>
-          <path d={d} fill="none" stroke={col} strokeWidth={22} opacity={0.35} pathLength={1} strokeDasharray={`${prog} 1`} style={{filter: `blur(${fx.glowInner}px)`}} />
+          <path d={d} fill="none" stroke={col} strokeWidth={34 * glowK} opacity={0.1} pathLength={1} strokeDasharray={`${prog} 1`} />
+          <path d={d} fill="none" stroke={col} strokeWidth={18 * glowK} opacity={0.2} pathLength={1} strokeDasharray={`${prog} 1`} />
           <path d={d} fill="none" stroke={col} strokeWidth={6} pathLength={1} strokeDasharray={`${prog} 1`} />
           <path d={d} fill="none" stroke={C.white} strokeWidth={2} opacity={0.8} pathLength={1} strokeDasharray={`${prog} 1`} />
           {prog < 0.999 ? (
             <g>
-              <circle cx={P[Math.round(prog * N)].x} cy={P[Math.round(prog * N)].y} r={26} fill={col} opacity={0.45} style={{filter: `blur(${fx.glowInner}px)`}} />
+              <circle cx={P[Math.round(prog * N)].x} cy={P[Math.round(prog * N)].y} r={30} fill={`url(#spark-${id})`} />
               <circle cx={P[Math.round(prog * N)].x} cy={P[Math.round(prog * N)].y} r={7} fill={C.white} />
             </g>
           ) : null}
@@ -279,6 +379,9 @@ const Ring: React.FC<{c: THREE.PerspectiveCamera; cx: number; cy: number; r: num
     </g>
   );
 };
+
+/** Carry-over line (S1 w:000027-000033, spoken 19.4-21.4 s, just before the window): the ghost title from f0. */
+const CARRY = (WIN as unknown as {carry_over: {words: WordRec[]}}).carry_over.words;
 
 export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const frame = useCurrentFrame();
@@ -293,6 +396,8 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
   const dist = interpolate(k, [0, 1], [13.6, 10.8]);
   // target shifted 0.8 toward -x so the near (left) gate keeps >= 80 px from the frame edge under the yaw
   const tgt: [number, number, number] = [-0.8, GATE_CY, 0];
+  const impact = on(PHRASE_WORDS[2]);
+  const nudge = frame === impact ? 3 : frame === impact + 1 ? -2 : 0; // 04 §3.5 one-frame camera nudge
   const cam: Cam = {pos: [tgt[0] + Math.sin(ang) * dist, GATE_CY + 0.9 + 0.5 * (1 - k), Math.cos(ang) * dist], target: tgt};
   const c = makeCamera(cam);
   const gx = [4.7, 0, -4.7]; // RTL: the first move sits on the right
@@ -304,7 +409,11 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     return {a, done: handoff};
   });
   const colOf = (i: number) => (lit[i].done > 0.5 ? C.ok : C.signal);
-  // receipt particles stream through the lit gates (seeded; ≤ 1,500 cap irrelevant here: 160 sprites)
+  // r3 (critic r2 #6): dormant gates breathe from f0 (standby), so the opening is not three ghost rings
+  const idle = (i: number) => (1 - prog[i]) * (0.55 + 0.45 * Math.sin(frame / 9 + i * 1.7));
+  // r3 secondary beat on كلها: every gate flares for ~8 frames as the impact word lands
+  const beat = interpolate(frame - impact, [0, 2, 9], [0, 1, 0], cl);
+  // receipt particles stream through the lit gates (seeded; 160 sprites, no per-sprite filter)
   const streams = Array.from({length: 160}, (_, i) => {
     const sp = 0.6 + random(`ps${i}`) * 0.8;
     const t = ((frame / fps) * sp * 0.22 + random(`po${i}`)) % 1;
@@ -316,46 +425,90 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
     if (reach >= 0 && x < gx[reach]) return null; // blocked before an unlit gate
     return {p: project(c, V(x, y, z)), passed, i};
   });
+  // r3 (critic r2 #4): 4 bright packets travel gate to gate; the open range ends at the first unlit gate and extends
+  // smoothly as each gate ignites (packets queue at a dark gate, then are released through it)
+  const ends = [gx[0] + 0.45, gx[1] + 0.45, gx[2] + 0.45, -7];
+  const endX = ends[0] + prog.reduce((acc, p, i) => acc + (ends[i + 1] - ends[i]) * p, 0);
+  const packets = Array.from({length: 4}, (_, i) => {
+    const y = GATE_CY + [-0.35, 0.2, -0.05, 0.42][i];
+    const at = (f: number) => {
+      const t = ((f / fps) / 2.4 + i / 4) % 1;
+      return 7 - t * (7 - endX);
+    };
+    const x = at(frame);
+    const passed = gx.filter((g, j) => x < g && prog[j] > 0.99).length;
+    const trail = [1, 2, 3, 4, 5].map((d) => at(frame - d * 1.5)).filter((tx) => tx > x && tx - x < 2.2);
+    return {x, y, passed, trail, a: interpolate(x, [endX, endX + 0.6, 6.2, 7], [0.25, 1, 1, 0], cl)};
+  });
   const labels = GATE_WORDS.map((w, i) => {
     const p = project(c, V(gx[i], GATE_CY - GATE_R - 0.32, 0));
-    return {p, at: on(w)};
+    const bottom = project(c, V(gx[i], GATE_CY - GATE_R, 0));
+    return {p, bottom, at: on(w)};
   });
   const labelRects: Rect[] = labels.map((l) => ({x: l.p.x - 220, y: l.p.y, w: 440, h: 96}));
   const TITLE: Rect = {x: 1000, y: 60, w: 800, h: 150};
   const phraseOn = frame >= on(PHRASE_WORDS[0]) - 2;
+  const carryOut = on(PHRASE_WORDS[0]) - 6;
+  const carryOp = interpolate(frame, [0, 30, carryOut, carryOut + 5], [0.9, 0.5, 0.5, 0], cl);
   return (
-    <AbsoluteFill>
+    <AbsoluteFill style={nudge ? {transform: `translateX(${nudge}px)`} : undefined}>
       <Backdrop fx={fx} />
-      <AbsoluteFill style={{filter: `blur(${fx.dofBlurPx * 0.6}px)`}}>
-        <Ground c={c} size={7} opacity={0.16} />
-      </AbsoluteFill>
+      <Ground c={c} size={7} opacity={0.13} />
       <Haze fx={fx} y={560} h={520} k={1.5} />
       <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
         <defs>
           {[C.signal, C.ok].map((col) => (
-            <linearGradient key={`c${col}`} id={`cone-${col.slice(1)}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stopColor={col} stopOpacity={0.06} />
-              <stop offset="0.5" stopColor={col} stopOpacity={0.14} />
-              <stop offset="1" stopColor={col} stopOpacity={0.32} />
-            </linearGradient>
-          ))}
-          {[C.signal, C.ok].map((col) => (
-            <radialGradient key={col} id={`portal-${col.slice(1)}`} cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0" stopColor={col} stopOpacity={0.55} />
-              <stop offset="0.6" stopColor={col} stopOpacity={0.16} />
-              <stop offset="1" stopColor={col} stopOpacity={0.05} />
-            </radialGradient>
+            <React.Fragment key={col}>
+              <linearGradient id={`cone-${col.slice(1)}`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor={col} stopOpacity={0.04} />
+                <stop offset="0.5" stopColor={col} stopOpacity={0.12} />
+                <stop offset="1" stopColor={col} stopOpacity={0.3} />
+              </linearGradient>
+              <radialGradient id={`portal-${col.slice(1)}`} cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stopColor={col} stopOpacity={0.55} />
+                <stop offset="0.6" stopColor={col} stopOpacity={0.16} />
+                <stop offset="1" stopColor={col} stopOpacity={0.05} />
+              </radialGradient>
+              <radialGradient id={`pool-${col.slice(1)}`} cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stopColor={col} stopOpacity={0.5} />
+                <stop offset="0.5" stopColor={col} stopOpacity={0.16} />
+                <stop offset="1" stopColor={col} stopOpacity={0} />
+              </radialGradient>
+              <radialGradient id={`spark-${col.slice(1)}`} cx="0.5" cy="0.5" r="0.5">
+                <stop offset="0" stopColor={C.white} stopOpacity={0.9} />
+                <stop offset="0.3" stopColor={col} stopOpacity={0.55} />
+                <stop offset="1" stopColor={col} stopOpacity={0} />
+              </radialGradient>
+            </React.Fragment>
           ))}
         </defs>
         {gx.map((x, i) => (
-          <Ring key={i} c={c} cx={x} cy={GATE_CY} r={GATE_R} prog={prog[i]} col={colOf(i)} fx={fx} lit={lit[i].a * (1 - 0.35 * lit[i].done)} />
+          <Ring key={i} c={c} cx={x} cy={GATE_CY} r={GATE_R} prog={prog[i]} col={colOf(i)} fx={fx} lit={lit[i].a * (1 - 0.35 * lit[i].done)} idle={idle(i)} beat={beat} />
+        ))}
+        {/* leader ticks: each label hangs from its gate */}
+        {labels.map((l, i) => (
+          <line key={`lead${i}`} x1={l.bottom.x} y1={l.bottom.y + 4} x2={l.p.x} y2={l.p.y + 14} stroke={colOf(i)} strokeOpacity={0.25 + 0.5 * lit[i].a} strokeWidth={2} />
         ))}
       </svg>
       <AbsoluteFill style={textSafeMask([...labelRects, ...(phraseOn ? [TITLE] : [])], fx)}>
         <svg width={1920} height={1080} style={{position: 'absolute', inset: 0}}>
           {streams.map((s) =>
-            s && s.p.ok ? <circle key={s.i} cx={s.p.x} cy={s.p.y} r={Math.min(6, 30 / s.p.d)} fill={s.passed >= 2 ? C.ok : C.signal} opacity={0.35 + 0.15 * s.passed} style={{filter: `drop-shadow(0 0 ${fx.glowInner * 0.6}px ${C.signal})`}} /> : null,
+            s && s.p.ok ? <circle key={s.i} cx={s.p.x} cy={s.p.y} r={Math.min(6, 30 / s.p.d)} fill={s.passed >= 2 ? C.ok : C.signal} opacity={0.4 + 0.18 * s.passed} /> : null,
           )}
+          {packets.map((pk, i) => {
+            const col = pk.passed >= 1 ? C.ok : C.signal;
+            const p = project(c, V(pk.x, pk.y, 0));
+            return (
+              <g key={`pk${i}`} opacity={pk.a}>
+                {pk.trail.map((tx, j) => {
+                  const q = project(c, V(tx, pk.y, 0));
+                  return <circle key={j} cx={q.x} cy={q.y} r={9 - j * 1.3} fill={col} opacity={0.4 - j * 0.07} />;
+                })}
+                <circle cx={p.x} cy={p.y} r={30} fill={`url(#spark-${col.slice(1)})`} />
+                <circle cx={p.x} cy={p.y} r={7} fill={C.white} />
+              </g>
+            );
+          })}
         </svg>
       </AbsoluteFill>
       {labels.map((l, i) => (
@@ -363,7 +516,14 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
           <KWord text={COPY.gates[i]} at={l.at} typo={typo} fx={fx} size={56} color={C.ink} glowColor={colOf(i)} />
         </div>
       ))}
-      {phraseOn ? <Scrim r={TITLE} strength={0.6} /> : null}
+      <Scrim r={TITLE} strength={0.6} />
+      {/* r3 (critic r2 #4/#6): the line spoken just before the window holds the title slot as a ghost from f0 */}
+      {carryOp > 0 ? (
+        <div style={{position: 'absolute', right: 120, top: 84, opacity: carryOp}}>
+          <KWord text={CARRY.map((w) => w.text).join(' ').replace('.', '')} at={-1000} typo={typo} fx={fx} size={72} color={C.ink2} glowColor={C.void} />
+        </div>
+      ) : null}
+      <Burst at={impact + 1} x={900} y={150} r={360} color={C.signal} frames={3} />
       <div style={{position: 'absolute', right: 120, top: 60}}>
         <ArStack
           lines={[
@@ -373,7 +533,7 @@ export const GatesOrbit: React.FC<{typo: Typo; fx: Fx}> = ({typo, fx}) => {
               node: (
                 <div dir="rtl" style={{display: 'flex', gap: 28, alignItems: 'baseline'}}>
                   {PHRASE_WORDS.map((w, j) => (
-                    <KWord key={w} text={wordAt(w).text.replace('.', '')} at={on(w)} typo={typo} fx={fx} size={j === 2 ? 128 : 104} color={j === 2 ? C.signal : C.ink} preset={j === 2 ? 'impact' : 'arrive'} />
+                    <KWord key={w} text={wordAt(w).text.replace('.', '')} at={on(w)} typo={typo} fx={fx} size={j === 2 ? 128 : 104} color={j === 2 ? C.signal : C.ink} preset={j === 2 ? 'impact' : 'arrive'} flashFrames={j === 2 ? 3 : 0} />
                   ))}
                 </div>
               ),
