@@ -6,13 +6,13 @@ cut         (stdlib)  ADR-001 candidate -> corpus/edl/master_edl.vN.json + corpu
                       offset, and the far side of the gap keeps >= 90 / >= 60 ms clear of the neighbouring (dropped) word.
                       Pauses > 2.0 s inside kept speech (S1 is cue-timed to the old 70:05 picture) are tightened to 2.0 s at the
                       same kind of cut, so no unplanned gap exceeds 2.5 s. Deep-Dive entry/exit = 2.0 s visual cards (no speech).
-                      Record timeline is integer ms; frames only via timeutil.ms2frame.
+                      Record timeline is integer ms; frames only via timeutil (spans: frame_start floor, frame_end ceil).
 radio       (venv)    decode 48 kHz mono (soxr), S4 EQ match (corpus/audio/eq_match_s4_to_s1.json, linear-phase FIR), per-block
                       gain to -16 LUFS (BS.1770 gated = speech-gated), 20 ms equal-power fades against a room-tone bed, global trim,
                       look-ahead peak limiter (-1.5 dBFS sample ceiling), FLAC 48 kHz/24-bit. Writes gains + VO hash into the EDL.
 radio-check (venv)    0 clipped words (static: every segment's first/last word inside its kept region and neighbours outside;
                       MMS re-align of 20 seeded windows across cuts), per-minute loudness within +-1.5 LU, no unplanned gap > 2.5 s.
-lock        (venv)    word map enriched (seconds, frames, sentence id; monotonic) + features at 30 fps per chapter (RMS, onset
+lock        (venv)    word map enriched (seconds, frames, sentence id; monotonic) + features at the film fps (ADR-002) per chapter (RMS, onset
                       strength, spectral centroid; 3 dp) + corpus/edl/lock.json (EDL, word map, VO and feature SHA-256, fps).
 sample      (ffmpeg)  3-minute FYI radio-edit sample spanning trunk -> Deep-Dive -> trunk -> data/delivery/fyi/*.m4a (AAC 160k).
 
@@ -29,9 +29,9 @@ import time
 
 from . import common as C
 from . import queue as Q
-from .timeutil import ms2frame
+from .timeutil import film_fps, frame_end, frame_start
 
-FPS, SR = 30, 48000
+FPS, SR = film_fps(), 48000      # ADR-002 Q2.1 (F24); spans: start = floor(s*fps), end = ceil(s*fps)
 SPF = SR // FPS
 TARGET_LUFS = -16.0
 CUT_MIN_MS, PRE_MIN, POST_MIN, PAD_MAX = 250, 60, 90, 300
@@ -347,16 +347,15 @@ def cmd_cut(args):
         chapters.append({"id": cid, "kind": b["kind"], "title_ar": t_ar, "title_en": t_en, "act": b["act"], "voice": b["voice"],
                          "cand_id": b["id"], "anchor": b.get("anchor"), "part": part or None, "_start_ms": ch_start})
     total_ms = t
-    total_frames = -(-total_ms * FPS // 1000)
-    for k, ch in enumerate(chapters):
-        ch["start_frame"] = ms2frame(ch.pop("_start_ms"))
-    for k, ch in enumerate(chapters):
-        ch["end_frame"] = chapters[k + 1]["start_frame"] if k + 1 < len(chapters) else total_frames
+    total_frames = frame_end(total_ms, FPS)
+    for ch in chapters:
+        ch.pop("_start_ms")
+    _chapter_spans(chapters, segs, total_ms)
     wm = []
     for n, s in enumerate(segs):
         s["seg_id"] = f"seg-{n + 1:04d}"
-        s["rec_in_frame"] = ms2frame(s["rec_in_ms"])
-        s["rec_out_frame"] = ms2frame(s["rec_out_ms"])
+        s["rec_in_frame"] = frame_start(s["rec_in_ms"], FPS)
+        s["rec_out_frame"] = frame_end(s["rec_out_ms"], FPS)
         if s["role"] == "card":
             continue
         src = Src.get(s["audio_id"])
@@ -364,8 +363,8 @@ def cmd_cut(args):
         for k in range(s["_i0"], s["_i1"] + 1):
             w = src.words[k]
             a, z = w["start_ms"] + off, w["end_ms"] + off
-            wm.append({"v": 1, "word_id": w["word_id"], "rec_start_ms": a, "rec_end_ms": z, "rec_start_frame": ms2frame(a),
-                       "rec_end_frame": max(ms2frame(a), ms2frame(z)), "seg_id": s["seg_id"], "chapter": s["chapter"]})
+            wm.append({"v": 1, "word_id": w["word_id"], "rec_start_ms": a, "rec_end_ms": z, "rec_start_frame": frame_start(a, FPS),
+                       "rec_end_frame": frame_end(z, FPS), "seg_id": s["seg_id"], "chapter": s["chapter"]})
         for x in ("_i0", "_i1", "kind"):
             s.pop(x)
     spoken = [s for s in segs if s["role"] != "card"]
@@ -1063,8 +1062,47 @@ def _sentence_index():
     return idx
 
 
+def _chapter_spans(chapters, segs, total_ms):
+    """Chapter k spans [end of chapter k-1's last segment, end of its own last segment] in ms (contiguous; fills and tightened
+    pauses belong to the chapter they precede). Frames: start floor, end = next start, last = ceil(total)."""
+    last = {}
+    for sg in segs:
+        last[sg["chapter"]] = sg["rec_out_ms"]
+    t = 0
+    for ch in chapters:
+        ch["start_ms"], ch["end_ms"] = t, last[ch["id"]]
+        t = ch["end_ms"]
+    if t != total_ms:
+        C.fail(f"chapters end at {t} ms, record is {total_ms} ms", 3)
+    for k, ch in enumerate(chapters):
+        ch["start_frame"] = frame_start(ch["start_ms"], FPS)
+    for k, ch in enumerate(chapters):
+        ch["end_frame"] = chapters[k + 1]["start_frame"] if k + 1 < len(chapters) else frame_end(total_ms, FPS)
+
+
+def cmd_reframe(args):
+    """ADR-002 fps reconcile: rewrite only fps and *_frame fields (plus chapter start_ms/end_ms) of master_edl.vN from its ms.
+    The VO, word ids, segment ms and the version are unchanged; run `dc story lock --v N --note ...` next (word map + features)."""
+    p = edl_path(args.v)
+    edl = C.read_json(p)
+    old = edl["fps"]
+    edl["fps"] = FPS
+    edl["total_frames"] = frame_end(edl["total_ms"], FPS)
+    _chapter_spans(edl["chapters"], edl["segments"], edl["total_ms"])
+    for sg in edl["segments"]:
+        sg["rec_in_frame"] = frame_start(sg["rec_in_ms"], FPS)
+        sg["rec_out_frame"] = frame_end(sg["rec_out_ms"], FPS)
+    edl.setdefault("rules", {})["frames"] = (f"{FPS} fps (ADR-002 Q2.1); spans: start_frame = floor(s*fps), end_frame = ceil(s*fps) "
+                                             "from integer ms; chapter end_frame = next chapter start_frame")
+    C.write_json(p, edl)
+    print(f"{C.rel(p)}: fps {old} -> {FPS}, {edl['total_frames']} frames, {len(edl['chapters'])} chapters, "
+          f"{len(edl['segments'])} segments re-framed; next: dc story lock --v {args.v} --note '...'")
+    return 0
+
+
 def wm_enrich(v, edl):
-    """Word map -> every kept word with permanent word id, master start/end (s, ms) and frames at 30 fps, sentence id, segment,
+    """Word map -> every kept word with permanent word id, master start/end (s, ms) and frames at the film fps (start floor,
+    end ceil), sentence id, segment,
     chapter. Monotonic and complete, or fail. Idempotent; the VO does not change, only the word map's fields."""
     import bisect
     idx = _sentence_index()
@@ -1096,7 +1134,7 @@ def wm_enrich(v, edl):
             errs.append(f"{w['word_id']}: duplicate")
         seen.add(w["word_id"])
         out.append({"v": 1, "word_id": w["word_id"], "rec_start_s": round(a / 1000, 3), "rec_end_s": round(z / 1000, 3),
-                    "rec_start_ms": a, "rec_end_ms": z, "rec_start_frame": ms2frame(a), "rec_end_frame": max(ms2frame(a), ms2frame(z)),
+                    "rec_start_ms": a, "rec_end_ms": z, "rec_start_frame": frame_start(a, FPS), "rec_end_frame": frame_end(z, FPS),
                     "sent_id": sid, "seg_id": w["seg_id"], "chapter": w["chapter"]})
         prev = w
     if errs:
@@ -1108,7 +1146,8 @@ def wm_enrich(v, edl):
 
 
 def cmd_lock(args):
-    if not args.inline and _queue_self("lock", ["--inline", "--v", str(args.v)], f"story-lock-v{args.v}", 4.0) is not None:
+    if not args.inline and _queue_self("lock", ["--inline", "--v", str(args.v)] + (["--note", args.note] if args.note else []),
+                                       f"story-lock-v{args.v}", 4.0) is not None:
         return 0
     import numpy as np
     import soundfile as sf
@@ -1146,28 +1185,34 @@ def cmd_lock(args):
             lb = np.log1p(1000 * bands)
             flux = np.maximum(0, np.diff(lb, axis=0, prepend=lb[:1])).sum(1)
             flux = flux / max(1e-9, float(np.percentile(flux, 99)))
-            rec = {"v": 1, "chapter": ch["id"], "fps": FPS, "start_frame": a, "end_frame": b, "vo_sha256": edl["vo_sha256"],
+            rec = {"v": 1, "chapter": ch["id"], "fps": FPS, "start_ms": ch["start_ms"], "end_ms": ch["end_ms"], "start_frame": a, "end_frame": b, "vo_sha256": edl["vo_sha256"],
                    "edl": C.rel(edl_path(v)), "rms_dbfs": [round(float(20 * np.log10(max(r_, 1e-6))), 3) for r_ in rms],
                    "onset_strength": [round(float(min(1.0, q)), 3) for q in flux],
                    "centroid_hz": [round(float(c), 3) if r_ > 10 ** (-50 / 20) else 0.0 for c, r_ in zip(cen, rms)],
-                   "notes": "per frame k: window 2048 centred on record frame k (hop 1600 = 1 frame at 30 fps); onset = positive log-band "
+                   "notes": f"per frame k: window 2048 centred on record frame k (hop {SPF} = 1 frame at {FPS} fps); onset = positive log-band "
                             "spectral flux / chapter p99, clipped to 1; centroid 0 where RMS < -50 dBFS"}
             p = os.path.join(fdir, f"{ch['id']}.json")
             with open(p, "w", encoding="utf-8") as fh:
                 json.dump(rec, fh, separators=(",", ":"))
             out[ch["id"]] = sha256(p)
-    lock = {"v": 1, "version": f"v{v}", "locked": C.now_iso(), "gate": "G5",
+    prev_lock = C.read_json(LOCK_JSON, {}) or {}
+    same = prev_lock.get("version") == f"v{v}" and prev_lock.get("vo_sha256") == edl["vo_sha256"]
+    lock = {"v": 1, "version": f"v{v}", "locked": prev_lock["locked"] if same else C.now_iso(), "gate": "G5",
             "edl": C.rel(edl_path(v)), "edl_sha256": sha256(edl_path(v)),
             "word_map": C.rel(wm_path(v)), "word_map_sha256": sha256(wm_path(v)),
             "vo": edl["vo_wav"], "vo_sha256": edl["vo_sha256"], "vo_bytes": os.path.getsize(vo),
-            "total_frames": edl["total_frames"], "total_ms": edl["total_ms"], "fps": FPS, "sr": SR, "words": nwords,
+            "total_frames": edl["total_frames"], "total_ms": edl["total_ms"], "fps": FPS, "fps_source": "ADR-002 Q2.1 (harness/state/decisions.json)",
+            "frame_rule": "spans (words, segments, chapters): start_frame = floor(s*fps), end_frame = ceil(s*fps) from integer ms "
+                          "(timeutil.frame_start/frame_end); chapter end_frame = next chapter start_frame; seconds/ms are the truth",
+            "sr": SR, "words": nwords,
             "word_map_checks": {"start_monotonic": True, "in_sentence_of_segment": True, "source_overlaps_within_segment": WM_STATS["overlaps"],
                                 "max_overlap_ms": WM_STATS["max_overlap_ms"], "overlaps_across_cuts": 0},
             "chapters": len(edl["chapters"]),
             "word_map_fields": "word_id, rec_start_s/rec_end_s (3 dp), rec_start_ms/rec_end_ms, rec_start_frame/rec_end_frame "
-                               "(30 fps, timeutil.ms2frame), sent_id, seg_id, chapter",
-            "features_fields": "rms_dbfs, onset_strength (0..1), centroid_hz; one value per record frame at 30 fps, 3 dp",
+                               f"({FPS} fps, floor/ceil), sent_id, seg_id, chapter",
+            "features_fields": f"rms_dbfs, onset_strength (0..1), centroid_hz; one value per record frame at {FPS} fps, 3 dp",
             "features": out,
+            **({"relocked": C.now_iso(), "relock_note": args.note} if same and args.note else {}),
             "rule": "Picture follows this lock. Any change bumps the version (vN+1) and the compiler re-times specs; no manual nudges."}
     C.write_json(LOCK_JSON, lock)
     old = os.path.join(EDL_DIR, f"lock.v{v}.json")
@@ -1315,10 +1360,14 @@ def register(st):
     s.add_argument("--inline", action="store_true")
     s.add_argument("--tp", action="store_true", help="re-measure true peak on the whole file (reads it into RAM)")
     s.set_defaults(fn="radio.cmd_radio_check")
-    s = st.add_parser("lock", help="G5 lock: word map fields, per-chapter 30 fps features, corpus/edl/lock.json (queued; needs a passing radio-check)")
+    s = st.add_parser("lock", help="G5 lock: word map fields, per-chapter features at the film fps, corpus/edl/lock.json (queued; needs a passing radio-check)")
     s.add_argument("--v", type=int, default=1)
+    s.add_argument("--note", default="", help="why an existing lock of the same version and VO is re-derived (kept in lock.json)")
     s.add_argument("--inline", action="store_true")
     s.set_defaults(fn="radio.cmd_lock")
+    s = st.add_parser("reframe", help="re-derive EDL fps and frame fields from its ms at the ADR-002 fps (audio, ids, ms untouched); then run lock")
+    s.add_argument("--v", type=int, default=1)
+    s.set_defaults(fn="radio.cmd_reframe")
     s = st.add_parser("sample", help="3-minute FYI radio-edit sample, trunk -> Deep-Dive -> trunk -> data/delivery/fyi/<out> (AAC 160k)")
     s.add_argument("--v", type=int, default=1)
     s.add_argument("--around", default="DD-P11-3", help="a Deep-Dive between two trunk chapters, shorter than dur - 20 s")

@@ -6,17 +6,36 @@
  - redundancy <= 5 % of EDL speech time (callbacks excluded: a unit already covered earlier counts once; P4 definitions)
  - 0 prerequisite violations (cleaned requires graph, B-family context review)
  - radio edit: 0 clipped words (static + re-align on >= 20 windows), per-minute loudness within +-1.5 LU, no unplanned gap > 2.5 s
- - VO SHA-256 and word map generated: corpus/edl/lock.json hashes equal the files; word map complete, monotonic, 30 fps frames,
-   every word in a sentence; per-chapter 30 fps features present and hashed
+ - VO SHA-256 and word map generated: corpus/edl/lock.json hashes equal the files; lock fps = EDL fps = ADR-002 Q2.1 fps (F24);
+   word map complete, monotonic, every word in a sentence; per-chapter features at that fps present and hashed
+ - frame/second consistency (spans: start_frame = floor(s*fps), end_frame = ceil(s*fps), from integer ms; s * 1000 == ms):
+   word map, EDL segments and chapters (chapter k = [end of chapter k-1's last segment, end of its last segment], contiguous),
+   total_frames = ceil(total_ms*fps/1000), every segment inside its chapter's ms span, every word inside its chapter's frames
  - FYI sample offered: a verified entry in harness/state/fyi.json whose SHA-256 is the current sample cut from the locked VO
 """
 import glob
 import hashlib
 import json
 import os
+import re
 import sys
 
-MAX_REDUNDANCY, MAX_LU_DEV, MAX_GAP_MS, MIN_WINDOWS, FPS = 5.0, 1.5, 2500, 20, 30
+MAX_REDUNDANCY, MAX_LU_DEV, MAX_GAP_MS, MIN_WINDOWS = 5.0, 1.5, 2500, 20
+
+
+def adr002_fps(decisions):
+    """Film fps decided by ADR-002 Q2.1 ("F24 ..." -> 24); None if undecided. Parsed here, independent of tools/."""
+    d = [x for x in decisions if x.get("id") == "ADR-002" and x.get("status") == "decided"]
+    m = re.match(r"\s*F(\d+)\b", str(((d[-1].get("decision") or {}).get("Q2.1", "")) if d else ""))
+    return int(m.group(1)) if m else None
+
+
+def f_start(ms, fps):
+    return (int(ms) * fps) // 1000
+
+
+def f_end(ms, fps):
+    return -((-int(ms) * fps) // 1000)
 
 
 def C_(name, ok, detail):
@@ -34,12 +53,13 @@ def _sha(path):
 def check(ctx):
     sys.path.insert(0, ctx.p("tools"))
     from dclib import schema, story
-    from dclib.timeutil import ms2frame
     cm = ctx.common
     out = []
 
     # 1 ADR-001
-    dec = [d for d in (cm.read_json(ctx.p("harness", "state", "decisions.json")) or []) if d.get("id") == "ADR-001"]
+    decisions = cm.read_json(ctx.p("harness", "state", "decisions.json")) or []
+    FPS = adr002_fps(decisions)
+    dec = [d for d in decisions if d.get("id") == "ADR-001"]
     adr = dec[-1] if dec else {}
     md = glob.glob(ctx.p("docs", "decisions", "ADR-001-*.md"))
     out.append(C_("adr001_decided", adr.get("status") == "decided" and md,
@@ -118,23 +138,63 @@ def check(ctx):
     vo_sha = _sha(vo) if os.path.exists(vo) else None
     wm_p = ctx.p(*lock["word_map"].split("/"))
     ok_h = (vo_sha == lock["vo_sha256"] == edl["vo_sha256"] and _sha(edl_p) == lock["edl_sha256"]
-            and _sha(wm_p) == lock["word_map_sha256"] and lock.get("fps") == FPS == edl["fps"])
+            and _sha(wm_p) == lock["word_map_sha256"] and FPS is not None and lock.get("fps") == FPS == edl["fps"])
     out.append(C_("lock_hashes", ok_h, f"VO {(vo_sha or 'missing')[:16]}.. = lock = EDL: {vo_sha == lock['vo_sha256'] == edl['vo_sha256']}; "
-                                       f"EDL and word-map SHA-256 equal lock.json; fps {lock.get('fps')}"))
+                                       f"EDL and word-map SHA-256 equal lock.json; fps lock {lock.get('fps')} / EDL {edl['fps']} / "
+                                       f"ADR-002 {FPS}"))
     wm = cm.read_jsonl(wm_p)
     bad, prev = [], None
     werrs = schema.validate_file(wm_p, schema.rule_for(lock["word_map"]), limit=3)
     for w in wm:
-        if not w.get("sent_id") or w.get("rec_start_s") is None or w["rec_start_frame"] != ms2frame(w["rec_start_ms"]) \
-                or w["rec_end_frame"] < w["rec_start_frame"] or abs(w["rec_start_s"] * 1000 - w["rec_start_ms"]) > 0.5:
-            bad.append(w["word_id"])
+        if not w.get("sent_id") or w.get("rec_start_s") is None or w.get("rec_end_s") is None:
+            bad.append(w["word_id"] + " (fields)")
         if prev and w["rec_start_ms"] < prev["rec_start_ms"]:
             bad.append(w["word_id"] + " (order)")
         prev = w
     n_ok = len(wm) == edl["stats"]["words"] and len({w["word_id"] for w in wm}) == len(wm)
-    out.append(C_("word_map", not bad and not werrs and n_ok and wm[-1]["rec_end_frame"] <= edl["total_frames"],
-                  f"{len(wm)} words (EDL {edl['stats']['words']}), unique ids, start-monotonic, 30 fps frames = ms2frame, sentence id on "
-                  f"every word; {len(bad)} bad" + (f" e.g. {bad[:3]}" if bad else "") + (f"; schema {werrs}" if werrs else "")))
+    out.append(C_("word_map", not bad and not werrs and n_ok,
+                  f"{len(wm)} words (EDL {edl['stats']['words']}), unique ids, start-monotonic, seconds + sentence id on every word; "
+                  f"{len(bad)} bad" + (f" e.g. {bad[:3]}" if bad else "") + (f"; schema {werrs}" if werrs else "")))
+
+    # 7b frame/second consistency at the ADR-002 fps (start floor, end ceil, from integer ms)
+    fx = []
+    if FPS is None:
+        fx.append("ADR-002 fps undecided")
+    else:
+        if edl["total_frames"] != f_end(edl["total_ms"], FPS) or lock.get("total_frames") != edl["total_frames"]:
+            fx.append(f"total_frames {edl['total_frames']} != ceil({edl['total_ms']} ms)")
+        last = {}
+        for sg in edl["segments"]:
+            last[sg["chapter"]] = sg["rec_out_ms"]
+            if sg["rec_in_frame"] != f_start(sg["rec_in_ms"], FPS) or sg["rec_out_frame"] != f_end(sg["rec_out_ms"], FPS):
+                fx.append(f"{sg['seg_id']} frames")
+        t, span = 0, {}
+        for k, c in enumerate(chs):
+            nxt = chs[k + 1]["start_frame"] if k + 1 < len(chs) else f_end(edl["total_ms"], FPS)
+            if c.get("start_ms") != t or c.get("end_ms") != last.get(c["id"]) or c["start_frame"] != f_start(t, FPS) \
+                    or c["end_frame"] != nxt:
+                fx.append(f"{c['id']} span")
+            span[c["id"]] = c
+            t = c.get("end_ms")
+        if t != edl["total_ms"]:
+            fx.append(f"chapters end {t} != total_ms {edl['total_ms']}")
+        for sg in edl["segments"]:
+            c = span.get(sg["chapter"])
+            if not c or not (c.get("start_ms", -1) <= sg["rec_in_ms"] <= sg["rec_out_ms"] <= c.get("end_ms", -1)):
+                fx.append(f"{sg['seg_id']} outside {sg['chapter']}")
+        for w in wm:
+            c = span.get(w["chapter"])
+            if round(w["rec_start_s"] * 1000) != w["rec_start_ms"] or round(w["rec_end_s"] * 1000) != w["rec_end_ms"] \
+                    or abs(w["rec_start_s"] * 1000 - w["rec_start_ms"]) > 0.5 or abs(w["rec_end_s"] * 1000 - w["rec_end_ms"]) > 0.5:
+                fx.append(f"{w['word_id']} s != ms")
+            if w["rec_start_frame"] != f_start(w["rec_start_ms"], FPS) or w["rec_end_frame"] != f_end(w["rec_end_ms"], FPS):
+                fx.append(f"{w['word_id']} frames")
+            if not c or not (c["start_frame"] <= w["rec_start_frame"] <= w["rec_end_frame"] <= c["end_frame"]):
+                fx.append(f"{w['word_id']} outside {w['chapter']} frames")
+    out.append(C_("frames_seconds", not fx,
+                  f"{FPS} fps (ADR-002): {len(wm)} words, {len(edl['segments'])} segments, {len(chs)} chapters, total "
+                  f"{edl['total_frames']} frames = ceil({edl['total_ms']} ms); start = floor(s*fps), end = ceil(s*fps), s*1000 = ms, "
+                  f"chapters contiguous, segments/words inside their chapter; {len(fx)} bad" + (f" e.g. {fx[:4]}" if fx else "")))
     fbad = []
     for c in chs:
         fp = ctx.p("corpus", "edl", "features", f"{c['id']}.json")
@@ -145,7 +205,7 @@ def check(ctx):
         n = c["end_frame"] - c["start_frame"]
         if f.get("fps") != FPS or f.get("vo_sha256") != lock["vo_sha256"] or any(len(f.get(k) or []) != n for k in ("rms_dbfs", "onset_strength", "centroid_hz")):
             fbad.append(c["id"])
-    out.append(C_("features", not fbad, f"{len(chs) - len(fbad)}/{len(chs)} chapters with RMS, onset strength and centroid at 30 fps, "
+    out.append(C_("features", not fbad, f"{len(chs) - len(fbad)}/{len(chs)} chapters with RMS, onset strength and centroid at {FPS} fps, "
                                         f"one value per frame, hash = lock" + (f"; bad {fbad[:5]}" if fbad else "")))
 
     # 8 FYI sample offered (verified upload of the current sample)
