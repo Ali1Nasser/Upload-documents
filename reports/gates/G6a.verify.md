@@ -1,6 +1,89 @@
 # G6a independent verification
 
-## Round 1
+## Round 2
+
+Verifier: a separate invocation that did not author or fix any P6 work. Read-only except this report.
+Date: 2026-10-09. Repo HEAD at start: 086bb6f (round 1 report f9f00b7).
+
+### Verdict: FAIL (not passed)
+
+`python3 tools/dc.py gate check G6a` returns **FAIL 5/8**, the same three failures as round 1. Nothing the fix owners had to deliver has landed.
+`git diff --stat 1570317..HEAD` (the commit round 1 started from) touches only `docs/handoffs/PHASE-06.md` and this report; nothing under `studio/`, `harness/`, `reports/lookdev/` or `docs/decisions/` changed.
+The look/parity score is **not** a failing item (8.014 and 7.50 hold on the critic's r3 read), so the "report it, no waiver" clause does not apply. The fix agent must still not self-grade cond 3 (arabic-typographer) or cond 4 (render-ops).
+
+| # | Failing item | My own evidence |
+|---|---|---|
+| 1 | 06 criterion 3, "tokens, presets and component catalog frozen" | `harness/state/freeze.json` is `status: "provisional"`, `hashed_at 23:23:14Z`, `open_preconditions` lists 3 items. Not `frozen`. |
+| 2 | ADR-009 cond 3, re-render plus a fresh Arabic PASS | `reports/lookdev/arabic_r3.md` still ends with the PASS heading of 23:05:03 (commit d6ac265). `grep MD-standard_fix arabic_r3.md` finds nothing. `strips/MD-standard_fix.jpg` was rendered at 23:14:22, after that review. `arabic_r4.md` does not exist. |
+| 3 | ADR-009 cond 4, render-ops no-regression diff | `reports/lookdev/r3/regress.json` does not exist. |
+| (3b) | JOIN_GAP amendment (freeze precondition, not a gate row) | `studio/src/type/arabic.ts` has display {caps 0.20, latin 0.25}, text {caps 0.25, latin 0.30}; ADR-009 B2 says display {0.20, 0.14}, text {0.25, 0.10}. `grep -rl JOIN_GAP docs/decisions` finds only ADR-009. No amending ADR exists (`ls docs/decisions`: ADR-001..005, ADR-009, briefs). Owner council-chair. |
+
+Cond 5 of ADR-009 says freeze "only after conditions 1-4 hold", so the freeze row cannot pass until items 2, 3 and 3b are done and `studio/scripts/freeze_p6.py` exits 0 with `status: frozen`.
+
+### Gate checker, as run now
+
+| Check | Result |
+|---|---|
+| adr_002_005_decided | ok |
+| look_parity | ok (critic_r3 8.01 / 7.5, W-009-LOOK scope covers r3) |
+| arabic_review_pass | ok (the 7 fix stills only) |
+| tokens_presets_catalog_frozen | **fail** (`status` is `provisional`) |
+| projected_render_le_24h | ok (pure P12 reading) |
+| ADR-009_cond_1_2_fixes_ocr | ok |
+| ADR-009_cond_3_rerender_review | **fail** (MD-standard_fix not covered) |
+| ADR-009_cond_4_no_regression_diff | **fail** (`regress.json` missing) |
+
+### 06 section 1 criteria, re-derived by me (not read from the checker)
+
+| Criterion | My result | Status |
+|---|---|---|
+| ADR-002/003/004/005 decided | `docs/decisions/ADR-00{2,3,4,5}-*.md` exist, each states "decided (Council C2, 2026-10-09)"; `harness/state/decisions.json` lists ADR-002..005 as `decided` (C2) | pass |
+| Look rubric mean >= 8.0 | `critic_r3.json` per_family, 10 families x 7 criteria = 70 scores, sum 561, **8.0143**. Column means: composition 8.0, palette 8.1, light/depth 7.6, typography 8.0, legibility 7.9, parity 7.3, cost 9.2. Min score 7 | pass, zero headroom (one score point = 0.014) |
+| AI-Unpacked parity >= 7.5 | `parity_read` (7.5, 7.5, 7.5, 7.0, 8.0) = **7.50**; min criterion 7 | pass, zero headroom |
+| Tokens, presets, catalog frozen | Hashes match (below), status `provisional` | **fail** |
+| Projected final render <= 24 h | 16.55-20.86 h pure (below); fails on a +25 % reading (26.07 h), where the ADR-002 R2 ladder applies | pass on the ADR-002 pure-P12 reading |
+
+### Style frames viewed (1920x1080, r3 fix round; round 1 viewed F2, F3 fix, F9; round 0 viewed F7, F4-hero, F1, F6, F8, MD)
+
+- **F4-hero_fix (critic 8.14):** dense cyan/violet field, a clean title band `بيحوّل النص لموضع`, two result cards `0.165` (red) and `0.227` (green) with `قسم الـ roadmap` / `قسم الـ idempotency` showing a visible tatweel gap and no fusion with the Latin (B2 closed). The large bokeh discs at about x 1200-1350 / y 650-780 and x 390-465 / y 500-575 are still grey/tan and off palette (critic issue 3, carried as AT-2). I would score palette 7 rather than 8, so 8.00 instead of 8.14 for this family. Parity 8 is on the generous side.
+- **F5-standard_fix (critic 8.14):** the strongest of these three on palette. Red (rebuilt) against green (cached) against cyan (edited) slabs read at once, `5 ثواني مقابل 57` is RTL-correct, the unit is small, the counters `57 s` and `5 s` are large. The lower-left quarter below the left stack is empty. Typography 8 and palette 9 hold.
+- **F7-standard_fix (critic 8.00):** the best depth read in the set (lit, warm and dim towers, glowing Kafka route). Chip 6 now reads `AI 6` with no join (B1 closed). The three dim chips (`7 الدليل`, `AI 6`, `5 المجال`) are low-contrast, so legibility 7 is right.
+
+Judgement: the critic's per-criterion scores are plausible and inside its stated calibration (9 = AI-Unpacked, 7 = premium dark UI with glow). The set is "glowing dashboard plus one real 3D scene (F7)", not parity. The pass is marginal. Round 1 and this round each found one score I would lower by a point (F3 legibility 8 to 7; F4-hero palette 8 to 7). Applied together they give 559/70 = **7.986**, under 8.0. I do not substitute my score for the critic's: the gate and ADR-009 W1 work from the critic's single read. The consequence is that the look pass has no real margin, which is why cond 4 and the ADR-009 RT-2 clause (a fresh critic re-score if the fix stills changed anything outside the edited boxes) matter.
+
+### Freeze, catalog, compile (re-derived)
+
+- `freeze.json` groups: tokens 1, type 2, fonts 12, catalog_src 106, catalog_json 106 = **227 files**. My own script (`python3 -I`, SHA-256 of every path): **227/227 match, 0 missing, 0 changed**. `git status` shows no uncommitted change under `studio/`, `harness/schemas/` or `reports/lookdev/`.
+- 04 section 8: I parsed the catalog table myself and got **104 distinct component names**. Every one has `studio/src/components/<Name>/schema.ts` and `harness/schemas/components/<Name>.json`. No missing files. Extras are only `catalog.ts` and `contract.ts` (studio) and `_WordAnchor.json` and `_index.json` (schemas).
+- Compile (queue job 12, `dc q submit` then `q wait`, exit 0): `tsc -p studio/tsconfig.json --noEmit` exits 0; `export_catalog.ts` bundled with esbuild and run against a scratch root exits 0 (it ends with `process.exit(fails ? 1 : 0)` after its contract checks); the 106 exported files are **byte-identical** to the committed `harness/schemas/components/` (`diff -rq`). All 106 JSON files pass `Draft202012Validator.check_schema` (0 bad).
+
+### tokens.ts vs ADR-002 / ADR-003 (read from the files)
+
+FPS 24, 1920x1080 (ADR-002 Q2.1 F24). `GL = 'swiftshader'` (Q2.2). `HERO_SHARE_MAX 0.05` (Q2.3 RT5). Lead frames kinetic 2, state 2, cut 3-5, SFX 3, hold 29, pause 144 (ADR-002 Q2.1 table, same numbers). FX standard: glow 10/32, grain 1.5 %, vignette 15 %, haze 8 %, particles 1,500, CA 0.6 px (Q2.4 FX2). Hero: bloom 1.0 (inside the 0.8-1.2 band), WebGL on, particle cap 1,500. `TEXT_SAFE.on` true and `caOnArabic 0` (Q2.4 chair conditions). Alexandria 700 at >= 56 px, Plex Arabic 600 with 0.08 em below that, Inter Tight 700, JetBrains Mono (ADR-003 T-A); labels 28 px spoken and 18 px secondary floor; tashkeel line 1.6; title/subtitle gap 0.3 em (ADR-003). Palette hexes are the 04 section 1.1 set. No mismatch with ADR-002 or ADR-003.
+Non-blocking: `SIZE.hero` 176 px is above the 04 section 3.2 impact range (96-160 px) and unused; `JOIN_GAP` is the item 3b deviation above.
+
+### Projection for the locked runtime
+
+- `corpus/edl/lock.json`: 332,651 frames, 13,860,430 ms, 24 fps = 3.850 h (13,860,430 ms x 24 / 1000 = 332,650.3, ceil matches).
+- ADR-002 model, h = 0.05, S 0.141-0.183 and H 0.904-1.038 box s/frame: low = 332,651 x (0.95 x 0.141 + 0.05 x 0.904) / 3600 = **16.55 h**; high = 332,651 x (0.95 x 0.183 + 0.05 x 1.038) / 3600 = **20.86 h**; high +25 % = 26.07 h.
+- Measured (`reports/lookdev/r3/perf.json`): blended 0.1339 box s/frame, which is 0.1339 x 332,651 / 3600 = 12.37 h. The 24 h limit at this runtime is 0.2597 box s/frame.
+- Worst 20.86 h <= 24 h on the ADR-002 reading that the 24 h is the pure P12 projection (ADR-002 lines 29-30). Caveat carried: `perf.plates` is empty, so the plate bake cost and disk plan are not in the projection (ADR-009 AT-9, blocks P10, not a G6a row).
+
+### What is needed for a pass (unchanged from round 1)
+
+1. **arabic-typographer:** a fresh review naming `MD-standard_fix` and the 7 `*_fix` stills, ending with a PASS heading, dated after 23:14:22.
+2. **render-ops:** `python3 -I studio/scripts/lookdev_regress.py --boxes <boxes.json> --by render-ops` through the queue, writing `reports/lookdev/r3/regress.json` with `pass=true` covering the 7 stills. Then delete `data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4`.
+3. **council-chair:** a decided ADR that names `JOIN_GAP`, says "amends ADR-009", and records the 0.25 / 0.30 mixed-case values (or revert `arabic.ts` to B2 and re-run the OCR gate).
+4. **motion-engineer:** re-run `studio/scripts/freeze_p6.py` (must exit 0, `status: frozen`), then `dc gate check G6a`, then a round 3 verification.
+
+### Side effects of this verification
+
+- `dc gate check G6a` rewrote `reports/gates/G6a.json` and `harness/state/progress.json`; I restored both with `git checkout` (the committed G6a.json, 6/8 at 23:17:17Z, is stale; the harness should regenerate it on the fix agent's next run).
+- `dc q submit` (job 12) updated `harness/state/queue.json`; that live queue state is left uncommitted, as round 1 left it. Scratch files are in the session scratchpad only.
+
+---
+
+## Round 1 (superseded by Round 2 above; kept for the record)
 
 Verifier: a separate invocation that did not author or fix any P6 work. Read-only except this report.
 Date: 2026-10-09. Repo HEAD at start: 1570317 (round 0 report cebb302; the only change since is the freeze void in 1570317).
