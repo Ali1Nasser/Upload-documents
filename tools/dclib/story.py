@@ -864,9 +864,211 @@ def write_report(D, G, M, sens, b100):
         f.write("\n".join(L) + "\n")
 
 
+# ----------------------------------------------------------------------------------------------------------------- E-001
+# Rules fixed in advance by harness/state/decisions.json (ADR-001 experiment E-001, steps 1-2); deterministic, no planning.
+DD_FLOOR_MIN, CAP_S = 3.0, 3.5 * 3600
+
+
+def _arrange(D, trunk, dives):
+    """Trunk chapters in order; after each, its dives in the B block order (same as build_B)."""
+    per = collections.defaultdict(list)
+    for b in dives:
+        per[b["anchor"]].append(b)
+    out = []
+    for t in trunk:
+        out.append(t)
+        out += sorted(per.get(t["chapter"], []), key=lambda b: (B_BLOCK_ORDER.get(b["part"], PART_SEQ.index(b["part"])),
+                                                                 b["segments"][0]["src_in_ms"]))
+    return out
+
+
+def _seg_k(D, sg):
+    return D["S"][sg["sentences"][0]]["_k"]
+
+
+def build_v2(D, blocks):
+    """3.0 min Deep-Dive floor. A dive shorter than the floor merges into the adjacent dive of the same part (the next one
+    in EDL order if any, else the previous one); the host keeps its anchor and the segments stay in source order. A dive with
+    no same-part neighbour moves to the part's next home chapter. Repeat until every dive meets the floor or cannot move."""
+    trunk = [b for b in blocks if b["kind"] == "trunk"]
+    dives = [json.loads(json.dumps(b)) for b in blocks if b["kind"] == "deep-dive"]
+    for b in dives:
+        b["merged_from"] = [b["id"]]
+    log, stuck = [], set()
+    while True:
+        seq = [b for b in _arrange(D, trunk, dives) if b["kind"] == "deep-dive"]
+        short = [b for b in seq if _block_minutes(b) < DD_FLOOR_MIN and b["id"] not in stuck]
+        if not short:
+            break
+        b = short[0]
+        same = [x for x in seq if x["part"] == b["part"]]
+        i = same.index(b)
+        if len(same) > 1:
+            host = same[i + 1] if i + 1 < len(same) else same[i - 1]
+            host["segments"] = sorted(host["segments"] + b["segments"], key=lambda sg: _seg_k(D, sg))
+            host["windows"] = sorted(host["windows"] + b["windows"], key=lambda w: w["k0"])
+            host["merged_from"] = sorted(host["merged_from"] + b["merged_from"])
+            dives.remove(b)
+            log.append({"action": "merge", "dive": b["id"], "min": round(_block_minutes(b), 2), "into": host["id"],
+                        "anchor": host["anchor"]})
+        else:
+            hs = PART_CH[b["part"]]
+            nxt = hs[hs.index(b["anchor"]) + 1] if b["anchor"] in hs and hs.index(b["anchor"]) + 1 < len(hs) else None
+            if nxt:
+                log.append({"action": "move", "dive": b["id"], "min": round(_block_minutes(b), 2), "from": b["anchor"], "to": nxt})
+                b["anchor"], b["act"] = nxt, D["CH"][nxt]["act"]
+            else:
+                stuck.add(b["id"])
+                log.append({"action": "keep", "dive": b["id"], "min": round(_block_minutes(b), 2), "why": "no neighbour, last home"})
+    # ids: a part left with one dive is DD-<part>; else the merged suffixes in order
+    byp = collections.Counter(b["part"] for b in dives)
+    for b in dives:
+        if byp[b["part"]] == 1:
+            b["id"] = f"DD-{b['part']}"
+        else:
+            b["id"] = f"DD-{b['part']}" + "".join(x[len(f'DD-{b["part"]}'):] for x in b["merged_from"])
+    return _arrange(D, trunk, dives), log, sorted(stuck)
+
+
+def _seg_density(D, sg):
+    nu = {D["by_s"][x] for x in sg["sentences"] if D["novel"][x]}     # restatement sentences count 0
+    dur = (sg["src_out_ms"] - sg["src_in_ms"] + sg["lead_gap_ms"]) / 1000
+    return len(nu) / max(1e-9, dur / 60), dur
+
+
+def build_cap(D, G, blocks, cap_s=CAP_S):
+    """Drop whole dive segments in ascending novel idea units per minute; skip a segment whose removal would add a
+    prerequisite violation or a never-mentioned prerequisite for a kept later sentence; stop at runtime <= cap."""
+    bl = json.loads(json.dumps(blocks))
+    segs = []
+    pos = 0
+    for b in bl:
+        for sg in b["segments"]:
+            if b["kind"] == "deep-dive":
+                dens, dur = _seg_density(D, sg)
+                segs.append((round(dens, 6), pos, b["id"], sg["src_in_ms"], sg["audio_id"], dur))
+            pos += 1
+    segs.sort()
+
+    def live(bl):
+        return [b for b in bl if b["kind"] != "deep-dive" or b["segments"]]
+
+    def score(bl):
+        o = [sid for b in bl for sg in b["segments"] for sid in sg["sentences"]]
+        v, m = violations(D, G, o)
+        return {("v", x["concept"], x["requires"]) for x in v} | {("m", x["concept"], x["requires"]) for x in m}
+    base = score(bl)
+    dropped, skipped = [], []
+    for dens, _, bid, t0, a, dur in segs:
+        if metrics_runtime(live(bl)) <= cap_s:
+            break
+        b = next(x for x in bl if x["id"] == bid)
+        sg = next(x for x in b["segments"] if x["src_in_ms"] == t0 and x["audio_id"] == a)
+        b["segments"].remove(sg)
+        sc = score(live(bl))
+        if sc - base:      # a kept later sentence needs this segment (new violation or never-mentioned prerequisite)
+            b["segments"].append(sg)
+            b["segments"].sort(key=lambda x: _seg_k(D, x))
+            skipped.append({"dive": bid, "src_in_ms": t0, "density": dens, "dur_s": round(dur, 1), "why": sorted("->".join(t[1:]) + (" (missing)" if t[0] == "m" else "") for t in sc - base)})
+            continue
+        base = sc
+        dropped.append({"dive": bid, "audio_id": a, "src_in_ms": t0, "density": dens, "dur_s": round(dur, 1),
+                        "sentences": sg["sentences"]})
+    out = live(bl)
+    for b in out:
+        if b["kind"] == "deep-dive":
+            ks = {_seg_k(D, sg) for sg in b["segments"]}
+            b["windows"] = [w for w in b["windows"] if any(w["k0"] <= k <= w["k1"] for k in ks)]
+    return out, dropped, skipped
+
+
+def _covered(D, blocks):
+    cov = set()
+    for b in blocks:
+        for sg in b["segments"]:
+            for sid in sg["sentences"]:
+                cov.add(D["by_s"][sid])
+                cov |= D["cover_inv"].get(sid, set())
+    return cov
+
+
+def _per_ch_switches(D, blocks):
+    """Switches charged to each trunk-chapter block (the chapter plus the dives after it), as in metrics()."""
+    seq, cur = [], None
+    for b in blocks:
+        if b["kind"] == "trunk":
+            cur = b["chapter"]
+        for sg in b["segments"]:
+            seq.append((D["voice"][sg["audio_id"]], cur))
+    c = collections.Counter()
+    for i in range(1, len(seq)):
+        if seq[i][0] != seq[i - 1][0]:
+            c[seq[i][1]] += 1
+    return c
+
+
+def cmd_e001(args):
+    D = _load()
+    G0, G = _graph_ctx(D, None), _graph_ctx(D, "B")      # context review of c5d96cd: B family previews (B100 ctx = "B")
+    src = C.read_json(C.p("corpus", "edl", "candidates", "B100.json"))
+    b100 = src["blocks"]
+    v2, mlog, stuck = build_v2(D, b100)
+    cap, dropped, skipped = build_cap(D, G, v2)
+    novel_all = {u for u, x in D["IU"].items() if x["novel_vs_trunk"]}
+    cov100 = _covered(D, b100)
+    res, recs = {}, {"B100": b100, "B100-V2": v2, "B100-cap-V2": cap}
+    desc = {"B100-V2": "B100-V2: B100 with a 3.0 min Deep-Dive floor (E-001 step 1). A dive under 3.0 min merges into the adjacent "
+                       "dive of the same part (next if any, else previous; the host keeps its anchor); otherwise it moves to the "
+                       "part's next home chapter.",
+            "B100-cap-V2": "B100-cap-V2: B100-V2, then whole Deep-Dive segments dropped in ascending novel idea units per minute "
+                           "(restatements count 0), skipping any segment a kept later sentence requires, until runtime <= 3:30:00."}
+    for name, bl in recs.items():
+        m = metrics(D, G, bl)
+        m["prereq_violations_before_context_review"] = metrics(D, G0, bl)["prereq_violations"]
+        viol, order = m.pop("_viol"), m.pop("_order")
+        _, miss = violations(D, G, order)
+        cov = _covered(D, bl)
+        m["dropped_units"] = sorted(cov100 - cov)
+        m["dropped_novel_units"] = sorted((cov100 - cov) & novel_all)
+        m["prereq_missing_list"] = sorted({f"{x['concept']}->{x['requires']}" for x in miss})
+        m["dives_under_floor"] = sum(1 for b in bl if b["kind"] == "deep-dive" and _block_minutes(b) < DD_FLOOR_MIN)
+        m["per_ch_switches"] = dict(sorted(_per_ch_switches(D, bl).items()))
+        h = m["runtime_s"] / 3600
+        m["tokens_M"] = [round(m["sentences"] * 5 / 1000, 1), round(m["sentences"] * 8 / 1000, 1)]
+        m["render_h"] = [round(h * 5.6, 1), round(h * 8.2, 1)]
+        m["render_h_5pct_r3f"] = round(h * 16.7 / 3, 1)
+        res[name] = m
+        if name != "B100":
+            rec = {"v": 1, "candidate": name, "created": C.now_iso(), "desc": desc[name], "experiment": "E-001",
+                   "derived_from": {"file": "corpus/edl/candidates/B100.json", "sha256": C.sha256_file(C.p("corpus", "edl", "candidates", "B100.json"))
+},
+                   "params": dict(src["params"], dd_floor_min=DD_FLOOR_MIN, **({"cap_s": CAP_S} if "cap" in name else {})),
+                   "metrics": {k: v for k, v in m.items() if k not in ("per_ch_switches",)},
+                   "merge_log": mlog, "prereq_violations": viol, "blocks": bl}
+            if "cap" in name:
+                rec["dropped_segments"] = dropped
+                rec["skipped_segments"] = skipped
+            C.write_json(C.p("corpus", "edl", "candidates", f"{name}.json"), rec, indent=1)
+            m["outline_words"] = outline(D, name, desc[name], bl, m, C.p("data", "derived", "story", f"outline_{name}.md"))
+    C.write_json(C.p("reports", "story", "E-001.json"), {"v": 1, "created": C.now_iso(), "experiment": "E-001",
+                                                       "merge_log": mlog, "stuck": stuck, "cap_dropped": [{k: v for k, v in d.items() if k != "sentences"} for d in dropped],
+                                                       "cap_skipped": skipped, "candidates": res}, indent=1)
+    for n, m in res.items():
+        print(n, json.dumps({k: m[k] for k in ("runtime", "sentences", "coverage_pct", "novel_s4_units_pct", "redundancy_pct",
+                                               "prereq_violations", "prereq_violations_before_context_review", "prereq_missing",
+                                               "voice_switches", "voice_switches_per_h", "max_switches_per_trunk_chapter",
+                                               "deep_dives", "dives_under_floor", "tokens_M", "render_h", "render_h_5pct_r3f")}),
+              "dropped_novel", len(m["dropped_novel_units"]))
+    print("merges", json.dumps(mlog))
+    print("cap dropped", len(dropped), "skipped", len(skipped))
+    return 0
+
+
 def register(sub):
     st = sub.add_parser("story", help="P5 story editor: prerequisite review, candidate EDLs, outlines").add_subparsers(dest="story_cmd", required=True)
     s = st.add_parser("order", help="apply corpus/graph/requires_review.jsonl; recompute S1 order violations and cycles")
     s.set_defaults(fn="story.cmd_order")
     s = st.add_parser("candidates", help="candidate EDLs A/B/B100/C/D -> corpus/edl/candidates, outlines, reports/story/candidates.json")
     s.set_defaults(fn="story.cmd_candidates")
+    s = st.add_parser("e001", help="E-001: B100-V2 (3.0 min dive floor) and B100-cap-V2 (3:30 cap) from B100.json, metrics, outlines")
+    s.set_defaults(fn="story.cmd_e001")
