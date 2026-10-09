@@ -28,9 +28,9 @@ Generated 2026-10-09T01:29:50Z by `dc story candidates` (story-editor). Inputs: 
 | Voice time, min | S1 70.1 | A 62.2, B 103.9, C 8.1, S1 70.1 | A 62.5, B 104.2, C 8.1, S1 70.1 | A 77.7, B 131.2, C 8.9, S1 54.4 | A 77.7, B 131.2, C 8.9, S1 124.4 |
 | Est. P8-P9 subagent tokens (5-8 k/sentence) | 2.8-4.5 M | 13.1-21.0 M | 13.2-21.0 M | 14.9-23.9 M | 17.7-28.4 M |
 | Est. final render h (5.6-8.2 h per film hour, render_bench) | 7-10 | 23-34 | 23-34 | 26-37 | 32-47 |
-| LLM-judge coherence (1-10) | pending | pending | pending | pending | pending |
+| LLM-judge coherence (1-10, mean of 2 full-outline judges) | 7.00 | 6.00 | 6.25 | 6.00 | 6.00 |
 
-Coherence is scored by a separate judge invocation that reads `data/derived/story/outline_<X>.md`; authors never grade their own work.
+Coherence is scored by separate judge invocations that read the ordered outline (`data/derived/story/outline_<X>.md`); authors never grade their own work. The row is the mean of the two full-outline judgements per candidate; partial-input and wrong-file judgements are excluded. See "Coherence (LLM judge)" at the end of this file.
 
 D: film 1 1:10:05 + film 2 4:34:05; prerequisite counts are per film, summed; redundancy counts film 2 against film 1.
 
@@ -124,3 +124,152 @@ Facts the Council must weigh alongside the content evidence:
 - Voice A (10 S4 parts) is the same family as S1, but it is a different recording and narrator (cosine 0.54-0.62). P01 is voice C. Every Deep-Dive is an audible switch, framed by its cards.
 - C has not had its own context review: its 39 violations are measured on the global review only, which is comparable to B's 21.
 - C/D keep each S4 part whole, so restated S4 material stays and redundancy is measured only against earlier EDL speech.
+
+## Coherence (LLM judge)
+
+Appended 2026-10-09 from 16 separate judge invocations (none by the story-editor that built the EDLs). Scores and reasons below are the judges' own and are not re-scored here; only the grouping, the means and the "recurring points" list are added. Judges are numbered J1-J16 in the order received.
+
+Not all 16 records are comparable. **10** read a full ordered outline (J1-J5, J8-J12): these give the means. **3** had partial input (J6 placement table only, J7 aggregate metrics only, J16 the generator source only) and are shown but kept out of the means. **3** were pointed at the wrong file (J13-J15) and do not score any candidate.
+
+### Scores
+
+| candidate | full-outline judges | mean | partial-input judges (not in mean) |
+|---|---|---|---|
+| A | J1 7, J8 7 | **7.00** | none |
+| B | J2 6, J9 6 | **6.00** | J7 7.5 (metrics only; inferred, "not a read of the actual story") |
+| B100 | J3 6.5, J10 6 | **6.25** | J6 7 (placement table only), J16 7 (story.py only) |
+| C | J4 6, J11 6 | **6.00** | none |
+| D | J5 6, J12 6 | **6.00** | none |
+
+Including the partial records, B would be 6.5 (n=3) and B100 6.6 (n=4); the ranking does not change. The spread between candidates is 1.0 point at most, with two judges each, so coherence does not separate B, B100, C and D. A scores highest, but it covers only 30.8 % of idea units with 54 prerequisites never mentioned; J8 calls it a survey (chapters of 85-165 s) and J1 a flat 70 minutes of trunk. Coherence alone does not decide ADR-001.
+
+### Recurring points (extracted from the reasons below; not a new judgement)
+
+1. **Orientation stack before CH-03** (B, B100, C, D; 21-27 min). CH-01, DD-P00b, DD-P00 and DD-P01 (or their PT/ins equivalents in C and D) retell the roadmap and the journey two to four times before any teaching. Every judge that saw DD-P00b notes its own title says "alternate take of part 0" (J2, J3, J4, J5, J6, J9, J10, J11, J12, J16).
+2. **S1 trunk order problems affect all five candidates, because the trunk is shared.** CH-15 to CH-20 zigzag (spreadsheets after Python and SQL; CH-18 repeats CH-09 themes; DSA and networks split the software strand) (J1). CH-17 (semantic models and measures) comes before CH-23 (warehouse, star schema) (J1, J8). CH-17 to CH-18/CH-19 steps back to engineering craft (J5). The NilePay thread is sparse after CH-00, mostly CH-27 and CH-28 (J1).
+3. **Deep-dives that restate the trunk instead of extending it** (B, B100): DD-P08a (CH-10 customer 9), DD-P08b (CH-11 funnel, alias born at SELECT), DD-P11a (CH-15 TRIM 11 to 7), DD-P11b (CH-16 mean vs median), DD-P15 (CH-22 retry doubles the count), DD-P22a (CH-31 learning rate 0.35), DD-P24 (CH-34 saturation) (J2, J3). This is consistent with the Caveats estimate of about 13 min (6-30) of B100 that is restatement.
+4. **Deep-dive placement jumps** (B, B100). DD-P07 lands after DD-P10 at CH-14, a Python lesson inside the SQL act (J2, J3, J6, J9, J10, J16). DD-P17 lands after DD-P19b at CH-27 although DataCube is introduced at CH-23/DD-P16 (J3, J9, J10, J16). DD-P14 (Java, JDBC, Spring Boot) hangs off CH-21 with no Java in the trunk, and DD-P15 (the real extension of CH-21) only arrives after CH-22 (J2, J9, J10). DD-P12 follows CH-19 (J3). Some dives use ideas before the trunk teaches them: DD-P05a (set membership, before CH-07), DD-P06a (acceptance tests and Git, before CH-09), DD-P10 (shards, CarbonData, before CH-24) (J2, J9).
+5. **CH-04 line "we will meet Airflow in about thirty-five minutes"** holds for the 70-min trunk (J1 sees it land near CH-22) but is wrong once deep-dives are inserted: CH-22 is about 115 min after CH-04 in B (J2) and starts near minute 146 in B100 (J3). Rewrite or condition this line if B or B100 is chosen.
+6. **Text fixes the storyboard should carry**: DD-P00 says "ShopFlow" where CH-00 and DD-P00b say "NilePay" (J2, J3, J4); CH-01 ends on a stray line about decimals (J3; the same line closes CH-01-ins in C, J4), CH-24 ends on a dangling colon (J3), and CH-00 opens on "She cannot answer it..." (J4).
+7. **Runtime and voice (B, B100)**: 4:09-4:10, above the 2.5-3.5 h target; deep-dives are about 175 of 250 min (70 %); 66 switches (15.8-15.9/h); voice B matches S1 at only 0.59 cosine; voice C is used once (DD-P01); micro-inserts of 0.8-2 min (DD-P06b, DD-P11b, DD-P11c, DD-P19a, DD-P02a, DD-P22a) each cost two switches plus 2 s cards; stacked runs without the narrator: DD-P03+DD-P04 16 min, DD-P10+DD-P07 13.4 min, DD-P19b+DD-P17 12.3 min (J3, J6). Voice and runtime figures come from J2, J3, J6, J9, J10.
+8. **C and D**: 39 prerequisite violations each, measured on the global review only (C has had no context review, see Caveats). Examples: Docker/git/shell (PT-P02) before container image (PT-P24), gap 2,422 sentences; firewall (PT-P04) before packet (PT-P13); pandas before dataframe (J11, J12). D's film 2 inserts are all 459 S1 sentences verbatim from film 1, about 54 min, hence 29.9 % redundancy (J12); read alone, D's film 1 would score 8-9 (J5). C has a single deep-dive (DD-P00b), so "extend, do not repeat" is barely exercised (J4, J11).
+9. **Where the judges credit the candidates**: the S1 spine CH-00 to CH-36 is a sound arc and the callbacks pay off (orphan order 1007 in CH-10/CH-12, doubled count on retry in CH-22, deadlock CH-13 and hot key CH-25 recalled in CH-36) (J1, J2, J3, J8); deep-dives in the middle acts (DD-P03/P04, P05, P09, P11) extend rather than repeat (J9); B and B100 have 0 prerequisite violations after context review (J6, J7, J9).
+
+### Records excluded from the means (wrong input)
+
+These three scores are placeholders from judges that were pointed at graph files, not at an outline. They are kept for the record and must not be read as scores for any candidate.
+
+- **J13, `corpus/graph/requires_review.jsonl`, 6 (self-flagged low confidence).** 223 review records (forward_ref 121, mention_fp 62, bad_edge 24, mention_fn 10, cycle_edge 6). 42 forward refs are orientation-map lines in CH-00..CH-02 (neural network, loss, weight, neuron named in CH-01 and taught in CH-31; disaster recovery and tracing named in CH-01/CH-02 and taught in CH-34). 27 of 91 chapter-located forward refs span 10 or more chapters (largest 33, for example CH-01 to CH-31 and CH-02 to CH-34), so each needs a visible callback when taught. 30 refs are "named first, decomposed later in the same chapter" (CH-33 x6, CH-24 x4, CH-03 x3). 29 edges dropped and one inverted (table requires row); cycles such as sampling/statistics/distribution and container/docker were broken. Remaining cross-chapter jump-backs: CH-32/CH-33 (5), CH-14 to CH-18 (3), CH-07 to CH-10 (3), CH-02/CH-03 (3).
+- **J14, `corpus/graph/requires_clean.jsonl`, 0 (not-assessable marker).** 906 concept-to-concept edges over 452 concepts (428 sources, 256 targets), no cycles, no self-loops, sorted alphabetically by source. No chapters, voices or minutes.
+- **J15, `reports/story/order_clean.json`, 1 (placeholder).** Edge-cleanup report: edges 935 to 906, S1 violations 142 to 0, cycles 0, `missing_prereq_in_s1` 54. Its `forward_ref` count is 98 where this file says 121; checked against `requires_review.jsonl`: 98 records have no `context` field (S1) and 23 have `context: B`, so the two figures are consistent.
+
+A clean re-score would point each judge at `data/derived/story/outline_<X>.md`; not done here.
+
+### Judgement detail
+
+Reasons are condensed from the judges' wording; chapter ids, part ids and numbers are as given.
+
+**J1, A, 7**
+- Strong spine CH-03 to CH-14: machine, files, Linux, Python, testing/Git, then the database run. The orphan row (order 1007 / customer 9) is planted in CH-10 and paid off in CH-11 (funnel) and CH-12 (silent inner-join drop); CH-13 transactions and CH-14 indexes follow.
+- CH-15 to CH-20 zigzag: spreadsheets and applied steps (CH-15) arrive after Python and SQL; CH-18 (software craft) repeats CH-09 testing/review/design; DSA (CH-19) and networks/security (CH-20) sit between BI and ETL and split the software strand.
+- CH-17 (semantic models, measures, report) comes before the layers it depends on: ETL/quality (CH-21), DAG/idempotency (CH-22), warehouse/star schema (CH-23). CH-23 runs the dashboard-to-source trace backwards, so CH-17 belongs after CH-23.
+- CH-21 to CH-28 is well ordered; CH-26 pays off CH-22 (at-least-once into an idempotent sink); CH-27/CH-28 work as a capstone.
+- CH-29 to CH-33 builds cleanly; CH-33's SQL allowlist and read-only role link back to the database chapters.
+- The ending is cohesive (CH-04's Airflow reference lands near CH-22, 32-35 min later; CH-34 to CH-36 recall the CH-13 deadlock and CH-25 hot key). Cost: the NilePay thread is sparse (CH-27, CH-28 only), and there are no deep-dives or voice changes, so it is a flat 70 min of trunk.
+
+**J2, B, 6**
+- The trunk CH-00 to CH-36 is a sound spine with good callbacks (order 1007 in CH-10/CH-12, doubled count on retry in CH-22, deadlock and hot key in CH-36). Split dives (P05a/b, P08a/b, P11a/b/c, P21a/b, P22a/b) sit after the matching chapters.
+- The opening is front-loaded: CH-01, DD-P00b ("alternate take"), DD-P00 (8.3 min), CH-02 and DD-P01 (8.1 min) are four overlapping roadmaps, about 27 min before CH-03, and they preview Airflow, agents and Docker before any vocabulary exists. NilePay is introduced in CH-00 and again in DD-P00b; DD-P00 says ShopFlow.
+- Dives restate the preceding chapter: DD-P08b (CH-11 funnel), DD-P08a (CH-10 customer 9), DD-P11a (CH-15 TRIM), DD-P11b (CH-16 mean vs median), DD-P22a (CH-31 rate 0.35), DD-P24 (CH-34 saturation). Poor fit for the "novel idea units" rule.
+- Confusing jumps: DD-P14 (Java etc.) has no trunk chapter and splits ETL from orchestration between CH-21 and CH-22; DD-P15 comes only after CH-22; DD-P07 jumps back to Python after DD-P10 and before CH-15; pools are taught again in DD-P13 and DD-P14.
+- CH-04's "Airflow in about thirty-five minutes" holds for the trunk alone (CH-22 at about 40 min) but is about 115 min with dives. DD-P05a, DD-P06a and DD-P10 use ideas before the trunk teaches them.
+- 66 switches; dives are about 174 of 249 min (70 %), the trunk is a thin spine; stubs (DD-P06b 0.8, DD-P11c 1.4, DD-P11b 1.5, DD-P19a 1.7) cost two switches each; voice C appears once; 4:09 exceeds the target.
+
+**J3, B100, 6.5**
+- The spine is logical and cumulative; CH-36 calls back CH-13 (deadlock), CH-25 (hot key), CH-22 (running twice).
+- The opening is repetitive: CH-01 then DD-P00b (5.2) and DD-P00 (8.3), two takes of one roadmap, then DD-P01 (8.1) after CH-02; about 27 min before the first teaching in CH-03, previewing Airflow, star schemas, LLMs and agents to a novice.
+- Wrong forward reference for this cut: CH-04 says Airflow in about 35 min, but CH-22 starts around minute 146 of 4:10. Naming is inconsistent (DD-P00 ShopFlow vs NilePay).
+- Dives re-narrate demos: DD-P08b, DD-P11b, DD-P22a, DD-P15, DD-P24 (see recurring point 3).
+- Order breaks: DD-P12 after CH-19, so CH-18's topic is revisited; DD-P07 after SQL III before CH-15; DD-P10 mentions CarbonData and shards before CH-24/CH-25; DD-P17 (Mobile Money star schema, 24 KPIs) follows CH-27/DD-P19b but builds on CH-23/DD-P16.
+- Voice is steady within each part but the move from formal S1 to chatty NotebookLM voices is abrupt, and 2-min chapters are followed by 5-8 min dives; stacked runs DD-P03+DD-P04 (16 min), DD-P10+DD-P07 (13.4), DD-P19b+DD-P17 (12.3); DD-P06b is an orphan 0.8-min fragment; CH-01 ends on a stray line about decimals and CH-24 ends on a dangling colon.
+
+**J4, C, 6**
+- Macro-progression is sound and bookended: CH-00 cold open (the shoebox question) through foundations, analytics, craft, systems, ETL/warehouse, big data, ML/DL/RAG, ship-it, and a closing wall in CH-35/CH-36.
+- The opening is bloated: CH-00, PT-P00, DD-P00b, CH-01-ins and PT-P01 all re-present the roadmap and the NilePay table, about 25 min before teaching; DD-P00b is explicitly an alternate take.
+- The only dive, DD-P00b, is mislabelled and misplaced (says "after CH-01" but sits before CH-01-ins); with one dive in 4.5 h, "extend, do not repeat" is not met.
+- Most S1 inserts (CH-03/04, CH-06/07, CH-11, CH-13, CH-22, CH-29/30) restate the preceding PT part; CH-11-ins repeats PT-P08's SELECT/alias explanation almost word for word. 47 switches.
+- Jump-backs: PT-P17 (Mobile Money/DataCube) is interrupted by PT-P18 (Hadoop/Spark) and then resumed in PT-P19/CH-27; CH-02-ins ("how to read this film") arrives after P00, P01 and the dive; PT-P14 (Java) sits between P13 and P15 with the CH-21 ETL gloss wedged after it.
+- The running example is inconsistent (NilePay in S1 inserts and DD-P00b, ShopFlow/api.shopflow in PT-P00 and PT-P13); stray fragments at the end of CH-01-ins and the start of CH-00; voice C is used once.
+
+**J5, D, 6**
+- Film 1 (CH-00 to CH-36, voice S1) is a strong linear arc and would score 8-9 alone; the CH-36 close recalls the deadlock and hot-key examples.
+- Film 2 tells the roadmap four times in about 25 min: CH-00 insert, PT-P00 (8.8), DD-P00b (5.1, "after CH-01" but placed before CH-01-ins), CH-01-ins, then PT-P01 (8.9).
+- The film-1 inserts repeat film 1 near-verbatim (CH-03-ins, CH-06-ins, CH-10-ins, CH-12-ins), each right after a 7-10 min PT part on the same topic (CH-12-ins and CH-13-ins after PT-P09, CH-22-ins after PT-P15).
+- 47 switches; a 1-2 min formal S1 insert sits between conversational 6-10 min parts; A/B/C assignment looks arbitrary (C once in PT-P01; B runs PT-P09 to PT-P12).
+- Order: CH-17 to CH-18/CH-19 steps back to craft, and PT-P11 to PT-P12 does the same; PT-P07 uses pandas joins and DB connections before SQL joins (PT-P08/P09); PT-P14 (Java, Spring Boot, saga) has no film-1 counterpart or bridge.
+- Insert placement is inconsistent (CH-21-ins before PT-P15, others after); PT-P17 comes before the transaction walk-through (PT-P19, CH-27-ins) and reconciliation (PT-P20); CH-00 opens both films.
+
+**J6, B100, 7 (partial input: placement table only; not in mean)**
+- Dives follow the curriculum in order, with no jumps back (Python to CH-06..09, SQL to CH-10..14, analytics to CH-15..17, craft CH-19, systems CH-20, backend CH-21, ETL CH-22, warehouse CH-23, big data CH-25, streaming CH-26/27, reconciliation CH-28, ML CH-29/30, DL CH-31/32, RAG CH-33, shipping CH-34, career CH-35); 0 prerequisite violations after context review.
+- Orientation is front-loaded: about 21.6 min (DD-P00b 5.2, DD-P00 8.3, DD-P01 8.1) before CH-03, and P00b/P00 largely repeat each other and the CH-01 map.
+- Micro-inserts: P02, P05, P06, P08, P09, P11, P19, P21, P22 are split into 2-3 pieces, several under 2 min (DD-P06b 0.8, DD-P11c 1.4, DD-P11b 1.5, DD-P19a 1.7, DD-P02a 1.7, DD-P22a 1.9), each paying 2 s cards plus a voice switch.
+- Stacked dives at CH-05 (16 min voice B), CH-14 (13.4 min, with P10 before P07 against P-number order) and CH-27 (12.3 min).
+- 66 switches (15.8/h), at most 2 per chapter; voice B matches S1 at 0.59; A/B alternate across CH-05..CH-13, then B at CH-19, A at CH-20, B at CH-21, A at CH-22/23; voice C once (CH-02).
+- 4:10:07 against 2.5-3.5 h; about 8.4 % of dive speech may be restatement (about 13 min, range 6-30); coverage 100 %; CH-18 and CH-24 have no inserts while CH-05, CH-14 and CH-27 are heavy.
+
+**J7, B, 7.5 (partial input: `candidates.json` aggregate metrics only; the judge states the score is inferred, "not a read of the actual story"; not in mean)**
+- 0 prerequisite violations (21 fixed by 23 accepted context previews), 5 prerequisites never mentioned against 54 in A and 57 in D.
+- 37 dives for 37 trunk blocks, 3.9 % redundancy, 99.5 % novel S4 units; C has a single dive, D 29.9 % redundancy.
+- 66 switches (15.9/h), none above 2 per chapter; voice match to S1 0.59; S1 70.1 min against A 62.2, B 103.9, C 8.1.
+- Rejected alternatives: C (39 violations, up to 3 switches per chapter); D (39 violations, 57 missing, 29.9 % redundancy, two films stitched at 5:44:11); A (smooth, but 30.8 % coverage and 54 missing prerequisites).
+- B vs B100: B100 fills the 9 uncovered units but adds 9 excerpts under 20 s, which are choppy; B is the better pick for coherence. B is 4:09:24, over target. The 3:30 cap on B100 removes 40.5 min and drops novel S4 units to 82.3 %; whether the cut breaks prerequisites or dive pairings was not checkable, so it needs a re-check.
+
+**J8, A, 7**
+- CH-00 to CH-02 orient the learner, then the acts run Ground Zero, Python, SQL, Analytics, Craft, Systems, Platform, Big data, Domain, AI, Ship, with CH-36 closing; 0 prerequisite violations, 0.1 % redundancy.
+- SQL (CH-10 to CH-14) and AI (CH-29 to CH-33) sequences are tight, each chapter extending the one before.
+- Mild forward dependency: CH-17 (measures) before CH-23 (dimensional modelling); 54 prerequisite concepts are never taught.
+- Abrupt transitions at CH-26 to CH-27 (Kafka to Mobile Money) and CH-28 to CH-29 (governance to ML); the part-to-chapter map homes P17 on CH-27 ahead of P18 on CH-24/CH-25, which suggests the source order had Mobile Money earlier.
+- Over-compressed: chapters of about 85-165 s; CH-20 packs networks, HTTP, APIs, identity and security into about 125 s; CH-28 packs four governance topics into 130 s; coverage 30.8 % (34.6 % of content), 1,969 uncovered units; reads as a survey.
+- 0 dives and 0 voice switches (S1 only, 70:05, under the 2.5-3.5 h target), so no optional depth for hard chapters such as CH-14, CH-25 and CH-31.
+
+**J9, B, 6**
+- Macro arc is sound with most dives directly after the chapter they extend; CH-36 has no dive; 0 prerequisite violations.
+- Opening repeats three times before CH-03 (DD-P00b, DD-P00, DD-P01): about 21 min of voice A/C roadmap against about 5 min of S1 trunk.
+- Wrong anchors: DD-P07 follows DD-P10 inside CH-14; DD-P14 sits under CH-21 and delays the ETL dive DD-P15 until after CH-22; DD-P17 follows DD-P19b although DataCube was introduced at CH-23/DD-P16.
+- Dives run ahead: DD-P06a at CH-08 covers errors, decorators, tests and Git, but "Testing, debugging, Git" is introduced in CH-09; DD-P06b is a stray 0.8-min fragment; DD-P19a/b (1.7 then 5.0 min across CH-26/CH-27) spread one topic thinly.
+- The trunk is about 1.5-2.5 min per chapter (about 70 min) against about 175 min of dives, so the trunk is a teaser; 66 switches; dives alternate A and B by source, not by role; voice C appears once as an 8-min block.
+- Dives extend rather than repeat in the middle acts (DD-P03/P04, P05a/b, P09a/b, P11a/b/c; split windows k0-23 then k31-66 show real continuation); dives made of 10-16 cut segments (DD-P05a, DD-P12, DD-P24) risk choppiness; 4:09 is above target.
+
+**J10, B100, 6**
+- Macro arc is sound; each trunk chapter is a 1.4-2.3 min S1 summary followed by a dive.
+- The opening repeats itself (DD-P00b then DD-P00 back to back, DD-P01 as a third pass); about 22 min of preview before CH-03, the weakest part of the film.
+- Out of part order: DD-P07 after DD-P10 at CH-14; DD-P17 after DD-P19b at CH-27, where it would read better right after DD-P16 at CH-23.
+- Anchor mismatches: DD-P14 hangs off CH-21 with no Java in the trunk; DD-P15 comes after CH-22; Hadoop (DD-P18) is anchored on CH-25 (Spark) and CH-24 has no dive.
+- 66 switches (15.8/h); voice C once, between voice A blocks; A/B alternate arbitrarily in the Python and SQL acts (P05 A, P06 B, P08 A, P09 B); every dive is entered from and returned to S1, and four of them are only 0.8-2 min.
+- 4:10:07 against target, about 175 min of dive against about 70 of trunk, so the short S1 summaries give little to hold the film together; repeated and split titles (P02a/b, P05a/b, P11a/b/c) make some dives read as continuations.
+
+**J11, C, 6**
+- Macro arc is sound (foundations to ship-it and close); short S1 glosses of 0.8-2 min after each part read as recap-and-extend; the CH-00 cold open (1.5 min) is a good hook.
+- The opening is repetitive: CH-01 is covered three times in a row (PT-P00 8.8 min, DD-P00b 5.1 min in the same voice A, CH-01-ins), with PT-P01 and CH-02-ins twice more; about 25 min of orientation.
+- Act order jumps: PT-P07 (Python for data, home CH-14/CH-21) sits between Python and SQL under the label "Platform", has no CH insert, and uses DB connections, upsert and fan-out before PT-P08 teaches primary key and cardinality. Domain (PT-P17, CH-27) and Big data (PT-P18, CH-24/CH-25) interleave, so the Mobile Money reports come before Hadoop and Spark.
+- Forward references are not repaired: 39 prerequisite violations plus 3 never mentioned. Docker, git and shell (PT-P02, CH-04) before container image (PT-P24, CH-34), gap 2,422 sentences; firewall (PT-P04) needs packet (PT-P13), about 1,000; HTTP (PT-P06) needs the TCP handshake (PT-P13); refactoring (PT-P06) needs clean code (PT-P12); Spark (PT-P02) needs dataframe (PT-P07); dashboard (PT-P08) needs KPI/measure (PT-P11).
+- Inserts arrive after the part they gloss, so definitions come too late: "filesystem" is defined in CH-04-ins after PT-P02 used shell, redirection and git; "column" in CH-07-ins after csv and index appear; "interface" near S1:0272 after PT-P12 used polymorphism, repository and design pattern.
+- 47 switches (10.3/h); parts alternate A/B/A/B across act boundaries; voice C once (PT-P01); voice match to S1 0.54; 4:34 runs about an hour over target.
+
+**J12, D, 6**
+- Both films follow the same arc; film 1 (70 min, S1, 0 switches) is clean and linear; in film 2 each long part sits 1-3 blocks from its anchor insert.
+- The only dive, DD-P00b, is an "alternate take of part 0" that repeats PT-P00 (8.8 min) and sits before CH-01-ins.
+- Film 2 spends about 27 min (CH-00, PT-P00, DD-P00b, CH-01, PT-P01, CH-02) on orientation before PT-P02/CH-03; the S1 "map" (CH-01-ins) comes after the long roadmap it summarises, while film 1 does the same in about 5 min.
+- Out-of-order parts: PT-P07 (anchor CH-21) sits after CH-09 and before SQL, 19 blocks before CH-21-ins; PT-P17 comes before Hadoop/Spark/Kafka and the transaction chapter it depends on; PT-P14 (Java/Spring/saga) has no trunk Java chapter. 39 prerequisite violations (Docker before container image, gap 2,422; firewall before packet; pandas before dataframe).
+- 47 switches in 64 blocks, S1 alternating with A/B/C every 8-12 min; A and B are not tied to topic (Python I A to Python II B; SQL I A to SQL II/III B); voice C once (PT-P01, 8.9 min); voice match to S1 0.636.
+- All 459 S1 sentences in film 2's inserts are verbatim from film 1 (about 54 min), redundancy 29.9 %; several inserts are clipped excerpts (CH-13-ins 3 segments/8 sentences, CH-34-ins 6 sentences, CH-36-ins 2 segments); the file has no glosses, only `title_en`.
+
+**J16, B100, 7 (partial input: `tools/dclib/story.py`, the generator; the judge could not check actual text; not in mean)**
+- Scored the structure the generator encodes, not a rendered outline (no glosses, minutes or voice labels).
+- Progression is logical (CH-00 to CH-35 orientation through career), each dive is anchored after a chapter on the same topic, and placement is monotone inside a part.
+- Dives extend by design (windows kept at >= 60 % novel units, restatements cut at clean pauses, cross-part duplicates kept once); the risk is the early chapters, where CH-01 stacks DD-P00b before DD-P00 after an S1 cold open and roadmap, and CH-02 adds DD-P01.
+- Possible jumps back: P17 homed on CH-27 and sorted after P19; P07 split between CH-14 and CH-21 and sorted after P10.
+- Voice changes are signposted by 2 s cards but may stack: CH-05 (P03, P04), CH-14 (P10, P07) and CH-27 (P19b, P17) each hold two consecutive dives; `max_switches_per_trunk_chapter` has to be checked against actual output.
+- B100's excerpts under 20 s (250-700 ms gaps) risk choppy, context-poor fragments, and split parts reuse the whole-part title (for example DD-P07a and DD-P07b), so the card promises more than the excerpt covers and two inserts look identical.
+
+Regeneration warning: `dc story candidates` (`tools/dclib/story.py`, lines 812-813) rewrites this file and resets the coherence row to "pending". Re-append this section after any regeneration.
