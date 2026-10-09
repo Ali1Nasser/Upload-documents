@@ -125,6 +125,39 @@
    "story-editor: 21-27 min orientation stack before CH-03; CH-15-20 zigzag; CH-17 before CH-23",
    "fact-checker: 7 restating dives (DD-P08a, P08b, P11a, P11b, P15, P22a, P24) checked against trunk numbers",
    "audio-forensics: declip plan for P01 (21 clip runs) and P00 (2)"
-  ]
+  ],
+  "criterion8_reopen": {
+   "status": "brief",
+   "date": "2026-10-09",
+   "brief": "docs/decisions/C1.reopen-c8.brief.md",
+   "trigger": "experiment.rules.dialect fired: 5/15 windows (33%) non-Egyptian, all voice C = P01 English (reports/story/E-001_dialect.md)",
+   "fixed": {
+    "Q1": "B100",
+    "Q2": "V1",
+    "source": "reports/story/E-001.md"
+   },
+   "evidence": [
+    "reports/story/E-001_noC.md",
+    "reports/story/E-001_noC.json",
+    "corpus/edl/candidates/B100-noC.json"
+   ],
+   "options": {
+    "O1": "keep DD-P01 English audio + Arabic subtitles",
+    "O2": "drop DD-P01 (B100-noC) + scoped D2 waiver of 103 units",
+    "O3": "re-voice P01 in Egyptian Arabic",
+    "O4": "non-narrated on-screen-Arabic roadmap interlude",
+    "O5": "O2 + specifics as on-screen labels over CH-02",
+    "O6": "substitute Egyptian 28-min V2 s01 audio (unverified)"
+   },
+   "weights": {
+    "fit_to_intent": 0.25,
+    "coverage_loss": 0.25,
+    "voice_dialect_consistency": 0.15,
+    "accuracy_qa_exposure": 0.15,
+    "effort_risk": 0.15,
+    "runtime": 0.05
+   },
+   "next": "7 council-member lenses score O1-O6; synthesis per 02 s3"
+  }
  }
 ]
