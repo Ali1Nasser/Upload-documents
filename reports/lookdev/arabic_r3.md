@@ -44,3 +44,32 @@ Scope: `reports/lookdev/r3/stills/` F1-F9 (+F4-hero) at 1920x1080 full size, and
 
 ## Open BiDi cases for `dc qa arabic` (P9)
 `الـ` + ALL-CAPS Latin (AI, SQL, API) and `الـ` + mixed-case at display sizes; Latin isolate wrapping across a 2-line caption break; `%` and parentheses beside `،` `؛` `؟` at line end; decimals in RTL parents; `←`/`→` placement between Arabic blocks (F6); mirrored `؟` under the RTL wipe.
+
+---
+
+## Re-check of the r3 Arabic fixes (arabic-typographer, after a3b86c1): PASS
+
+Scope: the 7 `*_fix.jpg` stills at 1920x1080 (F3, F4, F4-hero, F5, F6, F7, F8) plus source diff 8f245ee..a3b86c1. Author (motion-engineer) did not grade; OCR below is my own, run on crops of the delivered stills (tesseract ara+eng, 3x, autocontrast; smoke only; score = Arabic-letter stream + non-Arabic stream, tatweel/bidi marks dropped).
+
+Test suite: `bash studio/scripts/check_type.sh` 43 ok (was 38; adds banded J1 gaps, min 18 px at 92 px). Logic only. `dc qa arabic` still "not implemented yet" (P9): G6b and G8 stay blocked on it. cmap unchanged (no new codepoints; `AI` and `←` are covered).
+
+| Fix | Evidence | Result |
+|---|---|---|
+| B1 F7 chip 6 | chip now `AI 6`, same number-at-RTL-start layout as the other six chips; OCR `Al 6` (no `AIJI`; Al/AI is the Inter I-vs-l ambiguity, not a join) | fixed |
+| B2 F3 title | lam foot and `partition` visibly separated, tatweel stroke readable; OCR before 0.91 `partitiond!`, now 1.00 `الترتيب داخل ال partition` | fixed |
+| B2 F4 card `قسم الـidempotency` / `قسم الـroadmap` | 1.00 / 1.00 | fixed |
+| B2 F6 head 72 px `أعلى نتيجة: قسم الـroadmap` | 1.00 | fixed |
+| B2 F6 labels 34 px | roadmap 1.00 (was 0.85 `roadmapJ\|`); idempotency 1.00 on psm 13, psm 7 reorders and misreads the dim 85 % ink `قسم` (`a.nd`), no join junk | fixed (dim-ink noise only) |
+| R1 F6 order and arrow | `0.165` roadmap at the right, `←`, `0.227` at the left (same sides as F4); each label centred under its number (idem x 250-540 vs number 205-585; roadmap x 905-1140 vs 735-1310) | fixed |
+| R2 F8 ghost | two phrases, 4 + 3 words, one line each (15 and 16 chars), right edges 1795/1797 (aligned), no canon word dropped; OCR l2 0.93, l1 0.59 at 3.8:1 ghost ink on the beam (accepted as a receding ghost, not an OCR gate) | fixed |
+| R3 F5 bar-end `s` | source 0.55 em x 36 px = 19.8 px (floor 18); still shows a larger muted `s` at both bars, no collision with the numbers | fixed |
+
+Join-gap values are now 0.20/0.25 em (display caps/mixed) and 0.25/0.30 em (text). They are visibly wider than the 0.14/0.10 I asked for, but the measured isolated OCR sweep showed the asked values still fused, so I accept the author's values. The gap reads as a word space plus the tatweel foot; no stretched-word look at 34 px or 92 px. Watch the 34 px labels in motion (wipe) for a gap that looks like two words.
+
+### Open (non-blocking, carry to P8/P9)
+1. Canon drift: `corpus/canon/chapters.json:196` and the glossary say `6 الـAI`. The look-dev now shows `6 AI`. At the new 0.25 em caps gap the article probably reads clean at 32 px (probe `caps-AI-32`: `Al ال`, no join noise, score 0.80 only from I/l), so the production spec should restore `الـAI` or log a `pending-council` override for the bare form. Scene-director to decide; do not ship the bare form silently.
+2. Strips MA/MB/MC/MD were not re-rendered (author's note): MD still shows the 7-word ghost and old gaps. Re-render before any strip is used as G6a/G8 evidence; the F8 still proves the source change.
+3. `dc qa arabic` must normalize I/l/1 and Al/AI confusion in OCR, and score the isolated render at full contrast (not the glow-composited frame); the F8 ghost line 1 and dim-ink labels fail frame-crop OCR for contrast reasons.
+4. Earlier advisories stand: F5 chips `CACHED`/`EDITED`/`REBUILT` 20 px; RTL anchoring of F5 column labels and F1 `ست عمليات دفع من NilePay`; chip order term-first; `CH-34:labels_ar:0` override pending-council; the open BiDi list above.
+
+Verdict: B1, B2, R1, R2, R3 all closed. The Arabic r3 FAIL is lifted for the look-dev set. G6b and G8 remain blocked on a real `dc qa arabic`.
