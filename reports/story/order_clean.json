@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "created": "2026-10-09T01:28:33Z",
+  "edges_before": 935,
+  "edges_after": 906,
+  "review": {
+    "forward_ref": 98,
+    "mention_fp": 62,
+    "bad_edge": 24,
+    "mention_fn": 10,
+    "cycle_edge": 6
+  },
+  "violations_s1_before": 142,
+  "violations_s1_after": 0,
+  "cycles_after": 0,
+  "missing_prereq_in_s1": 54,
+  "violations": [],
+  "cycles": []
+}

@@ -1,0 +1,6458 @@
+{
+ "v": 1,
+ "candidate": "B100",
+ "created": "2026-10-09T01:29:50Z",
+ "desc": "B100, B extended to every novel S4 idea unit: the same windows with no 20 s minimum (short excerpts join the part's Deep-Dive).",
+ "params": {
+  "run_min_ms": 0,
+  "novel_frac": 0.6,
+  "cut_min_ms": 250,
+  "pre_ms": 60,
+  "post_ms": 90,
+  "card_s": 2.0,
+  "part_home_chapters": {
+   "P00b": [
+    "CH-01"
+   ],
+   "P00": [
+    "CH-01"
+   ],
+   "P01": [
+    "CH-02"
+   ],
+   "P02": [
+    "CH-03",
+    "CH-04"
+   ],
+   "P03": [
+    "CH-05"
+   ],
+   "P04": [
+    "CH-05"
+   ],
+   "P05": [
+    "CH-06",
+    "CH-07"
+   ],
+   "P06": [
+    "CH-08",
+    "CH-09"
+   ],
+   "P07": [
+    "CH-14",
+    "CH-21"
+   ],
+   "P08": [
+    "CH-10",
+    "CH-11"
+   ],
+   "P09": [
+    "CH-12",
+    "CH-13"
+   ],
+   "P10": [
+    "CH-14"
+   ],
+   "P11": [
+    "CH-15",
+    "CH-16",
+    "CH-17"
+   ],
+   "P12": [
+    "CH-18",
+    "CH-19"
+   ],
+   "P13": [
+    "CH-20"
+   ],
+   "P14": [
+    "CH-21"
+   ],
+   "P15": [
+    "CH-22"
+   ],
+   "P16": [
+    "CH-23"
+   ],
+   "P17": [
+    "CH-27"
+   ],
+   "P18": [
+    "CH-24",
+    "CH-25"
+   ],
+   "P19": [
+    "CH-26",
+    "CH-27"
+   ],
+   "P20": [
+    "CH-28"
+   ],
+   "P21": [
+    "CH-29",
+    "CH-30"
+   ],
+   "P22": [
+    "CH-31",
+    "CH-32"
+   ],
+   "P23": [
+    "CH-33"
+   ],
+   "P24": [
+    "CH-34"
+   ],
+   "P25": [
+    "CH-35"
+   ]
+  }
+ },
+ "metrics": {
+  "runtime_s": 15006.7,
+  "runtime": "4:10:07",
+  "sentences": 2630,
+  "speech_s": 12031.8,
+  "spoken_segments": 311,
+  "deep_dives": 37,
+  "trunk_blocks": 37,
+  "short_excerpts_lt20s": 9,
+  "coverage_pct": 100.0,
+  "coverage_content_pct": 100.0,
+  "novel_s4_units_pct": 100.0,
+  "uncovered_units": 0,
+  "redundancy_pct": 3.9,
+  "voice_switches": 66,
+  "voice_switches_per_h": 15.8,
+  "max_switches_per_trunk_chapter": 2,
+  "voice_time_min": {
+   "A": 62.5,
+   "B": 104.2,
+   "C": 8.1,
+   "S1": 70.1
+  },
+  "prereq_violations": 0,
+  "prereq_missing": 5,
+  "audio_quality_proxy": 0.896,
+  "voice_match_to_s1": 0.592,
+  "prereq_violations_before_context_review": 21,
+  "context_previews_accepted": 23,
+  "s4_cross_part_dups_dropped": 53
+ },
+ "prereq_violations": [],
+ "blocks": [
+  {
+   "id": "CH-00",
+   "kind": "trunk",
+   "chapter": "CH-00",
+   "title_en": "Cold open — the question a shoebox cannot answer",
+   "act": "Orientation",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 0,
+     "src_out_ms": 95000,
+     "sentences": [
+      "s:S1:ar-natural:0000",
+      "s:S1:ar-natural:0001",
+      "s:S1:ar-natural:0002",
+      "s:S1:ar-natural:0003",
+      "s:S1:ar-natural:0004",
+      "s:S1:ar-natural:0005",
+      "s:S1:ar-natural:0006",
+      "s:S1:ar-natural:0007",
+      "s:S1:ar-natural:0008",
+      "s:S1:ar-natural:0009",
+      "s:S1:ar-natural:0010",
+      "s:S1:ar-natural:0011"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "CH-01",
+   "kind": "trunk",
+   "chapter": "CH-01",
+   "title_en": "The map — seven movements, one project, one contract",
+   "act": "Orientation",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 95000,
+     "src_out_ms": 200000,
+     "sentences": [
+      "s:S1:ar-natural:0012",
+      "s:S1:ar-natural:0013",
+      "s:S1:ar-natural:0014",
+      "s:S1:ar-natural:0015",
+      "s:S1:ar-natural:0016",
+      "s:S1:ar-natural:0017",
+      "s:S1:ar-natural:0018",
+      "s:S1:ar-natural:0019",
+      "s:S1:ar-natural:0020",
+      "s:S1:ar-natural:0021",
+      "s:S1:ar-natural:0022",
+      "s:S1:ar-natural:0023",
+      "s:S1:ar-natural:0024",
+      "s:S1:ar-natural:0025"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P00b",
+   "kind": "deep-dive",
+   "part": "P00b",
+   "anchor": "CH-01",
+   "title_en": "The real job, the journey map and the data contract (alternate take of part 0)",
+   "act": "Orientation",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 240,
+     "src_out_ms": 44390,
+     "sentences": [
+      "s:S4:P00b:0000",
+      "s:S4:P00b:0001",
+      "s:S4:P00b:0002",
+      "s:S4:P00b:0003",
+      "s:S4:P00b:0004",
+      "s:S4:P00b:0005",
+      "s:S4:P00b:0006",
+      "s:S4:P00b:0007"
+     ],
+     "lead_gap_ms": 300
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 87460,
+     "src_out_ms": 93930,
+     "sentences": [
+      "s:S4:P00b:0016"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 104640,
+     "src_out_ms": 112010,
+     "sentences": [
+      "s:S4:P00b:0018"
+     ],
+     "lead_gap_ms": 680
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 116860,
+     "src_out_ms": 158590,
+     "sentences": [
+      "s:S4:P00b:0020",
+      "s:S4:P00b:0021",
+      "s:S4:P00b:0022",
+      "s:S4:P00b:0023",
+      "s:S4:P00b:0024",
+      "s:S4:P00b:0025",
+      "s:S4:P00b:0026"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 164060,
+     "src_out_ms": 216290,
+     "sentences": [
+      "s:S4:P00b:0028",
+      "s:S4:P00b:0029",
+      "s:S4:P00b:0030",
+      "s:S4:P00b:0031",
+      "s:S4:P00b:0032",
+      "s:S4:P00b:0033",
+      "s:S4:P00b:0034",
+      "s:S4:P00b:0035"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 246060,
+     "src_out_ms": 249930,
+     "sentences": [
+      "s:S4:P00b:0042"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 292200,
+     "src_out_ms": 329410,
+     "sentences": [
+      "s:S4:P00b:0051",
+      "s:S4:P00b:0052",
+      "s:S4:P00b:0053",
+      "s:S4:P00b:0054",
+      "s:S4:P00b:0055",
+      "s:S4:P00b:0056",
+      "s:S4:P00b:0057",
+      "s:S4:P00b:0058"
+     ],
+     "lead_gap_ms": 380
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 345600,
+     "src_out_ms": 361890,
+     "sentences": [
+      "s:S4:P00b:0061",
+      "s:S4:P00b:0062",
+      "s:S4:P00b:0063",
+      "s:S4:P00b:0064"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 390720,
+     "src_out_ms": 395270,
+     "sentences": [
+      "s:S4:P00b:0069"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P00b",
+     "src_in_ms": 417980,
+     "src_out_ms": 515950,
+     "sentences": [
+      "s:S4:P00b:0074",
+      "s:S4:P00b:0075",
+      "s:S4:P00b:0076",
+      "s:S4:P00b:0077",
+      "s:S4:P00b:0078",
+      "s:S4:P00b:0079",
+      "s:S4:P00b:0080",
+      "s:S4:P00b:0081",
+      "s:S4:P00b:0082",
+      "s:S4:P00b:0083",
+      "s:S4:P00b:0084",
+      "s:S4:P00b:0085",
+      "s:S4:P00b:0086",
+      "s:S4:P00b:0087",
+      "s:S4:P00b:0088",
+      "s:S4:P00b:0089",
+      "s:S4:P00b:0090",
+      "s:S4:P00b:0091",
+      "s:S4:P00b:0092"
+     ],
+     "lead_gap_ms": 440
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 7,
+     "dur_s": 44.0
+    },
+    {
+     "k0": 16,
+     "k1": 35,
+     "dur_s": 128.7
+    },
+    {
+     "k0": 42,
+     "k1": 42,
+     "dur_s": 3.7
+    },
+    {
+     "k0": 51,
+     "k1": 64,
+     "dur_s": 69.5
+    },
+    {
+     "k0": 69,
+     "k1": 69,
+     "dur_s": 4.4
+    },
+    {
+     "k0": 74,
+     "k1": 93,
+     "dur_s": 102.0
+    }
+   ]
+  },
+  {
+   "id": "DD-P00",
+   "kind": "deep-dive",
+   "part": "P00",
+   "anchor": "CH-01",
+   "title_en": "The whole roadmap: from zero to an AI-powered data platform",
+   "act": "Orientation",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P00",
+     "src_in_ms": 2420,
+     "src_out_ms": 175630,
+     "sentences": [
+      "s:S4:P00:0001",
+      "s:S4:P00:0002",
+      "s:S4:P00:0003",
+      "s:S4:P00:0004",
+      "s:S4:P00:0005",
+      "s:S4:P00:0006",
+      "s:S4:P00:0007",
+      "s:S4:P00:0008",
+      "s:S4:P00:0009",
+      "s:S4:P00:0010",
+      "s:S4:P00:0011",
+      "s:S4:P00:0012",
+      "s:S4:P00:0013",
+      "s:S4:P00:0014",
+      "s:S4:P00:0015",
+      "s:S4:P00:0016",
+      "s:S4:P00:0017",
+      "s:S4:P00:0018",
+      "s:S4:P00:0019",
+      "s:S4:P00:0020",
+      "s:S4:P00:0021",
+      "s:S4:P00:0022",
+      "s:S4:P00:0023",
+      "s:S4:P00:0024",
+      "s:S4:P00:0025",
+      "s:S4:P00:0026",
+      "s:S4:P00:0027",
+      "s:S4:P00:0028",
+      "s:S4:P00:0029",
+      "s:S4:P00:0030",
+      "s:S4:P00:0031",
+      "s:S4:P00:0032",
+      "s:S4:P00:0033",
+      "s:S4:P00:0034"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P00",
+     "src_in_ms": 183900,
+     "src_out_ms": 188630,
+     "sentences": [
+      "s:S4:P00:0036"
+     ],
+     "lead_gap_ms": 300
+    },
+    {
+     "audio_id": "a:S4:P00",
+     "src_in_ms": 197840,
+     "src_out_ms": 207910,
+     "sentences": [
+      "s:S4:P00:0038",
+      "s:S4:P00:0039"
+     ],
+     "lead_gap_ms": 600
+    },
+    {
+     "audio_id": "a:S4:P00",
+     "src_in_ms": 211560,
+     "src_out_ms": 213630,
+     "sentences": [
+      "s:S4:P00:0041"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P00",
+     "src_in_ms": 219300,
+     "src_out_ms": 526830,
+     "sentences": [
+      "s:S4:P00:0043",
+      "s:S4:P00:0044",
+      "s:S4:P00:0045",
+      "s:S4:P00:0046",
+      "s:S4:P00:0047",
+      "s:S4:P00:0048",
+      "s:S4:P00:0049",
+      "s:S4:P00:0050",
+      "s:S4:P00:0051",
+      "s:S4:P00:0052",
+      "s:S4:P00:0053",
+      "s:S4:P00:0054",
+      "s:S4:P00:0055",
+      "s:S4:P00:0056",
+      "s:S4:P00:0057",
+      "s:S4:P00:0058",
+      "s:S4:P00:0059",
+      "s:S4:P00:0060",
+      "s:S4:P00:0061",
+      "s:S4:P00:0062",
+      "s:S4:P00:0063",
+      "s:S4:P00:0064",
+      "s:S4:P00:0065",
+      "s:S4:P00:0066",
+      "s:S4:P00:0067",
+      "s:S4:P00:0068",
+      "s:S4:P00:0069",
+      "s:S4:P00:0070",
+      "s:S4:P00:0071",
+      "s:S4:P00:0072",
+      "s:S4:P00:0073",
+      "s:S4:P00:0074",
+      "s:S4:P00:0075",
+      "s:S4:P00:0076",
+      "s:S4:P00:0077",
+      "s:S4:P00:0078",
+      "s:S4:P00:0079",
+      "s:S4:P00:0080",
+      "s:S4:P00:0081",
+      "s:S4:P00:0082",
+      "s:S4:P00:0083",
+      "s:S4:P00:0084",
+      "s:S4:P00:0085",
+      "s:S4:P00:0086",
+      "s:S4:P00:0087",
+      "s:S4:P00:0088",
+      "s:S4:P00:0089",
+      "s:S4:P00:0090",
+      "s:S4:P00:0091",
+      "s:S4:P00:0092",
+      "s:S4:P00:0093",
+      "s:S4:P00:0094",
+      "s:S4:P00:0095",
+      "s:S4:P00:0096",
+      "s:S4:P00:0097"
+     ],
+     "lead_gap_ms": 360
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 97,
+     "dur_s": 526.7
+    }
+   ]
+  },
+  {
+   "id": "CH-02",
+   "kind": "trunk",
+   "chapter": "CH-02",
+   "title_en": "How to read this film — the visual language",
+   "act": "Orientation",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 200000,
+     "src_out_ms": 300000,
+     "sentences": [
+      "s:S1:ar-natural:0026",
+      "s:S1:ar-natural:0027",
+      "s:S1:ar-natural:0028",
+      "s:S1:ar-natural:0029",
+      "s:S1:ar-natural:0030",
+      "s:S1:ar-natural:0031",
+      "s:S1:ar-natural:0032",
+      "s:S1:ar-natural:0033",
+      "s:S1:ar-natural:0034",
+      "s:S1:ar-natural:0035",
+      "s:S1:ar-natural:0036",
+      "s:S1:ar-natural:0037",
+      "s:S1:ar-natural:0038",
+      "s:S1:ar-natural:0039",
+      "s:S1:ar-natural:0040"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P01",
+   "kind": "deep-dive",
+   "part": "P01",
+   "anchor": "CH-02",
+   "title_en": "The journey and the visual language: how we will learn and what we will watch",
+   "act": "Orientation",
+   "voice": "C",
+   "segments": [
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 0,
+     "src_out_ms": 26150,
+     "sentences": [
+      "s:S4:P01:0000",
+      "s:S4:P01:0001",
+      "s:S4:P01:0002",
+      "s:S4:P01:0003",
+      "s:S4:P01:0004",
+      "s:S4:P01:0005"
+     ],
+     "lead_gap_ms": 250
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 28660,
+     "src_out_ms": 67190,
+     "sentences": [
+      "s:S4:P01:0007",
+      "s:S4:P01:0008",
+      "s:S4:P01:0009",
+      "s:S4:P01:0010",
+      "s:S4:P01:0011",
+      "s:S4:P01:0012",
+      "s:S4:P01:0013",
+      "s:S4:P01:0014",
+      "s:S4:P01:0015",
+      "s:S4:P01:0016"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 68700,
+     "src_out_ms": 109110,
+     "sentences": [
+      "s:S4:P01:0018",
+      "s:S4:P01:0019",
+      "s:S4:P01:0020",
+      "s:S4:P01:0021",
+      "s:S4:P01:0022",
+      "s:S4:P01:0023",
+      "s:S4:P01:0024",
+      "s:S4:P01:0025",
+      "s:S4:P01:0026",
+      "s:S4:P01:0027",
+      "s:S4:P01:0028"
+     ],
+     "lead_gap_ms": 600
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 115680,
+     "src_out_ms": 261450,
+     "sentences": [
+      "s:S4:P01:0030",
+      "s:S4:P01:0031",
+      "s:S4:P01:0032",
+      "s:S4:P01:0033",
+      "s:S4:P01:0034",
+      "s:S4:P01:0035",
+      "s:S4:P01:0036",
+      "s:S4:P01:0037",
+      "s:S4:P01:0038",
+      "s:S4:P01:0039",
+      "s:S4:P01:0040",
+      "s:S4:P01:0041",
+      "s:S4:P01:0042",
+      "s:S4:P01:0043",
+      "s:S4:P01:0044",
+      "s:S4:P01:0045",
+      "s:S4:P01:0046",
+      "s:S4:P01:0047",
+      "s:S4:P01:0048",
+      "s:S4:P01:0049",
+      "s:S4:P01:0050",
+      "s:S4:P01:0051",
+      "s:S4:P01:0052",
+      "s:S4:P01:0053",
+      "s:S4:P01:0054",
+      "s:S4:P01:0055"
+     ],
+     "lead_gap_ms": 280
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 274120,
+     "src_out_ms": 286270,
+     "sentences": [
+      "s:S4:P01:0058",
+      "s:S4:P01:0059",
+      "s:S4:P01:0060",
+      "s:S4:P01:0061"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 293620,
+     "src_out_ms": 327530,
+     "sentences": [
+      "s:S4:P01:0063",
+      "s:S4:P01:0064",
+      "s:S4:P01:0065",
+      "s:S4:P01:0066",
+      "s:S4:P01:0067",
+      "s:S4:P01:0068",
+      "s:S4:P01:0069",
+      "s:S4:P01:0070",
+      "s:S4:P01:0071"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 337460,
+     "src_out_ms": 391950,
+     "sentences": [
+      "s:S4:P01:0074",
+      "s:S4:P01:0075",
+      "s:S4:P01:0076",
+      "s:S4:P01:0077",
+      "s:S4:P01:0078",
+      "s:S4:P01:0079",
+      "s:S4:P01:0080",
+      "s:S4:P01:0081",
+      "s:S4:P01:0082",
+      "s:S4:P01:0083",
+      "s:S4:P01:0084",
+      "s:S4:P01:0085"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P01",
+     "src_in_ms": 396620,
+     "src_out_ms": 532990,
+     "sentences": [
+      "s:S4:P01:0087",
+      "s:S4:P01:0088",
+      "s:S4:P01:0089",
+      "s:S4:P01:0090",
+      "s:S4:P01:0091",
+      "s:S4:P01:0092",
+      "s:S4:P01:0093",
+      "s:S4:P01:0094",
+      "s:S4:P01:0095",
+      "s:S4:P01:0096",
+      "s:S4:P01:0097",
+      "s:S4:P01:0098",
+      "s:S4:P01:0099",
+      "s:S4:P01:0100",
+      "s:S4:P01:0101",
+      "s:S4:P01:0102",
+      "s:S4:P01:0103",
+      "s:S4:P01:0104",
+      "s:S4:P01:0105",
+      "s:S4:P01:0106",
+      "s:S4:P01:0107",
+      "s:S4:P01:0108",
+      "s:S4:P01:0109",
+      "s:S4:P01:0110",
+      "s:S4:P01:0111",
+      "s:S4:P01:0112",
+      "s:S4:P01:0113",
+      "s:S4:P01:0114"
+     ],
+     "lead_gap_ms": 420
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 114,
+     "dur_s": 532.8
+    }
+   ]
+  },
+  {
+   "id": "CH-03",
+   "kind": "trunk",
+   "chapter": "CH-03",
+   "title_en": "What a computer actually does",
+   "act": "Ground Zero",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 300000,
+     "src_out_ms": 385000,
+     "sentences": [
+      "s:S1:ar-natural:0041",
+      "s:S1:ar-natural:0042",
+      "s:S1:ar-natural:0043",
+      "s:S1:ar-natural:0044",
+      "s:S1:ar-natural:0045",
+      "s:S1:ar-natural:0046",
+      "s:S1:ar-natural:0047",
+      "s:S1:ar-natural:0048",
+      "s:S1:ar-natural:0049",
+      "s:S1:ar-natural:0050",
+      "s:S1:ar-natural:0051",
+      "s:S1:ar-natural:0052",
+      "s:S1:ar-natural:0053",
+      "s:S1:ar-natural:0054"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P02a",
+   "kind": "deep-dive",
+   "part": "P02",
+   "anchor": "CH-03",
+   "title_en": "The machine, files and the terminal: from the byte to the first pipeline",
+   "act": "Ground Zero",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 240,
+     "src_out_ms": 19070,
+     "sentences": [
+      "s:S4:P02:0000",
+      "s:S4:P02:0001",
+      "s:S4:P02:0002"
+     ],
+     "lead_gap_ms": 300
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 21660,
+     "src_out_ms": 42110,
+     "sentences": [
+      "s:S4:P02:0004",
+      "s:S4:P02:0005",
+      "s:S4:P02:0006"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 59980,
+     "src_out_ms": 74670,
+     "sentences": [
+      "s:S4:P02:0009",
+      "s:S4:P02:0010"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 87480,
+     "src_out_ms": 102370,
+     "sentences": [
+      "s:S4:P02:0013",
+      "s:S4:P02:0014",
+      "s:S4:P02:0015"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 114100,
+     "src_out_ms": 145150,
+     "sentences": [
+      "s:S4:P02:0018",
+      "s:S4:P02:0019",
+      "s:S4:P02:0020",
+      "s:S4:P02:0021",
+      "s:S4:P02:0022",
+      "s:S4:P02:0023"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 23,
+     "dur_s": 144.8
+    }
+   ]
+  },
+  {
+   "id": "CH-04",
+   "kind": "trunk",
+   "chapter": "CH-04",
+   "title_en": "Files, paths, processes and the terminal",
+   "act": "Ground Zero",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 385000,
+     "src_out_ms": 485000,
+     "sentences": [
+      "s:S1:ar-natural:0055",
+      "s:S1:ar-natural:0056",
+      "s:S1:ar-natural:0057",
+      "s:S1:ar-natural:0058",
+      "s:S1:ar-natural:0059",
+      "s:S1:ar-natural:0060",
+      "s:S1:ar-natural:0061",
+      "s:S1:ar-natural:0062",
+      "s:S1:ar-natural:0063",
+      "s:S1:ar-natural:0064",
+      "s:S1:ar-natural:0065",
+      "s:S1:ar-natural:0066",
+      "s:S1:ar-natural:0067"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P02b",
+   "kind": "deep-dive",
+   "part": "P02",
+   "anchor": "CH-04",
+   "title_en": "The machine, files and the terminal: from the byte to the first pipeline",
+   "act": "Ground Zero",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 168660,
+     "src_out_ms": 172150,
+     "sentences": [
+      "s:S4:P02:0027"
+     ],
+     "lead_gap_ms": 400
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 194460,
+     "src_out_ms": 197590,
+     "sentences": [
+      "s:S4:P02:0031"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 205140,
+     "src_out_ms": 227910,
+     "sentences": [
+      "s:S4:P02:0033",
+      "s:S4:P02:0034",
+      "s:S4:P02:0035",
+      "s:S4:P02:0036"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 233780,
+     "src_out_ms": 236770,
+     "sentences": [
+      "s:S4:P02:0038"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 245800,
+     "src_out_ms": 265690,
+     "sentences": [
+      "s:S4:P02:0040",
+      "s:S4:P02:0041",
+      "s:S4:P02:0042"
+     ],
+     "lead_gap_ms": 600
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 271720,
+     "src_out_ms": 321030,
+     "sentences": [
+      "s:S4:P02:0044",
+      "s:S4:P02:0045",
+      "s:S4:P02:0046",
+      "s:S4:P02:0047",
+      "s:S4:P02:0048",
+      "s:S4:P02:0049",
+      "s:S4:P02:0050",
+      "s:S4:P02:0051",
+      "s:S4:P02:0052",
+      "s:S4:P02:0053"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P02",
+     "src_in_ms": 331300,
+     "src_out_ms": 393730,
+     "sentences": [
+      "s:S4:P02:0056",
+      "s:S4:P02:0057",
+      "s:S4:P02:0058",
+      "s:S4:P02:0059",
+      "s:S4:P02:0060",
+      "s:S4:P02:0061",
+      "s:S4:P02:0062",
+      "s:S4:P02:0063",
+      "s:S4:P02:0064",
+      "s:S4:P02:0065",
+      "s:S4:P02:0066"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 27,
+     "k1": 27,
+     "dur_s": 3.3
+    },
+    {
+     "k0": 31,
+     "k1": 66,
+     "dur_s": 199.1
+    }
+   ]
+  },
+  {
+   "id": "CH-05",
+   "kind": "trunk",
+   "chapter": "CH-05",
+   "title_en": "Linux operations — permissions, services, logs",
+   "act": "Ground Zero",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 485000,
+     "src_out_ms": 585000,
+     "sentences": [
+      "s:S1:ar-natural:0068",
+      "s:S1:ar-natural:0069",
+      "s:S1:ar-natural:0070",
+      "s:S1:ar-natural:0071",
+      "s:S1:ar-natural:0072",
+      "s:S1:ar-natural:0073",
+      "s:S1:ar-natural:0074",
+      "s:S1:ar-natural:0075",
+      "s:S1:ar-natural:0076",
+      "s:S1:ar-natural:0077",
+      "s:S1:ar-natural:0078",
+      "s:S1:ar-natural:0079",
+      "s:S1:ar-natural:0080"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P03",
+   "kind": "deep-dive",
+   "part": "P03",
+   "anchor": "CH-05",
+   "title_en": "Linux Admin I: permissions, users, processes and packages",
+   "act": "Ground Zero",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 14860,
+     "src_out_ms": 21150,
+     "sentences": [
+      "s:S4:P03:0003"
+     ],
+     "lead_gap_ms": 500
+    },
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 23560,
+     "src_out_ms": 69950,
+     "sentences": [
+      "s:S4:P03:0005",
+      "s:S4:P03:0006",
+      "s:S4:P03:0007",
+      "s:S4:P03:0008",
+      "s:S4:P03:0009",
+      "s:S4:P03:0010",
+      "s:S4:P03:0011"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 75360,
+     "src_out_ms": 79370,
+     "sentences": [
+      "s:S4:P03:0013"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 84900,
+     "src_out_ms": 240730,
+     "sentences": [
+      "s:S4:P03:0015",
+      "s:S4:P03:0016",
+      "s:S4:P03:0017",
+      "s:S4:P03:0018",
+      "s:S4:P03:0019",
+      "s:S4:P03:0020",
+      "s:S4:P03:0021",
+      "s:S4:P03:0022",
+      "s:S4:P03:0023",
+      "s:S4:P03:0024",
+      "s:S4:P03:0025",
+      "s:S4:P03:0026",
+      "s:S4:P03:0027",
+      "s:S4:P03:0028",
+      "s:S4:P03:0029",
+      "s:S4:P03:0030",
+      "s:S4:P03:0031",
+      "s:S4:P03:0032",
+      "s:S4:P03:0033",
+      "s:S4:P03:0034",
+      "s:S4:P03:0035",
+      "s:S4:P03:0036",
+      "s:S4:P03:0037",
+      "s:S4:P03:0038",
+      "s:S4:P03:0039",
+      "s:S4:P03:0040",
+      "s:S4:P03:0041",
+      "s:S4:P03:0042",
+      "s:S4:P03:0043",
+      "s:S4:P03:0044"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 243480,
+     "src_out_ms": 272150,
+     "sentences": [
+      "s:S4:P03:0046",
+      "s:S4:P03:0047",
+      "s:S4:P03:0048",
+      "s:S4:P03:0049",
+      "s:S4:P03:0050",
+      "s:S4:P03:0051"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 279620,
+     "src_out_ms": 323790,
+     "sentences": [
+      "s:S4:P03:0053",
+      "s:S4:P03:0054",
+      "s:S4:P03:0055",
+      "s:S4:P03:0056",
+      "s:S4:P03:0057",
+      "s:S4:P03:0058",
+      "s:S4:P03:0059"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P03",
+     "src_in_ms": 328360,
+     "src_out_ms": 558730,
+     "sentences": [
+      "s:S4:P03:0061",
+      "s:S4:P03:0062",
+      "s:S4:P03:0063",
+      "s:S4:P03:0064",
+      "s:S4:P03:0065",
+      "s:S4:P03:0066",
+      "s:S4:P03:0067",
+      "s:S4:P03:0068",
+      "s:S4:P03:0069",
+      "s:S4:P03:0070",
+      "s:S4:P03:0071",
+      "s:S4:P03:0072",
+      "s:S4:P03:0073",
+      "s:S4:P03:0074",
+      "s:S4:P03:0075",
+      "s:S4:P03:0076",
+      "s:S4:P03:0077",
+      "s:S4:P03:0078",
+      "s:S4:P03:0079",
+      "s:S4:P03:0080",
+      "s:S4:P03:0081",
+      "s:S4:P03:0082",
+      "s:S4:P03:0083",
+      "s:S4:P03:0084",
+      "s:S4:P03:0085",
+      "s:S4:P03:0086",
+      "s:S4:P03:0087",
+      "s:S4:P03:0088",
+      "s:S4:P03:0089",
+      "s:S4:P03:0090",
+      "s:S4:P03:0091",
+      "s:S4:P03:0092",
+      "s:S4:P03:0093",
+      "s:S4:P03:0094",
+      "s:S4:P03:0095",
+      "s:S4:P03:0096",
+      "s:S4:P03:0097",
+      "s:S4:P03:0098",
+      "s:S4:P03:0099",
+      "s:S4:P03:0100",
+      "s:S4:P03:0101",
+      "s:S4:P03:0102",
+      "s:S4:P03:0103",
+      "s:S4:P03:0104"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 104,
+     "dur_s": 558.3
+    }
+   ]
+  },
+  {
+   "id": "DD-P04",
+   "kind": "deep-dive",
+   "part": "P04",
+   "anchor": "CH-05",
+   "title_en": "Linux Admin II: services, logs, disk, SSH and security, the night of the outage",
+   "act": "Ground Zero",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P04",
+     "src_in_ms": 1700,
+     "src_out_ms": 101490,
+     "sentences": [
+      "s:S4:P04:0001",
+      "s:S4:P04:0002",
+      "s:S4:P04:0003",
+      "s:S4:P04:0004",
+      "s:S4:P04:0005",
+      "s:S4:P04:0006",
+      "s:S4:P04:0007",
+      "s:S4:P04:0008",
+      "s:S4:P04:0009",
+      "s:S4:P04:0010",
+      "s:S4:P04:0011",
+      "s:S4:P04:0012",
+      "s:S4:P04:0013",
+      "s:S4:P04:0014",
+      "s:S4:P04:0015",
+      "s:S4:P04:0016",
+      "s:S4:P04:0017"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P04",
+     "src_in_ms": 110220,
+     "src_out_ms": 132330,
+     "sentences": [
+      "s:S4:P04:0019",
+      "s:S4:P04:0020",
+      "s:S4:P04:0021",
+      "s:S4:P04:0022"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P04",
+     "src_in_ms": 143060,
+     "src_out_ms": 169350,
+     "sentences": [
+      "s:S4:P04:0025",
+      "s:S4:P04:0026",
+      "s:S4:P04:0027",
+      "s:S4:P04:0028"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P04",
+     "src_in_ms": 182840,
+     "src_out_ms": 477070,
+     "sentences": [
+      "s:S4:P04:0031",
+      "s:S4:P04:0032",
+      "s:S4:P04:0033",
+      "s:S4:P04:0034",
+      "s:S4:P04:0035",
+      "s:S4:P04:0036",
+      "s:S4:P04:0037",
+      "s:S4:P04:0038",
+      "s:S4:P04:0039",
+      "s:S4:P04:0040",
+      "s:S4:P04:0041",
+      "s:S4:P04:0042",
+      "s:S4:P04:0043",
+      "s:S4:P04:0044",
+      "s:S4:P04:0045",
+      "s:S4:P04:0046",
+      "s:S4:P04:0047",
+      "s:S4:P04:0048",
+      "s:S4:P04:0049",
+      "s:S4:P04:0050",
+      "s:S4:P04:0051",
+      "s:S4:P04:0052",
+      "s:S4:P04:0053",
+      "s:S4:P04:0054",
+      "s:S4:P04:0055",
+      "s:S4:P04:0056",
+      "s:S4:P04:0057",
+      "s:S4:P04:0058",
+      "s:S4:P04:0059",
+      "s:S4:P04:0060",
+      "s:S4:P04:0061",
+      "s:S4:P04:0062",
+      "s:S4:P04:0063",
+      "s:S4:P04:0064",
+      "s:S4:P04:0065",
+      "s:S4:P04:0066",
+      "s:S4:P04:0067",
+      "s:S4:P04:0068",
+      "s:S4:P04:0069",
+      "s:S4:P04:0070",
+      "s:S4:P04:0071",
+      "s:S4:P04:0072",
+      "s:S4:P04:0073",
+      "s:S4:P04:0074",
+      "s:S4:P04:0075",
+      "s:S4:P04:0076",
+      "s:S4:P04:0077",
+      "s:S4:P04:0078",
+      "s:S4:P04:0079",
+      "s:S4:P04:0080",
+      "s:S4:P04:0081",
+      "s:S4:P04:0082",
+      "s:S4:P04:0083",
+      "s:S4:P04:0084",
+      "s:S4:P04:0085",
+      "s:S4:P04:0086"
+     ],
+     "lead_gap_ms": 640
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 86,
+     "dur_s": 476.7
+    }
+   ]
+  },
+  {
+   "id": "CH-06",
+   "kind": "trunk",
+   "chapter": "CH-06",
+   "title_en": "Python execution — values, control flow, functions",
+   "act": "Python",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 585000,
+     "src_out_ms": 680000,
+     "sentences": [
+      "s:S1:ar-natural:0081",
+      "s:S1:ar-natural:0082",
+      "s:S1:ar-natural:0083",
+      "s:S1:ar-natural:0084",
+      "s:S1:ar-natural:0085",
+      "s:S1:ar-natural:0086",
+      "s:S1:ar-natural:0087",
+      "s:S1:ar-natural:0088",
+      "s:S1:ar-natural:0089",
+      "s:S1:ar-natural:0090",
+      "s:S1:ar-natural:0091",
+      "s:S1:ar-natural:0092",
+      "s:S1:ar-natural:0093",
+      "s:S1:ar-natural:0094"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P05a",
+   "kind": "deep-dive",
+   "part": "P05",
+   "anchor": "CH-06",
+   "title_en": "Python I: from value to function, collections, files and environments",
+   "act": "Python",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 180,
+     "src_out_ms": 24070,
+     "sentences": [
+      "s:S4:P05:0000",
+      "s:S4:P05:0001",
+      "s:S4:P05:0002",
+      "s:S4:P05:0003",
+      "s:S4:P05:0004",
+      "s:S4:P05:0005"
+     ],
+     "lead_gap_ms": 250
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 27420,
+     "src_out_ms": 41030,
+     "sentences": [
+      "s:S4:P05:0007",
+      "s:S4:P05:0008"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 44120,
+     "src_out_ms": 52730,
+     "sentences": [
+      "s:S4:P05:0010",
+      "s:S4:P05:0011"
+     ],
+     "lead_gap_ms": 500
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 58000,
+     "src_out_ms": 86330,
+     "sentences": [
+      "s:S4:P05:0014",
+      "s:S4:P05:0015",
+      "s:S4:P05:0016",
+      "s:S4:P05:0017",
+      "s:S4:P05:0018",
+      "s:S4:P05:0019"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 95260,
+     "src_out_ms": 113690,
+     "sentences": [
+      "s:S4:P05:0022",
+      "s:S4:P05:0023",
+      "s:S4:P05:0024",
+      "s:S4:P05:0025"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 118220,
+     "src_out_ms": 155770,
+     "sentences": [
+      "s:S4:P05:0027",
+      "s:S4:P05:0028",
+      "s:S4:P05:0029",
+      "s:S4:P05:0030",
+      "s:S4:P05:0031",
+      "s:S4:P05:0032",
+      "s:S4:P05:0033"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 163420,
+     "src_out_ms": 169530,
+     "sentences": [
+      "s:S4:P05:0035"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 174140,
+     "src_out_ms": 175950,
+     "sentences": [
+      "s:S4:P05:0037"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 191260,
+     "src_out_ms": 198010,
+     "sentences": [
+      "s:S4:P05:0041",
+      "s:S4:P05:0042"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 204300,
+     "src_out_ms": 293870,
+     "sentences": [
+      "s:S4:P05:0044",
+      "s:S4:P05:0045",
+      "s:S4:P05:0046",
+      "s:S4:P05:0047",
+      "s:S4:P05:0048",
+      "s:S4:P05:0049",
+      "s:S4:P05:0050",
+      "s:S4:P05:0051",
+      "s:S4:P05:0052",
+      "s:S4:P05:0053",
+      "s:S4:P05:0054",
+      "s:S4:P05:0055",
+      "s:S4:P05:0056",
+      "s:S4:P05:0057",
+      "s:S4:P05:0058",
+      "s:S4:P05:0059"
+     ],
+     "lead_gap_ms": 640
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 59,
+     "dur_s": 293.5
+    }
+   ]
+  },
+  {
+   "id": "CH-07",
+   "kind": "trunk",
+   "chapter": "CH-07",
+   "title_en": "Collections, files and environments",
+   "act": "Python",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 680000,
+     "src_out_ms": 775000,
+     "sentences": [
+      "s:S1:ar-natural:0095",
+      "s:S1:ar-natural:0096",
+      "s:S1:ar-natural:0097",
+      "s:S1:ar-natural:0098",
+      "s:S1:ar-natural:0099",
+      "s:S1:ar-natural:0100",
+      "s:S1:ar-natural:0101",
+      "s:S1:ar-natural:0102",
+      "s:S1:ar-natural:0103",
+      "s:S1:ar-natural:0104",
+      "s:S1:ar-natural:0105",
+      "s:S1:ar-natural:0106",
+      "s:S1:ar-natural:0107",
+      "s:S1:ar-natural:0108"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P05b",
+   "kind": "deep-dive",
+   "part": "P05",
+   "anchor": "CH-07",
+   "title_en": "Python I: from value to function, collections, files and environments",
+   "act": "Python",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 314280,
+     "src_out_ms": 431030,
+     "sentences": [
+      "s:S4:P05:0063",
+      "s:S4:P05:0064",
+      "s:S4:P05:0065",
+      "s:S4:P05:0066",
+      "s:S4:P05:0067",
+      "s:S4:P05:0068",
+      "s:S4:P05:0069",
+      "s:S4:P05:0070",
+      "s:S4:P05:0071",
+      "s:S4:P05:0072",
+      "s:S4:P05:0073",
+      "s:S4:P05:0074",
+      "s:S4:P05:0075",
+      "s:S4:P05:0076",
+      "s:S4:P05:0077",
+      "s:S4:P05:0078",
+      "s:S4:P05:0079",
+      "s:S4:P05:0080",
+      "s:S4:P05:0081",
+      "s:S4:P05:0082",
+      "s:S4:P05:0083",
+      "s:S4:P05:0084"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 438720,
+     "src_out_ms": 457330,
+     "sentences": [
+      "s:S4:P05:0086",
+      "s:S4:P05:0087",
+      "s:S4:P05:0088",
+      "s:S4:P05:0089"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 460960,
+     "src_out_ms": 473790,
+     "sentences": [
+      "s:S4:P05:0091",
+      "s:S4:P05:0092"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 480780,
+     "src_out_ms": 487810,
+     "sentences": [
+      "s:S4:P05:0094"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 491140,
+     "src_out_ms": 499390,
+     "sentences": [
+      "s:S4:P05:0096"
+     ],
+     "lead_gap_ms": 600
+    },
+    {
+     "audio_id": "a:S4:P05",
+     "src_in_ms": 509360,
+     "src_out_ms": 567270,
+     "sentences": [
+      "s:S4:P05:0098",
+      "s:S4:P05:0099",
+      "s:S4:P05:0100",
+      "s:S4:P05:0101",
+      "s:S4:P05:0102",
+      "s:S4:P05:0103",
+      "s:S4:P05:0104",
+      "s:S4:P05:0105"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 63,
+     "k1": 105,
+     "dur_s": 252.8
+    }
+   ]
+  },
+  {
+   "id": "CH-08",
+   "kind": "trunk",
+   "chapter": "CH-08",
+   "title_en": "State, memory, generators and errors",
+   "act": "Python",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 775000,
+     "src_out_ms": 875000,
+     "sentences": [
+      "s:S1:ar-natural:0109",
+      "s:S1:ar-natural:0110",
+      "s:S1:ar-natural:0111",
+      "s:S1:ar-natural:0112",
+      "s:S1:ar-natural:0113",
+      "s:S1:ar-natural:0114",
+      "s:S1:ar-natural:0115",
+      "s:S1:ar-natural:0116",
+      "s:S1:ar-natural:0117",
+      "s:S1:ar-natural:0118",
+      "s:S1:ar-natural:0119",
+      "s:S1:ar-natural:0120"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P06a",
+   "kind": "deep-dive",
+   "part": "P06",
+   "anchor": "CH-08",
+   "title_en": "Python II: state, memory, errors, decorators, tests and Git",
+   "act": "Python",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 260,
+     "src_out_ms": 12050,
+     "sentences": [
+      "s:S4:P06:0000",
+      "s:S4:P06:0001"
+     ],
+     "lead_gap_ms": 320
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 14480,
+     "src_out_ms": 34170,
+     "sentences": [
+      "s:S4:P06:0003",
+      "s:S4:P06:0004",
+      "s:S4:P06:0005",
+      "s:S4:P06:0006",
+      "s:S4:P06:0007",
+      "s:S4:P06:0008"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 41060,
+     "src_out_ms": 93830,
+     "sentences": [
+      "s:S4:P06:0010",
+      "s:S4:P06:0011",
+      "s:S4:P06:0012",
+      "s:S4:P06:0013",
+      "s:S4:P06:0014",
+      "s:S4:P06:0015",
+      "s:S4:P06:0016",
+      "s:S4:P06:0017",
+      "s:S4:P06:0018",
+      "s:S4:P06:0019",
+      "s:S4:P06:0020",
+      "s:S4:P06:0021"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 103020,
+     "src_out_ms": 119730,
+     "sentences": [
+      "s:S4:P06:0024",
+      "s:S4:P06:0025",
+      "s:S4:P06:0026"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 134600,
+     "src_out_ms": 205690,
+     "sentences": [
+      "s:S4:P06:0029",
+      "s:S4:P06:0030",
+      "s:S4:P06:0031",
+      "s:S4:P06:0032",
+      "s:S4:P06:0033",
+      "s:S4:P06:0034",
+      "s:S4:P06:0035",
+      "s:S4:P06:0036",
+      "s:S4:P06:0037",
+      "s:S4:P06:0038",
+      "s:S4:P06:0039",
+      "s:S4:P06:0040",
+      "s:S4:P06:0041"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 215760,
+     "src_out_ms": 223270,
+     "sentences": [
+      "s:S4:P06:0044",
+      "s:S4:P06:0045",
+      "s:S4:P06:0046"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 231580,
+     "src_out_ms": 339490,
+     "sentences": [
+      "s:S4:P06:0048",
+      "s:S4:P06:0049",
+      "s:S4:P06:0050",
+      "s:S4:P06:0051",
+      "s:S4:P06:0052",
+      "s:S4:P06:0053",
+      "s:S4:P06:0054",
+      "s:S4:P06:0055",
+      "s:S4:P06:0056",
+      "s:S4:P06:0057",
+      "s:S4:P06:0058",
+      "s:S4:P06:0059",
+      "s:S4:P06:0060",
+      "s:S4:P06:0061",
+      "s:S4:P06:0062",
+      "s:S4:P06:0063",
+      "s:S4:P06:0064",
+      "s:S4:P06:0065"
+     ],
+     "lead_gap_ms": 500
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 351960,
+     "src_out_ms": 354750,
+     "sentences": [
+      "s:S4:P06:0069"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 369880,
+     "src_out_ms": 407510,
+     "sentences": [
+      "s:S4:P06:0072",
+      "s:S4:P06:0073",
+      "s:S4:P06:0074",
+      "s:S4:P06:0075",
+      "s:S4:P06:0076",
+      "s:S4:P06:0077",
+      "s:S4:P06:0078",
+      "s:S4:P06:0079",
+      "s:S4:P06:0080",
+      "s:S4:P06:0081"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 413260,
+     "src_out_ms": 444730,
+     "sentences": [
+      "s:S4:P06:0083",
+      "s:S4:P06:0084",
+      "s:S4:P06:0085",
+      "s:S4:P06:0086",
+      "s:S4:P06:0087",
+      "s:S4:P06:0088",
+      "s:S4:P06:0089",
+      "s:S4:P06:0090"
+     ],
+     "lead_gap_ms": 600
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 90,
+     "dur_s": 444.3
+    }
+   ]
+  },
+  {
+   "id": "CH-09",
+   "kind": "trunk",
+   "chapter": "CH-09",
+   "title_en": "Testing, debugging, Git and review",
+   "act": "Python",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 875000,
+     "src_out_ms": 985000,
+     "sentences": [
+      "s:S1:ar-natural:0121",
+      "s:S1:ar-natural:0122",
+      "s:S1:ar-natural:0123",
+      "s:S1:ar-natural:0124",
+      "s:S1:ar-natural:0125",
+      "s:S1:ar-natural:0126",
+      "s:S1:ar-natural:0127",
+      "s:S1:ar-natural:0128",
+      "s:S1:ar-natural:0129",
+      "s:S1:ar-natural:0130",
+      "s:S1:ar-natural:0131",
+      "s:S1:ar-natural:0132",
+      "s:S1:ar-natural:0133",
+      "s:S1:ar-natural:0134",
+      "s:S1:ar-natural:0135",
+      "s:S1:ar-natural:0136"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P06b",
+   "kind": "deep-dive",
+   "part": "P06",
+   "anchor": "CH-09",
+   "title_en": "Python II: state, memory, errors, decorators, tests and Git",
+   "act": "Python",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P06",
+     "src_in_ms": 467120,
+     "src_out_ms": 517390,
+     "sentences": [
+      "s:S4:P06:0096",
+      "s:S4:P06:0097",
+      "s:S4:P06:0098",
+      "s:S4:P06:0099",
+      "s:S4:P06:0100",
+      "s:S4:P06:0101",
+      "s:S4:P06:0102"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 96,
+     "k1": 102,
+     "dur_s": 50.1
+    }
+   ]
+  },
+  {
+   "id": "CH-10",
+   "kind": "trunk",
+   "chapter": "CH-10",
+   "title_en": "Why a database — the relational model",
+   "act": "SQL",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 985000,
+     "src_out_ms": 1080000,
+     "sentences": [
+      "s:S1:ar-natural:0137",
+      "s:S1:ar-natural:0138",
+      "s:S1:ar-natural:0139",
+      "s:S1:ar-natural:0140",
+      "s:S1:ar-natural:0141",
+      "s:S1:ar-natural:0142",
+      "s:S1:ar-natural:0143",
+      "s:S1:ar-natural:0144",
+      "s:S1:ar-natural:0145",
+      "s:S1:ar-natural:0146",
+      "s:S1:ar-natural:0147",
+      "s:S1:ar-natural:0148",
+      "s:S1:ar-natural:0149",
+      "s:S1:ar-natural:0150",
+      "s:S1:ar-natural:0151",
+      "s:S1:ar-natural:0152",
+      "s:S1:ar-natural:0153"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P08a",
+   "kind": "deep-dive",
+   "part": "P08",
+   "anchor": "CH-10",
+   "title_en": "SQL I: why a database, the relational model, normalization, the query pipeline and grain",
+   "act": "SQL",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 100,
+     "src_out_ms": 21890,
+     "sentences": [
+      "s:S4:P08:0000",
+      "s:S4:P08:0001",
+      "s:S4:P08:0002",
+      "s:S4:P08:0003"
+     ],
+     "lead_gap_ms": 250
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 27120,
+     "src_out_ms": 76750,
+     "sentences": [
+      "s:S4:P08:0005",
+      "s:S4:P08:0006",
+      "s:S4:P08:0007",
+      "s:S4:P08:0008",
+      "s:S4:P08:0009",
+      "s:S4:P08:0010",
+      "s:S4:P08:0011",
+      "s:S4:P08:0012"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 82940,
+     "src_out_ms": 84930,
+     "sentences": [
+      "s:S4:P08:0014"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 96420,
+     "src_out_ms": 119130,
+     "sentences": [
+      "s:S4:P08:0017",
+      "s:S4:P08:0018",
+      "s:S4:P08:0019",
+      "s:S4:P08:0020"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 140180,
+     "src_out_ms": 232850,
+     "sentences": [
+      "s:S4:P08:0026",
+      "s:S4:P08:0027",
+      "s:S4:P08:0028",
+      "s:S4:P08:0029",
+      "s:S4:P08:0030",
+      "s:S4:P08:0031",
+      "s:S4:P08:0032",
+      "s:S4:P08:0033",
+      "s:S4:P08:0034",
+      "s:S4:P08:0035",
+      "s:S4:P08:0036",
+      "s:S4:P08:0037",
+      "s:S4:P08:0038",
+      "s:S4:P08:0039"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 238160,
+     "src_out_ms": 241530,
+     "sentences": [
+      "s:S4:P08:0041"
+     ],
+     "lead_gap_ms": 580
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 41,
+     "dur_s": 241.3
+    }
+   ]
+  },
+  {
+   "id": "CH-11",
+   "kind": "trunk",
+   "chapter": "CH-11",
+   "title_en": "The query pipeline and the grain question",
+   "act": "SQL",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1080000,
+     "src_out_ms": 1200000,
+     "sentences": [
+      "s:S1:ar-natural:0154",
+      "s:S1:ar-natural:0155",
+      "s:S1:ar-natural:0156",
+      "s:S1:ar-natural:0157",
+      "s:S1:ar-natural:0158",
+      "s:S1:ar-natural:0159",
+      "s:S1:ar-natural:0160",
+      "s:S1:ar-natural:0161",
+      "s:S1:ar-natural:0162",
+      "s:S1:ar-natural:0163",
+      "s:S1:ar-natural:0164",
+      "s:S1:ar-natural:0165",
+      "s:S1:ar-natural:0166",
+      "s:S1:ar-natural:0167",
+      "s:S1:ar-natural:0168",
+      "s:S1:ar-natural:0169",
+      "s:S1:ar-natural:0170"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P08b",
+   "kind": "deep-dive",
+   "part": "P08",
+   "anchor": "CH-11",
+   "title_en": "SQL I: why a database, the relational model, normalization, the query pipeline and grain",
+   "act": "SQL",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 265200,
+     "src_out_ms": 269030,
+     "sentences": [
+      "s:S4:P08:0044"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 282960,
+     "src_out_ms": 396750,
+     "sentences": [
+      "s:S4:P08:0047",
+      "s:S4:P08:0048",
+      "s:S4:P08:0049",
+      "s:S4:P08:0050",
+      "s:S4:P08:0051",
+      "s:S4:P08:0052",
+      "s:S4:P08:0053",
+      "s:S4:P08:0054",
+      "s:S4:P08:0055",
+      "s:S4:P08:0056",
+      "s:S4:P08:0057",
+      "s:S4:P08:0058",
+      "s:S4:P08:0059",
+      "s:S4:P08:0060",
+      "s:S4:P08:0061",
+      "s:S4:P08:0062",
+      "s:S4:P08:0063",
+      "s:S4:P08:0064"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P08",
+     "src_in_ms": 421940,
+     "src_out_ms": 477450,
+     "sentences": [
+      "s:S4:P08:0068",
+      "s:S4:P08:0069",
+      "s:S4:P08:0070",
+      "s:S4:P08:0071",
+      "s:S4:P08:0072",
+      "s:S4:P08:0073",
+      "s:S4:P08:0074",
+      "s:S4:P08:0075",
+      "s:S4:P08:0076",
+      "s:S4:P08:0077"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 44,
+     "k1": 44,
+     "dur_s": 3.7
+    },
+    {
+     "k0": 47,
+     "k1": 64,
+     "dur_s": 113.6
+    },
+    {
+     "k0": 68,
+     "k1": 77,
+     "dur_s": 55.4
+    }
+   ]
+  },
+  {
+   "id": "CH-12",
+   "kind": "trunk",
+   "chapter": "CH-12",
+   "title_en": "Joins, windows, CTEs and NULL logic",
+   "act": "SQL",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1200000,
+     "src_out_ms": 1315000,
+     "sentences": [
+      "s:S1:ar-natural:0171",
+      "s:S1:ar-natural:0172",
+      "s:S1:ar-natural:0173",
+      "s:S1:ar-natural:0174",
+      "s:S1:ar-natural:0175",
+      "s:S1:ar-natural:0176",
+      "s:S1:ar-natural:0177",
+      "s:S1:ar-natural:0178",
+      "s:S1:ar-natural:0179",
+      "s:S1:ar-natural:0180",
+      "s:S1:ar-natural:0181",
+      "s:S1:ar-natural:0182",
+      "s:S1:ar-natural:0183",
+      "s:S1:ar-natural:0184",
+      "s:S1:ar-natural:0185",
+      "s:S1:ar-natural:0186"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P09a",
+   "kind": "deep-dive",
+   "part": "P09",
+   "anchor": "CH-12",
+   "title_en": "SQL II: joins and fan-out, windows, CTEs, NULL logic, transactions and deadlock",
+   "act": "SQL",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 4440,
+     "src_out_ms": 18690,
+     "sentences": [
+      "s:S4:P09:0002",
+      "s:S4:P09:0003"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 22780,
+     "src_out_ms": 58010,
+     "sentences": [
+      "s:S4:P09:0005",
+      "s:S4:P09:0006",
+      "s:S4:P09:0007",
+      "s:S4:P09:0008",
+      "s:S4:P09:0009",
+      "s:S4:P09:0010"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 67380,
+     "src_out_ms": 72910,
+     "sentences": [
+      "s:S4:P09:0012",
+      "s:S4:P09:0013"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 83600,
+     "src_out_ms": 105510,
+     "sentences": [
+      "s:S4:P09:0017",
+      "s:S4:P09:0018",
+      "s:S4:P09:0019",
+      "s:S4:P09:0020",
+      "s:S4:P09:0021"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 146140,
+     "src_out_ms": 207630,
+     "sentences": [
+      "s:S4:P09:0029",
+      "s:S4:P09:0030",
+      "s:S4:P09:0031",
+      "s:S4:P09:0032",
+      "s:S4:P09:0033",
+      "s:S4:P09:0034",
+      "s:S4:P09:0035",
+      "s:S4:P09:0036",
+      "s:S4:P09:0037",
+      "s:S4:P09:0038",
+      "s:S4:P09:0039",
+      "s:S4:P09:0040"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 230040,
+     "src_out_ms": 242610,
+     "sentences": [
+      "s:S4:P09:0045",
+      "s:S4:P09:0046",
+      "s:S4:P09:0047"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 248780,
+     "src_out_ms": 279770,
+     "sentences": [
+      "s:S4:P09:0049",
+      "s:S4:P09:0050",
+      "s:S4:P09:0051",
+      "s:S4:P09:0052",
+      "s:S4:P09:0053",
+      "s:S4:P09:0054"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 282620,
+     "src_out_ms": 298730,
+     "sentences": [
+      "s:S4:P09:0056",
+      "s:S4:P09:0057"
+     ],
+     "lead_gap_ms": 520
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 21,
+     "dur_s": 105.1
+    },
+    {
+     "k0": 29,
+     "k1": 40,
+     "dur_s": 61.3
+    },
+    {
+     "k0": 45,
+     "k1": 57,
+     "dur_s": 68.5
+    }
+   ]
+  },
+  {
+   "id": "CH-13",
+   "kind": "trunk",
+   "chapter": "CH-13",
+   "title_en": "Transactions, isolation and deadlock",
+   "act": "SQL",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1315000,
+     "src_out_ms": 1410000,
+     "sentences": [
+      "s:S1:ar-natural:0187",
+      "s:S1:ar-natural:0188",
+      "s:S1:ar-natural:0189",
+      "s:S1:ar-natural:0190",
+      "s:S1:ar-natural:0191",
+      "s:S1:ar-natural:0192",
+      "s:S1:ar-natural:0193",
+      "s:S1:ar-natural:0194",
+      "s:S1:ar-natural:0195",
+      "s:S1:ar-natural:0196",
+      "s:S1:ar-natural:0197",
+      "s:S1:ar-natural:0198",
+      "s:S1:ar-natural:0199",
+      "s:S1:ar-natural:0200",
+      "s:S1:ar-natural:0201",
+      "s:S1:ar-natural:0202",
+      "s:S1:ar-natural:0203"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P09b",
+   "kind": "deep-dive",
+   "part": "P09",
+   "anchor": "CH-13",
+   "title_en": "SQL II: joins and fan-out, windows, CTEs, NULL logic, transactions and deadlock",
+   "act": "SQL",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 323140,
+     "src_out_ms": 343790,
+     "sentences": [
+      "s:S4:P09:0062",
+      "s:S4:P09:0063",
+      "s:S4:P09:0064",
+      "s:S4:P09:0065"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 364620,
+     "src_out_ms": 369810,
+     "sentences": [
+      "s:S4:P09:0070"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 385500,
+     "src_out_ms": 401990,
+     "sentences": [
+      "s:S4:P09:0073",
+      "s:S4:P09:0074",
+      "s:S4:P09:0075"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 407420,
+     "src_out_ms": 410210,
+     "sentences": [
+      "s:S4:P09:0077"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 419200,
+     "src_out_ms": 451790,
+     "sentences": [
+      "s:S4:P09:0080",
+      "s:S4:P09:0081",
+      "s:S4:P09:0082",
+      "s:S4:P09:0083",
+      "s:S4:P09:0084"
+     ],
+     "lead_gap_ms": 420
+    },
+    {
+     "audio_id": "a:S4:P09",
+     "src_in_ms": 477080,
+     "src_out_ms": 532670,
+     "sentences": [
+      "s:S4:P09:0090",
+      "s:S4:P09:0091",
+      "s:S4:P09:0092",
+      "s:S4:P09:0093",
+      "s:S4:P09:0094",
+      "s:S4:P09:0095",
+      "s:S4:P09:0096",
+      "s:S4:P09:0097",
+      "s:S4:P09:0098"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 62,
+     "k1": 65,
+     "dur_s": 20.5
+    },
+    {
+     "k0": 70,
+     "k1": 84,
+     "dur_s": 87.0
+    },
+    {
+     "k0": 90,
+     "k1": 99,
+     "dur_s": 58.6
+    }
+   ]
+  },
+  {
+   "id": "CH-14",
+   "kind": "trunk",
+   "chapter": "CH-14",
+   "title_en": "Indexes, plans and the tuning loop",
+   "act": "SQL",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1410000,
+     "src_out_ms": 1575000,
+     "sentences": [
+      "s:S1:ar-natural:0204",
+      "s:S1:ar-natural:0205",
+      "s:S1:ar-natural:0206",
+      "s:S1:ar-natural:0207",
+      "s:S1:ar-natural:0208",
+      "s:S1:ar-natural:0209",
+      "s:S1:ar-natural:0210",
+      "s:S1:ar-natural:0211",
+      "s:S1:ar-natural:0212",
+      "s:S1:ar-natural:0213",
+      "s:S1:ar-natural:0214",
+      "s:S1:ar-natural:0215",
+      "s:S1:ar-natural:0216",
+      "s:S1:ar-natural:0217",
+      "s:S1:ar-natural:0218",
+      "s:S1:ar-natural:0219",
+      "s:S1:ar-natural:0220",
+      "s:S1:ar-natural:0221",
+      "s:S1:ar-natural:0222",
+      "s:S1:ar-natural:0223",
+      "s:S1:ar-natural:0224"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P10",
+   "kind": "deep-dive",
+   "part": "P10",
+   "anchor": "CH-14",
+   "title_en": "SQL III: indexes, reading the plan, the tuning loop, dialects and SQL on big data",
+   "act": "SQL",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 4320,
+     "src_out_ms": 10850,
+     "sentences": [
+      "s:S4:P10:0001"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 26980,
+     "src_out_ms": 75570,
+     "sentences": [
+      "s:S4:P10:0004",
+      "s:S4:P10:0005",
+      "s:S4:P10:0006",
+      "s:S4:P10:0007",
+      "s:S4:P10:0008",
+      "s:S4:P10:0009",
+      "s:S4:P10:0010",
+      "s:S4:P10:0011",
+      "s:S4:P10:0012",
+      "s:S4:P10:0013",
+      "s:S4:P10:0014"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 99680,
+     "src_out_ms": 105730,
+     "sentences": [
+      "s:S4:P10:0019",
+      "s:S4:P10:0020"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 112580,
+     "src_out_ms": 127290,
+     "sentences": [
+      "s:S4:P10:0022",
+      "s:S4:P10:0023",
+      "s:S4:P10:0024"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 132360,
+     "src_out_ms": 158070,
+     "sentences": [
+      "s:S4:P10:0026",
+      "s:S4:P10:0027",
+      "s:S4:P10:0028",
+      "s:S4:P10:0029",
+      "s:S4:P10:0030"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 163040,
+     "src_out_ms": 181570,
+     "sentences": [
+      "s:S4:P10:0032",
+      "s:S4:P10:0033",
+      "s:S4:P10:0034"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 205640,
+     "src_out_ms": 209610,
+     "sentences": [
+      "s:S4:P10:0038"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 230140,
+     "src_out_ms": 302430,
+     "sentences": [
+      "s:S4:P10:0042",
+      "s:S4:P10:0043",
+      "s:S4:P10:0044",
+      "s:S4:P10:0045",
+      "s:S4:P10:0046",
+      "s:S4:P10:0047",
+      "s:S4:P10:0048",
+      "s:S4:P10:0049",
+      "s:S4:P10:0050",
+      "s:S4:P10:0051",
+      "s:S4:P10:0052",
+      "s:S4:P10:0053",
+      "s:S4:P10:0054"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 318000,
+     "src_out_ms": 460250,
+     "sentences": [
+      "s:S4:P10:0057",
+      "s:S4:P10:0058",
+      "s:S4:P10:0059",
+      "s:S4:P10:0060",
+      "s:S4:P10:0061",
+      "s:S4:P10:0062",
+      "s:S4:P10:0063",
+      "s:S4:P10:0064",
+      "s:S4:P10:0065",
+      "s:S4:P10:0066",
+      "s:S4:P10:0067",
+      "s:S4:P10:0068",
+      "s:S4:P10:0069",
+      "s:S4:P10:0070",
+      "s:S4:P10:0071",
+      "s:S4:P10:0072",
+      "s:S4:P10:0073",
+      "s:S4:P10:0074",
+      "s:S4:P10:0075",
+      "s:S4:P10:0076",
+      "s:S4:P10:0077",
+      "s:S4:P10:0078"
+     ],
+     "lead_gap_ms": 660
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 463480,
+     "src_out_ms": 468090,
+     "sentences": [
+      "s:S4:P10:0080"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P10",
+     "src_in_ms": 483200,
+     "src_out_ms": 488370,
+     "sentences": [
+      "s:S4:P10:0085"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 14,
+     "dur_s": 75.3
+    },
+    {
+     "k0": 19,
+     "k1": 34,
+     "dur_s": 81.7
+    },
+    {
+     "k0": 38,
+     "k1": 38,
+     "dur_s": 3.8
+    },
+    {
+     "k0": 42,
+     "k1": 85,
+     "dur_s": 258.1
+    }
+   ]
+  },
+  {
+   "id": "DD-P07",
+   "kind": "deep-dive",
+   "part": "P07",
+   "anchor": "CH-14",
+   "title_en": "Python for data: pandas, database connections, ETL, pools and tests",
+   "act": "SQL",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P07",
+     "src_in_ms": 2380,
+     "src_out_ms": 398650,
+     "sentences": [
+      "s:S4:P07:0001",
+      "s:S4:P07:0002",
+      "s:S4:P07:0003",
+      "s:S4:P07:0004",
+      "s:S4:P07:0005",
+      "s:S4:P07:0006",
+      "s:S4:P07:0007",
+      "s:S4:P07:0008",
+      "s:S4:P07:0009",
+      "s:S4:P07:0010",
+      "s:S4:P07:0011",
+      "s:S4:P07:0012",
+      "s:S4:P07:0013",
+      "s:S4:P07:0014",
+      "s:S4:P07:0015",
+      "s:S4:P07:0016",
+      "s:S4:P07:0017",
+      "s:S4:P07:0018",
+      "s:S4:P07:0019",
+      "s:S4:P07:0020",
+      "s:S4:P07:0021",
+      "s:S4:P07:0022",
+      "s:S4:P07:0023",
+      "s:S4:P07:0024",
+      "s:S4:P07:0025",
+      "s:S4:P07:0026",
+      "s:S4:P07:0027",
+      "s:S4:P07:0028",
+      "s:S4:P07:0029",
+      "s:S4:P07:0030",
+      "s:S4:P07:0031",
+      "s:S4:P07:0032",
+      "s:S4:P07:0033",
+      "s:S4:P07:0034",
+      "s:S4:P07:0035",
+      "s:S4:P07:0036",
+      "s:S4:P07:0037",
+      "s:S4:P07:0038",
+      "s:S4:P07:0039",
+      "s:S4:P07:0040",
+      "s:S4:P07:0041",
+      "s:S4:P07:0042",
+      "s:S4:P07:0043",
+      "s:S4:P07:0044",
+      "s:S4:P07:0045",
+      "s:S4:P07:0046",
+      "s:S4:P07:0047",
+      "s:S4:P07:0048",
+      "s:S4:P07:0049",
+      "s:S4:P07:0050",
+      "s:S4:P07:0051",
+      "s:S4:P07:0052",
+      "s:S4:P07:0053",
+      "s:S4:P07:0054",
+      "s:S4:P07:0055",
+      "s:S4:P07:0056",
+      "s:S4:P07:0057",
+      "s:S4:P07:0058",
+      "s:S4:P07:0059",
+      "s:S4:P07:0060",
+      "s:S4:P07:0061",
+      "s:S4:P07:0062",
+      "s:S4:P07:0063",
+      "s:S4:P07:0064",
+      "s:S4:P07:0065",
+      "s:S4:P07:0066",
+      "s:S4:P07:0067",
+      "s:S4:P07:0068",
+      "s:S4:P07:0069",
+      "s:S4:P07:0070",
+      "s:S4:P07:0071",
+      "s:S4:P07:0072",
+      "s:S4:P07:0073",
+      "s:S4:P07:0074",
+      "s:S4:P07:0075",
+      "s:S4:P07:0076",
+      "s:S4:P07:0077",
+      "s:S4:P07:0078",
+      "s:S4:P07:0079",
+      "s:S4:P07:0080",
+      "s:S4:P07:0081"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P07",
+     "src_in_ms": 405340,
+     "src_out_ms": 456170,
+     "sentences": [
+      "s:S4:P07:0083",
+      "s:S4:P07:0084",
+      "s:S4:P07:0085",
+      "s:S4:P07:0086",
+      "s:S4:P07:0087",
+      "s:S4:P07:0088",
+      "s:S4:P07:0089",
+      "s:S4:P07:0090",
+      "s:S4:P07:0091"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P07",
+     "src_in_ms": 460180,
+     "src_out_ms": 470810,
+     "sentences": [
+      "s:S4:P07:0093",
+      "s:S4:P07:0094"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 94,
+     "dur_s": 470.4
+    }
+   ]
+  },
+  {
+   "id": "CH-15",
+   "kind": "trunk",
+   "chapter": "CH-15",
+   "title_en": "Spreadsheets, applied steps and dirty data",
+   "act": "Analytics",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1575000,
+     "src_out_ms": 1695000,
+     "sentences": [
+      "s:S1:ar-natural:0225",
+      "s:S1:ar-natural:0226",
+      "s:S1:ar-natural:0227",
+      "s:S1:ar-natural:0228",
+      "s:S1:ar-natural:0229",
+      "s:S1:ar-natural:0230",
+      "s:S1:ar-natural:0231",
+      "s:S1:ar-natural:0232",
+      "s:S1:ar-natural:0233",
+      "s:S1:ar-natural:0234",
+      "s:S1:ar-natural:0235",
+      "s:S1:ar-natural:0236",
+      "s:S1:ar-natural:0237",
+      "s:S1:ar-natural:0238"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P11a",
+   "kind": "deep-dive",
+   "part": "P11",
+   "anchor": "CH-15",
+   "title_en": "Analytics: dirty data and applied steps, statistics from mean to A/B, the semantic model and the report",
+   "act": "Analytics",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 3700,
+     "src_out_ms": 56890,
+     "sentences": [
+      "s:S4:P11:0002",
+      "s:S4:P11:0003",
+      "s:S4:P11:0004",
+      "s:S4:P11:0005",
+      "s:S4:P11:0006",
+      "s:S4:P11:0007",
+      "s:S4:P11:0008",
+      "s:S4:P11:0009",
+      "s:S4:P11:0010",
+      "s:S4:P11:0011",
+      "s:S4:P11:0012",
+      "s:S4:P11:0013",
+      "s:S4:P11:0014"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 65640,
+     "src_out_ms": 78270,
+     "sentences": [
+      "s:S4:P11:0017",
+      "s:S4:P11:0018",
+      "s:S4:P11:0019"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 83920,
+     "src_out_ms": 99950,
+     "sentences": [
+      "s:S4:P11:0021",
+      "s:S4:P11:0022",
+      "s:S4:P11:0023",
+      "s:S4:P11:0024"
+     ],
+     "lead_gap_ms": 420
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 104960,
+     "src_out_ms": 112990,
+     "sentences": [
+      "s:S4:P11:0026",
+      "s:S4:P11:0027"
+     ],
+     "lead_gap_ms": 660
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 116740,
+     "src_out_ms": 123190,
+     "sentences": [
+      "s:S4:P11:0029",
+      "s:S4:P11:0030"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 134280,
+     "src_out_ms": 201670,
+     "sentences": [
+      "s:S4:P11:0033",
+      "s:S4:P11:0034",
+      "s:S4:P11:0035",
+      "s:S4:P11:0036",
+      "s:S4:P11:0037",
+      "s:S4:P11:0038",
+      "s:S4:P11:0039",
+      "s:S4:P11:0040",
+      "s:S4:P11:0041",
+      "s:S4:P11:0042",
+      "s:S4:P11:0043",
+      "s:S4:P11:0044",
+      "s:S4:P11:0045",
+      "s:S4:P11:0046",
+      "s:S4:P11:0047"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 206820,
+     "src_out_ms": 222330,
+     "sentences": [
+      "s:S4:P11:0049",
+      "s:S4:P11:0050",
+      "s:S4:P11:0051"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 229400,
+     "src_out_ms": 231890,
+     "sentences": [
+      "s:S4:P11:0054"
+     ],
+     "lead_gap_ms": 340
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 54,
+     "dur_s": 231.6
+    }
+   ]
+  },
+  {
+   "id": "CH-16",
+   "kind": "trunk",
+   "chapter": "CH-16",
+   "title_en": "Statistics — description, sampling, inference",
+   "act": "Analytics",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1695000,
+     "src_out_ms": 1805000,
+     "sentences": [
+      "s:S1:ar-natural:0239",
+      "s:S1:ar-natural:0240",
+      "s:S1:ar-natural:0241",
+      "s:S1:ar-natural:0242",
+      "s:S1:ar-natural:0243",
+      "s:S1:ar-natural:0244",
+      "s:S1:ar-natural:0245",
+      "s:S1:ar-natural:0246",
+      "s:S1:ar-natural:0247",
+      "s:S1:ar-natural:0248",
+      "s:S1:ar-natural:0249",
+      "s:S1:ar-natural:0250",
+      "s:S1:ar-natural:0251"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P11b",
+   "kind": "deep-dive",
+   "part": "P11",
+   "anchor": "CH-16",
+   "title_en": "Analytics: dirty data and applied steps, statistics from mean to A/B, the semantic model and the report",
+   "act": "Analytics",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 253520,
+     "src_out_ms": 293570,
+     "sentences": [
+      "s:S4:P11:0059",
+      "s:S4:P11:0060",
+      "s:S4:P11:0061",
+      "s:S4:P11:0062",
+      "s:S4:P11:0063",
+      "s:S4:P11:0064",
+      "s:S4:P11:0065",
+      "s:S4:P11:0066",
+      "s:S4:P11:0067"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 296460,
+     "src_out_ms": 299790,
+     "sentences": [
+      "s:S4:P11:0069",
+      "s:S4:P11:0070"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 318060,
+     "src_out_ms": 335750,
+     "sentences": [
+      "s:S4:P11:0074",
+      "s:S4:P11:0075",
+      "s:S4:P11:0076"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 343320,
+     "src_out_ms": 346050,
+     "sentences": [
+      "s:S4:P11:0078"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 350220,
+     "src_out_ms": 352850,
+     "sentences": [
+      "s:S4:P11:0080"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 358080,
+     "src_out_ms": 364550,
+     "sentences": [
+      "s:S4:P11:0082"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 370480,
+     "src_out_ms": 389890,
+     "sentences": [
+      "s:S4:P11:0084",
+      "s:S4:P11:0085",
+      "s:S4:P11:0086",
+      "s:S4:P11:0087"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 59,
+     "k1": 78,
+     "dur_s": 92.4
+    },
+    {
+     "k0": 80,
+     "k1": 87,
+     "dur_s": 39.5
+    }
+   ]
+  },
+  {
+   "id": "CH-17",
+   "kind": "trunk",
+   "chapter": "CH-17",
+   "title_en": "Semantic models, measures and the report",
+   "act": "Analytics",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1805000,
+     "src_out_ms": 1910000,
+     "sentences": [
+      "s:S1:ar-natural:0252",
+      "s:S1:ar-natural:0253",
+      "s:S1:ar-natural:0254",
+      "s:S1:ar-natural:0255",
+      "s:S1:ar-natural:0256",
+      "s:S1:ar-natural:0257",
+      "s:S1:ar-natural:0258",
+      "s:S1:ar-natural:0259",
+      "s:S1:ar-natural:0260",
+      "s:S1:ar-natural:0261",
+      "s:S1:ar-natural:0262",
+      "s:S1:ar-natural:0263",
+      "s:S1:ar-natural:0264"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P11c",
+   "kind": "deep-dive",
+   "part": "P11",
+   "anchor": "CH-17",
+   "title_en": "Analytics: dirty data and applied steps, statistics from mean to A/B, the semantic model and the report",
+   "act": "Analytics",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 400340,
+     "src_out_ms": 406970,
+     "sentences": [
+      "s:S4:P11:0090"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 430840,
+     "src_out_ms": 461610,
+     "sentences": [
+      "s:S4:P11:0096",
+      "s:S4:P11:0097",
+      "s:S4:P11:0098",
+      "s:S4:P11:0099",
+      "s:S4:P11:0100",
+      "s:S4:P11:0101",
+      "s:S4:P11:0102"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P11",
+     "src_in_ms": 464520,
+     "src_out_ms": 514050,
+     "sentences": [
+      "s:S4:P11:0104",
+      "s:S4:P11:0105",
+      "s:S4:P11:0106",
+      "s:S4:P11:0107",
+      "s:S4:P11:0108",
+      "s:S4:P11:0109",
+      "s:S4:P11:0110",
+      "s:S4:P11:0111",
+      "s:S4:P11:0112"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 90,
+     "k1": 90,
+     "dur_s": 6.5
+    },
+    {
+     "k0": 96,
+     "k1": 112,
+     "dur_s": 83.1
+    }
+   ]
+  },
+  {
+   "id": "CH-18",
+   "kind": "trunk",
+   "chapter": "CH-18",
+   "title_en": "Software craft — design, refactoring, review",
+   "act": "Craft",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 1910000,
+     "src_out_ms": 2025000,
+     "sentences": [
+      "s:S1:ar-natural:0265",
+      "s:S1:ar-natural:0266",
+      "s:S1:ar-natural:0267",
+      "s:S1:ar-natural:0268",
+      "s:S1:ar-natural:0269",
+      "s:S1:ar-natural:0270",
+      "s:S1:ar-natural:0271",
+      "s:S1:ar-natural:0272",
+      "s:S1:ar-natural:0273",
+      "s:S1:ar-natural:0274",
+      "s:S1:ar-natural:0275",
+      "s:S1:ar-natural:0276",
+      "s:S1:ar-natural:0277",
+      "s:S1:ar-natural:0278",
+      "s:S1:ar-natural:0279",
+      "s:S1:ar-natural:0280"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "CH-19",
+   "kind": "trunk",
+   "chapter": "CH-19",
+   "title_en": "Data structures and algorithms",
+   "act": "Craft",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2025000,
+     "src_out_ms": 2140000,
+     "sentences": [
+      "s:S1:ar-natural:0281",
+      "s:S1:ar-natural:0282",
+      "s:S1:ar-natural:0283",
+      "s:S1:ar-natural:0284",
+      "s:S1:ar-natural:0285",
+      "s:S1:ar-natural:0286",
+      "s:S1:ar-natural:0287",
+      "s:S1:ar-natural:0288",
+      "s:S1:ar-natural:0289",
+      "s:S1:ar-natural:0290",
+      "s:S1:ar-natural:0291",
+      "s:S1:ar-natural:0292",
+      "s:S1:ar-natural:0293",
+      "s:S1:ar-natural:0294"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P12",
+   "kind": "deep-dive",
+   "part": "P12",
+   "anchor": "CH-19",
+   "title_en": "Software craft and DSA: coupling, cohesion, SOLID, OOP and patterns, refactoring, review, algorithms",
+   "act": "Craft",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 1940,
+     "src_out_ms": 19410,
+     "sentences": [
+      "s:S4:P12:0001",
+      "s:S4:P12:0002",
+      "s:S4:P12:0003"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 24460,
+     "src_out_ms": 40170,
+     "sentences": [
+      "s:S4:P12:0006",
+      "s:S4:P12:0007",
+      "s:S4:P12:0008",
+      "s:S4:P12:0009",
+      "s:S4:P12:0010"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 53020,
+     "src_out_ms": 56770,
+     "sentences": [
+      "s:S4:P12:0012"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 69280,
+     "src_out_ms": 88870,
+     "sentences": [
+      "s:S4:P12:0015",
+      "s:S4:P12:0016",
+      "s:S4:P12:0017",
+      "s:S4:P12:0018"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 97020,
+     "src_out_ms": 203570,
+     "sentences": [
+      "s:S4:P12:0020",
+      "s:S4:P12:0021",
+      "s:S4:P12:0022",
+      "s:S4:P12:0023",
+      "s:S4:P12:0024",
+      "s:S4:P12:0025",
+      "s:S4:P12:0026",
+      "s:S4:P12:0027",
+      "s:S4:P12:0028",
+      "s:S4:P12:0029",
+      "s:S4:P12:0030",
+      "s:S4:P12:0031",
+      "s:S4:P12:0032",
+      "s:S4:P12:0033",
+      "s:S4:P12:0034",
+      "s:S4:P12:0035",
+      "s:S4:P12:0036",
+      "s:S4:P12:0037",
+      "s:S4:P12:0038",
+      "s:S4:P12:0039",
+      "s:S4:P12:0040",
+      "s:S4:P12:0041",
+      "s:S4:P12:0042"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 210020,
+     "src_out_ms": 216930,
+     "sentences": [
+      "s:S4:P12:0045",
+      "s:S4:P12:0046"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 233700,
+     "src_out_ms": 322510,
+     "sentences": [
+      "s:S4:P12:0050",
+      "s:S4:P12:0051",
+      "s:S4:P12:0052",
+      "s:S4:P12:0053",
+      "s:S4:P12:0054",
+      "s:S4:P12:0055",
+      "s:S4:P12:0056",
+      "s:S4:P12:0057",
+      "s:S4:P12:0058",
+      "s:S4:P12:0059",
+      "s:S4:P12:0060",
+      "s:S4:P12:0061",
+      "s:S4:P12:0062",
+      "s:S4:P12:0063",
+      "s:S4:P12:0064",
+      "s:S4:P12:0065",
+      "s:S4:P12:0066",
+      "s:S4:P12:0067",
+      "s:S4:P12:0068",
+      "s:S4:P12:0069"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 337600,
+     "src_out_ms": 343650,
+     "sentences": [
+      "s:S4:P12:0072"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 352540,
+     "src_out_ms": 367290,
+     "sentences": [
+      "s:S4:P12:0074",
+      "s:S4:P12:0075",
+      "s:S4:P12:0076",
+      "s:S4:P12:0077"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 380760,
+     "src_out_ms": 406390,
+     "sentences": [
+      "s:S4:P12:0080",
+      "s:S4:P12:0081",
+      "s:S4:P12:0082",
+      "s:S4:P12:0083",
+      "s:S4:P12:0084",
+      "s:S4:P12:0085"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 412500,
+     "src_out_ms": 424850,
+     "sentences": [
+      "s:S4:P12:0087",
+      "s:S4:P12:0088",
+      "s:S4:P12:0089"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P12",
+     "src_in_ms": 432560,
+     "src_out_ms": 452790,
+     "sentences": [
+      "s:S4:P12:0091",
+      "s:S4:P12:0092",
+      "s:S4:P12:0093",
+      "s:S4:P12:0094"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 94,
+     "dur_s": 452.4
+    }
+   ]
+  },
+  {
+   "id": "CH-20",
+   "kind": "trunk",
+   "chapter": "CH-20",
+   "title_en": "Networks, HTTP, APIs, identity and security",
+   "act": "Systems",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2140000,
+     "src_out_ms": 2265000,
+     "sentences": [
+      "s:S1:ar-natural:0295",
+      "s:S1:ar-natural:0296",
+      "s:S1:ar-natural:0297",
+      "s:S1:ar-natural:0298",
+      "s:S1:ar-natural:0299",
+      "s:S1:ar-natural:0300",
+      "s:S1:ar-natural:0301",
+      "s:S1:ar-natural:0302",
+      "s:S1:ar-natural:0303",
+      "s:S1:ar-natural:0304",
+      "s:S1:ar-natural:0305",
+      "s:S1:ar-natural:0306",
+      "s:S1:ar-natural:0307",
+      "s:S1:ar-natural:0308",
+      "s:S1:ar-natural:0309"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P13",
+   "kind": "deep-dive",
+   "part": "P13",
+   "anchor": "CH-20",
+   "title_en": "Systems and the web: DNS to database, HTTP and status codes, API contracts with FastAPI, identity and security",
+   "act": "Systems",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 380,
+     "src_out_ms": 69530,
+     "sentences": [
+      "s:S4:P13:0000",
+      "s:S4:P13:0001",
+      "s:S4:P13:0002",
+      "s:S4:P13:0003",
+      "s:S4:P13:0004",
+      "s:S4:P13:0005",
+      "s:S4:P13:0006",
+      "s:S4:P13:0007",
+      "s:S4:P13:0008",
+      "s:S4:P13:0009",
+      "s:S4:P13:0010",
+      "s:S4:P13:0011"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 84520,
+     "src_out_ms": 88370,
+     "sentences": [
+      "s:S4:P13:0014"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 93980,
+     "src_out_ms": 153710,
+     "sentences": [
+      "s:S4:P13:0016",
+      "s:S4:P13:0017",
+      "s:S4:P13:0018",
+      "s:S4:P13:0019",
+      "s:S4:P13:0020",
+      "s:S4:P13:0021",
+      "s:S4:P13:0022",
+      "s:S4:P13:0023",
+      "s:S4:P13:0024"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 169800,
+     "src_out_ms": 182190,
+     "sentences": [
+      "s:S4:P13:0027",
+      "s:S4:P13:0028"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 189080,
+     "src_out_ms": 256630,
+     "sentences": [
+      "s:S4:P13:0030",
+      "s:S4:P13:0031",
+      "s:S4:P13:0032",
+      "s:S4:P13:0033",
+      "s:S4:P13:0034",
+      "s:S4:P13:0035",
+      "s:S4:P13:0036",
+      "s:S4:P13:0037",
+      "s:S4:P13:0038",
+      "s:S4:P13:0039",
+      "s:S4:P13:0040"
+     ],
+     "lead_gap_ms": 680
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 262320,
+     "src_out_ms": 274470,
+     "sentences": [
+      "s:S4:P13:0042",
+      "s:S4:P13:0043"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 293160,
+     "src_out_ms": 297770,
+     "sentences": [
+      "s:S4:P13:0047",
+      "s:S4:P13:0048"
+     ],
+     "lead_gap_ms": 380
+    },
+    {
+     "audio_id": "a:S4:P13",
+     "src_in_ms": 306260,
+     "src_out_ms": 432050,
+     "sentences": [
+      "s:S4:P13:0050",
+      "s:S4:P13:0051",
+      "s:S4:P13:0052",
+      "s:S4:P13:0053",
+      "s:S4:P13:0054",
+      "s:S4:P13:0055",
+      "s:S4:P13:0056",
+      "s:S4:P13:0057",
+      "s:S4:P13:0058",
+      "s:S4:P13:0059",
+      "s:S4:P13:0060",
+      "s:S4:P13:0061",
+      "s:S4:P13:0062",
+      "s:S4:P13:0063",
+      "s:S4:P13:0064",
+      "s:S4:P13:0065",
+      "s:S4:P13:0066",
+      "s:S4:P13:0067",
+      "s:S4:P13:0068",
+      "s:S4:P13:0069",
+      "s:S4:P13:0070"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 70,
+     "dur_s": 431.5
+    }
+   ]
+  },
+  {
+   "id": "CH-21",
+   "kind": "trunk",
+   "chapter": "CH-21",
+   "title_en": "ETL, ELT and data quality",
+   "act": "Platform",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2265000,
+     "src_out_ms": 2380000,
+     "sentences": [
+      "s:S1:ar-natural:0310",
+      "s:S1:ar-natural:0311",
+      "s:S1:ar-natural:0312",
+      "s:S1:ar-natural:0313",
+      "s:S1:ar-natural:0314",
+      "s:S1:ar-natural:0315",
+      "s:S1:ar-natural:0316",
+      "s:S1:ar-natural:0317",
+      "s:S1:ar-natural:0318",
+      "s:S1:ar-natural:0319",
+      "s:S1:ar-natural:0320",
+      "s:S1:ar-natural:0321",
+      "s:S1:ar-natural:0322",
+      "s:S1:ar-natural:0323",
+      "s:S1:ar-natural:0324",
+      "s:S1:ar-natural:0325",
+      "s:S1:ar-natural:0326"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P14",
+   "kind": "deep-dive",
+   "part": "P14",
+   "anchor": "CH-21",
+   "title_en": "Backend in depth: Java, collections and streams, JDBC and transactions, connection pools, Spring Boot, concurrency, saga",
+   "act": "Platform",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P14",
+     "src_in_ms": 1660,
+     "src_out_ms": 19630,
+     "sentences": [
+      "s:S4:P14:0001",
+      "s:S4:P14:0002",
+      "s:S4:P14:0003",
+      "s:S4:P14:0004"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P14",
+     "src_in_ms": 24720,
+     "src_out_ms": 464330,
+     "sentences": [
+      "s:S4:P14:0006",
+      "s:S4:P14:0007",
+      "s:S4:P14:0008",
+      "s:S4:P14:0009",
+      "s:S4:P14:0010",
+      "s:S4:P14:0011",
+      "s:S4:P14:0012",
+      "s:S4:P14:0013",
+      "s:S4:P14:0014",
+      "s:S4:P14:0015",
+      "s:S4:P14:0016",
+      "s:S4:P14:0017",
+      "s:S4:P14:0018",
+      "s:S4:P14:0019",
+      "s:S4:P14:0020",
+      "s:S4:P14:0021",
+      "s:S4:P14:0022",
+      "s:S4:P14:0023",
+      "s:S4:P14:0024",
+      "s:S4:P14:0025",
+      "s:S4:P14:0026",
+      "s:S4:P14:0027",
+      "s:S4:P14:0028",
+      "s:S4:P14:0029",
+      "s:S4:P14:0030",
+      "s:S4:P14:0031",
+      "s:S4:P14:0032",
+      "s:S4:P14:0033",
+      "s:S4:P14:0034",
+      "s:S4:P14:0035",
+      "s:S4:P14:0036",
+      "s:S4:P14:0037",
+      "s:S4:P14:0038",
+      "s:S4:P14:0039",
+      "s:S4:P14:0040",
+      "s:S4:P14:0041",
+      "s:S4:P14:0042",
+      "s:S4:P14:0043",
+      "s:S4:P14:0044",
+      "s:S4:P14:0045",
+      "s:S4:P14:0046",
+      "s:S4:P14:0047",
+      "s:S4:P14:0048",
+      "s:S4:P14:0049",
+      "s:S4:P14:0050",
+      "s:S4:P14:0051",
+      "s:S4:P14:0052",
+      "s:S4:P14:0053",
+      "s:S4:P14:0054",
+      "s:S4:P14:0055",
+      "s:S4:P14:0056",
+      "s:S4:P14:0057",
+      "s:S4:P14:0058",
+      "s:S4:P14:0059",
+      "s:S4:P14:0060",
+      "s:S4:P14:0061",
+      "s:S4:P14:0062",
+      "s:S4:P14:0063",
+      "s:S4:P14:0064",
+      "s:S4:P14:0065",
+      "s:S4:P14:0066",
+      "s:S4:P14:0067",
+      "s:S4:P14:0068",
+      "s:S4:P14:0069",
+      "s:S4:P14:0070",
+      "s:S4:P14:0071",
+      "s:S4:P14:0072",
+      "s:S4:P14:0073",
+      "s:S4:P14:0074",
+      "s:S4:P14:0075",
+      "s:S4:P14:0076",
+      "s:S4:P14:0077",
+      "s:S4:P14:0078",
+      "s:S4:P14:0079",
+      "s:S4:P14:0080",
+      "s:S4:P14:0081",
+      "s:S4:P14:0082",
+      "s:S4:P14:0083",
+      "s:S4:P14:0084"
+     ],
+     "lead_gap_ms": 580
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 84,
+     "dur_s": 464.1
+    }
+   ]
+  },
+  {
+   "id": "CH-22",
+   "kind": "trunk",
+   "chapter": "CH-22",
+   "title_en": "DAG orchestration, retries and idempotency",
+   "act": "Platform",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2380000,
+     "src_out_ms": 2500000,
+     "sentences": [
+      "s:S1:ar-natural:0327",
+      "s:S1:ar-natural:0328",
+      "s:S1:ar-natural:0329",
+      "s:S1:ar-natural:0330",
+      "s:S1:ar-natural:0331",
+      "s:S1:ar-natural:0332",
+      "s:S1:ar-natural:0333",
+      "s:S1:ar-natural:0334",
+      "s:S1:ar-natural:0335",
+      "s:S1:ar-natural:0336",
+      "s:S1:ar-natural:0337",
+      "s:S1:ar-natural:0338",
+      "s:S1:ar-natural:0339",
+      "s:S1:ar-natural:0340",
+      "s:S1:ar-natural:0341",
+      "s:S1:ar-natural:0342"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P15",
+   "kind": "deep-dive",
+   "part": "P15",
+   "anchor": "CH-22",
+   "title_en": "ETL and DAGs: validate before transform, six quality dimensions, quarantine, Airflow inside, idempotent retries",
+   "act": "Platform",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 2360,
+     "src_out_ms": 14830,
+     "sentences": [
+      "s:S4:P15:0001",
+      "s:S4:P15:0002"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 24360,
+     "src_out_ms": 35690,
+     "sentences": [
+      "s:S4:P15:0004",
+      "s:S4:P15:0005"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 38880,
+     "src_out_ms": 41270,
+     "sentences": [
+      "s:S4:P15:0007"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 54900,
+     "src_out_ms": 99710,
+     "sentences": [
+      "s:S4:P15:0010",
+      "s:S4:P15:0011",
+      "s:S4:P15:0012",
+      "s:S4:P15:0013",
+      "s:S4:P15:0014",
+      "s:S4:P15:0015",
+      "s:S4:P15:0016",
+      "s:S4:P15:0017"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 112260,
+     "src_out_ms": 140070,
+     "sentences": [
+      "s:S4:P15:0019",
+      "s:S4:P15:0020",
+      "s:S4:P15:0021",
+      "s:S4:P15:0022",
+      "s:S4:P15:0023",
+      "s:S4:P15:0024",
+      "s:S4:P15:0025"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 160320,
+     "src_out_ms": 163470,
+     "sentences": [
+      "s:S4:P15:0029"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 174960,
+     "src_out_ms": 182230,
+     "sentences": [
+      "s:S4:P15:0031",
+      "s:S4:P15:0032"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 207100,
+     "src_out_ms": 303950,
+     "sentences": [
+      "s:S4:P15:0037",
+      "s:S4:P15:0038",
+      "s:S4:P15:0039",
+      "s:S4:P15:0040",
+      "s:S4:P15:0041",
+      "s:S4:P15:0042",
+      "s:S4:P15:0043",
+      "s:S4:P15:0044",
+      "s:S4:P15:0045",
+      "s:S4:P15:0046",
+      "s:S4:P15:0047",
+      "s:S4:P15:0048",
+      "s:S4:P15:0049",
+      "s:S4:P15:0050",
+      "s:S4:P15:0051",
+      "s:S4:P15:0052",
+      "s:S4:P15:0053",
+      "s:S4:P15:0054",
+      "s:S4:P15:0055"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 313760,
+     "src_out_ms": 349810,
+     "sentences": [
+      "s:S4:P15:0057",
+      "s:S4:P15:0058",
+      "s:S4:P15:0059",
+      "s:S4:P15:0060",
+      "s:S4:P15:0061",
+      "s:S4:P15:0062"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 365340,
+     "src_out_ms": 376330,
+     "sentences": [
+      "s:S4:P15:0066",
+      "s:S4:P15:0067"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 380120,
+     "src_out_ms": 383430,
+     "sentences": [
+      "s:S4:P15:0069"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 422500,
+     "src_out_ms": 525930,
+     "sentences": [
+      "s:S4:P15:0075",
+      "s:S4:P15:0076",
+      "s:S4:P15:0077",
+      "s:S4:P15:0078",
+      "s:S4:P15:0079",
+      "s:S4:P15:0080",
+      "s:S4:P15:0081",
+      "s:S4:P15:0082",
+      "s:S4:P15:0083",
+      "s:S4:P15:0084",
+      "s:S4:P15:0085",
+      "s:S4:P15:0086",
+      "s:S4:P15:0087",
+      "s:S4:P15:0088",
+      "s:S4:P15:0089",
+      "s:S4:P15:0090",
+      "s:S4:P15:0091",
+      "s:S4:P15:0092",
+      "s:S4:P15:0093"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P15",
+     "src_in_ms": 532520,
+     "src_out_ms": 585070,
+     "sentences": [
+      "s:S4:P15:0095",
+      "s:S4:P15:0096",
+      "s:S4:P15:0097",
+      "s:S4:P15:0098",
+      "s:S4:P15:0099",
+      "s:S4:P15:0100",
+      "s:S4:P15:0101",
+      "s:S4:P15:0102"
+     ],
+     "lead_gap_ms": 600
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 25,
+     "dur_s": 139.7
+    },
+    {
+     "k0": 29,
+     "k1": 32,
+     "dur_s": 21.8
+    },
+    {
+     "k0": 37,
+     "k1": 69,
+     "dur_s": 176.2
+    },
+    {
+     "k0": 75,
+     "k1": 102,
+     "dur_s": 162.4
+    }
+   ]
+  },
+  {
+   "id": "CH-23",
+   "kind": "trunk",
+   "chapter": "CH-23",
+   "title_en": "Warehouse layers, star schema, OLAP and DataCube",
+   "act": "Platform",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2500000,
+     "src_out_ms": 2625000,
+     "sentences": [
+      "s:S1:ar-natural:0343",
+      "s:S1:ar-natural:0344",
+      "s:S1:ar-natural:0345",
+      "s:S1:ar-natural:0346",
+      "s:S1:ar-natural:0347",
+      "s:S1:ar-natural:0348",
+      "s:S1:ar-natural:0349",
+      "s:S1:ar-natural:0350",
+      "s:S1:ar-natural:0351",
+      "s:S1:ar-natural:0352",
+      "s:S1:ar-natural:0353",
+      "s:S1:ar-natural:0354",
+      "s:S1:ar-natural:0355",
+      "s:S1:ar-natural:0356",
+      "s:S1:ar-natural:0357",
+      "s:S1:ar-natural:0358",
+      "s:S1:ar-natural:0359",
+      "s:S1:ar-natural:0360",
+      "s:S1:ar-natural:0361"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P16",
+   "kind": "deep-dive",
+   "part": "P16",
+   "anchor": "CH-23",
+   "title_en": "The warehouse: ODS/DW/ADS layers, star schema and grain, the cube, non-additive measures, SCD",
+   "act": "Platform",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 4060,
+     "src_out_ms": 94270,
+     "sentences": [
+      "s:S4:P16:0002",
+      "s:S4:P16:0003",
+      "s:S4:P16:0004",
+      "s:S4:P16:0005",
+      "s:S4:P16:0006",
+      "s:S4:P16:0007",
+      "s:S4:P16:0008",
+      "s:S4:P16:0009",
+      "s:S4:P16:0010",
+      "s:S4:P16:0011",
+      "s:S4:P16:0012",
+      "s:S4:P16:0013",
+      "s:S4:P16:0014",
+      "s:S4:P16:0015",
+      "s:S4:P16:0016",
+      "s:S4:P16:0017",
+      "s:S4:P16:0018"
+     ],
+     "lead_gap_ms": 400
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 103280,
+     "src_out_ms": 122710,
+     "sentences": [
+      "s:S4:P16:0021",
+      "s:S4:P16:0022",
+      "s:S4:P16:0023",
+      "s:S4:P16:0024",
+      "s:S4:P16:0025"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 130680,
+     "src_out_ms": 222270,
+     "sentences": [
+      "s:S4:P16:0027",
+      "s:S4:P16:0028",
+      "s:S4:P16:0029",
+      "s:S4:P16:0030",
+      "s:S4:P16:0031",
+      "s:S4:P16:0032",
+      "s:S4:P16:0033",
+      "s:S4:P16:0034",
+      "s:S4:P16:0035",
+      "s:S4:P16:0036",
+      "s:S4:P16:0037",
+      "s:S4:P16:0038",
+      "s:S4:P16:0039",
+      "s:S4:P16:0040",
+      "s:S4:P16:0041",
+      "s:S4:P16:0042",
+      "s:S4:P16:0043",
+      "s:S4:P16:0044"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 227440,
+     "src_out_ms": 233510,
+     "sentences": [
+      "s:S4:P16:0046"
+     ],
+     "lead_gap_ms": 500
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 238300,
+     "src_out_ms": 244150,
+     "sentences": [
+      "s:S4:P16:0048"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 253060,
+     "src_out_ms": 297470,
+     "sentences": [
+      "s:S4:P16:0050",
+      "s:S4:P16:0051",
+      "s:S4:P16:0052",
+      "s:S4:P16:0053",
+      "s:S4:P16:0054",
+      "s:S4:P16:0055",
+      "s:S4:P16:0056",
+      "s:S4:P16:0057",
+      "s:S4:P16:0058"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 305420,
+     "src_out_ms": 416410,
+     "sentences": [
+      "s:S4:P16:0060",
+      "s:S4:P16:0061",
+      "s:S4:P16:0062",
+      "s:S4:P16:0063",
+      "s:S4:P16:0064",
+      "s:S4:P16:0065",
+      "s:S4:P16:0066",
+      "s:S4:P16:0067",
+      "s:S4:P16:0068",
+      "s:S4:P16:0069",
+      "s:S4:P16:0070",
+      "s:S4:P16:0071",
+      "s:S4:P16:0072",
+      "s:S4:P16:0073",
+      "s:S4:P16:0074",
+      "s:S4:P16:0075",
+      "s:S4:P16:0076",
+      "s:S4:P16:0077",
+      "s:S4:P16:0078",
+      "s:S4:P16:0079",
+      "s:S4:P16:0080",
+      "s:S4:P16:0081",
+      "s:S4:P16:0082",
+      "s:S4:P16:0083"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P16",
+     "src_in_ms": 433000,
+     "src_out_ms": 454870,
+     "sentences": [
+      "s:S4:P16:0086",
+      "s:S4:P16:0087",
+      "s:S4:P16:0088",
+      "s:S4:P16:0089",
+      "s:S4:P16:0090"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 90,
+     "dur_s": 454.6
+    }
+   ]
+  },
+  {
+   "id": "CH-24",
+   "kind": "trunk",
+   "chapter": "CH-24",
+   "title_en": "Hadoop — HDFS, YARN and MapReduce",
+   "act": "Big data",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2625000,
+     "src_out_ms": 2740000,
+     "sentences": [
+      "s:S1:ar-natural:0362",
+      "s:S1:ar-natural:0363",
+      "s:S1:ar-natural:0364",
+      "s:S1:ar-natural:0365",
+      "s:S1:ar-natural:0366",
+      "s:S1:ar-natural:0367",
+      "s:S1:ar-natural:0368",
+      "s:S1:ar-natural:0369",
+      "s:S1:ar-natural:0370",
+      "s:S1:ar-natural:0371",
+      "s:S1:ar-natural:0372",
+      "s:S1:ar-natural:0373"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "CH-25",
+   "kind": "trunk",
+   "chapter": "CH-25",
+   "title_en": "Spark — stages, partitions, shuffle and skew",
+   "act": "Big data",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2740000,
+     "src_out_ms": 2860000,
+     "sentences": [
+      "s:S1:ar-natural:0374",
+      "s:S1:ar-natural:0375",
+      "s:S1:ar-natural:0376",
+      "s:S1:ar-natural:0377",
+      "s:S1:ar-natural:0378",
+      "s:S1:ar-natural:0379",
+      "s:S1:ar-natural:0380",
+      "s:S1:ar-natural:0381",
+      "s:S1:ar-natural:0382",
+      "s:S1:ar-natural:0383",
+      "s:S1:ar-natural:0384",
+      "s:S1:ar-natural:0385",
+      "s:S1:ar-natural:0386",
+      "s:S1:ar-natural:0387",
+      "s:S1:ar-natural:0388",
+      "s:S1:ar-natural:0389"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P18",
+   "kind": "deep-dive",
+   "part": "P18",
+   "anchor": "CH-25",
+   "title_en": "Big data: Hadoop (HDFS, YARN, MapReduce) and Spark (laziness, stages, partitions, shuffle, skew, PySpark)",
+   "act": "Big data",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 4660,
+     "src_out_ms": 83370,
+     "sentences": [
+      "s:S4:P18:0001",
+      "s:S4:P18:0002",
+      "s:S4:P18:0003",
+      "s:S4:P18:0004",
+      "s:S4:P18:0005",
+      "s:S4:P18:0006",
+      "s:S4:P18:0007",
+      "s:S4:P18:0008",
+      "s:S4:P18:0009",
+      "s:S4:P18:0010",
+      "s:S4:P18:0011",
+      "s:S4:P18:0012",
+      "s:S4:P18:0013",
+      "s:S4:P18:0014",
+      "s:S4:P18:0015",
+      "s:S4:P18:0016",
+      "s:S4:P18:0017",
+      "s:S4:P18:0018",
+      "s:S4:P18:0019"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 86300,
+     "src_out_ms": 99250,
+     "sentences": [
+      "s:S4:P18:0021",
+      "s:S4:P18:0022",
+      "s:S4:P18:0023",
+      "s:S4:P18:0024"
+     ],
+     "lead_gap_ms": 500
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 104480,
+     "src_out_ms": 125350,
+     "sentences": [
+      "s:S4:P18:0026",
+      "s:S4:P18:0027",
+      "s:S4:P18:0028",
+      "s:S4:P18:0029",
+      "s:S4:P18:0030"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 134660,
+     "src_out_ms": 180390,
+     "sentences": [
+      "s:S4:P18:0033",
+      "s:S4:P18:0034",
+      "s:S4:P18:0035",
+      "s:S4:P18:0036",
+      "s:S4:P18:0037",
+      "s:S4:P18:0038",
+      "s:S4:P18:0039",
+      "s:S4:P18:0040",
+      "s:S4:P18:0041",
+      "s:S4:P18:0042"
+     ],
+     "lead_gap_ms": 500
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 186880,
+     "src_out_ms": 188710,
+     "sentences": [
+      "s:S4:P18:0044"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 193180,
+     "src_out_ms": 208010,
+     "sentences": [
+      "s:S4:P18:0046",
+      "s:S4:P18:0047",
+      "s:S4:P18:0048",
+      "s:S4:P18:0049"
+     ],
+     "lead_gap_ms": 680
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 213120,
+     "src_out_ms": 303230,
+     "sentences": [
+      "s:S4:P18:0051",
+      "s:S4:P18:0052",
+      "s:S4:P18:0053",
+      "s:S4:P18:0054",
+      "s:S4:P18:0055",
+      "s:S4:P18:0056",
+      "s:S4:P18:0057",
+      "s:S4:P18:0058",
+      "s:S4:P18:0059",
+      "s:S4:P18:0060",
+      "s:S4:P18:0061",
+      "s:S4:P18:0062",
+      "s:S4:P18:0063",
+      "s:S4:P18:0064",
+      "s:S4:P18:0065",
+      "s:S4:P18:0066",
+      "s:S4:P18:0067",
+      "s:S4:P18:0068",
+      "s:S4:P18:0069"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 312880,
+     "src_out_ms": 319550,
+     "sentences": [
+      "s:S4:P18:0072",
+      "s:S4:P18:0073"
+     ],
+     "lead_gap_ms": 400
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 330120,
+     "src_out_ms": 332130,
+     "sentences": [
+      "s:S4:P18:0076"
+     ],
+     "lead_gap_ms": 420
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 337280,
+     "src_out_ms": 343030,
+     "sentences": [
+      "s:S4:P18:0078"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 362300,
+     "src_out_ms": 386770,
+     "sentences": [
+      "s:S4:P18:0082",
+      "s:S4:P18:0083",
+      "s:S4:P18:0084",
+      "s:S4:P18:0085",
+      "s:S4:P18:0086"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 403400,
+     "src_out_ms": 416530,
+     "sentences": [
+      "s:S4:P18:0090",
+      "s:S4:P18:0091",
+      "s:S4:P18:0092"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 447300,
+     "src_out_ms": 451310,
+     "sentences": [
+      "s:S4:P18:0098",
+      "s:S4:P18:0099"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 456820,
+     "src_out_ms": 466370,
+     "sentences": [
+      "s:S4:P18:0101",
+      "s:S4:P18:0102"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P18",
+     "src_in_ms": 473340,
+     "src_out_ms": 583290,
+     "sentences": [
+      "s:S4:P18:0104",
+      "s:S4:P18:0105",
+      "s:S4:P18:0106",
+      "s:S4:P18:0107",
+      "s:S4:P18:0108",
+      "s:S4:P18:0109",
+      "s:S4:P18:0110",
+      "s:S4:P18:0111",
+      "s:S4:P18:0112",
+      "s:S4:P18:0113",
+      "s:S4:P18:0114",
+      "s:S4:P18:0115",
+      "s:S4:P18:0116",
+      "s:S4:P18:0117",
+      "s:S4:P18:0118",
+      "s:S4:P18:0119",
+      "s:S4:P18:0120",
+      "s:S4:P18:0121",
+      "s:S4:P18:0122",
+      "s:S4:P18:0123",
+      "s:S4:P18:0124",
+      "s:S4:P18:0125",
+      "s:S4:P18:0126"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 92,
+     "dur_s": 416.2
+    },
+    {
+     "k0": 98,
+     "k1": 126,
+     "dur_s": 135.8
+    }
+   ]
+  },
+  {
+   "id": "CH-26",
+   "kind": "trunk",
+   "chapter": "CH-26",
+   "title_en": "Kafka and near-real-time streaming",
+   "act": "Big data",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2860000,
+     "src_out_ms": 2990000,
+     "sentences": [
+      "s:S1:ar-natural:0390",
+      "s:S1:ar-natural:0391",
+      "s:S1:ar-natural:0392",
+      "s:S1:ar-natural:0393",
+      "s:S1:ar-natural:0394",
+      "s:S1:ar-natural:0395",
+      "s:S1:ar-natural:0396",
+      "s:S1:ar-natural:0397",
+      "s:S1:ar-natural:0398",
+      "s:S1:ar-natural:0399",
+      "s:S1:ar-natural:0400",
+      "s:S1:ar-natural:0401"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P19a",
+   "kind": "deep-dive",
+   "part": "P19",
+   "anchor": "CH-26",
+   "title_en": "Kafka and streaming, and one Mobile Money transaction: offsets, lag, delivery, Nextgen D&IM flows",
+   "act": "Big data",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 180,
+     "src_out_ms": 78830,
+     "sentences": [
+      "s:S4:P19:0000",
+      "s:S4:P19:0001",
+      "s:S4:P19:0002",
+      "s:S4:P19:0003",
+      "s:S4:P19:0004",
+      "s:S4:P19:0005",
+      "s:S4:P19:0006",
+      "s:S4:P19:0007",
+      "s:S4:P19:0008",
+      "s:S4:P19:0009",
+      "s:S4:P19:0010",
+      "s:S4:P19:0011",
+      "s:S4:P19:0012",
+      "s:S4:P19:0013",
+      "s:S4:P19:0014",
+      "s:S4:P19:0015"
+     ],
+     "lead_gap_ms": 250
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 134560,
+     "src_out_ms": 149190,
+     "sentences": [
+      "s:S4:P19:0026",
+      "s:S4:P19:0027",
+      "s:S4:P19:0028"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 153540,
+     "src_out_ms": 162110,
+     "sentences": [
+      "s:S4:P19:0030",
+      "s:S4:P19:0031"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 15,
+     "dur_s": 78.5
+    },
+    {
+     "k0": 26,
+     "k1": 31,
+     "dur_s": 27.4
+    }
+   ]
+  },
+  {
+   "id": "CH-27",
+   "kind": "trunk",
+   "chapter": "CH-27",
+   "title_en": "Mobile Money — one transaction end to end",
+   "act": "Domain",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 2990000,
+     "src_out_ms": 3105000,
+     "sentences": [
+      "s:S1:ar-natural:0402",
+      "s:S1:ar-natural:0403",
+      "s:S1:ar-natural:0404",
+      "s:S1:ar-natural:0405",
+      "s:S1:ar-natural:0406",
+      "s:S1:ar-natural:0407",
+      "s:S1:ar-natural:0408",
+      "s:S1:ar-natural:0409",
+      "s:S1:ar-natural:0410",
+      "s:S1:ar-natural:0411",
+      "s:S1:ar-natural:0412",
+      "s:S1:ar-natural:0413",
+      "s:S1:ar-natural:0414"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P19b",
+   "kind": "deep-dive",
+   "part": "P19",
+   "anchor": "CH-27",
+   "title_en": "Kafka and streaming, and one Mobile Money transaction: offsets, lag, delivery, Nextgen D&IM flows",
+   "act": "Domain",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 180060,
+     "src_out_ms": 210330,
+     "sentences": [
+      "s:S4:P19:0035",
+      "s:S4:P19:0036",
+      "s:S4:P19:0037",
+      "s:S4:P19:0038",
+      "s:S4:P19:0039"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 219120,
+     "src_out_ms": 247230,
+     "sentences": [
+      "s:S4:P19:0041",
+      "s:S4:P19:0042",
+      "s:S4:P19:0043",
+      "s:S4:P19:0044"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 255140,
+     "src_out_ms": 336570,
+     "sentences": [
+      "s:S4:P19:0046",
+      "s:S4:P19:0047",
+      "s:S4:P19:0048",
+      "s:S4:P19:0049",
+      "s:S4:P19:0050",
+      "s:S4:P19:0051",
+      "s:S4:P19:0052",
+      "s:S4:P19:0053",
+      "s:S4:P19:0054",
+      "s:S4:P19:0055",
+      "s:S4:P19:0056",
+      "s:S4:P19:0057",
+      "s:S4:P19:0058",
+      "s:S4:P19:0059"
+     ],
+     "lead_gap_ms": 600
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 341500,
+     "src_out_ms": 429050,
+     "sentences": [
+      "s:S4:P19:0061",
+      "s:S4:P19:0062",
+      "s:S4:P19:0063",
+      "s:S4:P19:0064",
+      "s:S4:P19:0065",
+      "s:S4:P19:0066",
+      "s:S4:P19:0067",
+      "s:S4:P19:0068",
+      "s:S4:P19:0069",
+      "s:S4:P19:0070",
+      "s:S4:P19:0071",
+      "s:S4:P19:0072",
+      "s:S4:P19:0073",
+      "s:S4:P19:0074",
+      "s:S4:P19:0075",
+      "s:S4:P19:0076",
+      "s:S4:P19:0077",
+      "s:S4:P19:0078"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 437920,
+     "src_out_ms": 470310,
+     "sentences": [
+      "s:S4:P19:0080",
+      "s:S4:P19:0081",
+      "s:S4:P19:0082",
+      "s:S4:P19:0083",
+      "s:S4:P19:0084",
+      "s:S4:P19:0085"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 477100,
+     "src_out_ms": 486630,
+     "sentences": [
+      "s:S4:P19:0087",
+      "s:S4:P19:0088"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P19",
+     "src_in_ms": 491080,
+     "src_out_ms": 519370,
+     "sentences": [
+      "s:S4:P19:0090",
+      "s:S4:P19:0091",
+      "s:S4:P19:0092",
+      "s:S4:P19:0093",
+      "s:S4:P19:0094"
+     ],
+     "lead_gap_ms": 620
+    }
+   ],
+   "windows": [
+    {
+     "k0": 35,
+     "k1": 94,
+     "dur_s": 339.2
+    }
+   ]
+  },
+  {
+   "id": "DD-P17",
+   "kind": "deep-dive",
+   "part": "P17",
+   "anchor": "CH-27",
+   "title_en": "Huawei DataCube and Mobile Money reports: sources and layers, storage, the five-stage model, 24 KPIs, governance",
+   "act": "Domain",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P17",
+     "src_in_ms": 1860,
+     "src_out_ms": 24050,
+     "sentences": [
+      "s:S4:P17:0001",
+      "s:S4:P17:0002",
+      "s:S4:P17:0003",
+      "s:S4:P17:0004"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P17",
+     "src_in_ms": 27140,
+     "src_out_ms": 375910,
+     "sentences": [
+      "s:S4:P17:0006",
+      "s:S4:P17:0007",
+      "s:S4:P17:0008",
+      "s:S4:P17:0009",
+      "s:S4:P17:0010",
+      "s:S4:P17:0011",
+      "s:S4:P17:0012",
+      "s:S4:P17:0013",
+      "s:S4:P17:0014",
+      "s:S4:P17:0015",
+      "s:S4:P17:0016",
+      "s:S4:P17:0017",
+      "s:S4:P17:0018",
+      "s:S4:P17:0019",
+      "s:S4:P17:0020",
+      "s:S4:P17:0021",
+      "s:S4:P17:0022",
+      "s:S4:P17:0023",
+      "s:S4:P17:0024",
+      "s:S4:P17:0025",
+      "s:S4:P17:0026",
+      "s:S4:P17:0027",
+      "s:S4:P17:0028",
+      "s:S4:P17:0029",
+      "s:S4:P17:0030",
+      "s:S4:P17:0031",
+      "s:S4:P17:0032",
+      "s:S4:P17:0033",
+      "s:S4:P17:0034",
+      "s:S4:P17:0035",
+      "s:S4:P17:0036",
+      "s:S4:P17:0037",
+      "s:S4:P17:0038",
+      "s:S4:P17:0039",
+      "s:S4:P17:0040",
+      "s:S4:P17:0041",
+      "s:S4:P17:0042",
+      "s:S4:P17:0043",
+      "s:S4:P17:0044",
+      "s:S4:P17:0045",
+      "s:S4:P17:0046",
+      "s:S4:P17:0047",
+      "s:S4:P17:0048",
+      "s:S4:P17:0049",
+      "s:S4:P17:0050",
+      "s:S4:P17:0051",
+      "s:S4:P17:0052",
+      "s:S4:P17:0053",
+      "s:S4:P17:0054",
+      "s:S4:P17:0055",
+      "s:S4:P17:0056",
+      "s:S4:P17:0057",
+      "s:S4:P17:0058",
+      "s:S4:P17:0059",
+      "s:S4:P17:0060",
+      "s:S4:P17:0061",
+      "s:S4:P17:0062",
+      "s:S4:P17:0063",
+      "s:S4:P17:0064",
+      "s:S4:P17:0065",
+      "s:S4:P17:0066",
+      "s:S4:P17:0067",
+      "s:S4:P17:0068",
+      "s:S4:P17:0069",
+      "s:S4:P17:0070",
+      "s:S4:P17:0071",
+      "s:S4:P17:0072",
+      "s:S4:P17:0073",
+      "s:S4:P17:0074"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P17",
+     "src_in_ms": 389120,
+     "src_out_ms": 458970,
+     "sentences": [
+      "s:S4:P17:0077",
+      "s:S4:P17:0078",
+      "s:S4:P17:0079",
+      "s:S4:P17:0080",
+      "s:S4:P17:0081",
+      "s:S4:P17:0082",
+      "s:S4:P17:0083",
+      "s:S4:P17:0084",
+      "s:S4:P17:0085",
+      "s:S4:P17:0086",
+      "s:S4:P17:0087",
+      "s:S4:P17:0088",
+      "s:S4:P17:0089",
+      "s:S4:P17:0090"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 91,
+     "dur_s": 462.1
+    }
+   ]
+  },
+  {
+   "id": "CH-28",
+   "kind": "trunk",
+   "chapter": "CH-28",
+   "title_en": "Reconciliation, governance, DR and compliance",
+   "act": "Domain",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3105000,
+     "src_out_ms": 3235000,
+     "sentences": [
+      "s:S1:ar-natural:0415",
+      "s:S1:ar-natural:0416",
+      "s:S1:ar-natural:0417",
+      "s:S1:ar-natural:0418",
+      "s:S1:ar-natural:0419",
+      "s:S1:ar-natural:0420",
+      "s:S1:ar-natural:0421",
+      "s:S1:ar-natural:0422",
+      "s:S1:ar-natural:0423",
+      "s:S1:ar-natural:0424",
+      "s:S1:ar-natural:0425",
+      "s:S1:ar-natural:0426",
+      "s:S1:ar-natural:0427",
+      "s:S1:ar-natural:0428",
+      "s:S1:ar-natural:0429",
+      "s:S1:ar-natural:0430",
+      "s:S1:ar-natural:0431",
+      "s:S1:ar-natural:0432",
+      "s:S1:ar-natural:0433",
+      "s:S1:ar-natural:0434"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P20",
+   "kind": "deep-dive",
+   "part": "P20",
+   "anchor": "CH-28",
+   "title_en": "Reconciliation, D&IM testing, governance and DR: four kinds of difference, k-anonymity, RPO/RTO, country isolation",
+   "act": "Domain",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 240,
+     "src_out_ms": 45430,
+     "sentences": [
+      "s:S4:P20:0000",
+      "s:S4:P20:0001",
+      "s:S4:P20:0002",
+      "s:S4:P20:0003",
+      "s:S4:P20:0004",
+      "s:S4:P20:0005",
+      "s:S4:P20:0006",
+      "s:S4:P20:0007",
+      "s:S4:P20:0008",
+      "s:S4:P20:0009",
+      "s:S4:P20:0010",
+      "s:S4:P20:0011"
+     ],
+     "lead_gap_ms": 300
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 60540,
+     "src_out_ms": 108570,
+     "sentences": [
+      "s:S4:P20:0015",
+      "s:S4:P20:0016",
+      "s:S4:P20:0017",
+      "s:S4:P20:0018",
+      "s:S4:P20:0019",
+      "s:S4:P20:0020",
+      "s:S4:P20:0021",
+      "s:S4:P20:0022",
+      "s:S4:P20:0023",
+      "s:S4:P20:0024",
+      "s:S4:P20:0025",
+      "s:S4:P20:0026"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 119980,
+     "src_out_ms": 123670,
+     "sentences": [
+      "s:S4:P20:0029"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 127200,
+     "src_out_ms": 131690,
+     "sentences": [
+      "s:S4:P20:0031"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 138900,
+     "src_out_ms": 141550,
+     "sentences": [
+      "s:S4:P20:0034"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 150020,
+     "src_out_ms": 181630,
+     "sentences": [
+      "s:S4:P20:0037",
+      "s:S4:P20:0038",
+      "s:S4:P20:0039",
+      "s:S4:P20:0040",
+      "s:S4:P20:0041",
+      "s:S4:P20:0042",
+      "s:S4:P20:0043",
+      "s:S4:P20:0044"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 186540,
+     "src_out_ms": 258370,
+     "sentences": [
+      "s:S4:P20:0046",
+      "s:S4:P20:0047",
+      "s:S4:P20:0048",
+      "s:S4:P20:0049",
+      "s:S4:P20:0050",
+      "s:S4:P20:0051",
+      "s:S4:P20:0052",
+      "s:S4:P20:0053",
+      "s:S4:P20:0054",
+      "s:S4:P20:0055",
+      "s:S4:P20:0056",
+      "s:S4:P20:0057",
+      "s:S4:P20:0058",
+      "s:S4:P20:0059",
+      "s:S4:P20:0060"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 263060,
+     "src_out_ms": 266990,
+     "sentences": [
+      "s:S4:P20:0062"
+     ],
+     "lead_gap_ms": 680
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 279680,
+     "src_out_ms": 311390,
+     "sentences": [
+      "s:S4:P20:0065",
+      "s:S4:P20:0066",
+      "s:S4:P20:0067",
+      "s:S4:P20:0068",
+      "s:S4:P20:0069",
+      "s:S4:P20:0070",
+      "s:S4:P20:0071",
+      "s:S4:P20:0072"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P20",
+     "src_in_ms": 317300,
+     "src_out_ms": 452510,
+     "sentences": [
+      "s:S4:P20:0074",
+      "s:S4:P20:0075",
+      "s:S4:P20:0076",
+      "s:S4:P20:0077",
+      "s:S4:P20:0078",
+      "s:S4:P20:0079",
+      "s:S4:P20:0080",
+      "s:S4:P20:0081",
+      "s:S4:P20:0082",
+      "s:S4:P20:0083",
+      "s:S4:P20:0084",
+      "s:S4:P20:0085",
+      "s:S4:P20:0086",
+      "s:S4:P20:0087",
+      "s:S4:P20:0088",
+      "s:S4:P20:0089",
+      "s:S4:P20:0090",
+      "s:S4:P20:0091",
+      "s:S4:P20:0092",
+      "s:S4:P20:0093",
+      "s:S4:P20:0094",
+      "s:S4:P20:0095",
+      "s:S4:P20:0096",
+      "s:S4:P20:0097",
+      "s:S4:P20:0098",
+      "s:S4:P20:0099",
+      "s:S4:P20:0100",
+      "s:S4:P20:0101",
+      "s:S4:P20:0102",
+      "s:S4:P20:0103"
+     ],
+     "lead_gap_ms": 380
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 103,
+     "dur_s": 452.1
+    }
+   ]
+  },
+  {
+   "id": "CH-29",
+   "kind": "trunk",
+   "chapter": "CH-29",
+   "title_en": "Machine learning from a business question",
+   "act": "AI",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3235000,
+     "src_out_ms": 3360000,
+     "sentences": [
+      "s:S1:ar-natural:0435",
+      "s:S1:ar-natural:0436",
+      "s:S1:ar-natural:0437",
+      "s:S1:ar-natural:0438",
+      "s:S1:ar-natural:0439",
+      "s:S1:ar-natural:0440",
+      "s:S1:ar-natural:0441",
+      "s:S1:ar-natural:0442",
+      "s:S1:ar-natural:0443",
+      "s:S1:ar-natural:0444",
+      "s:S1:ar-natural:0445",
+      "s:S1:ar-natural:0446",
+      "s:S1:ar-natural:0447",
+      "s:S1:ar-natural:0448",
+      "s:S1:ar-natural:0449",
+      "s:S1:ar-natural:0450"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P21a",
+   "kind": "deep-dive",
+   "part": "P21",
+   "anchor": "CH-29",
+   "title_en": "Machine learning: business question and baseline, split and leakage, model families, honest evaluation",
+   "act": "AI",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 3620,
+     "src_out_ms": 50110,
+     "sentences": [
+      "s:S4:P21:0001",
+      "s:S4:P21:0002",
+      "s:S4:P21:0003",
+      "s:S4:P21:0004",
+      "s:S4:P21:0005",
+      "s:S4:P21:0006",
+      "s:S4:P21:0007",
+      "s:S4:P21:0008",
+      "s:S4:P21:0009",
+      "s:S4:P21:0010"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 72300,
+     "src_out_ms": 79650,
+     "sentences": [
+      "s:S4:P21:0014",
+      "s:S4:P21:0015",
+      "s:S4:P21:0016"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 90360,
+     "src_out_ms": 126710,
+     "sentences": [
+      "s:S4:P21:0019",
+      "s:S4:P21:0020",
+      "s:S4:P21:0021",
+      "s:S4:P21:0022",
+      "s:S4:P21:0023",
+      "s:S4:P21:0024",
+      "s:S4:P21:0025"
+     ],
+     "lead_gap_ms": 660
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 135840,
+     "src_out_ms": 153250,
+     "sentences": [
+      "s:S4:P21:0028",
+      "s:S4:P21:0029",
+      "s:S4:P21:0030"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 159740,
+     "src_out_ms": 168390,
+     "sentences": [
+      "s:S4:P21:0032",
+      "s:S4:P21:0033"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 174980,
+     "src_out_ms": 182250,
+     "sentences": [
+      "s:S4:P21:0035"
+     ],
+     "lead_gap_ms": 680
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 10,
+     "dur_s": 49.8
+    },
+    {
+     "k0": 14,
+     "k1": 35,
+     "dur_s": 109.8
+    }
+   ]
+  },
+  {
+   "id": "CH-30",
+   "kind": "trunk",
+   "chapter": "CH-30",
+   "title_en": "Model families and evaluation depth",
+   "act": "AI",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3360000,
+     "src_out_ms": 3475000,
+     "sentences": [
+      "s:S1:ar-natural:0451",
+      "s:S1:ar-natural:0452",
+      "s:S1:ar-natural:0453",
+      "s:S1:ar-natural:0454",
+      "s:S1:ar-natural:0455",
+      "s:S1:ar-natural:0456",
+      "s:S1:ar-natural:0457",
+      "s:S1:ar-natural:0458",
+      "s:S1:ar-natural:0459",
+      "s:S1:ar-natural:0460",
+      "s:S1:ar-natural:0461",
+      "s:S1:ar-natural:0462",
+      "s:S1:ar-natural:0463",
+      "s:S1:ar-natural:0464"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P21b",
+   "kind": "deep-dive",
+   "part": "P21",
+   "anchor": "CH-30",
+   "title_en": "Machine learning: business question and baseline, split and leakage, model families, honest evaluation",
+   "act": "AI",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 207660,
+     "src_out_ms": 225770,
+     "sentences": [
+      "s:S4:P21:0040",
+      "s:S4:P21:0041",
+      "s:S4:P21:0042",
+      "s:S4:P21:0043",
+      "s:S4:P21:0044"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 233700,
+     "src_out_ms": 248010,
+     "sentences": [
+      "s:S4:P21:0046",
+      "s:S4:P21:0047",
+      "s:S4:P21:0048"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 268460,
+     "src_out_ms": 303690,
+     "sentences": [
+      "s:S4:P21:0052",
+      "s:S4:P21:0053",
+      "s:S4:P21:0054",
+      "s:S4:P21:0055",
+      "s:S4:P21:0056",
+      "s:S4:P21:0057",
+      "s:S4:P21:0058",
+      "s:S4:P21:0059"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 312700,
+     "src_out_ms": 317430,
+     "sentences": [
+      "s:S4:P21:0062"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 333160,
+     "src_out_ms": 336630,
+     "sentences": [
+      "s:S4:P21:0066"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 379080,
+     "src_out_ms": 393530,
+     "sentences": [
+      "s:S4:P21:0075",
+      "s:S4:P21:0076",
+      "s:S4:P21:0077",
+      "s:S4:P21:0078"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P21",
+     "src_in_ms": 402000,
+     "src_out_ms": 455390,
+     "sentences": [
+      "s:S4:P21:0080",
+      "s:S4:P21:0081",
+      "s:S4:P21:0082",
+      "s:S4:P21:0083",
+      "s:S4:P21:0084",
+      "s:S4:P21:0085",
+      "s:S4:P21:0086",
+      "s:S4:P21:0087",
+      "s:S4:P21:0088",
+      "s:S4:P21:0089",
+      "s:S4:P21:0090"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 40,
+     "k1": 59,
+     "dur_s": 95.9
+    },
+    {
+     "k0": 62,
+     "k1": 62,
+     "dur_s": 4.6
+    },
+    {
+     "k0": 66,
+     "k1": 66,
+     "dur_s": 3.3
+    },
+    {
+     "k0": 75,
+     "k1": 90,
+     "dur_s": 76.2
+    }
+   ]
+  },
+  {
+   "id": "CH-31",
+   "kind": "trunk",
+   "chapter": "CH-31",
+   "title_en": "Neural networks — neuron to backpropagation",
+   "act": "AI",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3475000,
+     "src_out_ms": 3595000,
+     "sentences": [
+      "s:S1:ar-natural:0465",
+      "s:S1:ar-natural:0466",
+      "s:S1:ar-natural:0467",
+      "s:S1:ar-natural:0468",
+      "s:S1:ar-natural:0469",
+      "s:S1:ar-natural:0470",
+      "s:S1:ar-natural:0471",
+      "s:S1:ar-natural:0472",
+      "s:S1:ar-natural:0473",
+      "s:S1:ar-natural:0474",
+      "s:S1:ar-natural:0475",
+      "s:S1:ar-natural:0476",
+      "s:S1:ar-natural:0477",
+      "s:S1:ar-natural:0478",
+      "s:S1:ar-natural:0479",
+      "s:S1:ar-natural:0480"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P22a",
+   "kind": "deep-dive",
+   "part": "P22",
+   "anchor": "CH-31",
+   "title_en": "Deep learning and Transformers: a neuron by hand to backpropagation, tokens to attention, LLM concepts and prompting",
+   "act": "AI",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 3920,
+     "src_out_ms": 57710,
+     "sentences": [
+      "s:S4:P22:0001",
+      "s:S4:P22:0002",
+      "s:S4:P22:0003",
+      "s:S4:P22:0004",
+      "s:S4:P22:0005",
+      "s:S4:P22:0006",
+      "s:S4:P22:0007",
+      "s:S4:P22:0008",
+      "s:S4:P22:0009",
+      "s:S4:P22:0010",
+      "s:S4:P22:0011"
+     ],
+     "lead_gap_ms": 680
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 67960,
+     "src_out_ms": 78130,
+     "sentences": [
+      "s:S4:P22:0014",
+      "s:S4:P22:0015",
+      "s:S4:P22:0016"
+     ],
+     "lead_gap_ms": 360
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 84820,
+     "src_out_ms": 86970,
+     "sentences": [
+      "s:S4:P22:0018"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 97680,
+     "src_out_ms": 124290,
+     "sentences": [
+      "s:S4:P22:0021",
+      "s:S4:P22:0022",
+      "s:S4:P22:0023",
+      "s:S4:P22:0024",
+      "s:S4:P22:0025",
+      "s:S4:P22:0026"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 143340,
+     "src_out_ms": 145830,
+     "sentences": [
+      "s:S4:P22:0032"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 151580,
+     "src_out_ms": 160130,
+     "sentences": [
+      "s:S4:P22:0034",
+      "s:S4:P22:0035"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 165020,
+     "src_out_ms": 175830,
+     "sentences": [
+      "s:S4:P22:0037",
+      "s:S4:P22:0038",
+      "s:S4:P22:0039",
+      "s:S4:P22:0040"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 26,
+     "dur_s": 123.9
+    },
+    {
+     "k0": 32,
+     "k1": 32,
+     "dur_s": 2.3
+    },
+    {
+     "k0": 34,
+     "k1": 40,
+     "dur_s": 24.1
+    }
+   ]
+  },
+  {
+   "id": "CH-32",
+   "kind": "trunk",
+   "chapter": "CH-32",
+   "title_en": "NLP, attention and the Transformer",
+   "act": "AI",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3595000,
+     "src_out_ms": 3715000,
+     "sentences": [
+      "s:S1:ar-natural:0481",
+      "s:S1:ar-natural:0482",
+      "s:S1:ar-natural:0483",
+      "s:S1:ar-natural:0484",
+      "s:S1:ar-natural:0485",
+      "s:S1:ar-natural:0486",
+      "s:S1:ar-natural:0487",
+      "s:S1:ar-natural:0488",
+      "s:S1:ar-natural:0489",
+      "s:S1:ar-natural:0490",
+      "s:S1:ar-natural:0491",
+      "s:S1:ar-natural:0492",
+      "s:S1:ar-natural:0493",
+      "s:S1:ar-natural:0494"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P22b",
+   "kind": "deep-dive",
+   "part": "P22",
+   "anchor": "CH-32",
+   "title_en": "Deep learning and Transformers: a neuron by hand to backpropagation, tokens to attention, LLM concepts and prompting",
+   "act": "AI",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 182960,
+     "src_out_ms": 187530,
+     "sentences": [
+      "s:S4:P22:0043"
+     ],
+     "lead_gap_ms": 640
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 197420,
+     "src_out_ms": 227670,
+     "sentences": [
+      "s:S4:P22:0046",
+      "s:S4:P22:0047",
+      "s:S4:P22:0048",
+      "s:S4:P22:0049",
+      "s:S4:P22:0050",
+      "s:S4:P22:0051",
+      "s:S4:P22:0052"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 239600,
+     "src_out_ms": 251830,
+     "sentences": [
+      "s:S4:P22:0055",
+      "s:S4:P22:0056"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 278640,
+     "src_out_ms": 282590,
+     "sentences": [
+      "s:S4:P22:0061"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 288240,
+     "src_out_ms": 293110,
+     "sentences": [
+      "s:S4:P22:0063"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 298240,
+     "src_out_ms": 312650,
+     "sentences": [
+      "s:S4:P22:0065",
+      "s:S4:P22:0066",
+      "s:S4:P22:0067",
+      "s:S4:P22:0068"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P22",
+     "src_in_ms": 324640,
+     "src_out_ms": 475630,
+     "sentences": [
+      "s:S4:P22:0071",
+      "s:S4:P22:0072",
+      "s:S4:P22:0073",
+      "s:S4:P22:0074",
+      "s:S4:P22:0075",
+      "s:S4:P22:0076",
+      "s:S4:P22:0077",
+      "s:S4:P22:0078",
+      "s:S4:P22:0079",
+      "s:S4:P22:0080",
+      "s:S4:P22:0081",
+      "s:S4:P22:0082",
+      "s:S4:P22:0083",
+      "s:S4:P22:0084",
+      "s:S4:P22:0085",
+      "s:S4:P22:0086",
+      "s:S4:P22:0087",
+      "s:S4:P22:0088",
+      "s:S4:P22:0089",
+      "s:S4:P22:0090",
+      "s:S4:P22:0091",
+      "s:S4:P22:0092",
+      "s:S4:P22:0093",
+      "s:S4:P22:0094",
+      "s:S4:P22:0095",
+      "s:S4:P22:0096",
+      "s:S4:P22:0097",
+      "s:S4:P22:0098",
+      "s:S4:P22:0099",
+      "s:S4:P22:0100"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 43,
+     "k1": 56,
+     "dur_s": 68.7
+    },
+    {
+     "k0": 61,
+     "k1": 101,
+     "dur_s": 199.6
+    }
+   ]
+  },
+  {
+   "id": "CH-33",
+   "kind": "trunk",
+   "chapter": "CH-33",
+   "title_en": "Embeddings, retrieval, RAG and guarded agents",
+   "act": "AI",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3715000,
+     "src_out_ms": 3855000,
+     "sentences": [
+      "s:S1:ar-natural:0495",
+      "s:S1:ar-natural:0496",
+      "s:S1:ar-natural:0497",
+      "s:S1:ar-natural:0498",
+      "s:S1:ar-natural:0499",
+      "s:S1:ar-natural:0500",
+      "s:S1:ar-natural:0501",
+      "s:S1:ar-natural:0502",
+      "s:S1:ar-natural:0503",
+      "s:S1:ar-natural:0504",
+      "s:S1:ar-natural:0505",
+      "s:S1:ar-natural:0506",
+      "s:S1:ar-natural:0507",
+      "s:S1:ar-natural:0508",
+      "s:S1:ar-natural:0509",
+      "s:S1:ar-natural:0510",
+      "s:S1:ar-natural:0511",
+      "s:S1:ar-natural:0512",
+      "s:S1:ar-natural:0513",
+      "s:S1:ar-natural:0514"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P23",
+   "kind": "deep-dive",
+   "part": "P23",
+   "anchor": "CH-33",
+   "title_en": "Embeddings, RAG and agents: meaning as position, the pipeline and its failure stages, the guarded agent loop",
+   "act": "AI",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 3600,
+     "src_out_ms": 27770,
+     "sentences": [
+      "s:S4:P23:0001",
+      "s:S4:P23:0002",
+      "s:S4:P23:0003",
+      "s:S4:P23:0004"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 32560,
+     "src_out_ms": 46290,
+     "sentences": [
+      "s:S4:P23:0006",
+      "s:S4:P23:0007"
+     ],
+     "lead_gap_ms": 580
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 52800,
+     "src_out_ms": 64710,
+     "sentences": [
+      "s:S4:P23:0009",
+      "s:S4:P23:0010",
+      "s:S4:P23:0011"
+     ],
+     "lead_gap_ms": 400
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 70040,
+     "src_out_ms": 115090,
+     "sentences": [
+      "s:S4:P23:0013",
+      "s:S4:P23:0014",
+      "s:S4:P23:0015",
+      "s:S4:P23:0016",
+      "s:S4:P23:0017",
+      "s:S4:P23:0018",
+      "s:S4:P23:0019",
+      "s:S4:P23:0020",
+      "s:S4:P23:0021",
+      "s:S4:P23:0022"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 124720,
+     "src_out_ms": 165390,
+     "sentences": [
+      "s:S4:P23:0024",
+      "s:S4:P23:0025",
+      "s:S4:P23:0026",
+      "s:S4:P23:0027",
+      "s:S4:P23:0028",
+      "s:S4:P23:0029",
+      "s:S4:P23:0030",
+      "s:S4:P23:0031"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 186000,
+     "src_out_ms": 217790,
+     "sentences": [
+      "s:S4:P23:0035",
+      "s:S4:P23:0036",
+      "s:S4:P23:0037",
+      "s:S4:P23:0038",
+      "s:S4:P23:0039",
+      "s:S4:P23:0040",
+      "s:S4:P23:0041"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 227720,
+     "src_out_ms": 230770,
+     "sentences": [
+      "s:S4:P23:0044"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 237680,
+     "src_out_ms": 259650,
+     "sentences": [
+      "s:S4:P23:0046",
+      "s:S4:P23:0047",
+      "s:S4:P23:0048",
+      "s:S4:P23:0049",
+      "s:S4:P23:0050"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 263180,
+     "src_out_ms": 279130,
+     "sentences": [
+      "s:S4:P23:0052",
+      "s:S4:P23:0053",
+      "s:S4:P23:0054"
+     ],
+     "lead_gap_ms": 460
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 289920,
+     "src_out_ms": 294870,
+     "sentences": [
+      "s:S4:P23:0057"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 299500,
+     "src_out_ms": 337130,
+     "sentences": [
+      "s:S4:P23:0059",
+      "s:S4:P23:0060",
+      "s:S4:P23:0061",
+      "s:S4:P23:0062",
+      "s:S4:P23:0063",
+      "s:S4:P23:0064",
+      "s:S4:P23:0065",
+      "s:S4:P23:0066"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P23",
+     "src_in_ms": 347940,
+     "src_out_ms": 394990,
+     "sentences": [
+      "s:S4:P23:0069",
+      "s:S4:P23:0070",
+      "s:S4:P23:0071",
+      "s:S4:P23:0072",
+      "s:S4:P23:0073",
+      "s:S4:P23:0074",
+      "s:S4:P23:0075",
+      "s:S4:P23:0076",
+      "s:S4:P23:0077",
+      "s:S4:P23:0078",
+      "s:S4:P23:0079"
+     ],
+     "lead_gap_ms": 700
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 31,
+     "dur_s": 165.0
+    },
+    {
+     "k0": 35,
+     "k1": 80,
+     "dur_s": 211.2
+    }
+   ]
+  },
+  {
+   "id": "CH-34",
+   "kind": "trunk",
+   "chapter": "CH-34",
+   "title_en": "Ship it — containers, CI/CD, cloud, observability",
+   "act": "Ship",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3855000,
+     "src_out_ms": 3995000,
+     "sentences": [
+      "s:S1:ar-natural:0515",
+      "s:S1:ar-natural:0516",
+      "s:S1:ar-natural:0517",
+      "s:S1:ar-natural:0518",
+      "s:S1:ar-natural:0519",
+      "s:S1:ar-natural:0520",
+      "s:S1:ar-natural:0521",
+      "s:S1:ar-natural:0522",
+      "s:S1:ar-natural:0523",
+      "s:S1:ar-natural:0524",
+      "s:S1:ar-natural:0525",
+      "s:S1:ar-natural:0526",
+      "s:S1:ar-natural:0527",
+      "s:S1:ar-natural:0528",
+      "s:S1:ar-natural:0529"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P24",
+   "kind": "deep-dive",
+   "part": "P24",
+   "anchor": "CH-34",
+   "title_en": "Ship it: containers and layer cache, docker-compose, the CI/CD gate and rollback, IAM, three signals, an incident",
+   "act": "Ship",
+   "voice": "A",
+   "segments": [
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 2880,
+     "src_out_ms": 36730,
+     "sentences": [
+      "s:S4:P24:0001",
+      "s:S4:P24:0002",
+      "s:S4:P24:0003",
+      "s:S4:P24:0004",
+      "s:S4:P24:0005",
+      "s:S4:P24:0006"
+     ],
+     "lead_gap_ms": 600
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 39980,
+     "src_out_ms": 63130,
+     "sentences": [
+      "s:S4:P24:0008",
+      "s:S4:P24:0009",
+      "s:S4:P24:0010"
+     ],
+     "lead_gap_ms": 660
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 74960,
+     "src_out_ms": 85810,
+     "sentences": [
+      "s:S4:P24:0013",
+      "s:S4:P24:0014"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 101220,
+     "src_out_ms": 105990,
+     "sentences": [
+      "s:S4:P24:0018"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 133260,
+     "src_out_ms": 175850,
+     "sentences": [
+      "s:S4:P24:0023",
+      "s:S4:P24:0024",
+      "s:S4:P24:0025",
+      "s:S4:P24:0026",
+      "s:S4:P24:0027",
+      "s:S4:P24:0028",
+      "s:S4:P24:0029"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 180100,
+     "src_out_ms": 190570,
+     "sentences": [
+      "s:S4:P24:0031"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 204760,
+     "src_out_ms": 225350,
+     "sentences": [
+      "s:S4:P24:0034",
+      "s:S4:P24:0035",
+      "s:S4:P24:0036",
+      "s:S4:P24:0037"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 231680,
+     "src_out_ms": 241130,
+     "sentences": [
+      "s:S4:P24:0039"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 247040,
+     "src_out_ms": 263070,
+     "sentences": [
+      "s:S4:P24:0041",
+      "s:S4:P24:0042",
+      "s:S4:P24:0043"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 267960,
+     "src_out_ms": 278690,
+     "sentences": [
+      "s:S4:P24:0045",
+      "s:S4:P24:0046"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 288120,
+     "src_out_ms": 308970,
+     "sentences": [
+      "s:S4:P24:0049",
+      "s:S4:P24:0050",
+      "s:S4:P24:0051",
+      "s:S4:P24:0052"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 317380,
+     "src_out_ms": 319750,
+     "sentences": [
+      "s:S4:P24:0054"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 327180,
+     "src_out_ms": 346070,
+     "sentences": [
+      "s:S4:P24:0056",
+      "s:S4:P24:0057",
+      "s:S4:P24:0058"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 363020,
+     "src_out_ms": 396010,
+     "sentences": [
+      "s:S4:P24:0061",
+      "s:S4:P24:0062",
+      "s:S4:P24:0063",
+      "s:S4:P24:0064",
+      "s:S4:P24:0065",
+      "s:S4:P24:0066"
+     ],
+     "lead_gap_ms": 480
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 402780,
+     "src_out_ms": 405070,
+     "sentences": [
+      "s:S4:P24:0068"
+     ],
+     "lead_gap_ms": 520
+    },
+    {
+     "audio_id": "a:S4:P24",
+     "src_in_ms": 416520,
+     "src_out_ms": 473170,
+     "sentences": [
+      "s:S4:P24:0071",
+      "s:S4:P24:0072",
+      "s:S4:P24:0073",
+      "s:S4:P24:0074",
+      "s:S4:P24:0075",
+      "s:S4:P24:0076",
+      "s:S4:P24:0077",
+      "s:S4:P24:0078",
+      "s:S4:P24:0079"
+     ],
+     "lead_gap_ms": 500
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 18,
+     "dur_s": 105.6
+    },
+    {
+     "k0": 23,
+     "k1": 79,
+     "dur_s": 339.8
+    }
+   ]
+  },
+  {
+   "id": "CH-35",
+   "kind": "trunk",
+   "chapter": "CH-35",
+   "title_en": "Evidence, portfolio and the branches",
+   "act": "Ship",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 3995000,
+     "src_out_ms": 4130000,
+     "sentences": [
+      "s:S1:ar-natural:0530",
+      "s:S1:ar-natural:0531",
+      "s:S1:ar-natural:0532",
+      "s:S1:ar-natural:0533",
+      "s:S1:ar-natural:0534",
+      "s:S1:ar-natural:0535",
+      "s:S1:ar-natural:0536",
+      "s:S1:ar-natural:0537",
+      "s:S1:ar-natural:0538",
+      "s:S1:ar-natural:0539",
+      "s:S1:ar-natural:0540",
+      "s:S1:ar-natural:0541",
+      "s:S1:ar-natural:0542",
+      "s:S1:ar-natural:0543",
+      "s:S1:ar-natural:0544",
+      "s:S1:ar-natural:0545",
+      "s:S1:ar-natural:0546",
+      "s:S1:ar-natural:0547"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  },
+  {
+   "id": "DD-P25",
+   "kind": "deep-dive",
+   "part": "P25",
+   "anchor": "CH-35",
+   "title_en": "Evidence and career: the artifact chain, the five-minute defence, interviews, study plan, the six branches",
+   "act": "Ship",
+   "voice": "B",
+   "segments": [
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 220,
+     "src_out_ms": 19510,
+     "sentences": [
+      "s:S4:P25:0000",
+      "s:S4:P25:0001",
+      "s:S4:P25:0002"
+     ],
+     "lead_gap_ms": 280
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 22920,
+     "src_out_ms": 39990,
+     "sentences": [
+      "s:S4:P25:0004",
+      "s:S4:P25:0005",
+      "s:S4:P25:0006"
+     ],
+     "lead_gap_ms": 540
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 44940,
+     "src_out_ms": 55290,
+     "sentences": [
+      "s:S4:P25:0008",
+      "s:S4:P25:0009",
+      "s:S4:P25:0010"
+     ],
+     "lead_gap_ms": 660
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 64760,
+     "src_out_ms": 82550,
+     "sentences": [
+      "s:S4:P25:0012",
+      "s:S4:P25:0013",
+      "s:S4:P25:0014"
+     ],
+     "lead_gap_ms": 560
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 89840,
+     "src_out_ms": 97210,
+     "sentences": [
+      "s:S4:P25:0016"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 114980,
+     "src_out_ms": 172510,
+     "sentences": [
+      "s:S4:P25:0021",
+      "s:S4:P25:0022",
+      "s:S4:P25:0023",
+      "s:S4:P25:0024",
+      "s:S4:P25:0025",
+      "s:S4:P25:0026",
+      "s:S4:P25:0027",
+      "s:S4:P25:0028",
+      "s:S4:P25:0029",
+      "s:S4:P25:0030",
+      "s:S4:P25:0031"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 184580,
+     "src_out_ms": 341030,
+     "sentences": [
+      "s:S4:P25:0034",
+      "s:S4:P25:0035",
+      "s:S4:P25:0036",
+      "s:S4:P25:0037",
+      "s:S4:P25:0038",
+      "s:S4:P25:0039",
+      "s:S4:P25:0040",
+      "s:S4:P25:0041",
+      "s:S4:P25:0042",
+      "s:S4:P25:0043",
+      "s:S4:P25:0044",
+      "s:S4:P25:0045",
+      "s:S4:P25:0046",
+      "s:S4:P25:0047",
+      "s:S4:P25:0048",
+      "s:S4:P25:0049",
+      "s:S4:P25:0050",
+      "s:S4:P25:0051",
+      "s:S4:P25:0052",
+      "s:S4:P25:0053",
+      "s:S4:P25:0054",
+      "s:S4:P25:0055",
+      "s:S4:P25:0056",
+      "s:S4:P25:0057",
+      "s:S4:P25:0058",
+      "s:S4:P25:0059",
+      "s:S4:P25:0060",
+      "s:S4:P25:0061",
+      "s:S4:P25:0062",
+      "s:S4:P25:0063",
+      "s:S4:P25:0064"
+     ],
+     "lead_gap_ms": 700
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 350660,
+     "src_out_ms": 354530,
+     "sentences": [
+      "s:S4:P25:0067"
+     ],
+     "lead_gap_ms": 620
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 361780,
+     "src_out_ms": 404650,
+     "sentences": [
+      "s:S4:P25:0069",
+      "s:S4:P25:0070",
+      "s:S4:P25:0071",
+      "s:S4:P25:0072",
+      "s:S4:P25:0073",
+      "s:S4:P25:0074",
+      "s:S4:P25:0075",
+      "s:S4:P25:0076"
+     ],
+     "lead_gap_ms": 440
+    },
+    {
+     "audio_id": "a:S4:P25",
+     "src_in_ms": 424700,
+     "src_out_ms": 501830,
+     "sentences": [
+      "s:S4:P25:0083",
+      "s:S4:P25:0084",
+      "s:S4:P25:0085",
+      "s:S4:P25:0086",
+      "s:S4:P25:0087",
+      "s:S4:P25:0088",
+      "s:S4:P25:0089",
+      "s:S4:P25:0090",
+      "s:S4:P25:0091",
+      "s:S4:P25:0092",
+      "s:S4:P25:0093",
+      "s:S4:P25:0094",
+      "s:S4:P25:0095",
+      "s:S4:P25:0096",
+      "s:S4:P25:0097",
+      "s:S4:P25:0098",
+      "s:S4:P25:0099"
+     ],
+     "lead_gap_ms": 520
+    }
+   ],
+   "windows": [
+    {
+     "k0": 0,
+     "k1": 76,
+     "dur_s": 404.3
+    },
+    {
+     "k0": 83,
+     "k1": 99,
+     "dur_s": 77.0
+    }
+   ]
+  },
+  {
+   "id": "CH-36",
+   "kind": "trunk",
+   "chapter": "CH-36",
+   "title_en": "Close — what you can now defend",
+   "act": "Close",
+   "voice": "S1",
+   "segments": [
+    {
+     "audio_id": "a:S1:ar-natural",
+     "src_in_ms": 4130000,
+     "src_out_ms": 4205000,
+     "sentences": [
+      "s:S1:ar-natural:0548",
+      "s:S1:ar-natural:0549",
+      "s:S1:ar-natural:0550",
+      "s:S1:ar-natural:0551",
+      "s:S1:ar-natural:0552",
+      "s:S1:ar-natural:0553",
+      "s:S1:ar-natural:0554",
+      "s:S1:ar-natural:0555",
+      "s:S1:ar-natural:0556",
+      "s:S1:ar-natural:0557",
+      "s:S1:ar-natural:0558",
+      "s:S1:ar-natural:0559",
+      "s:S1:ar-natural:0560",
+      "s:S1:ar-natural:0561"
+     ],
+     "lead_gap_ms": 0
+    }
+   ]
+  }
+ ]
+}
