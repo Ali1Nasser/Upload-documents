@@ -871,5 +871,139 @@
    "critic: listening review of radio-edit and pilot",
    "audio-forensics: confirm S2 bed unused"
   ]
+ },
+ {
+  "id": "ADR-009",
+  "council": "C3",
+  "date": "2026-10-09",
+  "chair": "council-chair",
+  "status": "decided",
+  "brief": "docs/decisions/C3.brief.md",
+  "path": "docs/decisions/ADR-009-g6a-look-waiver.md",
+  "gate": "G6a",
+  "method": "Escalation ballot (choice + confidence per lens); rule from computed task: majority, tie -> I1. Confidence-weighted share also computed. No per-criterion scores; cross-review not run.",
+  "confidence_members": {
+   "director": 0.72,
+   "educator": 0.72,
+   "motion-design": 0.72,
+   "technical-accuracy": 0.6,
+   "egyptian-arabic": 0.68,
+   "audio-sync": 0.62,
+   "producer": 0.78,
+   "mean": 0.691
+  },
+  "confidence": "medium",
+  "votes": {
+   "G6a": {
+    "W1": [
+     "director",
+     "educator",
+     "motion-design",
+     "audio-sync",
+     "producer"
+    ],
+    "I1": [
+     "technical-accuracy",
+     "egyptian-arabic"
+    ],
+    "R1": []
+   }
+  },
+  "scores": {
+   "vote_share": {
+    "W1": 0.714,
+    "I1": 0.286,
+    "R1": 0.0
+   },
+   "conf_weighted": {
+    "W1": 0.736,
+    "I1": 0.264,
+    "R1": 0.0
+   },
+   "margin_pts_conf_weighted": 47.1,
+   "margin_pts_raw": 42.9,
+   "top": "W1",
+   "second": "I1"
+  },
+  "evidence": {
+   "look_mean": 8.014,
+   "parity": 7.5,
+   "min_criterion": 7,
+   "look_mean_ex_cost": 7.82,
+   "arabic_pass": false,
+   "arabic_blocking": [
+    "B1",
+    "B2"
+   ],
+   "arabic_required": [
+    "R1",
+    "R2",
+    "R3"
+   ],
+   "reports": [
+    "reports/lookdev/critic_r3.md",
+    "reports/lookdev/arabic_r3.md"
+   ]
+  },
+  "decision": {
+   "G6a": "W1 (conditional close)"
+  },
+  "waivers": [
+   {
+    "id": "W-009-LOOK",
+    "what": "G6a item 2 (look mean >= 8.0, parity >= 7.5) accepted on the single r3 critic read (8.014 / 7.50, zero headroom) without a further re-score round beyond the r0..r3 cap; critic issues 1-6 + Arabic advisories move to P7/P8 acceptance tests AT-1..AT-10",
+    "scope": "r3 style-frame set only: stills F1-F9 + F4-hero; strips MA, MB, MB-hero, MC, MD",
+    "not_waived": [
+     "Arabic B1,B2,R1-R3",
+     "token/preset/catalog freeze (only after close conditions 1-4)",
+     "G6a render-budget item",
+     "G6b",
+     "G7",
+     "G8"
+    ]
+   }
+  ],
+  "close_conditions": [
+   "1 B1 '6 AI' chip; B2 size-banded JOIN_GAP (>=56px caps 0.20em/mixed 0.14em; <56px caps 0.25em/mixed 0.10em) + test; R1 F6 dir=rtl + U+2190 + LTR isolates; R2 split ghost title in two phrases (6-word cut needs egyptian-arabic sign-off); R3 F5 unit 0.55em",
+   "2 isolated-render OCR >= 0.90 on الترتيب داخل الـpartition, قسم الـroadmap, قسم الـidempotency, F7 chip 6; type suite passes with new gap tests",
+   "3 re-render F3,F4,F4-hero,F5,F6,F7,F8,MD; fresh arabic-typographer review PASS (0 blocking, 0 required)",
+   "4 render-ops diff vs r3 at 960 px: all |delta|>8/255 pixels inside edited text boxes +16 px",
+   "5 freeze tokens/presets/catalog; harness-engineer implements harness/gates/g06a.py; pass only via dc gate check G6a"
+  ],
+  "acceptance_tests": [
+   "AT-1 MA opening numeral from f0, title by f10",
+   "AT-2 F4-hero tinted additive bokeh <25% opacity; MB-hero foreground parallax ~3x",
+   "AT-3 F3 P2/P1 blur+no digits or digits >=24px; no clip at x1100",
+   "AT-4 F8/MD receipt travels through gates; baselines aligned; ghost >=3.8:1",
+   "AT-5 F1 bottom void, box interior; F2 red-row motion; F5 single 5 s/57 s",
+   "AT-6 impact beats as {word, lead_frames}",
+   "AT-7 F5 chips >=28px if spoken; RTL right-edge labels; one chip order rule",
+   "AT-8 F7 leader line/far bars",
+   "AT-9 perf.plates bake + disk, 24 h projection re-run (blocks P10)",
+   "AT-10 dc qa arabic implemented (G6b evidence)"
+  ],
+  "g8_condition": "pilot and every chapter: visual mean >= 8.0, min >= 6; pilot parity read >= 7.5; no G8 waiver may cite W-009-LOOK",
+  "dissent": [
+   "technical-accuracy (I1, 0.60): W1 would freeze a known-bad JOIN_GAP token; re-score once after fixes",
+   "egyptian-arabic (I1, 0.68): narrow round, Arabic fixes + critic issues 1-3, re-measure margins"
+  ],
+  "taste_note": "Deciding judgement (another round ~ +0.1) is a trend estimate carried by director, motion-design, producer lenses.",
+  "cross_review": "not run (ballot only); margin 47 pts, mean confidence 0.69",
+  "reversal_triggers": [
+   "RT-1 any close condition fails twice -> waiver lapses, run I1",
+   "RT-2 layout change outside edited boxes -> critic re-score changed stills; <8.0 or <7.5 -> I1",
+   "RT-3 AT-9 projection >24 h -> reopen ADR-002",
+   "RT-4 first preview/pilot misses visual 8.0 after loop cap -> Council reopens look direction (R1)",
+   "RT-5 P7 component equivalents score <8.0/<7.5 by fresh critic -> G6a reopens for those components"
+  ],
+  "follow_ups": [
+   "arabic-typographer + motion-engineer: close conditions 1-3",
+   "render-ops: condition 4, AT-9",
+   "harness-engineer: g06a.py, AT-10",
+   "scene-director: AT-1, AT-4..AT-7",
+   "egyptian-arabic lens: 5 ثواني مقابل 57, CH-34:labels_ar:0, R2 cut if chosen (before P8)",
+   "fact-checker: F7 districts, Kafka on district 4",
+   "critic: pilot parity read at G8"
+  ]
  }
 ]
