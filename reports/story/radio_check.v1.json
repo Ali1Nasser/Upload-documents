@@ -1,0 +1,463 @@
+{
+  "v": 1,
+  "edl": "corpus/edl/master_edl.v1.json",
+  "vo": "data/derived/audio/master_vo_v1.flac",
+  "vo_sha256_edl": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
+  "seed": 20261009,
+  "vo_sha256_file": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
+  "static": {
+    "segments": 605,
+    "edge_inside_fail": 0,
+    "neighbour_inside_fail": 0,
+    "edge_words_interp": 0,
+    "examples": []
+  },
+  "realign": {
+    "windows": 20,
+    "errors": 0,
+    "words": 625,
+    "clipped": 0,
+    "onset_offset_ms": {
+      "median_abs": 10,
+      "p95_abs": 10
+    },
+    "median_conf": 0.819,
+    "detail": [
+      {
+        "cut": "seg-0038|seg-0039",
+        "rec_ms": [
+          992350,
+          1007810
+        ],
+        "words": 33,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.784
+      },
+      {
+        "cut": "seg-0095|seg-0097",
+        "rec_ms": [
+          2545190,
+          2560670
+        ],
+        "words": 28,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.597
+      },
+      {
+        "cut": "seg-0109|seg-0110",
+        "rec_ms": [
+          2697590,
+          2712330
+        ],
+        "words": 36,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.84
+      },
+      {
+        "cut": "seg-0159|seg-0160",
+        "rec_ms": [
+          3709400,
+          3724580
+        ],
+        "words": 27,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.758
+      },
+      {
+        "cut": "seg-0223|seg-0224",
+        "rec_ms": [
+          4787350,
+          4802920
+        ],
+        "words": 40,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.855
+      },
+      {
+        "cut": "seg-0231|seg-0232",
+        "rec_ms": [
+          4942980,
+          4958460
+        ],
+        "words": 25,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.819
+      },
+      {
+        "cut": "seg-0267|seg-0268",
+        "rec_ms": [
+          6028430,
+          6044130
+        ],
+        "words": 36,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.815
+      },
+      {
+        "cut": "seg-0298|seg-0299",
+        "rec_ms": [
+          6365440,
+          6380940
+        ],
+        "words": 28,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.954
+      },
+      {
+        "cut": "seg-0300|seg-0301",
+        "rec_ms": [
+          6397460,
+          6412620
+        ],
+        "words": 26,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.847
+      },
+      {
+        "cut": "seg-0346|seg-0347",
+        "rec_ms": [
+          7162060,
+          7173900
+        ],
+        "words": 24,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.9
+      },
+      {
+        "cut": "seg-0384|seg-0385",
+        "rec_ms": [
+          8162600,
+          8176900
+        ],
+        "words": 28,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.918
+      },
+      {
+        "cut": "seg-0392|seg-0393",
+        "rec_ms": [
+          8221150,
+          8236510
+        ],
+        "words": 35,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.798
+      },
+      {
+        "cut": "seg-0442|seg-0444",
+        "rec_ms": [
+          9323070,
+          9338330
+        ],
+        "words": 33,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.888
+      },
+      {
+        "cut": "seg-0446|seg-0447",
+        "rec_ms": [
+          9438140,
+          9453280
+        ],
+        "words": 40,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.768
+      },
+      {
+        "cut": "seg-0527|seg-0528",
+        "rec_ms": [
+          11417480,
+          11431380
+        ],
+        "words": 23,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.865
+      },
+      {
+        "cut": "seg-0533|seg-0534",
+        "rec_ms": [
+          11526180,
+          11541160
+        ],
+        "words": 37,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.8
+      },
+      {
+        "cut": "seg-0540|seg-0541",
+        "rec_ms": [
+          11624680,
+          11640240
+        ],
+        "words": 31,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.84
+      },
+      {
+        "cut": "seg-0605|seg-0606",
+        "rec_ms": [
+          12605640,
+          12621410
+        ],
+        "words": 36,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.789
+      },
+      {
+        "cut": "seg-0612|seg-0613",
+        "rec_ms": [
+          12727460,
+          12742180
+        ],
+        "words": 32,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.552
+      },
+      {
+        "cut": "seg-0614|seg-0616",
+        "rec_ms": [
+          12813540,
+          12829020
+        ],
+        "words": 27,
+        "clipped": 0,
+        "clipped_words": [],
+        "median_conf": 0.815
+      }
+    ]
+  },
+  "loudness": {
+    "integrated_lufs": -16.02,
+    "minutes": 231,
+    "min_lufs": -17.05,
+    "max_lufs": -15.07,
+    "max_abs_dev_lu": 1.05,
+    "minutes_out_of_tol": 0,
+    "worst": [
+      [
+        1.05,
+        157
+      ],
+      [
+        0.93,
+        11
+      ],
+      [
+        0.88,
+        13
+      ],
+      [
+        0.87,
+        51
+      ],
+      [
+        0.83,
+        31
+      ]
+    ],
+    "true_peak_dbtp": -1.5
+  },
+  "gaps": {
+    "unplanned_acoustic_gt_2500_is_the_gate": true,
+    "word_map_holes_gt_2500": 9,
+    "holes": [
+      {
+        "rec_ms": [
+          1217260,
+          1219830
+        ],
+        "chapter": "DD-P02-1",
+        "audio_id": "a:S4:P02",
+        "src_ms": [
+          114760,
+          118200
+        ],
+        "after_word": "w:S4:P02:000266",
+        "whisper": "الديتا، البارتس والإنكورين"
+      },
+      {
+        "rec_ms": [
+          7344700,
+          7348560
+        ],
+        "chapter": "DD-P13",
+        "audio_id": "a:S4:P13",
+        "src_ms": [
+          210340,
+          215080
+        ],
+        "after_word": "w:S4:P13:000451",
+        "whisper": "القسم الثالث معمارية FastAPI"
+      },
+      {
+        "rec_ms": [
+          7421030,
+          7424560
+        ],
+        "chapter": "DD-P13",
+        "audio_id": "a:S4:P13",
+        "src_ms": [
+          319080,
+          323360
+        ],
+        "after_word": "w:S4:P13:000662",
+        "whisper": "القسم الخامس الحقن والحدود"
+      },
+      {
+        "rec_ms": [
+          7878870,
+          7882370
+        ],
+        "chapter": "DD-P14",
+        "audio_id": "a:S4:P14",
+        "src_ms": [
+          246100,
+          250140
+        ],
+        "after_word": "w:S4:P14:000542",
+        "whisper": "وستوك أكبر من أو يساوي question mark"
+      },
+      {
+        "rec_ms": [
+          9908610,
+          9913960
+        ],
+        "chapter": "DD-P19-1",
+        "audio_id": "a:S4:P19",
+        "src_ms": [
+          24380,
+          30120
+        ],
+        "after_word": "w:S4:P19:000065",
+        "whisper": "1. أساسيات الستريمينج والكافكا 2. الأعطال والسكيماز والكود"
+      },
+      {
+        "rec_ms": [
+          10552830,
+          10556790
+        ],
+        "chapter": "DD-P17",
+        "audio_id": "a:S4:P17",
+        "src_ms": [
+          163560,
+          167980
+        ],
+        "after_word": "w:S4:P17:000369",
+        "whisper": "صف واحد لكل معاملة أو One Row Per Transaction"
+      },
+      {
+        "rec_ms": [
+          10575330,
+          10579400
+        ],
+        "chapter": "DD-P17",
+        "audio_id": "a:S4:P17",
+        "src_ms": [
+          186520,
+          190980
+        ],
+        "after_word": "w:S4:P17:000417",
+        "whisper": "ترجمة نانسي قنقر"
+      },
+      {
+        "rec_ms": [
+          10757820,
+          10760350
+        ],
+        "chapter": "DD-P17",
+        "audio_id": "a:S4:P17",
+        "src_ms": [
+          369400,
+          372300
+        ],
+        "after_word": "w:S4:P17:000795",
+        "whisper": "مية خمسة وعشرين الف توممية سبعة واربعين"
+      },
+      {
+        "rec_ms": [
+          11168310,
+          11171000
+        ],
+        "chapter": "DD-P20",
+        "audio_id": "a:S4:P20",
+        "src_ms": [
+          280560,
+          284180
+        ],
+        "after_word": "w:S4:P20:000612",
+        "whisper": "اشتركوا في القناة"
+      }
+    ],
+    "unplanned_acoustic_gt_2500": 0,
+    "examples": [
+      [
+        1217260,
+        2570
+      ],
+      [
+        7344700,
+        3860
+      ],
+      [
+        7421030,
+        3530
+      ],
+      [
+        7878870,
+        3500
+      ],
+      [
+        9908610,
+        5350
+      ],
+      [
+        10552830,
+        3960
+      ],
+      [
+        10575330,
+        4070
+      ],
+      [
+        10757820,
+        2530
+      ]
+    ],
+    "max_unplanned_word_gap_ms": 5350,
+    "planned_card_gaps_gt_2500": 68,
+    "max_planned_gap_ms": 3000
+  },
+  "cut_points": {
+    "n": 1210,
+    "max_rms20_dbfs": -50.2,
+    "over_minus45_dbfs": 0,
+    "examples": []
+  },
+  "tightened_removed": {
+    "count": 306,
+    "max_rms50_dbfs": -59.9,
+    "over_minus45_dbfs": 0,
+    "examples": []
+  },
+  "pass": true,
+  "check_s": 372.0
+}

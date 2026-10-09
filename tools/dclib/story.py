@@ -1282,3 +1282,5 @@ def register(sub):
     s.set_defaults(fn="story.cmd_drop_block")
     s = st.add_parser("e001-noc", help="E-001 follow-up: B100-noC (B100 minus DD-P01), lost-unit topic coverage, English scan")
     s.set_defaults(fn="story.cmd_e001_noc")
+    from . import radio
+    radio.register(st)

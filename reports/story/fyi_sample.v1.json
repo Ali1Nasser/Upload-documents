@@ -1,0 +1,19 @@
+{
+  "v": 1,
+  "edl": "corpus/edl/master_edl.v1.json",
+  "around": "DD-P06-2",
+  "rec_from_ms": 3675700,
+  "dur_s": 180,
+  "files": {
+    ".flac": {
+      "path": "data/derived/audio/fyi_radio_sample_v1_DD-P06-2.flac",
+      "sha256": "25f3685e8b857d914e88f6ad87b679937180d5db16a861d7e3cd7ef900c25bcd",
+      "bytes": 11254029
+    },
+    ".mp3": {
+      "path": "data/derived/audio/fyi_radio_sample_v1_DD-P06-2.mp3",
+      "sha256": "bf927959c72b3b20ee0460b690a80f695a885be71f8e775fbe1cf7eaf93cb693",
+      "bytes": 4321197
+    }
+  }
+}
