@@ -16,6 +16,7 @@ Definitions (also printed into reports/story/candidates.md):
                     and the orientation material (S1 CH-00..CH-02, S4 P00/P00b/P01).
 """
 import collections
+import re
 import json
 import os
 
@@ -1063,6 +1064,207 @@ def cmd_e001(args):
     print("cap dropped", len(dropped), "skipped", len(skipped))
     return 0
 
+# ----------------------------------------------------------------------------------------------------------------- E-001 noC
+def _drop_metrics(D, G, G0, bl, cov_ref, novel_all):
+    """The cmd_e001 metric set for one EDL (metrics()/violations() unchanged), units dropped relative to cov_ref."""
+    m = metrics(D, G, bl)
+    m["prereq_violations_before_context_review"] = metrics(D, G0, bl)["prereq_violations"]
+    viol, order = m.pop("_viol"), m.pop("_order")
+    _, miss = violations(D, G, order)
+    cov = _covered(D, bl)
+    m["dropped_units"] = sorted(cov_ref - cov)
+    m["dropped_novel_units"] = sorted((cov_ref - cov) & novel_all)
+    m["prereq_missing_list"] = sorted({f"{x['concept']}->{x['requires']}" for x in miss})
+    m["per_ch_switches"] = dict(sorted(_per_ch_switches(D, bl).items()))
+    h = m["runtime_s"] / 3600
+    m["tokens_M"] = [round(m["sentences"] * 5 / 1000, 1), round(m["sentences"] * 8 / 1000, 1)]
+    m["render_h"] = [round(h * 5.6, 1), round(h * 8.2, 1)]
+    m["render_h_5pct_r3f"] = round(h * 16.7 / 3, 1)
+    return m, viol, order, cov
+
+
+def drop_block(D, G, G0, src_name, drop_ids, out_name, desc=None):
+    """corpus/edl/candidates/<out>.json = <src>.json minus whole blocks `drop_ids`; nothing else changes."""
+    srcp = C.p("corpus", "edl", "candidates", f"{src_name}.json")
+    src = C.read_json(srcp)
+    ids = {b["id"] for b in src["blocks"]}
+    bad = [x for x in drop_ids if x not in ids]
+    if bad:
+        raise SystemExit(f"story drop-block: no such block(s) in {src_name}: {bad}")
+    bl = [b for b in src["blocks"] if b["id"] not in set(drop_ids)]
+    novel_all = {u for u, x in D["IU"].items() if x["novel_vs_trunk"]}
+    m_src, _, _, cov_src = _drop_metrics(D, G, G0, src["blocks"], set(), novel_all)
+    m, viol, order, cov = _drop_metrics(D, G, G0, bl, cov_src, novel_all)
+    desc = desc or f"{out_name}: {src_name} minus block(s) {', '.join(drop_ids)}; every other block, segment and cut unchanged."
+    rec = {"v": 1, "candidate": out_name, "created": C.now_iso(), "desc": desc,
+           "derived_from": {"file": f"corpus/edl/candidates/{src_name}.json", "sha256": C.sha256_file(srcp)},
+           "dropped_blocks": list(drop_ids), "params": src["params"],
+           "metrics": {k: v for k, v in m.items() if k != "per_ch_switches"}, "prereq_violations": viol, "blocks": bl}
+    C.write_json(C.p("corpus", "edl", "candidates", f"{out_name}.json"), rec, indent=1)
+    m["outline_words"] = outline(D, out_name, desc, bl, m, C.p("data", "derived", "story", f"outline_{out_name}.md"))
+    return m_src, m, order, cov, bl, src["blocks"]
+
+
+def cmd_drop_block(args):
+    D = _load()
+    G0, G = _graph_ctx(D, None), _graph_ctx(D, args.ctx)
+    out = args.out or f"{args.src}-no-{'-'.join(args.block)}"
+    m_src, m, *_ = drop_block(D, G, G0, args.src, args.block, out)
+    keys = ("runtime", "sentences", "coverage_pct", "novel_s4_units_pct", "redundancy_pct", "prereq_violations",
+            "prereq_missing", "voice_switches", "voice_switches_per_h", "max_switches_per_trunk_chapter", "tokens_M", "render_h_5pct_r3f")
+    for n, x in ((args.src, m_src), (out, m)):
+        print(n, json.dumps({k: x[k] for k in keys}), "dropped_units", len(x["dropped_units"]))
+    return 0
+
+
+NOC_COS, NOC_PARTLY = 0.81, 0.70     # P4 idea-unit tau; 'partly' band floor fixed before measuring (story-editor choice)
+# Strict variant: alias-tagger hits on P01's English text that are English function words or homonyms, checked against the
+# sentence text ("or" -> boolean-logic, "if" -> control-flow, "service" -> systemd, "absolute zero" -> absolute-path,
+# "full-stack" -> stack, "explain the why" -> explain, "interview/diagnostic loop" -> loop, "AI integration" -> integration-test,
+# "select tools" -> select, "process it" -> process, "path", "identify" -> constraint, "sparks your curiosity" -> spark).
+NOC_EN_HOMONYMS = {"c:boolean-logic", "c:control-flow", "c:constraint", "c:systemd", "c:absolute-path", "c:stack", "c:explain",
+                   "c:path", "c:loop", "c:integration-test", "c:select", "c:process"}
+NOC_EN_HOMONYM_PAIRS = {("s:S4:P01:0114", "c:spark")}
+_AR = re.compile(r"[\u0600-\u06FF]")
+_LAT = re.compile(r"[A-Za-z]")
+
+
+def _script_counts(text):
+    lat = ar = 0
+    for t in text.split():
+        if _AR.search(t):
+            ar += 1
+        elif _LAT.search(t):
+            lat += 1
+    return lat, ar
+
+
+def cmd_e001_noc(args):
+    """E-001 follow-up: B100-noC = B100 minus DD-P01 (voice C, English). Metrics, topic coverage of the lost units,
+    English-dominant scan of kept S4 sentences. Writes reports/story/E-001_noC.json (keeps hand-written step4/step5 keys)."""
+    import numpy as np
+    D = _load()
+    G0, G = _graph_ctx(D, None), _graph_ctx(D, "B")
+    desc = ("B100-noC: B100 minus the Deep-Dive DD-P01 (S4 part P01, voice C, English speech 'The Explainer', 8.1 min "
+            "after CH-02); every other block, segment and cut unchanged (E-001 dialect follow-up).")
+    m100, m, order, cov, bl, b100 = drop_block(D, G, G0, "B100", ["DD-P01"], "B100-noC", desc)
+    IU, S = D["IU"], D["S"]
+    lost = m["dropped_units"]
+    cids = set(C.read_json(C.p("data", "derived", "vectors", "g_concept.json"))["ids"])
+    # concepts taught by kept sentences: non-signpost, not a preview, S4 needs the P3 term annotation to agree
+    taught = collections.defaultdict(list)
+    for sid in order:
+        s = S[sid]
+        if s.get("kind") in SIGNPOST_KINDS:
+            continue
+        for c in _concepts(D, G, sid) & cids:
+            if (c, sid) in G["preview"] or (sid.startswith("s:S4") and c not in (s.get("terms") or ())):
+                continue
+            taught[c].append(sid)
+    ids = C.read_json(C.p("data", "derived", "vectors", "g_sent.json"))["ids"]
+    V = np.load(C.p("data", "derived", "vectors", "g_sent.npy")).astype(np.float32)
+    row = {x: i for i, x in enumerate(ids)}
+    kept_rows, kept_u = [], []
+    for u in sorted(cov):
+        for sid in IU[u]["members"]:
+            if sid in row:
+                kept_rows.append(row[sid])
+                kept_u.append((u, sid))
+    K = V[kept_rows]
+    units = []
+    for u in lost:
+        x = IU[u]
+        mem = [sid for sid in x["members"] if sid in row]
+        best = (-1.0, None, None)
+        if mem:
+            sims = V[[row[s] for s in mem]] @ K.T
+            i, j = np.unravel_index(int(np.argmax(sims)), sims.shape)
+            best = (float(sims[i, j]), kept_u[j][0], kept_u[j][1])
+        cs = set()
+        for sid in x["members"]:
+            if sid in S:
+                cs |= _concepts(D, G, sid) & cids
+        shared = sorted(c for c in cs if c in taught)
+        cos = round(best[0], 3)
+
+        def classify(cs_, sh_):
+            if cos >= NOC_COS or (cs_ and len(sh_) == len(cs_)):
+                return "topic-covered"
+            return "partly" if cos >= NOC_PARTLY or sh_ else "truly-lost"
+        cls = classify(cs, shared)
+        cs_strict = set()
+        for sid in x["members"]:
+            if sid in S:
+                cs_strict |= {c for c in _concepts(D, G, sid) & cids if not (S[sid]["audio_id"] == "a:S4:P01" and (
+                    c in NOC_EN_HOMONYMS or (sid, c) in NOC_EN_HOMONYM_PAIRS))}
+        cls_strict = classify(cs_strict, [c for c in shared if c in cs_strict])
+        nk = best[1]
+        units.append({"unit": u, "gloss_en": x.get("gloss_en"), "kinds": x.get("kinds"), "sources": x.get("sources"),
+                      "novel_vs_trunk": x["novel_vs_trunk"], "members": x["members"], "concepts": sorted(cs),
+                      "concepts_taught_by_kept": shared,
+                      "taught_at": {c: taught[c][0] for c in shared},
+                      "nearest_kept": {"unit": nk, "cos": cos, "sentence": best[2],
+                                       "gloss_en": IU[nk].get("gloss_en") if nk else None}, "class": cls,
+                      "concepts_strict": sorted(cs_strict), "class_strict": cls_strict})
+    cls_n = collections.Counter(z["class"] for z in units)
+    cls_s = collections.Counter(z["class_strict"] for z in units)
+    cos_all = sorted(z["nearest_kept"]["cos"] for z in units)
+    kinds_lost = collections.Counter("/".join(z["kinds"] or []) for z in units if z["class_strict"] == "truly-lost")
+    # English-dominant speech among kept S4 sentences
+    def scan(blocks):
+        out = collections.defaultdict(lambda: {"sentences": 0, "s": 0.0, "two_token": 0, "ids": []})
+        for b in blocks:
+            for sg in b["segments"]:
+                for sid in sg["sentences"]:
+                    if not sid.startswith("s:S4"):
+                        continue
+                    lat, ar = _script_counts(S[sid].get("text") or "")
+                    if lat + ar == 0 or lat / (lat + ar) <= 0.5 or lat < 2:
+                        continue
+                    part = S[sid]["audio_id"].split(":")[-1]
+                    r = out[part]
+                    if lat >= 3:
+                        r["sentences"] += 1
+                        r["s"] += (S[sid]["end_ms"] - S[sid]["start_ms"]) / 1000
+                        r["ids"].append(sid)
+                    else:
+                        r["two_token"] += 1
+        return {p: {"sentences": r["sentences"], "minutes": round(r["s"] / 60, 2), "two_latin_token_sentences": r["two_token"],
+                    "examples": [{"sid": i, "text": S[i]["text"][:140]} for i in r["ids"][:4]]} for p, r in sorted(out.items())}
+    eng100, engno = scan(b100), scan(bl)
+    path = C.p("reports", "story", "E-001_noC.json")
+    old = C.read_json(path, {}) or {}
+    keep = {k: v for k, v in old.items() if k.startswith("step4") or k.startswith("step5")}
+    strip = lambda z: {k: v for k, v in z.items() if k not in ("dropped_units", "dropped_novel_units")}
+    rep = {"v": 1, "created": C.now_iso(), "experiment": "E-001", "follow_up": "dialect step 4 -> voice C (P01) is English",
+           "rule": {"edl": "B100 minus block DD-P01, nothing else changed", "context_review": "c5d96cd (requires_review.jsonl, ctx B)",
+                    "topic_covered": f"nearest kept unit cos >= {NOC_COS} (bge-m3 sentence vectors, max over member pairs), or every "
+                                     "concept of the lost unit is taught by a kept non-signpost sentence",
+                    "partly": f"cos in [{NOC_PARTLY}, {NOC_COS}) or some (not all) of its concepts taught",
+                    "truly_lost": "otherwise (includes units with no concept ids and cos < partly floor)",
+                    "english_dominant": "S4 sentence, Latin-script tokens / (Latin + Arabic-script tokens) > 0.5 and >= 3 Latin "
+                                        "tokens; sentences with exactly 2 Latin tokens reported separately; 1-token code switches ignored"},
+           "metrics": {"B100": strip(m100), "B100-noC": strip(m)},
+           "lost_units": units, "lost_class_counts": dict(cls_n), "lost_class_counts_strict": dict(cls_s),
+           "nearest_cos": {"max": cos_all[-1], "median": cos_all[len(cos_all) // 2], "min": cos_all[0],
+                           "n_ge_0.81": sum(c >= NOC_COS for c in cos_all), "n_ge_0.70": sum(c >= NOC_PARTLY for c in cos_all)},
+           "strict_truly_lost_kinds": dict(kinds_lost),
+           "lost_units_sources": dict(collections.Counter("+".join(sorted(z["sources"])) for z in units)),
+           "english_scan": {"B100": eng100, "B100-noC": engno}}
+    rep.update(keep)
+    C.write_json(path, rep, indent=1)
+    keys = ("runtime", "sentences", "coverage_pct", "novel_s4_units_pct", "redundancy_pct", "prereq_violations",
+            "prereq_violations_before_context_review", "prereq_missing", "voice_switches", "voice_switches_per_h",
+            "max_switches_per_trunk_chapter", "tokens_M", "render_h", "render_h_5pct_r3f", "voice_time_min")
+    for n, x in (("B100", m100), ("B100-noC", m)):
+        print(n, json.dumps({k: x[k] for k in keys}))
+    print("lost", len(lost), "novel", len(m["dropped_novel_units"]), dict(cls_n), "strict", dict(cls_s), rep["lost_units_sources"])
+    print("cos", rep["nearest_cos"], "strict truly-lost kinds", dict(kinds_lost))
+    print("missing B100", m100["prereq_missing_list"], "noC", m["prereq_missing_list"])
+    print("english B100", {p: (r["sentences"], r["minutes"], r["two_latin_token_sentences"]) for p, r in eng100.items()})
+    print("english noC", {p: (r["sentences"], r["minutes"], r["two_latin_token_sentences"]) for p, r in engno.items()})
+    return 0
+
 
 def register(sub):
     st = sub.add_parser("story", help="P5 story editor: prerequisite review, candidate EDLs, outlines").add_subparsers(dest="story_cmd", required=True)
@@ -1072,3 +1274,11 @@ def register(sub):
     s.set_defaults(fn="story.cmd_candidates")
     s = st.add_parser("e001", help="E-001: B100-V2 (3.0 min dive floor) and B100-cap-V2 (3:30 cap) from B100.json, metrics, outlines")
     s.set_defaults(fn="story.cmd_e001")
+    s = st.add_parser("drop-block", help="<out>.json = <src>.json minus whole block(s); metrics as e001, outline")
+    s.add_argument("--src", default="B100")
+    s.add_argument("--block", action="append", required=True, help="block id, repeatable (e.g. DD-P01)")
+    s.add_argument("--out", default=None)
+    s.add_argument("--ctx", default="B", help="review context of the c5d96cd review (B100 family = B)")
+    s.set_defaults(fn="story.cmd_drop_block")
+    s = st.add_parser("e001-noc", help="E-001 follow-up: B100-noC (B100 minus DD-P01), lost-unit topic coverage, English scan")
+    s.set_defaults(fn="story.cmd_e001_noc")

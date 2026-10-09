@@ -1,0 +1,3822 @@
+{
+ "v": 1,
+ "created": "2026-10-09T15:00:13Z",
+ "experiment": "E-001",
+ "follow_up": "dialect step 4 -> voice C (P01) is English",
+ "rule": {
+  "edl": "B100 minus block DD-P01, nothing else changed",
+  "context_review": "c5d96cd (requires_review.jsonl, ctx B)",
+  "topic_covered": "nearest kept unit cos >= 0.81 (bge-m3 sentence vectors, max over member pairs), or every concept of the lost unit is taught by a kept non-signpost sentence",
+  "partly": "cos in [0.7, 0.81) or some (not all) of its concepts taught",
+  "truly_lost": "otherwise (includes units with no concept ids and cos < partly floor)",
+  "english_dominant": "S4 sentence, Latin-script tokens / (Latin + Arabic-script tokens) > 0.5 and >= 3 Latin tokens; sentences with exactly 2 Latin tokens reported separately; 1-token code switches ignored"
+ },
+ "metrics": {
+  "B100": {
+   "runtime_s": 15006.7,
+   "runtime": "4:10:07",
+   "sentences": 2630,
+   "speech_s": 12031.8,
+   "spoken_segments": 311,
+   "deep_dives": 37,
+   "trunk_blocks": 37,
+   "short_excerpts_lt20s": 9,
+   "coverage_pct": 100.0,
+   "coverage_content_pct": 100.0,
+   "novel_s4_units_pct": 100.0,
+   "uncovered_units": 0,
+   "redundancy_pct": 3.9,
+   "voice_switches": 66,
+   "voice_switches_per_h": 15.8,
+   "max_switches_per_trunk_chapter": 2,
+   "voice_time_min": {
+    "A": 62.5,
+    "B": 104.2,
+    "C": 8.1,
+    "S1": 70.1
+   },
+   "prereq_violations": 0,
+   "prereq_missing": 5,
+   "audio_quality_proxy": 0.896,
+   "voice_match_to_s1": 0.592,
+   "prereq_violations_before_context_review": 21,
+   "prereq_missing_list": [
+    "c:ai-agent->c:tool-calling",
+    "c:conflict->c:three-way-merge",
+    "c:processing-time->c:event-time",
+    "c:statistical-power->c:p-value",
+    "c:watermark->c:event-time"
+   ],
+   "per_ch_switches": {
+    "CH-01": 1,
+    "CH-02": 2,
+    "CH-03": 2,
+    "CH-04": 2,
+    "CH-05": 2,
+    "CH-06": 2,
+    "CH-07": 2,
+    "CH-08": 2,
+    "CH-09": 2,
+    "CH-10": 2,
+    "CH-11": 2,
+    "CH-12": 2,
+    "CH-13": 2,
+    "CH-14": 2,
+    "CH-15": 2,
+    "CH-16": 2,
+    "CH-17": 2,
+    "CH-18": 1,
+    "CH-19": 1,
+    "CH-20": 2,
+    "CH-21": 2,
+    "CH-22": 2,
+    "CH-23": 2,
+    "CH-24": 1,
+    "CH-25": 1,
+    "CH-26": 2,
+    "CH-27": 2,
+    "CH-28": 2,
+    "CH-29": 2,
+    "CH-30": 2,
+    "CH-31": 2,
+    "CH-32": 2,
+    "CH-33": 2,
+    "CH-34": 2,
+    "CH-35": 2,
+    "CH-36": 1
+   },
+   "tokens_M": [
+    13.2,
+    21.0
+   ],
+   "render_h": [
+    23.3,
+    34.2
+   ],
+   "render_h_5pct_r3f": 23.2
+  },
+  "B100-noC": {
+   "runtime_s": 14511.1,
+   "runtime": "4:01:51",
+   "sentences": 2524,
+   "speech_s": 11628.9,
+   "spoken_segments": 303,
+   "deep_dives": 36,
+   "trunk_blocks": 37,
+   "short_excerpts_lt20s": 9,
+   "coverage_pct": 96.4,
+   "coverage_content_pct": 96.7,
+   "novel_s4_units_pct": 94.8,
+   "uncovered_units": 103,
+   "redundancy_pct": 4.0,
+   "voice_switches": 64,
+   "voice_switches_per_h": 15.9,
+   "max_switches_per_trunk_chapter": 2,
+   "voice_time_min": {
+    "A": 62.5,
+    "B": 104.2,
+    "S1": 70.1
+   },
+   "prereq_violations": 0,
+   "prereq_missing": 5,
+   "audio_quality_proxy": 0.902,
+   "voice_match_to_s1": 0.602,
+   "prereq_violations_before_context_review": 21,
+   "prereq_missing_list": [
+    "c:ai-agent->c:tool-calling",
+    "c:conflict->c:three-way-merge",
+    "c:processing-time->c:event-time",
+    "c:statistical-power->c:p-value",
+    "c:watermark->c:event-time"
+   ],
+   "per_ch_switches": {
+    "CH-01": 1,
+    "CH-02": 1,
+    "CH-03": 1,
+    "CH-04": 2,
+    "CH-05": 2,
+    "CH-06": 2,
+    "CH-07": 2,
+    "CH-08": 2,
+    "CH-09": 2,
+    "CH-10": 2,
+    "CH-11": 2,
+    "CH-12": 2,
+    "CH-13": 2,
+    "CH-14": 2,
+    "CH-15": 2,
+    "CH-16": 2,
+    "CH-17": 2,
+    "CH-18": 1,
+    "CH-19": 1,
+    "CH-20": 2,
+    "CH-21": 2,
+    "CH-22": 2,
+    "CH-23": 2,
+    "CH-24": 1,
+    "CH-25": 1,
+    "CH-26": 2,
+    "CH-27": 2,
+    "CH-28": 2,
+    "CH-29": 2,
+    "CH-30": 2,
+    "CH-31": 2,
+    "CH-32": 2,
+    "CH-33": 2,
+    "CH-34": 2,
+    "CH-35": 2,
+    "CH-36": 1
+   },
+   "tokens_M": [
+    12.6,
+    20.2
+   ],
+   "render_h": [
+    22.6,
+    33.1
+   ],
+   "render_h_5pct_r3f": 22.4,
+   "outline_words": 8295
+  }
+ },
+ "lost_units": [
+  {
+   "unit": "iu:00735",
+   "gloss_en": "Hi everyone, welcome to The Explainer.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0000"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00844",
+    "cos": 0.798,
+    "sentence": "s:S4:P02:0000",
+    "gloss_en": "Welcome to this explainer."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00736",
+   "gloss_en": "Today we tackle something big.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0001"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00561",
+    "cos": 0.712,
+    "sentence": "s:S4:P01:0017",
+    "gloss_en": "OK, let's dive into the details."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00737",
+   "gloss_en": "We distill a 24-week curriculum, the DA Camp Blueprint, into one master roadmap.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0002"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00639",
+    "cos": 0.694,
+    "sentence": "s:S4:P00:0079",
+    "gloss_en": "The curriculum is smartly split over 24 weeks as a clear timeline."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00738",
+   "gloss_en": "If you wonder what it takes to become a well-paid full-stack data analyst or data engineer,",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0003"
+   ],
+   "concepts": [
+    "c:boolean-logic",
+    "c:control-flow",
+    "c:stack"
+   ],
+   "concepts_taught_by_kept": [
+    "c:boolean-logic",
+    "c:control-flow",
+    "c:stack"
+   ],
+   "taught_at": {
+    "c:boolean-logic": "s:S1:ar-natural:0046",
+    "c:control-flow": "s:S1:ar-natural:0058",
+    "c:stack": "s:S4:P00:0020"
+   },
+   "nearest_kept": {
+    "unit": "iu:00679",
+    "cos": 0.669,
+    "sentence": "s:S4:P00b:0030",
+    "gloss_en": "The role we are preparing for is not just a regular Data Analyst or only a Data Engineer; it is a complete mix."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00739",
+   "gloss_en": "in today's AI-driven world, you are in the right place.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0004"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02460",
+    "cos": 0.642,
+    "sentence": "s:S4:P21:0002",
+    "gloss_en": "AI, or artificial intelligence, is our big umbrella; inside it we find..."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00740",
+   "gloss_en": "We will unpack the whole thing step by step.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0005"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00572",
+    "cos": 0.686,
+    "sentence": "s:S4:P00:0011",
+    "gloss_en": "It looks big, but don't worry, we'll take it one step at a time, very smoothly."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00741",
+   "gloss_en": "The learner may start from absolute zero.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0007"
+   ],
+   "concepts": [
+    "c:absolute-path"
+   ],
+   "concepts_taught_by_kept": [
+    "c:absolute-path"
+   ],
+   "taught_at": {
+    "c:absolute-path": "s:S1:ar-natural:0437"
+   },
+   "nearest_kept": {
+    "unit": "iu:00567",
+    "cos": 0.674,
+    "sentence": "s:S4:P00:0006",
+    "gloss_en": "We'll start with the zero journey: basics and programming."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00742",
+   "gloss_en": "How ambitious is that?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0008"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01510",
+    "cos": 0.592,
+    "sentence": "s:S4:P10:0019",
+    "gloss_en": "Honestly, that's extremely efficient."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00743",
+   "gloss_en": "That is the founding premise of the whole curriculum.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0009"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02007",
+    "cos": 0.66,
+    "sentence": "s:S4:P16:0028",
+    "gloss_en": "This is the cornerstone we build everything on, and any mess in it breaks all the numbers later."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00744",
+   "gloss_en": "We are mapping a hero's journey.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0010"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01501",
+    "cos": 0.709,
+    "sentence": "s:S4:P10:0005",
+    "gloss_en": "We'll follow a very clear map."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00745",
+   "gloss_en": "You start at a blank terminal with no coding experience and end up building AI agents and deploying scalable data pipelines.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0011"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:pipeline"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:pipeline"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:artificial-intelligence": "s:S1:ar-natural:0017",
+    "c:pipeline": "s:S4:P00b:0053"
+   },
+   "nearest_kept": {
+    "unit": "iu:00012",
+    "cos": 0.649,
+    "sentence": "s:S1:ar-natural:0012",
+    "gloss_en": "Seven movements: from nothing to a working machine — files, folders, the terminal, your first line of code."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:pipeline"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00746",
+   "gloss_en": "It is a steep climb, but the structure makes it doable.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0012"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00644",
+    "cos": 0.631,
+    "sentence": "s:S4:P00:0084",
+    "gloss_en": "The roadmap is complete, moving step by step on solid ground."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00747",
+   "gloss_en": "Here is our game plan.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0013"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01268",
+    "cos": 0.737,
+    "sentence": "s:S4:P07:0004",
+    "gloss_en": "To stay organized, here is our roadmap."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00748",
+   "gloss_en": "We go from zero to hired.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0014"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00561",
+    "cos": 0.7,
+    "sentence": "s:S4:P01:0017",
+    "gloss_en": "OK, let's dive into the details."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00749",
+   "gloss_en": "We cover the failure-first philosophy, the data core, systems and logic, and the AI and agent era,",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0015"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:artificial-intelligence"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:artificial-intelligence"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:artificial-intelligence": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:00622",
+    "cos": 0.621,
+    "sentence": "s:S4:P00:0062",
+    "gloss_en": "Having built this strong foundation, we move to section four, the future layer: integrating AI."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:artificial-intelligence"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00750",
+   "gloss_en": "and finish with landing the data job.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0016"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00571",
+    "cos": 0.707,
+    "sentence": "s:S4:P00:0010",
+    "gloss_en": "And finally we'll close with: from learning to the job market."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00751",
+   "gloss_en": "Part 2: The failure-first philosophy, learning by breaking.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0018"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00575",
+    "cos": 0.657,
+    "sentence": "s:S4:P00:0014",
+    "gloss_en": "This curriculum relies on something called failure first."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00752",
+   "gloss_en": "How do you actually learn all this?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0019"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00719",
+    "cos": 0.643,
+    "sentence": "s:S4:P00b:0076",
+    "gloss_en": "How will we go about learning any new concept?"
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00753",
+   "gloss_en": "You break it.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0020"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00036",
+    "cos": 0.683,
+    "sentence": "s:S1:ar-natural:0036",
+    "gloss_en": "Once working. Once broken."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00754",
+   "gloss_en": "This is not about memorizing a textbook.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0021"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02829",
+    "cos": 0.705,
+    "sentence": "s:S4:P25:0082",
+    "gloss_en": "This job isn't memorizing tools."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00755",
+   "gloss_en": "The curriculum makes deliberately breaking pipelines, systems and code your main learning tool.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0022"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00639",
+    "cos": 0.637,
+    "sentence": "s:S4:P00:0079",
+    "gloss_en": "The curriculum is smartly split over 24 weeks as a clear timeline."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00756",
+   "gloss_en": "This illustrates the whole idea.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0023"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02070",
+    "cos": 0.679,
+    "sentence": "s:S4:P17:0004",
+    "gloss_en": "The subject really is like brilliant engineering."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00757",
+   "gloss_en": "There is the naive approach.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0024"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01186",
+    "cos": 0.645,
+    "sentence": "s:S4:P06:0014",
+    "gloss_en": "That brings us to copying."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00758",
+   "gloss_en": "You write a few lines of code, it seems to work, and you celebrate.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0025"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01304",
+    "cos": 0.679,
+    "sentence": "s:S4:P07:0040",
+    "gloss_en": "There's a race between different ways of writing the code."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00759",
+   "gloss_en": "But we all know the pain of a data pipeline silently failing at 2 a.m.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0026"
+   ],
+   "concepts": [
+    "c:pipeline"
+   ],
+   "concepts_taught_by_kept": [
+    "c:pipeline"
+   ],
+   "taught_at": {
+    "c:pipeline": "s:S4:P00b:0053"
+   },
+   "nearest_kept": {
+    "unit": "iu:01572",
+    "cos": 0.641,
+    "sentence": "s:S4:P11:0005",
+    "gloss_en": "We will see how data pipelines can collapse in complete silence without anyone noticing."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:pipeline"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00760",
+   "gloss_en": "That naive approach is a trap.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0027"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00330",
+    "cos": 0.686,
+    "sentence": "s:S1:ar-natural:0331",
+    "gloss_en": "Retries look like the obvious answer, and here is the trap that defines this whole discipline."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00761",
+   "gloss_en": "Instead, you must expose where it breaks.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0028"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01833",
+    "cos": 0.611,
+    "sentence": "s:S4:P14:0019",
+    "gloss_en": "But at the same time it is constrained by something called the GIL."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00763",
+   "gloss_en": "such as a database deadlock, a corrupted pipeline, or a prompt injection in your AI agent;",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0030"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:boolean-logic",
+    "c:database",
+    "c:deadlock",
+    "c:injection",
+    "c:pipeline",
+    "c:prompt",
+    "c:prompt-injection"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:boolean-logic",
+    "c:database",
+    "c:deadlock",
+    "c:injection",
+    "c:pipeline",
+    "c:prompt"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:artificial-intelligence": "s:S1:ar-natural:0017",
+    "c:boolean-logic": "s:S1:ar-natural:0046",
+    "c:database": "s:S1:ar-natural:0015",
+    "c:deadlock": "s:S4:P09:0084",
+    "c:injection": "s:S4:P07:0055",
+    "c:pipeline": "s:S4:P00b:0053",
+    "c:prompt": "s:S4:P22:0078"
+   },
+   "nearest_kept": {
+    "unit": "iu:01539",
+    "cos": 0.662,
+    "sentence": "s:S4:P10:0055",
+    "gloss_en": "The big surprise: the slowness may not come from the database engine at all; sometimes the problem is the connection pool."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:database",
+    "c:deadlock",
+    "c:injection",
+    "c:pipeline",
+    "c:prompt",
+    "c:prompt-injection"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00764",
+   "gloss_en": "you have to experience the crash.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0031"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01479",
+    "cos": 0.655,
+    "sentence": "s:S4:P09:0075",
+    "gloss_en": "But what actually happens is a real disaster."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00765",
+   "gloss_en": "To handle crashes you use a 4-step diagnostic loop.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0032"
+   ],
+   "concepts": [
+    "c:loop"
+   ],
+   "concepts_taught_by_kept": [
+    "c:loop"
+   ],
+   "taught_at": {
+    "c:loop": "s:S4:P00:0051"
+   },
+   "nearest_kept": {
+    "unit": "iu:01911",
+    "cos": 0.638,
+    "sentence": "s:S4:P15:0013",
+    "gloss_en": "We have seven core checks running one after another to catch any problem early."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00766",
+   "gloss_en": "Step 1: predict the system's outcome.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0033"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00723",
+    "cos": 0.666,
+    "sentence": "s:S4:P00b:0080",
+    "gloss_en": "Step five is our prediction when a parameter changes."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00767",
+   "gloss_en": "Step 2: inject a targeted failure.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0034"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02639",
+    "cos": 0.633,
+    "sentence": "s:S4:P23:0020",
+    "gloss_en": "Let's move on to the second section, The RAG Pipeline."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00770",
+   "gloss_en": "It is not about memorizing syntax.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0037"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00625",
+    "cos": 0.786,
+    "sentence": "s:S4:P00:0065",
+    "gloss_en": "Don't memorize syntax, understand the data flow."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00771",
+   "gloss_en": "This loop turns abstract programming theory into fast, practical engineering reflexes.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0038"
+   ],
+   "concepts": [
+    "c:loop"
+   ],
+   "concepts_taught_by_kept": [
+    "c:loop"
+   ],
+   "taught_at": {
+    "c:loop": "s:S4:P00:0051"
+   },
+   "nearest_kept": {
+    "unit": "iu:01261",
+    "cos": 0.626,
+    "sentence": "s:S4:P06:0100",
+    "gloss_en": "This is where the real shift happens, from just writing scripts to professional, enjoyable software engineering practice."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00772",
+   "gloss_en": "Section 3: Mastering the data core, SQL and code.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0039"
+   ],
+   "concepts": [
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:00680",
+    "cos": 0.666,
+    "sentence": "s:S4:P00b:0031",
+    "gloss_en": "As the three columns show, we need strong SQL, able to read execution plans and do tuning on databases like MySQL and PostgreSQL."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:sql"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00773",
+   "gloss_en": "The hard truth of data engineering is that you cannot do the advanced work,",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0040"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02827",
+    "cos": 0.646,
+    "sentence": "s:S4:P25:0075",
+    "gloss_en": "But let's be realistic: real engineering isn't this shiny, perfect form."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00774",
+   "gloss_en": "like performance optimization or AI integration, unless you know SQL deeply.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0041"
+   ],
+   "concepts": [
+    "c:artificial-intelligence",
+    "c:boolean-logic",
+    "c:integration-test",
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:artificial-intelligence",
+    "c:boolean-logic",
+    "c:integration-test",
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:artificial-intelligence": "s:S1:ar-natural:0017",
+    "c:boolean-logic": "s:S1:ar-natural:0046",
+    "c:integration-test": "s:S1:ar-natural:0519",
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:02797",
+    "cos": 0.676,
+    "sentence": "s:S4:P25:0044",
+    "gloss_en": "Like precise knowledge of SQL execution order, discussing trade-offs with confidence, awareness of SQL injection risks before anyone brings it up, and explaining RAG architecture clearly."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:artificial-intelligence",
+    "c:sql"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00775",
+   "gloss_en": "Look at the pacing of the first few months and how layered it is.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0042"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02286",
+    "cos": 0.587,
+    "sentence": "s:S4:P19:0012",
+    "gloss_en": "Its throughput is very high, but its latency, the delay, is also high."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00776",
+   "gloss_en": "Weeks 1 to 4 cover SQL basics and complex joins.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0043"
+   ],
+   "concepts": [
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:00640",
+    "cos": 0.716,
+    "sentence": "s:S4:P00:0080",
+    "gloss_en": "It starts with mastering SQL in the first 4 weeks."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:sql"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00777",
+   "gloss_en": "Weeks 5 to 7 move to query optimization to make queries fast.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0044"
+   ],
+   "concepts": [
+    "c:query",
+    "c:query-optimization"
+   ],
+   "concepts_taught_by_kept": [
+    "c:query"
+   ],
+   "taught_at": {
+    "c:query": "s:S4:P00:0039"
+   },
+   "nearest_kept": {
+    "unit": "iu:00603",
+    "cos": 0.65,
+    "sentence": "s:S4:P00:0043",
+    "gloss_en": "The result: speed multiplies incredibly, and the query that was slow becomes lightning fast."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:query",
+    "c:query-optimization"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00778",
+   "gloss_en": "Then weeks 8 to 10 add Python logic and weeks 12 to 14 add Java APIs.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0045"
+   ],
+   "concepts": [
+    "c:apis",
+    "c:java",
+    "c:python"
+   ],
+   "concepts_taught_by_kept": [
+    "c:apis",
+    "c:java",
+    "c:python"
+   ],
+   "taught_at": {
+    "c:apis": "s:S4:P00:0087",
+    "c:java": "s:S4:P00b:0032",
+    "c:python": "s:S1:ar-natural:0006"
+   },
+   "nearest_kept": {
+    "unit": "iu:00641",
+    "cos": 0.666,
+    "sentence": "s:S4:P00:0081",
+    "gloss_en": "Then building Python basics from week 8 to 11."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:apis",
+    "c:java",
+    "c:python"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00779",
+   "gloss_en": "You build the skill to query data, process it and serve it to real applications.",
+   "kinds": [
+    "recap"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0046"
+   ],
+   "concepts": [
+    "c:process",
+    "c:query"
+   ],
+   "concepts_taught_by_kept": [
+    "c:process",
+    "c:query"
+   ],
+   "taught_at": {
+    "c:process": "s:S4:P02:0010",
+    "c:query": "s:S4:P00:0039"
+   },
+   "nearest_kept": {
+    "unit": "iu:00025",
+    "cos": 0.669,
+    "sentence": "s:S1:ar-natural:0025",
+    "gloss_en": "It is measured in things you can show."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:query"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00780",
+   "gloss_en": "During query optimization you need a cheat sheet of key concepts.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0047"
+   ],
+   "concepts": [
+    "c:query",
+    "c:query-optimization"
+   ],
+   "concepts_taught_by_kept": [
+    "c:query"
+   ],
+   "taught_at": {
+    "c:query": "s:S4:P00:0039"
+   },
+   "nearest_kept": {
+    "unit": "iu:02635",
+    "cos": 0.621,
+    "sentence": "s:S4:P23:0016",
+    "gloss_en": "But when the questions need understanding from meaning and concepts, dense search is the best fit."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:query",
+    "c:query-optimization"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00781",
+   "gloss_en": "Imagine an interviewer asks how to speed up a slow database.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0048"
+   ],
+   "concepts": [
+    "c:database"
+   ],
+   "concepts_taught_by_kept": [
+    "c:database"
+   ],
+   "taught_at": {
+    "c:database": "s:S1:ar-natural:0015"
+   },
+   "nearest_kept": {
+    "unit": "iu:01270",
+    "cos": 0.676,
+    "sentence": "s:S4:P07:0006",
+    "gloss_en": "Then we'll reveal the secrets of performance tuning and ways to connect to the database, and enter the bulk-load speed race."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:database"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00782",
+   "gloss_en": "You must know exactly which index to add.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0049"
+   ],
+   "concepts": [
+    "c:index"
+   ],
+   "concepts_taught_by_kept": [
+    "c:index"
+   ],
+   "taught_at": {
+    "c:index": "s:S4:P00:0061"
+   },
+   "nearest_kept": {
+    "unit": "iu:01511",
+    "cos": 0.69,
+    "sentence": "s:S4:P10:0020",
+    "gloss_en": "OK, let's move to the second section: indexes and selectivity."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:index"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00783",
+   "gloss_en": "A B-tree is the default for range queries and sorting.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01",
+    "a:S4:P10"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0050",
+    "s:S4:P10:0031"
+   ],
+   "concepts": [
+    "c:b-tree",
+    "c:sorting",
+    "c:tree"
+   ],
+   "concepts_taught_by_kept": [
+    "c:sorting",
+    "c:tree"
+   ],
+   "taught_at": {
+    "c:sorting": "s:S1:ar-natural:0293",
+    "c:tree": "s:S1:ar-natural:0056"
+   },
+   "nearest_kept": {
+    "unit": "iu:01125",
+    "cos": 0.652,
+    "sentence": "s:S4:P05:0052",
+    "gloss_en": "A list is an ordered row: we can modify it, repeat data, and reach any element by index."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:b-tree",
+    "c:sorting",
+    "c:tree"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00784",
+   "gloss_en": "And a hash index?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0051"
+   ],
+   "concepts": [
+    "c:hashing",
+    "c:index"
+   ],
+   "concepts_taught_by_kept": [
+    "c:hashing",
+    "c:index"
+   ],
+   "taught_at": {
+    "c:hashing": "s:S1:ar-natural:0100",
+    "c:index": "s:S4:P00:0061"
+   },
+   "nearest_kept": {
+    "unit": "iu:00212",
+    "cos": 0.656,
+    "sentence": "s:S1:ar-natural:0213",
+    "gloss_en": "But an index is not free and it is not always right."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:hashing",
+    "c:index"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00785",
+   "gloss_en": "That is only for exact-match lookups.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0052"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02378",
+    "cos": 0.655,
+    "sentence": "s:S4:P20:0018",
+    "gloss_en": "The matching here cannot be just a single final number."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00786",
+   "gloss_en": "This practical knowledge separates the novice from the hired expert.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0053"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01629",
+    "cos": 0.669,
+    "sentence": "s:S4:P11:0067",
+    "gloss_en": "And this takes us to a very important truth in practical work."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00787",
+   "gloss_en": "Part 4: Building systems and logic, orchestration and big data.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0054"
+   ],
+   "concepts": [
+    "c:big-data"
+   ],
+   "concepts_taught_by_kept": [
+    "c:big-data"
+   ],
+   "taught_at": {
+    "c:big-data": "s:S4:P00b:0033"
+   },
+   "nearest_kept": {
+    "unit": "iu:01708",
+    "cos": 0.735,
+    "sentence": "s:S4:P12:0050",
+    "gloss_en": "Section four: Data Structures and Operation Costs."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:big-data"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00788",
+   "gloss_en": "With the data core in place, it is time to scale up.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0055"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00568",
+    "cos": 0.665,
+    "sentence": "s:S4:P00:0007",
+    "gloss_en": "Then we'll move to 'when the data grows': databases."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00789",
+   "gloss_en": "In Airflow, a DAG is a flowchart where tasks move in only one direction.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0058"
+   ],
+   "concepts": [
+    "c:airflow",
+    "c:directed-acyclic-graph"
+   ],
+   "concepts_taught_by_kept": [
+    "c:airflow",
+    "c:directed-acyclic-graph"
+   ],
+   "taught_at": {
+    "c:airflow": "s:S4:P00b:0055",
+    "c:directed-acyclic-graph": "s:S4:P00:0050"
+   },
+   "nearest_kept": {
+    "unit": "iu:01934",
+    "cos": 0.757,
+    "sentence": "s:S4:P15:0042",
+    "gloss_en": "One of the most famous tools that manage these DAGs is Airflow."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:airflow",
+    "c:directed-acyclic-graph"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00790",
+   "gloss_en": "Extract, then transform, then load.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0059"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01333",
+    "cos": 0.722,
+    "sentence": "s:S4:P07:0069",
+    "gloss_en": "Step two, transform: we clean the data and compute what we need."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00791",
+   "gloss_en": "It never loops back on itself.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0060"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01932",
+    "cos": 0.657,
+    "sentence": "s:S4:P15:0039",
+    "gloss_en": "It has no closed loops, no cycles, which gives us a firm promise about the execution order."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00792",
+   "gloss_en": "The crucial concept to grasp here is idempotency.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0061"
+   ],
+   "concepts": [
+    "c:idempotency"
+   ],
+   "concepts_taught_by_kept": [
+    "c:idempotency"
+   ],
+   "taught_at": {
+    "c:idempotency": "s:S4:P00b:0053"
+   },
+   "nearest_kept": {
+    "unit": "iu:01956",
+    "cos": 0.719,
+    "sentence": "s:S4:P15:0067",
+    "gloss_en": "To solve this problem we enter a magical concept called idempotency; the difference is huge."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:idempotency"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00793",
+   "gloss_en": "That leads to a classic diagnostic quiz from the curriculum.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0063"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02032",
+    "cos": 0.582,
+    "sentence": "s:S4:P16:0055",
+    "gloss_en": "And this neatly shows a classic analytical trap."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00794",
+   "gloss_en": "What causes a shuffle in Apache Spark?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0064"
+   ],
+   "concepts": [
+    "c:shuffle",
+    "c:spark"
+   ],
+   "concepts_taught_by_kept": [
+    "c:shuffle",
+    "c:spark"
+   ],
+   "taught_at": {
+    "c:shuffle": "s:S1:ar-natural:0370",
+    "c:spark": "s:S1:ar-natural:0015"
+   },
+   "nearest_kept": {
+    "unit": "iu:00047",
+    "cos": 0.62,
+    "sentence": "s:S1:ar-natural:0047",
+    "gloss_en": "That gap is why a database keeps an index, why Spark caches,"
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:shuffle",
+    "c:spark"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00795",
+   "gloss_en": "And why is it so expensive?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0065"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01907",
+    "cos": 0.582,
+    "sentence": "s:S4:P15:0009",
+    "gloss_en": "Why? Because transforming bad data gives a disastrous result that is very expensive to handle."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00797",
+   "gloss_en": "In big data systems, moving data across the network is the main bottleneck.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0067"
+   ],
+   "concepts": [
+    "c:big-data"
+   ],
+   "concepts_taught_by_kept": [
+    "c:big-data"
+   ],
+   "taught_at": {
+    "c:big-data": "s:S4:P00b:0033"
+   },
+   "nearest_kept": {
+    "unit": "iu:02201",
+    "cos": 0.666,
+    "sentence": "s:S4:P18:0048",
+    "gloss_en": "This is the moment when the data travels across the network to be gathered."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:big-data"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00798",
+   "gloss_en": "Here is the diagnostic fix you would apply in the real world.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0068"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01249",
+    "cos": 0.637,
+    "sentence": "s:S4:P06:0085",
+    "gloss_en": "And finally, of course, document the fix."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00799",
+   "gloss_en": "Step 1: check whether you have data skew.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0069"
+   ],
+   "concepts": [
+    "c:constraint",
+    "c:skew"
+   ],
+   "concepts_taught_by_kept": [
+    "c:constraint",
+    "c:skew"
+   ],
+   "taught_at": {
+    "c:constraint": "s:S1:ar-natural:0145",
+    "c:skew": "s:S4:P00:0048"
+   },
+   "nearest_kept": {
+    "unit": "iu:02241",
+    "cos": 0.669,
+    "sentence": "s:S4:P18:0091",
+    "gloss_en": "We move on to the fourth section: the skew problem and its solutions."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:skew"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00800",
+   "gloss_en": "That means one machine in your cluster does 90% of the work.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0070"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00380",
+    "cos": 0.694,
+    "sentence": "s:S1:ar-natural:0381",
+    "gloss_en": "Too few and most of your cluster is idle."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00801",
+   "gloss_en": "Step 2: repartition the data or resize the cluster so the load is even.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0071"
+   ],
+   "concepts": [
+    "c:boolean-logic"
+   ],
+   "concepts_taught_by_kept": [
+    "c:boolean-logic"
+   ],
+   "taught_at": {
+    "c:boolean-logic": "s:S1:ar-natural:0046"
+   },
+   "nearest_kept": {
+    "unit": "iu:02248",
+    "cos": 0.708,
+    "sentence": "s:S4:P18:0100",
+    "gloss_en": "The first is that we do a Repartition, meaning we redistribute the data again evenly."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00804",
+   "gloss_en": "This is the systems-level thinking you will develop.",
+   "kinds": [
+    "recap"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0074"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02783",
+    "cos": 0.646,
+    "sentence": "s:S4:P25:0028",
+    "gloss_en": "This is what proves the real ability to connect systems."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00805",
+   "gloss_en": "Next phase: how it all builds into the modern era.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0075"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00586",
+    "cos": 0.746,
+    "sentence": "s:S4:P00:0025",
+    "gloss_en": "Let's move to the next step and see how this grows."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00806",
+   "gloss_en": "We are no longer just moving data around.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0076"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02270",
+    "cos": 0.685,
+    "sentence": "s:S4:P18:0122",
+    "gloss_en": "But in our fast era, data does not wait for anyone."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00807",
+   "gloss_en": "We are wiring AI directly into business logic.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0077"
+   ],
+   "concepts": [
+    "c:artificial-intelligence"
+   ],
+   "concepts_taught_by_kept": [
+    "c:artificial-intelligence"
+   ],
+   "taught_at": {
+    "c:artificial-intelligence": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:00570",
+    "cos": 0.653,
+    "sentence": "s:S4:P00:0009",
+    "gloss_en": "After that, integrating AI."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:artificial-intelligence"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00808",
+   "gloss_en": "Remember the SQL and big data pipelines we built?",
+   "kinds": [
+    "recap"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0078"
+   ],
+   "concepts": [
+    "c:big-data",
+    "c:pipeline",
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:big-data",
+    "c:pipeline",
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:big-data": "s:S4:P00b:0033",
+    "c:pipeline": "s:S4:P00b:0053",
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:00688",
+    "cos": 0.652,
+    "sentence": "s:S4:P00b:0039",
+    "gloss_en": "From a single database to a huge data platform with pipelines and warehouses."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:big-data",
+    "c:pipeline",
+    "c:sql"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00809",
+   "gloss_en": "They are the foundation that makes enterprise AI possible.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0079"
+   ],
+   "concepts": [
+    "c:artificial-intelligence"
+   ],
+   "concepts_taught_by_kept": [
+    "c:artificial-intelligence"
+   ],
+   "taught_at": {
+    "c:artificial-intelligence": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:02066",
+    "cos": 0.669,
+    "sentence": "s:S4:P16:0090",
+    "gloss_en": "That's what lets the data architecture withstand the toughest business challenges."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:artificial-intelligence"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00810",
+   "gloss_en": "To do this you need RAG, Retrieval Augmented Generation.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0080"
+   ],
+   "concepts": [
+    "c:retrieval",
+    "c:retrieval-augmented-generation"
+   ],
+   "concepts_taught_by_kept": [
+    "c:retrieval",
+    "c:retrieval-augmented-generation"
+   ],
+   "taught_at": {
+    "c:retrieval": "s:S4:P00:0069",
+    "c:retrieval-augmented-generation": "s:S4:P00:0069"
+   },
+   "nearest_kept": {
+    "unit": "iu:00629",
+    "cos": 0.793,
+    "sentence": "s:S4:P00:0069",
+    "gloss_en": "One of the most important techniques here is RAG, or Retrieval Augmented Generation."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:retrieval",
+    "c:retrieval-augmented-generation"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00811",
+   "gloss_en": "RAG combines a powerful LLM with your company's private data.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0081"
+   ],
+   "concepts": [
+    "c:large-language-model",
+    "c:retrieval-augmented-generation"
+   ],
+   "concepts_taught_by_kept": [
+    "c:retrieval-augmented-generation"
+   ],
+   "taught_at": {
+    "c:retrieval-augmented-generation": "s:S4:P00:0069"
+   },
+   "nearest_kept": {
+    "unit": "iu:02662",
+    "cos": 0.685,
+    "sentence": "s:S4:P23:0047",
+    "gloss_en": "We use RAG when we want to feed the system new information, like company files."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:large-language-model",
+    "c:retrieval-augmented-generation"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00812",
+   "gloss_en": "So the AI is not just guessing.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0082"
+   ],
+   "concepts": [
+    "c:artificial-intelligence"
+   ],
+   "concepts_taught_by_kept": [
+    "c:artificial-intelligence"
+   ],
+   "taught_at": {
+    "c:artificial-intelligence": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:00634",
+    "cos": 0.753,
+    "sentence": "s:S4:P00:0074",
+    "gloss_en": "The AI here isn't just a model that replies with written text; no, it thinks and takes real action."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:artificial-intelligence"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00813",
+   "gloss_en": "It builds context from your data pipelines, gives exact citations and cuts hallucinations.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0083"
+   ],
+   "concepts": [
+    "c:citation",
+    "c:hallucination",
+    "c:pipeline"
+   ],
+   "concepts_taught_by_kept": [
+    "c:hallucination",
+    "c:pipeline"
+   ],
+   "taught_at": {
+    "c:hallucination": "s:S4:P00:0070",
+    "c:pipeline": "s:S4:P00b:0053"
+   },
+   "nearest_kept": {
+    "unit": "iu:00468",
+    "cos": 0.628,
+    "sentence": "s:S4:P22:0019",
+    "gloss_en": "The bend is what lets a network represent something a straight line cannot."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:citation",
+    "c:hallucination",
+    "c:pipeline"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00814",
+   "gloss_en": "Without core data engineering skills, RAG does not work.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0084"
+   ],
+   "concepts": [
+    "c:retrieval-augmented-generation"
+   ],
+   "concepts_taught_by_kept": [
+    "c:retrieval-augmented-generation"
+   ],
+   "taught_at": {
+    "c:retrieval-augmented-generation": "s:S4:P00:0069"
+   },
+   "nearest_kept": {
+    "unit": "iu:02596",
+    "cos": 0.682,
+    "sentence": "s:S4:P22:0076",
+    "gloss_en": "That is why we need grounding, or to tie the outputs to real sources, like the RAG technique."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:retrieval-augmented-generation"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00815",
+   "gloss_en": "Building on RAG, we move up to AI agents.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0085"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:retrieval-augmented-generation"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:retrieval-augmented-generation"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:artificial-intelligence": "s:S1:ar-natural:0017",
+    "c:retrieval-augmented-generation": "s:S4:P00:0069"
+   },
+   "nearest_kept": {
+    "unit": "iu:00690",
+    "cos": 0.698,
+    "sentence": "s:S4:P00b:0041",
+    "gloss_en": "And finally we reach AI models and agents."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:retrieval-augmented-generation"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00816",
+   "gloss_en": "A chatbot only outputs text.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0087"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02666",
+    "cos": 0.693,
+    "sentence": "s:S4:P23:0052",
+    "gloss_en": "The chatbot at most replies to the text without remembering the state."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00817",
+   "gloss_en": "An agent is an autonomous system.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0088"
+   ],
+   "concepts": [
+    "c:ai-agent"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:02667",
+    "cos": 0.734,
+    "sentence": "s:S4:P23:0053",
+    "gloss_en": "Whereas the agent plans, chooses the tools, keeps the state memory, and takes steps and executes them on its own."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00818",
+   "gloss_en": "It uses the LLM as its brain to pick tools, like running a SQL query or calling an API.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0089"
+   ],
+   "concepts": [
+    "c:api",
+    "c:boolean-logic",
+    "c:large-language-model",
+    "c:query",
+    "c:select",
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:api",
+    "c:boolean-logic",
+    "c:query",
+    "c:select",
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:api": "s:S4:P00:0087",
+    "c:boolean-logic": "s:S1:ar-natural:0046",
+    "c:query": "s:S4:P00:0039",
+    "c:select": "s:S4:P08:0035",
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:00635",
+    "cos": 0.677,
+    "sentence": "s:S4:P00:0075",
+    "gloss_en": "It receives the goal, picks the right tool, like running an SQL command itself, then fetches the needed data, and finally generates the answer."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:api",
+    "c:large-language-model",
+    "c:query",
+    "c:sql"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00819",
+   "gloss_en": "It makes decisions and keeps state, remembering what it just did.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0090"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02667",
+    "cos": 0.724,
+    "sentence": "s:S4:P23:0053",
+    "gloss_en": "Whereas the agent plans, chooses the tools, keeps the state memory, and takes steps and executes them on its own."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00820",
+   "gloss_en": "It is a system that does real work, guarded by the code you write.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0091"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02757",
+    "cos": 0.701,
+    "sentence": "s:S4:P24:0077",
+    "gloss_en": "The real proof of your expertise is not just code being written; it is your ability to run a system, break it, understand the problem and fix it with solid evidence."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00821",
+   "gloss_en": "The key point is how these agents think.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0092"
+   ],
+   "concepts": [
+    "c:ai-agent"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:02668",
+    "cos": 0.706,
+    "sentence": "s:S4:P23:0054",
+    "gloss_en": "In short, the agent needs a brain, tools, memory and a system it can plan with."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00822",
+   "gloss_en": "They run on a loop called ReAct: reasoning and acting.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0093"
+   ],
+   "concepts": [
+    "c:loop",
+    "c:react-agent-loop"
+   ],
+   "concepts_taught_by_kept": [
+    "c:loop"
+   ],
+   "taught_at": {
+    "c:loop": "s:S4:P00:0051"
+   },
+   "nearest_kept": {
+    "unit": "iu:00633",
+    "cos": 0.681,
+    "sentence": "s:S4:P00:0073",
+    "gloss_en": "And here the picture is completed with the ReAct agent loop."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:react-agent-loop"
+   ],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00823",
+   "gloss_en": "The agent reasons about the user's prompt and takes an action, like fetching data from your database,",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0094"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:database",
+    "c:prompt"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:database",
+    "c:prompt"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:database": "s:S1:ar-natural:0015",
+    "c:prompt": "s:S4:P22:0078"
+   },
+   "nearest_kept": {
+    "unit": "iu:02667",
+    "cos": 0.715,
+    "sentence": "s:S4:P23:0053",
+    "gloss_en": "Whereas the agent plans, chooses the tools, keeps the state memory, and takes steps and executes them on its own."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:database",
+    "c:prompt"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00824",
+   "gloss_en": "then observes the result and reasons again.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0095"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:02671",
+    "cos": 0.776,
+    "sentence": "s:S4:P23:0058",
+    "gloss_en": "And after that it executes, watches the result, and goes back to repeat the loop again."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00825",
+   "gloss_en": "By interleaving reasoning and action, agents solve complex business problems without breaking down or making things up.",
+   "kinds": [
+    "recap"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0096"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:boolean-logic"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:boolean-logic"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:boolean-logic": "s:S1:ar-natural:0046"
+   },
+   "nearest_kept": {
+    "unit": "iu:01957",
+    "cos": 0.672,
+    "sentence": "s:S4:P15:0069",
+    "gloss_en": "But idempotency solves the matter with a very clever mechanism."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00826",
+   "gloss_en": "Section 6: Securing the data job, the final defense.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0097"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:01807",
+    "cos": 0.723,
+    "sentence": "s:S4:P13:0062",
+    "gloss_en": "Section six, the last one: secure outputs."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00827",
+   "gloss_en": "Technical skills mean nothing if you cannot survive the interview loop and prove your worth to a hiring manager.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0098"
+   ],
+   "concepts": [
+    "c:control-flow",
+    "c:loop"
+   ],
+   "concepts_taught_by_kept": [
+    "c:control-flow",
+    "c:loop"
+   ],
+   "taught_at": {
+    "c:control-flow": "s:S1:ar-natural:0058",
+    "c:loop": "s:S4:P00:0051"
+   },
+   "nearest_kept": {
+    "unit": "iu:00123",
+    "cos": 0.586,
+    "sentence": "s:S4:P06:0067",
+    "gloss_en": "A test that has never failed has never proved anything; it might be asserting nothing at all."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00828",
+   "gloss_en": "You do that through artifacts.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0099"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00267",
+    "cos": 0.666,
+    "sentence": "s:S1:ar-natural:0268",
+    "gloss_en": "That is coupling, and you can see it."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00829",
+   "gloss_en": "The curriculum requires 3 mandatory portfolio projects that make you stand out.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0100"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00651",
+    "cos": 0.725,
+    "sentence": "s:S4:P00:0091",
+    "gloss_en": "Their portfolio must have 3 complete projects, 3 projects from start to finish,"
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00830",
+   "gloss_en": "Number 1: a SQL tuning notebook with explained screenshots, proving you know performance.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0101"
+   ],
+   "concepts": [
+    "c:query-optimization",
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:01302",
+    "cos": 0.655,
+    "sentence": "s:S4:P07:0038",
+    "gloss_en": "Section three: Secrets of Performance Tuning."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:query-optimization",
+    "c:sql"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00831",
+   "gloss_en": "Number 2: a fully tested CRUD service built in Python or Java.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0102"
+   ],
+   "concepts": [
+    "c:boolean-logic",
+    "c:dml",
+    "c:java",
+    "c:python",
+    "c:systemd"
+   ],
+   "concepts_taught_by_kept": [
+    "c:boolean-logic",
+    "c:dml",
+    "c:java",
+    "c:python",
+    "c:systemd"
+   ],
+   "taught_at": {
+    "c:boolean-logic": "s:S1:ar-natural:0046",
+    "c:dml": "s:S1:ar-natural:0193",
+    "c:java": "s:S4:P00b:0032",
+    "c:python": "s:S1:ar-natural:0006",
+    "c:systemd": "s:S1:ar-natural:0076"
+   },
+   "nearest_kept": {
+    "unit": "iu:00681",
+    "cos": 0.711,
+    "sentence": "s:S4:P00b:0032",
+    "gloss_en": "And we need to write code in Python and Java to do CRUD operations on real data safely."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:dml",
+    "c:java",
+    "c:python"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00832",
+   "gloss_en": "And 3, the crown jewel: a live Airflow pipeline connected to a working AI agent demo.",
+   "kinds": [
+    "example"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0103"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:airflow",
+    "c:artificial-intelligence",
+    "c:pipeline"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:airflow",
+    "c:artificial-intelligence",
+    "c:pipeline"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:airflow": "s:S4:P00b:0055",
+    "c:artificial-intelligence": "s:S1:ar-natural:0017",
+    "c:pipeline": "s:S4:P00b:0053"
+   },
+   "nearest_kept": {
+    "unit": "iu:00648",
+    "cos": 0.693,
+    "sentence": "s:S4:P00:0088",
+    "gloss_en": "Dockerized apps with CI/CD, plus Airflow pipelines running automatically, and live working models for AI agents."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:airflow",
+    "c:artificial-intelligence",
+    "c:pipeline"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00833",
+   "gloss_en": "These 3 artifacts prove you went from zero to full-stack capability.",
+   "kinds": [
+    "recap"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0104"
+   ],
+   "concepts": [
+    "c:stack"
+   ],
+   "concepts_taught_by_kept": [
+    "c:stack"
+   ],
+   "taught_at": {
+    "c:stack": "s:S4:P00:0020"
+   },
+   "nearest_kept": {
+    "unit": "iu:02819",
+    "cos": 0.586,
+    "sentence": "s:S4:P25:0067",
+    "gloss_en": "This proves the great flexibility of skills that were built right, step by step."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00834",
+   "gloss_en": "In the interview room, expect rapid-fire questions.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0105"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00559",
+    "cos": 0.644,
+    "sentence": "s:S1:ar-natural:0560",
+    "gloss_en": "Get the rows, make them trustworthy, answer the question."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00835",
+   "gloss_en": "SQL: what is the difference between an inner join and a left join?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0106"
+   ],
+   "concepts": [
+    "c:join",
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:join",
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:join": "s:S4:P00:0034",
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:00596",
+    "cos": 0.714,
+    "sentence": "s:S4:P00:0035",
+    "gloss_en": "An Inner Join, for example, returns only the shared data, while a Left Join brings everything on the left plus the shared part from the right."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:join",
+    "c:sql"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00836",
+   "gloss_en": "Big data: how do you guarantee no duplicate data in a pipeline?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0107"
+   ],
+   "concepts": [
+    "c:big-data",
+    "c:duplicates",
+    "c:pipeline"
+   ],
+   "concepts_taught_by_kept": [
+    "c:big-data",
+    "c:duplicates",
+    "c:pipeline"
+   ],
+   "taught_at": {
+    "c:big-data": "s:S4:P00b:0033",
+    "c:duplicates": "s:S1:ar-natural:0226",
+    "c:pipeline": "s:S4:P00b:0053"
+   },
+   "nearest_kept": {
+    "unit": "iu:01896",
+    "cos": 0.684,
+    "sentence": "s:S4:P14:0082",
+    "gloss_en": "How can we manage all these complex, distributed data pipelines reliably at enterprise scale?"
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:big-data",
+    "c:duplicates",
+    "c:pipeline"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00837",
+   "gloss_en": "AI: how do you systematically evaluate LLM outputs for accuracy?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0108"
+   ],
+   "concepts": [
+    "c:artificial-intelligence",
+    "c:large-language-model"
+   ],
+   "concepts_taught_by_kept": [
+    "c:artificial-intelligence"
+   ],
+   "taught_at": {
+    "c:artificial-intelligence": "s:S1:ar-natural:0017"
+   },
+   "nearest_kept": {
+    "unit": "iu:00570",
+    "cos": 0.582,
+    "sentence": "s:S4:P00:0009",
+    "gloss_en": "After that, integrating AI."
+   },
+   "class": "partly",
+   "concepts_strict": [
+    "c:artificial-intelligence",
+    "c:large-language-model"
+   ],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00838",
+   "gloss_en": "The curriculum ensures you can not only do these things but explain the why behind every technical decision.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0109"
+   ],
+   "concepts": [
+    "c:explain"
+   ],
+   "concepts_taught_by_kept": [
+    "c:explain"
+   ],
+   "taught_at": {
+    "c:explain": "s:S4:P00:0041"
+   },
+   "nearest_kept": {
+    "unit": "iu:00846",
+    "cos": 0.645,
+    "sentence": "s:S4:P02:0002",
+    "gloss_en": "This explainer is designed to remove any mystery about the computer and cover the basics all our data runs on."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00839",
+   "gloss_en": "That brings us to the end and to one important question for you.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0110"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00654",
+    "cos": 0.803,
+    "sentence": "s:S4:P19:0089",
+    "gloss_en": "And finally, let's think about this important question."
+   },
+   "class": "partly",
+   "concepts_strict": [],
+   "class_strict": "partly"
+  },
+  {
+   "unit": "iu:00840",
+   "gloss_en": "Will you start your journey from zero to working machine today?",
+   "kinds": [
+    "question"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0111"
+   ],
+   "concepts": [],
+   "concepts_taught_by_kept": [],
+   "taught_at": {},
+   "nearest_kept": {
+    "unit": "iu:00567",
+    "cos": 0.63,
+    "sentence": "s:S4:P00:0006",
+    "gloss_en": "We'll start with the zero journey: basics and programming."
+   },
+   "class": "truly-lost",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00841",
+   "gloss_en": "We covered the whole map: failure-first, deep SQL optimization, distributed big data pipelines and AI agents.",
+   "kinds": [
+    "recap"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0112"
+   ],
+   "concepts": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:big-data",
+    "c:pipeline",
+    "c:sql"
+   ],
+   "concepts_taught_by_kept": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:big-data",
+    "c:pipeline",
+    "c:sql"
+   ],
+   "taught_at": {
+    "c:ai-agent": "s:S1:ar-natural:0017",
+    "c:artificial-intelligence": "s:S1:ar-natural:0017",
+    "c:big-data": "s:S4:P00b:0033",
+    "c:pipeline": "s:S4:P00b:0053",
+    "c:sql": "s:S1:ar-natural:0013"
+   },
+   "nearest_kept": {
+    "unit": "iu:00701",
+    "cos": 0.625,
+    "sentence": "s:S4:P00b:0055",
+    "gloss_en": "A full ecosystem from MySQL to PostgreSQL star schemas and AI agents, all orchestrated by Airflow as the maestro."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [
+    "c:ai-agent",
+    "c:artificial-intelligence",
+    "c:big-data",
+    "c:pipeline",
+    "c:sql"
+   ],
+   "class_strict": "topic-covered"
+  },
+  {
+   "unit": "iu:00842",
+   "gloss_en": "It is a demanding path, but the blueprint is right here.",
+   "kinds": [
+    "claim"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0113"
+   ],
+   "concepts": [
+    "c:path"
+   ],
+   "concepts_taught_by_kept": [
+    "c:path"
+   ],
+   "taught_at": {
+    "c:path": "s:S4:P00:0016"
+   },
+   "nearest_kept": {
+    "unit": "iu:01852",
+    "cos": 0.672,
+    "sentence": "s:S4:P14:0038",
+    "gloss_en": "The steps here are clear and very direct."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  },
+  {
+   "unit": "iu:00843",
+   "gloss_en": "Thanks for joining; I hope it sparks your curiosity to start building.",
+   "kinds": [
+    "transition"
+   ],
+   "sources": [
+    "a:S4:P01"
+   ],
+   "novel_vs_trunk": true,
+   "members": [
+    "s:S4:P01:0114"
+   ],
+   "concepts": [
+    "c:spark"
+   ],
+   "concepts_taught_by_kept": [
+    "c:spark"
+   ],
+   "taught_at": {
+    "c:spark": "s:S1:ar-natural:0015"
+   },
+   "nearest_kept": {
+    "unit": "iu:01173",
+    "cos": 0.616,
+    "sentence": "s:S4:P17:0091",
+    "gloss_en": "Thank you so much for your time, and see you in the next explainer."
+   },
+   "class": "topic-covered",
+   "concepts_strict": [],
+   "class_strict": "truly-lost"
+  }
+ ],
+ "lost_class_counts": {
+  "partly": 26,
+  "truly-lost": 34,
+  "topic-covered": 43
+ },
+ "lost_class_counts_strict": {
+  "partly": 26,
+  "truly-lost": 44,
+  "topic-covered": 33
+ },
+ "nearest_cos": {
+  "max": 0.803,
+  "median": 0.669,
+  "min": 0.582,
+  "n_ge_0.81": 0,
+  "n_ge_0.70": 28
+ },
+ "strict_truly_lost_kinds": {
+  "claim": 27,
+  "transition": 9,
+  "question": 4,
+  "example": 2,
+  "recap": 2
+ },
+ "lost_units_sources": {
+  "a:S4:P01": 102,
+  "a:S4:P01+a:S4:P10": 1
+ },
+ "english_scan": {
+  "B100": {
+   "P00": {
+    "sentences": 2,
+    "minutes": 0.1,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P00:0057",
+      "text": "وطبعاً Kafka عشان الـ Real Time Event Streaming"
+     },
+     {
+      "sid": "s:S4:P00:0065",
+      "text": "Don't memorize syntax, understand the data flow"
+     }
+    ]
+   },
+   "P01": {
+    "sentences": 106,
+    "minutes": 6.72,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P01:0000",
+      "text": "Hey, everyone. Welcome to The Explainer."
+     },
+     {
+      "sid": "s:S4:P01:0001",
+      "text": "Today, we're taking on something huge."
+     },
+     {
+      "sid": "s:S4:P01:0002",
+      "text": "We are going to literally distill an intense 24 -week curriculum, the DA Camp Blueprint, down into one single master roadmap."
+     },
+     {
+      "sid": "s:S4:P01:0003",
+      "text": "So if you've ever found yourself wondering what it really takes to become a highly paid, full -stack data analyst or data engineer"
+     }
+    ]
+   },
+   "P07": {
+    "sentences": 6,
+    "minutes": 0.29,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P07:0008",
+      "text": "القسم الأول DataFrame Basics and Filtering"
+     },
+     {
+      "sid": "s:S4:P07:0019",
+      "text": "القسم الثاني Grouping, Merged Traps and Cleaning"
+     },
+     {
+      "sid": "s:S4:P07:0038",
+      "text": "القسم الثالث Secrets of Performance Tuning"
+     },
+     {
+      "sid": "s:S4:P07:0046",
+      "text": "القسم الرابع Database Connection Methods"
+     }
+    ]
+   },
+   "P12": {
+    "sentences": 1,
+    "minutes": 0.05,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P12:0050",
+      "text": "القسم الرابع Data Structures و Operation Costs"
+     }
+    ]
+   },
+   "P14": {
+    "sentences": 1,
+    "minutes": 0.05,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P14:0060",
+      "text": "وأخيراً @RestController عشان API Routing"
+     }
+    ]
+   },
+   "P16": {
+    "sentences": 1,
+    "minutes": 0.03,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P16:0076",
+      "text": "بنحسب الـ Year Over Year Growth السنوي"
+     }
+    ]
+   },
+   "P17": {
+    "sentences": 1,
+    "minutes": 0.06,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P17:0046",
+      "text": "زي CI و Cash In أو P2P و Transfer"
+     }
+    ]
+   },
+   "P20": {
+    "sentences": 2,
+    "minutes": 0.11,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P20:0037",
+      "text": "القسم الثاني The Five Phases"
+     },
+     {
+      "sid": "s:S4:P20:0053",
+      "text": "الKafka in out accuracy والRedis cache accuracy اللي اتنين متصنفين Critical"
+     }
+    ]
+   },
+   "P23": {
+    "sentences": 1,
+    "minutes": 0.16,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P23:0006",
+      "text": "Meaning in Space وبعدين The RAG Pipeline Failures and Eval Retrieval Security و Building Agents وهنختم ب The AI Analyst"
+     }
+    ]
+   }
+  },
+  "B100-noC": {
+   "P00": {
+    "sentences": 2,
+    "minutes": 0.1,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P00:0057",
+      "text": "وطبعاً Kafka عشان الـ Real Time Event Streaming"
+     },
+     {
+      "sid": "s:S4:P00:0065",
+      "text": "Don't memorize syntax, understand the data flow"
+     }
+    ]
+   },
+   "P07": {
+    "sentences": 6,
+    "minutes": 0.29,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P07:0008",
+      "text": "القسم الأول DataFrame Basics and Filtering"
+     },
+     {
+      "sid": "s:S4:P07:0019",
+      "text": "القسم الثاني Grouping, Merged Traps and Cleaning"
+     },
+     {
+      "sid": "s:S4:P07:0038",
+      "text": "القسم الثالث Secrets of Performance Tuning"
+     },
+     {
+      "sid": "s:S4:P07:0046",
+      "text": "القسم الرابع Database Connection Methods"
+     }
+    ]
+   },
+   "P12": {
+    "sentences": 1,
+    "minutes": 0.05,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P12:0050",
+      "text": "القسم الرابع Data Structures و Operation Costs"
+     }
+    ]
+   },
+   "P14": {
+    "sentences": 1,
+    "minutes": 0.05,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P14:0060",
+      "text": "وأخيراً @RestController عشان API Routing"
+     }
+    ]
+   },
+   "P16": {
+    "sentences": 1,
+    "minutes": 0.03,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P16:0076",
+      "text": "بنحسب الـ Year Over Year Growth السنوي"
+     }
+    ]
+   },
+   "P17": {
+    "sentences": 1,
+    "minutes": 0.06,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P17:0046",
+      "text": "زي CI و Cash In أو P2P و Transfer"
+     }
+    ]
+   },
+   "P20": {
+    "sentences": 2,
+    "minutes": 0.11,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P20:0037",
+      "text": "القسم الثاني The Five Phases"
+     },
+     {
+      "sid": "s:S4:P20:0053",
+      "text": "الKafka in out accuracy والRedis cache accuracy اللي اتنين متصنفين Critical"
+     }
+    ]
+   },
+   "P23": {
+    "sentences": 1,
+    "minutes": 0.16,
+    "two_latin_token_sentences": 0,
+    "examples": [
+     {
+      "sid": "s:S4:P23:0006",
+      "text": "Meaning in Space وبعدين The RAG Pipeline Failures and Eval Retrieval Security و Building Agents وهنختم ب The AI Analyst"
+     }
+    ]
+   }
+  }
+ },
+ "step4_counterparts": {
+  "S5_counterpart": false,
+  "S5_note": "a:S5:en-natural is the English narration of the same 70:05 film as S1 (docs/plan/01_SOURCE_RECON.md section 2); its transcript corpus/transcripts/a_S5_en-natural.words.jsonl has 0 hits for explainer|24-week|blueprint|failure-first|portfolio. It shares an ECAPA cluster with P01 (voice), not content.",
+  "arabic_audio_counterpart": false,
+  "arabic_audio_note": "No Arabic recording of P01 in corpus/audio/assets.json (S1, S2, S3 CH-*, S4 P00-P25, S5). The NotebookLM P01 video (media f:fc5b9dcba339 mp3 / its mp4) is the same English audio.",
+  "arabic_text_related": [
+   {
+    "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_Narration_Egyptian_Arabic_V2.md",
+    "doc": "f:4ea22bbf74b0",
+    "chunk": "f:4ea22bbf74b0#00001",
+    "section": "01. The Journey + Visual Language",
+    "match": "same title and theme (one project, visual language, failure->fix->evidence), 977 chars, Egyptian; different content: none of P01's curriculum specifics (24-week schedule, 4-step loop, B-tree/hash, DAG, shuffle/skew, RAG, ReAct, 3 portfolio projects, interview questions)"
+   },
+   {
+    "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_28min_Illustrative_Egyptian_Arabic_V2.mp4",
+    "file": "f:ca1d3f72ca14",
+    "match": "28:00 video with an AAC mono track; presumably the T4 narration above; not in assets.json, not ASR'd, so unverified"
+   },
+   {
+    "path": "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_NotebookLM_Visual_Video_Master_Egyptian_Arabic.md",
+    "doc": "f:70c414bdf474",
+    "chunk": "f:70c414bdf474#00003",
+    "section": "2.1 (the big story of the journey) and 3.x visual language",
+    "match": "Egyptian outline of the 7-stage journey (a list), not a P01 script"
+   }
+  ],
+  "english_text_sources": [
+   "Chatgpt.zip.d/Chatgpt_part1.zip.d/DA_Camp_NotebookLM_Visual_Video_Master.md (section 44 failure-first, 3 portfolio projects, zero to hired)",
+   "DA_Camp_Videos_Files.zip.d/DA Camp Videos Files/LMArena/Folder 1/DA_Camp_KNOWLEDGE.md (24-week, portfolio)"
+  ]
+ },
+ "step5_revoice": {
+  "installed_tts": "none (no TTS package or model; .venv has torch 2.14 CPU + transformers 5.19, so VitsModel loads; onnxruntime 1.29; no espeak/piper)",
+  "hw": "4 CPU, 15 GB RAM, no GPU, ~7 GB disk free",
+  "downloadable": [
+   {
+    "model": "facebook/mms-tts-ara",
+    "size_gb": 0.29,
+    "license": "cc-by-nc-4.0",
+    "runs_with": "installed transformers (VitsModel)",
+    "quality": "single generic voice, trained on MSA Bible readings; not Egyptian, flat prosody, needs uroman/undiacritised input; would sound clearly synthetic next to S1"
+   },
+   {
+    "model": "NAMAA-Space/NAMAA-Egyptian-TTS",
+    "size_gb": 5.36,
+    "license": "mit",
+    "runs_with": "chatterbox-tts package (not installed)",
+    "quality": "Egyptian fine-tune with voice prompt; untested here; 5.4 GB exceeds the safe disk margin"
+   },
+   {
+    "model": "AliAbdallah/egyptian-arabic-tts-chatterbox",
+    "size_gb": 2.14,
+    "license": "apache-2.0",
+    "runs_with": "chatterbox-tts package (not installed)",
+    "quality": "Egyptian fine-tune, 0 downloads, unknown quality"
+   },
+   {
+    "model": "MAdel121/f5-tts-egyptian-arabic",
+    "size_gb": 5.4,
+    "license": "cc-by-nc-4.0",
+    "runs_with": "f5-tts package (not installed)",
+    "quality": "Egyptian voice-cloning fine-tune; CPU-only would be slow; NC license"
+   }
+  ],
+  "blockers": [
+   "no Egyptian script of P01 exists: a re-voice needs a new translation (new writing, P5 rule 'never synthesize new speech' and golden rule 10 'invented' content risk) -> needs an ADR",
+   "a cloned S1 voice would need consent/provenance; an uncloned voice adds a 4th voice",
+   "Egyptian models need extra packages and 2.1-5.4 GB of the ~7 GB free disk"
+  ],
+  "verdict": "technically possible offline only with MMS-TTS (MSA, robotic: not acceptable for the film); an Egyptian re-voice is possible only after installing a 2-5 GB model plus a new translated script and an ADR. Not recommended for P5."
+ }
+}
