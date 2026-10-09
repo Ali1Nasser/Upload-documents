@@ -106,3 +106,13 @@ P3b-7. The G3 two-aligner clause names S5 (English): a gate-side substitute (cue
 - The P0 smoke test (budget.json upload_smoke) passed in both directions, so the ban is newer. It may be temporary.
 - temp.sh still works: the same sample is verified at https://temp.sh/ziCYR/radio_edit_sample.m4a (SHA-256 1b1457e9…e855).
 - P14 action: re-test x0.at GET first. If it is still banned, ask the user to verify the x0.at SHA-256 from their side, or deliver on temp.sh only. Do not report an x0.at link as verified until a re-download matches.
+
+## 2026-10-09: disk budget for P9-P14 (plan before P12)
+- Free disk is 4.4 GB (fixed per-session allowance). Usage: data/raw 3.7 GB, data/extracted 4.9 GB, data/models 6.6 GB, data/derived 2.2 GB, renders 0.4 GB.
+- A CRF-16 1080p24 mezzanine of the locked 3:51:00 (13,860 s) runs at about 4-8 Mbit/s, which is roughly 7-14 GB. That does not fit.
+- The delivery target is ≤ 3.8 GB on temp.sh, about 2.0 Mbit/s of video with 160 kbit/s audio.
+- Before P12, render-ops must write a disk plan in this order:
+  1. Delete the raw zips. 03 §P1.6 allows it after G3, and G3 passed. The archive links expire on 2026-10-10 around 08:00 UTC, so after that the deletion cannot be undone. Get user confirmation, because the guard hook blocks `rm data/raw`.
+  2. Prune models P12-P14 does not need. Keep MMS and w2v for the sync checks and faster-whisper turbo for the A/V re-alignment. Drop large-v3 (already gone), demucs and the bge-m3 copies once P8 is done.
+  3. Prune legacy MP4s in data/extracted once P8 no longer needs them.
+  4. Choose a mezzanine CRF or bitrate that fits the space actually left. Encode per chapter and delete approved previews as you go (03 §P12.3).
