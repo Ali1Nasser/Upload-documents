@@ -1,6 +1,6 @@
 {
   "v": 1,
-  "phase": "P4",
+  "phase": "P5",
   "gates": {
     "G0": {
       "status": "pass",
@@ -63,7 +63,7 @@
   },
   "blockers": [],
   "next_actions": [
-    "P4: concepts, embeddings, idea units (calibrated threshold + adjudication), links, novelty/coverage/contradiction/order reports, G4"
+    "P5: candidate EDLs, Council ADR-001, EDL cut, radio edit, audio lock (G5) | P6 in parallel: look-dev style frames + motion tests, Council ADR-002..005, freeze (G6a)"
   ],
-  "updated": "2026-10-08T20:51:24Z"
+  "updated": "2026-10-09T01:05:46Z"
 }
