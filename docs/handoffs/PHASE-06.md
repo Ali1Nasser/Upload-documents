@@ -60,3 +60,12 @@ The look, the ADRs, the freeze and the render budget all pass. The two failing c
   2. render-ops derives the edited text boxes from the 8f245ee..a3b86c1 source diff and runs `python3 -I studio/scripts/lookdev_regress.py --boxes <boxes.json> --by render-ops` through the queue. Then delete `data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4`.
   3. Council records the JOIN_GAP amendment: mixed case display 0.25 / text 0.30 em, against B2's 0.14 / 0.10 em, as accepted by the arabic-typographer OCR sweep at d6ac265.
   4. motion-engineer re-runs `freeze_p6.py`, which must exit 0, then runs `dc gate check G6a`.
+
+## G6a verifier round 1 (f9f00b7): motion-engineer check, nothing for this role to fix
+- Re-ran `freeze_p6.py` on f9f00b7. It exits 2 with status `provisional`. All 227 hashes are unchanged, and the same 3 preconditions are open. The re-run file was not kept, because only `hashed_at` changed.
+- All 4 failures depend on evidence owned by other roles. The motion-engineer must not produce that evidence (golden rule 4: the author does not grade their own fix):
+  1. **arabic-typographer:** write a PASS or FAIL heading that names `MD-standard_fix` and the 7 `*_fix` stills.
+  2. **render-ops:** write `regress.json`, using the boxes from the 8f245ee..a3b86c1 source diff.
+  3. **council-chair:** decide an ADR that amends ADR-009 B2 `JOIN_GAP`.
+- I did not revert `JOIN_GAP` to the B2 text (0.14 / 0.10). The measured OCR sweep showed those values still fuse the lam into the Latin word, so reverting would bring back blocker B2. It would also make the 7 fix stills and MD stale.
+- After 1-3 land, the motion-engineer re-runs `freeze_p6.py`, which must exit 0, and then runs `dc gate check G6a`.
