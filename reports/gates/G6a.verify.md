@@ -1,6 +1,98 @@
 # G6a independent verification
 
-## Round 5 (this task's "Round 2"; supersedes Round 4 below)
+## Round 6 (supersedes Round 5 below)
+
+Verifier: a separate invocation that did not author or fix any P6 work. Read-only except this report. Date: 2026-10-10 07:11 to 07:25 UTC. Repo HEAD at start and end: 0ab837c ("P6.4 freeze final").
+
+### Verdict: FAIL (not passed), on exactly one row, and that row is a checker defect
+
+`python3 tools/dc.py gate check G6a` returns **FAIL 7/8** (run 07:12:17Z). The failing row is `ADR-009_cond_3_rerender_review`: "fix stills 7/7; MD strip present; latest PASS Arabic review covers MD-standard_fix: False". I re-derived every G6a criterion and every ADR-009 close condition myself (below). **All of them hold in substance, including condition 3.** The row is false because `harness/gates/g06a.py` (cond 3 block, `md_reviewed`) asks only the single latest review file (`arabic_r5.md`, which reviews F7-standard_fix alone) to name `MD-standard_fix`. ADR-009 condition 3 asks for "a fresh arabic-typographer review [that] must return PASS (0 blocking, 0 required)" for the re-rendered stills and MD. It does not ask one review to cover all eight. `arabic_r3.md` (re-check, PASS) covers six stills and F7's first render, `arabic_r4.md` (PASS) covers MD, and `arabic_r5.md` (PASS) covers the re-rendered F7.
+
+I am not passing G6a, for two reasons. Golden rule 7: a gate passes only through `dc gate check G6a`, and is waived only by a Council ADR. And a verifier must not patch the checker it is grading. The numeric gate therefore has to be fixed by its owner and re-run. No threshold needs to change and no ADR is needed: the checker contradicts the ADR text, not the other way round.
+
+| # | Failing item | Evidence | Owner |
+|---|---|---|---|
+| 1 | `ADR-009_cond_3_rerender_review` is False although the condition is met | `g06a.py` lines 239-245 (`FIX_STILLS` / `md_reviewed`): `md_reviewed = os.path.exists(md) and "MD-standard_fix" in sec and arabic_verdict(a_text)[0] == "PASS"`, where `sec` is the last verdict section of the latest file only. The coverage table below shows all 8 artifacts covered by a PASS review that postdates them | harness-engineer |
+
+### What is needed for a pass (smallest route)
+
+1. **harness-engineer:** replace the cond 3 test in `harness/gates/g06a.py` with a per-artifact rule, the same one `studio/scripts/freeze_p6.py:52-72` already uses: for each of the 7 `*_fix.jpg` stills and `MD-standard_fix.jpg`, the LATEST PASS verdict section over ALL `arabic_r*.md` (round order, then position) that names the artifact (long name, or the short name in its scope line: F3, F4, F4-hero, F5, F6, F7, F8, MD) must exist, with no later FAIL section naming it, and must be committed (or modified, if dirty) at or after the artifact. Keep "fix stills 7/7" and "MD strip present". Add tests to `tools/tests/test_g06a.py`: (a) latest review covers only F7 and an older one covers the rest -> pass; (b) a still re-rendered after its review -> fail; (c) a later FAIL section naming a still -> fail; (d) an artifact that no review names -> fail. The current suite has 20 checks, all on cond 1-2 and none on cond 3. Optional, same pass: add the recency rule to cond 4 (`regress.json` newer than the newest still), which Round 5 asked for and which is still absent.
+2. **harness-engineer or motion-engineer:** `python3 tools/dc.py gate check G6a`, commit the refreshed `reports/gates/G6a.json`. I expect 8/8: every other row already passes, and the table below is the input the new rule must reproduce.
+3. **A short fresh verifier delta** after 1-2 (re-run the gate, re-run `test_g06a.py`, confirm the 8 artifacts are still older than their covering reviews and that `freeze.json` hashes still match). I expect it to pass.
+
+### Criteria re-derived by me (06 section 1, G6a; not read from the checker)
+
+| Criterion | My result | Status |
+|---|---|---|
+| ADR-002/003/004/005 decided | `harness/state/decisions.json`: ADR-002, 003, 004, 005 `decided` (2026-10-09); ADR-009 `decided` (gate G6a, waiver W-009-LOOK); ADR-010 `decided` (2026-10-10). `docs/decisions/ADR-0{02,03,04,05,09,10}-*.md` exist | pass |
+| Look rubric mean >= 8.0 | `critic_r3.json`, recomputed from `per_family`: 10 families x 7 criteria = 70 scores, sum **561**, mean **8.0143** (file field 8.01), min 7 | pass, zero headroom |
+| AI-Unpacked parity >= 7.5 | `parity_read` 7.5, 7.5, 7.5, 7.0, 8.0 = **7.50** | pass, zero headroom |
+| W-009-LOOK covers that read | scope "r3 style-frame set only: stills F1-F9 + F4-hero; strips MA, MB, MB-hero, MC, MD" names the r3 set; `critic_r3.json` families are exactly F1-F9 + F4-hero. The waiver covers only the confirmatory re-score; Arabic, freeze, render budget, G6b, G7, G8 are not waived (ADR-009) | pass |
+| Tokens, presets, catalog frozen | see Freeze below | pass |
+| Projected final render <= 24 h | see Projection below | pass (pure-P12 reading) |
+
+### Freeze (re-derived with my own script, not the gate's)
+
+- `harness/state/freeze.json`: `status: frozen`, `open_preconditions: []`, `frozen_at 2026-10-10T07:10:47Z`, `base_commit c45d1d2`, `cond3_reviews` r3, r4, r5. Groups: tokens 1, type 2, fonts 12, catalog_src 106, catalog_json 106 = **227** entries.
+- I recomputed SHA-256 of all 227 files: **0 missing, 0 mismatched**. `git status` is clean for `studio/`, `reports/lookdev/` and `harness/` apart from queue/progress timestamps.
+- `frozen_at` is newer than every `*_fix` still (newest: F7 06:34:24), every strip (newest: `MD-standard_fix.jpg` 23:14:22 on Oct 9), `regress.json` (07:09:07) and `arabic_r5.md` (07:10:33). Commit times agree: stills committed 23:03:30 (a3b86c1) and 06:35:14 (8ae7cc0), `freeze.json` 07:11:48.
+
+### ADR-009 close conditions vs the fix set (UTC; mtime, with commit time in brackets)
+
+| Artifact | Artifact mtime [commit] | Covering PASS review (mtime [commit]) | Review after artifact? |
+|---|---|---|---|
+| F3-standard_fix | Oct 9 23:01:46 [23:03:30] | `arabic_r3.md` re-check, PASS, scope names F3 (23:05:03 [23:05:03]) | yes |
+| F4-standard_fix | 23:01:46 [23:03:30] | same re-check | yes |
+| F4-hero_fix | 23:01:46 [23:03:30] | same re-check (scope line names F4-hero) | yes |
+| F5-standard_fix | 23:01:47 [23:03:30] | same re-check | yes |
+| F6-standard_fix | 23:01:47 [23:03:30] | same re-check | yes |
+| F8-standard_fix | 23:03:14 [23:03:30] | same re-check | yes |
+| F7-standard_fix | Oct 10 06:34:24 [06:35:14] | `arabic_r5.md`, PASS 0/0, names the 06:34 re-render and chip 6 `cv08` (07:10:33 [07:10:33]) | yes |
+| MD-standard_fix (strip) | Oct 9 23:14:22 [23:17:30] | `arabic_r4.md`, PASS 0/0 (Oct 10 06:13:04 [06:13:04]) | yes |
+
+| Cond | Evidence | Status |
+|---|---|---|
+| 1 fixes land | B1 chip 6 `AI 6` (+ `cv08`); B2 `JOIN_GAP` per ADR-010; R1-R3 closed in the `arabic_r3.md` re-check; R2 ghost split re-confirmed in `arabic_r4.md` (2 lines, 4 + 3 words, flush right). `check_type.sh`: **43 ok**, "all type checks passed" (my run). `tsc --noEmit` exit **0** (queue job 32) | met |
+| 2 isolated OCR >= 0.90 on the 4 gate strings | `r3/fix.json` `typeprobe_ocr`: F3-title 1.00, roadmap-72 1.00, idem-72 1.00, F7-chip6 1.00, all exact, 4/4 gate. Caveat carried: chip 6 passes only with `cv08` (control `F7-chip6-nocv08` reads `Al 6`, 0.75), which is ADR-009's own serifed-I fallback for B1. Non-gate items below 0.90 (F6-head 0.651, caps-AI-32 0.80) do not block | met |
+| 3 re-render + fresh Arabic PASS (0 blocking, 0 required) | table above: 8 of 8 covered after their mtime and commit time | **met (the gate row is wrong)** |
+| 4 no-regression diff | `regress.json` by render-ops, mtime 07:09:07 [07:09:14] after the newest still (06:34:24), `pass: true`, covers all 7 stills, `outside_px: 0` for each (max |delta| outside the boxes: 3/255 F6, 2 F3/F8, 1 F4, 0 F5/F7) | met |
+| 5 freeze after 1-4; `g06a.py` cites W-009-LOOK | `freeze.json` frozen 07:10:47 after r5 (07:10:33), regress (07:09:07) and every fix; `g06a.py` look_parity row cites ADR-009 W-009-LOOK | met, apart from the row 1 defect |
+
+B-item lookup in `g06a.py` (`b_item_status`, `cond12`): my reading of the five reviews gives B1 chip 6, B2 F3 title, B2 F4 card, B2 F6 head, B2 F6 labels all `fixed`, by the `| ... | fixed |` rows of the `arabic_r3.md` re-check PASS section, after that file's earlier FAIL section re-opened them (latest section wins). The lookup returns exactly that, so it is **correct**. `python3 -I tools/tests/test_g06a.py` prints "20 checks ok" (later FAIL re-opens only its item, later PASS closes it, non-`fixed` result re-opens, unnamed item is missing, OCR 0.89 fails, missing gate string fails, suite not ok fails, non-gate probes do not block). One caveat, not blocking: the lookup has no recency, so B1 is cited to `arabic_r3.md`, whose B1 evidence (`Al 6`) is for the pre-`cv08` F7 still. The review that actually judged the current F7 still is `arabic_r5.md`, which has a rule table row "Chip 6 glyphs ... ok" and no `B1 ... fixed` row. The conclusion is right because the cond 2 OCR row (F7-chip6 1.00) and `arabic_r5.md` back it, but it is another reason for the per-artifact recency rule in step 1.
+
+### ADR-010 (JOIN_GAP amendment)
+
+- `decisions.json` and `docs/decisions/ADR-010-join-gap-amendment.md`: `Status: decided`, option A1, 3 of 3 owning lenses (egyptian-arabic 0.78, motion-design 0.72, technical-accuracy 0.82), mean confidence 0.773, amends ADR-009 B2 values only. Table: display (>= 56 px) caps 0.20 / mixed 0.25 em; text (< 56 px, and unknown size) caps 0.25 / mixed 0.30 em.
+- `studio/src/type/arabic.ts:60`: `JOIN_GAP = {display: {caps: 0.2, latin: 0.25}, text: {caps: 0.25, latin: 0.3}}`; `joinGapEm` uses the display band when `sizePx >= FONT.arDisplay.minPx` (56) and only after a tatweel (`/ـ$/`). `freeze.json.join_gap` is the same table, and `arabic.ts` is among the 227 hashes, unchanged.
+
+### Catalog and compile (re-derived)
+
+- `gate`: 04 section 8 has **104** names, 0 not frozen, 0 unlisted component dirs, 7 fonts, presets table ok.
+- Queue job 32 (`dc q submit` then `q wait`): `tsc --noEmit -p studio/tsconfig.json` exit **0**.
+- `export_catalog.ts` bundled with esbuild and run into a scratch root (so no repo file was written): "104 catalog components (04 §8)", all 6 preset f24 checks, anchor checks, "no numeric time fields in any component schema", "all catalog checks passed; 104 schemas". The 106 exported JSON files are **byte-identical** to `harness/schemas/components/` (`diff -rq`).
+
+### Projection for the locked runtime
+
+- `corpus/edl/lock.json`: `total_ms` 13,860,430 (3 h 51 min), `total_frames` **332,651** at 24 fps (13,860,430 x 24 / 1000 = 332,650.3, ceil). EDL and word map SHA-256 equal the lock's.
+- ADR-002 model (RT5, h = 0.05; S 0.141-0.183, H 0.904-1.038 box s/frame), recomputed: **16.55 h** to **20.86 h**. Measured (`r3/perf.json` blended 0.1339 box s/frame): **12.37 h**. Worst 20.86 h <= 24 h on the pure-P12 reading. Carried caveats: 20.86 h x 1.25 contingency = 26.07 h (ADR-002 R2 ladder applies on that reading), and `perf.plates` is empty, so plate bake cost and the disk plan are not in the projection (ADR-009 AT-9, blocks P10, not a G6a row). Disk is 4.0 GB free at 90 % use.
+
+### Other observations (non-blocking)
+
+- **MD strip vs its pre-fix render is not in `regress.json`.** Cond 4 and the gate cover the 7 stills; the MD strip is cond 3 only, and `arabic_r4.md` observation 2 passed the pixel-diff question to render-ops, with no record that anyone answered it. I measured it: both 1920x540 strips (4 x 2 tiles of 480x270), per tile, |delta| > 8/255, caption band (y >= 243, the debug label "MD-standard" vs "MD-standard_fix") excluded, allowed area = ghost box (585,78,1800,296) at 1080p scaled to the tile + 16 px. Outside it: 40, 40, 246, 323, 684 changed px in tiles f0, f20, f33, f160, f210 (of 129,600 px) with max |delta| 13 to 54, and 110 to 117 px in f260, f262, f287 (ghost gone) with max 40. I viewed both strips: the layout, orbs, labels and title are the same, and the only visible edit is the ghost title split into two lines. This looks like render noise from moving particles and glow, not a layout change, so I do not read it as an RT-2 trigger. render-ops should record the MD result once (the coarse 480 px tile scale is why the threshold is looser than in `regress.json`).
+- The look pass has no margin (8.0143, 7.50); the like-for-like G8 start is 7.82; no G8 waiver may cite W-009-LOOK.
+- Strips MA, MB, MB-hero, MC are still pre-fix renders (old gaps; MA shows `قسم الـroadmap`): not valid Arabic evidence for G8 until re-rendered.
+- Canon drift `6 الـAI` (`chapters.json:196`, glossary) vs look-dev `6 AI`: scene-director restores the article or logs a `pending-council` override in P8. `AI`/`API`/`KPI` need the `cv08` serifed `I` or the tool's I/l normalisation (`arabic_r5.md` item 2).
+- Open P7/P8 tests carry as in ADR-009/010: AT-4, AT-9 (plate cost, blocks P10), AT-10, AT-11 (34 px join gap in motion), AT-12.
+
+### Side effects of this verification
+
+- `dc gate check G6a` rewrote `reports/gates/G6a.json` and `harness/state/progress.json` (timestamps only); I restored both with `git checkout`, so the committed `G6a.json` is still the 07:10:51Z run (FAIL 7/8).
+- `dc q submit` (job 32) updated `harness/state/queue.json`; left uncommitted because other agents also write it. Scratch files (compile output, scratch catalog export, strip diff) are in the session scratchpad only. I did not edit `g06a.py`, `freeze.json`, any frozen file or any other agent's file.
+- I committed only this report.
+
+---
+
+## Round 5 (superseded by Round 6 above; kept for the record; it supersedes Round 4 below)
 
 Verifier: a separate invocation that did not author or fix any P6 work. Read-only except this report.
 Date: 2026-10-10 06:40 to 06:50 UTC. Repo HEAD at start and end: ae51212 ("P6.4 freeze re-run: status provisional").
