@@ -332,3 +332,86 @@ Chair: council-chair. This applies the AT-13R rule exactly as pre-registered abo
   - then examine event 22, orders addRow `001684`. Its d is 0.01 on the anchor frame 968 and its visible step is at 969, so it reads +1 f under every reading. It is a sub-threshold first step, within all thresholds and non-blocking.
   - Any later change re-runs the affected layers (`rules`, `orders`).
 - **council-chair:** rule on AT-13R2 by the rule above.
+
+## AT-13R2 ruling (2026-10-10)
+Chair: council-chair. This applies the AT-13R2 rule exactly as pre-registered above. There is no ballot, and taste decided nothing here.
+
+**Evidence read:**
+- `reports/sync/at13.md`, AT-13R2 pre-registration (sync-verifier, `7ae7483`, 22:43:31Z);
+- `reports/sync/at13r2_renders.md` (render-ops, `0f577ef`, 22:50:31Z; cleanup `57cde7e`, 22:52:09Z);
+- `reports/sync/at13.md` AT-13R2 result and `reports/sync/at13.events.json` key `at13r2` (sync-verifier, `707fbbd` 22:51:41Z, p95 fix `e2c8487`);
+- `tsp -i 14..20`, `corpus/edl/word_map.v1.1.jsonl`, `corpus/specs/_demo.json`.
+- The chair recomputed the 29-event statistics from `at13.events.json`, and recomputed both re-anchor words from the word map.
+
+**Role separation: OK.**
+- render-ops rendered through the queue: tsp jobs 18, 19 and 20 (T, C8, C14), 22:45:45–22:50:01Z, all exit 0, report `0f577ef`.
+  - Jobs 14–17 failed at the webpack bundle (missing `studio/src/lookdev/data`) before any frame was rendered.
+  - The report says "three earlier attempts (14–16)". tsp shows four (14–17). This reporting slip is non-material, because none of them produced output.
+- The sync-verifier named the words and measured: `7ae7483` and `707fbbd`.
+- The motion-engineer did neither. Between `de94cb8` and `57cde7e` there are only harness, sync and render-ops commits.
+- As in AT-13R, the queue does not record the submitting role, so this rests on the commit trail.
+
+**Pre-registration before rendering: OK.**
+- The words were committed at 22:43:31Z. The first render job was enqueued at 22:45:00Z. The worktree HEAD is the pre-registration commit `7ae7483` itself.
+- The chair re-derived both words with the rule "first later word in the same shot with anchor ≥ expected + 17 f":
+  - C8: `001626` is at 237, which is below 238, so the word is `001627` at 247 (S02 spans 218–478).
+  - C14: `001645` is at 495, which is below 499, so the word is `001646` at 501 (S03 spans 479–708).
+- Both words come before the shot's next `rules` action.
+
+**Engine pinning with countersigned provenance: OK.**
+- The worktree HEAD is `7ae7483`. It descends from `5ce4555`, and its `reveal.ts` has `REVEAL_ONSET_F = 1`.
+- The chair re-ran `git diff 011cae1 7ae7483 -- studio/` and `git diff 011cae1 HEAD -- studio/`: both are empty.
+- The report contains the full `git status --porcelain` output: `studio/` is clean, and the only changes are the worktree's own ledger files and the two clone specs. It also contains `studio_dirty = false` in all three `resolver.json` files and the SHA-256 of every spec.
+- The T spec hash `5cd9a9c7…` equals the main-tree `_demo.json`, which the chair re-hashed.
+- The sync-verifier re-read and countersigned HEAD, the porcelain output, the spec hashes, the one-word spec diffs and the mp4 hashes while the worktree still existed (`707fbbd`). The worktree was removed only afterwards (`57cde7e`).
+- `tsp -i` independently shows that all three renders ran from `wt-at13r2`. This cures AT-13R deviation 2.
+- Recorded, non-material: the engine stamps in the worktree's `resolver.json` and `queue.json` were deleted with the worktree, and the main-tree ledgers hold no AT-13R2 lines. The countersign is the operative pre-registered control, and it was met.
+
+**Validity: valid, not void.**
+- Pre-window max d_k is 0.0021 for event 8 over [191, 214], and 0.0000 for event 14 over [452, 475]. Both are within ≤ 0.025, so no lossless repeat was needed.
+- T reproduces the AT-13R raw onsets of the other 10 `rules` events exactly (n = 1, 2, 3, 4, 6, 10, 11, 12, 13, 16).
+- An onset exists in both windows.
+
+**Measurement:**
+
+| event | expected | window | first d_k ≥ 0.05 | offset |
+|---|---|---|---|---|
+| 8: C8, addRow `001624` | 221 | [215, 231] | 220 (d 0.0761; 219 = 0.0499, 218 = 0.0321) | **−1 f** |
+| 14: C14, highlightRows `001644` | 482 | [476, 492] | 482 (d 0.3225; 481 = 0.0422) | **0 f** |
+
+**Result against the pre-registered rule** (substitute the two offsets into the 29-event set):
+
+| n | median | p95 \|off\| | max \|off\| | min | histogram (f) | rule |
+|---|---|---|---|---|---|---|
+| 29 | 0.0 ms | 25.0 ms (numpy linear) | 41.7 ms | −1 f | −1 ×1, 0 ×27, +1 ×1 | **PASS** |
+
+- **AT-13R: PASSED (via AT-13R2).**
+- All three clauses hold. The median and p95 clauses would hold under any percentile method, since max |off| is 41.7 ms.
+- −1 f is not earlier than −1 f.
+- **Margin is recorded:**
+  - Event 8 sits exactly on the −1 f boundary. Its pre-cut-side frame 219 reads d = 0.0499 against the 0.05 threshold. Any value that rounds to 0.0499 is below 0.05, and the detector's own onset (220) confirms this.
+  - The verifier's caveat ("tail of the shot-entry transient; the visible step is at 0 f under a stricter reading") is noted, but it is **not** used. The verdict rests only on the pre-registered rule.
+- The branch for an event earlier than −1 f does not arise.
+- RT-011-5 is not triggered: the median and p95 pass, no event is earlier than −1 f, and there is no native-reader veto.
+- RT-011-3 stays active as the production guard (G8/G10a chapter sync).
+
+**Consequences now (chair record in `decisions.json`, ADR-011 `at13r2`):**
+- **Q2 = RV1 is ratified.** `5ce4555` stands as the ratified engine and `REVEAL_ONSET_F = 1`. The effective visible lead is `lead_frames`.
+- **INC-011-1 is closed.** The correction and prevention measures stay in force:
+  - triggers fire only on a chair record;
+  - measurement renders pin the engine; `a072c70` now enforces this.
+- **The fan-out bar is lifted.** Components beyond KineticWord, NumberCounter and TableGrid may be merged, and G6b may run once its own criteria are met. Normal controls still apply: critic review, `freeze.json` (hashed files only by ADR) and `corpus/specs/_component_requests.jsonl`.
+- The test freeze on `studio/src/type/`, `studio/src/spec/` and `studio/src/components/TableGrid/` ends now that AT-13R2 is reported. From here on, any change to the timing engine or TableGrid re-runs the affected 24 fps solo layers (`rules`, `orders`, and any KineticWord or NumberCounter layer the change touches) from a pinned engine, under the same rule.
+
+**Follow-ups:**
+- **render-ops:**
+  - delete the leftover AT-13R2 outputs `data/renders/spec/_demo_c8/` and `data/renders/spec/_demo_c14/` (2.2 MB each), plus the `_demo/preview24_dbg-nocam-nofx-cut-solo-rules/` render;
+  - remove the two lines `/data` and `/studio/node_modules` from the shared `.git/info/exclude`, as the report itself required;
+  - correct the attempt count (jobs 14–17) in the report.
+- **harness-engineer** (non-blocking): measurement renders from a worktree should copy the `resolver.json` engine block and their queue line into the main tree, or into the report, before the worktree is removed.
+- **sync-verifier:**
+  - keep the cut-boundary flag (any event or raw onset within 3 f of a hard cut) and the event 22 flag in G8 chapter sync;
+  - event 8's zero-margin reading is noted for RT-011-3 monitoring.
+- **motion-engineer:**
+  - examine event 22 (orders addRow `001684`, +1 f, sub-threshold first step, non-blocking);
+  - any change re-runs the `rules` and `orders` layers as above.

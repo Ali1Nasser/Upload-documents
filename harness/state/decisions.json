@@ -1115,7 +1115,7 @@
   "council": "C5",
   "date": "2026-10-10",
   "chair": "council-chair",
-  "status": "decided; Q2 amended RV2 -> RV1 by RT-011-2 on 2026-10-10 (AT-13 result); RV1 ratification pending: AT-13R not passed 2026-10-10, AT-13R2 required",
+  "status": "decided; Q2 amended RV2 -> RV1 by RT-011-2 on 2026-10-10 (AT-13 result); Q2 = RV1 ratified 2026-10-10 by AT-13R pass via AT-13R2 (chair record at13r2); INC-011-1 closed; fan-out bar lifted",
   "amends": [
    "05_DATA_CONTRACTS §0 + word-map frame fields (Q1)",
    "03 P7.3/P9.1 preview fps (Q3)",
@@ -1234,13 +1234,24 @@
      "date": "2026-10-10",
      "value": "RV1",
      "by": "RT-011-2 (pre-authorised, no new ballot), evaluated by chair on the RV2-valid AT-13 subset; see at13"
+    },
+    {
+     "date": "2026-10-10",
+     "value": "RV1",
+     "by": "ratified: AT-13R pass via AT-13R2 under the pre-registered rule (chair record ADR-011.at13r2)"
     }
    ],
-   "reveal_onset_superseded_rv2": "progress 0 on anchor frame; first visible step at anchor+1 f (42 ms @24); effective visible lead = lead_frames-1"
+   "reveal_onset_superseded_rv2": "progress 0 on anchor frame; first visible step at anchor+1 f (42 ms @24); effective visible lead = lead_frames-1",
+   "Q2_ratified": {
+    "date": "2026-10-10",
+    "value": "RV1",
+    "engine": "5ce4555 (REVEAL_ONSET_F = 1)",
+    "by": "chair record ADR-011.at13r2"
+   }
   },
   "taste_vs_data": {
    "Q1": "data",
-   "Q2": "taste (motion-design, egyptian-arabic, technical-accuracy) + unmeasured 24 fps latency -> AT-13; 2026-10-10 switched to RV1 by data (RT-011-2 on RV2-valid AT-13 subset)",
+   "Q2": "taste (motion-design, egyptian-arabic, technical-accuracy) + unmeasured 24 fps latency -> AT-13; 2026-10-10 switched to RV1 by data (RT-011-2 on RV2-valid AT-13 subset); 2026-10-10 RV1 ratified by data (AT-13R pass via pre-registered AT-13R2)",
    "Q3": "data"
   },
   "evidence": {
@@ -1301,7 +1312,12 @@
    "sync-verifier (AT-13R2): name C8/C14 anchor words before rendering; measure by the pre-registered differential rule; append to reports/sync/at13.md + JSON; keep event 22 flag",
    "harness-engineer (blocking for further measurement renders): dc render spec writes engine HEAD + studio/ dirty flag into resolver.json and queue 'engine'; refuse --solo on dirty studio/",
    "motion-engineer: no change to studio/src/type/, studio/src/spec/, studio/src/components/TableGrid/ until AT-13R2 is reported; then examine event 22 (orders addRow 001684: d 0.01 on anchor 968, visible step 969, +1 f, non-blocking); later changes re-run rules + orders layers",
-   "council-chair: rule on AT-13R2 by the pre-registered rule; only a chair record lifts the fan-out bar"
+   "council-chair: rule on AT-13R2 by the pre-registered rule; only a chair record lifts the fan-out bar",
+   "render-ops (AT-13R2 housekeeping): delete leftover data/renders/spec/_demo_c8/, data/renders/spec/_demo_c14/ and _demo/preview24_dbg-nocam-nofx-cut-solo-rules/; remove '/data' and '/studio/node_modules' from shared .git/info/exclude; correct failed-attempt count (tsp 14-17) in at13r2_renders.md",
+   "harness-engineer (non-blocking): worktree measurement renders copy the resolver.json engine block and queue line into the main tree or the report before the worktree is removed",
+   "sync-verifier: keep the cut-boundary flag (event or raw onset within 3 f of a hard cut) and the event 22 flag in G8 chapter sync; event 8 zero-margin noted for RT-011-3",
+   "motion-engineer: fan-out unblocked (AT-13R passed); examine event 22 (orders addRow 001684, +1 f, non-blocking); timing-engine/TableGrid changes re-run rules + orders 24 fps solo layers from a pinned engine",
+   "harness-engineer/story owners: G6b may be run when its own criteria are met (fan-out bar lifted 2026-10-10)"
   ],
   "at13": {
    "date": "2026-10-10",
@@ -1401,14 +1417,23 @@
     "impact": "The uncommitted RV1 edits entered the shared working tree from ~13:14Z and contaminated 10 of the 14 AT-13 solo renders (14/29 events); the c26dc37 24 fps PASS therefore mixes engines.",
     "correction": "Recorded here. RV1 now stands on the RT-011-2 evaluation of the RV2-valid subset, not on the text match. 5ce4555 is retained, not reverted, because it implements the rule's outcome. Its ratification is conditional on AT-13R (RV1, clean pinned engine). The c26dc37 PASS is not acceptance evidence for either engine.",
     "prevention": "Fallbacks and reversal triggers fire only on a chair record in decisions.json, never on ADR text matches. Measurement renders must pin the engine (clean studio/ tree or git worktree at a stated commit, HEAD recorded in the report).",
-    "status": "open",
+    "status": "closed",
     "updates": [
      {
       "date": "2026-10-10",
       "by": "AT-13R ruling",
       "note": "AT-13R not passed (-1 f clause undetermined for events 8 and 14 at hard cuts); stays open until a chair-recorded AT-13R pass (via AT-13R2)"
+     },
+     {
+      "date": "2026-10-10",
+      "by": "AT-13R2 ruling",
+      "note": "AT-13R passed via pre-registered AT-13R2 (29 events: median 0.0 ms, p95 25.0 ms, min -1 f); Q2 = RV1 ratified; 5ce4555 ratified; incident closed. Prevention measures stay in force (chair-record-only triggers; pinned measurement engines, enforced by a072c70)."
      }
-    ]
+    ],
+    "closed": {
+     "date": "2026-10-10",
+     "by": "council-chair, ADR-011.at13r2 (AT-13R pass via AT-13R2)"
+    }
    }
   ],
   "at13r": {
@@ -1514,6 +1539,110 @@
     "lifted_by": "chair record of an AT-13R pass in decisions.json only"
    },
    "engine_freeze_for_test": "no change to studio/src/type/, studio/src/spec/, studio/src/components/TableGrid/ until AT-13R2 is reported; any change voids the 27 standing events and requires the full 14-layer AT-13R on the new commit",
+   "taste_vs_data": "data (pre-registered rule; no ballot)",
+   "resolved_by": "at13r2 (2026-10-10): AT-13R PASSED via AT-13R2"
+  },
+  "at13r2": {
+   "date": "2026-10-10",
+   "chair": "council-chair",
+   "rule_source": "docs/decisions/ADR-011-timing-conventions.md 'AT-13R ruling (2026-10-10)' -> 'AT-13R2' (pre-registered before data); applied exactly, no deviation",
+   "evidence": [
+    "reports/sync/at13.md AT-13R2 pre-registration (sync-verifier, 7ae7483, 22:43:31Z)",
+    "reports/sync/at13r2_renders.md (render-ops, 0f577ef 22:50:31Z; cleanup 57cde7e 22:52:09Z)",
+    "reports/sync/at13.md AT-13R2 result + reports/sync/at13.events.json key at13r2 (sync-verifier, 707fbbd 22:51:41Z; p95 fix e2c8487)",
+    "tsp -i 14..20 (wt-at13r2 worktree; 18-20 exit 0)",
+    "corpus/edl/word_map.v1.1.jsonl; corpus/specs/_demo.json sha256 5cd9a9c7..."
+   ],
+   "role_separation": "ok: render-ops rendered via queue (tsp 18 T, 19 C8, 20 C14; 22:45:45-22:50:01Z; exit 0; jobs 14-17 failed at webpack bundle before any frame, no output; report says 14-16, slip non-material); sync-verifier named words (7ae7483) and measured (707fbbd); motion-engineer neither (no motion-engineer commit de94cb8..57cde7e); queue has no submitter role, rests on commit trail",
+   "pre_registration": "ok: words committed 22:43:31Z < first render enqueue 22:45:00Z; worktree HEAD = 7ae7483 (the pre-registration commit); chair re-derived: C8 001627 @247 (001626 @237 < 238), C14 001646 @501 (001645 @495 < 499), same shot (S02 218-478, S03 479-708), before next rules action",
+   "engine_pin": {
+    "head": "7ae7483c9c2803dec163cf8a9ead25f6a86cee98",
+    "verdict": "accepted, countersigned",
+    "checks": "descends 5ce4555; reveal.ts REVEAL_ONSET_F=1; chair re-ran git diff 011cae1 7ae7483 -- studio/ and git diff 011cae1 HEAD -- studio/: empty; full porcelain in report (studio/ clean; only worktree ledgers + 2 clone specs); resolver.json studio_dirty=false x3; spec SHA-256 in report, T equals main-tree _demo.json (chair re-hashed); sync-verifier re-read and countersigned HEAD, porcelain, spec hashes, one-word spec diffs, mp4 hashes before worktree removal (707fbbd < 57cde7e); tsp -i confirms DC path wt-at13r2. Cures AT-13R deviation 2.",
+    "note_non_material": "engine stamps in the worktree's resolver.json/queue.json were deleted with the worktree; main-tree ledgers hold no AT-13R2 lines; the countersign is the operative pre-registered control and was met"
+   },
+   "validity": {
+    "pre_window_max_d": {
+     "8": 0.0021,
+     "14": 0.0
+    },
+    "pre_window_limit": 0.025,
+    "lossless_repeat": "not needed",
+    "engine_identity_10_rules_events": "exact (n=1,2,3,4,6,10,11,12,13,16)",
+    "onsets_exist": true,
+    "verdict": "valid, not void"
+   },
+   "measurement": [
+    {
+     "n": 8,
+     "shot": "CH-10-S02",
+     "component": "TableGrid.addRow",
+     "word": "w:S1:ar-natural:001624",
+     "reanchor": "w:S1:ar-natural:001627",
+     "reanchor_frame": 247,
+     "expected": 221,
+     "window": [
+      215,
+      231
+     ],
+     "onset": 220,
+     "offset_f": -1,
+     "d": {
+      "218": 0.0321,
+      "219": 0.0499,
+      "220": 0.0761,
+      "221": 1.5826
+     }
+    },
+    {
+     "n": 14,
+     "shot": "CH-10-S03",
+     "component": "TableGrid.highlightRows",
+     "word": "w:S1:ar-natural:001644",
+     "reanchor": "w:S1:ar-natural:001646",
+     "reanchor_frame": 501,
+     "expected": 482,
+     "window": [
+      476,
+      492
+     ],
+     "onset": 482,
+     "offset_f": 0,
+     "d": {
+      "481": 0.0422,
+      "482": 0.3225
+     }
+    }
+   ],
+   "set_29": {
+    "n": 29,
+    "median_ms": 0.0,
+    "p95_abs_ms": 25.0,
+    "p95_method": "numpy linear (chair recomputed)",
+    "max_abs_ms": 41.7,
+    "min_f": -1,
+    "hist_f": {
+     "-1": 1,
+     "0": 27,
+     "+1": 1
+    }
+   },
+   "pre_registered_rule": "median <= 40 ms AND p95 |offset| <= 100 ms AND no event earlier than -1 f",
+   "result": "PASS",
+   "at13r_pass": true,
+   "margin_note": "event 8 at exactly -1 f (zero margin); d(219)=0.0499 vs 0.05 threshold (any value rounding to 0.0499 is < 0.05; detector onset 220 confirms). Verifier's 'tail of entry transient / 0 f under stricter reading' caveat noted, not used.",
+   "branch_earlier_than_minus1": "not applicable",
+   "rt_011_5": "not triggered (median/p95 pass; no event earlier than -1 f; no native veto)",
+   "rt_011_3": "active (production guard at G8/G10a); event 8 zero-margin reading noted for monitoring",
+   "q2": "RV1 ratified (5ce4555 retained as ratified engine; effective visible lead = lead_frames)",
+   "inc_011_1": "closed",
+   "fanout_bar": {
+    "in_force": false,
+    "lifted": "2026-10-10",
+    "lifted_by": "this chair record",
+    "scope_lifted": "components beyond KineticWord, NumberCounter, TableGrid may be merged; G6b may run on its own criteria; critic review, freeze.json (hashed files only by ADR) and _component_requests.jsonl still apply"
+   },
+   "engine_freeze_for_test": "ended (AT-13R2 reported); later timing-engine/TableGrid changes re-run the affected 24 fps solo layers (rules, orders, plus any touched KineticWord/NumberCounter layers) from a pinned engine under the same rule",
    "taste_vs_data": "data (pre-registered rule; no ballot)"
   }
  }
