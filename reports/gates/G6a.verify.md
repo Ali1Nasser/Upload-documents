@@ -696,3 +696,70 @@ Notes (non-blocking):
 - Running `dc gate check G6a` rewrote only the `created` timestamp of `reports/gates/G6a.json` and `harness/state/progress.json`; I restored both with `git checkout`.
 - `dc q submit` (tsc job 10) updated `harness/state/queue.json`; I left that live queue state untouched and uncommitted.
 - Scratch files are in the session scratchpad only.
+
+---
+
+## Re-check after ADR-011
+
+Verifier: a separate invocation that did not author or fix any P6 or P7 work. Read-only except this section. Date: 2026-10-10 17:08 to 17:20 UTC. Repo HEAD: 2c5ea84 ("P7 engine: ADR-011 Q3 P2 PREVIEW.fps 12 + re-freeze"). I did not edit `harness/gates/g06a.py`, `freeze_p6.py` or any frozen file.
+
+### Verdict: PASS
+
+`python3 tools/dc.py gate check G6a` returns **PASS 8/8** (runs at 17:08:22Z and again at the end of this check, both 8/8; the committed `G6a.json` from 17:07:38Z is also 8/8). I then re-derived the freeze, the one contract change, the ADR-009 / ADR-010 conditions and the look/parity evidence from the files and from git, not from the checker. Each holds. The only frozen-file change since the 07:10:47Z freeze (base c45d1d2) is `PREVIEW.fps 15 -> 12` in `studio/src/tokens.ts`, plus its `TOKENS_VERSION` marker, and ADR-011 Q3 authorises exactly that.
+
+### Freeze (own script, not the gate's)
+
+| Check | Result |
+|---|---|
+| `freeze.json` status | `frozen`, `open_preconditions: []` |
+| `frozen_at` vs the change | `tokens.ts` mtime 17:00:02Z < `frozen_at` 17:03:36Z < commit 2c5ea84 at 17:08:06Z. The freeze post-dates the change. |
+| Hashed files | 227 (tokens 1, type 2, fonts 12, catalog_src 106, catalog_json 106). I recomputed every SHA-256 from the working tree: **227/227 match, 0 missing, 0 changed**. I repeated it against the `HEAD` blobs: **0 changed**. |
+| Path set old vs new | Identical (227 vs 227). Old freeze read with `git show 0ab837c:harness/state/freeze.json`. |
+| Hash differences old -> new | **Exactly one: `studio/src/tokens.ts`.** Fonts, `type/arabic.ts`, `type/overrides.ts` and all 212 catalog files are byte-identical to the 07:10:47Z freeze. |
+| `contract_changes[0]` | `from` fc7f05ca...1090 equals the SHA-256 of `tokens.ts` at 0ab837c; `to` e679727e...cc95d equals the SHA-256 of the working file. |
+| Other `freeze.json` keys that moved | `frozen_at`, `base_commit` (c45d1d2 -> 08882ce), `adrs` (+ADR-011), `tokens_version`, `contract_changes` (new). `join_gap`, `cond3_reviews`, `counts` (104 components, 106 schemas) unchanged. |
+| Unlisted component dirs | `[]`. KineticWord, NumberCounter and TableGrid are in the 104-name catalog. Their `schema.ts` hashes are unchanged; only new `.tsx` implementations, `families/{data,type-ui}.ts` and demos were added, none of which is hashed. |
+
+### The diff of the frozen file (`git diff 0ab837c 2c5ea84 -- studio/src/tokens.ts`)
+
+Two lines change, nothing else:
+
+```
+-export const PREVIEW = deepFreeze({width: 960, height: 540, fps: 15, tier: 'lite' as const});
++export const PREVIEW = deepFreeze({width: 960, height: 540, fps: 12, tier: 'lite' as const}); // ADR-011 Q3 P2 (CR-001): 12 fps, an exact divisor of the 24 fps film rate
+-export const TOKENS_VERSION = 'P6-freeze-1 (...)';
++export const TOKENS_VERSION = 'P6-freeze-2 (... ; ADR-011 Q3 PREVIEW.fps 12)';
+```
+
+Width, height and tier of `PREVIEW`, `FPS` (24), `W`/`H`, `GL`, `HERO_SHARE_MAX`, the FX tiers, palette, sizes and presets are untouched. The `TOKENS_VERSION` change is the freeze marker that the P6.4 freeze defines for itself, and `freeze.json` declares it in `contract_changes[0].what`.
+
+### Authorisation
+
+- `docs/decisions/ADR-011-timing-conventions.md`: `Status: decided`. `harness/state/decisions.json` ADR-011: `decision.Q3 = "P2"`, `decision.PREVIEW = {width 960, height 540, fps 12, tier lite}`, `replaces: {PREVIEW.fps: 15}`. Ballot in the ADR: P2 3/4, confidence-weighted 0.774 vs 0.226.
+- The ADR names this change itself (its "frozen token ... 15 -> 12" scope line) and requires a `freeze.json` re-hash and a G6a re-check (technical-accuracy lens note). Both are done.
+- ADR-011 RT-011-4 (reopen Q3 if `dc gate check G6a` fails after the re-freeze) is **not triggered**: G6a passes 8/8.
+- `studio/scripts/freeze_p6.py` gained an `AUTHORISED` table in this change. I read it: it accepts a hash change only if the ADR is decided, the chair record holds the value, and undoing exactly the listed line replacements reproduces the previously frozen hash. It is narrow. Note that the motion-engineer wrote both the change and this mechanism, so I relied on my own diff and hash comparison above, not on the script.
+- Only `PREVIEW.fps` is read by the lite preview path: `grep PREVIEW` finds users only in `studio/src/spec/{resolve,SpecPlayer,resolve.check}.ts` and `studio/src/type/p7.check.ts`. Nothing under `studio/scripts/` (look-dev and regress scripts) reads it, so the 12 fps token cannot affect the 24 fps look-dev stills.
+
+### ADR-009 / ADR-010 conditions still hold
+
+- The checker `harness/gates/g06a.py` is unchanged since 601613e (the version Round 7 verified); nothing under `harness/gates/` or `harness/schemas/` changed after that commit.
+- **Evidence files unchanged:** `git diff --stat 601613e HEAD` (and `0ab837c HEAD`) over `reports/lookdev/`, ADR-002/003/009/010, `corpus/edl/` and `harness/schemas/` is empty. `git status` shows nothing uncommitted under `reports/lookdev`, `studio/` or `harness/schemas`.
+- **Cond 1 and 2 (fixes, OCR):** gate row passes: isolated-render OCR 4/4 >= 0.90 (F3-title 1.00, roadmap-72 1.00, idem-72 1.00, F7-chip6 1.00). I re-ran the type suite after the tokens change through the queue (job 7, `bash studio/scripts/check_type.sh`): **exit 0, 43 `ok`, 0 other lines, "all type checks passed"**.
+- **Cond 3 (re-render review):** 8/8 `*_fix` artifacts covered by a PASS verdict that is the latest naming each and is newer than it (arabic_r3, r4, r5), unchanged.
+- **Cond 4 (no-regression diff):** `reports/lookdev/r3/regress.json` by render-ops, pass=True, 7 stills covered, outside-box 0 px, unchanged.
+- **ADR-010:** `join_gap` in `freeze.json` is still display {caps 0.20, latin 0.25}, text {caps 0.25, latin 0.30}; `tokens.ts` `JOIN_GAP` is untouched (not in the diff).
+- **Look / parity:** `reports/lookdev/critic_r3.json` look 8.01 (>= 8.0), parity 7.5 (>= 7.5), min criterion 7, covered by ADR-009 W-009-LOOK scope "r3 style-frame set only". Unchanged file, same scores.
+- **ADR-002 / ADR-003 / ADR-004 / ADR-005 rows:** still decided; `adr_002_005_decided` ok.
+- **Projection:** `corpus/edl/lock.json` unchanged. Gate row: 332,651 frames @ 24 fps (3.85 h); ADR-002 model worst 20.9 h vs 24.0 h pure P12; measured blended 0.1339 box s/frame -> 12.4 h. The +25 % contingency reading (26.1 h, ADR-002 R2 ladder) and the missing plate bake cost (ADR-009 AT-9, blocks P10) are the same non-blocking caveats as in Round 7.
+
+### Non-blocking observations
+
+1. `freeze.json` `base_commit` is 08882ce, the parent of 2c5ea84. The `tokens.ts` change was uncommitted when the freeze was written and was committed together with `freeze.json` in 2c5ea84. At `HEAD` all 227 blobs match, so the committed tree is consistent; only the `base_commit` label lags by one commit.
+2. The Round 7 observations (tokens `SIZE.hero` 176 px above the 04 section 3.2 range, JOIN_GAP text differing from ADR-009 B2 by amendment, F7 chip 6 closed by frame-crop read) are unchanged and still not G6a conditions.
+3. ADR-011's consequence "any P6 or P9 preview already made at 15 fps must be regenerated" has no P6 target: the P6 evidence is 24 fps standard-tier stills and strips. P9 previews do not exist yet.
+
+### Side effects of this verification
+
+- `dc gate check G6a` rewrites only the `created` timestamp of `reports/gates/G6a.json` and touches `harness/state/progress.json`; I restored `G6a.json` with `git checkout`. I left `progress.json`, `queue.json` and `corpus/render/jobs.jsonl` alone (live state of other agents, not mine to commit).
+- Queue job 7 (type suite) was the only compute; its temp output in `/tmp` is deleted. No renders, no `/tmp/remotion-webpack-bundle-*` created by me.
