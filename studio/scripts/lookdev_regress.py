@@ -31,7 +31,10 @@ for sid, bxs in sorted(boxes.items()):
     outside = ImageChops.subtract(m, allow)
     n_out = sum(1 for v in outside.getdata() if v)
     total_out += n_out
-    items[sid] = {"boxes": bxs, "changed_px": changed, "outside_px": n_out, "outside_bbox_960": outside.getbbox()}
+    mx_out = max((d for d, al in zip(ImageChops.lighter(ImageChops.lighter(diff[0], diff[1]), diff[2]).getdata(), allow.getdata()) if not al), default=0)
+    items[sid] = {"boxes": bxs, "changed_px": changed, "changed_bbox_960": m.getbbox(), "outside_px": n_out,
+                  "pct_changed_outside": round(100 * n_out / max(changed, 1), 4), "pct_of_frame_outside": round(100 * n_out / (960 * 540), 5),
+                  "max_delta_outside_255": mx_out, "outside_bbox_960": outside.getbbox(), "pass": n_out == 0}
 rep = {"v": 1, "condition": "ADR-009 close condition 4", "by": a.by, "scale": "960x540", "thr_255": a.thr, "pad_px_1080p": a.pad,
        "covers": sorted(items), "outside_px": total_out, "pass": total_out == 0, "items": items}
 (ROOT / "reports/lookdev/r3/regress.json").write_text(json.dumps(rep, indent=1) + "\n")
