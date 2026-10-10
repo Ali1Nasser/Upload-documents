@@ -2,8 +2,11 @@
  "v": 1,
  "phase": "P6",
  "step": "03 P6.4 freeze (contract between P7 and P8)",
- "status": "frozen",
- "open_preconditions": [],
+ "status": "provisional",
+ "open_preconditions": [
+  "cond 3: the PASS Arabic review predates the re-rendered still/strip for ['F7-standard_fix'] [arabic-typographer]",
+  "cond 4: regress.json predates the newest re-rendered still [render-ops]"
+ ],
  "join_gap": {
   "display": {
    "caps": 0.2,
@@ -19,8 +22,8 @@
   "reports/lookdev/arabic_r3.md",
   "reports/lookdev/arabic_r4.md"
  ],
- "frozen_at": "2026-10-10T06:17:31Z",
- "base_commit": "df2ee0d",
+ "hashed_at": "2026-10-10T06:39:36Z",
+ "base_commit": "d6f0740",
  "by": "motion-engineer",
  "look": "reports/lookdev/r3 (critic_r3: look 8.01, parity 7.5) + arabic r3 fixes a3b86c1 (re-check PASS d6ac265)",
  "adrs": [
