@@ -826,12 +826,12 @@ def cmd_digest(args):
 
 
 def cmd_pack(args):
-    print("dc spec pack: not implemented yet (scene-director packs are assembled by P8 step 1; see docs/plan/03 P8)", file=sys.stderr)
-    return 3
+    from . import specpack
+    return specpack.cmd_pack(args)
 
 
 def register(sub):
-    sp = sub.add_parser("spec", help="scene specs (P8): lint, metrics, coverage loop; pack is P8 step 1")
+    sp = sub.add_parser("spec", help="scene specs (P8): lint, metrics, coverage loop; pack builds the P8 briefing packs")
     ss = sp.add_subparsers(dest="spec_cmd", required=True)
 
     def common(s):
@@ -863,6 +863,11 @@ def register(sub):
     s = ss.add_parser("digest", help="sha256 identity of all specs (used by coverage rounds)")
     s.add_argument("--spec-dir", default=None)
     s.set_defaults(fn="speclint.cmd_digest")
-    s = ss.add_parser("pack", help="not implemented yet (P8)")
-    s.add_argument("rest", nargs="*")
+    s = ss.add_parser("pack", help="briefing pack(s) for the scene-director: corpus/packs/<id>.json + .md (P8 step 1)")
+    s.add_argument("chapter", help="CH-33 | DD-P23 | CH-01,CH-02 | all")
+    s.add_argument("--force", action="store_true", help="rebuild even if the input hashes in the pack header are unchanged")
+    s.add_argument("--target", type=int, default=25000, help="token budget per pack (estimate; default 25000)")
+    s.add_argument("--out-dir", default=None, help="default corpus/packs (tests)")
+    s.add_argument("--no-md", action="store_true")
+    s.add_argument("--json", action="store_true")
     s.set_defaults(fn="speclint.cmd_pack")

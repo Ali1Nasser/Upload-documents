@@ -564,5 +564,20 @@
       "sha256_match": true,
       "url": "https://x0.at/Dj4K.txt"
     }
+  },
+  "packs": {
+    "cmd": "dc spec pack <id|all>",
+    "dir": "corpus/packs",
+    "target_tokens": 25000,
+    "estimator": "Arabic chars/2.0 + other/3.2 (offline, conservative)",
+    "built": 73,
+    "min": 9446,
+    "median": 15825,
+    "max": 24754,
+    "total": 1335796,
+    "over_target": 0,
+    "packs_with_cuts": 25,
+    "cut_order": "lowest-ranked visual candidates (down to top-1 per idea unit), then background text, then remaining top-1; sentences and facts never cut",
+    "rebuild": "when an input hash in the pack header changes (EDL, word map, graph, catalog, glossary, contract, components, ADR-001, specpack.py)"
   }
 }

@@ -6,7 +6,7 @@ Code: `tools/dclib/speclint.py`, `harness/gates/g07.py`. Tests: `python3 -I tool
 - `dc spec lint <CH|DD-Pnn-k|a,b|all> [--force] [--json] [--errors N]`: exit 0 clean, 1 on any error or missing spec, 2 unknown chapter. Writes `reports/spec/lint/<CH>.json` and `reports/spec/manifest.json`. A run is skipped when the hashes of the spec, schemas, EDL, word map, glossary, data contract, sentences, transcripts and `speclint.py` match the last manifest. A missing spec writes nothing.
 - `dc spec metrics <CH|all> [--json]`: events/min, anchored and mechanism share, numbers/terms on screen, hero (real-time 3D) share, max gap, median shot length, component and action frequency. `metrics.spec_sha256` is the spec revision; critics and fact-checkers copy it into their reports to prove freshness.
 - `dc spec coverage [--record --by <role> --issues N]`: lint of all chapters plus the film-level 3D share. `--record` appends a round to `reports/spec/coverage_rounds.json` with the digest of all specs (`dc spec digest`). The scene-director cannot record a round.
-- `dc spec pack`: still a P8 stub (exit 3).
+- `dc spec pack <CH|DD|a,b|all>`: briefing packs for the scene-director, see `docs/tools/spec_pack.md`.
 
 ## Lint rules (errors unless noted)
 1. JSON Schema `scene_spec.schema.json` (fx_tier `lite|standard|hero`); `edl_version` = locked EDL; `chapter` = file.
