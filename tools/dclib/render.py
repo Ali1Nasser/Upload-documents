@@ -9,6 +9,8 @@ is given. Inside the queue it builds the TypeScript driver with esbuild (light) 
   perf --aggregate          rebuild reports/perf/components.json from the per-component files (light, no render)
   spec <id> [--final]       render corpus/specs/<id>.json (preview 960x540 @ tokens.ts PREVIEW.fps, lite, by default); resolver
                             report; --nocam/--nofx/--cut/--solo=<layer> = isolated measurement renders
+  (spec) engine provenance, ADR-011 AT-13R2: resolver.json + queue job 'engine' carry HEAD and the studio/ dirty flag; --solo is
+                            refused when studio/ is dirty (stamped here, not in studio/scripts/p7.ts)
   at11                      AT-11 34 px join-gap motion clip + frames -> reports/p7/at11/
 """
 import glob
@@ -16,6 +18,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 
 from . import common as C
 from . import queue as Q
@@ -40,9 +43,56 @@ def run_driver(argv):
     return subprocess.run(["node", DRIVER_OUT, *argv, f"--root={C.ROOT}"], cwd=STUDIO, env=env).returncode
 
 
-def _heavy(args, label, driver_argv, mem_gb=3.0, slots_req=1):
+def engine_state(root=None):
+    """Engine provenance (ADR-011 AT-13R2): git HEAD of the checkout + whether studio/ is dirty (git status --porcelain studio/,
+    which includes untracked files). Never raises: a failed git call gives head 'unknown' and dirty True (fail closed)."""
+    root = root or C.ROOT
+
+    def git(*a):
+        return subprocess.run(["git", *a], cwd=root, capture_output=True, text=True, timeout=60)
+
+    try:
+        h, st = git("rev-parse", "HEAD"), git("status", "--porcelain", "--", "studio/")
+        if h.returncode or st.returncode:
+            raise OSError((h.stderr or st.stderr).strip())
+        files = [ln for ln in st.stdout.splitlines() if ln.strip()]
+        return {"head": h.stdout.strip(), "studio_dirty": bool(files), "studio_dirty_files": files[:50],
+                "studio_dirty_count": len(files)}
+    except (OSError, subprocess.SubprocessError) as e:
+        return {"head": "unknown", "studio_dirty": True, "studio_dirty_files": [f"git failed: {e}"], "studio_dirty_count": 1}
+
+
+def engine_tag(eng):
+    """Short string for the queue job 'engine' field: <HEAD sha>, plus '+dirty' when studio/ is dirty."""
+    return eng["head"] + ("+dirty" if eng["studio_dirty"] else "")
+
+
+def check_solo(eng, solo):
+    """--solo is a measurement render: refuse it on a dirty studio/ (the engine must equal a committed SHA). Returns a message or ''."""
+    if solo and eng["studio_dirty"]:
+        return (f"refused: --solo={solo} on a dirty studio/ ({eng['studio_dirty_count']} path(s): "
+                f"{'; '.join(eng['studio_dirty_files'][:5])}). Commit or stash studio/ (or render from a clean worktree) first - "
+                "ADR-011 AT-13R2: a measurement render must be attributable to one engine commit.")
+    return ""
+
+
+def stamp_resolvers(spec_id, since, eng, report=""):
+    """After the driver ran: add 'engine' to every resolver.json under data/renders/spec/<id>/ written since `since`
+    (and to the --report copy). Done here so studio/ stays untouched. Returns the stamped paths."""
+    paths = [f for f in glob.glob(C.p("data", "renders", "spec", spec_id, "*", "resolver.json")) if os.path.getmtime(f) >= since - 1]
+    if report and os.path.isfile(C.p(report)):
+        paths.append(C.p(report))
+    for f in paths:
+        d = C.read_json(f, None)
+        if isinstance(d, dict):
+            d["engine"] = eng
+            C.write_json(f, d, indent=1)
+    return paths
+
+
+def _heavy(args, label, driver_argv, mem_gb=3.0, slots_req=1, engine=""):
     argv = [C.p("tools", "dc.py"), *sys.argv[1:]]  # re-run this exact CLI line inside the queue
-    rc = Q.run_heavy(label, argv, args.inline, mem_gb=mem_gb, expected_gb=0.2, slots_req=slots_req)
+    rc = Q.run_heavy(label, argv, args.inline, mem_gb=mem_gb, expected_gb=0.2, slots_req=slots_req, engine=engine)
     if rc is not None:
         return rc
     return run_driver(driver_argv)
@@ -98,7 +148,20 @@ def cmd_spec(args):
         + (["--nocam"] if args.nocam else []) + (["--nofx"] if args.nofx else []) + (["--cut"] if args.cut else []) \
         + ([f"--solo={args.solo}"] if args.solo else [])
     kind = "final" if args.final else "preview"
-    return _heavy(args, f"render-{kind}-{args.id.strip('_')}", drv, mem_gb=4.0, slots_req=args.conc)  # one queue slot per render tab
+    eng = engine_state()
+    why = check_solo(eng, args.solo)
+    if why:
+        C.fail(why, 2)
+    label = f"render-{kind}-{args.id.strip('_')}"
+    if not (args.inline or Q.in_queue()) and Q.tsp_bin():  # outer call: enqueue with the engine tag, wait
+        return _heavy(args, label, drv, mem_gb=4.0, slots_req=args.conc, engine=engine_tag(eng))  # one queue slot per render tab
+    since = time.time()
+    rc = run_driver(drv)  # inside the queue: the engine state sampled before and after is what the render ran on
+    after = engine_state()
+    if engine_tag(after) != engine_tag(eng) or after["studio_dirty_files"] != eng["studio_dirty_files"]:
+        eng = dict(eng, changed_during_render={k: after[k] for k in ("head", "studio_dirty", "studio_dirty_files")})
+    stamp_resolvers(args.id, since, eng, args.report)
+    return rc
 
 
 def cmd_at11(args):

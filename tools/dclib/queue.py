@@ -196,7 +196,7 @@ def cmd_status(_args):
     return 0
 
 
-def run_heavy(label, argv, inline, mem_gb=1.0, expected_gb=0.0, slots_req=1):
+def run_heavy(label, argv, inline, mem_gb=1.0, expected_gb=0.0, slots_req=1, engine=""):
     """Used by ingest commands: enqueue self through tsp and wait, unless already inside the queue / --inline.
     Returns None when the caller should run inline, else the exit code."""
     if inline or in_queue():
@@ -204,7 +204,7 @@ def run_heavy(label, argv, inline, mem_gb=1.0, expected_gb=0.0, slots_req=1):
     if not tsp_bin():
         print("WARNING: tsp not installed yet; running inline (bootstrap only).", file=sys.stderr)
         return None
-    job = submit(label, [sys.executable, *argv], mem_gb, expected_gb, slots_req=slots_req)
+    job = submit(label, [sys.executable, *argv], mem_gb, expected_gb, engine=engine, slots_req=slots_req)
     print(f"queued as tsp job {job['tsp_id']} ({label}); waiting...", file=sys.stderr)
     class A:  # noqa: D401
         id = job["tsp_id"]
