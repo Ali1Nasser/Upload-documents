@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-10T12:57:28Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "by": "critic",
+  "score": 7,
+  "date": "2026-10-10",
+  "notes": "Legible (white/cyan/grey hierarchy, correct BiDi 'الـpartition', tanween on ثوانٍ). Faint hard-edged darker rectangle behind KPI and ثوانٍ (lum 17->14 step) reads as a clipped shadow/scrim; no cyan glow on the impact word in p50. Non-blocking: soften the scrim (radial/blurred) and give impact a bloom.",
+  "report": "reports/p7/baselines_review.md"
+ }
 }

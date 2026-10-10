@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-10T12:57:11Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "by": "critic",
+  "score": 8,
+  "date": "2026-10-10",
+  "notes": "Strong: correct RTL column order (T1 rightmost), BiDi title 'إيصالات NilePay', FAILED rows in token red with leading-edge bar, filter/sort reorder legible at p100, card border + shadow give depth. Card only ~31% of frame width, text small at 960 px; header ink is dim. Non-blocking.",
+  "report": "reports/p7/baselines_review.md"
+ }
 }

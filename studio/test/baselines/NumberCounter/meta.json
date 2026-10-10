@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-10T12:57:20Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "by": "critic",
+  "score": 7,
+  "date": "2026-10-10",
+  "notes": "Tabular numerals crisp, Arabic labels correct (نسبة النجاح, الإجمالي), 400 EGP / 66.67 % settle clearly, count-up end state readable. Card plate is nearly invisible with a hard edge; wide gap around the decimal point ('59 . 32'); labels small. Non-blocking.",
+  "report": "reports/p7/baselines_review.md"
+ }
 }
