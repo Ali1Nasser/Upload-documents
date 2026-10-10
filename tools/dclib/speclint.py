@@ -766,7 +766,7 @@ def cmd_metrics(args):
     chapters = resolve_chapters(world, args.chapter)
     reps = run_lint(chapters, world, spec_dir=args.spec_dir, force=args.force, write=not args.no_report)
     agg = aggregate(reps, world)
-    if not args.no_report and len(chapters) > 1:
+    if not args.no_report and len(chapters) > 1 and agg["with_metrics"]:
         C.write_json(os.path.join(REPORT_DIR, "metrics.json"), {"v": 1, "aggregate": agg,
                                                                  "chapters": {c: reps[c]["metrics"] for c in chapters}})
     if args.json:
@@ -799,7 +799,7 @@ def cmd_coverage(args):
     """Global coverage loop (L5): lint every EDL chapter + film-level checks; --record appends a round to coverage_rounds.json."""
     world = World()
     chapters = resolve_chapters(world, "all")
-    reps = run_lint(chapters, world, spec_dir=args.spec_dir, force=args.force, write=True)
+    reps = run_lint(chapters, world, spec_dir=args.spec_dir, force=args.force, write=not args.no_report)
     agg = aggregate(reps, world)
     issues = list(agg["failing"])
     film_ok = agg["rt3d_ratio_film"] is not None and agg["rt3d_ratio_film"] <= MAX_RT3D_RATIO
