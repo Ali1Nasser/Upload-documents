@@ -301,17 +301,17 @@
       "exit": "0"
     },
     "32": {
-      "label": "emphasis-S4:P03",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py asr emphasis a:S4:P03 --inline",
+      "label": "g6a-verify-tsc",
+      "cmd": "bash -c cd /home/user/Upload-documents/studio && ./node_modules/.bin/tsc --noEmit -p tsconfig.json > /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/tsc.out 2>&1; echo exit=$? >> /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/tsc.out",
       "tsp_id": 32,
       "status": "done",
-      "mem_gb": 2.5,
-      "expected_gb": 0.05,
+      "mem_gb": 1.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-08T14:12:57Z",
+      "submitted": "2026-10-10T07:13:39Z",
       "exit": "0",
-      "updated": "2026-10-08T14:14:02Z"
+      "updated": "2026-10-10T07:13:45Z"
     },
     "33": {
       "label": "emphasis-S4:P04",
