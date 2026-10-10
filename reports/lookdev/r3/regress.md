@@ -13,9 +13,11 @@ Threshold: 8/255. Largest |delta| seen outside the allowed boxes was 3/255 (F6),
 | F4-hero | 2581 | 151,224-791,430 | 0 | 1 |
 | F5-standard | 76 | 402,95-421,133 | 0 | 0 |
 | F6-standard | 43475 | 97,93-665,472 | 0 | 3 |
-| F7-standard | 1332 | 188,132-272,159 | 0 | 0 |
+| F7-standard | 1327 | 188,132-272,159 | 0 | 0 |
 | F8-standard | 10064 | 292,40-900,148 | 0 | 2 |
 
 Boxes (1080p) map to the source diff 8f245ee..a3b86c1: F3 title join gap (Mix px); F4 two node label/note Mix call sites (galaxy.tsx 275/278, projected in 3D, so their screen boxes were read from the diff clusters and each cluster is a single text element); F5 `s` unit 0.42em->0.55em; F6 headline plus the RTL counter grid (193,184-1330,257 and 193,690-1330,944); F7 district tag `AI` (376,264-544,319); F8 carry line in two phrases (585,78-1800,296).
 
 Caveat: the F4 boxes are anchored on observed diff clusters, so for F4 the test proves "no other region changed" and that each cluster is one text element, not an independent position derivation. The other five were checked against source positions and are consistent. Also, `max_delta_outside` is not part of the verdict; the verdict is the count at 8/255.
+
+Refresh (job 31, after F7-standard_fix.jpg was re-rendered at 06:34, previous run 06:14): same method, same boxes, all 7 stills re-run. pass = true, 0 px outside. Only F7 moved: changed px 1332 -> 1327 (delta -5), bbox unchanged (188,132-272,159), outside 0, max delta outside 0. The other six items are identical to the previous run.
