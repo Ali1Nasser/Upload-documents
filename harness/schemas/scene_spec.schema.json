@@ -66,10 +66,9 @@
           "fx_tier": {
             "type": "string",
             "enum": [
-              "hero",
+              "lite",
               "standard",
-              "light",
-              "hold"
+              "hero"
             ]
           },
           "camera": {

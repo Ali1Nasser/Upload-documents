@@ -1,6 +1,6 @@
 # PHASE-06 (motion-engineer): P6 look-dev freeze, gate G6a
 
-**G6a: FAIL (6/8)** on `python3 tools/dc.py gate check G6a` → `reports/gates/G6a.json`. The checker is `harness/gates/g06a.py`.
+**G6a (latest, df2ee0d + freeze 2026-10-10T06:17Z): FAIL 7/8**; only the cond 1-2 checker lookup is left (see the last section). The earlier status was **FAIL (6/8)**, from `python3 tools/dc.py gate check G6a` → `reports/gates/G6a.json`. The checker is `harness/gates/g06a.py`.
 
 The look, the ADRs, the freeze and the render budget all pass. The two failing checks are the ADR-009 close conditions owned by other roles. No threshold is changed or waived here.
 
@@ -43,7 +43,7 @@ The look, the ADRs, the freeze and the render budget all pass. The two failing c
   - The pre-fix mp4 is kept at `data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4` (33 MB; delete after the diff).
 
 ## Open issues for P7/P8
-- **`fx_tier` naming mismatch**: `harness/schemas/scene_spec.schema.json` uses `fx_tier` enum `light`, while tokens and 04 use `lite`. harness-engineer should align it to `lite` before P8 specs are written.
+- ~~**`fx_tier` naming mismatch**~~ fixed in the freeze-close commit: the enum is now `lite | standard | hero` (it was `hero, standard, light, hold`).
 - **Canon drift**: the canon says `6 الـAI`, but the look-dev shows `6 AI`. The scene-director must decide or log an override (`arabic_r3.md` Open 1).
 - **Carried work**: AT-1..AT-10 from ADR-009, with AT-9 (plate bake cost and disk plan) blocking P10. `dc qa arabic` (AT-10) is still unimplemented, which blocks G6b and G8.
 
@@ -69,3 +69,21 @@ The look, the ADRs, the freeze and the render budget all pass. The two failing c
   3. **council-chair:** decide an ADR that amends ADR-009 B2 `JOIN_GAP`.
 - I did not revert `JOIN_GAP` to the B2 text (0.14 / 0.10). The measured OCR sweep showed those values still fuse the lam into the Latin word, so reverting would bring back blocker B2. It would also make the 7 fix stills and MD stale.
 - After 1-3 land, the motion-engineer re-runs `freeze_p6.py`, which must exit 0, and then runs `dc gate check G6a`.
+
+## Freeze closed after ADR-010, ADR-009 cond 3 (r4) and cond 4 (df2ee0d) (motion-engineer)
+- **ADR-010 = the implemented values** (display 0.20 / 0.25 em, text 0.25 / 0.30 em). `arabic.ts` is unchanged, so nothing was re-rendered.
+- **`freeze_p6.py` cond-3 check, aligned to the ADR-009 text** ("re-render F3..F8 and MD; a fresh review returns PASS"). The old check needed the *latest* `arabic_r*.md` to name all 8 artifacts. Coverage is split across two arabic-typographer PASS sections:
+  - the 7 `*_fix` stills: `arabic_r3.md` re-check (d6ac265 is newer than the stills at a3b86c1);
+  - MD: `arabic_r4.md` (84ad38b is newer than the strip at a773103).
+- **New rule:** for each artifact, the latest verdict section naming it must be PASS and committed after the artifact. A name matches either in full, or by its short ID (F4 = F4-standard) inside a section that scopes `_fix`. A later FAIL that names an artifact still re-opens it.
+- **`freeze_p6.py` record keeping:** it now writes `cond3_reviews` and adds the amending ADR to `adrs`.
+- **Result:** `status: frozen`, `frozen_at` 2026-10-10T06:17:31Z @ df2ee0d. The 227 hashes match the provisional set exactly (0 contract drift).
+- **`scene_spec.schema.json` `fx_tier`:** now `lite | standard | hero`. No spec used `light` or `hold`.
+- **`dc gate check G6a`: FAIL 7/8.** Freeze, cond 3 and cond 4 are ok. `ADR-009_cond_1_2_fixes_ocr` fails only because `g06a.py:177` looks for the `| B1 … | fixed |` row in the latest review (`arabic_r4`), and that row is in the `arabic_r3` re-check table. The OCR gate is 3/3 ≥ 0.90 and the type suite is 43 ok.
+  - **harness-engineer** owns `g06a.py` (ADR-010 follow-ups). Fix: search every `arabic_r*.md` PASS section for B1, as the freeze does now. Then re-run the gate.
+  - The motion-engineer did not edit the gate, because it grades motion-engineer work (golden rule 4).
+- **Still open:**
+  - AT-11 (P7, before G6b): motion-engineer renders the 34 px labels in motion.
+  - `dc qa arabic` (AT-10): harness-engineer.
+  - `6 الـAI` canon override: scene-director.
+  - Delete the 33 MB pre-fix mp4 now that the regress diff is done: render-ops.
