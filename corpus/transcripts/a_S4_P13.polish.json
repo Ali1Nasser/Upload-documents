@@ -2,7 +2,7 @@
   "v": 1,
   "audio_id": "a:S4:P13",
   "asr_words": 936,
-  "final_words": 905,
+  "final_words": 913,
   "edits": [
     {
       "op": "replace",
@@ -1232,9 +1232,39 @@
         895,
         895
       ]
+    },
+    {
+      "op": "insert",
+      "after_i": 451,
+      "after_i_basis": "final",
+      "text": "القسم الثالث معمارية FastAPI",
+      "why": "dropout",
+      "final": [
+        905,
+        908
+      ],
+      "stage": "F1",
+      "hole": "H2",
+      "whisper": "القسم الثالث معمارية Fast API",
+      "note": "section heading"
+    },
+    {
+      "op": "insert",
+      "after_i": 662,
+      "after_i_basis": "final",
+      "text": "القسم الخامس الحقن والحدود",
+      "why": "dropout",
+      "final": [
+        909,
+        912
+      ],
+      "stage": "F1",
+      "hole": "H3",
+      "whisper": "القسم الخامس الحقن والحدود",
+      "note": "section heading"
     }
   ],
-  "notes": "Narration is NotebookLM's own paraphrase of the P13 script (sc01-sc12); edits limited to terms, numbers and clear mishearings. Hyphen artifacts ('ال' + '-URL/-IDOR/-DNS/-HTTP/-connection/-authentication/-إنجكشن') merged into 'الـX'; standalone 'الـ' + Latin word left as two tokens. Terms Latinised per latin_terms: packets/packet, database, request, exploits, FastAPI ('Fast API', 'فاست اي بي آي'), api.shopflow, hop, app ('للأعب'), router/service/repository ('السيرفز والريبخوزتري'), method/path/headers/body/status, resource, status codes, client, uvicorn ('يوفي كورن'), port, CORS middleware, SQLAlchemy ('السيكوالالكيمي'), pool, session, limits, OpenAPI, token, authorization/authentication, order, query, data, parameterized/parameters. Spoken code normalised to on-screen form: i621-625 'get slash orders slash 1005' -> 'GET /orders/1005'; i655-661 'order.customerid equal equal current user id' -> 'order.customer_id == current_user.id'; i745/747 'where ... equal' -> 'WHERE ... ='. Numbers: 3.6 (i295-296 merged), بـ4/بـ5 (leading digit of status codes), خمسمية -> 500, خمسمية واربعة -> 504, تمن تلاف -> 8000 (uvicorn port, not in source excerpt but clearly spoken), عشرة -> 10 (pool_size=10). 'رقم واحد بس' (i8-9, 'just one number') and ordinals kept as words. Mishearings fixed: أمركم->عمركم, في خيخ->فخاخ, برماجة->برمجة, ضعت->ضاعت, بالزيت->بالذات, لها دفع->لهدفها, مصفحات->مصافحات, والمصار->والمسار, بتعد الجزء->بتعدل جزء, المعمرية->المعمارية, وموصوق->وموثوق, صارت/صغرة->ثغرة, وعد->وعدى, كرسة->كارثة, بالزبط->بالظبط, الإغراق->لإغراق, كلاء الزكاء->وكلاء الذكاء, الزكية->الذكية, وإمن->وآمن. Left as-is (uncertain): i362 'سبتة' (maybe 'ثابتة'/'أساسية'), i61-62 'ونشوفها يصمد' (likely 'ونشوفه بيصمد'), i275 'عن ناحية' (likely 'من ناحية'), i522 'بضمن' (maybe 'نضمن'), i628 'بتاعه' (likely 'بتاع'), i774 'بنحفظ على', i374 'انتروفيوهات', i457-458 'الباك اند' kept in Arabic script (backend not in latin_terms), i489 'حجم' kept (may have been 'size'). Content differences vs source: narration never says '/orders/1003' or 'القسم الثالث'/'القسم الخامس' headers; status codes listed are 400/401/404/429 and 500/504 (no 403/502). Possible dropout: 3.18 s gap after i691 before the injection section (likely a pause or an unrecognised 'القسم الخامس' header); no insert since the source does not make the words certain.",
+  "notes": "Narration is NotebookLM's own paraphrase of the P13 script (sc01-sc12); edits limited to terms, numbers and clear mishearings. Hyphen artifacts ('ال' + '-URL/-IDOR/-DNS/-HTTP/-connection/-authentication/-إنجكشن') merged into 'الـX'; standalone 'الـ' + Latin word left as two tokens. Terms Latinised per latin_terms: packets/packet, database, request, exploits, FastAPI ('Fast API', 'فاست اي بي آي'), api.shopflow, hop, app ('للأعب'), router/service/repository ('السيرفز والريبخوزتري'), method/path/headers/body/status, resource, status codes, client, uvicorn ('يوفي كورن'), port, CORS middleware, SQLAlchemy ('السيكوالالكيمي'), pool, session, limits, OpenAPI, token, authorization/authentication, order, query, data, parameterized/parameters. Spoken code normalised to on-screen form: i621-625 'get slash orders slash 1005' -> 'GET /orders/1005'; i655-661 'order.customerid equal equal current user id' -> 'order.customer_id == current_user.id'; i745/747 'where ... equal' -> 'WHERE ... ='. Numbers: 3.6 (i295-296 merged), بـ4/بـ5 (leading digit of status codes), خمسمية -> 500, خمسمية واربعة -> 504, تمن تلاف -> 8000 (uvicorn port, not in source excerpt but clearly spoken), عشرة -> 10 (pool_size=10). 'رقم واحد بس' (i8-9, 'just one number') and ordinals kept as words. Mishearings fixed: أمركم->عمركم, في خيخ->فخاخ, برماجة->برمجة, ضعت->ضاعت, بالزيت->بالذات, لها دفع->لهدفها, مصفحات->مصافحات, والمصار->والمسار, بتعد الجزء->بتعدل جزء, المعمرية->المعمارية, وموصوق->وموثوق, صارت/صغرة->ثغرة, وعد->وعدى, كرسة->كارثة, بالزبط->بالظبط, الإغراق->لإغراق, كلاء الزكاء->وكلاء الذكاء, الزكية->الذكية, وإمن->وآمن. Left as-is (uncertain): i362 'سبتة' (maybe 'ثابتة'/'أساسية'), i61-62 'ونشوفها يصمد' (likely 'ونشوفه بيصمد'), i275 'عن ناحية' (likely 'من ناحية'), i522 'بضمن' (maybe 'نضمن'), i628 'بتاعه' (likely 'بتاع'), i774 'بنحفظ على', i374 'انتروفيوهات', i457-458 'الباك اند' kept in Arabic script (backend not in latin_terms), i489 'حجم' kept (may have been 'size'). Content differences vs source: narration never says '/orders/1003' or 'القسم الثالث'/'القسم الخامس' headers; status codes listed are 400/401/404/429 and 500/504 (no 403/502). Possible dropout: 3.18 s gap after i691 before the injection section (likely a pause or an unrecognised 'القسم الخامس' header); no insert since the source does not make the words certain. | F1 (post-G5): 8 words inserted for audible speech the first pass dropped (ids 000905-000912, appended: published ids never move) and 0 existing spans re-timed; see corpus/transcripts/f1_holes.log.json.",
   "sentences": [
     {
       "from": 0,
@@ -2095,6 +2125,28 @@
       "terms": [],
       "numbers": [],
       "entities": []
+    },
+    {
+      "from": 905,
+      "to": 908,
+      "kind": "transition",
+      "gloss_en": "Section three: FastAPI architecture.",
+      "terms": [
+        "c:fastapi"
+      ],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
+    },
+    {
+      "from": 909,
+      "to": 912,
+      "kind": "transition",
+      "gloss_en": "Section five: injection and boundaries.",
+      "terms": [],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
     }
   ],
   "sentence_notes": [],

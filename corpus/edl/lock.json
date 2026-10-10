@@ -4,9 +4,9 @@
   "locked": "2026-10-09T16:27:15Z",
   "gate": "G5",
   "edl": "corpus/edl/master_edl.v1.json",
-  "edl_sha256": "a0c6902e6064f7912856af7c813c323834dff1fab324e476b58ba29994aff40e",
-  "word_map": "corpus/edl/word_map.v1.jsonl",
-  "word_map_sha256": "c5c37c1b11feadabcea658b2f66d8a44d48c5566f68375024f35218610c69548",
+  "edl_sha256": "f9ea31cba21ebc2d170d6bf86f102cdf7c0c8b1942b8994ec83a2dcba19ab173",
+  "word_map": "corpus/edl/word_map.v1.1.jsonl",
+  "word_map_sha256": "64c4fedadb70552ba1cb8181801aaf885733a3d8c605d5cc50db2b42a545f964",
   "vo": "data/derived/audio/master_vo_v1.flac",
   "vo_sha256": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
   "vo_bytes": 929515179,
@@ -16,12 +16,12 @@
   "fps_source": "ADR-002 Q2.1 (harness/state/decisions.json)",
   "frame_rule": "spans (words, segments, chapters): start_frame = floor(s*fps), end_frame = ceil(s*fps) from integer ms (timeutil.frame_start/frame_end); chapter end_frame = next chapter start_frame; seconds/ms are the truth",
   "sr": 48000,
-  "words": 29480,
+  "words": 29524,
   "word_map_checks": {
     "start_monotonic": true,
     "in_sentence_of_segment": true,
-    "source_overlaps_within_segment": 261,
-    "max_overlap_ms": 380,
+    "source_overlaps_within_segment": 255,
+    "max_overlap_ms": 1520,
     "overlaps_across_cuts": 0
   },
   "chapters": 73,
@@ -102,7 +102,8 @@
     "DD-P25": "7b539c70f9e146fb49134603bcb81c8de6c26aae9ab9e643ab9948a5befb5acb",
     "CH-36": "4faa5ad3133e1b91c7b0efce13e869ba4bdc23990077701e6e6c2f15fbac30ed"
   },
-  "relocked": "2026-10-09T21:43:36Z",
-  "relock_note": "ADR-002 F24 reconcile: fps 30 -> 24; EDL/word-map frames re-derived from unchanged ms (start floor, end ceil); features recomputed at 24 fps; VO, word ids and seconds unchanged",
-  "rule": "Picture follows this lock. Any change bumps the version (vN+1) and the compiler re-times specs; no manual nudges."
+  "relocked": "2026-10-10T06:58:24Z",
+  "relock_note": "F1/F5 (G5 verifier): word map v1.1 = v1 + 44 words for audible speech the first transcript dropped (9 spans, 32.06 s; 8 spans gained words, the 9th is the number token 125,847 re-timed) + 9 re-timed existing words; VO, cuts, frames, features, word ids unchanged",
+  "rule": "Picture follows this lock. Any change bumps the version (vN+1) and the compiler re-times specs; no manual nudges.",
+  "word_map_version": "v1.1"
 }

@@ -32827,3 +32827,21 @@
 {"v": 1, "src": "v:3a4493ecf0aa", "dst": "c:mobile-money", "type": "illustrates", "w": 0.5, "evidence": "caption concept tag"}
 {"v": 1, "src": "v:9f3381c93260", "dst": "c:duplicates", "type": "illustrates", "w": 0.5, "evidence": "caption concept tag"}
 {"v": 1, "src": "v:146fbeedc67d", "dst": "c:dashboard", "type": "illustrates", "w": 0.5, "evidence": "caption concept tag"}
+{"v": 1, "src": "a:S4:P02", "dst": "s:S4:P02:0067", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P02:0067", "dst": "iu:00858", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P13", "dst": "s:S4:P13:0071", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P13:0071", "dst": "iu:01779", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P13", "dst": "s:S4:P13:0072", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P13:0072", "dst": "iu:01797", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P14", "dst": "s:S4:P14:0085", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P14:0085", "dst": "iu:01858", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P19", "dst": "s:S4:P19:0095", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P19:0095", "dst": "iu:02280", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P19", "dst": "s:S4:P19:0096", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P19:0096", "dst": "iu:02280", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P17", "dst": "s:S4:P17:0092", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P17:0092", "dst": "iu:02097", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P17", "dst": "s:S4:P17:0093", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P17:0093", "dst": "iu:02101", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}
+{"v": 1, "src": "a:S4:P20", "dst": "s:S4:P20:0104", "type": "contains", "w": 1.0}
+{"v": 1, "src": "s:S4:P20:0104", "dst": "iu:02421", "type": "says", "w": 1.0, "evidence": "F1 hole sentence: heading/agenda/list attached to the unit of the sentence it belongs to (transcription-aligner)"}

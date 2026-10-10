@@ -2,7 +2,7 @@
   "v": 1,
   "audio_id": "a:S4:P14",
   "asr_words": 1101,
-  "final_words": 1052,
+  "final_words": 1060,
   "edits": [
     {
       "op": "replace",
@@ -2150,9 +2150,24 @@
         1048,
         1048
       ]
+    },
+    {
+      "op": "insert",
+      "after_i": 542,
+      "after_i_basis": "final",
+      "text": "where stock أكبر من أو يساوي question mark",
+      "why": "dropout",
+      "final": [
+        1052,
+        1059
+      ],
+      "stage": "F1",
+      "hole": "H4",
+      "whisper": "ورسطوك أكبر من أو يساوي question mark",
+      "note": "SQL condition read aloud; 'where stock' from 4 decodes + CTC score (and-stock scored worse)"
     }
   ],
-  "notes": "NotebookLM narration paraphrasing S4-P14 (request path Controller->Service->Repository->Connection Pool->DB; Python vs Java; Integer cache 127/128 and .equals; Streams vs pandas, parallel stream trap; JDBC steps, PreparedStatement, try-with-resources; manual transaction with conditional stock decrement and rollback; HikariCP pool of 10, request 11, pool exhausted; Spring Boot annotations; GlobalExceptionHandler 404/409/500; JPA N+1; Python threading/multiprocessing/asyncio vs Java threads; saga and compensation; teaser for ETLs/DAGs). It does not follow the script verbatim; source_excerpt used to confirm terms and figures. Terms: Arabic-script English converted to Latin with the source's الـ/و/لـ/بـ prefix style (backend, request, database, Java, Python, Streams, JDBC, transaction(s), Connection Pool, Spring Boot, concurrency, saga pattern, Controller, Service, Repository, business rules, SQL, GIL, dynamic/static typing, production scale, architecture, Integer cache, JVM, object, pandas, filter/map/groupingBy/sum, data sets, connection, PreparedStatement (merged 'Prepared Statement'), query/queries, ResultSet, block, try-with-resources, resources, auto commit, rollback, race conditions, connections, HikariCP, request, timeout, error, @Entity/@Service/@Transactional/@RestController (whisper heard 'Add' for spoken '@'), JpaRepository, GlobalExceptionHandler, JPA N+1 query trap, lazy loading, threading, I/O, multiprocessing, CPU, asyncio, threads, core, atomic safety, microservice, data pipelines, enterprise scale, ETLs, DAGs); 'Compailer'->'Compiler', 'Pull Exhausted'->'Pool Exhausted', 'Production Skill'->'production scale'. Numbers: 'ل80'->'لـ80'; 'ميت' (100) x3 -> 100 and 'مية واحد' -> 101 (N+1 example; source: ميّة عميل -> ميّة وواحد query). Spoken counts/ordinals left as words ('ست محطات', المحطة الثالثة/الرابعة/الخامسة/السادسة) but listed as digits in sentence numbers; 'سالب 128' listed as -128. Mishears fixed (meaning certain from context/source): مطباط->مطبات, خارط->خارطة, بيصطادر->بيصطاد, بدر->بدري, وفي خاخ->وفخاخ (x2; source فخاخ), عبقر->عبقري, نخص->نخصم (source خصم المخزون), بتعف->بتقف (Egyptian glottal ق), دخله->دخلوا, ومجغولين->ومشغولين (on-screen مشغولين), بنغبط في حطة سد->بنخبط في حيطة سد, ما كان مركزي->مكان مركزي, فيت عرض->فيه تعارض (409 CONFLICT), بيضمر->بيدمر, لضروة->لذروة, حيال->حيل, تلفه ودور->تلف وتدور, خزر->حذر, بيجبر->بيكبر, موصوق->موثوق. Egyptian pronunciation spellings kept (بالزبط, الزاكرة, الزهبية, زكي, هتعجبكو, حيفتح). Left as heard (uncertain, please spot-check audio): i71-73 'في خخص الريا' in the roadmap (likely 'فخاخ ...' = gotchas, maybe 'فخاخ صغيرة', but not certain); i549 'مندخل' (maybe 'بندخل'); i753 'نديل' (maybe 'نهندل'/'ندير'); i855 'الواحده' (maybe 'لوحده'); i498 'الأهمة' (maybe 'الأهم'); i950-951 'atomic safety' kept as heard (source talks about protecting shared data / thread-safe). Possible dropout: 3.2 s gap between i560 and i561 ('شرط زكي جدا' | 'لو الشرط...'), with i561 confidence 0.00; the source's condition ('قلّل بس لو الكمية كفاية') may have been spoken there but the exact words are not certain, so no insert. No inserts made.",
+  "notes": "NotebookLM narration paraphrasing S4-P14 (request path Controller->Service->Repository->Connection Pool->DB; Python vs Java; Integer cache 127/128 and .equals; Streams vs pandas, parallel stream trap; JDBC steps, PreparedStatement, try-with-resources; manual transaction with conditional stock decrement and rollback; HikariCP pool of 10, request 11, pool exhausted; Spring Boot annotations; GlobalExceptionHandler 404/409/500; JPA N+1; Python threading/multiprocessing/asyncio vs Java threads; saga and compensation; teaser for ETLs/DAGs). It does not follow the script verbatim; source_excerpt used to confirm terms and figures. Terms: Arabic-script English converted to Latin with the source's الـ/و/لـ/بـ prefix style (backend, request, database, Java, Python, Streams, JDBC, transaction(s), Connection Pool, Spring Boot, concurrency, saga pattern, Controller, Service, Repository, business rules, SQL, GIL, dynamic/static typing, production scale, architecture, Integer cache, JVM, object, pandas, filter/map/groupingBy/sum, data sets, connection, PreparedStatement (merged 'Prepared Statement'), query/queries, ResultSet, block, try-with-resources, resources, auto commit, rollback, race conditions, connections, HikariCP, request, timeout, error, @Entity/@Service/@Transactional/@RestController (whisper heard 'Add' for spoken '@'), JpaRepository, GlobalExceptionHandler, JPA N+1 query trap, lazy loading, threading, I/O, multiprocessing, CPU, asyncio, threads, core, atomic safety, microservice, data pipelines, enterprise scale, ETLs, DAGs); 'Compailer'->'Compiler', 'Pull Exhausted'->'Pool Exhausted', 'Production Skill'->'production scale'. Numbers: 'ل80'->'لـ80'; 'ميت' (100) x3 -> 100 and 'مية واحد' -> 101 (N+1 example; source: ميّة عميل -> ميّة وواحد query). Spoken counts/ordinals left as words ('ست محطات', المحطة الثالثة/الرابعة/الخامسة/السادسة) but listed as digits in sentence numbers; 'سالب 128' listed as -128. Mishears fixed (meaning certain from context/source): مطباط->مطبات, خارط->خارطة, بيصطادر->بيصطاد, بدر->بدري, وفي خاخ->وفخاخ (x2; source فخاخ), عبقر->عبقري, نخص->نخصم (source خصم المخزون), بتعف->بتقف (Egyptian glottal ق), دخله->دخلوا, ومجغولين->ومشغولين (on-screen مشغولين), بنغبط في حطة سد->بنخبط في حيطة سد, ما كان مركزي->مكان مركزي, فيت عرض->فيه تعارض (409 CONFLICT), بيضمر->بيدمر, لضروة->لذروة, حيال->حيل, تلفه ودور->تلف وتدور, خزر->حذر, بيجبر->بيكبر, موصوق->موثوق. Egyptian pronunciation spellings kept (بالزبط, الزاكرة, الزهبية, زكي, هتعجبكو, حيفتح). Left as heard (uncertain, please spot-check audio): i71-73 'في خخص الريا' in the roadmap (likely 'فخاخ ...' = gotchas, maybe 'فخاخ صغيرة', but not certain); i549 'مندخل' (maybe 'بندخل'); i753 'نديل' (maybe 'نهندل'/'ندير'); i855 'الواحده' (maybe 'لوحده'); i498 'الأهمة' (maybe 'الأهم'); i950-951 'atomic safety' kept as heard (source talks about protecting shared data / thread-safe). Possible dropout: 3.2 s gap between i560 and i561 ('شرط زكي جدا' | 'لو الشرط...'), with i561 confidence 0.00; the source's condition ('قلّل بس لو الكمية كفاية') may have been spoken there but the exact words are not certain, so no insert. No inserts made. | F1 (post-G5): 8 words inserted for audible speech the first pass dropped (ids 001052-001059, appended: published ids never move) and 0 existing spans re-timed; see corpus/transcripts/f1_holes.log.json.",
   "sentences": [
     {
       "from": 0,
@@ -3234,6 +3249,19 @@
       ],
       "numbers": [],
       "entities": []
+    },
+    {
+      "from": 1052,
+      "to": 1059,
+      "kind": "example",
+      "gloss_en": "The condition read aloud: where stock is greater than or equal to question mark.",
+      "terms": [
+        "c:where",
+        "c:stock"
+      ],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
     }
   ],
   "sentence_notes": [],

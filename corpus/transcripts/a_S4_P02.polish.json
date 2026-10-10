@@ -2,7 +2,7 @@
   "v": 1,
   "audio_id": "a:S4:P02",
   "asr_words": 907,
-  "final_words": 889,
+  "final_words": 892,
   "edits": [
     {
       "op": "replace",
@@ -1316,9 +1316,45 @@
         878,
         878
       ]
+    },
+    {
+      "op": "retime",
+      "i": 265,
+      "orig": "القسم",
+      "orig_ms": [
+        114160,
+        114180
+      ],
+      "new_ms": [
+        114080,
+        114400
+      ],
+      "why": "align",
+      "final": [
+        265,
+        265
+      ],
+      "stage": "F1",
+      "note": "F1: stray 20 ms span (conf .14) in a heading; xlsr53 and whisper agree on 114.08-114.40 s",
+      "by": "single"
+    },
+    {
+      "op": "insert",
+      "after_i": 266,
+      "after_i_basis": "final",
+      "text": "الـdata الـbytes والـencoding",
+      "why": "dropout",
+      "final": [
+        889,
+        891
+      ],
+      "stage": "F1",
+      "hole": "H1",
+      "whisper": "الديتا البارتس والإنكورينج",
+      "note": "heading after 'القسم الثاني' (sentence 0018); 'البارتس' heard as bytes/bits/parts, bytes chosen from context (low confidence)"
     }
   ],
-  "notes": "Edits: 127 word-level fixes. Technical terms now in Latin (CPU, RAM, disk, fetch/decode/execute, instruction pointer, process, nanoseconds/microseconds/milliseconds, latency, index, Spark, cache, bits/bytes, café, encoding, UTF-8, é, crash, UnicodeDecodeError, extension, absolute/relative path, root, slash, state, pwd, cd data, ls -la, pipes, redirection, Unix, stdout/stdin, cat, grep, wc, shell, output, PATH, history, --version, commit, repository, terminal). Multi-token terms are merged into the first index and later indices set to ''. Source-proven mishears: 'اللي تنسي'->'الـlatency' (on-screen latency counter), 'البعض'->'الـbytes' (file = bytes), 'العالي'->'اللي عليه' (accented letter), 'دماره أكيدا'->'ضمانة أكيدة' (not a guarantee), 'AdPass'->'PATH', 'Dash -Virgin'->'--version', 'to'->'2' and 'def'->'dev' (2>/dev/null), 'أداء'->'أداة' (tool like Spark), 'بنقبل'->'بنقابل', 'القرية'->'القراية', 'المصاري'->'المسار', 'الجزر'->'الجذر'. Whisper non-words corrected in place (المكانة/المجنة->المكنة x6, هنغوز, طلاصم, المعمرية, والمصارات, وتجيز, سنية->ثانية, بيدرها, ببساطة, جوى, وقفين, بالزبط, العبقارية, الفشلة, منتحة, وعلمتين, وآدات, الخضاء, نتعامك, جهزة, ننسخة, بتتبيني). Number: 'أربع'->'4' (café = 4 letters). Kept as spoken (Arabic in source too): الداتا/الديتا, الميموري, قواعد البيانات, التعليمة, الكمبيوتر; 'byte 1' kept in spoken order. Not changed (uncertain, flag for review): i73 'الامر' likely 'أوامر' (terminal commands); i498 'الفولدر' likely 'لفولدر'; i592 'جريف' (unclear: 'في'/'grep'?); i717 'العمل' possibly 'العطل' (source sc10 'العطل'). Fact-check flag: i143-147 says the instruction pointer steps 'every ~700 milliseconds' - not in source; likely describes the on-screen step animation, kept as said. Possible dropout: 5.16 s silence before i371 between the encoding block and the file/path block; the narration has 'القسم الثاني', 'الرابع', 'الخامس', 'السادس' but no 'القسم الثالث', so a section-3 heading was probably spoken there. Not inserted because the source_excerpt does not make the words certain; check audio. Also 3.04 s pause after i275 (section-2 title card). No inserts.",
+  "notes": "Edits: 127 word-level fixes. Technical terms now in Latin (CPU, RAM, disk, fetch/decode/execute, instruction pointer, process, nanoseconds/microseconds/milliseconds, latency, index, Spark, cache, bits/bytes, café, encoding, UTF-8, é, crash, UnicodeDecodeError, extension, absolute/relative path, root, slash, state, pwd, cd data, ls -la, pipes, redirection, Unix, stdout/stdin, cat, grep, wc, shell, output, PATH, history, --version, commit, repository, terminal). Multi-token terms are merged into the first index and later indices set to ''. Source-proven mishears: 'اللي تنسي'->'الـlatency' (on-screen latency counter), 'البعض'->'الـbytes' (file = bytes), 'العالي'->'اللي عليه' (accented letter), 'دماره أكيدا'->'ضمانة أكيدة' (not a guarantee), 'AdPass'->'PATH', 'Dash -Virgin'->'--version', 'to'->'2' and 'def'->'dev' (2>/dev/null), 'أداء'->'أداة' (tool like Spark), 'بنقبل'->'بنقابل', 'القرية'->'القراية', 'المصاري'->'المسار', 'الجزر'->'الجذر'. Whisper non-words corrected in place (المكانة/المجنة->المكنة x6, هنغوز, طلاصم, المعمرية, والمصارات, وتجيز, سنية->ثانية, بيدرها, ببساطة, جوى, وقفين, بالزبط, العبقارية, الفشلة, منتحة, وعلمتين, وآدات, الخضاء, نتعامك, جهزة, ننسخة, بتتبيني). Number: 'أربع'->'4' (café = 4 letters). Kept as spoken (Arabic in source too): الداتا/الديتا, الميموري, قواعد البيانات, التعليمة, الكمبيوتر; 'byte 1' kept in spoken order. Not changed (uncertain, flag for review): i73 'الامر' likely 'أوامر' (terminal commands); i498 'الفولدر' likely 'لفولدر'; i592 'جريف' (unclear: 'في'/'grep'?); i717 'العمل' possibly 'العطل' (source sc10 'العطل'). Fact-check flag: i143-147 says the instruction pointer steps 'every ~700 milliseconds' - not in source; likely describes the on-screen step animation, kept as said. Possible dropout: 5.16 s silence before i371 between the encoding block and the file/path block; the narration has 'القسم الثاني', 'الرابع', 'الخامس', 'السادس' but no 'القسم الثالث', so a section-3 heading was probably spoken there. Not inserted because the source_excerpt does not make the words certain; check audio. Also 3.04 s pause after i275 (section-2 title card). No inserts. | F1 (post-G5): 3 words inserted for audible speech the first pass dropped (ids 000889-000891, appended: published ids never move) and 1 existing spans re-timed; see corpus/transcripts/f1_holes.log.json.",
   "sentences": [
     {
       "from": 0,
@@ -2078,6 +2114,20 @@
       "terms": [],
       "numbers": [],
       "entities": []
+    },
+    {
+      "from": 889,
+      "to": 891,
+      "kind": "transition",
+      "gloss_en": "Section two: data, bytes and encoding.",
+      "terms": [
+        "c:data",
+        "c:bytes",
+        "c:encoding"
+      ],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
     }
   ],
   "sentence_notes": [],

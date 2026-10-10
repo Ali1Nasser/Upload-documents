@@ -25,12 +25,12 @@
     {
       "name": "s4_transcribed_polished_aligned",
       "pass": true,
-      "detail": "27/27 parts, 30460 words, median conf 0.835 (min part 0.778; parts < 0.75: none), missing asr/polish logs none"
+      "detail": "27/27 parts, 30504 words, median conf 0.835 (min part 0.779; parts < 0.75: none), missing asr/polish logs none"
     },
     {
       "name": "polish_edits_logged",
       "pass": true,
-      "detail": "3895 replace/delete + 5 insert edits logged with original token indices in corpus/transcripts/a_S4_*.polish.json; malformed entries none"
+      "detail": "3904 replace/delete + 14 insert edits logged with original token indices in corpus/transcripts/a_S4_*.polish.json; malformed entries none"
     },
     {
       "name": "two_aligner_agreement",
@@ -60,7 +60,7 @@
     {
       "name": "sentences_and_emphasis",
       "pass": true,
-      "detail": "S1 + S4: 3126 sentences in 28 audio files (S1 562), impact words on 3120 of them; problems none"
+      "detail": "S1 + S4: 3135 sentences in 28 audio files (S1 562), impact words on 3129 of them; problems none"
     },
     {
       "name": "schemas_and_word_ids",
@@ -68,5 +68,5 @@
       "detail": "198 files validated; schema errors none; files with non-sequential or duplicate word ids none"
     }
   ],
-  "created": "2026-10-08T14:50:34Z"
+  "created": "2026-10-10T06:59:54Z"
 }

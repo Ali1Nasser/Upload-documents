@@ -1,0 +1,1306 @@
+{
+  "v": 1,
+  "created": "2026-10-10T06:58:24Z",
+  "by": "transcription-aligner",
+  "task": "G5 verifier F1 (untranscribed audible speech) + F5 (DD-P17 alignment)",
+  "vo_sha256": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
+  "new_words": 44,
+  "new_sentences": 9,
+  "retimed_words": 9,
+  "word_map_holes_gt_2500_before": 9,
+  "word_map_holes_gt_2500_after": 0,
+  "holes": [
+    {
+      "hole": "H1",
+      "audio_id": "a:S4:P02",
+      "whisper": "الديتا البارتس والإنكورينج",
+      "text": "الـdata الـbytes والـencoding",
+      "words": [
+        "w:S4:P02:000889",
+        "w:S4:P02:000891"
+      ],
+      "sent_id": "s:S4:P02:0067",
+      "src_ms": [
+        115120,
+        117180
+      ],
+      "after_word": "w:S4:P02:000266",
+      "idea_unit": "iu:00858",
+      "note": "heading after 'القسم الثاني' (sentence 0018); 'البارتس' heard as bytes/bits/parts, bytes chosen from context (low confidence)"
+    },
+    {
+      "hole": "H2",
+      "audio_id": "a:S4:P13",
+      "whisper": "القسم الثالث معمارية Fast API",
+      "text": "القسم الثالث معمارية FastAPI",
+      "words": [
+        "w:S4:P13:000905",
+        "w:S4:P13:000908"
+      ],
+      "sent_id": "s:S4:P13:0071",
+      "src_ms": [
+        211260,
+        214020
+      ],
+      "after_word": "w:S4:P13:000451",
+      "idea_unit": "iu:01779",
+      "note": "section heading"
+    },
+    {
+      "hole": "H3",
+      "audio_id": "a:S4:P13",
+      "whisper": "القسم الخامس الحقن والحدود",
+      "text": "القسم الخامس الحقن والحدود",
+      "words": [
+        "w:S4:P13:000909",
+        "w:S4:P13:000912"
+      ],
+      "sent_id": "s:S4:P13:0072",
+      "src_ms": [
+        319960,
+        322480
+      ],
+      "after_word": "w:S4:P13:000662",
+      "idea_unit": "iu:01797",
+      "note": "section heading"
+    },
+    {
+      "hole": "H4",
+      "audio_id": "a:S4:P14",
+      "whisper": "ورسطوك أكبر من أو يساوي question mark",
+      "text": "where stock أكبر من أو يساوي question mark",
+      "words": [
+        "w:S4:P14:001052",
+        "w:S4:P14:001059"
+      ],
+      "sent_id": "s:S4:P14:0085",
+      "src_ms": [
+        246800,
+        249520
+      ],
+      "after_word": "w:S4:P14:000542",
+      "idea_unit": "iu:01858",
+      "note": "SQL condition read aloud; 'where stock' from 4 decodes + CTC score (and-stock scored worse)"
+    },
+    {
+      "hole": "H5a",
+      "audio_id": "a:S4:P19",
+      "whisper": "واحد أساسيات الستريمينج والكافكا",
+      "text": "واحد أساسيات الـstreaming والـKafka",
+      "words": [
+        "w:S4:P19:001162",
+        "w:S4:P19:001165"
+      ],
+      "sent_id": "s:S4:P19:0095",
+      "src_ms": [
+        24840,
+        26940
+      ],
+      "after_word": "w:S4:P19:000065",
+      "idea_unit": "iu:02280",
+      "note": "agenda"
+    },
+    {
+      "hole": "H5b",
+      "audio_id": "a:S4:P19",
+      "whisper": "اتنين الأعطال والسكيماز والكود",
+      "text": "اتنين الأعطال والـschemas والكود",
+      "words": [
+        "w:S4:P19:001166",
+        "w:S4:P19:001169"
+      ],
+      "sent_id": "s:S4:P19:0096",
+      "src_ms": [
+        27440,
+        29700
+      ],
+      "after_word": "w:S4:P19:000065",
+      "idea_unit": "iu:02280",
+      "note": "agenda; second item is in the next EDL segment"
+    },
+    {
+      "hole": "H6",
+      "audio_id": "a:S4:P17",
+      "whisper": "صف واحد لكل معاملة أو One Row Per Transaction",
+      "text": "صف واحد لكل معاملة أو one row per transaction",
+      "words": [
+        "w:S4:P17:000997",
+        "w:S4:P17:001005"
+      ],
+      "sent_id": "s:S4:P17:0092",
+      "src_ms": [
+        164180,
+        167220
+      ],
+      "after_word": "w:S4:P17:000369",
+      "idea_unit": "iu:02097",
+      "note": "the grain principle itself"
+    },
+    {
+      "hole": "H7",
+      "audio_id": "a:S4:P17",
+      "whisper": "transactions, revenue, subscribers, agents,",
+      "text": "transactions revenue subscribers agents",
+      "words": [
+        "w:S4:P17:001006",
+        "w:S4:P17:001009"
+      ],
+      "sent_id": "s:S4:P17:0093",
+      "src_ms": [
+        187080,
+        190670
+      ],
+      "after_word": "w:S4:P17:000417",
+      "idea_unit": "iu:02101",
+      "note": "spoken English list; whisper hallucinated subtitle boilerplate over it in the first pass"
+    },
+    {
+      "hole": "H9",
+      "audio_id": "a:S4:P20",
+      "whisper": "السيكيريتي والديزاستر ريكاوري دريل",
+      "text": "الـsecurity والـdisaster recovery drill",
+      "words": [
+        "w:S4:P20:000994",
+        "w:S4:P20:000997"
+      ],
+      "sent_id": "s:S4:P20:0104",
+      "src_ms": [
+        280920,
+        283140
+      ],
+      "after_word": "w:S4:P20:000612",
+      "idea_unit": "iu:02421",
+      "note": "section heading"
+    }
+  ],
+  "retimes": [
+    {
+      "word_id": "w:S4:P02:000265",
+      "text": "القسم",
+      "old": [
+        114160,
+        114180,
+        0.1364
+      ],
+      "new": [
+        114080,
+        114400,
+        0.852
+      ],
+      "by": "single",
+      "why": "F1: stray 20 ms span (conf .14) in a heading; xlsr53 and whisper agree on 114.08-114.40 s",
+      "seg": "seg-0054"
+    },
+    {
+      "word_id": "w:S4:P17:000241",
+      "text": "واللي",
+      "old": [
+        105100,
+        105920,
+        0.4088
+      ],
+      "new": [
+        105820,
+        105920,
+        0.404
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0494"
+    },
+    {
+      "word_id": "w:S4:P17:000299",
+      "text": "الـ",
+      "old": [
+        132220,
+        132240,
+        0.4868
+      ],
+      "new": [
+        132640,
+        132700,
+        0.964
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0494"
+    },
+    {
+      "word_id": "w:S4:P17:000307",
+      "text": "اللي",
+      "old": [
+        135700,
+        136040,
+        0.4704
+      ],
+      "new": [
+        135960,
+        136040,
+        0.37
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0494"
+    },
+    {
+      "word_id": "w:S4:P17:000334",
+      "text": "فايب",
+      "old": [
+        147260,
+        148700,
+        0.0266
+      ],
+      "new": [
+        148420,
+        148700,
+        0.018
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0494"
+    },
+    {
+      "word_id": "w:S4:P17:000363",
+      "text": "واللي",
+      "old": [
+        160520,
+        160800,
+        0.3805
+      ],
+      "new": [
+        160680,
+        160800,
+        0.388
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0494"
+    },
+    {
+      "word_id": "w:S4:P17:000770",
+      "text": "الـCentral",
+      "old": [
+        354540,
+        355880,
+        0.6897
+      ],
+      "new": [
+        354300,
+        355880,
+        0.797
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0496"
+    },
+    {
+      "word_id": "w:S4:P17:000855",
+      "text": "على",
+      "old": [
+        399260,
+        399280,
+        0.2657
+      ],
+      "new": [
+        400020,
+        400040,
+        0.135
+      ],
+      "by": "mms(agree)",
+      "why": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "seg": "seg-0498"
+    },
+    {
+      "word_id": "w:S4:P17:000795",
+      "text": "125,847",
+      "old": [
+        369200,
+        369400,
+        0.0458
+      ],
+      "new": [
+        369920,
+        372260,
+        0.01
+      ],
+      "by": "mms(agree)",
+      "why": "F1/F5: spoken number 'مية خمسة وعشرين ألف تمنمية سبعة وأربعين' occupies 369.92-372.26 s (both aligners); stored span was 200 ms on the previous word",
+      "seg": "seg-0497"
+    }
+  ],
+  "word_decisions": [
+    {
+      "word_id": "w:S4:P02:000889",
+      "hole": "H1",
+      "text": "الـdata",
+      "mms": [
+        115120,
+        115540,
+        0.382
+      ],
+      "xlsr53": [
+        115080,
+        115560,
+        0.649
+      ],
+      "chosen": [
+        115120,
+        115540,
+        0.382
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P02:000890",
+      "hole": "H1",
+      "text": "الـbytes",
+      "mms": [
+        115840,
+        116360,
+        0.352
+      ],
+      "xlsr53": [
+        115800,
+        116340,
+        0.577
+      ],
+      "chosen": [
+        115840,
+        116360,
+        0.352
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P02:000891",
+      "hole": "H1",
+      "text": "والـencoding",
+      "mms": [
+        116500,
+        117180,
+        0.356
+      ],
+      "xlsr53": [
+        116500,
+        117220,
+        0.576
+      ],
+      "chosen": [
+        116500,
+        117180,
+        0.356
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P13:000905",
+      "hole": "H2",
+      "text": "القسم",
+      "mms": [
+        211260,
+        211580,
+        0.517
+      ],
+      "xlsr53": [
+        211280,
+        211580,
+        0.999
+      ],
+      "chosen": [
+        211260,
+        211580,
+        0.517
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P13:000906",
+      "hole": "H2",
+      "text": "الثالث",
+      "mms": [
+        211640,
+        211880,
+        0.24
+      ],
+      "xlsr53": [
+        211640,
+        212020,
+        0.503
+      ],
+      "chosen": [
+        211640,
+        212020,
+        0.503
+      ],
+      "by": "xlsr53(higher conf)",
+      "disagree_ms": 140
+    },
+    {
+      "word_id": "w:S4:P13:000907",
+      "hole": "H2",
+      "text": "معمارية",
+      "mms": [
+        212320,
+        212860,
+        0.281
+      ],
+      "xlsr53": [
+        212320,
+        212960,
+        0.881
+      ],
+      "chosen": [
+        212320,
+        212860,
+        0.281
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 100
+    },
+    {
+      "word_id": "w:S4:P13:000908",
+      "hole": "H2",
+      "text": "FastAPI",
+      "mms": [
+        213100,
+        213540,
+        0.168
+      ],
+      "xlsr53": [
+        213120,
+        214020,
+        0.681
+      ],
+      "chosen": [
+        213120,
+        214020,
+        0.681
+      ],
+      "by": "xlsr53(higher conf)",
+      "disagree_ms": 480
+    },
+    {
+      "word_id": "w:S4:P13:000909",
+      "hole": "H3",
+      "text": "القسم",
+      "mms": [
+        319960,
+        320360,
+        0.861
+      ],
+      "xlsr53": [
+        320020,
+        320340,
+        0.821
+      ],
+      "chosen": [
+        319960,
+        320360,
+        0.861
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 60
+    },
+    {
+      "word_id": "w:S4:P13:000910",
+      "hole": "H3",
+      "text": "الخامس",
+      "mms": [
+        320400,
+        320840,
+        0.866
+      ],
+      "xlsr53": [
+        320400,
+        320840,
+        0.858
+      ],
+      "chosen": [
+        320400,
+        320840,
+        0.866
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    },
+    {
+      "word_id": "w:S4:P13:000911",
+      "hole": "H3",
+      "text": "الحقن",
+      "mms": [
+        321240,
+        321640,
+        0.565
+      ],
+      "xlsr53": [
+        321260,
+        321640,
+        0.783
+      ],
+      "chosen": [
+        321240,
+        321640,
+        0.565
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P13:000912",
+      "hole": "H3",
+      "text": "والحدود",
+      "mms": [
+        321940,
+        322480,
+        0.856
+      ],
+      "xlsr53": [
+        321940,
+        322500,
+        1.0
+      ],
+      "chosen": [
+        321940,
+        322480,
+        0.856
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P14:001052",
+      "hole": "H4",
+      "text": "where",
+      "mms": [
+        246800,
+        246940,
+        0.496
+      ],
+      "xlsr53": [
+        246800,
+        246920,
+        0.714
+      ],
+      "chosen": [
+        246800,
+        246940,
+        0.496
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P14:001053",
+      "hole": "H4",
+      "text": "stock",
+      "mms": [
+        247020,
+        247260,
+        0.743
+      ],
+      "xlsr53": [
+        247020,
+        247280,
+        0.53
+      ],
+      "chosen": [
+        247020,
+        247260,
+        0.743
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P14:001054",
+      "hole": "H4",
+      "text": "أكبر",
+      "mms": [
+        247860,
+        248100,
+        0.941
+      ],
+      "xlsr53": [
+        247820,
+        248100,
+        0.753
+      ],
+      "chosen": [
+        247860,
+        248100,
+        0.941
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P14:001055",
+      "hole": "H4",
+      "text": "من",
+      "mms": [
+        248140,
+        248260,
+        0.974
+      ],
+      "xlsr53": [
+        248160,
+        248240,
+        1.0
+      ],
+      "chosen": [
+        248140,
+        248260,
+        0.974
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P14:001056",
+      "hole": "H4",
+      "text": "أو",
+      "mms": [
+        248360,
+        248440,
+        0.99
+      ],
+      "xlsr53": [
+        248320,
+        248420,
+        1.0
+      ],
+      "chosen": [
+        248360,
+        248440,
+        0.99
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P14:001057",
+      "hole": "H4",
+      "text": "يساوي",
+      "mms": [
+        248500,
+        248840,
+        0.97
+      ],
+      "xlsr53": [
+        248480,
+        248860,
+        1.0
+      ],
+      "chosen": [
+        248500,
+        248840,
+        0.97
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P14:001058",
+      "hole": "H4",
+      "text": "question",
+      "mms": [
+        248960,
+        249220,
+        0.593
+      ],
+      "xlsr53": [
+        248960,
+        249220,
+        0.571
+      ],
+      "chosen": [
+        248960,
+        249220,
+        0.593
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    },
+    {
+      "word_id": "w:S4:P14:001059",
+      "hole": "H4",
+      "text": "mark",
+      "mms": [
+        249320,
+        249520,
+        0.794
+      ],
+      "xlsr53": [
+        249320,
+        249520,
+        0.76
+      ],
+      "chosen": [
+        249320,
+        249520,
+        0.794
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    },
+    {
+      "word_id": "w:S4:P19:001162",
+      "hole": "H5a",
+      "text": "واحد",
+      "mms": [
+        24840,
+        25140,
+        0.986
+      ],
+      "xlsr53": [
+        24840,
+        25140,
+        1.0
+      ],
+      "chosen": [
+        24840,
+        25140,
+        0.986
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    },
+    {
+      "word_id": "w:S4:P19:001163",
+      "hole": "H5a",
+      "text": "أساسيات",
+      "mms": [
+        25520,
+        25920,
+        0.963
+      ],
+      "xlsr53": [
+        25480,
+        25920,
+        0.876
+      ],
+      "chosen": [
+        25520,
+        25920,
+        0.963
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P19:001164",
+      "hole": "H5a",
+      "text": "الـstreaming",
+      "mms": [
+        26000,
+        26440,
+        0.61
+      ],
+      "xlsr53": [
+        25960,
+        26420,
+        0.661
+      ],
+      "chosen": [
+        26000,
+        26440,
+        0.61
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P19:001165",
+      "hole": "H5a",
+      "text": "والـKafka",
+      "mms": [
+        26560,
+        26940,
+        0.85
+      ],
+      "xlsr53": [
+        26560,
+        26980,
+        0.862
+      ],
+      "chosen": [
+        26560,
+        26940,
+        0.85
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P19:001166",
+      "hole": "H5b",
+      "text": "اتنين",
+      "mms": [
+        27440,
+        27780,
+        0.921
+      ],
+      "xlsr53": [
+        27400,
+        27760,
+        0.794
+      ],
+      "chosen": [
+        27440,
+        27780,
+        0.921
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P19:001167",
+      "hole": "H5b",
+      "text": "الأعطال",
+      "mms": [
+        28200,
+        28720,
+        0.978
+      ],
+      "xlsr53": [
+        28220,
+        28700,
+        0.852
+      ],
+      "chosen": [
+        28200,
+        28720,
+        0.978
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P19:001168",
+      "hole": "H5b",
+      "text": "والـschemas",
+      "mms": [
+        28800,
+        29260,
+        0.591
+      ],
+      "xlsr53": [
+        28800,
+        29320,
+        0.558
+      ],
+      "chosen": [
+        28800,
+        29260,
+        0.591
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 60
+    },
+    {
+      "word_id": "w:S4:P19:001169",
+      "hole": "H5b",
+      "text": "والكود",
+      "mms": [
+        29360,
+        29700,
+        0.955
+      ],
+      "xlsr53": [
+        29360,
+        29720,
+        0.921
+      ],
+      "chosen": [
+        29360,
+        29700,
+        0.955
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P17:000997",
+      "hole": "H6",
+      "text": "صف",
+      "mms": [
+        164180,
+        164380,
+        0.975
+      ],
+      "xlsr53": [
+        164180,
+        164380,
+        1.0
+      ],
+      "chosen": [
+        164180,
+        164380,
+        0.975
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    },
+    {
+      "word_id": "w:S4:P17:000998",
+      "hole": "H6",
+      "text": "واحد",
+      "mms": [
+        164500,
+        164780,
+        0.985
+      ],
+      "xlsr53": [
+        164500,
+        164760,
+        1.0
+      ],
+      "chosen": [
+        164500,
+        164780,
+        0.985
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P17:000999",
+      "hole": "H6",
+      "text": "لكل",
+      "mms": [
+        164820,
+        165060,
+        0.98
+      ],
+      "xlsr53": [
+        164840,
+        165040,
+        0.996
+      ],
+      "chosen": [
+        164820,
+        165060,
+        0.98
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P17:001000",
+      "hole": "H6",
+      "text": "معاملة",
+      "mms": [
+        165140,
+        165420,
+        0.796
+      ],
+      "xlsr53": [
+        165120,
+        165460,
+        0.833
+      ],
+      "chosen": [
+        165140,
+        165420,
+        0.796
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P17:001001",
+      "hole": "H6",
+      "text": "أو",
+      "mms": [
+        165780,
+        165900,
+        0.969
+      ],
+      "xlsr53": [
+        165740,
+        165880,
+        1.0
+      ],
+      "chosen": [
+        165780,
+        165900,
+        0.969
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P17:001002",
+      "hole": "H6",
+      "text": "one",
+      "mms": [
+        166320,
+        166340,
+        0.314
+      ],
+      "xlsr53": [
+        166160,
+        166380,
+        0.667
+      ],
+      "chosen": [
+        166160,
+        166380,
+        0.667
+      ],
+      "by": "xlsr53(higher conf)",
+      "disagree_ms": 160
+    },
+    {
+      "word_id": "w:S4:P17:001003",
+      "hole": "H6",
+      "text": "row",
+      "mms": [
+        166420,
+        166520,
+        0.47
+      ],
+      "xlsr53": [
+        166400,
+        166540,
+        0.667
+      ],
+      "chosen": [
+        166420,
+        166520,
+        0.47
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P17:001004",
+      "hole": "H6",
+      "text": "per",
+      "mms": [
+        166600,
+        166720,
+        0.644
+      ],
+      "xlsr53": [
+        166620,
+        166740,
+        0.667
+      ],
+      "chosen": [
+        166600,
+        166720,
+        0.644
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P17:001005",
+      "hole": "H6",
+      "text": "transaction",
+      "mms": [
+        166780,
+        167220,
+        0.629
+      ],
+      "xlsr53": [
+        166780,
+        167200,
+        0.519
+      ],
+      "chosen": [
+        166780,
+        167220,
+        0.629
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P17:001006",
+      "hole": "H7",
+      "text": "transactions",
+      "mms": [
+        187080,
+        187780,
+        0.735
+      ],
+      "xlsr53": [
+        187080,
+        187740,
+        0.581
+      ],
+      "chosen": [
+        187080,
+        187780,
+        0.735
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P17:001007",
+      "hole": "H7",
+      "text": "revenue",
+      "mms": [
+        188260,
+        188520,
+        0.404
+      ],
+      "xlsr53": [
+        188260,
+        188680,
+        0.436
+      ],
+      "chosen": [
+        188260,
+        188600,
+        0.42
+      ],
+      "by": "mean",
+      "disagree_ms": 160
+    },
+    {
+      "word_id": "w:S4:P17:001008",
+      "hole": "H7",
+      "text": "subscribers",
+      "mms": [
+        189120,
+        189760,
+        0.636
+      ],
+      "xlsr53": [
+        189080,
+        189740,
+        0.602
+      ],
+      "chosen": [
+        189120,
+        189760,
+        0.636
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P17:001009",
+      "hole": "H7",
+      "text": "agents",
+      "mms": [
+        190300,
+        190680,
+        0.534
+      ],
+      "xlsr53": [
+        190100,
+        190660,
+        0.533
+      ],
+      "chosen": [
+        190200,
+        190670,
+        0.534
+      ],
+      "by": "mean",
+      "disagree_ms": 200
+    },
+    {
+      "word_id": "w:S4:P20:000994",
+      "hole": "H9",
+      "text": "الـsecurity",
+      "mms": [
+        280920,
+        281560,
+        0.496
+      ],
+      "xlsr53": [
+        280880,
+        281580,
+        0.577
+      ],
+      "chosen": [
+        280920,
+        281560,
+        0.496
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 40
+    },
+    {
+      "word_id": "w:S4:P20:000995",
+      "hole": "H9",
+      "text": "والـdisaster",
+      "mms": [
+        281660,
+        282300,
+        0.595
+      ],
+      "xlsr53": [
+        281660,
+        282300,
+        0.642
+      ],
+      "chosen": [
+        281660,
+        282300,
+        0.595
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    },
+    {
+      "word_id": "w:S4:P20:000996",
+      "hole": "H9",
+      "text": "recovery",
+      "mms": [
+        282380,
+        282780,
+        0.416
+      ],
+      "xlsr53": [
+        282380,
+        282800,
+        0.492
+      ],
+      "chosen": [
+        282380,
+        282780,
+        0.416
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 20
+    },
+    {
+      "word_id": "w:S4:P20:000997",
+      "hole": "H9",
+      "text": "drill",
+      "mms": [
+        282880,
+        283140,
+        0.478
+      ],
+      "xlsr53": [
+        282880,
+        283140,
+        0.992
+      ],
+      "chosen": [
+        282880,
+        283140,
+        0.478
+      ],
+      "by": "mms(agree)",
+      "disagree_ms": 0
+    }
+  ],
+  "overlaps": {
+    "count": 255,
+    "max_ms": 1520
+  },
+  "method": "faster-whisper large-v3-turbo on the SOURCE audio (glossary prompt, 5 decodes/span, vad off on spans), MMS-300m joint forced alignment with the neighbouring words, xlsr53-arabic as second aligner (<=120 ms agree: MMS taken; else higher conf, else mean). Never paraphrased; Latin terms in English (master 10). Published ids unchanged; new ids appended."
+}

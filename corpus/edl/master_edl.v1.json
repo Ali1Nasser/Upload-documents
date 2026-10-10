@@ -8,7 +8,7 @@
   "total_ms": 13860430,
   "vo_wav": "data/derived/audio/master_vo_v1.flac",
   "vo_sha256": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
-  "word_map": "edl/word_map.v1.jsonl",
+  "word_map": "edl/word_map.v1.1.jsonl",
   "source": {
     "candidate": "corpus/edl/candidates/B100-noC.json",
     "candidate_sha256": "fa0faeac95267014492da66daa8d43de2ad63f650d201e0e0c1abf2879777436",
@@ -49,8 +49,8 @@
     "segments": 673,
     "spoken_segments": 605,
     "cards": 68,
-    "sentences": 2524,
-    "words": 29480,
+    "sentences": 2533,
+    "words": 29524,
     "voice_switches": 64,
     "voice_switches_per_h": 16.6,
     "runtime_s": 13860.4,
@@ -61,7 +61,8 @@
     "tightened_removed_s": 486.9,
     "continuous_joins": 0,
     "cuts_not_in_measured_silence": 0,
-    "long_pauses_not_tightened": 1
+    "long_pauses_not_tightened": 1,
+    "words_added_f1": 44
   },
   "cut_exceptions": {
     "not_silent": [],
@@ -2535,7 +2536,8 @@
       "w_from": "w:S4:P02:000265",
       "w_to": "w:S4:P02:000266",
       "sentences": [
-        "s:S4:P02:0018"
+        "s:S4:P02:0018",
+        "s:S4:P02:0067"
       ],
       "fade_in_ms": 20,
       "fade_out_ms": 20,
@@ -2543,7 +2545,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "",
       "rec_in_frame": 29192,
-      "rec_out_frame": 29275
+      "rec_out_frame": 29275,
+      "w_extra": [
+        [
+          "w:S4:P02:000889",
+          "w:S4:P02:000891"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0055",
@@ -9942,7 +9950,8 @@
       "sentences": [
         "s:S4:P13:0030",
         "s:S4:P13:0031",
-        "s:S4:P13:0032"
+        "s:S4:P13:0032",
+        "s:S4:P13:0071"
       ],
       "fade_in_ms": 20,
       "fade_out_ms": 20,
@@ -9950,7 +9959,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "",
       "rec_in_frame": 175756,
-      "rec_out_frame": 176364
+      "rec_out_frame": 176364,
+      "w_extra": [
+        [
+          "w:S4:P13:000905",
+          "w:S4:P13:000908"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0354",
@@ -10067,6 +10082,7 @@
       "w_from": "w:S4:P13:000663",
       "w_to": "w:S4:P13:000904",
       "sentences": [
+        "s:S4:P13:0072",
         "s:S4:P13:0052",
         "s:S4:P13:0053",
         "s:S4:P13:0054",
@@ -10093,7 +10109,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "after tightened pause",
       "rec_in_frame": 178106,
-      "rec_out_frame": 180804
+      "rec_out_frame": 180804,
+      "w_extra": [
+        [
+          "w:S4:P13:000909",
+          "w:S4:P13:000912"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0359",
@@ -10460,6 +10482,7 @@
       "w_from": "w:S4:P14:000543",
       "w_to": "w:S4:P14:001051",
       "sentences": [
+        "s:S4:P14:0085",
         "s:S4:P14:0045",
         "s:S4:P14:0046",
         "s:S4:P14:0047",
@@ -10507,7 +10530,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "after tightened pause",
       "rec_in_frame": 189095,
-      "rec_out_frame": 194323
+      "rec_out_frame": 194323,
+      "w_extra": [
+        [
+          "w:S4:P14:001052",
+          "w:S4:P14:001059"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0374",
@@ -12910,7 +12939,8 @@
         "s:S4:P19:0001",
         "s:S4:P19:0002",
         "s:S4:P19:0003",
-        "s:S4:P19:0004"
+        "s:S4:P19:0004",
+        "s:S4:P19:0095"
       ],
       "fade_in_ms": 20,
       "fade_out_ms": 20,
@@ -12918,7 +12948,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "",
       "rec_in_frame": 237224,
-      "rec_out_frame": 237870
+      "rec_out_frame": 237870,
+      "w_extra": [
+        [
+          "w:S4:P19:001162",
+          "w:S4:P19:001165"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0471",
@@ -12933,6 +12969,7 @@
       "w_from": "w:S4:P19:000066",
       "w_to": "w:S4:P19:000166",
       "sentences": [
+        "s:S4:P19:0096",
         "s:S4:P19:0005",
         "s:S4:P19:0006",
         "s:S4:P19:0007",
@@ -12951,7 +12988,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "after tightened pause",
       "rec_in_frame": 237869,
-      "rec_out_frame": 239110
+      "rec_out_frame": 239110,
+      "w_extra": [
+        [
+          "w:S4:P19:001166",
+          "w:S4:P19:001169"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0472",
@@ -13530,7 +13573,8 @@
         "s:S4:P17:0029",
         "s:S4:P17:0030",
         "s:S4:P17:0031",
-        "s:S4:P17:0032"
+        "s:S4:P17:0032",
+        "s:S4:P17:0092"
       ],
       "fade_in_ms": 20,
       "fade_out_ms": 20,
@@ -13538,7 +13582,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "",
       "rec_in_frame": 249988,
-      "rec_out_frame": 253356
+      "rec_out_frame": 253356,
+      "w_extra": [
+        [
+          "w:S4:P17:000997",
+          "w:S4:P17:001005"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0495",
@@ -13577,9 +13627,10 @@
       "rec_in_ms": 10575420,
       "rec_out_ms": 10757910,
       "w_from": "w:S4:P17:000418",
-      "w_to": "w:S4:P17:000795",
+      "w_to": "w:S4:P17:000794",
       "sentences": [
         "s:S4:P17:0036",
+        "s:S4:P17:0093",
         "s:S4:P17:0037",
         "s:S4:P17:0038",
         "s:S4:P17:0039",
@@ -13625,7 +13676,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "after tightened pause",
       "rec_in_frame": 253810,
-      "rec_out_frame": 258190
+      "rec_out_frame": 258190,
+      "w_extra": [
+        [
+          "w:S4:P17:001006",
+          "w:S4:P17:001009"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0497",
@@ -13637,7 +13694,7 @@
       "src_out_ms": 376070,
       "rec_in_ms": 10757910,
       "rec_out_ms": 10764120,
-      "w_from": "w:S4:P17:000796",
+      "w_from": "w:S4:P17:000795",
       "w_to": "w:S4:P17:000801",
       "sentences": [
         "s:S4:P17:0074"
@@ -14128,7 +14185,8 @@
       "w_from": "w:S4:P20:000611",
       "w_to": "w:S4:P20:000612",
       "sentences": [
-        "s:S4:P20:0065"
+        "s:S4:P20:0065",
+        "s:S4:P20:0104"
       ],
       "fade_in_ms": 20,
       "fade_out_ms": 20,
@@ -14136,7 +14194,13 @@
       "eq": "corpus/audio/eq_match_s4_to_s1.json",
       "notes": "",
       "rec_in_frame": 268012,
-      "rec_out_frame": 268103
+      "rec_out_frame": 268103,
+      "w_extra": [
+        [
+          "w:S4:P20:000994",
+          "w:S4:P20:000997"
+        ]
+      ]
     },
     {
       "seg_id": "seg-0517",
@@ -19021,5 +19085,19 @@
     "rendered": "2026-10-09T16:04:34Z",
     "render_s": 688.9,
     "true_peak_dbtp_render_meter": -0.43
-  }
+  },
+  "amendments": [
+    {
+      "id": "F1",
+      "date": "2026-10-10T06:58:24Z",
+      "by": "transcription-aligner",
+      "source": "reports/gates/G5.verify.md F1+F5",
+      "vo_sha256_unchanged": "57abfd2d8ff43a3d330a73af9951996b5bb1dd545e0b627cc8ab728527213850",
+      "new_words": 44,
+      "new_sentences": 9,
+      "retimed_words": 9,
+      "word_map": "corpus/edl/word_map.v1.1.jsonl",
+      "note": "Segments gain the new sentence ids (time order) and `w_extra` id ranges (new ids are appended, so they sit outside w_from..w_to); seg-0496/0497 boundary moved by one word (125,847). Audio, cuts and frames unchanged."
+    }
+  ]
 }

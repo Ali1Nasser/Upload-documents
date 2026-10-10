@@ -2,8 +2,8 @@
   "v": 1,
   "audio_id": "a:S4:P14",
   "method": "asr+mms_fa",
-  "words": 1052,
-  "median_conf": 0.7782,
+  "words": 1060,
+  "median_conf": 0.7788,
   "chapters": [],
   "flagged": [
     "seg42",
@@ -32,5 +32,12 @@
     "latin_median_conf": 0.4964,
     "seconds": 13.2
   },
-  "created": "2026-10-08T14:11:50Z"
+  "created": "2026-10-08T14:11:50Z",
+  "f1": {
+    "added_words": 8,
+    "added_sentences": 1,
+    "retimed_words": 0,
+    "method": "whisper turbo (source audio) + MMS-300m joint forced alignment, xlsr53-arabic second aligner",
+    "created": "2026-10-10T06:58:24Z"
+  }
 }

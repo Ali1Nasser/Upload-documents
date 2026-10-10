@@ -278,8 +278,47 @@
   },
   "gaps": {
     "unplanned_acoustic_gt_2500_is_the_gate": true,
-    "word_map_holes_gt_2500": 9,
-    "holes": [
+    "word_map_holes_gt_2500": 0,
+    "unplanned_acoustic_gt_2500": 0,
+    "examples": [
+      [
+        1217260,
+        2570
+      ],
+      [
+        7344700,
+        3860
+      ],
+      [
+        7421030,
+        3530
+      ],
+      [
+        7878870,
+        3500
+      ],
+      [
+        9908610,
+        5350
+      ],
+      [
+        10552830,
+        3960
+      ],
+      [
+        10575330,
+        4070
+      ],
+      [
+        10757820,
+        2530
+      ]
+    ],
+    "max_unplanned_word_gap_ms": 5350,
+    "planned_card_gaps_gt_2500": 68,
+    "max_planned_gap_ms": 3000,
+    "word_map_holes_gt_2500_v1": 9,
+    "holes_v1": [
       {
         "rec_ms": [
           1217260,
@@ -407,44 +446,8 @@
         "whisper": "اشتركوا في القناة"
       }
     ],
-    "unplanned_acoustic_gt_2500": 0,
-    "examples": [
-      [
-        1217260,
-        2570
-      ],
-      [
-        7344700,
-        3860
-      ],
-      [
-        7421030,
-        3530
-      ],
-      [
-        7878870,
-        3500
-      ],
-      [
-        9908610,
-        5350
-      ],
-      [
-        10552830,
-        3960
-      ],
-      [
-        10575330,
-        4070
-      ],
-      [
-        10757820,
-        2530
-      ]
-    ],
-    "max_unplanned_word_gap_ms": 5350,
-    "planned_card_gaps_gt_2500": 68,
-    "max_planned_gap_ms": 3000
+    "holes": [],
+    "f1_note": "word map v1.1 (corpus/edl/word_map.v1.1.jsonl) transcribes the 9 audible spans of v1; holes_v1 keeps the v1 list (whisper text of the first pass, partly hallucinated)"
   },
   "cut_points": {
     "n": 1210,

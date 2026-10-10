@@ -2,7 +2,7 @@
   "v": 1,
   "audio_id": "a:S4:P19",
   "asr_words": 1186,
-  "final_words": 1162,
+  "final_words": 1170,
   "edits": [
     {
       "op": "replace",
@@ -1696,9 +1696,39 @@
         1102,
         1102
       ]
+    },
+    {
+      "op": "insert",
+      "after_i": 65,
+      "after_i_basis": "final",
+      "text": "واحد أساسيات الـstreaming والـKafka",
+      "why": "dropout",
+      "final": [
+        1162,
+        1165
+      ],
+      "stage": "F1",
+      "hole": "H5a",
+      "whisper": "واحد أساسيات الستريمينج والكافكا",
+      "note": "agenda"
+    },
+    {
+      "op": "insert",
+      "after_i": 65,
+      "after_i_basis": "final",
+      "text": "اتنين الأعطال والـschemas والكود",
+      "why": "dropout",
+      "final": [
+        1166,
+        1169
+      ],
+      "stage": "F1",
+      "hole": "H5b",
+      "whisper": "اتنين الأعطال والسكيماز والكود",
+      "note": "agenda; second item is in the next EDL segment"
     }
   ],
-  "notes": "Whisper dropout (not inserted, wording not certain): between 'سريعا كده' (64-65) and 'ثلاثة' (66) the agenda items 1 and 2 are missing; the speaker evidently listed 'أساسيات الستريمينج والكافكا' and 'الأعطال والسكيماز والكود' (they reappear later as the station headers at 88-92 and 311-315), but the exact spoken words are unproven. Left unedited because source_excerpt does not prove the intended word: 18 'ميكالكعة' (likely a garbled adjective for 'theories', unclear), 194 'عملين' (probably 'عمّالين'), 307 'لمأخر' (probably 'بيأخّر', unproven), 477 'الصائعة' ('الحتة الصائعة', probably 'الضايعة' or 'الصايعة', unproven), 579 'نسبة' (possibly 'نثبت' but unproven), 599 'وقت' (possibly 'أوقات'), 907 'بتسمع' (source sc15 says 'بتبان'; unproven), 962 'بكتير' (probably 'بالكتير'), 1180 'نوارة' (probably 'نوّرت'). Edits made on phonetic or contextual certainty: 85-86 and 883 'الأسل إيز'/'الاسليز' -> SLAs (station-6 header is dashboards, SLAs, invoices); 902-903 'الاس الاس' -> SLA (speaker says SLA at 1120; source heading says SLO but latin_terms has SLAs); 147-149 'بلا تنسي تكب' -> 'بالـlatency تكاد'; 268-269 'إدري علجها' -> 'قدر يعالجها' (Egyptian ق as glottal stop); 413 'بزكي' -> 'ذكي' and 154 'الزاكية' -> 'الذكية'; 'مصار' -> 'مسار' everywhere (source sc01 'مسار'); 'المعمرية' -> 'المعمارية'; 589 'hub' -> 'hop' (source sc11); 1019-1021 'طابعة الـ EDS' -> 'طبقة ADS'; 1114 'التزاجة' -> 'الطزاجة'; 1126 'لأختم' -> 'لأختام'. Numbers: TXN-99482 normalized across 536-543 (digits placed on 539, same 'TXN' + '-99482' split pattern as 976-977); port 9092 merged on 459; '10 .000' -> '10,000' on 736; '66 و 67 %' -> '66.67%' on 1080; 953 'لثلاث' -> 'ل3'. Spelled-out small numbers (agenda 3-6, خمس/عشر دقائق, ألف, أربع/ستة) and Arabic units (تيرابايت, دقايق) were kept as spoken; digits are given in each sentence's numbers field. Kept in Arabic script as common loanwords (not forced to Latin): داتا, كراش, الإدارة التنفيذية; 'DataBase' (180) and 'Log' (186) kept as whisper wrote them. Edit 795 'الكافكبس' -> 'الـKafka bus' puts two tokens in one index (source sc13 'الـKafka bus'). Hyphen artifacts at 695-719 were cleaned for ADS/TA/Business/Next/Gen/D&IM (source heading 'Nextgen D&IM'); the 74/75-77 'Next Gen Architecture' and 1118 '-minute' tokens were left as written. Spoken content deviates from the source scene text in places (e.g. 70 seconds to 3 minutes, 5 to 15 minutes, 10,000 TPS, 352 TB, 6 invoices / 400 EGP split 250+150 / 66.67%); these figures follow the audio, and 250+150=400 and 4/6=66.67% are internally consistent. Central Kafka at 945-946 (whisper: 'السنترال كافكا') was normalized to 'الـCentral Kafka'.",
+  "notes": "Whisper dropout (not inserted, wording not certain): between 'سريعا كده' (64-65) and 'ثلاثة' (66) the agenda items 1 and 2 are missing; the speaker evidently listed 'أساسيات الستريمينج والكافكا' and 'الأعطال والسكيماز والكود' (they reappear later as the station headers at 88-92 and 311-315), but the exact spoken words are unproven. Left unedited because source_excerpt does not prove the intended word: 18 'ميكالكعة' (likely a garbled adjective for 'theories', unclear), 194 'عملين' (probably 'عمّالين'), 307 'لمأخر' (probably 'بيأخّر', unproven), 477 'الصائعة' ('الحتة الصائعة', probably 'الضايعة' or 'الصايعة', unproven), 579 'نسبة' (possibly 'نثبت' but unproven), 599 'وقت' (possibly 'أوقات'), 907 'بتسمع' (source sc15 says 'بتبان'; unproven), 962 'بكتير' (probably 'بالكتير'), 1180 'نوارة' (probably 'نوّرت'). Edits made on phonetic or contextual certainty: 85-86 and 883 'الأسل إيز'/'الاسليز' -> SLAs (station-6 header is dashboards, SLAs, invoices); 902-903 'الاس الاس' -> SLA (speaker says SLA at 1120; source heading says SLO but latin_terms has SLAs); 147-149 'بلا تنسي تكب' -> 'بالـlatency تكاد'; 268-269 'إدري علجها' -> 'قدر يعالجها' (Egyptian ق as glottal stop); 413 'بزكي' -> 'ذكي' and 154 'الزاكية' -> 'الذكية'; 'مصار' -> 'مسار' everywhere (source sc01 'مسار'); 'المعمرية' -> 'المعمارية'; 589 'hub' -> 'hop' (source sc11); 1019-1021 'طابعة الـ EDS' -> 'طبقة ADS'; 1114 'التزاجة' -> 'الطزاجة'; 1126 'لأختم' -> 'لأختام'. Numbers: TXN-99482 normalized across 536-543 (digits placed on 539, same 'TXN' + '-99482' split pattern as 976-977); port 9092 merged on 459; '10 .000' -> '10,000' on 736; '66 و 67 %' -> '66.67%' on 1080; 953 'لثلاث' -> 'ل3'. Spelled-out small numbers (agenda 3-6, خمس/عشر دقائق, ألف, أربع/ستة) and Arabic units (تيرابايت, دقايق) were kept as spoken; digits are given in each sentence's numbers field. Kept in Arabic script as common loanwords (not forced to Latin): داتا, كراش, الإدارة التنفيذية; 'DataBase' (180) and 'Log' (186) kept as whisper wrote them. Edit 795 'الكافكبس' -> 'الـKafka bus' puts two tokens in one index (source sc13 'الـKafka bus'). Hyphen artifacts at 695-719 were cleaned for ADS/TA/Business/Next/Gen/D&IM (source heading 'Nextgen D&IM'); the 74/75-77 'Next Gen Architecture' and 1118 '-minute' tokens were left as written. Spoken content deviates from the source scene text in places (e.g. 70 seconds to 3 minutes, 5 to 15 minutes, 10,000 TPS, 352 TB, 6 invoices / 400 EGP split 250+150 / 66.67%); these figures follow the audio, and 250+150=400 and 4/6=66.67% are internally consistent. Central Kafka at 945-946 (whisper: 'السنترال كافكا') was normalized to 'الـCentral Kafka'. | F1 (post-G5): 8 words inserted for audible speech the first pass dropped (ids 001162-001169, appended: published ids never move) and 0 existing spans re-timed; see corpus/transcripts/f1_holes.log.json.",
   "sentences": [
     {
       "from": 0,
@@ -2866,6 +2896,35 @@
       ],
       "numbers": [],
       "entities": []
+    },
+    {
+      "from": 1162,
+      "to": 1165,
+      "kind": "transition",
+      "gloss_en": "Agenda item one: streaming and Kafka basics.",
+      "terms": [
+        "c:streaming",
+        "c:kafka"
+      ],
+      "numbers": [
+        "1"
+      ],
+      "entities": [],
+      "stage": "F1"
+    },
+    {
+      "from": 1166,
+      "to": 1169,
+      "kind": "transition",
+      "gloss_en": "Agenda item two: failures, schemas and code.",
+      "terms": [
+        "c:schemas"
+      ],
+      "numbers": [
+        "2"
+      ],
+      "entities": [],
+      "stage": "F1"
     }
   ],
   "sentence_notes": [],

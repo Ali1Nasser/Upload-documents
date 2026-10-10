@@ -20,17 +20,17 @@
     {
       "name": "edge_endpoints",
       "pass": true,
-      "detail": "32829 edges, 0 with a missing endpoint"
+      "detail": "32847 edges, 0 with a missing endpoint"
     },
     {
       "name": "sentences_in_idea_units",
       "pass": true,
-      "detail": "3126/3126 sentences carry an idea_unit; 0 disagree with the `says` edge"
+      "detail": "3135/3135 sentences carry an idea_unit; 0 disagree with the `says` edge"
     },
     {
       "name": "sentences_with_concept",
       "pass": true,
-      "detail": "3126/3126 sentences reach >= 1 concept via their unit; unit link method {'none': 0, 'term': 1935, 'embedding': 690, 'context': 221}"
+      "detail": "3135/3135 sentences reach >= 1 concept via their unit; unit link method {'none': 0, 'term': 1935, 'embedding': 690, 'context': 221}"
     },
     {
       "name": "visual_candidates",
@@ -43,5 +43,5 @@
       "detail": "7/7 reports; novelty covers 27/27 S4 parts"
     }
   ],
-  "created": "2026-10-08T20:51:24Z"
+  "created": "2026-10-10T06:59:58Z"
 }

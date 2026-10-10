@@ -20,12 +20,12 @@
     {
       "name": "redundancy",
       "pass": true,
-      "detail": "4.0 % of 3.23 h EDL speech re-says an already covered unit (<= 5.0 %)"
+      "detail": "4.2 % of 3.24 h EDL speech re-says an already covered unit (<= 5.0 %)"
     },
     {
       "name": "prereq_violations",
       "pass": true,
-      "detail": "0 violations over 2524 sentences (5 prerequisites never mentioned, not violations)"
+      "detail": "0 violations over 2533 sentences (5 prerequisites never mentioned, not violations)"
     },
     {
       "name": "radio_clipped_words",
@@ -40,7 +40,7 @@
     {
       "name": "radio_gaps",
       "pass": true,
-      "detail": "0 unplanned acoustic gaps > 2500 ms; planned card gaps 68 (max 3000 ms); word-map holes over audible untranscribed speech 9 (transcript follow-up, not gaps)"
+      "detail": "0 unplanned acoustic gaps > 2500 ms; planned card gaps 68 (max 3000 ms); word-map holes over audible untranscribed speech 0 (transcript follow-up, not gaps)"
     },
     {
       "name": "lock_hashes",
@@ -50,12 +50,12 @@
     {
       "name": "word_map",
       "pass": true,
-      "detail": "29480 words (EDL 29480), unique ids, start-monotonic, seconds + sentence id on every word; 0 bad"
+      "detail": "29524 words (EDL 29524), unique ids, start-monotonic, seconds + sentence id on every word; 0 bad"
     },
     {
       "name": "frames_seconds",
       "pass": true,
-      "detail": "24 fps (ADR-002): 29480 words, 673 segments, 73 chapters, total 332651 frames = ceil(13860430 ms); start = floor(s*fps), end = ceil(s*fps), s*1000 = ms, chapters contiguous, segments/words inside their chapter; 0 bad"
+      "detail": "24 fps (ADR-002): 29524 words, 673 segments, 73 chapters, total 332651 frames = ceil(13860430 ms); start = floor(s*fps), end = ceil(s*fps), s*1000 = ms, chapters contiguous, segments/words inside their chapter; 0 bad"
     },
     {
       "name": "features",
@@ -68,5 +68,5 @@
       "detail": "temp.sh https://temp.sh/ziCYR/radio_edit_sample.m4a sha256 1b1457e9ff9e5f77.. verified, expires 2026-10-12T16:27:19Z; window 1:46:13.890-1:49:13.890 (CH-17 > DD-P11-3 > CH-18)"
     }
   ],
-  "created": "2026-10-09T21:45:43Z"
+  "created": "2026-10-10T06:59:35Z"
 }

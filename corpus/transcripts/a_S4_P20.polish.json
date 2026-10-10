@@ -2,7 +2,7 @@
   "v": 1,
   "audio_id": "a:S4:P20",
   "asr_words": 998,
-  "final_words": 994,
+  "final_words": 998,
   "edits": [
     {
       "op": "replace",
@@ -753,9 +753,24 @@
         904,
         904
       ]
+    },
+    {
+      "op": "insert",
+      "after_i": 612,
+      "after_i_basis": "final",
+      "text": "الـsecurity والـdisaster recovery drill",
+      "why": "dropout",
+      "final": [
+        994,
+        997
+      ],
+      "stage": "F1",
+      "hole": "H9",
+      "whisper": "السيكيريتي والديزاستر ريكاوري دريل",
+      "note": "section heading"
     }
   ],
-  "notes": "No inserts: no whisper dropout is certain from source_excerpt (the excerpt is the rebuilt script, not the NotebookLM speech). Only timing gap > 1s is 617->618 (2.98s), a pause before the section-4 body, not a dropout. Policy: kept Arabic-ized loan words that are not in latin_terms (داتا/الديتا, سوفتوير/الصوفت وير, السورس, البلاتفورم, الفورمات); converted latin_terms jargon (net total, missing/extra/duplicate, transposition, Huawei, OAT, CAT, LLD, partitions, integrity, web portal, near real time, Kafka in/out accuracy, Redis cache accuracy, Critical, mismatches, CSV/JSON, data loss, retention, k-anonymity, generalization, suppression, mTLS, Hadoop, TB, error, data privacy). Edits with to='' (524, 525, 527, 552, 553) use why=merge: they are absorbed by the preceding Latin token (CSV, لJSON, k-anonymity). Mishears fixed from context (not literally in the excerpt; revert if unwanted): 104 الإسم->القسم (sections 2-5 follow the same pattern), 196 سانية->ثانية, 226 بيجدب->بيكدب, 246 الحزبة->الحسبة, 472 صغرة->ثغرة, 513 ضشرة->ضرورة, 602 حسف->حذف, 604 الشزة->الشاذة, 772 الكارسة->الكارثة, 818 إجبال->إجباري, 826 ضعف->'ضاع في' (827 النص unchanged), 901 وساعي->وسعة, 594 الكيلة->الKل (K plus the preposition ل before the 2). Proven by excerpt: 58 المعمارية, 163 المطابقة, 281 متطابقة, 325 طابور, 358 Huawei, 381 OAT, 470 LLD, 45 D&IM. 439 للtechnical comes from 'Technical Validation' on screen; the speaker may have said 'tech'. Left unedited as uncertain: 140 المعمالي (maybe المعملي), 218 العين (maybe للعين), 241 بعض (maybe ببعض), 398 الساعة in 'اختبار الساعة تحت الضغط' (likely السعة or الأداء), 838 حارك (unclear, maybe حاسم/حرج), 805 بي, 995-996 بتتبيني/بتتحيني (likely بتتبني/بتتحمي or similar, unclear), 623 بنصطبه (Egyptian تسطيب). 917 '%' after 95 in 'من 95% تقرير' looks like a whisper artifact (probably '95 تقرير'); kept as transcribed, number recorded as 95. 13 countries and 95 live reports are not visible in the excerpt (its sc15 text is truncated); flag for the fact-checker. Word 831 'على' has confidence 0.11 over 1.3s, possible mishearing of 'على مستوى الحجم ده'. RPO figures (Kafka In <3 min, Kafka Out <10 min, total <30 min) and RTO <60 min match the excerpt's DR section.",
+  "notes": "No inserts: no whisper dropout is certain from source_excerpt (the excerpt is the rebuilt script, not the NotebookLM speech). Only timing gap > 1s is 617->618 (2.98s), a pause before the section-4 body, not a dropout. Policy: kept Arabic-ized loan words that are not in latin_terms (داتا/الديتا, سوفتوير/الصوفت وير, السورس, البلاتفورم, الفورمات); converted latin_terms jargon (net total, missing/extra/duplicate, transposition, Huawei, OAT, CAT, LLD, partitions, integrity, web portal, near real time, Kafka in/out accuracy, Redis cache accuracy, Critical, mismatches, CSV/JSON, data loss, retention, k-anonymity, generalization, suppression, mTLS, Hadoop, TB, error, data privacy). Edits with to='' (524, 525, 527, 552, 553) use why=merge: they are absorbed by the preceding Latin token (CSV, لJSON, k-anonymity). Mishears fixed from context (not literally in the excerpt; revert if unwanted): 104 الإسم->القسم (sections 2-5 follow the same pattern), 196 سانية->ثانية, 226 بيجدب->بيكدب, 246 الحزبة->الحسبة, 472 صغرة->ثغرة, 513 ضشرة->ضرورة, 602 حسف->حذف, 604 الشزة->الشاذة, 772 الكارسة->الكارثة, 818 إجبال->إجباري, 826 ضعف->'ضاع في' (827 النص unchanged), 901 وساعي->وسعة, 594 الكيلة->الKل (K plus the preposition ل before the 2). Proven by excerpt: 58 المعمارية, 163 المطابقة, 281 متطابقة, 325 طابور, 358 Huawei, 381 OAT, 470 LLD, 45 D&IM. 439 للtechnical comes from 'Technical Validation' on screen; the speaker may have said 'tech'. Left unedited as uncertain: 140 المعمالي (maybe المعملي), 218 العين (maybe للعين), 241 بعض (maybe ببعض), 398 الساعة in 'اختبار الساعة تحت الضغط' (likely السعة or الأداء), 838 حارك (unclear, maybe حاسم/حرج), 805 بي, 995-996 بتتبيني/بتتحيني (likely بتتبني/بتتحمي or similar, unclear), 623 بنصطبه (Egyptian تسطيب). 917 '%' after 95 in 'من 95% تقرير' looks like a whisper artifact (probably '95 تقرير'); kept as transcribed, number recorded as 95. 13 countries and 95 live reports are not visible in the excerpt (its sc15 text is truncated); flag for the fact-checker. Word 831 'على' has confidence 0.11 over 1.3s, possible mishearing of 'على مستوى الحجم ده'. RPO figures (Kafka In <3 min, Kafka Out <10 min, total <30 min) and RTO <60 min match the excerpt's DR section. | F1 (post-G5): 4 words inserted for audible speech the first pass dropped (ids 000994-000997, appended: published ids never move) and 0 existing spans re-timed; see corpus/transcripts/f1_holes.log.json.",
   "sentences": [
     {
       "from": 0,
@@ -1963,6 +1978,19 @@
       "terms": [],
       "numbers": [],
       "entities": []
+    },
+    {
+      "from": 994,
+      "to": 997,
+      "kind": "transition",
+      "gloss_en": "Section four heading: security and disaster recovery drill.",
+      "terms": [
+        "c:security",
+        "c:disaster-recovery"
+      ],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
     }
   ],
   "sentence_notes": [],

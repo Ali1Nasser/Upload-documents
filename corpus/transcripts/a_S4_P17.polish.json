@@ -2,7 +2,7 @@
   "v": 1,
   "audio_id": "a:S4:P17",
   "asr_words": 1024,
-  "final_words": 997,
+  "final_words": 1010,
   "edits": [
     {
       "op": "replace",
@@ -1237,9 +1237,207 @@
         973,
         973
       ]
+    },
+    {
+      "op": "retime",
+      "i": 241,
+      "orig": "واللي",
+      "orig_ms": [
+        105100,
+        105920
+      ],
+      "new_ms": [
+        105820,
+        105920
+      ],
+      "why": "align",
+      "final": [
+        241,
+        241
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 299,
+      "orig": "الـ",
+      "orig_ms": [
+        132220,
+        132240
+      ],
+      "new_ms": [
+        132640,
+        132700
+      ],
+      "why": "align",
+      "final": [
+        299,
+        299
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 307,
+      "orig": "اللي",
+      "orig_ms": [
+        135700,
+        136040
+      ],
+      "new_ms": [
+        135960,
+        136040
+      ],
+      "why": "align",
+      "final": [
+        307,
+        307
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 334,
+      "orig": "فايب",
+      "orig_ms": [
+        147260,
+        148700
+      ],
+      "new_ms": [
+        148420,
+        148700
+      ],
+      "why": "align",
+      "final": [
+        334,
+        334
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 363,
+      "orig": "واللي",
+      "orig_ms": [
+        160520,
+        160800
+      ],
+      "new_ms": [
+        160680,
+        160800
+      ],
+      "why": "align",
+      "final": [
+        363,
+        363
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 770,
+      "orig": "الـCentral",
+      "orig_ms": [
+        354540,
+        355880
+      ],
+      "new_ms": [
+        354300,
+        355880
+      ],
+      "why": "align",
+      "final": [
+        770,
+        770
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 855,
+      "orig": "على",
+      "orig_ms": [
+        399260,
+        399280
+      ],
+      "new_ms": [
+        400020,
+        400040
+      ],
+      "why": "align",
+      "final": [
+        855,
+        855
+      ],
+      "stage": "F1",
+      "note": "F5: sentence-window MMS and xlsr53 agree (<=120 ms) and differ from the stored span by > 150 ms",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "retime",
+      "i": 795,
+      "orig": "125,847",
+      "orig_ms": [
+        369200,
+        369400
+      ],
+      "new_ms": [
+        369920,
+        372260
+      ],
+      "why": "align",
+      "final": [
+        795,
+        795
+      ],
+      "stage": "F1",
+      "note": "F1/F5: spoken number 'مية خمسة وعشرين ألف تمنمية سبعة وأربعين' occupies 369.92-372.26 s (both aligners); stored span was 200 ms on the previous word",
+      "by": "mms(agree)"
+    },
+    {
+      "op": "insert",
+      "after_i": 369,
+      "after_i_basis": "final",
+      "text": "صف واحد لكل معاملة أو one row per transaction",
+      "why": "dropout",
+      "final": [
+        997,
+        1005
+      ],
+      "stage": "F1",
+      "hole": "H6",
+      "whisper": "صف واحد لكل معاملة أو One Row Per Transaction",
+      "note": "the grain principle itself"
+    },
+    {
+      "op": "insert",
+      "after_i": 417,
+      "after_i_basis": "final",
+      "text": "transactions revenue subscribers agents",
+      "why": "dropout",
+      "final": [
+        1006,
+        1009
+      ],
+      "stage": "F1",
+      "hole": "H7",
+      "whisper": "transactions, revenue, subscribers, agents,",
+      "note": "spoken English list; whisper hallucinated subtitle boilerplate over it in the first pass"
     }
   ],
-  "notes": "No inserts: no whisper dropout was certain from source_excerpt. Edits are term (Latin script for DataCube, Mobile Money, billing, CRM, HBase, Redis, Hive, GaussDB, joins, grain, star schema, facts/dimensions, Extract/Transform/Load, Report Designer, cubes, measures, filters, schedule, masking, governance, trust score, service and region names), number merges (33.33, 60-40, 60%/40%, 40/20/18%, 125,847, 4.2, 80%, 1.2+, 100%, AES-256) and excerpt-proven mishearings (row->raw, الرم->CRM, إقاعه->إيقاعه, 15 ديه->15 دقيقة, الصح->الصبح, نسق->نثق, المجميع->المجاميع, إراد->إيراد, جهزة->جاهزة, هدسة->هندسة). Deleted tokens (to='') are the trailing halves of merged terms/numbers. Egyptian-spelling forms kept deliberately: تأرير, تأسيمه, التأسيمة, متأسمة, باسمة (=بقسمة), مزهلة, دهبية, بزكاء. Left unchanged and NOT proven by source_excerpt (review at audio check): 1 'بيكو' (likely بيكم); 338 'فايب' (unclear interjection); 352 'Matrix' (probably Metrics, since the next sentence is about 24 metrics/KPIs); 415 'نتوشف' (maybe نتوه في); 458 'إجمال' (إجمالي); 571 'اسمة' (likely اسمها); 606 'منحس' (من غير ما نحس); 719 'يتبعي' (likely يتبعت); 741 'ورصف' (likely ورا صف); 738 'بيتميلة'; 888-889 'جون موكاسا' (name, Latin spelling unknown, glossed as John Mokasa); 951 'ممرش' (likely مرّش); 221 'للنظام دقيق'. Region names Central/Eastern/Western and services Cash-In/Cash-Out/P2P/Bill Payment/Airtime/Merchant were converted from spoken English in Arabic script; the excerpt table is truncated after Bill Payment, so Airtime/Merchant and the region names are from the audio only. Sentence 413-425 'نتوشف' meaning is uncertain; gloss is approximate.",
+  "notes": "No inserts: no whisper dropout was certain from source_excerpt. Edits are term (Latin script for DataCube, Mobile Money, billing, CRM, HBase, Redis, Hive, GaussDB, joins, grain, star schema, facts/dimensions, Extract/Transform/Load, Report Designer, cubes, measures, filters, schedule, masking, governance, trust score, service and region names), number merges (33.33, 60-40, 60%/40%, 40/20/18%, 125,847, 4.2, 80%, 1.2+, 100%, AES-256) and excerpt-proven mishearings (row->raw, الرم->CRM, إقاعه->إيقاعه, 15 ديه->15 دقيقة, الصح->الصبح, نسق->نثق, المجميع->المجاميع, إراد->إيراد, جهزة->جاهزة, هدسة->هندسة). Deleted tokens (to='') are the trailing halves of merged terms/numbers. Egyptian-spelling forms kept deliberately: تأرير, تأسيمه, التأسيمة, متأسمة, باسمة (=بقسمة), مزهلة, دهبية, بزكاء. Left unchanged and NOT proven by source_excerpt (review at audio check): 1 'بيكو' (likely بيكم); 338 'فايب' (unclear interjection); 352 'Matrix' (probably Metrics, since the next sentence is about 24 metrics/KPIs); 415 'نتوشف' (maybe نتوه في); 458 'إجمال' (إجمالي); 571 'اسمة' (likely اسمها); 606 'منحس' (من غير ما نحس); 719 'يتبعي' (likely يتبعت); 741 'ورصف' (likely ورا صف); 738 'بيتميلة'; 888-889 'جون موكاسا' (name, Latin spelling unknown, glossed as John Mokasa); 951 'ممرش' (likely مرّش); 221 'للنظام دقيق'. Region names Central/Eastern/Western and services Cash-In/Cash-Out/P2P/Bill Payment/Airtime/Merchant were converted from spoken English in Arabic script; the excerpt table is truncated after Bill Payment, so Airtime/Merchant and the region names are from the audio only. Sentence 413-425 'نتوشف' meaning is uncertain; gloss is approximate. | F1 (post-G5): 13 words inserted for audible speech the first pass dropped (ids 000997-001009, appended: published ids never move) and 8 existing spans re-timed; see corpus/transcripts/f1_holes.log.json.",
   "sentences": [
     {
       "from": 0,
@@ -2279,6 +2477,34 @@
       "terms": [],
       "numbers": [],
       "entities": []
+    },
+    {
+      "from": 997,
+      "to": 1005,
+      "kind": "claim",
+      "gloss_en": "One row per transaction.",
+      "terms": [
+        "c:grain",
+        "c:one-row-per-transaction"
+      ],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
+    },
+    {
+      "from": 1006,
+      "to": 1009,
+      "kind": "claim",
+      "gloss_en": "The families listed: transactions, revenue, subscribers, agents.",
+      "terms": [
+        "c:transactions",
+        "c:revenue",
+        "c:subscribers",
+        "c:agents"
+      ],
+      "numbers": [],
+      "entities": [],
+      "stage": "F1"
     }
   ],
   "sentence_notes": [],
