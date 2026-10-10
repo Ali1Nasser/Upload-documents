@@ -43,5 +43,5 @@
       "detail": "reports/lookdev/r3/regress.json by=render-ops pass=True covers ['F3-standard', 'F4-hero', 'F4-standard', 'F5-standard', 'F6-standard', 'F7-standard', 'F8-standard']; outside-box px 0"
     }
   ],
-  "created": "2026-10-10T07:26:14Z"
+  "created": "2026-10-10T11:40:12Z"
 }
