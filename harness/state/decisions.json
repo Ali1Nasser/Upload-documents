@@ -1005,5 +1005,109 @@
    "fact-checker: F7 districts, Kafka on district 4",
    "critic: pilot parity read at G8"
   ]
+ },
+ {
+  "id": "ADR-010",
+  "council": "C4",
+  "date": "2026-10-10",
+  "chair": "council-chair",
+  "status": "decided",
+  "amends": "ADR-009",
+  "amends_scope": "B2 (JOIN_GAP values only)",
+  "brief": null,
+  "path": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "method": "Narrow ballot of the 3 owning lenses (egyptian-arabic, motion-design, technical-accuracy), choice + confidence; rule from computed task: majority, tie -> A3. No per-criterion scores, brief or cross-review (options posed inline).",
+  "confidence_members": {
+   "egyptian-arabic": 0.78,
+   "motion-design": 0.72,
+   "technical-accuracy": 0.82,
+   "mean": 0.773
+  },
+  "confidence": "medium-high",
+  "votes": {
+   "ADR-009.B2": {
+    "A1": [
+     "egyptian-arabic",
+     "motion-design",
+     "technical-accuracy"
+    ],
+    "A2": [],
+    "A3": []
+   }
+  },
+  "scores": {
+   "vote_share": {
+    "A1": 1.0,
+    "A2": 0.0,
+    "A3": 0.0
+   },
+   "conf_weighted": {
+    "A1": 1.0,
+    "A2": 0.0,
+    "A3": 0.0
+   },
+   "margin_pts": 100.0,
+   "top": "A1",
+   "second": null
+  },
+  "decision": {
+   "ADR-009.B2": "A1",
+   "JOIN_GAP": {
+    "display": {
+     "caps": 0.2,
+     "latin": 0.25
+    },
+    "text": {
+     "caps": 0.25,
+     "latin": 0.3
+    }
+   },
+   "display_min_px": 56,
+   "replaces": {
+    "display": {
+     "caps": 0.2,
+     "latin": 0.14
+    },
+    "text": {
+     "caps": 0.25,
+     "latin": 0.1
+    }
+   }
+  },
+  "evidence": {
+   "sweep": "studio/scripts/lookdev_typeprobe.mjs --sweep: 0.14 em read d| / .t]; 34 px idempotency read J] at 0.10-0.25 em (summary in studio/src/type/arabic.ts comment; raw outputs not retained)",
+   "ocr_recheck": {
+    "F3_title": 1.0,
+    "F4_idempotency": 1.0,
+    "F4_roadmap": 1.0,
+    "F6_head_72px": 1.0,
+    "F6_label_roadmap_34px": 1.0,
+    "F6_label_idempotency_34px": 1.0
+   },
+   "type_suite": "43/43",
+   "reports": [
+    "reports/lookdev/arabic_r3.md"
+   ],
+   "code": "studio/src/type/arabic.ts:60"
+  },
+  "acceptance_tests": [
+   "AT-11 34 px join gap in motion (MD wipe + arrive; 25/50/75/100 %; OCR >= 0.90 settled, no join junk, native-reader veto) [motion-engineer, arabic-typographer, egyptian-arabic; P7, before G6b]",
+   "AT-12 line-length check at 6-word limit for الـ+Latin captions/chips [arabic-typographer, scene-director; P8 dc spec lint]"
+  ],
+  "reversal_triggers": [
+   "RT-010-1 AT-11 fail or native-reader veto -> reopen text band",
+   "RT-010-2 dc qa arabic < 0.90 on any الـ+Latin string -> reopen failing band",
+   "RT-010-3 AT-12 caption gains a line/overflows due to gap -> reopen band or rewrite",
+   "RT-010-4 restored 6 الـAI fails AT-11 at 32 px -> reopen text caps 0.25"
+  ],
+  "waivers": [],
+  "thresholds_changed": [],
+  "follow_ups": [
+   "motion-engineer: re-run freeze_p6.py after ADR-009 cond 3-4 close",
+   "harness-engineer: freeze_p6.py/g06a.py compare JOIN_GAP to ADR-010 values; AT-10 dc qa arabic",
+   "arabic-typographer: check in reports/lookdev/r3/typeprobe_sweep.json on next sweep; cond 3 MD-standard_fix review",
+   "render-ops: re-render MA-MD strips with new gaps; cond 4 regress.json",
+   "scene-director: 6 الـAI canon drift (restore or pending-council override)"
+  ]
  }
 ]
