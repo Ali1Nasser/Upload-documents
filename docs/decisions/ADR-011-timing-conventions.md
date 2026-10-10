@@ -1,5 +1,5 @@
 # ADR-011 — P7 timing conventions (word-map rounding, reveal onset, preview fps)
-Status: decided
+Status: decided · Q2 amended 2026-10-10: RV2 → **RV1** by RT-011-2 (see §AT-13 result)
 Council: C5 · Date: 2026-10-10 · Chair: council-chair
 Ballot: the 4 lenses that own timing (audio-sync, motion-design, egyptian-arabic, technical-accuracy), choice and confidence per lens. Rule: majority per question. A tie goes to the option that keeps the frozen tokens and the G5-locked word map unchanged (Q1 RD1, Q2 RV2, Q3 P1). The tie rule was not needed.
 Amends (plan text is not edited; this ADR is the amendment):
@@ -145,3 +145,87 @@ Mean confidence is 0.685 (≥ 0.6), and every margin is above 5 %. No experiment
 - **critic:** do not file judder or choppiness from 12 fps previews; verify on a 24 fps clip of ≤ 10 s first.
 - **scene-director:** treat `lead_frames − 1` as the effective visible lead. Leads ≥ 3 on adjacent words must not pre-empt the previous word (P8 lint candidate).
 - **Open and not decided here:** B3 (camera push outside title-safe; `87eb279` claims a fix, not re-verified here), and the 3 early outliers in CH-10. Both stay with the motion-engineer and the sync-verifier.
+
+## AT-13 result (2026-10-10)
+Chair: council-chair. This applies the pre-registered rule only. There is no new ballot.
+
+**Evidence read:**
+- `reports/sync/p7_demo.md` (24 fps section) and `reports/sync/p7_demo.events24.json` (commit `c26dc37`);
+- queue log `harness/state/queue.json` (tsp 49–93) and `corpus/render/jobs.jsonl`;
+- commit `5ce4555`, and `studio/src/type/reveal.ts` at `84f4e2f` (the RV2 engine).
+
+**AT-13 conformance:**
+- Separation is partial. All 14 solo renders went through the queue, but the sync-verifier submitted them, not render-ops. The motion-engineer did not grade. Non-material.
+- Method is OK: `--fps 24 --nocam --nofx --cut --solo`, 29 events, expected frame = `rec_start_frame − lead_frames`.
+  - The detector was adapted to the zero solo baseline (whole frame, window −6..+10, floor 0.05).
+  - The 2 hard-cut re-picks are documented. Raw and corrected data lead to the same conclusions below.
+- The report was not written to `at13.md`, a minor deviation. The renders were deleted: OK.
+- **Engine under test: not controlled.**
+  - `dc render spec` re-bundles `studio/src` from the shared working tree at every job. The motion-engineer's uncommitted RV1 edits entered that tree in the middle of the run.
+  - Each render's engine can be read from its own data:
+    - In RV2 `reveal.ts`, arrive and impact have opacity 0 on the anchor frame, so the onset reads +1 f.
+    - Under RV1 the anchor frame already has p = ease(1/6) = 0.685, so the onset reads 0 f.
+  - Renders started before 13:14:00Z (kw-only, rules, kw-constraints, kw-walls): every KineticWord reads +1 f. These are RV2.
+  - Renders started 13:14–13:26Z: 7 of 7 KineticWords read 0 f. That includes kw-notfound, which has exactly the config of kw-constraints (kinetic, default arrive). These are RV1.
+  - The NumberCounter and TableGrid RV1 edits were also in the tree: their snapshots were re-baselined at 13:18–13:19Z.
+  - Split of +1 f: 9/15 (RV2 renders) vs 1/14 (RV1 tree). Fisher one-sided p = 0.0036.
+
+| Set | n | median | p95 \|off\| | histogram (f) | at +1..+2 f |
+|---|---|---|---|---|---|
+| All 29 as submitted (mixed engines) | 29 | 0.0 ms | 41.7 ms | 0 ×19, +1 ×10 | 34.5 % |
+| **RV2-valid** (kw-only, rules, kw-constraints, kw-walls) | 15 | **41.7 ms** | 41.7 ms | 0 ×6, +1 ×9 | **60.0 %** |
+| RV2-valid, raw (no re-picks) | 15 | 41.7 ms | 125.0 ms | −3 ×2, 0 ×5, +1 ×8 | 53.3 % |
+| RV1 working tree (uncontrolled) | 14 | 0.0 ms | 41.7 ms | 0 ×13, +1 ×1 | 7.1 % |
+
+**AT-13 (RV2): FAIL (not passed).**
+- The submitted 29-event "PASS" is not valid evidence about RV2.
+- On the RV2-valid subset the median criterion fails: 41.7 ms > 40 ms. p95 (41.7 ms) is within its threshold.
+
+**RT-011-2: TRIGGERED.**
+- Median 41.7 ms > 40 ms, and 60.0 % of events are at +1 f (53.3 % raw), which is ≥ 50 %.
+- Camera and M5 are excluded (`--nocam --nofx --cut`, solo layers).
+- The excess is the documented RV2 ease onset, not dissolve, camera or pre-roll.
+- Corroboration:
+  - the pre-RV1 12 fps clean subset has a median of +1 f;
+  - under RV2 the 14 RV1-tree events have zero ink on the anchor frame (reveal, counter roll value = a at t0, row birth ent = 0), so the RV2 median over all 29 would also be +1 f.
+- Carried by data.
+
+**Decision: Q2 = RV1** (pre-authorised, no new ballot).
+- The first visible step lands on the anchor frame (`REVEAL_ONSET_F = 1`). The preset lengths are unchanged.
+- The effective visible lead is now `lead_frames`, not `lead_frames − 1`.
+- The expected frame and the D5/G8 thresholds are unchanged.
+- RT-011-2 conditions:
+  - the engine change was made before the fan-out (`5ce4555`);
+  - AT-11 was re-reviewed with the native reader's veto (`fc00f6d`: PASS, no veto);
+  - the chair has recorded the switch in `decisions.json`.
+
+**Erroneous application (INC-011-1) and its correction.**
+- What happened: an orchestration script matched the ADR text "pre-authorised RV1 fallback" and had the motion-engineer apply RV1 in `5ce4555` (13:23:33Z). RT-011-2 had not been evaluated at that point. The uncommitted edits also contaminated 10 of the 14 AT-13 renders (14 of 29 events).
+- Correction:
+  - RV1 now rests on the RT-011-2 evaluation above, not on the text match.
+  - `5ce4555` is retained, not reverted, because it implements the rule's outcome. Its ratification is conditional on AT-13R.
+  - The `c26dc37` PASS is not acceptance evidence for either engine.
+- Prevention:
+  - fallbacks and reversal triggers fire only on a chair record in `decisions.json`, never on a text match in an ADR;
+  - measurement renders pin the engine: a clean `studio/` tree, or a git worktree at a stated commit, with HEAD recorded in the report.
+
+**AT-13R: 24 fps onset under RV1** [render-ops renders through the queue; sync-verifier measures; the motion-engineer does not grade. Due before any component beyond KineticWord, NumberCounter and TableGrid is merged, and before G6b.]
+- Use the same 14 solo renders and 29 events as AT-13.
+- Render from a clean, pinned engine at a commit ≥ `5ce4555`. Record HEAD and an empty `git status --porcelain studio/` in the report.
+- **Pass:** median ≤ 40 ms, p95 |offset| ≤ 100 ms, and no event earlier than −1 f. Report the histogram in frames.
+- Write `reports/sync/at13.md` plus JSON, then delete the renders.
+- Flag every event still at +1 f under RV1 as a sub-threshold first step. One candidate: orders addRow `001684` read +1 f in the RV1 tree.
+
+**RT-011-5 (new):** reopen Q2 with a new ballot if any of these happens:
+- AT-13R fails median ≤ 40 ms or p95 ≤ 100 ms;
+- any event lands earlier than −1 f because of the RV1 shift;
+- the native reader vetoes the RV1 anchor frames in a production chapter.
+
+RT-011-3 stays active.
+
+**Follow-ups:**
+- **render-ops and sync-verifier:** AT-13R. The sync-verifier also annotates the 24 fps section of `p7_demo.md` as mixed-engine. Its "highlight/counter/hard-pop" explanation does not hold for the 7 arrive KineticWords.
+- **motion-engineer:** keep RV1. No fan-out until AT-13R passes.
+- **critic:** rule on the NumberCounter and TableGrid snapshot re-baselines, which `5ce4555` left pending-critic.
+- **harness-engineer:** add engine provenance to `dc render spec`: record HEAD and a dirty flag, and refuse `--solo` measurement renders on a dirty `studio/` tree. Make orchestration triggers read only from `decisions.json`.
+- **scene-director:** the effective visible lead is now `lead_frames`.

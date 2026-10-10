@@ -1115,7 +1115,7 @@
   "council": "C5",
   "date": "2026-10-10",
   "chair": "council-chair",
-  "status": "decided",
+  "status": "decided; Q2 amended RV2 -> RV1 by RT-011-2 on 2026-10-10 (AT-13 result)",
   "amends": [
    "05_DATA_CONTRACTS §0 + word-map frame fields (Q1)",
    "03 P7.3/P9.1 preview fps (Q3)",
@@ -1208,13 +1208,13 @@
   },
   "decision": {
    "Q1": "RD1",
-   "Q2": "RV2",
+   "Q2": "RV1",
    "Q3": "P2",
    "rec_start_frame": "floor(start_ms*24/1000)",
    "rec_end_frame": "ceil(end_ms*24/1000)",
    "anchor_24": "rec_start_frame - lead_frames (exact; = 06 sync expected frame)",
    "anchor_F": "round_half_up((rec_start_frame - lead_frames - span.start)*F/24), one rounding; round_half_up(x)=floor(x+0.5); never Python round()",
-   "reveal_onset": "progress 0 on anchor frame; first visible step at anchor+1 f (42 ms @24); effective visible lead = lead_frames-1",
+   "reveal_onset": "RV1: first visible step lands ON the anchor frame (REVEAL_ONSET_F=1, revealProgress; preset length unchanged, settles at anchor+n-1); effective visible lead = lead_frames; expected frame and D5/G8 thresholds unchanged",
    "PREVIEW": {
     "width": 960,
     "height": 540,
@@ -1223,11 +1223,24 @@
    },
    "replaces": {
     "PREVIEW.fps": 15
-   }
+   },
+   "Q2_history": [
+    {
+     "date": "2026-10-10",
+     "value": "RV2",
+     "by": "C5 ballot 3/4 (conf-weighted 0.726 vs 0.274)"
+    },
+    {
+     "date": "2026-10-10",
+     "value": "RV1",
+     "by": "RT-011-2 (pre-authorised, no new ballot), evaluated by chair on the RV2-valid AT-13 subset; see at13"
+    }
+   ],
+   "reveal_onset_superseded_rv2": "progress 0 on anchor frame; first visible step at anchor+1 f (42 ms @24); effective visible lead = lead_frames-1"
   },
   "taste_vs_data": {
    "Q1": "data",
-   "Q2": "taste (motion-design, egyptian-arabic, technical-accuracy) + unmeasured 24 fps latency -> AT-13",
+   "Q2": "taste (motion-design, egyptian-arabic, technical-accuracy) + unmeasured 24 fps latency -> AT-13; 2026-10-10 switched to RV1 by data (RT-011-2 on RV2-valid AT-13 subset)",
    "Q3": "data"
   },
   "evidence": {
@@ -1258,13 +1271,15 @@
   "acceptance_tests": [
    "AT-13 24 fps per-layer isolated onset on _demo (29 events): median <= 40 ms, p95 <= 100 ms [render-ops, sync-verifier; P7 before fan-out beyond 3 reference components and before G6b]",
    "AT-14 timeutil vs resolve.ts identical frames on .5/odd-lead fixture at F 12/15/24; no round() on frame quantities in tools/ [harness-engineer]",
-   "AT-15 re-measure M5 (post-dissolve first word within +1 f) and m6 (12 fps odd leads 29/29) on post-87eb279 engine [sync-verifier]"
+   "AT-15 re-measure M5 (post-dissolve first word within +1 f) and m6 (12 fps odd leads 29/29) on post-87eb279 engine [sync-verifier]",
+   "AT-13R (2026-10-10) 24 fps per-layer isolated onset on _demo under RV1 from a clean pinned engine (commit >= 5ce4555, HEAD + clean `git status --porcelain studio/` recorded), 29 events: median <= 40 ms, p95 |offset| <= 100 ms, none earlier than -1 f, histogram in frames [render-ops renders via queue; sync-verifier measures; reports/sync/at13.md + at13.events.json; before fan-out beyond KineticWord/NumberCounter/TableGrid and before G6b]"
   ],
   "reversal_triggers": [
    "RT-011-1 any rec_start_frame after true audio onset or resolver/word-map mismatch -> reopen Q1 producer",
    "RT-011-2 AT-13 median > 40 ms with >= 50% events at +1..+2 f (M5/camera excluded) -> Q2 switches to RV1 (pre-authorised), AT-11 re-review, chair records",
    "RT-011-3 G8/G10a sync p95 > 100 ms or median > 40 ms from onset latency in any chapter -> reopen Q2",
-   "RT-011-4 G6a re-check fails after re-freeze, or >= 3 motion defects per chapter shown to be 12 fps cadence artefacts -> reopen Q3"
+   "RT-011-4 G6a re-check fails after re-freeze, or >= 3 motion defects per chapter shown to be 12 fps cadence artefacts -> reopen Q3",
+   "RT-011-5 (2026-10-10) AT-13R fails median <= 40 ms or p95 <= 100 ms, or any event earlier than -1 f caused by the RV1 shift, or a native-reader veto on RV1 anchor frames in production chapters -> reopen Q2 (new ballot)"
   ],
   "waivers": [],
   "thresholds_changed": [],
@@ -1274,7 +1289,113 @@
    "render-ops: AT-13 renders via queue; previews labelled lite 12 fps; P9 cost of 24 fps sync measurement renders",
    "sync-verifier: AT-13, AT-15; G8 sync evidence from 24 fps measurement renders",
    "critic: no judder findings from 12 fps previews without a 24 fps clip check",
-   "scene-director: effective visible lead = lead_frames-1; adjacent-word pre-emption lint candidate"
+   "scene-director: effective visible lead = lead_frames-1; adjacent-word pre-emption lint candidate",
+   "render-ops (AT-13R): re-render the 14 _demo solo layers at 24 fps --nocam --nofx --cut via the queue from a clean pinned RV1 engine; delete renders after",
+   "sync-verifier (AT-13R): measure with the c26dc37 method; write reports/sync/at13.md + JSON; annotate p7_demo.md 24 fps section as mixed-engine (its 'highlight/counter/hard-pop' attribution does not hold for the 7 arrive KineticWords)",
+   "motion-engineer: keep RV1 (no revert); no fan-out beyond the 3 reference components until AT-13R passes",
+   "critic: rule on the NumberCounter and TableGrid snapshot re-baselines left pending-critic by 5ce4555",
+   "harness-engineer: engine provenance in dc render spec (record git HEAD + studio/ dirty flag; refuse --solo measurement renders on a dirty studio/ tree); orchestration: fallback triggers only from decisions.json records",
+   "scene-director: effective visible lead is now lead_frames (RV1), replacing lead_frames-1"
+  ],
+  "at13": {
+   "date": "2026-10-10",
+   "evidence": [
+    "reports/sync/p7_demo.md (24 fps section)",
+    "reports/sync/p7_demo.events24.json",
+    "commit c26dc37",
+    "harness/state/queue.json tsp 49-93",
+    "corpus/render/jobs.jsonl",
+    "commit 5ce4555",
+    "studio/src/type/reveal.ts @84f4e2f"
+   ],
+   "conformance": {
+    "separation": "partial: 14 solo renders went through the queue (tsp 49,50,52,57,59,64,68,73,82,88,90,91,92,93) but were submitted by the sync-verifier, not render-ops; motion-engineer did not grade (ok)",
+    "method": "ok: dc render spec _demo --fps 24 --nocam --nofx --cut --no-audio --solo <layer>, 29 events, expected = rec_start_frame - lead_frames; detector adapted to zero solo baseline (whole frame, window -6..+10, floor 0.05); 2 hard-cut re-picks documented; conclusions identical raw vs corrected",
+    "report_path": "deviation: in reports/sync/p7_demo.md, not reports/sync/at13.md",
+    "renders_deleted": "ok (no preview24_dbg-*-solo-* dirs remain)",
+    "engine_under_test": "FAIL: not controlled. Every render re-bundles studio/src from the shared working tree; the motion-engineer's uncommitted RV1 edits (committed 5ce4555 13:23:33Z) entered it mid-run. Each render's engine is identified by its own data: under RV2 (reveal.ts @84f4e2f) arrive/impact have opacity 0 on the anchor frame (onset +1 f); under RV1 the anchor frame has p=ease(1/6)=0.685 (onset 0 f). Renders started before 13:14:00Z (kw-only, rules, kw-constraints, kw-walls): every KineticWord +1 f = RV2. Renders started 13:14:00Z-13:26:14Z: 7/7 KineticWords 0 f, incl. kw-notfound with the identical config of kw-constraints (kinetic, default arrive) = RV1; NumberCounter/TableGrid RV1 edits confirmed in the tree by their snap re-baselines 13:18-13:19Z."
+   },
+   "submitted_result_all29": {
+    "median_ms": 0.0,
+    "p95_abs_ms": 41.7,
+    "hist_f": {
+     "0": 19,
+     "+1": 10
+    },
+    "valid_as_RV2": false,
+    "reason": "mixed engine: 15 events RV2, 14 events RV1 working tree"
+   },
+   "rv2_valid_subset": {
+    "layers": [
+     "kw-only",
+     "rules",
+     "kw-constraints",
+     "kw-walls"
+    ],
+    "n": 15,
+    "corrected": {
+     "median_ms": 41.7,
+     "p95_abs_ms": 41.7,
+     "hist_f": {
+      "0": 6,
+      "+1": 9
+     },
+     "share_plus1_plus2": 0.6
+    },
+    "raw": {
+     "median_ms": 41.7,
+     "p95_abs_ms": 125.0,
+     "hist_f": {
+      "-3": 2,
+      "0": 5,
+      "+1": 8
+     },
+     "share_plus1_plus2": 0.533
+    }
+   },
+   "rv1_tree_subset": {
+    "n": 14,
+    "median_ms": 0.0,
+    "p95_abs_ms": 41.7,
+    "hist_f": {
+     "0": 13,
+     "+1": 1
+    },
+    "note": "uncontrolled mid-edit tree; not acceptance evidence for RV1 either"
+   },
+   "split_test": "+1 f share 9/15 vs 1/14, Fisher one-sided p = 0.0036",
+   "pass_criterion": "median <= 40 ms and p95 |offset| <= 100 ms under RV2",
+   "result": "FAIL (not passed): the 29-event PASS is invalid as RV2 evidence; on the RV2-valid subset median 41.7 ms > 40 ms",
+   "at13_pass": false
+  },
+  "rt_011_2_evaluation": {
+   "date": "2026-10-10",
+   "condition": "AT-13 median > 40 ms AND >= 50% of events at +1..+2 f, M5 and camera excluded",
+   "median_gt_40ms": true,
+   "median_ms": 41.7,
+   "share_plus1_plus2": "9/15 = 60.0% (raw 8/15 = 53.3%)",
+   "share_ge_50pct": true,
+   "m5_camera_excluded": "yes (--cut, --nocam, --nofx, solo layers)",
+   "other_causes": "none: the excess is the documented RV2 ease onset (p=0 on the anchor frame), not dissolve/camera/pre-roll",
+   "corroboration": "12 fps clean subset (pre-RV1) median +1 f, 10/16 at +1; code projection: the 14 RV1-tree events have zero anchor-frame ink under RV2 (arrive/impact reveal, counter roll value=a at t0, row birth ent=0), so RV2 over all 29 gives median +1 f",
+   "triggered": true,
+   "outcome": "Q2 switches to RV1 without a new ballot (pre-authorised)",
+   "rt_conditions": {
+    "engine_change_before_fanout": "done 5ce4555",
+    "AT-11_re_review_native_veto": "done fc00f6d (PASS, no veto)",
+    "chair_records": "this entry"
+   },
+   "taste_vs_data": "data"
+  },
+  "incidents": [
+   {
+    "id": "INC-011-1",
+    "date": "2026-10-10",
+    "what": "Orchestration script matched the ADR text 'pre-authorised RV1 fallback' and dispatched the motion-engineer to implement RV1 (commit 5ce4555, 13:23:33Z) before RT-011-2 had been evaluated.",
+    "impact": "The uncommitted RV1 edits entered the shared working tree from ~13:14Z and contaminated 10 of the 14 AT-13 solo renders (14/29 events); the c26dc37 24 fps PASS therefore mixes engines.",
+    "correction": "Recorded here. RV1 now stands on the RT-011-2 evaluation of the RV2-valid subset, not on the text match. 5ce4555 is retained, not reverted, because it implements the rule's outcome. Its ratification is conditional on AT-13R (RV1, clean pinned engine). The c26dc37 PASS is not acceptance evidence for either engine.",
+    "prevention": "Fallbacks and reversal triggers fire only on a chair record in decisions.json, never on ADR text matches. Measurement renders must pin the engine (clean studio/ tree or git worktree at a stated commit, HEAD recorded in the report)."
+   }
   ]
  }
 ]
