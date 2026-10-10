@@ -2,7 +2,8 @@
 // tsp queue; never run it directly on a busy box). GL is swiftshader only (ADR-002 GL-SS). One bundle, one browser per run.
 //   snap <Name> [--approve]        stills p0 / a1 (first anchor settled) / p50 / p100 of Demo-<Name>, pixelmatch vs
 //                                  studio/test/baselines/<Name>/ (absolute px cap), determinism, QA findings fail
-//   snap _selftest                 the QA-Selftest fixture MUST report overflow, perletter, fragment and unsafe findings
+//   snap _selftest                 the QA-Selftest fixture MUST report overflow, perletter, fragment, unsafe and label findings on
+//                                  their fixtures, and none on the M8 fit-after-shrink case
 //   perf <Name> [--tiers=a,b] [--frames=N] [--report-only]   BOX s/frame at 1080p per FX tier at the production concurrency
 //                                  (3 render slots) -> reports/perf/components/<Name>.json; exit 1 when over the ADR-002 budget
 //   spec <id> [--final] [--fps=N] [--no-audio] [--nocam] [--nofx] [--cut] [--solo=<layer>]
@@ -116,12 +117,21 @@ async function snap(c: Common, name: string): Promise<number> {
   if (name === '_selftest') {
     const comp = await selectComposition({...c, id: 'QA-Selftest', inputProps: {}});
     await renderStill({...c, composition: comp, frame: 1, output: path.join(out, 'selftest.png'), inputProps: {}, scale: SNAP.scale});
-    const kinds = new Set(qa.map((q) => q.kind));
-    const expect = ['overflow', 'perletter', 'fragment', 'unsafe'];
-    const pass = expect.every((k) => kinds.has(k));
-    const rep = {v: 2, name, at: now(), expect, findings: qa, pass};
+    // each detector must fire on ITS fixture; the M8 negative case (copy that fits only after auto-fit shrinks it) must stay clean
+    const expect: [kind: string, id: string][] = [
+      ['overflow', 'selftest:overflow'],
+      ['perletter', 'selftest:perletter'],
+      ['fragment', 'selftest:fragment'],
+      ['unsafe', 'selftest:unsafe'],
+      ['label', 'selftest:label'],
+    ];
+    const has = (k: string, id: string) => qa.some((q) => q.kind === k && q.id === id);
+    const missing = expect.filter(([k, id]) => !has(k, id)).map(([k, id]) => `${k}:${id}`);
+    const falsePos = qa.filter((q) => q.id === 'selftest:fitshrink').map((q) => `${q.kind}:${q.id}`);
+    const pass = !missing.length && !falsePos.length;
+    const rep = {v: 3, name, at: now(), expect: expect.map(([k, id]) => `${k}:${id}`), must_be_clean: ['selftest:fitshrink (M8: fits only after shrinking; no unsafe, no overflow)'], missing, false_positives: falsePos, findings: qa, pass};
     writeJson(path.join(ROOT, 'reports/p7/snap/_selftest.json'), rep);
-    console.log(`selftest: findings ${[...kinds].join(',') || 'none'} -> ${pass ? 'PASS (detectors fire)' : 'FAIL (a detector is silent)'}`);
+    console.log(`selftest: findings ${[...new Set(qa.map((q) => q.kind))].join(',') || 'none'} | missing ${missing.join(',') || '-'} | false positives ${falsePos.join(',') || '-'} -> ${pass ? 'PASS' : 'FAIL'}`);
     return pass ? 0 : 1;
   }
   const id = `Demo-${name}`;
@@ -145,7 +155,14 @@ async function snap(c: Common, name: string): Promise<number> {
   if (determinismPx) ok = false;
   const metaP = path.join(base, 'meta.json');
   const meta = fs.existsSync(metaP) ? JSON.parse(fs.readFileSync(metaP, 'utf8')) : null;
-  const approve = !!opt.approve && determinismPx === 0;
+  // n1: baselines are written only by a run that would otherwise pass: deterministic, zero QA findings, zero registry problems
+  const qaBefore = qa.filter((q) => q.kind !== 'parse');
+  const refuse = [
+    ...(determinismPx ? [`determinism ${determinismPx} px`] : []),
+    ...(qaBefore.length ? [`${qaBefore.length} QA finding(s): ${qaBefore.map((q) => `${q.kind}:${q.id}`).slice(0, 4).join(', ')}`] : []),
+    ...(regProblems.length ? [`${regProblems.length} registry problem(s)`] : []),
+  ];
+  const approve = !!opt.approve && !refuse.length;
   for (const {tag, frame, why} of stills) {
     const file = path.join(out, `${tag}.png`);
     const r: Record<string, unknown> = {tag, frame, why};
@@ -153,7 +170,7 @@ async function snap(c: Common, name: string): Promise<number> {
     const bf = path.join(base, `${tag}.png`);
     if (opt.approve && !approve) {
       r.pass = false;
-      r.error = 'not approved: the determinism check failed';
+      r.error = `not approved (baseline untouched): ${refuse.join('; ')}`;
     } else if (!approve && fs.existsSync(bf) && meta?.sha256?.[tag] && meta.sha256[tag] !== sha256(bf)) {
       r.pass = false;
       r.error = 'baseline PNG differs from meta.json sha256 (changed outside --approve)';
@@ -202,7 +219,7 @@ async function snap(c: Common, name: string): Promise<number> {
   }
   const qaOwn = qa.filter((q) => q.kind !== 'parse');
   if (qaOwn.length || regProblems.length) ok = false;
-  const rep = {v: 2, name, composition: id, at: now(), frames, thresholds: SNAP, results, qa_findings: qaOwn, registry_problems: regProblems, approve: !!opt.approve, pass: ok};
+  const rep = {v: 2, name, composition: id, at: now(), frames, thresholds: SNAP, results, qa_findings: qaOwn, registry_problems: regProblems, approve: !!opt.approve, ...(opt.approve && !approve ? {approve_refused: refuse} : {}), pass: ok};
   writeJson(path.join(ROOT, 'reports/p7/snap', `${name}.json`), rep);
   console.log(`snap ${name}: ${rep.pass ? 'PASS' : 'FAIL'} frames ${frames.join('/')} | ${results.map((r) => `${r.tag}:${r.baseline ?? r.mismatch_px ?? r.error}`).join(' ')} | det ${determinismPx} | qa ${qaOwn.length}`);
   return rep.pass ? 0 : 1;

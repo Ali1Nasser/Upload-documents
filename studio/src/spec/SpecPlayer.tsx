@@ -12,6 +12,7 @@ import {loadFonts} from '../type/fonts';
 import {checkArabicWholeWords, checkTitleSafe, checkWholeWords} from '../type/qa';
 import {presetFrames} from '../type/reveal';
 import {safeRect, type Rect} from '../type/safe';
+import {checkWhenSettled} from '../type/settle';
 import {getComponent, getDemo, isImplemented, isText, slotOf} from './registry';
 import {PREVIEW_FPS, modAt, resolveSpec, walkStrings} from './resolve';
 import {cameraAt, dollyCounter, planeStyle, streakAt, tailFrames, transitionState} from './rig';
@@ -170,7 +171,7 @@ const Shot: React.FC<{shot: ResolvedShot; prev: ResolvedShot | null; r: Resolved
 export const SpecPlayer: React.FC<SpecPlayerProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const frame = useCurrentFrame();
-  const r = props.resolved ?? resolveSpec(inputOf(props), {fps: props.fps ?? FPS, preview: !!props.preview, implemented: isImplemented, slotOf, textOf: isText});
+  const r = props.resolved ?? resolveSpec(inputOf(props), {fps: props.fps ?? (props.preview ? PREVIEW_FPS : FPS), preview: !!props.preview, implemented: isImplemented, slotOf, textOf: isText});
   const dbg: Debug = props.debug ?? {};
   const scale = r.preview ? PREVIEW.width / W : 1;
   // every Arabic word on screen must be a whole word of some layer's props (catches typewriter / substring reveals, M6)
@@ -179,11 +180,17 @@ export const SpecPlayer: React.FC<SpecPlayerProps> = (props) => {
     for (const sh of r.shots) for (const l of sh.layers) walkStrings(l.props, out), l.actions.forEach((a) => walkStrings(a.props, out));
     return out;
   }, [r]);
-  useLayoutEffect(() => {
-    checkWholeWords(ref.current);
-    checkArabicWholeWords(ref.current, lexicon);
-    checkTitleSafe(ref.current, safeRect('title'), scale); // B3: on-screen position of every copy element after transforms
-  }, [frame, lexicon, scale]);
+  // M8: the checks read the SETTLED frame (fonts loaded, every auto-fit shrunk), never the pre-fit layout; the frame is held
+  // (delayRender) until they have run
+  useLayoutEffect(
+    () =>
+      checkWhenSettled(`spec ${frame}`, () => {
+        checkWholeWords(ref.current);
+        checkArabicWholeWords(ref.current, lexicon);
+        checkTitleSafe(ref.current, safeRect('title'), scale); // B3: on-screen position of every copy element after transforms
+      }),
+    [frame, lexicon, scale],
+  );
   return (
     <AbsoluteFill style={{background: C.void}}>
       <div ref={ref} style={{position: 'absolute', left: 0, top: 0, width: W, height: H, transform: scale !== 1 ? `scale(${scale})` : undefined, transformOrigin: '0 0', overflow: 'hidden'}}>

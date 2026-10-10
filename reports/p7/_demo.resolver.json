@@ -2,13 +2,13 @@
  "v": 1,
  "spec": "_demo",
  "chapter": "CH-10",
- "fps": 15,
+ "fps": 12,
  "preview": true,
  "span24": [
   91569,
   92798
  ],
- "frames": 768,
+ "frames": 615,
  "shots": 5,
  "layers": 16,
  "anchors_total": 34,
@@ -23,7 +23,7 @@
   "props.until": 5
  },
  "dropped_shots": [],
- "at": "2026-10-10T13:00:15Z",
+ "at": "2026-10-10T17:06:49Z",
  "spec_file": "corpus/specs/_demo.json",
  "edl": "corpus/edl/master_edl.v1.json",
  "word_map": "corpus/edl/word_map.v1.1.jsonl",
@@ -32,10 +32,10 @@
  "debug": null,
  "audio": "VO excerpt 91569..92798 @24",
  "render": {
-  "file": "data/renders/spec/_demo/preview15/_demo.mp4",
-  "wall_s": 49.4,
-  "s_per_frame": 0.0644,
-  "bytes": 2688945
+  "file": "data/renders/spec/_demo/preview12/_demo.mp4",
+  "wall_s": 40.8,
+  "s_per_frame": 0.0664,
+  "bytes": 2655115
  },
  "qa_findings": [],
  "registry_problems": [],

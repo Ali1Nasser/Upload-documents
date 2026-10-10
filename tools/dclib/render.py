@@ -7,7 +7,7 @@ is given. Inside the queue it builds the TypeScript driver with esbuild (light) 
   perf <Name>               box s/frame at 1080p per FX tier at the production concurrency (3 slots; the job claims all
                             3 queue slots) -> reports/perf/components/<Name>.json; exit 1 over the ADR-002 budget
   perf --aggregate          rebuild reports/perf/components.json from the per-component files (light, no render)
-  spec <id> [--final]       render corpus/specs/<id>.json (preview 960x540 @ PREVIEW.fps 15, lite, by default); resolver
+  spec <id> [--final]       render corpus/specs/<id>.json (preview 960x540 @ tokens.ts PREVIEW.fps, lite, by default); resolver
                             report; --nocam/--nofx/--cut/--solo=<layer> = isolated measurement renders
   at11                      AT-11 34 px join-gap motion clip + frames -> reports/p7/at11/
 """

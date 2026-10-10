@@ -5,7 +5,12 @@ Run: python3 -I studio/scripts/freeze_p6.py  (after: bash studio/scripts/check_c
 
 ADR-009 cond 5 ordering (G6a verifier round 0): status "frozen" is written ONLY when close conditions 1-4 hold, each with
 evidence newer than what it covers, and the frozen JOIN_GAP equals ADR-009 B2 or a decided Council ADR amends B2.
-Otherwise the file is written with status "provisional" (hashes kept for drift tracking) and the open preconditions; exit 2."""
+Otherwise the file is written with status "provisional" (hashes kept for drift tracking) and the open preconditions; exit 2.
+
+Contract changes (re-freeze): every hash that differs from the previous freeze.json must be authorised by an entry of
+AUTHORISED below: a decided ADR, its chair record in harness/state/decisions.json, the one frozen file, and the exact line
+replacements. Undoing exactly those replacements must reproduce the previously frozen hash, so nothing else in the file may
+change. Any other difference is an open precondition (status "provisional")."""
 import datetime, glob, hashlib, json, os, re, subprocess, sys
 from pathlib import Path
 
@@ -32,6 +37,72 @@ groups = {
     "catalog_json": group(rel(glob.glob(str(ROOT / "harness/schemas/components/*.json")))),
 }
 FIX_STILLS = ["F3-standard", "F4-standard", "F4-hero", "F5-standard", "F6-standard", "F7-standard", "F8-standard"]
+# Narrow authorisations of frozen-file changes (one entry per ADR x file). `record` = (decisions.json id, decision key, value).
+AUTHORISED = [
+    {"adr": "ADR-011", "doc": "docs/decisions/ADR-011-timing-conventions.md", "record": ("ADR-011", "Q3", "P2"),
+     "path": "studio/src/tokens.ts", "what": "PREVIEW.fps 15 -> 12 (ADR-011 Q3 P2, CR-001) and the TOKENS_VERSION marker",
+     "lines": [
+         ("export const PREVIEW = deepFreeze({width: 960, height: 540, fps: 15, tier: 'lite' as const});",
+          "export const PREVIEW = deepFreeze({width: 960, height: 540, fps: 12, tier: 'lite' as const}); // ADR-011 Q3 P2 (CR-001): 12 fps, an exact divisor of the 24 fps film rate"),
+         ("export const TOKENS_VERSION = 'P6-freeze-1 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009)';",
+          "export const TOKENS_VERSION = 'P6-freeze-2 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009; ADR-011 Q3 PREVIEW.fps 12)';"),
+     ]},
+]
+
+
+def authorised_ok(a):
+    """The ADR is decided and its chair record holds the authorising value."""
+    doc = ROOT / a["doc"]
+    if not doc.exists() or not re.search(r"(?mi)^Status:\s*decided", doc.read_text(encoding="utf-8")):
+        return False
+    dec = json.loads((ROOT / "harness/state/decisions.json").read_text())
+    rid, key, val = a["record"]
+    return any(d.get("id") == rid and (d.get("decision") or {}).get(key) == val for d in dec)
+
+
+def applied(a):
+    """Every replacement line is present (the change is in the file)."""
+    lines = (ROOT / a["path"]).read_text(encoding="utf-8").splitlines()
+    return all(lines.count(new) == 1 for _, new in a["lines"])
+
+
+def reverts_to(a, old_hash):
+    """Undoing exactly the authorised replacements reproduces the previously frozen bytes."""
+    txt = (ROOT / a["path"]).read_text(encoding="utf-8")
+    for old, new in a["lines"]:
+        if txt.count(new) != 1:
+            return False
+        txt = txt.replace(new, old)
+    return hashlib.sha256(txt.encode("utf-8")).hexdigest() == old_hash
+
+
+def base_groups(prev):
+    """The last FROZEN hashes: a provisional file keeps them in baseline_groups, so a failed re-freeze cannot launder a change."""
+    return (prev.get("baseline_groups") if prev.get("status") != "frozen" and prev.get("baseline_groups") else prev.get("groups")) or {}
+
+
+def contract_changes(prev):
+    """-> (records of authorised changes in force, open preconditions for unauthorised hash changes)."""
+    prev_h = {k: v for g in base_groups(prev).values() for k, v in g.items()}
+    now_h = {k: v for g in groups.values() for k, v in g.items()}
+    recs = {(c["adr"], c["path"]): c for c in prev.get("contract_changes", [])}
+    opn = []
+    for path in sorted(set(prev_h) | set(now_h)):
+        if prev_h.get(path) == now_h.get(path):
+            continue
+        a = next((a for a in AUTHORISED if a["path"] == path), None)
+        if a and authorised_ok(a) and path in prev_h and path in now_h and reverts_to(a, prev_h[path]):
+            recs[(a["adr"], path)] = {"adr": a["adr"], "path": path, "what": a["what"], "from": prev_h[path], "to": now_h[path],
+                                      "chair_record": "harness/state/decisions.json %s decision.%s = %s" % a["record"]}
+        else:
+            opn.append(f"unauthorised contract change: {path} hash differs from the previous freeze and no decided ADR in AUTHORISED covers exactly this change [council-chair]")
+    for a in AUTHORISED:  # an authorised change already frozen stays listed (idempotent re-runs)
+        if (a["adr"], a["path"]) not in recs and applied(a) and authorised_ok(a):
+            recs[(a["adr"], a["path"])] = {"adr": a["adr"], "path": a["path"], "what": a["what"], "to": now_h.get(a["path"]),
+                                           "chair_record": "harness/state/decisions.json %s decision.%s = %s" % a["record"]}
+    return list(recs.values()), opn
+
+
 ADR9_B2 = {"display": {"caps": 0.2, "latin": 0.14}, "text": {"caps": 0.25, "latin": 0.1}}  # ADR-009 B2 (>= 56 px / < 56 px)
 
 
@@ -89,19 +160,27 @@ def preconditions():
 
 
 open_pre, amend_adr, join_gap, cond3_reviews = preconditions()
+fz_path = ROOT / "harness/state/freeze.json"
+prev = json.loads(fz_path.read_text()) if fz_path.exists() else {}
+changes, unauth = contract_changes(prev)
+open_pre += unauth
 head = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"], capture_output=True, text=True).stdout.strip()
 out = {
     "v": 1, "phase": "P6", "step": "03 P6.4 freeze (contract between P7 and P8)",
     "status": "frozen" if not open_pre else "provisional", "open_preconditions": open_pre, "join_gap": join_gap, "join_gap_amendment": amend_adr, "cond3_reviews": cond3_reviews,
     "frozen_at" if not open_pre else "hashed_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "base_commit": head, "by": "motion-engineer",
     "look": "reports/lookdev/r3 (critic_r3: look 8.01, parity 7.5) + arabic r3 fixes a3b86c1 (re-check PASS d6ac265)",
-    "adrs": ["ADR-002", "ADR-003", "ADR-009"] + ([Path(amend_adr).name.split("-join")[0][:7]] if amend_adr else []),
+    "adrs": ["ADR-002", "ADR-003", "ADR-009"] + ([Path(amend_adr).name.split("-join")[0][:7]] if amend_adr else [])
+            + sorted({c["adr"] for c in changes}),
+    "contract_changes": changes,
     "tokens_version": next(l.split("'")[1] for l in (ROOT / "studio/src/tokens.ts").read_text().splitlines() if l.startswith("export const TOKENS_VERSION")),
     "counts": {"components": len(glob.glob(str(ROOT / "studio/src/components/*/schema.ts"))), "json_schemas": len(groups["catalog_json"])},
     "rule": "Any hash change = a contract change: Council ADR first, then re-run this script and dc gate check G6a.",
     "groups": groups,
 }
-p = ROOT / "harness/state/freeze.json"
+if open_pre and base_groups(prev):
+    out["baseline_groups"] = base_groups(prev)
+p = fz_path
 p.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
 print(p, out["status"], {k: len(v) for k, v in groups.items()})
 for o in open_pre:

@@ -41,15 +41,15 @@ A component receives `{props, ctx}`:
 2. **Use the type engine. Never set Arabic text by hand.**
    - `MixedText` handles Arabic runs plus `<bdi dir="ltr">` Latin isolates, the ADR-010 join gap after `الـ`, Western digits and the Latin face rule L1.
    - `KText` is one kinetic element with a preset reveal and auto-fit.
-   - `LabelRow` puts labels on one baseline, ≥ 40 px apart (AT-4).
+   - `LabelRow` puts labels on one baseline, ≥ 40 px apart (AT-4). The check always uses the `LABEL_GAP_MIN_PX` floor, whatever `gap` the caller passes; a tighter row is a `DC_QA label` finding.
    - `useAutoFit` fits copy to its slot.
 3. **RTL reveals.**
    - Arabic copy is revealed by a clip-path wipe running right → left over the whole box. Latin and numerals wipe left → right.
    - The presets are `arrive` / `impact` / `label` / `wipe` / `exit`, from `src/type/reveal.ts`, with ms taken from `PRESETS` in tokens.
    - The clip overshoots vertically (−60 % / 160 %), so tashkeel and glow are never cut.
    - Ease through `ease.*` from `reveal.ts`. These are the frozen `EASE` curves snapped to exactly 1 at the end (`Easing.out(exp)(1) = 0.999` would leave a counter at 66.60 instead of 66.67).
-   - **Onset = RV1 (ADR-011 Q2, RT-011-2 fallback).** The first *visible* step of every reveal lands **on** the anchor frame, never one frame later. `revealStyle` evaluates each preset curve one frame ahead (`REVEAL_ONSET_F = 1`): on the anchor frame progress is `ease(1/n)` (arrive @ 24 fps = 0.685 of the wipe, @ 12 fps = 0.90), the element settles at anchor + n − 1, the preset length n is unchanged, and anchor − 1 is still hidden.
-   - A component-owned motion that starts on an anchor (row entry, highlight, sort/filter travel, morph, a counter roll) uses `revealProgress(t − at, n, easing)` from `reveal.ts`, never a raw `interpolate(t, [at, at + n])`, which shows nothing on the anchor frame. A move that must **land** on a fixed frame (the `count` roll lands on the word end) starts its interpolation at `at − REVEAL_ONSET_F` instead. `p7.check.ts` asserts ink > 0 on the anchor frame for every preset × {12, 15, 24} fps × {rtl, ltr}.
+   - **Onset = RV1 (ADR-011 Q2; the chair record `harness/state/decisions.json` → `ADR-011` `decision.Q2 = "RV1"` (`Q2_history` 2026-10-10: RT-011-2 evaluated by the chair on the RV2-valid AT-13 subset, median 41.7 ms, 60 % at +1 f; ADR-011 §AT-13 result)).** The engine follows that chair record, never a text match in the ADR (INC-011-1); RV1 is implemented in `5ce4555`, and its ratification waits on AT-13R (render-ops + sync-verifier). No fan-out beyond the three reference components until AT-13R passes. The first *visible* step of every reveal lands **on** the anchor frame, never one frame later. `revealStyle` evaluates each preset curve one frame ahead (`REVEAL_ONSET_F = 1`): on the anchor frame progress is `ease(1/n)` (arrive @ 24 fps = 0.685 of the wipe, @ 12 fps = 0.90), the element settles at anchor + n − 1, the preset length n is unchanged, and anchor − 1 is still hidden.
+   - A component-owned motion that starts on an anchor (row entry, highlight, sort/filter travel, morph, a counter roll) uses `revealProgress(t − at, n, easing)` from `reveal.ts`, never a raw `interpolate(t, [at, at + n])`, which shows nothing on the anchor frame. A move that must **land** on a fixed frame (the `count` roll lands on the word end) starts its interpolation at `at − REVEAL_ONSET_F` instead. `p7.check.ts` asserts ink > 0 on the anchor frame for every preset × {12, 15, 24} fps × {rtl, ltr}, and that the chair record still says `RV1`.
 4. **Western digits** everywhere (`westernDigits()`; Eastern digits fail the frozen `Txt` schema). Numbers use mono tabular figures (`"tnum" 1`). Units go after the number, inside the same LTR isolate.
 5. **ALL-CAPS Latin containing `I`** (AI, API, KPI, CI) gets Inter Tight `cv08` (the serifed capital I), so it never reads as `Al` or `l`. `MixedText` applies it through `latinFeatures()`. Never override `fontFeatureSettings` on a Latin run.
 6. **Tashkeel clearance.**
@@ -60,8 +60,9 @@ A component receives `{props, ctx}`:
    - Copy shrinks to its floor: 28 px for labels tied to speech (`SIZE.labelMin`); 60 % of size for display.
    - Below the floor, the element is outlined in `crit` and a `DC_QA overflow` finding is logged. **Snapshot tests and spec renders fail on it.**
    - **Camera envelope.** `ctx.box` is the slot already shrunk by the shot's camera envelope (`cameraSafeBox` in `src/spec/rig.ts`), on the layer's depth plane (push, truck, pedestal, roll, impact nudge). Copy that auto-fits `ctx.box` is still title-safe at the peak of the move. Never lay copy out against the raw `slotRect`. The ambient push follows the 04 rate (1.5–3 % per 5 s). Its total is capped at 6 % per shot, but it never falls below the 04 floor of 1.5 % per 5 s. A hold (`static`) has no push.
-   - **Post-layout check.** On every SpecPlayer frame, `checkTitleSafe()` takes the on-screen box of every `[data-dc-text]` element, after all transforms (camera, parallax, impact scale, audio scale) and clipped by overflow ancestors, and compares it with title-safe. Copy outside title-safe is a `DC_QA unsafe` finding. The check skips invisible copy and shots inside a transition.
-   - `dc render snap _selftest` proves that the overflow, per-letter, fragment and unsafe detectors all fire.
+   - **Post-layout check.** On every SpecPlayer frame, once the frame has **settled**, `checkTitleSafe()` takes the on-screen box of every `[data-dc-text]` element, after all transforms (camera, parallax, impact scale, audio scale) and clipped by overflow ancestors, and compares it with title-safe. Copy outside title-safe is a `DC_QA unsafe` finding. The check skips invisible copy and shots inside a transition.
+   - **Settled frame (review M8).** The three post-layout checks (per-letter, fragment, title-safe) never read the pre-fit layout. SpecPlayer holds its own `delayRender` per frame and runs them in `checkWhenSettled()` (`src/type/settle.ts`): after the fonts are loaded and after every `useAutoFit` has released its handle (each pending fit is counted by `fitBegin`/`fitEnd`). Copy that fits title-safe only after auto-fit has shrunk it is therefore not `unsafe`. A component with its own measure-then-shrink logic must use `useAutoFit` (or call `fitBegin`/`fitEnd` around its own measurement), otherwise the checks may read its unsettled layout.
+   - `dc render snap _selftest` proves that the overflow, per-letter, fragment, unsafe and label (AT-4) detectors each fire on their own fixture, and that the fit-after-shrink fixture (`selftest:fitshrink`, ~3,150 px natural, ≤ 1,000 px fitted) reports **no** `unsafe` and no `overflow`.
 8. **Determinism.**
    - Use only `random(seed)` from `remotion`. Never use `Math.random`, `Date.now`, `new Date()` or wall-clock time in a component.
    - No network: fonts come from `public/fonts` via `loadFonts()`.
@@ -96,8 +97,8 @@ The budgets compare like with like, directly against ADR-002:
 
 `bash studio/scripts/check_p7.sh` runs the unit suites. It is light and does no rendering:
 - `arabic.check.ts` (frozen rules);
-- `p7.check.ts` (whole-word units, per-letter detector, digits, cv08, ADR-010 bands, fit and overflow, safe areas, AT-4, reveal, RV1 anchor-frame ink > 0 for every preset / fps / direction);
-- `resolve.check.ts` (the compiler on the real EDL, word map and `_demo` spec: anchor = word start − lead, cut leads, 12 fps halves, 15 fps single rounding, failure reporting, audio curves, the camera envelope (288 move × length × plane × slot cases stay title-safe), dissolve text opacity).
+- `p7.check.ts` (whole-word units, per-letter detector, digits, cv08, ADR-010 bands, fit and overflow, safe areas, AT-4, reveal, RV1 anchor-frame ink > 0 for every preset / fps / direction, and the ADR-011 chair record: `decision.Q2 = RV1`, `decision.PREVIEW.fps` = the token);
+- `resolve.check.ts` (the compiler on the real EDL, word map and `_demo` spec: anchor = word start − lead, cut leads, 12 fps halves, `PREVIEW.fps = 12` and no hard-coded preview fps, single rounding at 15 fps, failure reporting, audio curves, the camera envelope (288 move × length × plane × slot cases stay title-safe), dissolve text opacity).
 
 `dc render snap <Name>` runs through the queue:
 - It renders stills of `Demo-<Name>` at scale 0.5 (960×540 PNG), in the **lite** tier. Lite has no grain or bokeh noise, so the snapshot diffs only layout, type and motion. Tier looks are frozen tokens, covered by look-dev and perf. There are four stills:
@@ -107,25 +108,26 @@ The budgets compare like with like, directly against ADR-002:
 - It also checks:
   - determinism (the 50 % frame rendered twice, 0 px). This check runs **before** any compare or approve, and a determinism failure fails the run even with `--approve`. A non-deterministic render never becomes a baseline;
   - that each baseline PNG still matches its sha256 in `meta.json` (a baseline edited outside `--approve` fails);
-  - zero `DC_QA` findings (overflow, perletter, label, digits, font);
+  - zero `DC_QA` findings: `overflow`, `perletter`, `fragment`, `unsafe`, `label`, `digits`, `font`;
   - zero registry problems.
 - On failure it writes `data/renders/p7/snap/<Name>/<tag>_diff.png`.
 - Report: `reports/p7/snap/<Name>.json`.
 
 Every component change re-runs its snapshot and its perf measurement:
 - `dc render snap <Name>` must PASS against the approved baseline.
+- `--approve` writes baselines **only from a run that would otherwise pass**: it refuses, and leaves the baseline and `meta.json` untouched, when determinism is not 0 px, when there is any `DC_QA` finding, or when there is any registry problem (review n1; the report lists `approve_refused`).
 - A *visual* change needs `--approve`, which writes `meta.json` with `approval: "pending-critic"`, followed by a critic review of the three stills. The critic's sign-off is recorded with `--approve --approver <critic-run-id>`. Authors never grade their own baselines (golden rule 4).
 
 ## 6. Scene compiler (for reference)
 
 `studio/src/spec/resolve.ts` is pure and also runs in node tests:
 - **Anchors.** An anchor lands at `word.rec_start_frame − lead_frames`, in 24 fps record frames, exactly as `dc spec lint` computes it. At fps F a 24 fps frame x maps to `round((x − span.start) · F / 24)`.
-- **Onset on the anchor (RV1).** The anchor frame is the first frame with visible ink (ADR-011 Q2 switched to RV1 under RT-011-2). The lead to the first visible change is therefore exactly `lead_frames`, and the `06` sync metric's expected frame `rec_start_frame − lead_frames` needs no +1 f allowance. `dc render at11` writes the RV1 set as `reports/p7/at11/*_rv1.*` (frames t0 = anchor, t1, t2, settled; plus `anchor_ink` = changed pixels between anchor − 1 and anchor, which must be > 0). The unsuffixed RV2 set is kept for comparison.
+- **Onset on the anchor (RV1).** The anchor frame is the first frame with visible ink (ADR-011 Q2 = RV1; the chair record `harness/state/decisions.json` → `ADR-011` `decision.Q2 = "RV1"` (`Q2_history` 2026-10-10: RT-011-2 evaluated by the chair on the RV2-valid AT-13 subset, median 41.7 ms, 60 % at +1 f; ADR-011 §AT-13 result)). The lead to the first visible change is therefore exactly `lead_frames`, and the `06` sync metric's expected frame `rec_start_frame − lead_frames` needs no +1 f allowance. `dc render at11` writes the RV1 set as `reports/p7/at11/*_rv1.*` (frames t0 = anchor, t1, t2, settled; plus `anchor_ink` = changed pixels between anchor − 1 and anchor, which must be > 0). The unsuffixed RV2 set is kept for comparison.
 - **Shots.** Each shot covers its sentences. The cut sits 5 f before the shot's first word, never before the previous shot's last word ends.
 - **Validation.** Props are checked against the frozen zod schemas. Actions (`<Name>.<action>`) attach to their target layer.
 - **Shot-level layers.** `CameraRig`, `DepthLayers`, `FXTier`, `AudioReactive`, `WhipPan`, `LightStreakTransition` and `MatchCut` are consumed at shot level.
-- **Previews** are 960×540 at `PREVIEW.fps` (15, the frozen token) with the lite tier. 12 fps is requested in CR-001 and is available as `--fps 12` until the Council decides. Finals are 1920×1080 at 24 fps.
-- **Anchor rounding.** At fps F an anchor lands at `round((rec_start_frame − lead_frames − span.start) · F / 24)`, with one rounding, half up. This is exact at 24. Word-map frames are `floor(start_ms · 24 / 1000)` and `ceil(end_ms · 24 / 1000)`; CR-002 files this convention for `05_DATA_CONTRACTS`.
+- **Previews** are 960×540 at `PREVIEW.fps` (**12**, the frozen token since ADR-011 Q3 = P2; CR-001 resolved; re-frozen in `harness/state/freeze.json` `contract_changes`) with the lite tier, labelled "lite · 12 fps". Every preview path (`calculateMetadata`, the SpecPlayer fallback, `p7.ts spec`, `dc render spec`) reads the token through `PREVIEW_FPS`; nothing hard-codes a preview fps (`resolve.check.ts` scans for it). `--fps N` overrides it for one render. Finals are 1920×1080 at 24 fps. Sync evidence (G8) comes from 24 fps measurement renders, never from 12 fps previews; critics verify judder on a ≤ 10 s 24 fps clip first.
+- **Anchor rounding (ADR-011 Q1 = RD1).** At fps F an anchor lands at `round_half_up((rec_start_frame − lead_frames − span.start) · F / 24)`, with one rounding (`floor(x + 0.5)`, never Python `round()`). This is exact at 24; at 12 every anchor is a film frame halved. Word-map frames are `floor(start_ms · 24 / 1000)` and `ceil(end_ms · 24 / 1000)` (CR-002 resolved by ADR-011).
 - **Measurement renders.** `dc render spec <id> --fps 24 --nocam --nofx --cut [--solo <layer id>]` renders without the camera, the backdrop/post FX or transitions, optionally with a single layer. Use these for per-layer sync onsets; they are never deliverables.
 - **Resolver report.** `calculateMetadata` sets the duration from the EDL span and returns the resolver report: anchors resolved / unresolved, invalid props, unknown and unimplemented components.
 - **Report location.** `dc render spec <id>` writes `data/renders/spec/<id>/<mode>/resolver.json` next to the MP4. `--report <repo path>` keeps a small copy in git.

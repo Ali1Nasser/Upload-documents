@@ -10,6 +10,7 @@ import {glow, halo, caShadow} from '../fx/look';
 import {arabicFace, isArabic, joinGapEm, latinFamily, lineHeightFor, segment, type LatinRole} from './arabic';
 import {fontsReady} from './fonts';
 import {reportQa} from './qa';
+import {fitBegin, fitEnd} from './settle';
 import {revealStyle, type RevealDir} from './reveal';
 import {LABEL_GAP_MIN_PX, checkLabelRow} from './safe';
 import {fitToWidth, hasEasternDigits, latinFeatures, westernDigits} from './words';
@@ -82,12 +83,17 @@ export type FitOpts = {id: string; size: number; min: number; maxW: number; maxH
 export const useAutoFit = (ref: React.RefObject<HTMLElement | null>, o: FitOpts): {size: number; overflow: boolean} => {
   const [fit, setFit] = useState({size: o.size, overflow: false});
   const [ok, setOk] = useState(false);
-  const [handle] = useState(() => (typeof document === 'undefined' ? null : delayRender(`fit ${o.id}`)));
+  const [handle] = useState(() => {
+    if (typeof document === 'undefined') return null;
+    fitBegin(); // M8: post-layout QA waits until every pending fit has settled (settle.ts)
+    return delayRender(`fit ${o.id}`);
+  });
   const released = useRef(false);
   const release = () => {
     if (handle !== null && !released.current) {
       released.current = true;
       continueRender(handle);
+      fitEnd();
     }
   };
   useLayoutEffect(() => {
@@ -198,7 +204,8 @@ export const LabelRow: React.FC<LabelRowProps> = ({id, labels, size, maxW, color
       const b = probe ? probe.getBoundingClientRect().top : r.bottom;
       return {x: r.left, w: r.width, baseline: b, text: labels[i]};
     });
-    const v = checkLabelRow(boxes, gap * (el.getBoundingClientRect().width / Math.max(1, el.offsetWidth)));
+    // AT-4 floor is the token LABEL_GAP_MIN_PX, never the caller's `gap` (a row laid out tighter than 40 px must be reported)
+    const v = checkLabelRow(boxes, LABEL_GAP_MIN_PX * (el.getBoundingClientRect().width / Math.max(1, el.offsetWidth)));
     if (v.length) reportQa('label', id, v.slice(0, 3));
   });
   return (

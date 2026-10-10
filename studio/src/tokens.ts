@@ -37,7 +37,7 @@ export const FPS = 24; // ADR-002 Q2.1 F24
 export const W = 1920;
 export const H = 1080;
 export const GL = 'swiftshader' as const; // ADR-002 Q2.2: never mixed within a shot, chunk set or chapter
-export const PREVIEW = deepFreeze({width: 960, height: 540, fps: 15, tier: 'lite' as const});
+export const PREVIEW = deepFreeze({width: 960, height: 540, fps: 12, tier: 'lite' as const}); // ADR-011 Q3 P2 (CR-001): 12 fps, an exact divisor of the 24 fps film rate
 export const HERO_SHARE_MAX = 0.05; // ADR-002 Q2.3 RT5 (film runtime share of real-time WebGL)
 
 /** 04 §4 timing table re-specified at 24 fps, milliseconds preserved (ADR-002 Q2.1). */
@@ -144,4 +144,4 @@ export const TEXT_SAFE = deepFreeze({on: true, masked: ['particles', 'haze', 'bo
 
 /** Freeze marker (03 P6.4). Hashes of this file, studio/src/type/arabic.ts, the fonts and the component catalog are in
  * harness/state/freeze.json and are re-checked by `dc gate check G6a`. */
-export const TOKENS_VERSION = 'P6-freeze-1 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009)';
+export const TOKENS_VERSION = 'P6-freeze-2 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009; ADR-011 Q3 PREVIEW.fps 12)';

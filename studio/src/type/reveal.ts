@@ -1,7 +1,7 @@
 // Whole-element reveal / exit styles for the motion presets (04 §3.5, tokens PRESETS). Pure: (frame offset, fps) -> CSS.
 // Arabic is revealed by a clip-path wipe running RIGHT -> LEFT over the whole word box (never per letter); Latin-only and
 // numeric runs wipe left -> right. Clip bounds overshoot the box vertically (-60 %/160 %) so tashkeel and glow are never cut.
-// Onset = RV1 (ADR-011 Q2 via RT-011-2): the first visible step of every preset lands ON the anchor frame (REVEAL_ONSET_F).
+// Onset = RV1 (ADR-011 Q2; chair record: harness/state/decisions.json ADR-011 decision.Q2 = RV1, Q2_history 2026-10-10, RT-011-2 evaluated on the RV2-valid AT-13 subset): the first visible step of every preset lands ON the anchor frame (REVEAL_ONSET_F).
 import type React from 'react';
 import {interpolate} from 'remotion';
 import {EASE, IMPACT, LABEL_RISE_PX, PRESETS, msToFrames, type PresetId} from '../tokens';
@@ -27,7 +27,7 @@ export const wipeClip = (p: number, dir: RevealDir): string | undefined => {
     : `polygon(-60% -60%, ${(100 - e).toFixed(2)}% -60%, ${(100 - e).toFixed(2)}% 160%, -60% 160%)`;
 };
 
-/** ADR-011 Q2 = RV1 (RT-011-2 fallback): the first VISIBLE reveal step lands ON the anchor frame. Every preset curve is
+/** ADR-011 Q2 = RV1 (chair record in decisions.json, AT-13 result; implemented in 5ce4555): the first VISIBLE reveal step lands ON the anchor frame. Every preset curve is
  * evaluated one frame ahead, so progress on the anchor frame is ease(1 / n) > 0 (the step RV2 showed at anchor + 1) and the
  * element settles at anchor + n - 1. The preset length n (ms truth from PRESETS) is unchanged; frame anchor - 1 stays hidden. */
 export const REVEAL_ONSET_F = 1;

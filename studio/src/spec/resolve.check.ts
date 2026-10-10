@@ -92,8 +92,16 @@ const cv = ra.curves['rms_dbfs:medium'];
 eq('audio curve: one value per frame, 0..1, not flat', [cv.length === ra.frames, cv.every((v) => v >= 0 && v <= 1), Math.max(...cv) > 0.3], [true, true, true]);
 eq('audio mod attached to its layer', ra.shots[3].mods.map((m) => `${m.to}.${m.param}`), ['n3.glow']);
 
-// M7: the preview default follows the frozen token until the Council decides CR-001
+// ADR-011 Q3 = P2 (CR-001 resolved): the frozen token is 12 fps and every preview path reads it (M7: no hard-coded preview fps)
 eq('preview fps = frozen PREVIEW.fps', PREVIEW_FPS, PREVIEW.fps);
+eq('ADR-011 Q3 P2: PREVIEW.fps = 12', PREVIEW.fps, 12);
+for (const f of ['studio/src/spec/SpecPlayer.tsx', 'studio/scripts/p7.ts', 'tools/dclib/render.py']) {
+  const src = fs.readFileSync(path.join(ROOT, f), 'utf8');
+  const hard = src.split('\n').filter((l) => /preview/i.test(l) && /(fps\s*[:=?]*\s*\(?\s*(12|15)\b|\b(12|15)\s*fps)/i.test(l) && !/^\s*(\/\/|\*|#)/.test(l));
+  eq(`no hard-coded preview fps in ${f}`, hard, []);
+}
+const r12d = resolveSpec(input, {fps: PREVIEW_FPS, preview: true});
+eq('preview default (token) = 12 fps resolve: duration halves', r12d.frames, Math.round((ps.end - ps.start) / 2));
 
 // m6: an anchor is ONE rounding, round((start24 - lead - span.start) * F / 24), at 15 fps too
 const r15 = resolveSpec(input, {fps: 15, preview: true});

@@ -1,10 +1,13 @@
 // Unit checks for the P7 typography engine (words.ts, Text.tsx, safe.ts, reveal.ts). Run: bash studio/scripts/check_p7.sh.
-import {FX, H, W} from '../tokens';
+import fs from 'node:fs';
+import path from 'node:path';
+import {FX, H, PREVIEW, W} from '../tokens';
 import {joinGapEm, segment} from './arabic';
 import {presetFrames, revealProgress, revealStyle, wipeClip, ease, REVEAL_ONSET_F, type RevealOut} from './reveal';
 import {LABEL_GAP_MIN_PX, checkLabelRow, layoutLabelRow, safeRect, slotRect} from './safe';
 import {fitToWidth, hasEasternDigits, latinFeatures, needsSerifI, perLetterViolations, westernDigits, wordUnits} from './words';
 
+const ROOT = process.env.DC_ROOT || path.resolve(process.cwd(), '..');
 let fails = 0;
 const eq = (name: string, got: unknown, want: unknown) => {
   const ok = JSON.stringify(got) === JSON.stringify(want);
@@ -68,7 +71,8 @@ eq('settled word has no clip', wipeClip(1, 'rtl'), undefined);
 eq('ease.arrive(1) is exactly 1 (Easing.out(exp) is 0.999)', ease.arrive(1), 1);
 eq('hidden before the anchor (laid out, no shift)', revealStyle(-1, 24, 'arrive', 'rtl').style.visibility, 'hidden');
 eq('settled after the preset', revealStyle(6, 24, 'arrive', 'rtl').style.clipPath, undefined);
-// ADR-011 Q2 = RV1: the first visible step lands ON the anchor frame for every preset, at every fps, in both directions.
+// ADR-011 Q2 = RV1 (chair record: harness/state/decisions.json ADR-011 decision.Q2 = RV1, Q2_history 2026-10-10, RT-011-2 evaluated on the RV2-valid AT-13 subset; engine 5ce4555, AT-13R pending): the first visible step lands ON the anchor frame for every
+// preset, at every fps, in both directions. The engine follows the chair record, never a text match in the ADR (INC-011-1).
 // ink = (visibility) x opacity x the visible fraction of the clip box (0 = nothing on screen).
 const ink = (r: RevealOut): number => {
   if (!r.visible || r.style.visibility === 'hidden') return 0;
@@ -83,6 +87,11 @@ const ink = (r: RevealOut): number => {
   return op * frac;
 };
 eq('RV1: onset shift is one frame', REVEAL_ONSET_F, 1);
+{
+  const dec = (JSON.parse(fs.readFileSync(path.join(ROOT, 'harness/state/decisions.json'), 'utf8')) as {id: string; decision?: {Q2?: string; Q3?: string; PREVIEW?: {fps?: number}}}[]).find((d) => d.id === 'ADR-011');
+  eq('RV1: the chair record (decisions.json ADR-011 decision.Q2) says RV1', dec?.decision?.Q2, 'RV1');
+  eq('Q3 P2: the chair record PREVIEW.fps equals the frozen token', [dec?.decision?.Q3, dec?.decision?.PREVIEW?.fps], ['P2', PREVIEW.fps]);
+}
 for (const fps of [12, 15, 24])
   for (const preset of ['arrive', 'impact', 'label', 'wipe', 'count', 'morph'] as const)
     for (const dir of ['rtl', 'ltr'] as const) {

@@ -35,9 +35,9 @@ import type {
   WordRow,
 } from './types';
 
-/** Preview frame rate = the FROZEN token (tokens.ts PREVIEW.fps 15, 03 P7.3). 12 fps (an exact divisor of the 24 fps film rate)
- * is requested in CR-001 (corpus/specs/_component_requests.jsonl) and stays available as `dc render spec <id> --fps 12` until the
- * Council decides; code never overrides a frozen value without an ADR (P7 review M7). */
+/** Preview frame rate = the FROZEN token tokens.ts PREVIEW.fps (12 since ADR-011 Q3 P2, CR-001: an exact divisor of the 24 fps
+ * film rate, so every preview frame is a film frame). Every preview path reads this constant; nothing hard-codes a preview fps
+ * (P7 review M7). `dc render spec <id> --fps N` overrides it for one render only. */
 export const PREVIEW_FPS: number = PREVIEW.fps;
 export const FILM_FPS = 24;
 /** Window padding for underscore demo specs with `window` (24-fps frames): mirrored in tools/dclib/speclint.py WINDOW_PAD. */

@@ -1,14 +1,39 @@
 {
- "v": 2,
+ "v": 3,
  "name": "_selftest",
- "at": "2026-10-10T13:04:00Z",
+ "at": "2026-10-10T17:05:19Z",
  "expect": [
-  "overflow",
-  "perletter",
-  "fragment",
-  "unsafe"
+  "overflow:selftest:overflow",
+  "perletter:selftest:perletter",
+  "fragment:selftest:fragment",
+  "unsafe:selftest:unsafe",
+  "label:selftest:label"
  ],
+ "must_be_clean": [
+  "selftest:fitshrink (M8: fits only after shrinking; no unsafe, no overflow)"
+ ],
+ "missing": [],
+ "false_positives": [],
  "findings": [
+  {
+   "kind": "label",
+   "id": "selftest:label",
+   "detail": [
+    "gap 16.0 px < 39.98708010335917 between 'offset' and 'الـpartition'",
+    "gap 16.0 px < 39.98708010335917 between 'الـpartition' and 'الـKafka'"
+   ]
+  },
+  {
+   "kind": "overflow",
+   "id": "selftest:overflow",
+   "detail": {
+    "natural_w": 2210,
+    "natural_h": 159,
+    "max_w": 300,
+    "max_h": null,
+    "min": 120
+   }
+  },
   {
    "kind": "perletter",
    "id": "selftest:perletter",
@@ -41,10 +66,10 @@
    "id": "selftest:overflow",
    "detail": {
     "box": [
-     256,
-     207,
+     217,
+     206,
      2410,
-     349
+     350
     ],
     "title_safe": [
      96,
@@ -72,17 +97,6 @@
      1026
     ],
     "opacity": 1
-   }
-  },
-  {
-   "kind": "overflow",
-   "id": "selftest:overflow",
-   "detail": {
-    "natural_w": 2210,
-    "natural_h": 159,
-    "max_w": 300,
-    "max_h": null,
-    "min": 120
    }
   }
  ],

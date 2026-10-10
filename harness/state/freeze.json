@@ -20,17 +20,28 @@
   "reports/lookdev/arabic_r4.md",
   "reports/lookdev/arabic_r5.md"
  ],
- "frozen_at": "2026-10-10T07:10:47Z",
- "base_commit": "c45d1d2",
+ "frozen_at": "2026-10-10T17:03:36Z",
+ "base_commit": "08882ce",
  "by": "motion-engineer",
  "look": "reports/lookdev/r3 (critic_r3: look 8.01, parity 7.5) + arabic r3 fixes a3b86c1 (re-check PASS d6ac265)",
  "adrs": [
   "ADR-002",
   "ADR-003",
   "ADR-009",
-  "ADR-010"
+  "ADR-010",
+  "ADR-011"
  ],
- "tokens_version": "P6-freeze-1 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009)",
+ "contract_changes": [
+  {
+   "adr": "ADR-011",
+   "path": "studio/src/tokens.ts",
+   "what": "PREVIEW.fps 15 -> 12 (ADR-011 Q3 P2, CR-001) and the TOKENS_VERSION marker",
+   "from": "fc7f05ca621fc0530dfc9d61a48c2152d0cad4ec0829d68d1ed8009133461090",
+   "to": "e679727ee97e8a715c43830699c8b8559fc38427a40ff47aeeb1db34dddcc95d",
+   "chair_record": "harness/state/decisions.json ADR-011 decision.Q3 = P2"
+  }
+ ],
+ "tokens_version": "P6-freeze-2 (look-dev r3 + arabic r3 fixes a3b86c1; ADR-002, ADR-003, ADR-009; ADR-011 Q3 PREVIEW.fps 12)",
  "counts": {
   "components": 104,
   "json_schemas": 106
@@ -38,7 +49,7 @@
  "rule": "Any hash change = a contract change: Council ADR first, then re-run this script and dc gate check G6a.",
  "groups": {
   "tokens": {
-   "studio/src/tokens.ts": "fc7f05ca621fc0530dfc9d61a48c2152d0cad4ec0829d68d1ed8009133461090"
+   "studio/src/tokens.ts": "e679727ee97e8a715c43830699c8b8559fc38427a40ff47aeeb1db34dddcc95d"
   },
   "type": {
    "studio/src/type/arabic.ts": "972549b59cacd8d50201c0715103216224f75ff5e4b627702ecf392ec4af1447",
