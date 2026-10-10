@@ -153,7 +153,59 @@
           },
           "holds": {
             "type": "array",
-            "items": {}
+            "items": {
+              "type": "object",
+              "properties": {
+                "from": {
+                  "type": "object",
+                  "properties": {
+                    "word": {
+                      "type": "string",
+                      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+                    },
+                    "lead_frames": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 90
+                    }
+                  },
+                  "required": [
+                    "word",
+                    "lead_frames"
+                  ],
+                  "additionalProperties": false
+                },
+                "until": {
+                  "type": "object",
+                  "properties": {
+                    "word": {
+                      "type": "string",
+                      "pattern": "^w:[A-Za-z0-9]+:[A-Za-z0-9._-]+:\\d{6}$"
+                    },
+                    "lead_frames": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 90
+                    }
+                  },
+                  "required": [
+                    "word",
+                    "lead_frames"
+                  ],
+                  "additionalProperties": false
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 3
+                }
+              },
+              "required": [
+                "from",
+                "until",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
           },
           "sfx": {
             "type": "array",

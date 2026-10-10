@@ -5,7 +5,6 @@ import sys
 from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
-    "spec": "P7/P8",
     "render": "P6/P9", "sound": "P11", "dag": "P0 (later)",
 }
 
@@ -212,6 +211,10 @@ def build():
     # qa (P7/P9): `qa arabic` is implemented (tools/dclib/qa_arabic.py); chapter/film/sync are P9 stubs
     from . import qa_arabic
     qa_arabic.register(sub)
+
+    # spec (P8): lint / metrics / coverage live in speclint.py
+    from . import speclint
+    speclint.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():

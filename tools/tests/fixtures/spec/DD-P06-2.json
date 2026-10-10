@@ -1,0 +1,523 @@
+{
+ "v": 1,
+ "chapter": "DD-P06-2",
+ "edl_version": "v1",
+ "fx_budget": {
+  "hero_max_ratio": 0.05
+ },
+ "continuity": {
+  "entering_from": "DD-P06-1"
+ },
+ "shots": [
+  {
+   "shot_id": "DD-P06-2-S01",
+   "sentences": [
+    "s:S4:P06:0096"
+   ],
+   "intent": "Git reflog is the safety net",
+   "concepts": [
+    "c:git"
+   ],
+   "metaphor": "git graph",
+   "layout": "fullbleed-2.5d",
+   "fx_tier": "standard",
+   "layers": [
+    {
+     "component": "LoopPlate",
+     "props": {
+      "plate": "git-network"
+     }
+    },
+    {
+     "component": "DeepDiveCard",
+     "props": {
+      "chapter": "DD-P06-2",
+      "parent": "CH-09",
+      "title_ar": "اختبارات وGit"
+     }
+    },
+    {
+     "component": "GitGraph",
+     "props": {
+      "id": "g1",
+      "branches": [
+       {
+        "name": "main"
+       }
+      ],
+      "commits": [
+       {
+        "id": "c1",
+        "branch": "main",
+        "msg": "init",
+        "parents": []
+       }
+      ]
+     }
+    },
+    {
+     "component": "TermChip",
+     "props": {
+      "term": "Git",
+      "gloss_ar": "نظام تتبع النسخ"
+     },
+     "at": {
+      "word": "w:S4:P06:001067",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "TermChip",
+     "props": {
+      "term": "commit",
+      "gloss_ar": "نقطة حفظ"
+     },
+     "at": {
+      "word": "w:S4:P06:001070",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "reflog",
+      "preset": "impact"
+     },
+     "at": {
+      "word": "w:S4:P06:001073",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "GitGraph.checkout",
+     "props": {
+      "target": "g1",
+      "branch": "main"
+     },
+     "at": {
+      "word": "w:S4:P06:001079",
+      "lead_frames": 2
+     }
+    }
+   ],
+   "holds": [],
+   "sfx": [
+    {
+     "cue": "whoosh_soft_2",
+     "at": {
+      "word": "w:S4:P06:001067",
+      "lead_frames": 3
+     }
+    }
+   ],
+   "transition_out": {
+    "type": "LightStreakTransition",
+    "frames": 12
+   },
+   "data_refs": [],
+   "camera": {
+    "move": "push_in",
+    "ease": "inOutCubic",
+    "intensity": 0.4
+   }
+  },
+  {
+   "shot_id": "DD-P06-2-S02",
+   "sentences": [
+    "s:S4:P06:0097",
+    "s:S4:P06:0098"
+   ],
+   "intent": "The last stage: the final gate with 3 programs",
+   "concepts": [
+    "c:git"
+   ],
+   "metaphor": "git graph",
+   "layout": "fullbleed-2.5d",
+   "fx_tier": "lite",
+   "layers": [
+    {
+     "component": "TestGate",
+     "props": {
+      "id": "gate",
+      "tests": [
+       {
+        "name": "pytest",
+        "status": "pending"
+       }
+      ]
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "مرحلة",
+      "preset": "arrive"
+     },
+     "at": {
+      "word": "w:S4:P06:001085",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "StatusStamp",
+     "props": {
+      "status": "ok",
+      "label_ar": "المرحلة الأخيرة"
+     },
+     "at": {
+      "word": "w:S4:P06:001086",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "البوابة",
+      "preset": "arrive"
+     },
+     "at": {
+      "word": "w:S4:P06:001090",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "NumberCounter",
+     "props": {
+      "id": "n3",
+      "to": {
+       "value": 3,
+       "ref": "s:S4:P06:0098"
+      },
+      "label": "programs"
+     },
+     "at": {
+      "word": "w:S4:P06:001096",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "TermChip",
+     "props": {
+      "term": "Python",
+      "gloss_ar": "لغة برمجة"
+     },
+     "at": {
+      "word": "w:S4:P06:001098",
+      "lead_frames": 3
+     }
+    }
+   ],
+   "holds": [],
+   "sfx": [],
+   "transition_out": {
+    "type": "cut",
+    "frames": 0
+   },
+   "data_refs": []
+  },
+  {
+   "shot_id": "DD-P06-2-S03",
+   "sentences": [
+    "s:S4:P06:0099"
+   ],
+   "intent": "Tests above 90 %, 10 clear commits",
+   "concepts": [
+    "c:git"
+   ],
+   "metaphor": "git graph",
+   "layout": "fullbleed-2.5d",
+   "fx_tier": "standard",
+   "layers": [
+    {
+     "component": "TestGate",
+     "props": {
+      "id": "gate2",
+      "tests": [
+       {
+        "name": "pytest",
+        "status": "pending"
+       }
+      ]
+     }
+    },
+    {
+     "component": "TermChip",
+     "props": {
+      "term": "pytest",
+      "gloss_ar": "أداة اختبار"
+     },
+     "at": {
+      "word": "w:S4:P06:001101",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "90%",
+      "preset": "count",
+      "emphasis": "number"
+     },
+     "at": {
+      "word": "w:S4:P06:001107",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "TestGate.run",
+     "props": {
+      "target": "gate2"
+     },
+     "at": {
+      "word": "w:S4:P06:001112",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "NumberCounter",
+     "props": {
+      "id": "n10",
+      "to": {
+       "value": 10,
+       "ref": "s:S4:P06:0099"
+      },
+      "label": "commits"
+     },
+     "at": {
+      "word": "w:S4:P06:001113",
+      "lead_frames": 3
+     }
+    }
+   ],
+   "holds": [],
+   "sfx": [],
+   "transition_out": {
+    "type": "cut",
+    "frames": 0
+   },
+   "data_refs": []
+  },
+  {
+   "shot_id": "DD-P06-2-S04",
+   "sentences": [
+    "s:S4:P06:0100"
+   ],
+   "intent": "From scripts to engineering practice",
+   "concepts": [
+    "c:git"
+   ],
+   "metaphor": "git graph",
+   "layout": "fullbleed-2.5d",
+   "fx_tier": "standard",
+   "layers": [
+    {
+     "component": "GitGraph",
+     "props": {
+      "id": "g2",
+      "branches": [
+       {
+        "name": "main"
+       },
+       {
+        "name": "feature"
+       }
+      ],
+      "commits": [
+       {
+        "id": "c1",
+        "branch": "main",
+        "msg": "init",
+        "parents": []
+       }
+      ]
+     }
+    },
+    {
+     "component": "GitGraph.merge",
+     "props": {
+      "target": "g2",
+      "from": "feature",
+      "into": "main"
+     },
+     "at": {
+      "word": "w:S4:P06:001119",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "هندسة",
+      "preset": "impact"
+     },
+     "at": {
+      "word": "w:S4:P06:001126",
+      "lead_frames": 3
+     }
+    }
+   ],
+   "holds": [],
+   "sfx": [],
+   "transition_out": {
+    "type": "cut",
+    "frames": 0
+   },
+   "data_refs": []
+  },
+  {
+   "shot_id": "DD-P06-2-S05",
+   "sentences": [
+    "s:S4:P06:0101"
+   ],
+   "intent": "The product is a merged pull request with tests",
+   "concepts": [
+    "c:git"
+   ],
+   "metaphor": "git graph",
+   "layout": "fullbleed-2.5d",
+   "fx_tier": "standard",
+   "layers": [
+    {
+     "component": "GitGraph",
+     "props": {
+      "id": "g3",
+      "branches": [
+       {
+        "name": "main"
+       },
+       {
+        "name": "feature"
+       }
+      ],
+      "commits": [
+       {
+        "id": "c1",
+        "branch": "main",
+        "msg": "init",
+        "parents": []
+       }
+      ]
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "المنتج",
+      "preset": "arrive"
+     },
+     "at": {
+      "word": "w:S4:P06:001132",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "سطور",
+      "preset": "arrive"
+     },
+     "at": {
+      "word": "w:S4:P06:001138",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "TermChip",
+     "props": {
+      "term": "pull request",
+      "gloss_ar": "طلب دمج"
+     },
+     "at": {
+      "word": "w:S4:P06:001142",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "GitGraph.merge",
+     "props": {
+      "target": "g3",
+      "from": "feature",
+      "into": "main"
+     },
+     "at": {
+      "word": "w:S4:P06:001144",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "conflicts",
+      "preset": "impact"
+     },
+     "at": {
+      "word": "w:S4:P06:001148",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "قرارات",
+      "preset": "label"
+     },
+     "at": {
+      "word": "w:S4:P06:001152",
+      "lead_frames": 3
+     }
+    }
+   ],
+   "holds": [],
+   "sfx": [],
+   "transition_out": {
+    "type": "cut",
+    "frames": 0
+   },
+   "data_refs": []
+  },
+  {
+   "shot_id": "DD-P06-2-S06",
+   "sentences": [
+    "s:S4:P06:0102"
+   ],
+   "intent": "Are we ready for production?",
+   "concepts": [
+    "c:git"
+   ],
+   "metaphor": "git graph",
+   "layout": "fullbleed-2.5d",
+   "fx_tier": "standard",
+   "layers": [
+    {
+     "component": "KineticWord",
+     "props": {
+      "text": "كود",
+      "preset": "arrive"
+     },
+     "at": {
+      "word": "w:S4:P06:001161",
+      "lead_frames": 3
+     }
+    },
+    {
+     "component": "StatusStamp",
+     "props": {
+      "status": "pending",
+      "label_ar": "جاهزين؟"
+     },
+     "at": {
+      "word": "w:S4:P06:001167",
+      "lead_frames": 2
+     }
+    }
+   ],
+   "holds": [],
+   "sfx": [],
+   "transition_out": {
+    "type": "cut",
+    "frames": 0
+   },
+   "data_refs": []
+  }
+ ]
+}
