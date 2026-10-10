@@ -1,0 +1,315 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-10T06:35:43Z",
+ "label": "adr009-gate",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "pass",
+ "metrics": {
+  "strings": 6,
+  "failed": 0,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 6,
+  "ocr_pass": 6,
+  "ocr_min": 1.0,
+  "ocr_exact": 6,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 5,
+  "join_min": 1.0,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 6
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "F3-title",
+   "text": "الترتيب داخل الـpartition",
+   "size": 92,
+   "render_size": 92,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 1016,
+    "ink_h": 107,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 993
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الترتيب داخل ال ‎partition‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F4-roadmap",
+   "text": "قسم الـroadmap",
+   "size": 72,
+   "render_size": 72,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 552,
+    "ink_h": 90,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 534
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم قسم ال ‎roadmap‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F4-idempotency",
+   "text": "قسم الـidempotency",
+   "size": 72,
+   "render_size": 72,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 681,
+    "ink_h": 90,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 663
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 85,
+    "got": "قسم قسم ال ‎idempotency‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7-chip6",
+   "text": "6 AI",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "mono"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 66,
+    "ink_h": 23,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "Al 6 ‏قسم‎",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "AT11-roadmap-34",
+   "text": "قسم الـroadmap",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 237,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 227
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم قسم ال ‎roadmap‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "AT11-idempotency-34",
+   "text": "قسم الـidempotency",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 298,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 288
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 70,
+    "got": "قسم قسم ال ‎idempotency‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

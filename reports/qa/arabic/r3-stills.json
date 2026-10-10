@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-10T06:31:45Z",
+ "created": "2026-10-10T06:34:19Z",
  "label": "r3-stills",
  "thresholds": {
   "ocr_min": 0.9,
@@ -665,7 +665,7 @@
    "kind": "label",
    "sources": [],
    "problems": [
-    "OCR score 0.667 < 0.9 (frame-crop); got '6 الام'"
+    "OCR score 0.727 < 0.9 (frame-crop); got 'Ald! 6'"
    ],
    "warnings": [],
    "join": true,
@@ -693,11 +693,11 @@
    "evidence": "frame-crop",
    "renderer": "delivered frame crop (glow composited)",
    "ocr": {
-    "score": 0.667,
+    "score": 0.727,
     "exact": false,
     "psm": 7,
-    "scale": 100,
-    "got": "6 الام",
+    "scale": 70,
+    "got": "Ald! 6",
     "join_junk": "",
     "join_region_ok": false,
     "pass": false

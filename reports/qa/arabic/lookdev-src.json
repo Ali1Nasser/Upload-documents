@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-10T06:31:32Z",
+ "created": "2026-10-10T06:34:08Z",
  "label": "lookdev-src",
  "thresholds": {
   "ocr_min": 0.9,
@@ -22,8 +22,8 @@
   "negative_caught": 0,
   "ocr_scored": 33,
   "ocr_pass": 33,
-  "ocr_min": 0.972,
-  "ocr_exact": 32,
+  "ocr_min": 0.923,
+  "ocr_exact": 30,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
@@ -158,16 +158,16 @@
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 1.0,
-    "exact": true,
+    "score": 0.923,
+    "exact": false,
     "psm": 7,
     "scale": 100,
     "got": "5 ثوانٍ مقابل 57",
     "join_junk": "",
     "pass": true,
     "bands": {
-     "34": 1.0,
-     "92": 1.0
+     "34": 0.923,
+     "92": 0.923
     }
    },
    "status": "pass"
@@ -1590,16 +1590,16 @@
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 1.0,
-    "exact": true,
+    "score": 0.929,
+    "exact": false,
     "psm": 7,
     "scale": 100,
     "got": "5 ثواني مقابل 57",
     "join_junk": "",
     "pass": true,
     "bands": {
-     "34": 1.0,
-     "92": 1.0
+     "34": 0.929,
+     "92": 0.929
     }
    },
    "status": "pass"

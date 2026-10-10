@@ -1,0 +1,9 @@
+{"v": 1, "note": "ADR-009 close condition 2 strings (each >= 0.90 on an isolated render) + ADR-010 AT-11 labels. F7 chip 6 is the number bdi + bare AI of world.tsx TagContent (logical `6 AI`, number at the RTL start); force_ocr because it has no Arabic letters.",
+ "items": [
+  {"id": "F3-title", "text": "الترتيب داخل الـpartition", "size": 92, "kind": "kinetic"},
+  {"id": "F4-roadmap", "text": "قسم الـroadmap", "size": 72, "kind": "kinetic"},
+  {"id": "F4-idempotency", "text": "قسم الـidempotency", "size": 72, "kind": "kinetic"},
+  {"id": "F7-chip6", "text": "6 AI", "size": 32, "kind": "label", "force_ocr": true},
+  {"id": "AT11-roadmap-34", "text": "قسم الـroadmap", "size": 34, "kind": "label"},
+  {"id": "AT11-idempotency-34", "text": "قسم الـidempotency", "size": 34, "kind": "label"}
+ ]}

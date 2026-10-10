@@ -460,6 +460,13 @@ def streams(s, junk=False):
     return ar + "|" + ot
 
 
+def want_visual(text):
+    """Expected OCR text: Arabic runs in logical order, Latin isolates in VISUAL order (an RTL parent lays isolates out right to left, so a
+    string with two isolates, e.g. the chip `6 AI`, reads `AI 6` on screen and tesseract returns it that way)."""
+    segs = segment(text)
+    return "".join(t for t, l in segs if not l) + " " + " ".join(t for t, l in reversed([x for x in segs if x[1]]))
+
+
 def ocr_score(got, want):
     a, b = streams(got), streams(want)
     return round(difflib.SequenceMatcher(None, a, b).ratio(), 3), a == b
@@ -545,7 +552,8 @@ def check_bidi(text):
         if ltr and t.count("(") != t.count(")"):
             errs.append(f"BIDI-PAREN unbalanced parenthesis inside LTR isolate {t!r} (mirroring splits it across the isolate edge)")
     for i in range(len(segs) - 2):
-        if segs[i][1] and not segs[i + 1][1] and segs[i + 1][0].strip() == "" and segs[i + 2][1]:
+        numeric = lambda t: re.fullmatch(r"[\d.,]+", t) is not None
+        if segs[i][1] and not segs[i + 1][1] and segs[i + 1][0].strip() == "" and segs[i + 2][1] and numeric(segs[i][0]) == numeric(segs[i + 2][0]):  # number + word (`6 AI`) is the numbered-tag idiom; word+word and number+number reverse
             errs.append(f"BIDI-MULTIWORD Latin words {segs[i][0]!r} {segs[i + 2][0]!r} are separate isolates (RTL reverses them); wrap in ⟦…⟧")
     if re.search(r"\d[\d.,]*\s+(%|EGP|ms|s|rows)(?![A-Za-z])", out):
         errs.append("BIDI-UNIT number and unit are not one isolate (`66.67 %`, `11 rows`): use ⟦n unit⟧ or withUnit()")
@@ -763,7 +771,7 @@ def qa_item_core(it, ocr, args, gap):
     if args.ocr and pre is not None and ocr is not None and (is_arabic(text) or it.get("force_ocr")):
         best = {"score": -1.0, "rank": (-1, -1.0)}
         for psm, tg, got in do_ocr(ocr, pre, multiline):
-            want = ocr_text.replace(" | ", " ").replace("\\n", " ")
+            want = want_visual(ocr_text.replace(" | ", " ").replace("\\n", " "))
             s, exact = ocr_score(got, want)
             junk = latin_junk(got, want) if res["join"] else ""
             rank = (not junk and s >= args.min_score, s)
@@ -785,7 +793,7 @@ def qa_item_core(it, ocr, args, gap):
             crim = render_text({**it, "text": ctl_ocr}, gap)[0]
             cbest = -1.0
             for _psm, _tg, got in do_ocr(ocr, lambda tg: prep_isolated(crim, size or DEFAULT_SIZE[kind], tg), multiline):
-                cbest = max(cbest, ocr_score(got, ctl_ocr.replace(" | ", " "))[0])
+                cbest = max(cbest, ocr_score(got, want_visual(ctl_ocr.replace(" | ", " ")))[0])
                 if cbest >= args.min_score:
                     break
             best["control"] = {"text": ctl, "score": cbest}

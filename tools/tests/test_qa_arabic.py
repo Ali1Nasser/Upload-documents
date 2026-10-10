@@ -65,6 +65,9 @@ check(any("BIDI-UNIT" in e for e in Q.check_bidi("النتيجة 66.67 % من ا
 check(Q.check_bidi("النتيجة ⟦66.67 %⟧ من الداتا") == [], "bidi: unit inside the isolate passes")
 check(any("BIDI-MULTIWORD" in e for e in Q.check_bidi("استخدم vector database هنا")), "bidi: two Latin words need one isolate")
 check(Q.check_bidi("استخدم ⟦vector database⟧ هنا") == [], "bidi: ⟦multi word⟧ passes")
+check(any("BIDI-MULTIWORD" in e for e in Q.check_bidi("3 صفحات مقابل 12 500")), "bidi: `12 500` reverses to `500 12`")
+check(Q.check_bidi("6 AI") == [] and Q.check_bidi("4 المنصة") == [], "bidi: number + word tag idiom passes")
+check(Q.want_visual("6 AI").split() == ["AI", "6"] and Q.want_visual("قسم الـroadmap 0.165").split()[-2:] == ["0.165", "roadmap"], "want_visual: isolates in screen order")
 check(any("BIDI-AR-IN-LTR" in e for e in Q.check_bidi("(الـpartition) مهم")), "bidi: '(' swallows the Arabic prefix")
 check(any("BIDI-PAREN" in e for e in Q.check_bidi("قسم (partition) مهم")) is False, "bidi: balanced parens inside one isolate pass")
 check(any("BIDI-PAREN" in e for e in Q.check_bidi("هو partition) كده")), "bidi: unbalanced paren")
@@ -106,6 +109,9 @@ else:
     for t, sz, k in gate:
         r = Q.qa_item_core({"id": "t", "text": t, "size": sz, "kind": k, "sources": []}, OCR, ARGS, None)
         check(r["status"] == "pass" and r["ocr"]["pass"] and r["ocr"]["score"] >= 0.9, f"isolated render passes: {t} {sz}px -> {r['ocr']} {r['problems']}")
+    # ADR-009 close condition 2: the F7 chip (logical `6 AI`, no Arabic letters) scored by force_ocr
+    r = Q.qa_item_core({"id": "t", "text": "6 AI", "size": 32, "kind": "label", "force_ocr": True, "sources": []}, OCR, ARGS, None)
+    check(r["status"] == "pass" and r["ocr"]["score"] >= 0.9, f"F7 chip 6 isolated OCR: {r['ocr']}")
     # canon `6 الـAI` (ADR-010 RT-010-4 evidence): tesseract reads Latin `AI` after the tatweel as Arabic `ام`. The result must be reported with its
     # no-join control, never hidden: either it passes, or it carries `control` (and is only a warning if the control fails too).
     r = Q.qa_item_core({"id": "t", "text": "6 الـAI", "size": 32, "kind": "label", "sources": []}, OCR, ARGS, None)
