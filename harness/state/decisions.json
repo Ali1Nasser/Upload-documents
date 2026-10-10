@@ -1109,5 +1109,172 @@
    "render-ops: re-render MA-MD strips with new gaps; cond 4 regress.json",
    "scene-director: 6 الـAI canon drift (restore or pending-council override)"
   ]
+ },
+ {
+  "id": "ADR-011",
+  "council": "C5",
+  "date": "2026-10-10",
+  "chair": "council-chair",
+  "status": "decided",
+  "amends": [
+   "05_DATA_CONTRACTS §0 + word-map frame fields (Q1)",
+   "03 P7.3/P9.1 preview fps (Q3)",
+   "frozen token studio/src/tokens.ts PREVIEW.fps 15->12 (Q3)"
+  ],
+  "amends_scope": "timing conventions only; no thresholds or metrics changed",
+  "resolves": [
+   "CR-001",
+   "CR-002"
+  ],
+  "brief": null,
+  "path": "docs/decisions/ADR-011-timing-conventions.md",
+  "method": "Narrow ballot of the 4 owning lenses (audio-sync, motion-design, egyptian-arabic, technical-accuracy), choice + confidence; rule from computed task: majority per question, tie -> option keeping frozen tokens and locked word map (RD1/RV2/P1; not invoked). No brief or cross-review (options posed inline).",
+  "confidence_members": {
+   "audio-sync": 0.75,
+   "motion-design": 0.62,
+   "egyptian-arabic": 0.65,
+   "technical-accuracy": 0.72,
+   "mean": 0.685
+  },
+  "confidence": "medium",
+  "votes": {
+   "Q1": {
+    "RD1": [
+     "audio-sync",
+     "motion-design",
+     "egyptian-arabic",
+     "technical-accuracy"
+    ],
+    "RD2": []
+   },
+   "Q2": {
+    "RV1": [
+     "audio-sync"
+    ],
+    "RV2": [
+     "motion-design",
+     "egyptian-arabic",
+     "technical-accuracy"
+    ]
+   },
+   "Q3": {
+    "P1": [
+     "motion-design"
+    ],
+    "P2": [
+     "audio-sync",
+     "egyptian-arabic",
+     "technical-accuracy"
+    ]
+   }
+  },
+  "scores": {
+   "Q1": {
+    "vote_share": {
+     "RD1": 1.0,
+     "RD2": 0.0
+    },
+    "conf_weighted": {
+     "RD1": 1.0,
+     "RD2": 0.0
+    },
+    "margin_pts": 100.0,
+    "top": "RD1"
+   },
+   "Q2": {
+    "vote_share": {
+     "RV2": 0.75,
+     "RV1": 0.25
+    },
+    "conf_weighted": {
+     "RV2": 0.726,
+     "RV1": 0.274
+    },
+    "margin_pts": 45.3,
+    "top": "RV2"
+   },
+   "Q3": {
+    "vote_share": {
+     "P2": 0.75,
+     "P1": 0.25
+    },
+    "conf_weighted": {
+     "P2": 0.774,
+     "P1": 0.226
+    },
+    "margin_pts": 54.7,
+    "top": "P2"
+   }
+  },
+  "decision": {
+   "Q1": "RD1",
+   "Q2": "RV2",
+   "Q3": "P2",
+   "rec_start_frame": "floor(start_ms*24/1000)",
+   "rec_end_frame": "ceil(end_ms*24/1000)",
+   "anchor_24": "rec_start_frame - lead_frames (exact; = 06 sync expected frame)",
+   "anchor_F": "round_half_up((rec_start_frame - lead_frames - span.start)*F/24), one rounding; round_half_up(x)=floor(x+0.5); never Python round()",
+   "reveal_onset": "progress 0 on anchor frame; first visible step at anchor+1 f (42 ms @24); effective visible lead = lead_frames-1",
+   "PREVIEW": {
+    "width": 960,
+    "height": 540,
+    "fps": 12,
+    "tier": "lite"
+   },
+   "replaces": {
+    "PREVIEW.fps": 15
+   }
+  },
+  "taste_vs_data": {
+   "Q1": "data",
+   "Q2": "taste (motion-design, egyptian-arabic, technical-accuracy) + unmeasured 24 fps latency -> AT-13",
+   "Q3": "data"
+  },
+  "evidence": {
+   "reports": [
+    "reports/sync/p7_demo.md",
+    "reports/p7/foundation_review.md",
+    "reports/p7/_demo.isolated24.resolver.json"
+   ],
+   "resolver_match": {
+    "fps24": "29/29",
+    "fps12": "29/29"
+   },
+   "round_vs_floor_CH10": "85/166 differ",
+   "onset_12fps_clean": {
+    "n": 16,
+    "median_ms": 83,
+    "p95_abs_ms": 188,
+    "max_ms": 250,
+    "at_0_to_plus1": "13/16"
+   },
+   "code": [
+    "studio/src/spec/resolve.ts:7-10,157",
+    "tools/dclib/timeutil.py:17-35",
+    "tools/dclib/speclint.py:386",
+    "studio/src/tokens.ts:40"
+   ]
+  },
+  "acceptance_tests": [
+   "AT-13 24 fps per-layer isolated onset on _demo (29 events): median <= 40 ms, p95 <= 100 ms [render-ops, sync-verifier; P7 before fan-out beyond 3 reference components and before G6b]",
+   "AT-14 timeutil vs resolve.ts identical frames on .5/odd-lead fixture at F 12/15/24; no round() on frame quantities in tools/ [harness-engineer]",
+   "AT-15 re-measure M5 (post-dissolve first word within +1 f) and m6 (12 fps odd leads 29/29) on post-87eb279 engine [sync-verifier]"
+  ],
+  "reversal_triggers": [
+   "RT-011-1 any rec_start_frame after true audio onset or resolver/word-map mismatch -> reopen Q1 producer",
+   "RT-011-2 AT-13 median > 40 ms with >= 50% events at +1..+2 f (M5/camera excluded) -> Q2 switches to RV1 (pre-authorised), AT-11 re-review, chair records",
+   "RT-011-3 G8/G10a sync p95 > 100 ms or median > 40 ms from onset latency in any chapter -> reopen Q2",
+   "RT-011-4 G6a re-check fails after re-freeze, or >= 3 motion defects per chapter shown to be 12 fps cadence artefacts -> reopen Q3"
+  ],
+  "waivers": [],
+  "thresholds_changed": [],
+  "follow_ups": [
+   "motion-engineer: tokens.ts PREVIEW.fps=12; component_guide anchors note (RD1 formulas, RV2 +1 f, preview 12); append CR-001/CR-002 resolved records to corpus/specs/_component_requests.jsonl",
+   "harness-engineer: re-freeze tokens.ts hash citing ADR-011; dc gate check G6a; AT-14",
+   "render-ops: AT-13 renders via queue; previews labelled lite 12 fps; P9 cost of 24 fps sync measurement renders",
+   "sync-verifier: AT-13, AT-15; G8 sync evidence from 24 fps measurement renders",
+   "critic: no judder findings from 12 fps previews without a 24 fps clip check",
+   "scene-director: effective visible lead = lead_frames-1; adjacent-word pre-emption lint candidate"
+  ]
  }
 ]
