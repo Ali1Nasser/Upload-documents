@@ -29,8 +29,8 @@
     },
     {
       "name": "ADR-009_cond_1_2_fixes_ocr",
-      "pass": false,
-      "detail": "isolated-render OCR gate strings 4/4 >= 0.90; F7 chip 6 (now Latin 'AI 6', no Arabic join): no isolated-render score, B1 closed by the Arabic re-check: False (its OCR 'Al 6' = Inter I/l); type suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after the chip 6 change); tsc --noEmit 0"
+      "pass": true,
+      "detail": "isolated-render OCR gate strings 4/4 >= 0.90 F3-title=1.00 roadmap-72=1.00 idem-72=1.00 F7-chip6=1.00; type suite ok; B-items per artifact over 4 Arabic reviews: B1 F7 chip 6 fixed (arabic_r3.md), B2 F3 title fixed (arabic_r3.md), B2 F4 card fixed (arabic_r3.md), B2 F6 head fixed (arabic_r3.md), B2 F6 labels fixed (arabic_r3.md); suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after "
     },
     {
       "name": "ADR-009_cond_3_rerender_review",
@@ -43,5 +43,5 @@
       "detail": "by=render-ops pass=True covers ['F3-standard', 'F4-hero', 'F4-standard', 'F5-standard', 'F6-standard', 'F7-standard', 'F8-standard']; outside-box px 0"
     }
   ],
-  "created": "2026-10-10T07:08:00Z"
+  "created": "2026-10-10T07:10:27Z"
 }

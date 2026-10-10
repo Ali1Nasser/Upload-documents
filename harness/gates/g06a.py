@@ -10,8 +10,10 @@
  5 projected final render (pure P12) for the locked runtime (corpus/edl/lock.json total_frames at ADR-002 fps) <= 24 h,
    using the ADR-002 cost model (S/H bands, RT hero share) and the measured blended rate of the latest look-dev perf.json;
    or a decided ADR (ADR-002 reopen) that covers a miss
- 6 ADR-009 close conditions (only when the G6a decision is a conditional close): 1-2 fixes + isolated-render OCR gate
-   strings >= 0.90; 3 affected stills and MD re-rendered and covered by a PASS Arabic review; 4 render-ops no-regression
+ 6 ADR-009 close conditions (only when the G6a decision is a conditional close): 1-2 each B-item (B1 F7 chip 6, B2 F3 title,
+   F4 card, F6 head, F6 labels) judged per artifact over ALL reports/lookdev/arabic_r*.md (the latest verdict section naming
+   the item wins; a later FAIL / non-fixed row re-opens it) + the four isolated-render OCR gate strings of r3/fix.json
+   (F3-title, roadmap-72, idem-72, F7-chip6) present and >= 0.90 + type suite ok; 3 affected stills and MD re-rendered and covered by a PASS Arabic review; 4 render-ops no-regression
    diff (reports/lookdev/r3/regress.json, by render-ops, pass=true, covering the re-rendered set)
 """
 import glob
@@ -70,6 +72,63 @@ def arabic_verdict(text):
     """Last verdict heading wins: '## <anything>: PASS' or '## Verdict: FAIL (...)'."""
     v = [(m.group(1), m.start()) for m in re.finditer(r"(?m)^#{2,3} [^\n]*?\b(PASS|FAIL)\b", text)]
     return (v[-1][0], text[v[-1][1]:]) if v else (None, "")
+
+
+# ADR-009 B-items (cond 1-2): item -> regex on the first cell / line start; OCR gate ids from reports/lookdev/r3/fix.json
+B_ITEMS = {"B1 F7 chip 6": r"B1\b.*chip", "B2 F3 title": r"B2\b.*\bF3\b", "B2 F4 card": r"B2\b.*\bF4\b",
+           "B2 F6 head": r"B2\b.*\bF6\b.*\bhead", "B2 F6 labels": r"B2\b.*\bF6\b.*\blabels"}
+OCR_GATE_IDS = ["F3-title", "roadmap-72", "idem-72", "F7-chip6"]   # ADR-009 cond 2: partition, roadmap, idempotency, F7 chip 6
+OCR_MIN = 0.90
+
+
+def _sections(text):
+    """Split a review into verdict sections at each '## ...: PASS|FAIL' heading (as studio/scripts/freeze_p6.py does for cond 3)."""
+    v = [(m.group(1), m.start()) for m in re.finditer(r"(?m)^#{2,3} [^\n]*?\b(PASS|FAIL)\b", text)]
+    return [(verdict, text[pos:v[i + 1][1] if i + 1 < len(v) else len(text)]) for i, (verdict, pos) in enumerate(v)]
+
+
+def b_item_status(reviews):
+    """reviews: [(name, text)] in round order. Per B-item the LATEST verdict section (file order, then position) that names it wins:
+    a PASS section closes it only through a table row `| <item> ... | fixed... |`; in a FAIL section any line starting with the
+    item re-opens it, and in a PASS section a table row whose result is not 'fixed' re-opens it. Returns {item: (status, review)}
+    with status 'fixed', 'open' or 'missing'."""
+    st = {k: ("missing", "") for k in B_ITEMS}
+    for name, text in reviews:
+        for verdict, sec in _sections(text):
+            for line in sec.splitlines():
+                is_row = line.lstrip().startswith("|")
+                if is_row:
+                    cells = [c.strip() for c in re.split(r"(?<!\\)\|", line.strip().strip("|"))]
+                    head, result = cells[0].replace("*", ""), (cells[-1] if len(cells) > 1 else "")
+                else:
+                    head, result = re.sub(r"^[\s#>*\-\d.]+", "", line).replace("*", ""), ""
+                for k, rx in B_ITEMS.items():
+                    if not re.match(rx, head):
+                        continue
+                    if is_row and verdict == "PASS":
+                        st[k] = ("fixed" if re.match(r"(?i)fixed\b", result) else "open", name)
+                    elif verdict == "FAIL":
+                        st[k] = ("open", name)
+    return st
+
+
+def cond12(fix, reviews):
+    """ADR-009 conditions 1-2 -> (ok, detail). Thresholds fixed by the ADR (OCR >= 0.90 on each of four gate strings)."""
+    items = {i.get("id"): i for i in (fix.get("typeprobe_ocr") or {}).get("items", [])}
+    ocr_bad = [g for g in OCR_GATE_IDS if g not in items or not items[g].get("gate") or float(items[g].get("score", 0)) < OCR_MIN]
+    ocr_n = sum(g in items and bool(items[g].get("gate")) and float(items[g].get("score", 0)) >= OCR_MIN for g in OCR_GATE_IDS)
+    extra = [i["id"] for i in items.values() if i.get("gate") and i["id"] not in OCR_GATE_IDS and float(i.get("score", 0)) < OCR_MIN]
+    suite = "ok" in str(fix.get("type_suite", ""))
+    bs = b_item_status(reviews)
+    b_bad = [k for k, (s, _) in bs.items() if s != "fixed"]
+    ok = not ocr_bad and not extra and suite and not b_bad
+    det = (f"isolated-render OCR gate strings {ocr_n}/{len(OCR_GATE_IDS)} >= {OCR_MIN:.2f}"
+           + "".join(f" {g}={float(items[g].get('score', 0)):.2f}{'' if items[g].get('exact') else '~'}" for g in OCR_GATE_IDS if g in items)
+           + (f"; missing/failing: {ocr_bad + extra}" if ocr_bad or extra else "")
+           + f"; type suite {'ok' if suite else 'NOT ok'}; B-items per artifact over {len(reviews)} Arabic reviews: "
+           + ", ".join(f"{k} {s}" + (f" ({r})" if r else "") for k, (s, r) in bs.items())
+           + (f" - not closed: {b_bad}" if b_bad else ""))
+    return ok, det
 
 
 def check(ctx):
@@ -171,13 +230,12 @@ def check(ctx):
     # 6 ADR-009 conditional-close conditions
     if g6a_adr and "conditional" in json.dumps(g6a_adr.get("decision", "")).lower():
         fix = cm.read_json(ctx.p("reports", "lookdev", "r3", "fix.json")) or {}
-        tp = fix.get("typeprobe_ocr") or {}
-        gate_items = [i for i in tp.get("items", []) if i.get("gate")]
-        c12 = bool(gate_items) and all(float(i.get("score", 0)) >= 0.90 for i in gate_items) and "ok" in str(fix.get("type_suite", ""))
-        b1 = re.search(r"(?m)^\| B1[^\n]*\|\s*fixed\s*\|", arabic_verdict(a_text)[1]) is not None
-        c12 = c12 and b1
-        out.append(C_(f"{g6a_adr['id']}_cond_1_2_fixes_ocr", c12, f"isolated-render OCR gate strings {sum(float(i.get('score', 0)) >= 0.9 for i in gate_items)}/{len(gate_items)} >= 0.90; "
-                      f"F7 chip 6 (now Latin 'AI 6', no Arabic join): no isolated-render score, B1 closed by the Arabic re-check: {b1} (its OCR 'Al 6' = Inter I/l); type suite: {fix.get('type_suite')}"))
+        revs = []
+        for q in sorted(glob.glob(ctx.p("reports", "lookdev", "arabic_r*.md")), key=lambda q: int(re.search(r"arabic_r(\d+)\.md$", q).group(1))):
+            with open(q, encoding="utf-8") as f:
+                revs.append((os.path.basename(q), f.read()))
+        c12, det12 = cond12(fix, revs)
+        out.append(C_(f"{g6a_adr['id']}_cond_1_2_fixes_ocr", c12, det12 + f"; suite: {str(fix.get('type_suite'))[:90]}"))
         stills_ok = [s for s in FIX_STILLS if os.path.exists(ctx.p("reports", "lookdev", "r3", "stills", f"{s}_fix.jpg"))]
         md = ctx.p("reports", "lookdev", "r3", "strips", "MD-standard_fix.jpg")
         _, sec = arabic_verdict(a_text)
