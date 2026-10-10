@@ -229,3 +229,106 @@ RT-011-3 stays active.
 - **critic:** rule on the NumberCounter and TableGrid snapshot re-baselines, which `5ce4555` left pending-critic.
 - **harness-engineer:** add engine provenance to `dc render spec`: record HEAD and a dirty flag, and refuse `--solo` measurement renders on a dirty `studio/` tree. Make orchestration triggers read only from `decisions.json`.
 - **scene-director:** the effective visible lead is now `lead_frames`.
+
+## AT-13R ruling (2026-10-10)
+Chair: council-chair. This applies the AT-13R rule exactly as pre-registered above. There is no ballot, and taste decided nothing here.
+
+**Evidence read:**
+- `reports/sync/at13r_renders.md` (render-ops, `f2739d7`);
+- `reports/sync/at13.md` and `reports/sync/at13.events.json` (sync-verifier, `f35254b`);
+- `harness/state/queue.json` (jobs 0–13, labels `at13r-*`), `reports/sync/p7_demo.events24.json` (`c26dc37`), and `studio/src/components/TableGrid/TableGrid.tsx`.
+- The chair recomputed every statistic below from `at13.events.json`.
+
+**Role separation: OK.**
+- render-ops rendered: queue jobs 0–13, 22:18:14–22:27:00Z, all exit 0, report `f2739d7`.
+- The sync-verifier measured independently: report `f35254b`.
+- The motion-engineer did neither. There is no motion-engineer commit or queue job between `011cae1` (22:15:46Z) and `f35254b` (22:33:01Z).
+- This corrects the AT-13 deviation, where the verifier submitted the renders. The queue does not record the submitting role, so this finding rests on the commit trail.
+
+**Engine pinning: accepted, with two recorded deviations.**
+- The pin is `011cae1`, which was HEAD when the worktree was cut (commit 22:15:46Z; first job 22:18:14Z).
+  - It descends from `5ce4555`, and its `reveal.ts` has `REVEAL_ONSET_F = 1`.
+  - The chair re-ran `git diff 011cae1 HEAD -- studio/ corpus/specs/_demo.json corpus/edl`: the diff is empty.
+  - All 14 jobs use the same `DC_REPO_ROOT` worktree.
+- Behaviour matches RV1. All 10 KineticWord events read 0 f. The five `rules` events that read +1 f on the RV2 engine in `c26dc37` (001611 ×2, 001616, 001630, 001643) all read 0 f now.
+- **Deviation 1.** The report records `git status --short` with three untracked symlinks (`studio/node_modules`, `studio/src/lookdev/data`, `data`) instead of an empty `git status --porcelain studio/`.
+  - All three paths are git-ignored in the main tree (`.gitignore` lines 2 and 13); `dir/` patterns do not match symlinks.
+  - None of them is engine source. Non-material.
+- **Deviation 2.** The worktree was deleted before the sync-verifier could re-read it.
+  - `resolver.json` and the queue `engine` field store no SHA.
+  - The `corpus/render/jobs.jsonl` labels named in the report do not exist in the main tree (0 `at13r` lines).
+  - The pin is therefore attested by render-ops and corroborated, but it cannot be re-verified independently. This is non-material to this ruling, which does not rest on the pin. It is **not acceptable for AT-13R2** (below).
+
+**Result against the pre-registered rule** (median ≤ 40 ms, p95 |offset| ≤ 100 ms, and no event earlier than −1 f; the `c26dc37` method):
+
+| Reading | n | median | p95 \|off\| | min | histogram (f) | rule |
+|---|---|---|---|---|---|---|
+| Raw detector (pre-registered method) | 29 | 0.0 ms | 91.7 ms | −3 f | −3 ×2, 0 ×26, +1 ×1 | **FAIL** (−1 f clause) |
+| Re-pick rule A (mask the cut frame only) | 29 | 0.0 ms | 66.7 ms | −2 f | −2 ×2, 0 ×26, +1 ×1 | **FAIL** (−1 f clause) |
+| Re-pick rule B (fixed after seeing the data) | 29 | 0.0 ms | 25.0 ms | 0 f | 0 ×27, +1 ×2 | pass |
+| The 27 events not near a cut (same under every reading) | 27 | 0.0 ms | 0.0 ms | 0 f | 0 ×26, +1 ×1 | pass |
+
+**AT-13R: NOT PASSED.**
+- The median and p95 clauses pass under every reading. The −1 f clause is undetermined for exactly 2 of the 29 events:
+  - event 8: CH-10-S02 TableGrid.addRow `w:S1:ar-natural:001624`, expected frame 221;
+  - event 14: CH-10-S03 TableGrid.highlightRows `w:S1:ar-natural:001644`, expected frame 482.
+  - Both sit 3 f after a hard cut, and their raw onsets are exactly the cut frames, 218 and 479.
+- The pre-registered method reads both events at −3 f.
+- The `c26dc37` correction ("first post-cut local spike") is not an operational rule: its two formalisations disagree (rule A fails, rule B passes).
+- The verifier states that rule B was fixed after seeing these events and that the verdict depends on it. A verdict that turns on a rule chosen after the data is not a pre-registered pass.
+- Rule B cannot be validated on these renders. It picks frames 221 and 483, the same frames as on the RV2 engine in `c26dc37`, yet RV1 moved all five non-cut `rules` events that read +1 f under RV2 to 0 f. Rule B may therefore follow the shot-entry transient rather than the event.
+- `c26dc37` itself asked for a re-check on a non-cut render.
+- The sync-verifier's `"pass": true` is not adopted. Its own list of failures is accepted as the evidence.
+
+**RT-011-5: not triggered, so Q2 is not reopened.**
+- The median and p95 clauses pass.
+- The −3 f readings are not "caused by the RV1 shift". `REVEAL_ONSET_F = 1` moves a first step by exactly 1 f, and both readings coincide with cut frames.
+- There is no native-reader veto.
+
+**RT-011-3: stays active, not triggered.** It acts on G8/G10a chapter sync, which has not run, so it requires nothing now.
+
+**Consequences now:**
+- Q2 = RV1 stays in the engine (`5ce4555` is retained), and its ratification stays conditional.
+- **INC-011-1 stays open.**
+- **The fan-out bar stays.** No component beyond KineticWord, NumberCounter and TableGrid is merged, and G6b is not run, until the chair records an AT-13R pass in `decisions.json`.
+- The engine is frozen for the test. Nothing changes in `studio/src/type/`, `studio/src/spec/` or `studio/src/components/TableGrid/` until AT-13R2 is reported. Any change there voids the 27 standing events and requires the full 14-layer AT-13R on the new commit.
+
+**AT-13R2: the smallest experiment that settles the clause.** It is pre-registered here, before any data. [render-ops renders through the queue; the sync-verifier measures; the motion-engineer neither renders nor grades.]
+- **Scope:** events 8 and 14 only. The other 27 events stand as measured in AT-13R (raw: 0 ×26, +1 ×1).
+- **Engine:** a git worktree at a commit whose `studio/` equals `011cae1`, so that `git diff 011cae1 <HEAD> -- studio/` is empty.
+  - render-ops writes HEAD, the full `git status --porcelain` output and the SHA-256 of every spec into the report.
+  - render-ops keeps the worktree until the sync-verifier has re-read and countersigned those values.
+- **Stimuli:** three solo renders, each made with `dc render spec <id> --fps 24 --nocam --nofx --cut --solo rules`:
+  - T = `_demo`, unchanged;
+  - C8 and C14 = worktree-only copies of `_demo.json`. In each, only the target action (event 8 or event 14) is re-anchored to a later word in the same shot whose anchor frame is ≥ expected + 17 f, outside the window.
+  - Action type, rows and `lead_frames` stay unchanged, so the row count and layout are identical. Deletion is not used because `TableGrid.tsx:93,96` sizes and keys the table on its final row count.
+  - The sync-verifier names the two words before rendering.
+  - `corpus/specs/_demo.json` is not edited.
+- **Measurement:**
+  - d_k = mean |gray(T_k) − gray(C_k)| at 480×270, as in `at13.md` §1. The target action's timing is the only difference between T and C.
+  - Onset = the first k in [expected − 6, expected + 10] with d_k ≥ 0.05. Offset = onset − expected.
+- **Validity.** A validity failure voids the run; it is not a fail.
+  - max d_k ≤ 0.025 over [expected − 30, expected − 7]. If this fails, the run is repeated from the same engine with lossless frames for [expected − 30, expected + 10], and then onset = the first k ≥ expected − 30 with d_k ≥ 0.05, with no void.
+  - T reproduces the AT-13R raw onsets of the other 10 `rules` events exactly (engine identity).
+  - An onset exists in the window.
+- **Pass:** substitute the two offsets into the 29-event set. The set must then meet median ≤ 40 ms, p95 |offset| ≤ 100 ms and no event earlier than −1 f. This is the AT-13R rule, unchanged.
+- **Cost:** 3 × 1,229 f at about 0.063 s/f (about 4 min of queue time) and about 7 MB. The renders are deleted after the report.
+- **Outcomes:**
+  - **Pass:** the chair records the AT-13R pass, ratifies Q2 = RV1, closes INC-011-1 and lifts the bar. This happens by a chair record in `decisions.json`, never by an automatic trigger.
+  - **An event earlier than −1 f:** if it is attributable to the RV1 shift (with `REVEAL_ONSET_F = 0` the event would be at −1 f or later), RT-011-5 applies and Q2 goes to a new ballot. Otherwise the motion-engineer fixes TableGrid and the full AT-13R is re-run on the new commit.
+  - **Void:** repeat as stated.
+
+**Follow-ups:**
+- **render-ops:** AT-13R2 renders and provenance, as above.
+- **sync-verifier:**
+  - name the C8 and C14 anchor words;
+  - measure AT-13R2 and append the result to `reports/sync/at13.md` and the JSON;
+  - keep the event 22 flag.
+- **harness-engineer:** this repeats the AT-13 follow-up, and it now blocks any further measurement render.
+  - `dc render spec` writes engine HEAD and the `studio/` dirty flag into `resolver.json` and the queue `engine` field;
+  - it refuses `--solo` on a dirty `studio/`.
+- **motion-engineer:**
+  - make no change to the frozen paths until AT-13R2 is reported;
+  - then examine event 22, orders addRow `001684`. Its d is 0.01 on the anchor frame 968 and its visible step is at 969, so it reads +1 f under every reading. It is a sub-threshold first step, within all thresholds and non-blocking.
+  - Any later change re-runs the affected layers (`rules`, `orders`).
+- **council-chair:** rule on AT-13R2 by the rule above.

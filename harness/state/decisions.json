@@ -1115,7 +1115,7 @@
   "council": "C5",
   "date": "2026-10-10",
   "chair": "council-chair",
-  "status": "decided; Q2 amended RV2 -> RV1 by RT-011-2 on 2026-10-10 (AT-13 result)",
+  "status": "decided; Q2 amended RV2 -> RV1 by RT-011-2 on 2026-10-10 (AT-13 result); RV1 ratification pending: AT-13R not passed 2026-10-10, AT-13R2 required",
   "amends": [
    "05_DATA_CONTRACTS §0 + word-map frame fields (Q1)",
    "03 P7.3/P9.1 preview fps (Q3)",
@@ -1272,7 +1272,8 @@
    "AT-13 24 fps per-layer isolated onset on _demo (29 events): median <= 40 ms, p95 <= 100 ms [render-ops, sync-verifier; P7 before fan-out beyond 3 reference components and before G6b]",
    "AT-14 timeutil vs resolve.ts identical frames on .5/odd-lead fixture at F 12/15/24; no round() on frame quantities in tools/ [harness-engineer]",
    "AT-15 re-measure M5 (post-dissolve first word within +1 f) and m6 (12 fps odd leads 29/29) on post-87eb279 engine [sync-verifier]",
-   "AT-13R (2026-10-10) 24 fps per-layer isolated onset on _demo under RV1 from a clean pinned engine (commit >= 5ce4555, HEAD + clean `git status --porcelain studio/` recorded), 29 events: median <= 40 ms, p95 |offset| <= 100 ms, none earlier than -1 f, histogram in frames [render-ops renders via queue; sync-verifier measures; reports/sync/at13.md + at13.events.json; before fan-out beyond KineticWord/NumberCounter/TableGrid and before G6b]"
+   "AT-13R (2026-10-10) 24 fps per-layer isolated onset on _demo under RV1 from a clean pinned engine (commit >= 5ce4555, HEAD + clean `git status --porcelain studio/` recorded), 29 events: median <= 40 ms, p95 |offset| <= 100 ms, none earlier than -1 f, histogram in frames [render-ops renders via queue; sync-verifier measures; reports/sync/at13.md + at13.events.json; before fan-out beyond KineticWord/NumberCounter/TableGrid and before G6b]",
+   "AT-13R2 (pre-registered 2026-10-10, before data) events 8 (001624, exp 221) and 14 (001644, exp 482) only; other 27 AT-13R events stand. Worktree with studio/ == 011cae1; HEAD, full git status --porcelain and spec SHA-256 in the report; worktree kept until sync-verifier countersigns. Renders: dc render spec <id> --fps 24 --nocam --nofx --cut --solo rules for T=_demo, C8, C14 (worktree-only copies re-anchoring only the target action to a later same-shot word with anchor >= exp+17 f; type/rows/lead unchanged; words named by sync-verifier before rendering; no deletion because TableGrid.tsx:93,96 depends on final row count). d_k = mean |gray(T_k)-gray(C_k)| 480x270; onset = first k in [exp-6, exp+10] with d_k >= 0.05. Validity (failure = void, not fail): max d_k <= 0.025 over [exp-30, exp-7] (else repeat lossless for [exp-30, exp+10], onset = first k >= exp-30 with d_k >= 0.05, no void); T reproduces AT-13R raw onsets of the other 10 rules events; onset exists. Pass: substitute both offsets into the 29 events, then median <= 40 ms, p95 |offset| <= 100 ms, none earlier than -1 f. Event earlier than -1 f: if attributable to RV1 (would be >= -1 f with REVEAL_ONSET_F=0) -> RT-011-5 new ballot; else motion-engineer fixes TableGrid, full AT-13R re-run [render-ops renders via queue; sync-verifier measures; motion-engineer neither]"
   ],
   "reversal_triggers": [
    "RT-011-1 any rec_start_frame after true audio onset or resolver/word-map mismatch -> reopen Q1 producer",
@@ -1295,7 +1296,12 @@
    "motion-engineer: keep RV1 (no revert); no fan-out beyond the 3 reference components until AT-13R passes",
    "critic: rule on the NumberCounter and TableGrid snapshot re-baselines left pending-critic by 5ce4555",
    "harness-engineer: engine provenance in dc render spec (record git HEAD + studio/ dirty flag; refuse --solo measurement renders on a dirty studio/ tree); orchestration: fallback triggers only from decisions.json records",
-   "scene-director: effective visible lead is now lead_frames (RV1), replacing lead_frames-1"
+   "scene-director: effective visible lead is now lead_frames (RV1), replacing lead_frames-1",
+   "render-ops (AT-13R2): 3 solo rules renders (T, C8, C14) via queue from a worktree with studio/ == 011cae1; record HEAD, porcelain, spec SHA-256; keep worktree until countersigned; delete renders after",
+   "sync-verifier (AT-13R2): name C8/C14 anchor words before rendering; measure by the pre-registered differential rule; append to reports/sync/at13.md + JSON; keep event 22 flag",
+   "harness-engineer (blocking for further measurement renders): dc render spec writes engine HEAD + studio/ dirty flag into resolver.json and queue 'engine'; refuse --solo on dirty studio/",
+   "motion-engineer: no change to studio/src/type/, studio/src/spec/, studio/src/components/TableGrid/ until AT-13R2 is reported; then examine event 22 (orders addRow 001684: d 0.01 on anchor 968, visible step 969, +1 f, non-blocking); later changes re-run rules + orders layers",
+   "council-chair: rule on AT-13R2 by the pre-registered rule; only a chair record lifts the fan-out bar"
   ],
   "at13": {
    "date": "2026-10-10",
@@ -1394,8 +1400,121 @@
     "what": "Orchestration script matched the ADR text 'pre-authorised RV1 fallback' and dispatched the motion-engineer to implement RV1 (commit 5ce4555, 13:23:33Z) before RT-011-2 had been evaluated.",
     "impact": "The uncommitted RV1 edits entered the shared working tree from ~13:14Z and contaminated 10 of the 14 AT-13 solo renders (14/29 events); the c26dc37 24 fps PASS therefore mixes engines.",
     "correction": "Recorded here. RV1 now stands on the RT-011-2 evaluation of the RV2-valid subset, not on the text match. 5ce4555 is retained, not reverted, because it implements the rule's outcome. Its ratification is conditional on AT-13R (RV1, clean pinned engine). The c26dc37 PASS is not acceptance evidence for either engine.",
-    "prevention": "Fallbacks and reversal triggers fire only on a chair record in decisions.json, never on ADR text matches. Measurement renders must pin the engine (clean studio/ tree or git worktree at a stated commit, HEAD recorded in the report)."
+    "prevention": "Fallbacks and reversal triggers fire only on a chair record in decisions.json, never on ADR text matches. Measurement renders must pin the engine (clean studio/ tree or git worktree at a stated commit, HEAD recorded in the report).",
+    "status": "open",
+    "updates": [
+     {
+      "date": "2026-10-10",
+      "by": "AT-13R ruling",
+      "note": "AT-13R not passed (-1 f clause undetermined for events 8 and 14 at hard cuts); stays open until a chair-recorded AT-13R pass (via AT-13R2)"
+     }
+    ]
    }
-  ]
+  ],
+  "at13r": {
+   "date": "2026-10-10",
+   "evidence": [
+    "reports/sync/at13r_renders.md (render-ops, f2739d7)",
+    "reports/sync/at13.md + reports/sync/at13.events.json (sync-verifier, f35254b)",
+    "harness/state/queue.json jobs 0-13 (at13r-*)",
+    "reports/sync/p7_demo.events24.json (c26dc37)",
+    "studio/src/components/TableGrid/TableGrid.tsx:93,96"
+   ],
+   "role_separation": "ok: render-ops rendered (queue jobs 0-13, 22:18:14-22:27:00Z, exit 0); sync-verifier measured independently; motion-engineer neither rendered nor graded (no motion-engineer commit or job between 011cae1 22:15:46Z and f35254b 22:33:01Z); queue stores no submitter role, so this rests on the commit trail",
+   "engine_pin": {
+    "commit": "011cae100ff2d612e4c5d34ea388e98fb54ef4d8",
+    "verdict": "accepted with 2 recorded deviations",
+    "checks": "HEAD at worktree cut (22:15:46Z < first job 22:18:14Z); descends 5ce4555; reveal.ts REVEAL_ONSET_F=1; chair re-ran git diff 011cae1 HEAD -- studio/ corpus/specs/_demo.json corpus/edl: empty; 14 jobs same DC_REPO_ROOT; behaviour RV1 (10/10 KineticWord 0 f; the 5 non-cut rules events at +1 f under RV2 in c26dc37 now 0 f)",
+    "deviation_1": "git status --short listed 3 untracked symlinks (studio/node_modules, studio/src/lookdev/data, data) instead of an empty git status --porcelain studio/; all are git-ignored in the main tree, not engine source; non-material",
+    "deviation_2": "worktree deleted before verifier re-read; resolver.json and queue 'engine' store no SHA; claimed corpus/render/jobs.jsonl labels absent (0 at13r lines); pin attested + corroborated but not independently re-verifiable; non-material to this ruling, not acceptable for AT-13R2"
+   },
+   "pre_registered_rule": "median <= 40 ms AND p95 |offset| <= 100 ms AND no event earlier than -1 f (c26dc37 method), n=29",
+   "readings": {
+    "raw": {
+     "n": 29,
+     "median_ms": 0.0,
+     "p95_abs_ms": 91.7,
+     "min_f": -3,
+     "hist_f": {
+      "-3": 2,
+      "0": 26,
+      "+1": 1
+     },
+     "rule": "FAIL (-1 f clause)"
+    },
+    "rule_A_mask_cut": {
+     "n": 29,
+     "median_ms": 0.0,
+     "p95_abs_ms": 66.7,
+     "min_f": -2,
+     "hist_f": {
+      "-2": 2,
+      "0": 26,
+      "+1": 1
+     },
+     "rule": "FAIL (-1 f clause)"
+    },
+    "rule_B_post_hoc": {
+     "n": 29,
+     "median_ms": 0.0,
+     "p95_abs_ms": 25.0,
+     "min_f": 0,
+     "hist_f": {
+      "0": 27,
+      "+1": 2
+     },
+     "rule": "pass, but defined after seeing the data (verifier's own caveat); not accepted as the pre-registered method"
+    },
+    "non_cut_27": {
+     "n": 27,
+     "median_ms": 0.0,
+     "p95_abs_ms": 0.0,
+     "min_f": 0,
+     "hist_f": {
+      "0": 26,
+      "+1": 1
+     },
+     "rule": "pass under every reading"
+    }
+   },
+   "undetermined_events": [
+    {
+     "n": 8,
+     "shot": "CH-10-S02",
+     "component": "TableGrid.addRow",
+     "word": "w:S1:ar-natural:001624",
+     "expected": 221,
+     "raw": 218,
+     "cut": 218,
+     "A": 219,
+     "B": 221
+    },
+    {
+     "n": 14,
+     "shot": "CH-10-S03",
+     "component": "TableGrid.highlightRows",
+     "word": "w:S1:ar-natural:001644",
+     "expected": 482,
+     "raw": 479,
+     "cut": 479,
+     "A": 480,
+     "B": 483
+    }
+   ],
+   "why_not_passed": "the -1 f clause turns on a re-pick rule chosen after the data; the two formalisations of the c26dc37 'first post-cut local spike' correction disagree (A fail, B pass); B picks the same frames (221, 483) as on the RV2 engine although RV1 moved all 5 non-cut rules events at +1 f to 0 f, so B may track the shot-entry transient; c26dc37 itself asked for a non-cut re-check; the verifier's 'pass': true is not adopted, its failure list is",
+   "result": "NOT PASSED",
+   "at13r_pass": false,
+   "rt_011_5": "not triggered: median/p95 pass; the -3 f readings coincide with cut frames and cannot come from the 1 f RV1 shift (REVEAL_ONSET_F=1); no native veto; Q2 not reopened",
+   "rt_011_3": "active, not triggered (acts on G8/G10a chapter sync; nothing required now)",
+   "q2": "RV1 stays in the engine (5ce4555 retained); ratification still conditional",
+   "inc_011_1": "open",
+   "fanout_bar": {
+    "in_force": true,
+    "scope": "no component beyond KineticWord, NumberCounter, TableGrid merged; G6b not run",
+    "lifted_by": "chair record of an AT-13R pass in decisions.json only"
+   },
+   "engine_freeze_for_test": "no change to studio/src/type/, studio/src/spec/, studio/src/components/TableGrid/ until AT-13R2 is reported; any change voids the 27 standing events and requires the full 14-layer AT-13R on the new commit",
+   "taste_vs_data": "data (pre-registered rule; no ballot)"
+  }
  }
 ]
