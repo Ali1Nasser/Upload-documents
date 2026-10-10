@@ -29,3 +29,29 @@ No meta.json was written or changed. No status is set to approved-critic.
 ## Next review
 Resubmit with the 4 baseline stills (p0, a1, p50, p100) per component, Arabic QA output, and a demo strip.
 Apply the docs/plan/06 §3.2 rubric then. Pass needs every score >= 7 with no blocking issue.
+
+---
+
+# Round 2
+
+Date: 2026-10-10. Reviewer: critic (fresh read). Verdict: FAIL (still nothing reviewable). No change since Round 1.
+
+## What was checked
+- studio/test/baselines/: holds only KineticWord, NumberCounter, TableGrid. None of the 11 dom-a components has a folder.
+- studio/src/components/<Name>/ for the 11: each still holds only the frozen schema.ts. No component.tsx.
+- git log for studio/src/components: last change is 5ce4555 (reference components). No dom-a commit exists.
+- reports/sync/: at13.md is absent (only p7_demo*, wordmap_v1.1.md). reports/p7/: no dom-a demo strip, no dom-a stills.
+- ADR-011 still bars building or merging beyond KineticWord, NumberCounter and TableGrid until AT-13R passes.
+
+## Scores
+None. Without a render a score would be invented. All 11 are 0 / unreviewed.
+No meta.json was written or changed. None is set to approved-critic.
+
+## Blocking issues (unchanged)
+1. All 11: no baseline stills (p0, a1, p50, p100), so the visual rubric cannot be applied.
+2. All 11: no implementation, only schema.ts.
+3. Process: AT-13R has no result (no reports/sync/at13.md). Order of work stays: render-ops runs the AT-13R renders,
+   sync-verifier writes at13.md, the chair rules, then the motion-engineer builds dom-a.
+
+## Next review
+Resubmit with 4 stills per component, Arabic QA output and a demo strip. Pass needs every score >= 7 and no blocking issue.
