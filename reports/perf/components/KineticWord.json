@@ -1,0 +1,70 @@
+{
+ "v": 1,
+ "name": "KineticWord",
+ "composition": "Demo-KineticWord",
+ "at": "2026-10-10T12:10:20Z",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 1,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets": {
+  "lite": 0.45,
+  "standard": 0.6,
+  "hero": 3.1
+ },
+ "tiers": {
+  "lite": {
+   "frames": 72,
+   "wall_s": 9.06,
+   "s_per_frame": 0.1258,
+   "box_s_per_frame_at_3_slots": 0.0419,
+   "budget_s_per_frame": 0.45,
+   "within_budget": true,
+   "loadavg1": [
+    0.91,
+    0.83
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   }
+  },
+  "standard": {
+   "frames": 72,
+   "wall_s": 11.57,
+   "s_per_frame": 0.1608,
+   "box_s_per_frame_at_3_slots": 0.0536,
+   "budget_s_per_frame": 0.6,
+   "within_budget": true,
+   "loadavg1": [
+    0.93,
+    1.17
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   }
+  },
+  "hero": {
+   "frames": 72,
+   "wall_s": 11.45,
+   "s_per_frame": 0.159,
+   "box_s_per_frame_at_3_slots": 0.053,
+   "budget_s_per_frame": 3.1,
+   "within_budget": true,
+   "loadavg1": [
+    1.17,
+    1.13
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   }
+  }
+ },
+ "qa_findings": []
+}

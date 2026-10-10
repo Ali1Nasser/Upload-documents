@@ -7,6 +7,7 @@ import {H, W} from './tokens';
 
 const BENCH_FPS = 30; // the P0 bench was measured at 30 fps; kept for comparability
 import {LookdevCompositions} from './lookdev/Lookdev';
+import {SpecCompositions} from './spec/compositions';
 
 export const RemotionRoot: React.FC = () => (
   <>
@@ -14,5 +15,6 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="BenchGlow" component={BenchGlow} durationInFrames={150} fps={BENCH_FPS} width={W} height={H} />
     <Composition id="BenchR3F" component={BenchR3F} durationInFrames={150} fps={BENCH_FPS} width={W} height={H} />
     <LookdevCompositions />
+    <SpecCompositions />
   </>
 );

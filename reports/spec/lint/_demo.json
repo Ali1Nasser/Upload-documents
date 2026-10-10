@@ -1,0 +1,42 @@
+{
+  "v": 1,
+  "chapter": "_demo",
+  "spec": "corpus/specs/_demo.json",
+  "spec_sha256": "5cd9a9c72e2dc26f0fcde372a2c77173f154d4f31a70648997f78060a1beef83",
+  "pass": true,
+  "error_count": 0,
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "chapter": "CH-10",
+    "fps": 24,
+    "minutes": 0.853,
+    "shots": 5,
+    "sentences": 10,
+    "sentences_anchored": 10,
+    "anchored_pct": 100.0,
+    "mechanism_pct": 100.0,
+    "events": 39,
+    "events_per_min": 45.7,
+    "max_gap_s": 3.38,
+    "median_shot_s": 9.58,
+    "max_shot_s": 12.96,
+    "numbers_total": 3,
+    "numbers_on_screen": 3,
+    "terms_total": 5,
+    "terms_on_screen": 5,
+    "hero_frames": 0,
+    "chapter_frames": 1229,
+    "rt3d_ratio": 0.0,
+    "components": {
+      "TableGrid": 19,
+      "KineticWord": 10,
+      "NumberCounter": 2
+    },
+    "actions": {
+      "TableGrid.highlightRows": 9,
+      "TableGrid.addRow": 6
+    },
+    "spec_sha256": "5cd9a9c72e2dc26f0fcde372a2c77173f154d4f31a70648997f78060a1beef83"
+  }
+}

@@ -12,7 +12,7 @@ import {fontsReady} from './fonts';
 import {reportQa} from './qa';
 import {revealStyle, type RevealDir} from './reveal';
 import {LABEL_GAP_MIN_PX, checkLabelRow} from './safe';
-import {fitToWidth, hasEasternDigits, latinFeatures, westernDigits} from './text';
+import {fitToWidth, hasEasternDigits, latinFeatures, westernDigits} from './words';
 
 /** Latin isolates are set at 0.92 of the Arabic size so x-heights sit together (look-dev r1, kept). */
 export const LAT_SCALE = 0.92;

@@ -1,7 +1,7 @@
 // Scene compiler contracts (P7). Specs are data (corpus/specs/*.json, 05 §8); components are code.
 import type React from 'react';
 import type {Fx, FxId} from '../tokens';
-import type {Rect} from '../type/safe';
+import type {Rect, SlotId} from '../type/safe';
 
 export type Anchor = {word: string; lead_frames: number};
 export type SpecLayer = {component: string; props: Record<string, unknown>; at?: Anchor; notes?: string};
@@ -27,7 +27,7 @@ export type Features = {start_frame: number; rms_dbfs: number[]; onset_strength:
 export type SpecInput = {
   id: string;
   spec: Spec;
-  span: {start: number; end: number}; // absolute 24-fps frames: the chapter, or the spec window
+  span: {start: number; end: number}; // absolute 24-fps frames of the CHAPTER (the resolver narrows it to spec.window)
   words: WordRow[];
   features?: Features | null;
   audio?: string | null; // staticFile-relative VO excerpt (preview only)
@@ -91,6 +91,7 @@ export type Resolved = {
   curves: Record<string, number[]>; // audio-reactive curves at the composition fps, 0..1
   report: ResolverReport;
   audio?: string | null;
+  span24: [number, number]; // absolute 24-fps frames actually played (chapter or window)
 };
 
 /** What a component receives besides its validated props. All frames are SHOT-local at the composition fps. */
@@ -111,8 +112,15 @@ export type LayerCtx = {
   mod: Mod;
 };
 export type DcProps<P> = {props: P; ctx: LayerCtx};
-/** A catalog implementation. `text` = the layer carries copy (its slot is masked out of haze / particles / bokeh). */
-export type DcComponent<P = any> = {name: string; Component: React.FC<DcProps<P>>; text?: boolean};
+/** A catalog implementation. `text` = the layer carries copy: its text rect (default: the slot box) is masked out of haze /
+ * particles / bokeh (ADR-002 text-safe). `slot` = default slot when the spec gives none. */
+export type DcComponent<P = any> = {
+  name: string;
+  Component: React.FC<DcProps<P>>;
+  text?: boolean;
+  slot?: SlotId;
+  textRect?: (props: P, box: Rect) => Rect;
+};
 /** studio/src/components/families/<family>.ts default shape. */
 export type FamilyModule = {family: string; components: DcComponent[]};
 
@@ -121,7 +129,16 @@ export type DemoDef = {
   name: string; // catalog component name -> composition `Demo-<name>`
   frames: number;
   words: [id: string, start: number, end: number][];
-  shot: Omit<SpecShot, 'sentences' | 'shot_id' | 'intent'> & {intent?: string};
+  shot: {
+    intent?: string;
+    layout?: string;
+    fx_tier?: FxId;
+    camera?: SpecShot['camera'];
+    layers: SpecLayer[];
+    holds?: SpecShot['holds'];
+    sfx?: SpecShot['sfx'];
+    transition_out?: SpecShot['transition_out'];
+  };
   perfFrames?: number; // frames rendered by `dc render perf` (default 48)
 };
 export type DemoModule = {family: string; demos: DemoDef[]};

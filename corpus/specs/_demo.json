@@ -1,0 +1,636 @@
+{
+ "v": 1,
+ "chapter": "CH-10",
+ "edl_version": "v1",
+ "window": {
+  "from": "s:S1:ar-natural:0144",
+  "to": "s:S1:ar-natural:0153"
+ },
+ "notes": "P7 compiler demo (motion-engineer): a real 51 s window of CH-10 with real word ids, KineticWord + NumberCounter + TableGrid only. Not the P8 storyboard of CH-10.",
+ "fx_budget": {
+  "hero_max_ratio": 0.05
+ },
+ "shots": [
+  {
+   "shot_id": "CH-10-S01",
+   "sentences": [
+    "s:S1:ar-natural:0144",
+    "s:S1:ar-natural:0145"
+   ],
+   "intent": "keys: the primary key identifies, the foreign key points; constraints are business rules turned into walls",
+   "layout": "table center, kinetic above/below",
+   "fx_tier": "standard",
+   "camera": {
+    "move": "push_in",
+    "intensity": 0.4
+   },
+   "layers": [
+    {
+     "component": "TableGrid",
+     "props": {
+      "id": "rules",
+      "columns": [
+       {
+        "key": "rule",
+        "label": "القاعدة",
+        "kind": "id"
+       },
+       {
+        "key": "says",
+        "label": "بتقول",
+        "kind": "text"
+       }
+      ],
+      "rows": [],
+      "slot": "center"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001611",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.addRow",
+     "props": {
+      "target": "rules",
+      "row": {
+       "rule": "PRIMARY KEY",
+       "says": "بيعرّف"
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001611",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.addRow",
+     "props": {
+      "target": "rules",
+      "row": {
+       "rule": "FOREIGN KEY",
+       "says": "بيشاور"
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001614",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "rules",
+      "rows": [
+       1
+      ],
+      "color": "signal"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001616",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-constraints",
+      "text": "constraints",
+      "slot": "upper-third",
+      "size": "kinetic"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001617",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "rules",
+      "rows": [
+       0,
+       1
+      ],
+      "color": "violet"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001619",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-walls",
+      "text": "لحيطان",
+      "slot": "lower-third",
+      "size": "kinetic",
+      "preset": "impact"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001623",
+      "lead_frames": 2
+     }
+    }
+   ],
+   "transition_out": {
+    "type": "dissolve",
+    "frames": 14
+   }
+  },
+  {
+   "shot_id": "CH-10-S02",
+   "sentences": [
+    "s:S1:ar-natural:0146",
+    "s:S1:ar-natural:0147",
+    "s:S1:ar-natural:0148"
+   ],
+   "intent": "each constraint arrives as a row and says its rule",
+   "layout": "table center",
+   "fx_tier": "standard",
+   "camera": {
+    "move": "push_in",
+    "intensity": 0.3
+   },
+   "layers": [
+    {
+     "component": "TableGrid",
+     "props": {
+      "id": "rules",
+      "title": "الـconstraints",
+      "columns": [
+       {
+        "key": "rule",
+        "label": "القاعدة",
+        "kind": "id"
+       },
+       {
+        "key": "says",
+        "label": "بتقول",
+        "kind": "text"
+       }
+      ],
+      "rows": [
+       {
+        "rule": "PRIMARY KEY",
+        "says": "بيعرّف"
+       },
+       {
+        "rule": "FOREIGN KEY",
+        "says": "بيشاور"
+       }
+      ],
+      "slot": "center"
+     }
+    },
+    {
+     "component": "TableGrid.addRow",
+     "props": {
+      "target": "rules",
+      "row": {
+       "rule": "NOT NULL",
+       "says": "الحقيقة دي مطلوبة"
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001624",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-required",
+      "text": "مطلوبة",
+      "slot": "upper-third",
+      "size": "sub",
+      "until": {
+       "word": "w:S1:ar-natural:001630",
+       "lead_frames": 2
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001629",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.addRow",
+     "props": {
+      "target": "rules",
+      "row": {
+       "rule": "UNIQUE",
+       "says": "بتعرّف حاجة واحدة"
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001630",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "rules",
+      "rows": [
+       3
+      ],
+      "color": "signal"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001634",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.addRow",
+     "props": {
+      "target": "rules",
+      "row": {
+       "rule": "CHECK",
+       "says": "المبلغ ما ينفعش يبقى بالسالب"
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001637",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "rules",
+      "rows": [
+       4
+      ],
+      "color": "warn"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001643",
+      "lead_frames": 2
+     }
+    }
+   ],
+   "transition_out": {
+    "type": "dissolve",
+    "frames": 14
+   }
+  },
+  {
+   "shot_id": "CH-10-S03",
+   "sentences": [
+    "s:S1:ar-natural:0149",
+    "s:S1:ar-natural:0150"
+   ],
+   "intent": "the foreign key refuses a missing customer; constraints are not decoration or overhead",
+   "layout": "table center",
+   "fx_tier": "standard",
+   "camera": {
+    "move": "truck",
+    "intensity": 0.3
+   },
+   "layers": [
+    {
+     "component": "TableGrid",
+     "props": {
+      "id": "rules",
+      "title": "الـconstraints",
+      "columns": [
+       {
+        "key": "rule",
+        "label": "القاعدة",
+        "kind": "id"
+       },
+       {
+        "key": "says",
+        "label": "بتقول",
+        "kind": "text"
+       }
+      ],
+      "rows": [
+       {
+        "rule": "PRIMARY KEY",
+        "says": "بيعرّف"
+       },
+       {
+        "rule": "FOREIGN KEY",
+        "says": "بيشاور"
+       },
+       {
+        "rule": "NOT NULL",
+        "says": "الحقيقة دي مطلوبة"
+       },
+       {
+        "rule": "UNIQUE",
+        "says": "بتعرّف حاجة واحدة"
+       },
+       {
+        "rule": "CHECK",
+        "says": "المبلغ ما ينفعش يبقى بالسالب"
+       }
+      ],
+      "slot": "center"
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "rules",
+      "rows": [
+       1
+      ],
+      "color": "signal"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001644",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-missing",
+      "text": "عميل مش موجود",
+      "slot": "lower-third",
+      "size": "sub",
+      "until": {
+       "word": "w:S1:ar-natural:001654",
+       "lead_frames": 2
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001651",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "rules",
+      "rows": [
+       0,
+       1,
+       2,
+       3,
+       4
+      ],
+      "color": "ok"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001654",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-overhead",
+      "text": "overhead",
+      "slot": "upper-third",
+      "size": "sub",
+      "color": "ink2"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001658",
+      "lead_frames": 2
+     }
+    }
+   ],
+   "transition_out": {
+    "type": "WhipPan"
+   }
+  },
+  {
+   "shot_id": "CH-10-S04",
+   "sentences": [
+    "s:S1:ar-natural:0151"
+   ],
+   "intent": "the only part of the system still enforcing the rule at 3 a.m. when nobody reads the code",
+   "layout": "type stack",
+   "fx_tier": "standard",
+   "camera": {
+    "move": "push_in",
+    "intensity": 0.6
+   },
+   "layers": [
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-only",
+      "text": "الوحيد",
+      "slot": "upper-third",
+      "size": "kinetic",
+      "preset": "impact"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001664",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "NumberCounter",
+     "props": {
+      "id": "n3",
+      "to": {
+       "value": 3,
+       "ref": "s:S1:ar-natural:0151"
+      },
+      "format": "int",
+      "label": "الساعة … بالليل",
+      "size": "numberBig"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001672",
+      "lead_frames": 0
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-code",
+      "text": "الكود",
+      "slot": "lower-third",
+      "size": "sub",
+      "color": "ink2"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001678",
+      "lead_frames": 2
+     }
+    }
+   ]
+  },
+  {
+   "shot_id": "CH-10-S05",
+   "sentences": [
+    "s:S1:ar-natural:0152",
+    "s:S1:ar-natural:0153"
+   ],
+   "intent": "order 1007 points at customer 9, who does not exist; nothing stops it yet (callback later)",
+   "layout": "counter above, table below",
+   "fx_tier": "standard",
+   "camera": {
+    "move": "pull_out",
+    "intensity": 0.4
+   },
+   "layers": [
+    {
+     "component": "TableGrid",
+     "props": {
+      "id": "orders",
+      "title": "orders",
+      "ref": "d:6.21:3",
+      "columns": [
+       {
+        "key": "order_id",
+        "label": "order_id",
+        "kind": "id"
+       },
+       {
+        "key": "customer_id",
+        "label": "customer_id",
+        "kind": "id"
+       }
+      ],
+      "rows": [],
+      "slot": "bottom"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001682",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.addRow",
+     "props": {
+      "target": "orders",
+      "row": {
+       "order_id": "1007",
+       "customer_id": "9"
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001684",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "NumberCounter",
+     "props": {
+      "id": "n1007",
+      "to": {
+       "value": 1007,
+       "ref": "d:6.3:3"
+      },
+      "from": 1001,
+      "format": "int",
+      "label": "order",
+      "slot": "upper-third",
+      "size": "numberBig",
+      "until": {
+       "word": "w:S1:ar-natural:001692",
+       "lead_frames": 2
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001685",
+      "lead_frames": 0
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "orders",
+      "rows": [
+       0
+      ],
+      "color": "signal"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001688",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "orders",
+      "rows": [
+       0
+      ],
+      "color": "crit"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001692",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-notfound",
+      "text": "مش موجود",
+      "slot": "upper-third",
+      "size": "kinetic",
+      "color": "crit",
+      "until": {
+       "word": "w:S1:ar-natural:001697",
+       "lead_frames": 2
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001692",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-customers",
+      "text": "جدول العملاء",
+      "slot": "center",
+      "size": "sub",
+      "color": "ink2",
+      "until": {
+       "word": "w:S1:ar-natural:001698",
+       "lead_frames": 2
+      }
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001695",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "TableGrid.highlightRows",
+     "props": {
+      "target": "orders",
+      "rows": [
+       0
+      ],
+      "color": "warn"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001700",
+      "lead_frames": 2
+     }
+    },
+    {
+     "component": "KineticWord",
+     "props": {
+      "id": "kw-callback",
+      "text": "وهنرجعله",
+      "slot": "upper-third",
+      "size": "sub",
+      "color": "ink2"
+     },
+     "at": {
+      "word": "w:S1:ar-natural:001703",
+      "lead_frames": 2
+     }
+    }
+   ]
+  }
+ ]
+}

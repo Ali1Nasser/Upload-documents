@@ -5,7 +5,7 @@ import sys
 from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
-    "render": "P6/P9", "sound": "P11", "dag": "P0 (later)",
+    "sound": "P11", "dag": "P0 (later)",
 }
 
 
@@ -215,6 +215,10 @@ def build():
     # spec (P8): lint / metrics / coverage live in speclint.py
     from . import speclint
     speclint.register(sub)
+
+    # render (P7): snap / perf / spec / at11 live in render.py (P9/P12 preview|final|status|strip extend it)
+    from . import render
+    render.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():

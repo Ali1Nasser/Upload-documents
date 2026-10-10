@@ -1,0 +1,2 @@
+# Snapshot baseline PNGs stay local (media is not committed); meta.json (sha256, approval) and reports/p7/snap/<Name>.jpg are.
+*.png

@@ -1,0 +1,20 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "p50": "c04a4cbc936412bc2b96955af335c2de4bcad7cfd03aa87b0ee0fc6d7a0d7c9f",
+  "p100": "68606263ddd8d51aaea84a27f9e5a3fca1678bc1970a1c0330d90bb91caf5199"
+ },
+ "v": 1,
+ "name": "NumberCounter",
+ "frames": [
+  0,
+  35,
+  71
+ ],
+ "scale": 0.5,
+ "tier": "lite",
+ "written_at": "2026-10-10T12:18:54Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

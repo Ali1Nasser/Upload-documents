@@ -34,6 +34,7 @@ MAX_HOLD_MS = 6000
 MIN_MECHANISM_PCT = 80.0
 MAX_RT3D_RATIO = 0.05
 LEAD_SLACK_FRAMES = 6          # an anchored event may precede its shot's first frame by at most this much
+WINDOW_PAD_IN, WINDOW_PAD_OUT = 12, 24   # underscore demo specs with `window`: frames before/after (= studio/src/spec/resolve.ts WINDOW_PAD)
 SPEC_DIR = C.p("corpus", "specs")
 REPORT_DIR = C.p("reports", "spec")
 
@@ -273,8 +274,10 @@ def collect_refs(node):
 
 
 # ======================================================================================== the chapter lint
-def lint_chapter(world, ch, spec):
-    """-> {errors, warnings, metrics}. `spec` is the parsed JSON (or None when the file is missing)."""
+def lint_chapter(world, ch, spec, window=False):
+    """-> {errors, warnings, metrics}. `spec` is the parsed JSON (or None when the file is missing).
+    window=True (underscore demo specs such as corpus/specs/_demo.json only): `spec.window = {from, to}` sentence ids narrows
+    coverage, density and the span to those sentences (+ WINDOW_PAD); chapter specs may never carry a window."""
     errs, warns = [], []
     if spec is None:
         return {"errors": [f"{ch}: spec missing (corpus/specs/{ch}.json)"], "warnings": [], "metrics": None}
@@ -306,6 +309,20 @@ def lint_chapter(world, ch, spec):
 
     # ---- sentence coverage and order
     expected = world.chapter_sentences(ch)
+    win = spec.get("window")
+    if win is not None and not window:
+        errs.append("'window' is only allowed in underscore demo specs (corpus/specs/_*.json)")
+    elif win is not None:
+        try:
+            i0, i1 = expected.index(win["from"]), expected.index(win["to"])
+        except (ValueError, KeyError, TypeError):
+            return {"errors": errs + [f"window {win!r}: from/to must be sentence ids of {ch} in EDL order"], "warnings": warns, "metrics": None}
+        if i1 < i0:
+            return {"errors": errs + ["window: 'to' precedes 'from'"], "warnings": warns, "metrics": None}
+        expected = expected[i0:i1 + 1]
+        a, b = world.sentence_span(ch, expected[0]), world.sentence_span(ch, expected[-1])
+        ch_start, ch_end = max(ch_start, a[0] - WINDOW_PAD_IN), min(ch_end, b[1] + WINDOW_PAD_OUT)
+        ch_frames = ch_end - ch_start
     flat = [s for sh in spec["shots"] for s in sh["sentences"]]
     exp_set, flat_set = set(expected), set(flat)
     missing = [s for s in expected if s not in flat_set]
@@ -656,6 +673,9 @@ def resolve_chapters(world, which):
         return allc
     out = []
     for w in which.split(","):
+        if w.strip().startswith("_"):   # underscore demo spec (corpus/specs/_<name>.json), e.g. _demo
+            out.append(w.strip())
+            continue
         w = w.strip().upper()
         if w not in allc:
             C.fail(f"unknown chapter {w!r}; EDL chapters: {allc[0]} .. {allc[-1]} ({len(allc)})", 2)
@@ -687,7 +707,10 @@ def run_lint(chapters, world=None, spec_dir=None, report_dir=None, force=False, 
                 res = {"errors": [f"{ch}: invalid JSON ({e})"], "warnings": [], "metrics": None}
                 spec = False
         if spec is not False:
-            res = lint_chapter(world, ch, spec)
+            if ch.startswith("_"):   # demo spec: the chapter comes from the file; `window` allowed
+                res = lint_chapter(world, (spec or {}).get("chapter", ch), spec, window=True)
+            else:
+                res = lint_chapter(world, ch, spec)
         rep = {"v": 1, "chapter": ch, "spec": C.rel(sp), "spec_sha256": C.sha256_file(sp) if os.path.exists(sp) else None,
                "pass": not res["errors"], "error_count": len(res["errors"]), "errors": res["errors"][:60],
                "warnings": res["warnings"][:30], "metrics": res["metrics"]}

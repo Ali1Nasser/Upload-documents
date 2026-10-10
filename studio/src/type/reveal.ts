@@ -8,6 +8,11 @@ import {EASE, IMPACT, LABEL_RISE_PX, PRESETS, msToFrames, type PresetId} from '.
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 export type RevealDir = 'rtl' | 'ltr';
 
+/** The frozen easings, snapped to exactly 1 at the end: Easing.out(Easing.exp)(1) = 1 - 2^-10 = 0.999, which would leave a
+ * counter at 66.60 instead of 66.67 and a 0.1 % clip on a settled word. P7 code eases through these, never EASE directly. */
+const snap = (f: (x: number) => number) => (x: number) => (x >= 1 ? 1 : x <= 0 ? 0 : f(x));
+export const ease = {arrive: snap(EASE.arrive), impact: snap(EASE.impact), camera: snap(EASE.camera)} as const;
+
 /** Preset length in frames at `fps` (ms is the truth; f24 equals msToFrames(ms, 24) by the freeze check). `long` = upper bound. */
 export const presetFrames = (p: PresetId, fps: number, long = false): number => Math.max(1, msToFrames(PRESETS[p].ms[long ? 1 : 0], fps));
 export const flashFrames = (fps: number): number => Math.max(1, msToFrames(IMPACT.flashMs, fps));
@@ -38,22 +43,22 @@ export const revealStyle = (t: number, fps: number, preset: PresetId | 'wipe', d
   let flash = 0;
   if (preset === 'label') {
     const n = presetFrames('label', fps);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: EASE.arrive});
+    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
     style = {opacity: p, transform: `translateY(${((1 - p) * LABEL_RISE_PX).toFixed(2)}px)`};
   } else if (preset === 'wipe') {
     const n = presetFrames('arrive', fps);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: EASE.arrive});
+    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
     style = {clipPath: wipeClip(p, dir)};
   } else if (preset === 'impact') {
     const n = presetFrames('impact', fps, true);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: EASE.arrive});
-    const sc = interpolate(t, [0, n], [IMPACT.scaleFrom, 1], {...clamp, easing: EASE.impact});
+    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
+    const sc = interpolate(t, [0, n], [IMPACT.scaleFrom, 1], {...clamp, easing: ease.impact});
     const ff = flashFrames(fps);
     flash = interpolate(t, [0, ff, ff * 3], [1, 1, 0], clamp);
     style = {clipPath: wipeClip(p, dir), transform: `scale(${sc.toFixed(4)})`, opacity: interpolate(p, [0, 0.3], [0, 1], clamp)};
   } else {
     const n = presetFrames('arrive', fps);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: EASE.arrive});
+    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
     const blur = 6 * (1 - p);
     style = {
       clipPath: wipeClip(p, dir),
@@ -64,7 +69,7 @@ export const revealStyle = (t: number, fps: number, preset: PresetId | 'wipe', d
   }
   if (exitT !== undefined && exitT >= 0) {
     const n = presetFrames('exit', fps);
-    const e = interpolate(exitT, [0, n], [0, 1], {...clamp, easing: EASE.camera});
+    const e = interpolate(exitT, [0, n], [0, 1], {...clamp, easing: ease.camera});
     const op = (typeof style.opacity === 'number' ? style.opacity : 1) * (1 - e);
     const prev = style.transform ?? '';
     style = {...style, opacity: op, transform: `${prev} scale(${(1 - 0.04 * e).toFixed(4)})`.trim(), filter: e > 0.01 ? `blur(${(6 * e).toFixed(2)}px)` : style.filter};

@@ -1,6 +1,6 @@
 // Browser-side type QA. Findings are logged as `DC_QA {json}` (console.error) and kept on window.__DC_QA__; the render
 // driver (scripts/p7_render.mjs) collects them through onBrowserLog and FAILS snapshot tests / previews on any finding.
-import {perLetterViolations} from './text';
+import {perLetterViolations} from './words';
 
 export type QaKind = 'overflow' | 'perletter' | 'label' | 'digits';
 export type QaFinding = {kind: QaKind; id: string; detail: unknown};

@@ -1,0 +1,29 @@
+{
+ "v": 1,
+ "unit": "slot s/frame at 1080p, concurrency 1, swiftshader, under queue load",
+ "components": {
+  "KineticWord": {
+   "lite": 0.1258,
+   "standard": 0.1608,
+   "hero": 0.159,
+   "measured_at": "2026-10-10T12:10:20Z"
+  },
+  "NumberCounter": {
+   "lite": 0.1099,
+   "standard": 0.1514,
+   "hero": 0.1524,
+   "measured_at": "2026-10-10T12:10:57Z"
+  },
+  "TableGrid": {
+   "lite": 0.1206,
+   "standard": 0.1644,
+   "hero": 0.1611,
+   "measured_at": "2026-10-10T12:11:55Z"
+  }
+ },
+ "budgets": {
+  "lite": 0.45,
+  "standard": 0.6,
+  "hero": 3.1
+ }
+}

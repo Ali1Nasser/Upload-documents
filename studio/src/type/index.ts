@@ -1,7 +1,7 @@
 // P7 typography engine entry. Frozen rules: ./arabic.ts and ./overrides.ts (hash-locked). New P7 modules beside them.
 export * from './arabic';
 export {displayText, DISPLAY_OVERRIDES} from './overrides';
-export * from './text';
+export * from './words';
 export * from './safe';
 export * from './reveal';
 export * from './qa';

@@ -1,0 +1,70 @@
+{
+ "v": 1,
+ "name": "NumberCounter",
+ "composition": "Demo-NumberCounter",
+ "at": "2026-10-10T12:10:57Z",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 1,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets": {
+  "lite": 0.45,
+  "standard": 0.6,
+  "hero": 3.1
+ },
+ "tiers": {
+  "lite": {
+   "frames": 72,
+   "wall_s": 7.91,
+   "s_per_frame": 0.1099,
+   "box_s_per_frame_at_3_slots": 0.0366,
+   "budget_s_per_frame": 0.45,
+   "within_budget": true,
+   "loadavg1": [
+    1.13,
+    1.56
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   }
+  },
+  "standard": {
+   "frames": 72,
+   "wall_s": 10.9,
+   "s_per_frame": 0.1514,
+   "box_s_per_frame_at_3_slots": 0.0505,
+   "budget_s_per_frame": 0.6,
+   "within_budget": true,
+   "loadavg1": [
+    1.56,
+    1.6
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   }
+  },
+  "hero": {
+   "frames": 72,
+   "wall_s": 10.97,
+   "s_per_frame": 0.1524,
+   "box_s_per_frame_at_3_slots": 0.0508,
+   "budget_s_per_frame": 3.1,
+   "within_budget": true,
+   "loadavg1": [
+    1.6,
+    1.66
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   }
+  }
+ },
+ "qa_findings": []
+}

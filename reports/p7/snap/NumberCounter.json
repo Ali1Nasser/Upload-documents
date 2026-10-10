@@ -1,0 +1,50 @@
+{
+ "v": 1,
+ "name": "NumberCounter",
+ "composition": "Demo-NumberCounter",
+ "at": "2026-10-10T12:19:02Z",
+ "frames": [
+  0,
+  35,
+  71
+ ],
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "maxDiffRatio": 0.001,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "results": [
+  {
+   "tag": "p0",
+   "frame": 0,
+   "mismatch_px": 0,
+   "mismatch_ratio": 0,
+   "pass": true
+  },
+  {
+   "tag": "p50",
+   "frame": 35,
+   "determinism_diff_px": 0,
+   "mismatch_px": 0,
+   "mismatch_ratio": 0,
+   "pass": true
+  },
+  {
+   "tag": "p100",
+   "frame": 71,
+   "mismatch_px": 0,
+   "mismatch_ratio": 0,
+   "pass": true
+  }
+ ],
+ "qa_findings": [],
+ "registry_problems": [],
+ "approve": false,
+ "pass": true
+}
