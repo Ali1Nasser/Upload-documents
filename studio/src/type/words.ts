@@ -40,6 +40,9 @@ export const wordUnits = (text: string): WordUnit[] => {
 /** Arabic letters that join (everything Arabic except marks, tatweel, digits and punctuation). */
 const AR_LETTER = /[ؠ-يٮ-ۓۺ-ۼݐ-ݿ]/;
 const AR_MARK = /[ً-ٰٟۖ-ۭ]/;
+const AR_WORD = new RegExp(`[${AR_LETTER.source.slice(1, -1)}${AR_MARK.source.slice(1, -1)}]+`, 'g');
+/** Maximal Arabic letter runs (letters, marks, tatweel) of a string: the units the whole-word lexicon check compares. */
+export const arabicWords = (s: string): string[] => s.match(AR_WORD) ?? [];
 /**
  * Per-letter split detector over a flat list of DOM text pieces (in document order, each tagged with its element id).
  * A violation is an element boundary that falls between two Arabic letters (or a letter and its mark) of the same word:
@@ -70,6 +73,5 @@ export const fitToWidth = (naturalAtSize: number, size: number, maxWidth: number
   if (!(naturalAtSize > 0) || naturalAtSize <= maxWidth) return {size, overflow: false, natural: naturalAtSize};
   let s = Math.floor((size * maxWidth) / naturalAtSize / step) * step;
   if (s < min) return {size: min, overflow: true, natural: naturalAtSize};
-  s = Math.max(min, s);
   return {size: s, overflow: false, natural: naturalAtSize};
 };

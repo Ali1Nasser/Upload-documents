@@ -1,29 +1,33 @@
 {
- "v": 1,
- "unit": "slot s/frame at 1080p, concurrency 1, swiftshader, under queue load",
+ "v": 2,
+ "unit": "box s/frame at 1080p, concurrency 3 (production), swiftshader, JPEG q80",
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
  "components": {
   "KineticWord": {
-   "lite": 0.1258,
-   "standard": 0.1608,
-   "hero": 0.159,
-   "measured_at": "2026-10-10T12:10:20Z"
+   "lite": 0.0664,
+   "standard": 0.0919,
+   "hero": 0.0932,
+   "within_budget": true,
+   "measured_at": "2026-10-10T12:58:53Z"
   },
   "NumberCounter": {
-   "lite": 0.1099,
-   "standard": 0.1514,
-   "hero": 0.1524,
-   "measured_at": "2026-10-10T12:10:57Z"
+   "lite": 0.0653,
+   "standard": 0.0856,
+   "hero": 0.0929,
+   "within_budget": true,
+   "measured_at": "2026-10-10T12:59:20Z"
   },
   "TableGrid": {
-   "lite": 0.1206,
-   "standard": 0.1644,
-   "hero": 0.1611,
-   "measured_at": "2026-10-10T12:11:55Z"
+   "lite": 0.0664,
+   "standard": 0.0891,
+   "hero": 0.0849,
+   "within_budget": true,
+   "measured_at": "2026-10-10T12:59:56Z"
   }
  },
- "budgets": {
-  "lite": 0.45,
-  "standard": 0.6,
-  "hero": 3.1
- }
+ "over_budget_or_stale": []
 }

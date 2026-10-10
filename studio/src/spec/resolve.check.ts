@@ -2,7 +2,10 @@
 // Run: bash studio/scripts/check_p7.sh (esbuild bundle -> node; reads corpus/ read-only).
 import fs from 'node:fs';
 import path from 'node:path';
-import {CUT_LEAD, playSpan, resolveSpec, WINDOW_PAD} from './resolve';
+import {CUT_LEAD, PREVIEW_FPS, playSpan, resolveSpec, WINDOW_PAD} from './resolve';
+import {cameraAt, cameraSafeBox, PUSH_TOTAL_CAP, pushTotal, transitionState} from './rig';
+import {PREVIEW} from '../tokens';
+import {safeRect, slotRect} from '../type/safe';
 import type {Spec, SpecInput, WordRow} from './types';
 
 const ROOT = process.env.DC_ROOT || path.resolve(process.cwd(), '..');
@@ -88,6 +91,67 @@ const ra = resolveSpec({...input, spec: ar, features: feat}, {fps: 24, preview: 
 const cv = ra.curves['rms_dbfs:medium'];
 eq('audio curve: one value per frame, 0..1, not flat', [cv.length === ra.frames, cv.every((v) => v >= 0 && v <= 1), Math.max(...cv) > 0.3], [true, true, true]);
 eq('audio mod attached to its layer', ra.shots[3].mods.map((m) => `${m.to}.${m.param}`), ['n3.glow']);
+
+// M7: the preview default follows the frozen token until the Council decides CR-001
+eq('preview fps = frozen PREVIEW.fps', PREVIEW_FPS, PREVIEW.fps);
+
+// m6: an anchor is ONE rounding, round((start24 - lead - span.start) * F / 24), at 15 fps too
+const r15 = resolveSpec(input, {fps: 15, preview: true});
+let ex15 = 0;
+let tot15 = 0;
+r15.shots.forEach((sh) =>
+  sh.layers.forEach((l) => {
+    const ly = spec.shots.find((x) => x.shot_id === sh.shot_id)!.layers[l.li];
+    if (!ly.at) return;
+    tot15++;
+    if (sh.from + l.at === Math.round(((wm.get(ly.at.word)!.s - ly.at.lead_frames - ps.start) * 15) / 24)) ex15++;
+  }),
+);
+eq('15 fps: every layer anchor = round((start - lead) * 15 / 24)', ex15, tot15);
+
+// B3: camera envelope. Copy boxes, pushed / trucked / rolled on their plane, stay inside title-safe on EVERY frame,
+// including the 25 s maximum shot at full intensity on the near plane.
+const ts = safeRect('title');
+const inside = (cam: Parameters<typeof cameraAt>[0], dur: number, par: number, slot: Parameters<typeof slotRect>[0]) => {
+  const b = cameraSafeBox(cam, dur, 14, 24, par, slotRect(slot));
+  for (let f = 0; f <= dur + 14; f++) {
+    const c = cameraAt(cam, f, dur, 24);
+    const S = 1 + (c.s - 1) * par;
+    for (const [px, py] of [[b.x, b.y], [b.x + b.w, b.y], [b.x, b.y + b.h], [b.x + b.w, b.y + b.h]]) {
+      const th = (c.rz * par * Math.PI) / 180;
+      const dx = px - 960;
+      const dy = py - 540;
+      const x = 960 + c.x * par + S * (dx * Math.cos(th) - dy * Math.sin(th));
+      const y = 540 + c.y * par + S * (dx * Math.sin(th) + dy * Math.cos(th));
+      if (x < ts.x - 0.5 || x > ts.x + ts.w + 0.5 || y < ts.y - 0.5 || y > ts.y + ts.h + 0.5) return false;
+    }
+  }
+  return b.w > 0 && b.h > 0;
+};
+const moves = ['push_in', 'pull_out', 'truck', 'pedestal', 'crane', 'orbit', 'dolly_zoom', 'static'];
+const lens = [6 * 24, 12 * 24, 25 * 24];
+let envOk = 0;
+let envN = 0;
+for (const move of moves)
+  for (const dur of lens)
+    for (const par of [1, 1.3, 1.6])
+      for (const slot of ['full', 'start', 'end', 'lower-third'] as const) {
+        envN++;
+        if (inside({move, ease: 'inOutCubic', intensity: 1, nudges: [5]}, dur, par, slot)) envOk++;
+      }
+eq(`camera envelope: copy box inside title-safe on every frame (${envN} move x length x plane x slot cases)`, envOk, envN);
+eq('push total: 04 rate for short shots, capped for long, never below the 04 floor', [+pushTotal(0.5, 120, 24).toFixed(4), pushTotal(0.5, 600, 24) <= Math.max(PUSH_TOTAL_CAP, 0.015 * 5) + 1e-9, pushTotal(1, 600, 24) >= 0.015 * 5 - 1e-9], [0.0225, true, true]);
+eq('hold (static) keeps no camera push (04 section 2)', cameraAt({move: 'static', ease: 'inOutCubic', intensity: 1, nudges: []}, 200, 240, 24).s, 1);
+const r24box = r24.shots.flatMap((sh) => sh.layers.map((l) => l.box)).every((b) => b.x >= ts.x && b.y >= ts.y && b.x + b.w <= ts.x + ts.w && b.y + b.h <= ts.y + ts.h);
+eq('resolved layer boxes lie inside title-safe', r24box, true);
+
+// M5: copy is never faded in by a dissolve (its own reveal shows it); the outgoing copy fades out over the tail
+const dis = {type: 'dissolve', frames: 14};
+const cut = {type: 'cut', frames: 0};
+const tIn = transitionState(3, 200, dis, cut);
+const tOut = transitionState(207, 200, null, dis);
+eq('dissolve: incoming backdrop fades, text layers are not faded in', [tIn.fadeIn < 0.2, tIn.textOut], [true, 1]);
+eq('dissolve: outgoing copy fades out over the tail', [tOut.textOut > 0 && tOut.textOut < 1, transitionState(214, 200, null, dis).textOut], [true, 0]);
 
 if (fails) {
   console.error(`${fails} compiler check(s) failed`);

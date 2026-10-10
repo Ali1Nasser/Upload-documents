@@ -96,20 +96,23 @@ def guards(mem_gb, expected_gb, q):
     return True, "ok"
 
 
-def submit(label, cmd, mem_gb=1.0, expected_gb=0.0, engine=""):
-    """Library entry (also used by other dclib modules). Returns the job record."""
+def submit(label, cmd, mem_gb=1.0, expected_gb=0.0, engine="", slots_req=1):
+    """Library entry (also used by other dclib modules). Returns the job record.
+    slots_req > 1 makes the job occupy that many queue slots (tsp -N), e.g. a perf run that renders at the production
+    concurrency must have the box to itself."""
     q = _load()
     ok, why = guards(mem_gb, expected_gb, q)
     if not ok:
         C.fail(f"refused: {why}", 4)
     _tsp(["-S", str(slots())])
     env_cmd = ["env", "DC_IN_QUEUE=1", *cmd]
-    r = _tsp(["-L", label, *env_cmd])
+    n = max(1, min(int(slots_req or 1), slots()))
+    r = _tsp((["-N", str(n)] if n > 1 else []) + ["-L", label, *env_cmd])
     if r.returncode != 0 or not r.stdout.strip().isdigit():
         C.fail(f"tsp submit failed: {(r.stderr or r.stdout).strip()}", 5)
     tid = int(r.stdout.strip())
     job = {"label": label, "cmd": " ".join(cmd), "tsp_id": tid, "status": "queued", "mem_gb": mem_gb,
-           "expected_gb": expected_gb, "engine": engine, "attempts": 1, "submitted": C.now_iso()}
+           "expected_gb": expected_gb, "engine": engine, "attempts": 1, "submitted": C.now_iso(), "slots": n}
     q["jobs"][str(tid)] = job
     _save(q)
     if _is_render(label):
@@ -193,7 +196,7 @@ def cmd_status(_args):
     return 0
 
 
-def run_heavy(label, argv, inline, mem_gb=1.0, expected_gb=0.0):
+def run_heavy(label, argv, inline, mem_gb=1.0, expected_gb=0.0, slots_req=1):
     """Used by ingest commands: enqueue self through tsp and wait, unless already inside the queue / --inline.
     Returns None when the caller should run inline, else the exit code."""
     if inline or in_queue():
@@ -201,7 +204,7 @@ def run_heavy(label, argv, inline, mem_gb=1.0, expected_gb=0.0):
     if not tsp_bin():
         print("WARNING: tsp not installed yet; running inline (bootstrap only).", file=sys.stderr)
         return None
-    job = submit(label, [sys.executable, *argv], mem_gb, expected_gb)
+    job = submit(label, [sys.executable, *argv], mem_gb, expected_gb, slots_req=slots_req)
     print(f"queued as tsp job {job['tsp_id']} ({label}); waiting...", file=sys.stderr)
     class A:  # noqa: D401
         id = job["tsp_id"]

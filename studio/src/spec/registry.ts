@@ -18,6 +18,11 @@ const COMPONENTS = new Map<string, DcComponent>();
 const DEMOS = new Map<string, DemoDef>();
 const PROBLEMS: string[] = [];
 
+// Any file in the two folders that the strict name pattern skips (e.g. `type_ui.ts`, `Data.tsx`) is a registry problem,
+// never a silent no-op (P7 review M3).
+const FILE_RE = /^\.\/[a-z0-9-]+\.tsx?$/;
+for (const [dir, all] of [['families', require.context('../components/families', false, /\.[jt]sx?$/)], ['demos', require.context('../demos', false, /\.[jt]sx?$/)]] as const)
+  for (const k of all.keys()) if (k.startsWith('./') && !FILE_RE.test(k)) PROBLEMS.push(`${dir}/${k.slice(2)}: skipped (file names must match [a-z0-9-]+.ts(x))`);
 const famCtx = require.context('../components/families', false, /^\.\/[a-z0-9-]+\.tsx?$/);
 for (const k of famCtx.keys()) {
   const m = famCtx(k).default as FamilyModule | undefined;
@@ -40,6 +45,7 @@ for (const k of demoCtx.keys()) {
   }
   for (const d of m.demos) {
     if (!CATALOG[d.name]) PROBLEMS.push(`${k}: demo ${d.name} is not a catalog component`);
+    else if (DEMOS.has(d.name)) PROBLEMS.push(`${k}: demo ${d.name} registered twice`);
     else DEMOS.set(d.name, d);
   }
 }
@@ -47,6 +53,7 @@ if (PROBLEMS.length && typeof console !== 'undefined') console.error(`DC_REGISTR
 
 export const getComponent = (name: string): DcComponent | undefined => COMPONENTS.get(name);
 export const isImplemented = (name: string): boolean => COMPONENTS.has(name);
+export const isText = (name: string): boolean => !!COMPONENTS.get(name)?.text;
 export const slotOf = (name: string) => COMPONENTS.get(name)?.slot;
 export const getDemo = (name: string): DemoDef | undefined => DEMOS.get(name);
 export const demoNames = (): string[] => [...DEMOS.keys()].sort();

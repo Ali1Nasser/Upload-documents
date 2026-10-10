@@ -1,9 +1,12 @@
 // P7 render driver: `dc render snap|perf|spec|at11` (tools/dclib/render.py builds this file with esbuild and runs it INSIDE the
 // tsp queue; never run it directly on a busy box). GL is swiftshader only (ADR-002 GL-SS). One bundle, one browser per run.
-//   snap <Name> [--approve]        stills at 0/50/100 % of Demo-<Name>, pixelmatch vs studio/test/baselines/<Name>/, QA findings fail
-//   snap _selftest                 the QA-Selftest fixture MUST report an overflow and a per-letter finding
-//   perf <Name> [--tiers=a,b] [--frames=N]   s/frame at 1080p per FX tier -> reports/perf/components/<Name>.json
-//   spec <id> [--final] [--fps=N] [--no-audio]   render corpus/specs/<id>.json; resolver report next to the render
+//   snap <Name> [--approve]        stills p0 / a1 (first anchor settled) / p50 / p100 of Demo-<Name>, pixelmatch vs
+//                                  studio/test/baselines/<Name>/ (absolute px cap), determinism, QA findings fail
+//   snap _selftest                 the QA-Selftest fixture MUST report overflow, perletter, fragment and unsafe findings
+//   perf <Name> [--tiers=a,b] [--frames=N] [--report-only]   BOX s/frame at 1080p per FX tier at the production concurrency
+//                                  (3 render slots) -> reports/perf/components/<Name>.json; exit 1 when over the ADR-002 budget
+//   spec <id> [--final] [--fps=N] [--no-audio] [--nocam] [--nofx] [--cut] [--solo=<layer>]
+//                                  render corpus/specs/<id>.json; resolver report next to the render; debug flags = isolated renders
 //   at11                           AT-11 clip (wipe + arrive) and settled / mid-wipe JPGs -> reports/p7/at11/
 import {bundle} from '@remotion/bundler';
 import {openBrowser, renderFrames, renderMedia, renderStill, selectComposition, type BrowserLog} from '@remotion/renderer';
@@ -18,6 +21,7 @@ import {AT11_LABELS, AT11_SIZES, AT11_START} from '../src/at11/AT11.consts';
 import {PREVIEW_FPS, playSpan} from '../src/spec/resolve';
 import type {Features, Resolved, SpecInput, WordRow} from '../src/spec/types';
 import {FPS, FX, PREVIEW, PRESETS} from '../src/tokens';
+import {presetFrames} from '../src/type/reveal';
 import {JOIN_GAP} from '../src/type/arabic';
 
 const args = process.argv.slice(2);
@@ -39,10 +43,18 @@ const writeJson = (p: string, o: unknown) => {
 const now = () => new Date().toISOString().replace(/\.\d+Z$/, 'Z');
 
 /** Snapshot thresholds (documented in docs/tools/component_guide.md). Stills use the lite tier (no grain / bokeh noise) so the
- * PNG baselines stay small (~0.1 MB) and diff only layout, type and motion; tier looks are frozen tokens, checked by perf + look-dev. */
-export const SNAP = {scale: 0.5, tier: 'lite', pixelThreshold: 0.1, maxDiffRatio: 0.001, frames: [0, 0.5, 1]} as const;
-/** Perf budgets, slot-seconds per frame at 1080p, concurrency 1 (ADR-002: standard S-hi + 10 % = 0.201 box s/frame x 3 slots). */
-export const PERF_BUDGET = {lite: 0.45, standard: 0.6, hero: 3.1} as const;
+ * PNG baselines stay small (~0.1 MB) and diff only layout, type and motion; tier looks are frozen tokens, checked by perf + look-dev.
+ * P7 review B2: an ABSOLUTE cap (16 px at scale 0.5) with anti-aliased pixels counted. Determinism is 0 px on this box, and one
+ * wrong table digit is ~50 px, so a ratio of the whole frame (518 px) hid real regressions. Stills: p0 / p50 / p100 of the demo
+ * plus a1 = the first anchored reveal settled (the p0 still of every demo is the bare backdrop). */
+export const SNAP = {scale: 0.5, tier: 'lite', pixelThreshold: 0.1, includeAA: true, maxDiffPx: 16, frames: [0, 0.5, 1]} as const;
+/** Production render concurrency (ADR-002: 3 slots = nproc - 1 on the 4 vCPU box). Perf renders at this concurrency, and the
+ * queue job claims all 3 slots (tsp -N 3), so the number is the box rate under full production load (P7 review B1). */
+export const PERF_SLOTS = 3;
+/** Perf budgets in BOX seconds per frame at 1080p, 3 concurrent slots (= wall / frames), straight from ADR-002:
+ * standard <= 0.201 (R5 trigger, S-hi + 10 %); hero <= 1.038 (top of the H band); lite (previews) is held to the standard
+ * figure, conservative because previews render at 960x540. */
+export const PERF_BUDGET = {lite: 0.201, standard: 0.201, hero: 1.038} as const;
 
 type Qa = {kind: string; id: string; detail: unknown};
 const qa: Qa[] = [];
@@ -104,8 +116,9 @@ async function snap(c: Common, name: string): Promise<number> {
     const comp = await selectComposition({...c, id: 'QA-Selftest', inputProps: {}});
     await renderStill({...c, composition: comp, frame: 1, output: path.join(out, 'selftest.png'), inputProps: {}, scale: SNAP.scale});
     const kinds = new Set(qa.map((q) => q.kind));
-    const pass = kinds.has('overflow') && kinds.has('perletter');
-    const rep = {v: 1, name, at: now(), expect: ['overflow', 'perletter'], findings: qa, pass};
+    const expect = ['overflow', 'perletter', 'fragment', 'unsafe'];
+    const pass = expect.every((k) => kinds.has(k));
+    const rep = {v: 2, name, at: now(), expect, findings: qa, pass};
     writeJson(path.join(ROOT, 'reports/p7/snap/_selftest.json'), rep);
     console.log(`selftest: findings ${[...kinds].join(',') || 'none'} -> ${pass ? 'PASS (detectors fire)' : 'FAIL (a detector is silent)'}`);
     return pass ? 0 : 1;
@@ -114,37 +127,36 @@ async function snap(c: Common, name: string): Promise<number> {
   const snapProps = {demo: name, tier: opt.tier || SNAP.tier};
   const comp = await selectComposition({...c, id, inputProps: snapProps});
   const n = comp.durationInFrames;
-  const frames = SNAP.frames.map((f) => Math.min(n - 1, Math.floor(f * (n - 1))));
+  const stills = snapFrames(comp.props as {resolved?: Resolved}, n, comp.fps);
+  const frames = stills.map((x) => x.frame);
   const base = path.join(STUDIO, 'test/baselines', name);
   const results: Record<string, unknown>[] = [];
   let ok = true;
-  for (const [k, fr] of frames.entries()) {
-    const tag = `p${Math.round(SNAP.frames[k] * 100)}`;
+  // 1) render every still, 2) determinism (p50 twice, 0 px), 3) only then compare or approve: a non-deterministic render can
+  // never become a baseline (P7 review M1)
+  for (const {tag, frame} of stills) await renderStill({...c, composition: comp, frame, output: path.join(out, `${tag}.png`), inputProps: snapProps, scale: SNAP.scale, imageFormat: 'png'});
+  const det = stills.find((x) => x.tag === 'p50') ?? stills[0];
+  const again = path.join(out, `${det.tag}_again.png`);
+  await renderStill({...c, composition: comp, frame: det.frame, output: again, inputProps: snapProps, scale: SNAP.scale, imageFormat: 'png'});
+  const da = readPng(path.join(out, `${det.tag}.png`));
+  const determinismPx = pixelmatch(da.data, readPng(again).data, null, da.width, da.height, {threshold: 0, includeAA: true});
+  fs.rmSync(again);
+  if (determinismPx) ok = false;
+  const metaP = path.join(base, 'meta.json');
+  const meta = fs.existsSync(metaP) ? JSON.parse(fs.readFileSync(metaP, 'utf8')) : null;
+  const approve = !!opt.approve && determinismPx === 0;
+  for (const {tag, frame, why} of stills) {
     const file = path.join(out, `${tag}.png`);
-    await renderStill({...c, composition: comp, frame: fr, output: file, inputProps: snapProps, scale: SNAP.scale, imageFormat: 'png'});
-    const r: Record<string, unknown> = {tag, frame: fr};
-    if (k === 1) {
-      // determinism: the same frame rendered twice must be pixel-identical (seeded randomness only)
-      const again = path.join(out, `${tag}_again.png`);
-      await renderStill({...c, composition: comp, frame: fr, output: again, inputProps: snapProps, scale: SNAP.scale, imageFormat: 'png'});
-      const a = readPng(file);
-      const b = readPng(again);
-      const d = pixelmatch(a.data, b.data, null, a.width, a.height, {threshold: 0});
-      r.determinism_diff_px = d;
-      if (d) ok = false;
-      fs.rmSync(again);
-    }
+    const r: Record<string, unknown> = {tag, frame, why};
+    if (tag === det.tag) r.determinism_diff_px = determinismPx;
     const bf = path.join(base, `${tag}.png`);
-    const metaP = path.join(base, 'meta.json');
-    const meta = fs.existsSync(metaP) ? JSON.parse(fs.readFileSync(metaP, 'utf8')) : null;
-    if (!opt.approve && fs.existsSync(bf) && meta?.sha256?.[tag] && meta.sha256[tag] !== sha256(bf)) {
+    if (opt.approve && !approve) {
+      r.pass = false;
+      r.error = 'not approved: the determinism check failed';
+    } else if (!approve && fs.existsSync(bf) && meta?.sha256?.[tag] && meta.sha256[tag] !== sha256(bf)) {
       r.pass = false;
       r.error = 'baseline PNG differs from meta.json sha256 (changed outside --approve)';
-      ok = false;
-      results.push(r);
-      continue;
-    }
-    if (opt.approve) {
+    } else if (approve) {
       fs.mkdirSync(base, {recursive: true});
       fs.copyFileSync(file, bf);
       r.baseline = 'written';
@@ -156,36 +168,31 @@ async function snap(c: Common, name: string): Promise<number> {
         r.error = `size ${a.width}x${a.height} != baseline ${b.width}x${b.height}`;
       } else {
         const diff = new PNG({width: a.width, height: a.height});
-        const px = pixelmatch(a.data, b.data, diff.data, a.width, a.height, {threshold: SNAP.pixelThreshold});
-        const ratio = px / (a.width * a.height);
+        const px = pixelmatch(a.data, b.data, diff.data, a.width, a.height, {threshold: SNAP.pixelThreshold, includeAA: SNAP.includeAA});
         r.mismatch_px = px;
-        r.mismatch_ratio = +ratio.toFixed(6);
-        r.pass = ratio <= SNAP.maxDiffRatio;
+        r.pass = px <= SNAP.maxDiffPx;
         if (!r.pass) fs.writeFileSync(path.join(out, `${tag}_diff.png`), PNG.sync.write(diff));
       }
-      if (!r.pass) ok = false;
     } else {
       r.pass = false;
       r.error = 'no approved baseline (run with --approve, then ask the critic to approve it)';
-      ok = false;
     }
+    if (r.pass === false) ok = false;
     results.push(r);
   }
-  // small JPG strip (0 / 50 / 100 %) for the critic: the only snapshot media that goes to git (PNG baselines stay local, see .gitignore)
+  // small JPG strip (p0 / a1 / p50 / p100) for the critic: the only snapshot media that goes to git (PNG baselines stay local)
   const strip = path.join(ROOT, 'reports/p7/snap', `${name}.jpg`);
   fs.mkdirSync(path.dirname(strip), {recursive: true});
-  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', ...frames.flatMap((_, k) => ['-i', path.join(out, `p${Math.round(SNAP.frames[k] * 100)}.png`)]), '-filter_complex', `hstack=inputs=${frames.length},scale=1440:-2`, '-q:v', '4', strip]);
-  if (opt.approve) {
-    writeJson(path.join(base, 'meta.json'), {
-      sha256: Object.fromEntries(frames.map((_, k) => {
-        const tag = `p${Math.round(SNAP.frames[k] * 100)}`;
-        return [tag, sha256(path.join(base, `${tag}.png`))];
-      })),
-      v: 1,
+  execFileSync('ffmpeg', ['-loglevel', 'error', '-y', ...stills.flatMap((x) => ['-i', path.join(out, `${x.tag}.png`)]), '-filter_complex', `hstack=inputs=${stills.length},scale=1600:-2`, '-q:v', '4', strip]);
+  if (approve) {
+    writeJson(metaP, {
+      sha256: Object.fromEntries(stills.map((x) => [x.tag, sha256(path.join(base, `${x.tag}.png`))])),
+      v: 2,
       name,
-      frames,
+      frames: Object.fromEntries(stills.map((x) => [x.tag, x.frame])),
       scale: SNAP.scale,
       tier: snapProps.tier,
+      thresholds: SNAP,
       written_at: now(),
       written_by: 'motion-engineer',
       approval: opt.approver ? {by: opt.approver, at: now()} : 'pending-critic',
@@ -194,11 +201,27 @@ async function snap(c: Common, name: string): Promise<number> {
   }
   const qaOwn = qa.filter((q) => q.kind !== 'parse');
   if (qaOwn.length || regProblems.length) ok = false;
-  const rep = {v: 1, name, composition: id, at: now(), frames, thresholds: SNAP, results, qa_findings: qaOwn, registry_problems: regProblems, approve: !!opt.approve, pass: ok || (!!opt.approve && !qaOwn.length && !regProblems.length)};
+  const rep = {v: 2, name, composition: id, at: now(), frames, thresholds: SNAP, results, qa_findings: qaOwn, registry_problems: regProblems, approve: !!opt.approve, pass: ok};
   writeJson(path.join(ROOT, 'reports/p7/snap', `${name}.json`), rep);
-  console.log(`snap ${name}: ${rep.pass ? 'PASS' : 'FAIL'} frames ${frames.join('/')} | ${results.map((r) => `${r.tag}:${r.baseline ?? r.mismatch_ratio ?? r.error}`).join(' ')} | qa ${qaOwn.length}`);
+  console.log(`snap ${name}: ${rep.pass ? 'PASS' : 'FAIL'} frames ${frames.join('/')} | ${results.map((r) => `${r.tag}:${r.baseline ?? r.mismatch_px ?? r.error}`).join(' ')} | det ${determinismPx} | qa ${qaOwn.length}`);
   return rep.pass ? 0 : 1;
 }
+
+/** Snapshot stills: p0 / p50 / p100 of the demo plus a1 = the first anchored reveal settled (anchor frame + the longest reveal
+ * preset + 1). The p0 still alone only re-tests the backdrop, because every demo starts its first reveal a few frames in (B2). */
+export const snapFrames = (props: {resolved?: Resolved}, n: number, fps: number): {tag: string; frame: number; why: string}[] => {
+  const at = (frac: number) => Math.min(n - 1, Math.floor(frac * (n - 1)));
+  const sh = props.resolved?.shots?.[0];
+  const ats = (sh?.layers ?? []).map((l) => sh!.from + l.at);
+  const settle = Math.max(...(['arrive', 'impact', 'label'] as const).map((p) => presetFrames(p, fps, true)));
+  const a1 = Math.min(n - 1, (ats.length ? Math.min(...ats) : 0) + settle + 1);
+  return [
+    {tag: 'p0', frame: at(0), why: '0 %'},
+    {tag: 'a1', frame: a1, why: `first anchor settled (anchor + ${settle} + 1 f)`},
+    {tag: 'p50', frame: at(0.5), why: '50 %'},
+    {tag: 'p100', frame: at(1), why: '100 %'},
+  ];
+};
 
 // ---------------------------------------------------------------- perf
 async function perf(c: Common, name: string): Promise<number> {
@@ -212,29 +235,54 @@ async function perf(c: Common, name: string): Promise<number> {
     const inputProps = {demo: name, tier};
     const comp = await selectComposition({...c, id, inputProps});
     const n = Math.min(comp.durationInFrames, Number(opt.frames || comp.durationInFrames));
-    await renderStill({...c, composition: comp, frame: 0, output: path.join(tmp, 'warm.jpeg'), inputProps, imageFormat: 'jpeg'}); // warm caches
+    // warm-up at the production concurrency (fonts, GL, caches); the measured run then starts from a warm browser
+    await renderFrames({...c, composition: comp, inputProps, outputDir: tmp, imageFormat: 'jpeg', jpegQuality: 80, concurrency: PERF_SLOTS, frameRange: [0, Math.min(n - 1, PERF_SLOTS * 2 - 1)], onStart: () => undefined, onFrameUpdate: () => undefined});
+    for (const f of fs.readdirSync(tmp)) fs.rmSync(path.join(tmp, f));
     const q0 = queueLoad();
     const l0 = os.loadavg()[0];
     const a = Date.now();
-    await renderFrames({...c, composition: comp, inputProps, outputDir: tmp, imageFormat: 'jpeg', jpegQuality: 80, concurrency: 1, frameRange: [0, n - 1], onStart: () => undefined, onFrameUpdate: () => undefined});
+    await renderFrames({...c, composition: comp, inputProps, outputDir: tmp, imageFormat: 'jpeg', jpegQuality: 80, concurrency: PERF_SLOTS, frameRange: [0, n - 1], onStart: () => undefined, onFrameUpdate: () => undefined});
     const wall = (Date.now() - a) / 1000;
-    const spf = +(wall / n).toFixed(4);
-    const within = spf <= PERF_BUDGET[tier];
+    const box = +(wall / n).toFixed(4);
+    const within = box <= PERF_BUDGET[tier];
     if (!within) over = true;
-    res[tier] = {frames: n, wall_s: +wall.toFixed(2), s_per_frame: spf, box_s_per_frame_at_3_slots: +(spf / 3).toFixed(4), budget_s_per_frame: PERF_BUDGET[tier], within_budget: within, loadavg1: [+l0.toFixed(2), +os.loadavg()[0].toFixed(2)], queue: q0};
+    const others = q0.running === null ? null : Math.max(0, q0.running - 1); // this job is one of the running ones
+    res[tier] = {
+      frames: n,
+      wall_s: +wall.toFixed(2),
+      box_s_per_frame: box,
+      slot_s_per_frame: +(box * PERF_SLOTS).toFixed(4),
+      budget_box_s_per_frame: PERF_BUDGET[tier],
+      within_budget: within,
+      loadavg1: [+l0.toFixed(2), +os.loadavg()[0].toFixed(2)],
+      queue: q0,
+      other_jobs_running: others,
+    };
     for (const f of fs.readdirSync(tmp)) fs.rmSync(path.join(tmp, f));
-    console.log(`perf ${name} ${tier}: ${spf} s/frame (${n} f, ${wall.toFixed(1)} s) budget ${PERF_BUDGET[tier]} ${within ? 'ok' : 'OVER'}`);
+    console.log(`perf ${name} ${tier}: ${box} box s/frame at ${PERF_SLOTS} slots (${n} f, ${wall.toFixed(1)} s) budget ${PERF_BUDGET[tier]} ${within ? 'ok' : 'OVER'}${others ? ` (other jobs running: ${others})` : ''}`);
   }
   fs.rmSync(tmp, {recursive: true, force: true});
-  const rep = {v: 1, name, composition: id, at: now(), resolution: '1920x1080', gl: 'swiftshader', concurrency: 1, image: 'jpeg q80', host: {cpus: os.cpus().length, mem_gb: +(os.totalmem() / 2 ** 30).toFixed(1)}, budgets: PERF_BUDGET, tiers: res, qa_findings: qa};
+  const rep = {
+    v: 2,
+    name,
+    composition: id,
+    at: now(),
+    unit: `box s/frame = wall / frames at 1920x1080, concurrency ${PERF_SLOTS} (production), swiftshader, JPEG q80`,
+    resolution: '1920x1080',
+    gl: 'swiftshader',
+    concurrency: PERF_SLOTS,
+    image: 'jpeg q80',
+    host: {cpus: os.cpus().length, mem_gb: +(os.totalmem() / 2 ** 30).toFixed(1)},
+    budgets_box_s_per_frame: PERF_BUDGET,
+    budget_basis: 'ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201',
+    tiers: res,
+    within_budget: !over,
+    qa_findings: qa,
+  };
+  // per-component file only: the aggregate reports/perf/components.json is built at gate time (`dc render perf --aggregate`),
+  // so parallel family agents never read-modify-write one shared file (P7 review M4)
   writeJson(path.join(ROOT, 'reports/perf/components', `${name}.json`), rep);
-  const aggP = path.join(ROOT, 'reports/perf/components.json');
-  const agg = fs.existsSync(aggP) ? JSON.parse(fs.readFileSync(aggP, 'utf8')) : {v: 1, unit: 'slot s/frame at 1080p, concurrency 1, swiftshader, under queue load', components: {}};
-  agg.components[name] = Object.fromEntries(Object.entries(res).map(([k, v]) => [k, (v as {s_per_frame: number}).s_per_frame]));
-  agg.components[name].measured_at = rep.at;
-  agg.budgets = PERF_BUDGET;
-  writeJson(aggP, agg);
-  return over && opt.strict ? 1 : 0;
+  return over && !opt['report-only'] ? 1 : 0;
 }
 
 // ---------------------------------------------------------------- spec
@@ -269,23 +317,45 @@ async function spec(c: Common, id: string, serveUrl: string): Promise<number> {
     execFileSync('ffmpeg', ['-loglevel', 'error', '-y', '-ss', ss, '-t', t, '-i', vo, '-ac', '1', '-c:a', 'aac', '-b:a', '96k', path.join(dst, `${id}.m4a`)]);
     input.audio = `p7audio/${id}.m4a`;
   }
-  const inputProps = {input, preview: !final, fps};
+  const debug = opt.nocam || opt.nofx || opt.cut || opt.solo ? {nocam: !!opt.nocam, nofx: !!opt.nofx, cut: !!opt.cut, solo: opt.solo && opt.solo !== '1' ? opt.solo : null} : null;
+  if (debug && final) throw new Error('debug flags (--nocam/--nofx/--cut/--solo) are for measurement renders, never with --final');
+  const inputProps = {input, preview: !final, fps, debug};
   const comp = await selectComposition({...c, id: 'SpecPlayer', inputProps});
   const resolved = (comp.props as {resolved: Resolved}).resolved;
-  const outDir = path.join(ROOT, 'data/renders/spec', id, final ? `final${fps}` : `preview${fps}`);
+  const dbgTag = debug ? `_dbg-${[debug.nocam && 'nocam', debug.nofx && 'nofx', debug.cut && 'cut', debug.solo && `solo-${debug.solo}`].filter(Boolean).join('-')}` : '';
+  const outDir = path.join(ROOT, 'data/renders/spec', id, (final ? `final${fps}` : `preview${fps}`) + dbgTag);
   fs.mkdirSync(outDir, {recursive: true});
-  const report = {...resolved.report, at: now(), spec_file: rel(specFile), edl: rel(edlPath), word_map: rel(wmPath), size: `${comp.width}x${comp.height}`, tier_forced: final ? null : PREVIEW.tier, audio: input.audio ? `VO excerpt ${ps.start}..${ps.end} @24` : null};
+  const report = {...resolved.report, at: now(), spec_file: rel(specFile), edl: rel(edlPath), word_map: rel(wmPath), size: `${comp.width}x${comp.height}`, tier_forced: final ? null : PREVIEW.tier, debug, audio: input.audio ? `VO excerpt ${ps.start}..${ps.end} @24` : null};
   writeJson(path.join(outDir, 'resolver.json'), report);
   console.log(`resolver ${id}: anchors ${report.anchors_resolved}/${report.anchors_total} (${report.resolved_pct} %), invalid ${report.invalid_props.length}, unknown ${report.unknown_components.length}, unimplemented ${report.unimplemented.join(',') || '-'}, ${comp.durationInFrames} f @ ${fps}`);
+  if (final && (report.unimplemented.length || regProblems.length)) {
+    // never spend final-render hours on a spec that would draw blank layers (M3)
+    console.log(`spec ${id}: FAIL before render: unimplemented ${report.unimplemented.join(',') || '-'}, registry problems ${regProblems.length}`);
+    writeJson(path.join(outDir, 'resolver.json'), {...report, registry_problems: regProblems, blockers: ['unimplemented or registry problems before a final']});
+    return 1;
+  }
   const file = path.join(outDir, `${id}.mp4`);
   const a = Date.now();
   await renderMedia({...c, composition: comp, inputProps, codec: 'h264', crf: final ? 18 : 26, outputLocation: file, concurrency: Number(opt.conc || 1), imageFormat: 'jpeg', jpegQuality: final ? 92 : 80, audioCodec: 'aac'});
   const wall = (Date.now() - a) / 1000;
   const qaOwn = qa.filter((q) => q.kind !== 'parse');
   const full = {...report, render: {file: rel(file), wall_s: +wall.toFixed(1), s_per_frame: +(wall / comp.durationInFrames).toFixed(4), bytes: fs.statSync(file).size}, qa_findings: qaOwn, registry_problems: regProblems};
+  // P7 review M3: registry problems fail every mode; an unimplemented layer fails a final (it would render nothing); a chapter
+  // spec (no window) may not drop shots
+  const blockers = [
+    ...(report.resolved_pct === 100 ? [] : [`anchors ${report.resolved_pct} %`]),
+    ...(report.invalid_props.length ? [`invalid props ${report.invalid_props.length}`] : []),
+    ...(report.unknown_components.length ? [`unknown ${report.unknown_components.join(',')}`] : []),
+    ...(qaOwn.length ? [`qa ${qaOwn.length}`] : []),
+    ...(regProblems.length ? [`registry problems ${regProblems.length}`] : []),
+    ...(final && report.unimplemented.length ? [`unimplemented in a final: ${report.unimplemented.join(',')}`] : []),
+    ...(!sp.window && report.dropped_shots.length ? [`dropped shots ${report.dropped_shots.join(',')}`] : []),
+  ];
+  (full as Record<string, unknown>).blockers = blockers;
   writeJson(path.join(outDir, 'resolver.json'), full);
-  if (opt.report) writeJson(path.join(ROOT, opt.report), full); // small copy for git (reports/p7/...)
-  const pass = report.resolved_pct === 100 && !report.invalid_props.length && !report.unknown_components.length && !qaOwn.length;
+  if (opt.report) writeJson(path.join(ROOT, opt.report), full);
+  const pass = !blockers.length;
+  if (!pass) console.log(`spec ${id}: blockers: ${blockers.join('; ')}`);
   console.log(`spec ${id}: ${pass ? 'PASS' : 'FAIL'} ${rel(file)} ${(full.render.bytes / 1e6).toFixed(1)} MB, ${full.render.s_per_frame} s/frame, qa ${qaOwn.length}`);
   return pass ? 0 : 1;
 }

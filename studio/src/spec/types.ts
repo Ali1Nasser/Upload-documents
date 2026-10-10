@@ -23,7 +23,7 @@ export type Spec = {v: number; chapter: string; edl_version: string; window?: {f
 /** One word of the locked word map: absolute frames at the film rate (24 fps, ADR-002 F24). */
 export type WordRow = {id: string; s: number; e: number; sent: string};
 export type Features = {start_frame: number; rms_dbfs: number[]; onset_strength: number[]; centroid_hz: number[]};
-/** Everything the compiler needs, loaded by the node driver (scripts/p7_render.mjs) or built by a demo. */
+/** Everything the compiler needs, loaded by the node driver (scripts/p7.ts) or built by a demo. */
 export type SpecInput = {
   id: string;
   spec: Spec;
@@ -81,6 +81,7 @@ export type ResolverReport = {
   unknown_components: string[];
   unimplemented: string[];
   by_kind: Record<string, number>;
+  dropped_shots: string[]; // shots with no word inside the played span (expected for window demos; a defect in chapter specs)
 };
 export type Resolved = {
   fps: number;
@@ -88,6 +89,7 @@ export type Resolved = {
   preview: boolean;
   shots: ResolvedShot[];
   words: Record<string, [number, number]>; // composition-local [start, end] of every anchored word
+  words24: Record<string, [number, number]>; // span-relative 24-fps [start, end] of every anchored word (anchor rounding, m6)
   curves: Record<string, number[]>; // audio-reactive curves at the composition fps, 0..1
   report: ResolverReport;
   audio?: string | null;
@@ -139,6 +141,5 @@ export type DemoDef = {
     sfx?: SpecShot['sfx'];
     transition_out?: SpecShot['transition_out'];
   };
-  perfFrames?: number; // frames rendered by `dc render perf` (default 48)
 };
 export type DemoModule = {family: string; demos: DemoDef[]};

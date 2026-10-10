@@ -1,19 +1,33 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "p50": "4cb6e826d4299d729bdba17dec9ea54f528b604a708a209b10af3897140ad9a7",
-  "p100": "df3c12669d01b7dffb5451fd3fe3eeeb664f3e0d74e83da8fee2948089ba8b4a"
+  "a1": "a4a819038fa9b8ac28738656bd4d53e474ceee624782cde278bf191542cd48a9",
+  "p50": "d18491067a75751f79f15cd5e98f6bdbc00734abd2b645a5d972a1231944939f",
+  "p100": "6df493cd7c2aafbb30023a999c426c92ebaf8cf951c276f7b5a27a548215d262"
  },
- "v": 1,
+ "v": 2,
  "name": "TableGrid",
- "frames": [
-  0,
-  54,
-  109
- ],
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 54,
+  "p100": 109
+ },
  "scale": 0.5,
  "tier": "lite",
- "written_at": "2026-10-10T12:19:09Z",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-10T12:57:11Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

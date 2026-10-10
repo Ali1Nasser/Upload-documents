@@ -1,10 +1,12 @@
 {
- "v": 1,
+ "v": 2,
  "name": "_selftest",
- "at": "2026-10-10T12:00:22Z",
+ "at": "2026-10-10T13:04:00Z",
  "expect": [
   "overflow",
-  "perletter"
+  "perletter",
+  "fragment",
+  "unsafe"
  ],
  "findings": [
   {
@@ -13,6 +15,64 @@
    "detail": [
     "كت|اب"
    ]
+  },
+  {
+   "kind": "fragment",
+   "id": "selftest:perletter",
+   "detail": {
+    "fragments": [
+     "كت"
+    ],
+    "text": "كت"
+   }
+  },
+  {
+   "kind": "fragment",
+   "id": "selftest:fragment",
+   "detail": {
+    "fragments": [
+     "الكمب"
+    ],
+    "text": "الكمب"
+   }
+  },
+  {
+   "kind": "unsafe",
+   "id": "selftest:overflow",
+   "detail": {
+    "box": [
+     256,
+     207,
+     2410,
+     349
+    ],
+    "title_safe": [
+     96,
+     54,
+     1824,
+     1026
+    ],
+    "opacity": 1
+   }
+  },
+  {
+   "kind": "unsafe",
+   "id": "selftest:unsafe",
+   "detail": {
+    "box": [
+     30,
+     860,
+     147,
+     927
+    ],
+    "title_safe": [
+     96,
+     54,
+     1824,
+     1026
+    ],
+    "opacity": 1
+   }
   },
   {
    "kind": "overflow",

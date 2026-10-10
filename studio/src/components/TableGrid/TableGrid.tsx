@@ -14,6 +14,7 @@ import {isArabic} from '../../type/arabic';
 import {ease, presetFrames, revealStyle} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
+import {formatValue} from '../NumberCounter/NumberCounter';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 type Cell = string | number | boolean | null;
@@ -48,7 +49,10 @@ export const tableTimeline = (p: Props, ctx: Ctx) => {
         if (u === v) return x - y;
         if (u === null || u === undefined) return 1;
         if (v === null || v === undefined) return -1;
-        return (typeof u === 'number' && typeof v === 'number' ? u - v : String(u).localeCompare(String(v))) * dir;
+        // code-point order, not localeCompare: the host locale must never change a render (determinism across hosts, m1)
+        const su = String(u);
+        const sv = String(v);
+        return (typeof u === 'number' && typeof v === 'number' ? u - v : su < sv ? -1 : su > sv ? 1 : 0) * dir;
       });
       evs.push({t: a.at, dur: morph, order: [...order], alive: new Set(alive)});
     } else if (a.name === 'addRow') {
@@ -79,10 +83,13 @@ const rowState = (i: number, t: number, tl: ReturnType<typeof tableTimeline>) =>
   return {slot, alpha};
 };
 
-const fmtCell = (v: Cell): string => (v === null ? '—' : typeof v === 'boolean' ? (v ? 'true' : 'false') : String(v));
+/** Cell text. Numbers use the NumberCounter formatter (NNBSP grouping from 10 000, U+2212 minus, source decimals kept; m2). */
+const fmtCell = (v: Cell): string =>
+  v === null ? '—' : typeof v === 'boolean' ? (v ? 'true' : 'false') : typeof v === 'number' ? formatValue(v, 'decimal', (String(v).split('.')[1] ?? '').length) : String(v);
 
 export const TableGridView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ref = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const tl = tableTimeline(props, ctx);
   const rtl = props.columns.some((c) => isArabic(c.label)) || (!!props.title && isArabic(props.title));
   const size = tl.rows.length <= 6 ? SIZE.body : SIZE.label; // 40 px for short tables, 32 px otherwise; auto-fit floor 28 px
@@ -91,6 +98,9 @@ export const TableGridView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const key = `${props.columns.map((c) => c.key).join(',')}|${tl.rows.length}|${props.title ?? ''}`;
   const fit = useAutoFit(ref, {id: ctx.id, size, min: SIZE.labelMin, maxW: ctx.box.w - 2 * pad, maxH: ctx.box.h - 2 * pad - titleH, key});
   const fs = fit.size;
+  // the title is measured too (M2): it fits the same width, never below the 28 px floor, else a DC_QA overflow finding
+  const tfit = useAutoFit(titleRef, {id: `${ctx.id}:title`, size: fs, min: SIZE.labelMin, maxW: ctx.box.w - 2 * pad, key: props.title ?? ''});
+  const tfs = tfit.size; // <= fs: the title never sets larger than the table
   const rowH = Math.round(fs * 1.9);
   const t = ctx.frame;
   const head = revealStyle(t - ctx.at, ctx.fps, 'label', rtl ? 'rtl' : 'ltr', ctx.until !== undefined ? t - ctx.until : undefined);
@@ -122,8 +132,10 @@ export const TableGridView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center', ...head.style}}>
       <Glass style={{padding: pad}}>
         {props.title ? (
-          <div dir={rtl ? 'rtl' : 'ltr'} style={{height: titleH, display: 'flex', alignItems: 'center', fontSize: fs, color: C.ink, textShadow: halo}}>
-            <MixedText id={`${ctx.id}:title`} text={props.title} size={fs} weight={FONT.label.strong} />
+          <div dir={rtl ? 'rtl' : 'ltr'} style={{height: titleH, display: 'flex', alignItems: 'center', color: C.ink, textShadow: halo}}>
+            <div ref={titleRef} data-overflow={tfit.overflow ? 1 : undefined} style={{width: 'max-content', whiteSpace: 'nowrap', fontSize: tfs, outline: tfit.overflow ? `2px dashed ${C.crit}` : undefined}}>
+              <MixedText id={`${ctx.id}:title`} text={props.title} size={tfs} weight={FONT.label.strong} />
+            </div>
           </div>
         ) : null}
         <div style={{height: Math.round((1 + slots) * rowH), overflow: 'hidden'}}>

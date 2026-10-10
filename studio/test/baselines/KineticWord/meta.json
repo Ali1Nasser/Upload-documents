@@ -1,19 +1,33 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "p50": "3ae1c04c15f8aa835d762dd19589891fbdf384a4b2be4d05295eda15298d4fd9",
-  "p100": "703aaf03a82d6cd91ce359a087e258aa332bc7cd0bef8720bffd1f48e4a64426"
+  "a1": "967788d087069c1d11772f4815e598ac061b4884f33c0d2e187cccfec4bcbc3b",
+  "p50": "fcf43b8e8d9cb54eff16d52b17401e8a72bde92fcc925e1571105ded466eaded",
+  "p100": "6815d637740ddb063bf2a10a504e6989c38102c2edc8aca31faa619f63fd1ee8"
  },
- "v": 1,
+ "v": 2,
  "name": "KineticWord",
- "frames": [
-  0,
-  35,
-  71
- ],
+ "frames": {
+  "p0": 0,
+  "a1": 15,
+  "p50": 35,
+  "p100": 71
+ },
  "scale": 0.5,
  "tier": "lite",
- "written_at": "2026-10-10T12:18:38Z",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-10T12:57:28Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

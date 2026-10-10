@@ -1,4 +1,4 @@
-// Unit checks for the P7 typography engine (text.ts, safe.ts, reveal.ts). Run: bash studio/scripts/check_p7.sh.
+// Unit checks for the P7 typography engine (words.ts, Text.tsx, safe.ts, reveal.ts). Run: bash studio/scripts/check_p7.sh.
 import {FX, H, W} from '../tokens';
 import {joinGapEm, segment} from './arabic';
 import {presetFrames, revealStyle, wipeClip, ease} from './reveal';

@@ -7,6 +7,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {Backdrop, Post} from '../fx/Atmos';
 import {C, FX, H, W} from '../tokens';
 import {KText} from '../type/Text';
+import {checkArabicWholeWords, checkWholeWords} from '../type/qa';
 import {loadFonts} from '../type/fonts';
 
 loadFonts();
@@ -16,12 +17,18 @@ import {AT11_LABELS, AT11_SIZES, AT11_START} from './AT11.consts';
 export type AT11Props = {preset: 'wipe' | 'arrive'};
 export const AT11: React.FC<AT11Props> = ({preset}) => {
   const frame = useCurrentFrame();
+  const ref = React.useRef<HTMLDivElement>(null);
+  // the same whole-word guards as SpecPlayer (P7 review m12): element splits and substring fragments fail `dc render at11`
+  React.useLayoutEffect(() => {
+    checkWholeWords(ref.current);
+    checkArabicWholeWords(ref.current, AT11_LABELS);
+  }, [frame]);
   const fx = FX.standard;
   const colW = W * 0.36;
   const rowH = 118;
   const top = (H - AT11_LABELS.length * rowH) / 2;
   return (
-    <AbsoluteFill style={{background: C.void}}>
+    <AbsoluteFill ref={ref} style={{background: C.void}}>
       <Backdrop fx={fx} />
       {AT11_SIZES.map((size, ci) =>
         AT11_LABELS.map((t, i) => (

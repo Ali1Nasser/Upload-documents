@@ -4,13 +4,18 @@
 // Time model (golden rules 1-2, ADR-002 F24):
 //  - the truth is the locked word map at 24 fps (rec_start_frame / rec_end_frame, absolute record frames);
 //  - an anchor {word, lead_frames} lands at word.start24 - lead_frames (lead_frames are 24-fps frames, as in dc spec lint);
-//  - at any other fps F a 24-fps frame x maps to round((x - span.start) * F / 24): previews at 12 fps sample every 2nd film frame.
+//  - at any other fps F a 24-fps frame x maps to round((x - span.start) * F / 24): previews at 12 fps sample every 2nd film frame;
+//    an anchor maps as ONE quantity, round((start24 - lead_frames - span.start) * F / 24) (P7 review m6), so it is never more than
+//    half a frame early at fps that do not divide 24. Exact at 24. Math.round = round half up (Python: floor(x + 0.5)).
+//  - word-map frames are rec_start_frame = floor(start_ms * 24 / 1000) and rec_end_frame = ceil(end_ms * 24 / 1000)
+//    (word map v1.1; the convention is filed for 05_DATA_CONTRACTS as CR-002).
 //
 // Shot spans mirror tools/dclib/speclint.py: shot k covers its sentences; the cut sits CUT_LEAD (5 f @ 24, 04 section 4 re-specified
 // by ADR-002) before the first word of the shot, never before the previous shot's last word ends + 1. The first shot starts at the
 // span start (chapter start or window start).
 import {CATALOG} from '../components/catalog';
-import {FX, LEAD_FRAMES, PRESET_MS, msToFrames, type FxId} from '../tokens';
+import {FX, LEAD_FRAMES, PREVIEW, PRESET_MS, msToFrames, type FxId} from '../tokens';
+import {cameraSafeBox, tailFrames} from './rig';
 import {slotRect, type Rect, type SlotId} from '../type/safe';
 import type {
   Anchor,
@@ -30,10 +35,10 @@ import type {
   WordRow,
 } from './types';
 
-/** Preview frame rate. The computed P7 task asks for 12 fps (an exact divisor of the 24 fps film rate, so every preview frame is a
- * film frame and anchors never drift by rounding); tokens.ts PREVIEW.fps (frozen) still says 15 and 03 P7.3 says 15. The mismatch is
- * filed in corpus/specs/_component_requests.jsonl for the Council; until then `dc render spec --fps 15` reproduces the token value. */
-export const PREVIEW_FPS = 12;
+/** Preview frame rate = the FROZEN token (tokens.ts PREVIEW.fps 15, 03 P7.3). 12 fps (an exact divisor of the 24 fps film rate)
+ * is requested in CR-001 (corpus/specs/_component_requests.jsonl) and stays available as `dc render spec <id> --fps 12` until the
+ * Council decides; code never overrides a frozen value without an ADR (P7 review M7). */
+export const PREVIEW_FPS: number = PREVIEW.fps;
 export const FILM_FPS = 24;
 /** Window padding for underscore demo specs with `window` (24-fps frames): mirrored in tools/dclib/speclint.py WINDOW_PAD. */
 export const WINDOW_PAD = {in: 12, out: 24} as const;
@@ -49,6 +54,14 @@ export const walkAnchors = (o: unknown, path = 'props', out: [string, Anchor][] 
   if (isAnchor(o)) out.push([path, o]);
   else if (Array.isArray(o)) o.forEach((v, i) => walkAnchors(v, `${path}[${i}]`, out));
   else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) walkAnchors(v, `${path}.${k}`, out);
+  return out;
+};
+
+/** Every string inside a props tree (the whole-word lexicon of SpecPlayer's fragment guard). */
+export const walkStrings = (o: unknown, out: string[] = []): string[] => {
+  if (typeof o === 'string') out.push(o);
+  else if (Array.isArray(o)) o.forEach((v) => walkStrings(v, out));
+  else if (o && typeof o === 'object') for (const v of Object.values(o)) walkStrings(v, out);
   return out;
 };
 
@@ -102,6 +115,8 @@ export type ResolveOpts = {
   tier?: FxId; // force a tier (perf runs); preview forces lite
   implemented?: (name: string) => boolean;
   slotOf?: (name: string) => SlotId | undefined;
+  /** Layers that carry copy (DcComponent.text). Their boxes are shrunk by the camera envelope (B3). Default: every layer. */
+  textOf?: (name: string) => boolean;
 };
 
 type WordIx = Map<string, WordRow>;
@@ -139,7 +154,7 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
   const ps = playSpan(input);
   const c = (x24: number) => Math.round(((x24 - ps.start) * fps) / FILM_FPS);
   const frames = Math.max(1, c(ps.end));
-  const lead = (l: number) => Math.round((l * fps) / FILM_FPS);
+  const anchorF = (s24: number, lead24: number) => Math.round(((s24 - lead24 - ps.start) * fps) / FILM_FPS);
   const wix: WordIx = new Map(input.words.map((w) => [w.id, w]));
   const sentWords = new Map<string, WordRow[]>();
   for (const w of input.words) (sentWords.get(w.sent) ?? sentWords.set(w.sent, []).get(w.sent)!).push(w);
@@ -152,11 +167,13 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
   let total = 0;
   let ok = 0;
   const words: Record<string, [number, number]> = {};
+  const words24: Record<string, [number, number]> = {};
   const curves: Record<string, number[]> = {};
 
   // shots in the window (all shots for a chapter spec)
   const inWin = (sh: SpecShot) => sh.sentences.some((s) => (sentWords.get(s) ?? []).some((w) => w.s >= ps.start && w.e <= ps.end));
   const shots = spec.shots.filter(inWin);
+  const dropped = spec.shots.filter((sh) => !inWin(sh)).map((sh) => sh.shot_id);
   const firstWord = (sh: SpecShot) => Math.min(...sh.sentences.flatMap((s) => (sentWords.get(s) ?? []).map((w) => w.s)));
   const lastWord = (sh: SpecShot) => Math.max(...sh.sentences.flatMap((s) => (sentWords.get(s) ?? []).map((w) => w.e)));
   const starts24 = shots.map((sh, i) => {
@@ -187,7 +204,8 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
       ok++;
       const wr = w as WordRow;
       words[a.word] = [c(wr.s), c(wr.e)];
-      return c(wr.s) - lead(a.lead_frames) - from;
+      words24[a.word] = [wr.s - ps.start, wr.e - ps.start];
+      return anchorF(wr.s, a.lead_frames) - from;
     };
     const endOf = (a: Anchor | undefined): number | undefined => {
       const w = a && wix.get(a.word);
@@ -296,6 +314,9 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
       frameOf(h.until, 'holds.until', 'holds');
     }
     for (const s of sh.sfx ?? []) frameOf(s.at, `sfx.${s.cue}`, 'sfx');
+    // B3: copy boxes shrink by the camera envelope so that, at the peak of the push / truck / roll on their plane, the slot
+    // still maps inside title-safe. The incoming transition (whip travel, match scale) is excluded on purpose.
+    for (const l of layers) if (!o.textOf || o.textOf(l.component)) l.box = cameraSafeBox(camera, dur, tailFrames(transition), fps, l.parallax, l.box);
     return {shot_id: sh.shot_id, from, dur, tier, camera, layers, mods, transition};
   });
 
@@ -317,8 +338,9 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
     unknown_components: [...unknown],
     unimplemented: [...unimpl],
     by_kind: byKind,
+    dropped_shots: dropped,
   };
-  return {fps, frames, preview: o.preview, shots: out, words, curves, report, audio: input.audio ?? null, span24: [ps.start, ps.end]};
+  return {fps, frames, preview: o.preview, shots: out, words, words24, curves, report, audio: input.audio ?? null, span24: [ps.start, ps.end]};
 };
 
 /** Audio-reactive modulation of one layer at composition frame k. */

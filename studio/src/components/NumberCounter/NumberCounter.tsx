@@ -66,6 +66,7 @@ export const NumberCounterView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const labelT = ctx.frame - ctx.at - Math.round(presetFrames('label', ctx.fps) / 2);
   const lp = interpolate(labelT, [0, presetFrames('label', ctx.fps)], [0, 1], {...clamp, easing: ease.arrive});
   const fs = fit.size;
+  const labelPx = Math.max(SIZE.labelMin, Math.round(SIZE.label * (fs / size))); // the face / join-gap band follow the rendered px (m3)
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <div ref={ref} data-overflow={fit.overflow ? 1 : undefined} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'max-content', ...r.style}}>
@@ -74,8 +75,8 @@ export const NumberCounterView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           {unit ? <span style={{fontSize: '0.42em', color: C.ink2, marginLeft: '0.35em', textShadow: halo}}>{unit}</span> : null}
         </bdi>
         {props.label ? (
-          <div style={{marginTop: Math.round(fs * 0.12), fontSize: Math.max(SIZE.labelMin, Math.round(SIZE.label * (fs / size))), color: C.ink2, opacity: lp, transform: `translateY(${((1 - lp) * LABEL_RISE_PX).toFixed(2)}px)`, textShadow: halo, whiteSpace: 'nowrap'}}>
-            <MixedText id={`${ctx.id}:label`} text={props.label} size={SIZE.label} weight={FONT.label.weight} />
+          <div style={{marginTop: Math.round(fs * 0.12), fontSize: labelPx, color: C.ink2, opacity: lp, transform: `translateY(${((1 - lp) * LABEL_RISE_PX).toFixed(2)}px)`, textShadow: halo, whiteSpace: 'nowrap'}}>
+            <MixedText id={`${ctx.id}:label`} text={props.label} size={labelPx} weight={FONT.label.weight} />
           </div>
         ) : null}
       </div>

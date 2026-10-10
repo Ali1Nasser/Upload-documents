@@ -1,10 +1,11 @@
 {
- "v": 1,
+ "v": 2,
  "name": "NumberCounter",
  "composition": "Demo-NumberCounter",
- "at": "2026-10-10T12:19:02Z",
+ "at": "2026-10-10T13:04:16Z",
  "frames": [
   0,
+  15,
   35,
   71
  ],
@@ -12,7 +13,8 @@
   "scale": 0.5,
   "tier": "lite",
   "pixelThreshold": 0.1,
-  "maxDiffRatio": 0.001,
+  "includeAA": true,
+  "maxDiffPx": 16,
   "frames": [
    0,
    0.5,
@@ -23,23 +25,30 @@
   {
    "tag": "p0",
    "frame": 0,
+   "why": "0 %",
    "mismatch_px": 0,
-   "mismatch_ratio": 0,
+   "pass": true
+  },
+  {
+   "tag": "a1",
+   "frame": 15,
+   "why": "first anchor settled (anchor + 6 + 1 f)",
+   "mismatch_px": 0,
    "pass": true
   },
   {
    "tag": "p50",
    "frame": 35,
+   "why": "50 %",
    "determinism_diff_px": 0,
    "mismatch_px": 0,
-   "mismatch_ratio": 0,
    "pass": true
   },
   {
    "tag": "p100",
    "frame": 71,
+   "why": "100 %",
    "mismatch_px": 0,
-   "mismatch_ratio": 0,
    "pass": true
   }
  ],
