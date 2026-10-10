@@ -15,18 +15,18 @@
    "measured_at": "2026-10-10T12:58:53Z"
   },
   "NumberCounter": {
-   "lite": 0.0653,
-   "standard": 0.0856,
-   "hero": 0.0929,
+   "lite": 0.0736,
+   "standard": 0.103,
+   "hero": 0.1014,
    "within_budget": true,
-   "measured_at": "2026-10-10T12:59:20Z"
+   "measured_at": "2026-10-10T13:20:59Z"
   },
   "TableGrid": {
-   "lite": 0.0664,
-   "standard": 0.0891,
-   "hero": 0.0849,
+   "lite": 0.0748,
+   "standard": 0.093,
+   "hero": 0.1018,
    "within_budget": true,
-   "measured_at": "2026-10-10T12:59:56Z"
+   "measured_at": "2026-10-10T13:22:49Z"
   }
  },
  "over_budget_or_stale": []

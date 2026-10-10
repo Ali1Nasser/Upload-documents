@@ -1,6 +1,7 @@
 // Whole-element reveal / exit styles for the motion presets (04 §3.5, tokens PRESETS). Pure: (frame offset, fps) -> CSS.
 // Arabic is revealed by a clip-path wipe running RIGHT -> LEFT over the whole word box (never per letter); Latin-only and
 // numeric runs wipe left -> right. Clip bounds overshoot the box vertically (-60 %/160 %) so tashkeel and glow are never cut.
+// Onset = RV1 (ADR-011 Q2 via RT-011-2): the first visible step of every preset lands ON the anchor frame (REVEAL_ONSET_F).
 import type React from 'react';
 import {interpolate} from 'remotion';
 import {EASE, IMPACT, LABEL_RISE_PX, PRESETS, msToFrames, type PresetId} from '../tokens';
@@ -26,9 +27,20 @@ export const wipeClip = (p: number, dir: RevealDir): string | undefined => {
     : `polygon(-60% -60%, ${(100 - e).toFixed(2)}% -60%, ${(100 - e).toFixed(2)}% 160%, -60% 160%)`;
 };
 
+/** ADR-011 Q2 = RV1 (RT-011-2 fallback): the first VISIBLE reveal step lands ON the anchor frame. Every preset curve is
+ * evaluated one frame ahead, so progress on the anchor frame is ease(1 / n) > 0 (the step RV2 showed at anchor + 1) and the
+ * element settles at anchor + n - 1. The preset length n (ms truth from PRESETS) is unchanged; frame anchor - 1 stays hidden. */
+export const REVEAL_ONSET_F = 1;
+/** Eased reveal progress `t` frames after the anchor over an `n`-frame preset, RV1-shifted (> 0 on the anchor frame, 1 at
+ * t = n - 1). Component-owned reveals (counter roll, morph, row entry) that start on an anchor use this, never a raw
+ * interpolate(t, [0, n]), so their first visible step also lands on the anchor frame. t < 0 -> 0. */
+export const revealProgress = (t: number, n: number, easing: (x: number) => number = ease.arrive): number =>
+  t < 0 ? 0 : interpolate(t + REVEAL_ONSET_F, [0, Math.max(1, n)], [0, 1], {...clamp, easing});
+
 export type RevealOut = {style: React.CSSProperties; p: number; flash: number; visible: boolean};
 /**
  * Style of one whole text element `t` frames after its anchor frame (t < 0: hidden but laid out, so later words never shift).
+ * RV1 (ADR-011): t = 0 (the anchor frame) already shows ink for every preset; see REVEAL_ONSET_F.
  *  - arrive: masked wipe + scale 0.92 -> 1 + blur 6 -> 0 px + opacity, outExpo, 240 ms;
  *  - impact: arrive wipe at impact speed + scale 1.08 -> 1 outBack + 80 ms glow flash (flash returned, applied by caller);
  *  - label:  160 ms fade + 6 px rise;
@@ -43,22 +55,22 @@ export const revealStyle = (t: number, fps: number, preset: PresetId | 'wipe', d
   let flash = 0;
   if (preset === 'label') {
     const n = presetFrames('label', fps);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
+    p = revealProgress(t, n);
     style = {opacity: p, transform: `translateY(${((1 - p) * LABEL_RISE_PX).toFixed(2)}px)`};
   } else if (preset === 'wipe') {
     const n = presetFrames('arrive', fps);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
+    p = revealProgress(t, n);
     style = {clipPath: wipeClip(p, dir)};
   } else if (preset === 'impact') {
     const n = presetFrames('impact', fps, true);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
-    const sc = interpolate(t, [0, n], [IMPACT.scaleFrom, 1], {...clamp, easing: ease.impact});
+    p = revealProgress(t, n);
+    const sc = IMPACT.scaleFrom + (1 - IMPACT.scaleFrom) * revealProgress(t, n, ease.impact);
     const ff = flashFrames(fps);
     flash = interpolate(t, [0, ff, ff * 3], [1, 1, 0], clamp);
     style = {clipPath: wipeClip(p, dir), transform: `scale(${sc.toFixed(4)})`, opacity: interpolate(p, [0, 0.3], [0, 1], clamp)};
   } else {
     const n = presetFrames('arrive', fps);
-    p = interpolate(t, [0, n], [0, 1], {...clamp, easing: ease.arrive});
+    p = revealProgress(t, n);
     const blur = 6 * (1 - p);
     style = {
       clipPath: wipeClip(p, dir),

@@ -1,7 +1,7 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "a4a819038fa9b8ac28738656bd4d53e474ceee624782cde278bf191542cd48a9",
+  "a1": "c70e458ec8ae2e79819188de3f9a7380c0215e8740496127b849ac75f70a9ee2",
   "p50": "d18491067a75751f79f15cd5e98f6bdbc00734abd2b645a5d972a1231944939f",
   "p100": "6df493cd7c2aafbb30023a999c426c92ebaf8cf951c276f7b5a27a548215d262"
  },
@@ -27,16 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-10T12:57:11Z",
+ "written_at": "2026-10-10T13:19:51Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "by": "critic",
-  "score": 8,
-  "date": "2026-10-10",
-  "notes": "Strong: correct RTL column order (T1 rightmost), BiDi title 'إيصالات NilePay', FAILED rows in token red with leading-edge bar, filter/sort reorder legible at p100, card border + shadow give depth. Card only ~31% of frame width, text small at 960 px; header ink is dim. Non-blocking.",
-  "report": "reports/p7/baselines_review.md"
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

@@ -48,6 +48,8 @@ A component receives `{props, ctx}`:
    - The presets are `arrive` / `impact` / `label` / `wipe` / `exit`, from `src/type/reveal.ts`, with ms taken from `PRESETS` in tokens.
    - The clip overshoots vertically (−60 % / 160 %), so tashkeel and glow are never cut.
    - Ease through `ease.*` from `reveal.ts`. These are the frozen `EASE` curves snapped to exactly 1 at the end (`Easing.out(exp)(1) = 0.999` would leave a counter at 66.60 instead of 66.67).
+   - **Onset = RV1 (ADR-011 Q2, RT-011-2 fallback).** The first *visible* step of every reveal lands **on** the anchor frame, never one frame later. `revealStyle` evaluates each preset curve one frame ahead (`REVEAL_ONSET_F = 1`): on the anchor frame progress is `ease(1/n)` (arrive @ 24 fps = 0.685 of the wipe, @ 12 fps = 0.90), the element settles at anchor + n − 1, the preset length n is unchanged, and anchor − 1 is still hidden.
+   - A component-owned motion that starts on an anchor (row entry, highlight, sort/filter travel, morph, a counter roll) uses `revealProgress(t − at, n, easing)` from `reveal.ts`, never a raw `interpolate(t, [at, at + n])`, which shows nothing on the anchor frame. A move that must **land** on a fixed frame (the `count` roll lands on the word end) starts its interpolation at `at − REVEAL_ONSET_F` instead. `p7.check.ts` asserts ink > 0 on the anchor frame for every preset × {12, 15, 24} fps × {rtl, ltr}.
 4. **Western digits** everywhere (`westernDigits()`; Eastern digits fail the frozen `Txt` schema). Numbers use mono tabular figures (`"tnum" 1`). Units go after the number, inside the same LTR isolate.
 5. **ALL-CAPS Latin containing `I`** (AI, API, KPI, CI) gets Inter Tight `cv08` (the serifed capital I), so it never reads as `Al` or `l`. `MixedText` applies it through `latinFeatures()`. Never override `fontFeatureSettings` on a Latin run.
 6. **Tashkeel clearance.**
@@ -94,7 +96,7 @@ The budgets compare like with like, directly against ADR-002:
 
 `bash studio/scripts/check_p7.sh` runs the unit suites. It is light and does no rendering:
 - `arabic.check.ts` (frozen rules);
-- `p7.check.ts` (whole-word units, per-letter detector, digits, cv08, ADR-010 bands, fit and overflow, safe areas, AT-4, reveal);
+- `p7.check.ts` (whole-word units, per-letter detector, digits, cv08, ADR-010 bands, fit and overflow, safe areas, AT-4, reveal, RV1 anchor-frame ink > 0 for every preset / fps / direction);
 - `resolve.check.ts` (the compiler on the real EDL, word map and `_demo` spec: anchor = word start − lead, cut leads, 12 fps halves, 15 fps single rounding, failure reporting, audio curves, the camera envelope (288 move × length × plane × slot cases stay title-safe), dissolve text opacity).
 
 `dc render snap <Name>` runs through the queue:
@@ -118,6 +120,7 @@ Every component change re-runs its snapshot and its perf measurement:
 
 `studio/src/spec/resolve.ts` is pure and also runs in node tests:
 - **Anchors.** An anchor lands at `word.rec_start_frame − lead_frames`, in 24 fps record frames, exactly as `dc spec lint` computes it. At fps F a 24 fps frame x maps to `round((x − span.start) · F / 24)`.
+- **Onset on the anchor (RV1).** The anchor frame is the first frame with visible ink (ADR-011 Q2 switched to RV1 under RT-011-2). The lead to the first visible change is therefore exactly `lead_frames`, and the `06` sync metric's expected frame `rec_start_frame − lead_frames` needs no +1 f allowance. `dc render at11` writes the RV1 set as `reports/p7/at11/*_rv1.*` (frames t0 = anchor, t1, t2, settled; plus `anchor_ink` = changed pixels between anchor − 1 and anchor, which must be > 0). The unsuffixed RV2 set is kept for comparison.
 - **Shots.** Each shot covers its sentences. The cut sits 5 f before the shot's first word, never before the previous shot's last word ends.
 - **Validation.** Props are checked against the frozen zod schemas. Actions (`<Name>.<action>`) attach to their target layer.
 - **Shot-level layers.** `CameraRig`, `DepthLayers`, `FXTier`, `AudioReactive`, `WhipPan`, `LightStreakTransition` and `MatchCut` are consumed at shot level.

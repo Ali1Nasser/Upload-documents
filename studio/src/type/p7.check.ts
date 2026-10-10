@@ -1,7 +1,7 @@
 // Unit checks for the P7 typography engine (words.ts, Text.tsx, safe.ts, reveal.ts). Run: bash studio/scripts/check_p7.sh.
 import {FX, H, W} from '../tokens';
 import {joinGapEm, segment} from './arabic';
-import {presetFrames, revealStyle, wipeClip, ease} from './reveal';
+import {presetFrames, revealProgress, revealStyle, wipeClip, ease, REVEAL_ONSET_F, type RevealOut} from './reveal';
 import {LABEL_GAP_MIN_PX, checkLabelRow, layoutLabelRow, safeRect, slotRect} from './safe';
 import {fitToWidth, hasEasternDigits, latinFeatures, needsSerifI, perLetterViolations, westernDigits, wordUnits} from './words';
 
@@ -68,6 +68,34 @@ eq('settled word has no clip', wipeClip(1, 'rtl'), undefined);
 eq('ease.arrive(1) is exactly 1 (Easing.out(exp) is 0.999)', ease.arrive(1), 1);
 eq('hidden before the anchor (laid out, no shift)', revealStyle(-1, 24, 'arrive', 'rtl').style.visibility, 'hidden');
 eq('settled after the preset', revealStyle(6, 24, 'arrive', 'rtl').style.clipPath, undefined);
+// ADR-011 Q2 = RV1: the first visible step lands ON the anchor frame for every preset, at every fps, in both directions.
+// ink = (visibility) x opacity x the visible fraction of the clip box (0 = nothing on screen).
+const ink = (r: RevealOut): number => {
+  if (!r.visible || r.style.visibility === 'hidden') return 0;
+  const op = typeof r.style.opacity === 'number' ? r.style.opacity : 1;
+  const cp = r.style.clipPath;
+  if (!cp) return op;
+  const m = /^polygon\((-?[\d.]+)% -60%, (-?[\d.]+)% -60%/.exec(cp);
+  if (!m) return NaN;
+  const a = Number(m[1]);
+  const b = Number(m[2]);
+  const frac = Math.max(0, Math.min(100, b) - Math.max(0, a)) / 100; // visible horizontal span of the 0..100 % box
+  return op * frac;
+};
+eq('RV1: onset shift is one frame', REVEAL_ONSET_F, 1);
+for (const fps of [12, 15, 24])
+  for (const preset of ['arrive', 'impact', 'label', 'wipe', 'count', 'morph'] as const)
+    for (const dir of ['rtl', 'ltr'] as const) {
+      const k = `${preset} ${dir} @${fps}`;
+      eq(`RV1: ${k} anchor frame has visible ink > 0`, ink(revealStyle(0, fps, preset, dir)) > 0, true);
+      eq(`RV1: ${k} frame before the anchor has no ink`, ink(revealStyle(-1, fps, preset, dir)), 0);
+      const n = presetFrames(preset === 'wipe' || preset === 'count' || preset === 'morph' ? 'arrive' : preset, fps, preset === 'impact');
+      eq(`RV1: ${k} settles at anchor + n - 1`, revealStyle(n - 1, fps, preset, dir).p, 1);
+    }
+eq('RV1: arrive @24 anchor frame = the old (RV2) anchor + 1 step', +revealStyle(0, 24, 'arrive', 'rtl').p.toFixed(3), 0.685);
+eq('RV1: revealProgress > 0 on the anchor, 0 before it', revealProgress(0, 6) > 0 && revealProgress(-1, 6) === 0, true);
+eq('RV1: ink parser sees an RTL half wipe as 0.5', ink({style: {clipPath: wipeClip(0.5, 'rtl')}, p: 0.5, flash: 0, visible: true}), 0.5);
+eq('RV1: ink parser sees an LTR half wipe as 0.5', ink({style: {clipPath: wipeClip(0.5, 'ltr')}, p: 0.5, flash: 0, visible: true}), 0.5);
 eq('clip overshoots vertically (tashkeel / glow never cut)', wipeClip(0.5, 'rtl')?.includes('-60%') && wipeClip(0.5, 'rtl')?.includes('160%'), true);
 eq('CA never on Arabic (token)', FX.standard.caPx > 0, true);
 

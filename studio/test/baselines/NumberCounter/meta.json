@@ -1,7 +1,7 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "7dac01cb8c900396dbb151175efb2ee7364fbc90554c5198372227dfe05100fe",
+  "a1": "8fcbd1145c738f50739ad03d8d9a2d1934c15f0824bbfe33f0bc3b01171c8be7",
   "p50": "80f07e3ea0ef7c2f818c21e2dc8fad942da95589f474164ec8a1db2cc39e2df1",
   "p100": "745fa5e7e544ee61c5ac118bb56e88d4864c7600682c8c63815f813fd72991b0"
  },
@@ -27,16 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-10T12:57:20Z",
+ "written_at": "2026-10-10T13:18:18Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "by": "critic",
-  "score": 7,
-  "date": "2026-10-10",
-  "notes": "Tabular numerals crisp, Arabic labels correct (نسبة النجاح, الإجمالي), 400 EGP / 66.67 % settle clearly, count-up end state readable. Card plate is nearly invisible with a hard edge; wide gap around the decimal point ('59 . 32'); labels small. Non-blocking.",
-  "report": "reports/p7/baselines_review.md"
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TableGrid",
  "composition": "Demo-TableGrid",
- "at": "2026-10-10T12:59:56Z",
+ "at": "2026-10-10T13:22:49Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 110,
-   "wall_s": 7.3,
-   "box_s_per_frame": 0.0664,
-   "slot_s_per_frame": 0.1992,
+   "wall_s": 8.23,
+   "box_s_per_frame": 0.0748,
+   "slot_s_per_frame": 0.2244,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    2.81,
-    3.41
+    2.4,
+    2.69
    ],
    "queue": {
     "running": 1,
-    "queued": 0
+    "queued": 1
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 110,
-   "wall_s": 9.8,
-   "box_s_per_frame": 0.0891,
-   "slot_s_per_frame": 0.2673,
+   "wall_s": 10.23,
+   "box_s_per_frame": 0.093,
+   "slot_s_per_frame": 0.279,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    3.41,
-    3.73
+    2.63,
+    2.84
    ],
    "queue": {
     "running": 1,
-    "queued": 0
+    "queued": 1
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 110,
-   "wall_s": 9.34,
-   "box_s_per_frame": 0.0849,
-   "slot_s_per_frame": 0.2547,
+   "wall_s": 11.2,
+   "box_s_per_frame": 0.1018,
+   "slot_s_per_frame": 0.3054,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    3.73,
-    3.93
+    2.84,
+    3.85
    ],
    "queue": {
     "running": 1,
-    "queued": 0
+    "queued": 1
    },
    "other_jobs_running": 0
   }

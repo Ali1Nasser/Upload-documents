@@ -5,18 +5,16 @@
 //   sortBy -> rows travel to their sorted slots (morph timing); addRow -> a new row arrives at the bottom.
 // Auto-fit to the slot with a 28 px floor (SIZE.labelMin); an overflow is reported and FAILS snapshot tests.
 import React, {useRef} from 'react';
-import {interpolate} from 'remotion';
 import {C, FONT, SIZE, type ColorToken} from '../../tokens';
 import {Glass} from '../../fx/Atmos';
 import {halo, hex} from '../../fx/look';
 import {MixedText, useAutoFit} from '../../type/Text';
 import {isArabic} from '../../type/arabic';
-import {ease, presetFrames, revealStyle} from '../../type/reveal';
+import {ease, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {formatValue} from '../NumberCounter/NumberCounter';
 
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 type Cell = string | number | boolean | null;
 type Row = Record<string, Cell>;
 type Ctx = DcProps<Props>['ctx'];
@@ -72,7 +70,7 @@ const rowState = (i: number, t: number, tl: ReturnType<typeof tableTimeline>) =>
   for (let j = 0; j < tl.evs.length; j++) if (tl.evs[j].t <= t) k = j;
   const cur = tl.evs[k];
   const prev = tl.evs[Math.max(0, k - 1)];
-  const q = k === 0 ? 1 : interpolate(t, [cur.t, cur.t + cur.dur], [0, 1], {...clamp, easing: ease.camera});
+  const q = k === 0 ? 1 : revealProgress(t - cur.t, cur.dur, ease.camera); // RV1: the move's first step is on its anchor frame
   const slotIn = (e: typeof cur) => (e.order.indexOf(i) >= 0 ? e.order.indexOf(i) : null);
   const s1 = slotIn(cur);
   const s0 = slotIn(prev) ?? s1;
@@ -107,7 +105,7 @@ export const TableGridView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const hl = (i: number): {color: string; q: number} | null => {
     let h: {color: string; q: number} | null = null;
     for (const x of tl.highlights)
-      if (x.t <= t && x.rows.includes(i)) h = {color: C[x.color], q: interpolate(t, [x.t, x.t + presetFrames('label', ctx.fps)], [0, 1], {...clamp, easing: ease.arrive})};
+      if (x.t <= t && x.rows.includes(i)) h = {color: C[x.color], q: revealProgress(t - x.t, presetFrames('label', ctx.fps))};
     return h;
   };
   const nCols = props.columns.length;
@@ -117,7 +115,7 @@ export const TableGridView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const born = (e: (typeof tl.evs)[number]) => e.order.filter((i) => tl.rows[i].born <= t || i < props.rows.length).length;
     const a = born(tl.evs[Math.max(0, k - 1)]);
     const b = born(tl.evs[k]);
-    return k === 0 ? b : interpolate(t, [tl.evs[k].t, tl.evs[k].t + tl.evs[k].dur], [a, b], {...clamp, easing: ease.camera});
+    return k === 0 ? b : a + (b - a) * revealProgress(t - tl.evs[k].t, tl.evs[k].dur, ease.camera);
   })();
   const cellStyle = (kind?: string): React.CSSProperties => ({
     height: rowH,
@@ -154,7 +152,7 @@ export const TableGridView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             const st = rowState(i, t, tl);
             const bornT = t - born;
             if (bornT < 0) return props.columns.map((c, j) => <div key={`r${i}c${j}`} style={{...cellStyle(), visibility: 'hidden'}} />);
-            const ent = interpolate(bornT, [0, presetFrames('label', ctx.fps)], [0, 1], {...clamp, easing: ease.arrive});
+            const ent = revealProgress(bornT, presetFrames('label', ctx.fps)); // RV1: a row has ink on the frame it is born
             const dy = (st.slot - i) * rowH + (1 - ent) * 6;
             const h = hl(i);
             const bg = h ? `${h.color}${hex(0.22 * h.q)}` : Math.round(st.slot) % 2 ? `${C.ink}${hex(0.03)}` : 'transparent';

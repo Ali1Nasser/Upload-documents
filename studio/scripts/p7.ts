@@ -7,7 +7,8 @@
 //                                  (3 render slots) -> reports/perf/components/<Name>.json; exit 1 when over the ADR-002 budget
 //   spec <id> [--final] [--fps=N] [--no-audio] [--nocam] [--nofx] [--cut] [--solo=<layer>]
 //                                  render corpus/specs/<id>.json; resolver report next to the render; debug flags = isolated renders
-//   at11                           AT-11 clip (wipe + arrive) and settled / mid-wipe JPGs -> reports/p7/at11/
+//   at11                           AT-11 clip (wipe + arrive), anchor / mid-wipe / settled JPGs and the anchor-frame ink check
+//                                  -> reports/p7/at11/*<AT11_TAG>.* (clips in data/renders/p7/at11/)
 import {bundle} from '@remotion/bundler';
 import {openBrowser, renderFrames, renderMedia, renderStill, selectComposition, type BrowserLog} from '@remotion/renderer';
 import {execFileSync} from 'node:child_process';
@@ -17,11 +18,11 @@ import os from 'node:os';
 import path from 'node:path';
 import pixelmatch from 'pixelmatch';
 import {PNG} from 'pngjs';
-import {AT11_LABELS, AT11_SIZES, AT11_START} from '../src/at11/AT11.consts';
+import {AT11_LABELS, AT11_SIZES, AT11_START, AT11_TAG} from '../src/at11/AT11.consts';
 import {PREVIEW_FPS, playSpan} from '../src/spec/resolve';
 import type {Features, Resolved, SpecInput, WordRow} from '../src/spec/types';
-import {FPS, FX, PREVIEW, PRESETS} from '../src/tokens';
-import {presetFrames} from '../src/type/reveal';
+import {FPS, FX, PREVIEW} from '../src/tokens';
+import {presetFrames, revealProgress, REVEAL_ONSET_F} from '../src/type/reveal';
 import {JOIN_GAP} from '../src/type/arabic';
 
 const args = process.argv.slice(2);
@@ -364,24 +365,42 @@ async function spec(c: Common, id: string, serveUrl: string): Promise<number> {
 async function at11(c: Common): Promise<number> {
   const rep = path.join(ROOT, 'reports/p7/at11');
   const dat = path.join(ROOT, 'data/renders/p7/at11');
+  const tmp = path.join(os.tmpdir(), `dc_at11_${process.pid}`);
   fs.mkdirSync(rep, {recursive: true});
   fs.mkdirSync(dat, {recursive: true});
+  fs.mkdirSync(tmp, {recursive: true});
   const shots: Record<string, unknown>[] = [];
-  const wipeF = PRESETS.arrive.f24 ? PRESETS.arrive.f24[0] : 6;
+  const ink: Record<string, unknown>[] = [];
+  const wipeF = presetFrames('arrive', 24);
+  const clips: string[] = [];
   for (const preset of ['wipe', 'arrive'] as const) {
     const inputProps = {preset};
     const comp = await selectComposition({...c, id: 'AT11', inputProps});
-    await renderMedia({...c, composition: comp, inputProps, codec: 'h264', crf: 18, outputLocation: path.join(dat, `at11_${preset}.mp4`), concurrency: 1});
-    for (const [tag, fr] of [['t1', AT11_START + 1], ['t2', AT11_START + 2], ['t3', AT11_START + 3], ['settled', comp.durationInFrames - 1]] as const) {
-      const f = path.join(rep, `${preset}_${tag}.jpg`);
+    const clip = path.join(dat, `at11_${preset}${AT11_TAG}.mp4`);
+    await renderMedia({...c, composition: comp, inputProps, codec: 'h264', crf: 18, outputLocation: clip, concurrency: 1});
+    clips.push(rel(clip));
+    for (const [tag, fr] of [['t0', AT11_START], ['t1', AT11_START + 1], ['t2', AT11_START + 2], ['settled', comp.durationInFrames - 1]] as const) {
+      const f = path.join(rep, `${preset}_${tag}${AT11_TAG}.jpg`);
       await renderStill({...c, composition: comp, frame: fr, output: f, inputProps, imageFormat: 'jpeg', jpegQuality: 88});
-      shots.push({file: rel(f), preset, frame: fr, t_from_start: fr - AT11_START, wipe_frames: wipeF, wipe_progress: tag === 'settled' ? 1 : +(1 - Math.pow(2, (-10 * (fr - AT11_START)) / wipeF)).toFixed(3)});
+      const t = fr - AT11_START;
+      shots.push({file: rel(f), preset, frame: fr, t_from_anchor: t, wipe_frames: wipeF, wipe_progress: tag === 'settled' ? 1 : +revealProgress(t, wipeF).toFixed(3)});
     }
+    // RV1 ink check on real pixels: the anchor frame must differ from the frame before it (backdrop only) = ink on the anchor
+    const pre = path.join(tmp, `${preset}_pre.png`);
+    const on = path.join(tmp, `${preset}_on.png`);
+    await renderStill({...c, composition: comp, frame: AT11_START - 1, output: pre, inputProps, imageFormat: 'png', scale: 0.5});
+    await renderStill({...c, composition: comp, frame: AT11_START, output: on, inputProps, imageFormat: 'png', scale: 0.5});
+    const a = readPng(pre);
+    const b = readPng(on);
+    const px = pixelmatch(a.data, b.data, null, a.width, a.height, {threshold: SNAP.pixelThreshold, includeAA: true});
+    ink.push({preset, anchor_frame: AT11_START, ink_px_at_scale_0_5: px, pass: px > 0});
   }
+  fs.rmSync(tmp, {recursive: true, force: true});
   const gaps = AT11_SIZES.map((s) => ({size_px: s, caps_gap_px: +(JOIN_GAP.text.caps * s).toFixed(1), mixed_gap_px: +(JOIN_GAP.text.latin * s).toFixed(1)}));
-  writeJson(path.join(rep, 'index.json'), {v: 1, at: now(), test: 'AT-11 (ADR-010 RT-010-1/4): 34 px and 32 px الـ+Latin labels in motion', labels: AT11_LABELS, sizes: AT11_SIZES, join_gap_em: JOIN_GAP.text, gaps_px: gaps, start_frame: AT11_START, fps: 24, presets: ['wipe (mask only)', 'arrive (mask + scale 0.92->1 + blur 6->0)'], frames: shots, clips: [rel(path.join(dat, 'at11_wipe.mp4')), rel(path.join(dat, 'at11_arrive.mp4'))], qa_findings: qa, reviewer: 'arabic-typographer (native reader veto); the author does not grade'});
-  console.log(`at11: ${shots.length} frames -> ${rel(rep)}; qa ${qa.length}`);
-  return qa.length ? 1 : 0;
+  const inkOk = ink.every((x) => x.pass);
+  writeJson(path.join(rep, `index${AT11_TAG}.json`), {v: 2, at: now(), test: 'AT-11 (ADR-010 RT-010-1/4): 34 px and 32 px الـ+Latin labels in motion', onset: `ADR-011 Q2 RV1: first visible step on the anchor frame (REVEAL_ONSET_F = ${REVEAL_ONSET_F}); supersedes index.json (RV2) for re-review`, labels: AT11_LABELS, sizes: AT11_SIZES, join_gap_em: JOIN_GAP.text, gaps_px: gaps, start_frame: AT11_START, fps: 24, presets: ['wipe (mask only)', 'arrive (mask + scale 0.92->1 + blur 6->0)'], frames: shots, anchor_ink: ink, anchor_ink_pass: inkOk, clips, qa_findings: qa, reviewer: 'arabic-typographer (native reader veto); the author does not grade'});
+  console.log(`at11${AT11_TAG}: ${shots.length} frames -> ${rel(rep)}; anchor ink ${ink.map((x) => `${x.preset}:${x.ink_px_at_scale_0_5}`).join(' ')}; qa ${qa.length}`);
+  return qa.length || !inkOk ? 1 : 0;
 }
 
 main().then(

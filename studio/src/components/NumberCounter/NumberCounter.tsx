@@ -8,7 +8,7 @@ import {C, FONT, LABEL_RISE_PX, SIZE} from '../../tokens';
 import {caShadow, glow, halo} from '../../fx/look';
 import {MixedText, useAutoFit} from '../../type/Text';
 import {minus} from '../../type/arabic';
-import {ease, flashFrames, presetFrames, revealStyle} from '../../type/reveal';
+import {ease, flashFrames, presetFrames, REVEAL_ONSET_F, revealStyle} from '../../type/reveal';
 import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
@@ -42,7 +42,8 @@ export const valueAt = (segs: Seg[], t: number): {v: number; landedAt: number | 
   let landedAt: number | null = null;
   for (const s of segs) {
     if (t < s.t0) break;
-    v = interpolate(t, [s.t0, s.t1], [s.a, s.b], {...clamp, easing: ease.arrive});
+    // RV1 (ADR-011): the roll's first visible step is on its anchor frame t0; it still lands exactly on t1 (the word end)
+    v = interpolate(t, [s.t0 - REVEAL_ONSET_F, s.t1], [s.a, s.b], {...clamp, easing: ease.arrive});
     landedAt = t >= s.t1 ? s.t1 : null;
   }
   return {v, landedAt};

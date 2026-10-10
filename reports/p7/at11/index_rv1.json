@@ -1,0 +1,127 @@
+{
+ "v": 2,
+ "at": "2026-10-10T13:17:00Z",
+ "test": "AT-11 (ADR-010 RT-010-1/4): 34 px and 32 px الـ+Latin labels in motion",
+ "onset": "ADR-011 Q2 RV1: first visible step on the anchor frame (REVEAL_ONSET_F = 1); supersedes index.json (RV2) for re-review",
+ "labels": [
+  "الترتيب داخل الـpartition",
+  "قسم الـroadmap",
+  "قسم الـidempotency",
+  "6 الـAI",
+  "الـAPI",
+  "الـKPI"
+ ],
+ "sizes": [
+  34,
+  32
+ ],
+ "join_gap_em": {
+  "caps": 0.25,
+  "latin": 0.3
+ },
+ "gaps_px": [
+  {
+   "size_px": 34,
+   "caps_gap_px": 8.5,
+   "mixed_gap_px": 10.2
+  },
+  {
+   "size_px": 32,
+   "caps_gap_px": 8,
+   "mixed_gap_px": 9.6
+  }
+ ],
+ "start_frame": 8,
+ "fps": 24,
+ "presets": [
+  "wipe (mask only)",
+  "arrive (mask + scale 0.92->1 + blur 6->0)"
+ ],
+ "frames": [
+  {
+   "file": "reports/p7/at11/wipe_t0_rv1.jpg",
+   "preset": "wipe",
+   "frame": 8,
+   "t_from_anchor": 0,
+   "wipe_frames": 6,
+   "wipe_progress": 0.685
+  },
+  {
+   "file": "reports/p7/at11/wipe_t1_rv1.jpg",
+   "preset": "wipe",
+   "frame": 9,
+   "t_from_anchor": 1,
+   "wipe_frames": 6,
+   "wipe_progress": 0.901
+  },
+  {
+   "file": "reports/p7/at11/wipe_t2_rv1.jpg",
+   "preset": "wipe",
+   "frame": 10,
+   "t_from_anchor": 2,
+   "wipe_frames": 6,
+   "wipe_progress": 0.969
+  },
+  {
+   "file": "reports/p7/at11/wipe_settled_rv1.jpg",
+   "preset": "wipe",
+   "frame": 47,
+   "t_from_anchor": 39,
+   "wipe_frames": 6,
+   "wipe_progress": 1
+  },
+  {
+   "file": "reports/p7/at11/arrive_t0_rv1.jpg",
+   "preset": "arrive",
+   "frame": 8,
+   "t_from_anchor": 0,
+   "wipe_frames": 6,
+   "wipe_progress": 0.685
+  },
+  {
+   "file": "reports/p7/at11/arrive_t1_rv1.jpg",
+   "preset": "arrive",
+   "frame": 9,
+   "t_from_anchor": 1,
+   "wipe_frames": 6,
+   "wipe_progress": 0.901
+  },
+  {
+   "file": "reports/p7/at11/arrive_t2_rv1.jpg",
+   "preset": "arrive",
+   "frame": 10,
+   "t_from_anchor": 2,
+   "wipe_frames": 6,
+   "wipe_progress": 0.969
+  },
+  {
+   "file": "reports/p7/at11/arrive_settled_rv1.jpg",
+   "preset": "arrive",
+   "frame": 47,
+   "t_from_anchor": 39,
+   "wipe_frames": 6,
+   "wipe_progress": 1
+  }
+ ],
+ "anchor_ink": [
+  {
+   "preset": "wipe",
+   "anchor_frame": 8,
+   "ink_px_at_scale_0_5": 6938,
+   "pass": true
+  },
+  {
+   "preset": "arrive",
+   "anchor_frame": 8,
+   "ink_px_at_scale_0_5": 8263,
+   "pass": true
+  }
+ ],
+ "anchor_ink_pass": true,
+ "clips": [
+  "data/renders/p7/at11/at11_wipe_rv1.mp4",
+  "data/renders/p7/at11/at11_arrive_rv1.mp4"
+ ],
+ "qa_findings": [],
+ "reviewer": "arabic-typographer (native reader veto); the author does not grade"
+}
