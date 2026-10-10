@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-10T06:34:23Z",
+ "created": "2026-10-10T06:35:52Z",
  "label": "canon-labels-ar",
  "thresholds": {
   "ocr_min": 0.9,
@@ -26,7 +26,7 @@
   "ocr_exact": 77,
   "tofu_codepoints": 0,
   "overflow": 0,
-  "bidi": 1,
+  "bidi": 2,
   "digits": 2,
   "joins": 0,
   "copy": 1,
@@ -1731,6 +1731,7 @@
     "canon:CH-14:labels_ar:1"
    ],
    "problems": [
+    "BIDI-MULTIWORD Latin words '12' '500' are separate isolates (RTL reverses them); wrap in ⟦…⟧",
     "OCR score 0.824 < 0.9 (pil-raqm-isolated); got '3 صفحات مقابل 12 500'"
    ],
    "warnings": [],
