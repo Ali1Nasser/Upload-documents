@@ -43,6 +43,16 @@ const Ground: React.FC<{c: THREE.PerspectiveCamera; size?: number; step?: number
 // ---------- (7) A-01 Holo-City ----------
 type Tower = {x: number; z: number; w: number; d: number; h: number; district: number};
 const DISTRICTS = 7;
+/** Inter Tight cv08 = serifed capital I. Chip 6 `AI` otherwise reads `Al` (sans I/l are the same glyph; ADR-009 B1 fallback
+ * names a serifed I). Plex Sans Arabic has no cv08, so Arabic labels are untouched. Promote to tokens via ADR in P7. */
+export const TAG_LAT_FEATURES = '"cv08"';
+/** District-tag content: number at the RTL start + label. Shared with the isolated OCR probe (TypeProbe `chip`, ADR-009 cond 2). */
+export const TagContent: React.FC<{n: number; label: string; typo: Typo; col: string; latFeatures?: string}> = ({n, label, typo, col, latFeatures = TAG_LAT_FEATURES}) => (
+  <>
+    <bdi dir="ltr" style={{fontFamily: `'${typo.lat}'`, fontWeight: 700, color: col}}>{n}</bdi>
+    <Mix text={label} arFont={typo.body} latFont={typo.lat} latWeight={700} latScale={1} style={{fontWeight: 600, fontFeatureSettings: latFeatures}} />
+  </>
+);
 const CUR = 3; // the district being learned now (lit in signal); 0-2 already learned; 4-6 dark
 /** r2 (critic r1 #1): district names = canon CH-01 labels_ar, the film's seven movements (order 1..7).
  * r3 fix (arabic r3 B1): district 6 shows the acronym bare (`AI`, Latin per glossary; a noun tag needs no article): `الـAI` at 32 px read `AIJI`. */
@@ -281,8 +291,7 @@ export const HoloCity: React.FC<{typo: Typo; fx: Fx; orbit?: number}> = ({typo, 
         const col = g.k === CUR ? C.signal : g.k < CUR ? C.ink2 : C.ink3;
         return (
           <div key={`tag${g.k}`} dir="rtl" lang="ar" style={{position: 'absolute', left: g.box.x0, top: g.box.y0, width: g.box.x1 - g.box.x0, height: g.box.y1 - g.box.y0, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, borderRadius: 999, background: 'rgba(13,17,23,0.84)', border: `1.5px solid ${col}${g.k === CUR ? 'FF' : '88'}`, boxShadow: g.k === CUR ? `0 0 ${fx.glowPx * 0.7}px ${C.signal}88` : undefined, whiteSpace: 'nowrap', fontFamily: `'${typo.body}'`, fontWeight: 600, fontSize: g.size, lineHeight: 1.3, color: g.k <= CUR ? C.ink : C.ink2, textShadow: halo}}>
-            <bdi dir="ltr" style={{fontFamily: `'${typo.lat}'`, fontWeight: 700, color: col}}>{g.k + 1}</bdi>
-            <Mix text={DISTRICT_AR[g.k]} arFont={typo.body} latFont={typo.lat} latWeight={700} latScale={1} style={{fontWeight: 600}} />
+            <TagContent n={g.k + 1} label={DISTRICT_AR[g.k]} typo={typo} col={col} />
           </div>
         );
       })}

@@ -1,6 +1,6 @@
 {
  "round": "r3-fix (arabic r3 B1,B2,R1,R2,R3)",
- "type_suite": "bash studio/scripts/check_type.sh: 43 ok, all type checks passed",
+ "type_suite": "bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after the chip 6 change); tsc --noEmit 0",
  "stills": {
   "F3-standard": "reports/lookdev/r3/stills/F3-standard_fix.jpg",
   "F4-standard": "reports/lookdev/r3/stills/F4-standard_fix.jpg",
@@ -20,19 +20,21 @@
   "F8-standard": 0.9
  },
  "typeprobe_ocr": {
-  "gate_strings": 3,
-  "gate_pass": 3,
-  "gate_exact": 3,
-  "all_pass": 7,
-  "all_exact": 7,
-  "n": 9,
+  "gate_strings": 4,
+  "gate_pass": 4,
+  "gate_exact": 4,
+  "all_pass": 8,
+  "all_exact": 8,
+  "n": 11,
   "items": [
    {
     "id": "F3-title",
     "size": 92,
+    "upscale": 2,
     "gap_em": null,
     "gate": true,
     "want": "الترتيب داخل الـpartition",
+    "read": "الترتيب داخل الـpartition",
     "got": "الترتيب داخل ال ‎partition‏",
     "score": 1.0,
     "exact": true,
@@ -41,9 +43,11 @@
    {
     "id": "F6-head",
     "size": 72,
+    "upscale": 2,
     "gap_em": null,
     "gate": false,
     "want": "أعلى نتيجة: قسم الـroadmap",
+    "read": "أعلى نتيجة: قسم الـroadmap",
     "got": "roadmap ‏ال‎ awd ‏نتيجة:‎ lel",
     "score": 0.651,
     "exact": false,
@@ -52,9 +56,11 @@
    {
     "id": "roadmap-72",
     "size": 72,
+    "upscale": 2,
     "gap_em": null,
     "gate": true,
     "want": "قسم الـroadmap",
+    "read": "قسم الـroadmap",
     "got": "قسم ال ‎roadmap‏",
     "score": 1.0,
     "exact": true,
@@ -63,9 +69,11 @@
    {
     "id": "idem-72",
     "size": 72,
+    "upscale": 2,
     "gap_em": null,
     "gate": true,
     "want": "قسم الـidempotency",
+    "read": "قسم الـidempotency",
     "got": "قسم ال ‎idempotency‏",
     "score": 1.0,
     "exact": true,
@@ -74,9 +82,11 @@
    {
     "id": "F4-card-36",
     "size": 36,
+    "upscale": 3,
     "gap_em": null,
     "gate": false,
     "want": "قسم الـidempotency",
+    "read": "قسم الـidempotency",
     "got": "قسم ال ‎idempotency‏",
     "score": 1.0,
     "exact": true,
@@ -85,9 +95,11 @@
    {
     "id": "F6-label-roadmap-34",
     "size": 34,
+    "upscale": 3,
     "gap_em": null,
     "gate": false,
     "want": "قسم الـroadmap",
+    "read": "قسم الـroadmap",
     "got": "قسم ال ‎roadmap‏",
     "score": 1.0,
     "exact": true,
@@ -96,9 +108,11 @@
    {
     "id": "F6-label-idem-34",
     "size": 34,
+    "upscale": 3,
     "gap_em": null,
     "gate": false,
     "want": "قسم الـidempotency",
+    "read": "قسم الـidempotency",
     "got": "قسم ال ‎idempotency‏",
     "score": 1.0,
     "exact": true,
@@ -107,9 +121,11 @@
    {
     "id": "caps-AI-32",
     "size": 32,
+    "upscale": 3,
     "gap_em": null,
     "gate": false,
     "want": "الـAI",
+    "read": "الـAI",
     "got": "Al ‏ال‎",
     "score": 0.8,
     "exact": false,
@@ -118,14 +134,49 @@
    {
     "id": "caps-SQL-92",
     "size": 92,
+    "upscale": 2,
     "gap_em": null,
     "gate": false,
     "want": "الـSQL",
+    "read": "الـSQL",
     "got": "SQL ‏ال‎",
     "score": 1.0,
     "exact": true,
     "pass": true
+   },
+   {
+    "id": "F7-chip6",
+    "size": 32,
+    "upscale": 3,
+    "gap_em": null,
+    "gate": true,
+    "want": "6 AI",
+    "read": "AI 6",
+    "got": "AI 6",
+    "score": 1.0,
+    "exact": true,
+    "pass": true
+   },
+   {
+    "id": "F7-chip6-nocv08",
+    "size": 32,
+    "upscale": 3,
+    "gap_em": null,
+    "gate": false,
+    "want": "6 AI",
+    "read": "AI 6",
+    "got": "Al 6",
+    "score": 0.75,
+    "exact": false,
+    "pass": false
    }
+  ],
+  "run": "2026-10-10, queue jobs 14 (render) + 19 (score): python3 -I studio/scripts/lookdev_typeprobe_ocr.py, tesseract ara+eng psm 7",
+  "adr009_cond2_items": [
+   "F3-title",
+   "roadmap-72",
+   "idem-72",
+   "F7-chip6"
   ]
  },
  "motion": {
@@ -151,5 +202,16 @@
    "pre_fix_mp4": "data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4",
    "note": "ADR-009 condition 3: MD re-rendered after a3b86c1 (R2 ghost title split in two phrases; B2 gaps); same driver and settings as r3; awaits arabic-typographer review and the render-ops condition-4 diff"
   }
+ },
+ "b1_chip6_r3b": {
+  "why": "G6a verifier r3: ADR-009 cond 2 names the F7 chip 6 text, but no isolated-render score existed; the plain Inter Tight 'AI' reads 'Al 6' (sans I = l)",
+  "change": "studio/src/lookdev/world.tsx: chip content moved into TagContent (shared with LD-TypeProbe chip mode); Latin run gets font-feature-settings \"cv08\" (Inter Tight serifed capital I, the serifed-I route of ADR-009 B1 fallback); Plex Sans Arabic has no cv08, so Arabic tags are unchanged",
+  "probe": "F7-chip6: TagContent n=6 label 'AI' at 32 px, want '6 AI', expected LTR-OCR reading 'AI 6'; score 1.00 exact. A/B F7-chip6-nocv08 (pre-change glyphs): 'Al 6' 0.75",
+  "still": "reports/lookdev/r3/stills/F7-standard_fix.jpg re-rendered (queue job 18, q88); vs previous fix still at 960 px, |delta| > 8/255 only in bbox (212,138)-(248,152) = 1080p (424,276)-(496,304), inside the chip 6 box [376,264,544,319]; 296 px",
+  "needs": [
+   "render-ops: refresh regress.json for F7-standard (ADR-009 cond 4)",
+   "arabic-typographer: re-check F7 chip 6 in the new still (cond 3)",
+   "critic: approve the changed F7 baseline (glyph-only change)"
+  ]
  }
 }

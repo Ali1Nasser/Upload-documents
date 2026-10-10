@@ -22,16 +22,22 @@ export const PROBES = [
   {id: 'F6-label-idem-34', text: 'قسم الـidempotency', size: 34, latScale: 0.9, gate: false},
   {id: 'caps-AI-32', text: 'الـAI', size: 32, latScale: 1, gate: false},
   {id: 'caps-SQL-92', text: 'الـSQL', size: 92, latScale: 0.92, gate: false},
+  // ADR-009 cond 2 item 4: the F7 chip 6 text, rendered through the frame's TagContent (number 6 at the RTL start + `AI`, 32 px).
+  // want = the chip text in logical order. The `-nocv08` twin is the pre-fix glyph set (A/B only, not a gate item).
+  {id: 'F7-chip6', text: 'AI', want: '6 AI', size: 32, latScale: 1, gate: true, chip: {n: 6}},
+  {id: 'F7-chip6-nocv08', text: 'AI', want: '6 AI', size: 32, latScale: 1, gate: false, chip: {n: 6, latFeatures: 'normal'}},
 ];
 // `--sweep=0.1,0.2,...` renders every probe once per J1 gap (em of the Arabic run) to find the smallest gap that reads
 const sweep = (process.argv.find((a) => a.startsWith('--sweep=')) || '').slice(8).split(',').filter(Boolean).map(Number);
-const RUNS = sweep.length ? PROBES.flatMap((p) => sweep.map((g) => ({...p, id: `${p.id}@${g}`, gapEm: g}))) : PROBES;
+const only = (process.argv.find((a) => a.startsWith('--only=')) || '').slice(7).split(',').filter(Boolean);
+const BASE = only.length ? PROBES.filter((p) => only.includes(p.id)) : PROBES;
+const RUNS = sweep.length ? BASE.flatMap((p) => sweep.map((g) => ({...p, id: `${p.id}@${g}`, gapEm: g}))) : BASE;
 fs.mkdirSync(OUT, {recursive: true});
 const serveUrl = await bundle({entryPoint: path.join(STUDIO, 'src/index.ts'), publicDir: path.join(STUDIO, 'public')});
 const chromiumOptions = {gl: 'swiftshader'};
 const browser = await openBrowser('chrome', {browserExecutable: BROWSER, chromiumOptions});
 for (const p of RUNS) {
-  const inputProps = {text: p.text, size: p.size, typo: 'A', latScale: p.latScale, gapEm: p.gapEm};
+  const inputProps = {text: p.text, size: p.size, typo: 'A', latScale: p.latScale, gapEm: p.gapEm, chip: p.chip};
   const composition = await selectComposition({serveUrl, id: 'LD-TypeProbe', inputProps, puppeteerInstance: browser, browserExecutable: BROWSER, chromiumOptions});
   await renderStill({composition, serveUrl, output: path.join(OUT, `${p.id}.png`), inputProps, puppeteerInstance: browser, browserExecutable: BROWSER, chromiumOptions, imageFormat: 'png', frame: 0});
   console.log('probe', p.id);
