@@ -1,19 +1,17 @@
 # PHASE-06 (motion-engineer): P6 look-dev freeze, gate G6a
 
-**G6a (latest, df2ee0d + freeze 2026-10-10T06:17Z): FAIL 7/8**; only the cond 1-2 checker lookup is left (see the last section). The earlier status was **FAIL (6/8)**, from `python3 tools/dc.py gate check G6a` → `reports/gates/G6a.json`. The checker is `harness/gates/g06a.py`.
+**Final state (2026-10-10T07:10Z, base c45d1d2): freeze `status: frozen`; G6a FAIL 7/8.** The only failing row is `ADR-009_cond_3_rerender_review`, a checker lookup defect in `g06a.py` (see the last section). The evidence for every ADR-009 condition is in place. No threshold is changed or waived here.
 
-The look, the ADRs, the freeze and the render budget all pass. The two failing checks are the ADR-009 close conditions owned by other roles. No threshold is changed or waived here.
-
-| # | Check | Result |
+| # | Check (`reports/gates/G6a.json`) | Result |
 |---|---|---|
 | 1 | ADR-002..005 decided | ok |
-| 2 | look ≥ 8.0, parity ≥ 7.5 (latest `critic_r3.json`) | ok: 8.01 / 7.5, min 7. ADR-009 W-009-LOOK covers r3, a single read with zero headroom |
-| 3 | latest Arabic review | ok: `arabic_r3.md` re-check PASS (d6ac265) |
-| 4 | tokens, presets and catalog frozen | ok: 227 files hashed in `harness/state/freeze.json`, 0 changed, 104/104 catalog names |
-| 5 | projected final render ≤ 24 h | ok: 332,651 f @ 24 fps. ADR-002 model RT5 gives 16.6–20.9 h; measured r3 blended 0.1339 box s/f gives 12.4 h. The +25 % read is 26.1 h (ADR-002 R2 ladder). Plate bake cost is not included yet (AT-9) |
-| 6a | ADR-009 cond 1–2 | ok: the 3 Arabic OCR gate strings score 1.00. The F7 chip is now Latin `AI 6`, so there is no isolated score; B1 was closed by the Arabic re-check. Type suite 43 ok |
-| 6b | ADR-009 cond 3 | **FAIL**: MD was re-rendered (below), but no Arabic review covers `MD-standard_fix` yet |
-| 6c | ADR-009 cond 4 | **FAIL**: there is no `reports/lookdev/r3/regress.json` (the render-ops no-regression diff) |
+| 2 | look ≥ 8.0, parity ≥ 7.5 (`critic_r3.json`) | ok: 8.01 / 7.5, min 7; ADR-009 W-009-LOOK covers r3 (zero headroom) |
+| 3 | latest Arabic review | ok: `arabic_r5.md` PASS (F7-standard_fix, c45d1d2) |
+| 4 | tokens, presets and catalog frozen | ok: 227 files hashed, 0 changed, 104/104 catalog names |
+| 5 | projected final render ≤ 24 h | ok: worst 20.9 h (measured 12.4 h); +25 % read 26.1 h; plate bake cost not in yet (AT-9) |
+| 6a | ADR-009 cond 1–2 | ok (fixed in 6431893): OCR gate strings 4/4 = 1.00, B-items closed per artifact, type suite 43 ok |
+| 6b | ADR-009 cond 3 | **FAIL (checker)**: MD-standard_fix was passed in `arabic_r4.md` (84ad38b, after the strip at a773103, unchanged since); g06a reads only the latest review (`arabic_r5`, F7 only) |
+| 6c | ADR-009 cond 4 | ok: render-ops `regress.json` pass=true, 7 stills, 0 px outside boxes (queue job 31) |
 
 ## To close G6a (owners)
 1. **render-ops** derives the edited text boxes from the source diff `8f245ee..a3b86c1`, in 1920×1080 coordinates, for F3, F4, F4-hero, F5, F6, F7 and F8. Then run:
@@ -87,3 +85,19 @@ The look, the ADRs, the freeze and the render budget all pass. The two failing c
   - `dc qa arabic` (AT-10): harness-engineer.
   - `6 الـAI` canon override: scene-director.
   - Delete the 33 MB pre-fix mp4 now that the regress diff is done: render-ops.
+
+## Final freeze after F7 re-render, arabic_r5 and regress refresh (motion-engineer, c45d1d2)
+- Inputs, all newer than the F7-standard_fix re-render: `g06a.py` cond 1-2 fix (6431893, harness-engineer), `arabic_r5.md` PASS for F7-standard_fix (c45d1d2, arabic-typographer), and the `regress.json` refresh (render-ops, queue job 31: pass=true, 0 px outside boxes, only F7 moved).
+- `python3 -I studio/scripts/freeze_p6.py` exited 0: `status: frozen`, `frozen_at` 2026-10-10T07:10:47Z @ c45d1d2, `open_preconditions` [], `cond3_reviews` r3+r4+r5. Hash counts: tokens 1, type 2, fonts 12, catalog src 106, catalog json 106 (227 files, 0 contract drift).
+- **`dc gate check G6a`: FAIL 7/8.** The failing row is `ADR-009_cond_3_rerender_review`. `g06a.py:240-242` requires the *latest* `arabic_r*.md` (now r5, scope F7) to name `MD-standard_fix`, but MD was reviewed and passed in `arabic_r4.md`. This is the same defect class that 6431893 fixed for cond 1-2.
+  - **harness-engineer** owns `g06a.py`. Fix: judge cond 3 per artifact across all reviews, as `freeze_p6.py` does: the latest section naming each artifact must be PASS and committed after the artifact. Then re-run the gate.
+  - The motion-engineer did not edit the gate (golden rule 4), and there is nothing to re-render.
+- **Open P7/P8 acceptance tests:**
+  - **AT-4** (P8) [scene-director, visual-librarian, motion-engineer]: F8/MD gate labels on one baseline y, or a minimum 40 px horizontal gap (arabic_r4 obs 1).
+  - **AT-9** [render-ops; **blocks P10**]: plate bake cost and disk plan, to be added to the G6a item 5 projection (RT-3 if > 24 h).
+  - **AT-10** [harness-engineer, arabic-typographer]: full `dc qa arabic` with isolated-render OCR ≥ 0.9, per-line psm for mixed strings (F6-head 0.651 probe), I/l normalisation for Latin caps. `--frames` exists; G6b and G8 still need the full run. Keep the chip 6 isolated fixture in the G6b/G8 set.
+  - **AT-11** (P7, before G6b) [motion-engineer renders, arabic-typographer reviews, native reader veto]: 34 px join gap in motion (ADR-010; RT-010-1/4).
+  - **AT-12** (P8, inside `dc spec lint`) [arabic-typographer, scene-director]: line-length check for the gap (RT-010-3).
+- **Canon drift `الـAI`**: `chapters.json:196` (CH-34) says `6 الـAI`, the look-dev chip shows `AI 6`. The scene-director restores `الـAI` (ADR-010 caps gap 0.20 / 0.25 em; RT-010-4 if it fails AT-11 at 32 px) or logs a `pending-council` override. Do not ship the bare form silently. Any other caps acronym with `I` (API, KPI) needs the `cv08` serifed I or the I/l normalisation.
+- **Stale strips**: MA, MB, MB-hero and MC are pre-fix renders (old J1 gaps; MA shows `قسم الـroadmap`). They are not valid evidence; re-render them in P7 (motion-engineer, queue) before any is cited at G6b/G8.
+- **Housekeeping** [render-ops]: delete `data/renders/lookdev/r3/MD-standard_swiftshader_r3pre.mp4` (33 MB) if it is still present.

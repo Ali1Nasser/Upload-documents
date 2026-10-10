@@ -15,12 +15,12 @@
     {
       "name": "arabic_review_pass",
       "pass": true,
-      "detail": "reports/lookdev/arabic_r4.md: last verdict heading = PASS: ## PASS (0 blocking, 0 required) for ADR-009 condition 3, scope MD-standard_fix"
+      "detail": "reports/lookdev/arabic_r5.md: last verdict heading = PASS: ## PASS: F7-standard_fix (ADR-009 condition 3), 0 blocking, 0 required"
     },
     {
       "name": "tokens_presets_catalog_frozen",
-      "pass": false,
-      "detail": "harness/state/freeze.json missing or not status=frozen"
+      "pass": true,
+      "detail": "freeze.json 2026-10-10T07:10:47Z @ c45d1d2: 227 hashed files, 0 changed; 04 section 8 catalog 104 names, 0 not frozen; unlisted component dirs []; fonts 7; presets table ok"
     },
     {
       "name": "projected_render_le_24h",
@@ -30,12 +30,12 @@
     {
       "name": "ADR-009_cond_1_2_fixes_ocr",
       "pass": true,
-      "detail": "isolated-render OCR gate strings 4/4 >= 0.90 F3-title=1.00 roadmap-72=1.00 idem-72=1.00 F7-chip6=1.00; type suite ok; B-items per artifact over 4 Arabic reviews: B1 F7 chip 6 fixed (arabic_r3.md), B2 F3 title fixed (arabic_r3.md), B2 F4 card fixed (arabic_r3.md), B2 F6 head fixed (arabic_r3.md), B2 F6 labels fixed (arabic_r3.md); suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after "
+      "detail": "isolated-render OCR gate strings 4/4 >= 0.90 F3-title=1.00 roadmap-72=1.00 idem-72=1.00 F7-chip6=1.00; type suite ok; B-items per artifact over 5 Arabic reviews: B1 F7 chip 6 fixed (arabic_r3.md), B2 F3 title fixed (arabic_r3.md), B2 F4 card fixed (arabic_r3.md), B2 F6 head fixed (arabic_r3.md), B2 F6 labels fixed (arabic_r3.md); suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after "
     },
     {
       "name": "ADR-009_cond_3_rerender_review",
-      "pass": true,
-      "detail": "fix stills 7/7; MD strip present; latest PASS Arabic review covers MD-standard_fix: True"
+      "pass": false,
+      "detail": "fix stills 7/7; MD strip present; latest PASS Arabic review covers MD-standard_fix: False"
     },
     {
       "name": "ADR-009_cond_4_no_regression_diff",
@@ -43,5 +43,5 @@
       "detail": "by=render-ops pass=True covers ['F3-standard', 'F4-hero', 'F4-standard', 'F5-standard', 'F6-standard', 'F7-standard', 'F8-standard']; outside-box px 0"
     }
   ],
-  "created": "2026-10-10T07:10:27Z"
+  "created": "2026-10-10T07:10:51Z"
 }
