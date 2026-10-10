@@ -1,6 +1,6 @@
 {
   "gate": "G6a",
-  "pass": false,
+  "pass": true,
   "checks": [
     {
       "name": "adr_002_005_decided",
@@ -15,7 +15,7 @@
     {
       "name": "arabic_review_pass",
       "pass": true,
-      "detail": "reports/lookdev/arabic_r5.md: last verdict heading = PASS: ## PASS: F7-standard_fix (ADR-009 condition 3), 0 blocking, 0 required"
+      "detail": "5 reviews, 8/8 *_fix artifacts covered by a PASS verdict that is the latest naming each and is newer than it"
     },
     {
       "name": "tokens_presets_catalog_frozen",
@@ -30,18 +30,18 @@
     {
       "name": "ADR-009_cond_1_2_fixes_ocr",
       "pass": true,
-      "detail": "isolated-render OCR gate strings 4/4 >= 0.90 F3-title=1.00 roadmap-72=1.00 idem-72=1.00 F7-chip6=1.00; type suite ok; B-items per artifact over 5 Arabic reviews: B1 F7 chip 6 fixed (arabic_r3.md), B2 F3 title fixed (arabic_r3.md), B2 F4 card fixed (arabic_r3.md), B2 F6 head fixed (arabic_r3.md), B2 F6 labels fixed (arabic_r3.md); suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after "
+      "detail": "isolated-render OCR gate strings 4/4 >= 0.90 F3-title=1.00 roadmap-72=1.00 idem-72=1.00 F7-chip6=1.00; type suite ok; B-items per artifact over 5 Arabic reviews: B1 F7 chip 6 fixed (reports/lookdev/arabic_r3.md), B2 F3 title fixed (reports/lookdev/arabic_r3.md), B2 F4 card fixed (reports/lookdev/arabic_r3.md), B2 F6 head fixed (reports/lookdev/arabic_r3.md), B2 F6 labels fixed (reports/lookdev/arabic_r3.md); suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after "
     },
     {
       "name": "ADR-009_cond_3_rerender_review",
-      "pass": false,
-      "detail": "fix stills 7/7; MD strip present; latest PASS Arabic review covers MD-standard_fix: False"
+      "pass": true,
+      "detail": "re-rendered 8/8 required artifacts (8 *_fix found); per-artifact coverage (latest naming verdict PASS, newer than the artifact) 8/8: F3-standard_fix covered (arabic_r4.md), F4-hero_fix covered (arabic_r3.md), F4-standard_fix covered (arabic_r4.md), F5-standard_fix covered (arabic_r5.md), F6-standard_fix covered (arabic_r4.md), F7-standard_fix covered (arabic_r5.md), F8-standard_fix covered (arabic_r4.md), MD-standard_fix covered (arabic_r4.md)"
     },
     {
       "name": "ADR-009_cond_4_no_regression_diff",
       "pass": true,
-      "detail": "by=render-ops pass=True covers ['F3-standard', 'F4-hero', 'F4-standard', 'F5-standard', 'F6-standard', 'F7-standard', 'F8-standard']; outside-box px 0"
+      "detail": "reports/lookdev/r3/regress.json by=render-ops pass=True covers ['F3-standard', 'F4-hero', 'F4-standard', 'F5-standard', 'F6-standard', 'F7-standard', 'F8-standard']; outside-box px 0"
     }
   ],
-  "created": "2026-10-10T07:17:58Z"
+  "created": "2026-10-10T07:20:19Z"
 }

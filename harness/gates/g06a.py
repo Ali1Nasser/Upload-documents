@@ -3,7 +3,10 @@
  1 ADR-002/003/004/005 decided (harness/state/decisions.json status + docs/decisions/ADR-00N-*.md present)
  2 style frames: look rubric mean >= 8.0 and AI-Unpacked parity >= 7.5, read from the latest reports/lookdev/critic_r*.json;
    OR a decided ADR waiver in decisions.json whose scope covers G6a item 2 (look/parity) on that round (W-009-LOOK, ADR-009)
- 3 latest Arabic review passes: last verdict heading ("## ...: PASS|FAIL") of the latest reports/lookdev/arabic_r*.md
+ 3 Arabic reviews pass PER ARTIFACT over ALL reports/lookdev/arabic_r*.md (shared helper artifact_coverage, mirrors
+   studio/scripts/freeze_p6.py): each r*/stills|strips/*_fix.jpg is covered when the latest verdict section ("## ...: PASS|FAIL",
+   file order then position) naming it is a PASS committed after the artifact (mtime if dirty); a later FAIL re-opens it; a FAIL
+   section naming no artifact after the last PASS also fails. With no *_fix artifact: last verdict heading of the latest review.
  4 tokens, presets and component catalog frozen: harness/state/freeze.json hashes equal the files; the freeze covers
    studio/src/tokens.ts, studio/src/type/arabic.ts, the chosen fonts + licences, every 04 section 8 catalog name as
    studio/src/components/<Name>/schema.ts and harness/schemas/components/<Name>.json (+ the {word, lead_frames} anchor)
@@ -12,15 +15,16 @@
    or a decided ADR (ADR-002 reopen) that covers a miss
  6 ADR-009 close conditions (only when the G6a decision is a conditional close): 1-2 each B-item (B1 F7 chip 6, B2 F3 title,
    F4 card, F6 head, F6 labels) judged per artifact over ALL reports/lookdev/arabic_r*.md (the latest verdict section naming
-   the item wins; a later FAIL / non-fixed row re-opens it) + the four isolated-render OCR gate strings of r3/fix.json
-   (F3-title, roadmap-72, idem-72, F7-chip6) present and >= 0.90 + type suite ok; 3 affected stills and MD re-rendered and covered by a PASS Arabic review; 4 render-ops no-regression
-   diff (reports/lookdev/r3/regress.json, by render-ops, pass=true, covering the re-rendered set)
+   the item wins; a later FAIL / non-fixed row re-opens it; its *_fix artifact must also be covered, recency-aware) + the four isolated-render OCR gate strings of r3/fix.json
+   (F3-title, roadmap-72, idem-72, F7-chip6) present and >= 0.90 + type suite ok; the 7 affected stills and MD re-rendered, each covered per artifact by a PASS Arabic review newer than it; 4 render-ops no-regression
+   diff (latest rN/regress.json, by render-ops, pass=true, covering the re-rendered set, not older than the newest re-render)
 """
 import glob
 import hashlib
 import json
 import os
 import re
+import subprocess
 
 LOOK_MIN, PARITY_MIN, BUDGET_H = 8.0, 7.5, 24.0
 ADRS = ["ADR-002", "ADR-003", "ADR-004", "ADR-005"]
@@ -74,11 +78,11 @@ def arabic_verdict(text):
     return (v[-1][0], text[v[-1][1]:]) if v else (None, "")
 
 
-# ADR-009 B-items (cond 1-2): item -> regex on the first cell / line start; OCR gate ids from reports/lookdev/r3/fix.json
-B_ITEMS = {"B1 F7 chip 6": r"B1\b.*chip", "B2 F3 title": r"B2\b.*\bF3\b", "B2 F4 card": r"B2\b.*\bF4\b",
-           "B2 F6 head": r"B2\b.*\bF6\b.*\bhead", "B2 F6 labels": r"B2\b.*\bF6\b.*\blabels"}
-OCR_GATE_IDS = ["F3-title", "roadmap-72", "idem-72", "F7-chip6"]   # ADR-009 cond 2: partition, roadmap, idempotency, F7 chip 6
-OCR_MIN = 0.90
+def ctime(root, rel_path):
+    """Commit time of the last commit touching the path; mtime if uncommitted, dirty or outside git (as freeze_p6.ctime)."""
+    run = lambda *a: subprocess.run(["git", "-C", root, *a], capture_output=True, text=True).stdout.strip()
+    r, t = run("status", "--porcelain", "--", rel_path), run("log", "-1", "--format=%ct", "--", rel_path)
+    return os.path.getmtime(os.path.join(root, rel_path)) if (r or not t) else int(t)
 
 
 def _sections(text):
@@ -87,11 +91,89 @@ def _sections(text):
     return [(verdict, text[pos:v[i + 1][1] if i + 1 < len(v) else len(text)]) for i, (verdict, pos) in enumerate(v)]
 
 
-def b_item_status(reviews):
+def names_artifact(name, sec):
+    """Full name, or the short id (F4 = F4-standard, F4-hero) inside a section that scopes the *_fix artifacts (freeze_p6.py:62-65)."""
+    short = name[:-len("_fix")].replace("-standard", "") if name.endswith("_fix") else name
+    return name in sec or ("_fix" in sec and re.search(rf"\b{re.escape(short)}\b(?!-hero)", sec) is not None)
+
+
+def artifact_coverage(artifacts, reviews, ct):
+    """The ONE helper for every row that reads Arabic reviews. artifacts {name: repo-relative path}; reviews [(repo-relative path,
+    text)] in round order; ct(rel) -> commit/mtime time. Per artifact the LATEST verdict section naming it (file order, then
+    position) decides: PASS committed at or after the artifact = 'covered'; PASS older than the artifact = 'stale'; FAIL = 'open';
+    never named = 'missing'; file not on disk = 'absent'. Returns {name: (status, review path)}."""
+    last = {}
+    for rel, text in reviews:
+        for verdict, sec in _sections(text):
+            for n in artifacts:
+                if names_artifact(n, sec):
+                    last[n] = (verdict, rel)
+    out = {}
+    for n, path in artifacts.items():
+        if n not in last:
+            out[n] = ("missing", "")
+        elif last[n][0] != "PASS":
+            out[n] = ("open", last[n][1])
+        elif ct(last[n][1]) < ct(path):
+            out[n] = ("stale", last[n][1])
+        else:
+            out[n] = ("covered", last[n][1])
+    return out
+
+
+def unscoped_fail(artifacts, reviews):
+    """Review paths whose FAIL section names no artifact and comes after the last PASS section of any review (an open verdict
+    that no per-artifact lookup would see)."""
+    secs = [(rel, v, sec) for rel, text in reviews for v, sec in _sections(text)]
+    lp = max([i for i, (_, v, _) in enumerate(secs) if v == "PASS"], default=-1)
+    return [rel for rel, v, sec in secs[lp + 1:] if v == "FAIL" and not any(names_artifact(n, sec) for n in artifacts)]
+
+
+def read_reviews(ctx):
+    """All reports/lookdev/arabic_r*.md in round order -> [(repo-relative path, text)]."""
+    paths = sorted(glob.glob(ctx.p("reports", "lookdev", "arabic_r*.md")), key=lambda q: int(re.search(r"arabic_r(\d+)\.md$", q).group(1)))
+    out = []
+    for q in paths:
+        with open(q, encoding="utf-8") as f:
+            out.append((ctx.common.rel(q), f.read()))
+    return out
+
+
+def fix_artifacts(ctx):
+    """{name: rel path} of every reports/lookdev/r*/stills|strips/*_fix.jpg on disk; a later round overrides an earlier one."""
+    rounds = sorted(glob.glob(ctx.p("reports", "lookdev", "r[0-9]*")), key=lambda d: int(re.search(r"r(\d+)$", d).group(1)))
+    out = {}
+    for d in rounds:
+        for q in sorted(glob.glob(os.path.join(d, "stills", "*_fix.jpg")) + glob.glob(os.path.join(d, "strips", "*_fix.jpg"))):
+            out[os.path.basename(q)[:-4]] = ctx.common.rel(q)
+    return out
+
+
+def round_file(ctx, name):
+    """Path of reports/lookdev/r<N>/<name> for the highest N that has it (no fixed round number), else None."""
+    best = None
+    for q in glob.glob(ctx.p("reports", "lookdev", "r[0-9]*", name)):
+        n = int(re.search(r"/r(\d+)/", q).group(1))
+        if best is None or n > best[0]:
+            best = (n, q)
+    return best[1] if best else None
+
+
+# ADR-009 B-items (cond 1-2): item -> regex on the first cell / line start; OCR gate ids from reports/lookdev/r3/fix.json
+B_ITEMS = {"B1 F7 chip 6": r"B1\b.*chip", "B2 F3 title": r"B2\b.*\bF3\b", "B2 F4 card": r"B2\b.*\bF4\b",
+           "B2 F6 head": r"B2\b.*\bF6\b.*\bhead", "B2 F6 labels": r"B2\b.*\bF6\b.*\blabels"}
+B_ARTIFACT = {"B1 F7 chip 6": "F7-standard_fix", "B2 F3 title": "F3-standard_fix", "B2 F4 card": "F4-standard_fix",
+              "B2 F6 head": "F6-standard_fix", "B2 F6 labels": "F6-standard_fix"}   # artifact each B-item is judged on (ADR-009 cond 1-3)
+OCR_GATE_IDS = ["F3-title", "roadmap-72", "idem-72", "F7-chip6"]   # ADR-009 cond 2: partition, roadmap, idempotency, F7 chip 6
+OCR_MIN = 0.90
+
+
+def b_item_status(reviews, cov=None):
     """reviews: [(name, text)] in round order. Per B-item the LATEST verdict section (file order, then position) that names it wins:
     a PASS section closes it only through a table row `| <item> ... | fixed... |`; in a FAIL section any line starting with the
     item re-opens it, and in a PASS section a table row whose result is not 'fixed' re-opens it. Returns {item: (status, review)}
-    with status 'fixed', 'open' or 'missing'."""
+    with status 'fixed', 'open' or 'missing'. cov (artifact_coverage result, optional): a row-closed item is 'fixed' only while its
+    artifact (B_ARTIFACT) is covered; a later FAIL naming the artifact makes it 'open', a PASS older than the artifact 'stale'."""
     st = {k: ("missing", "") for k in B_ITEMS}
     for name, text in reviews:
         for verdict, sec in _sections(text):
@@ -109,17 +191,21 @@ def b_item_status(reviews):
                         st[k] = ("fixed" if re.match(r"(?i)fixed\b", result) else "open", name)
                     elif verdict == "FAIL":
                         st[k] = ("open", name)
+    for k, (s_, r_) in list(st.items()):
+        a = (cov or {}).get(B_ARTIFACT[k])
+        if s_ == "fixed" and a and a[0] != "covered":
+            st[k] = ({"open": "open", "stale": "stale"}.get(a[0], "open"), a[1] or r_)
     return st
 
 
-def cond12(fix, reviews):
+def cond12(fix, reviews, cov=None):
     """ADR-009 conditions 1-2 -> (ok, detail). Thresholds fixed by the ADR (OCR >= 0.90 on each of four gate strings)."""
     items = {i.get("id"): i for i in (fix.get("typeprobe_ocr") or {}).get("items", [])}
     ocr_bad = [g for g in OCR_GATE_IDS if g not in items or not items[g].get("gate") or float(items[g].get("score", 0)) < OCR_MIN]
     ocr_n = sum(g in items and bool(items[g].get("gate")) and float(items[g].get("score", 0)) >= OCR_MIN for g in OCR_GATE_IDS)
     extra = [i["id"] for i in items.values() if i.get("gate") and i["id"] not in OCR_GATE_IDS and float(i.get("score", 0)) < OCR_MIN]
     suite = "ok" in str(fix.get("type_suite", ""))
-    bs = b_item_status(reviews)
+    bs = b_item_status(reviews, cov)
     b_bad = [k for k, (s, _) in bs.items() if s != "fixed"]
     ok = not ocr_bad and not extra and suite and not b_bad
     det = (f"isolated-render OCR gate strings {ocr_n}/{len(OCR_GATE_IDS)} >= {OCR_MIN:.2f}"
@@ -155,7 +241,7 @@ def check(ctx):
         cr = cm.read_json(lc[1]) or {}
         look, par = float(cr.get("look_mean", 0)), float(cr.get("parity_mean", 0))
         met = look >= LOOK_MIN and par >= PARITY_MIN
-        in_scope = waiver is not None and f"r{lc[0]}" in str(waiver[1].get("scope", ""))
+        in_scope = waiver is not None and re.search(rf"\br{lc[0]}\b", str(waiver[1].get("scope", ""))) is not None
         det = f"{cm.rel(lc[1])}: look {look} (>= {LOOK_MIN}), parity {par} (>= {PARITY_MIN}), min criterion {cr.get('min_criterion')}"
         if waiver:
             det += f"; {waiver[0]} {waiver[1].get('id')} scope '{waiver[1].get('scope')}' ({'covers' if in_scope else 'does NOT cover'} r{lc[0]})"
@@ -163,16 +249,23 @@ def check(ctx):
     else:
         out.append(C_("look_parity", False, "no reports/lookdev/critic_r*.json"))
 
-    # 3 latest Arabic review
-    la = _latest(ctx.p("reports", "lookdev", "arabic_r*.md"), r"arabic_r(\d+)\.md$")
-    a_text = ""
-    if la:
-        with open(la[1], encoding="utf-8") as f:
-            a_text = f.read()
-        v, sec = arabic_verdict(a_text)
-        out.append(C_("arabic_review_pass", v == "PASS", f"{cm.rel(la[1])}: last verdict heading = {v}: {sec.splitlines()[0][:140] if sec else ''}"))
-    else:
+    # 3 Arabic reviews: per artifact, recency-aware, over ALL arabic_r*.md (one shared helper, also used by cond 1-3 below)
+    reviews = read_reviews(ctx)
+    arts = fix_artifacts(ctx)
+    ct = lambda r: ctime(ctx.root, r)
+    cov = artifact_coverage({n: q for n, q in arts.items()}, reviews, ct) if arts else {}
+    if not reviews:
         out.append(C_("arabic_review_pass", False, "no reports/lookdev/arabic_r*.md"))
+    elif arts:
+        bad = {n: v for n, v in cov.items() if v[0] != "covered"}
+        loose = unscoped_fail(arts, reviews)
+        out.append(C_("arabic_review_pass", not bad and not loose,
+                      f"{len(reviews)} reviews, {len(arts) - len(bad)}/{len(arts)} *_fix artifacts covered by a PASS verdict that is the latest naming each and is newer than it"
+                      + (f"; not covered: {', '.join(f'{n} {v[0]}' + (f' ({v[1]})' if v[1] else '') for n, v in bad.items())}" if bad else "")
+                      + (f"; unscoped FAIL after the last PASS in {loose}" if loose else "")))
+    else:
+        v, sec = arabic_verdict(reviews[-1][1])
+        out.append(C_("arabic_review_pass", v == "PASS", f"{reviews[-1][0]}: last verdict heading = {v}: {sec.splitlines()[0][:140] if sec else ''} (no *_fix artifacts)"))
 
     # 4 freeze
     fz = cm.read_json(ctx.p("harness", "state", "freeze.json"))
@@ -229,24 +322,25 @@ def check(ctx):
 
     # 6 ADR-009 conditional-close conditions
     if g6a_adr and "conditional" in json.dumps(g6a_adr.get("decision", "")).lower():
-        fix = cm.read_json(ctx.p("reports", "lookdev", "r3", "fix.json")) or {}
-        revs = []
-        for q in sorted(glob.glob(ctx.p("reports", "lookdev", "arabic_r*.md")), key=lambda q: int(re.search(r"arabic_r(\d+)\.md$", q).group(1))):
-            with open(q, encoding="utf-8") as f:
-                revs.append((os.path.basename(q), f.read()))
-        c12, det12 = cond12(fix, revs)
+        fixp = round_file(ctx, "fix.json")
+        fix = (cm.read_json(fixp) if fixp else None) or {}
+        c12, det12 = cond12(fix, reviews, cov)
         out.append(C_(f"{g6a_adr['id']}_cond_1_2_fixes_ocr", c12, det12 + f"; suite: {str(fix.get('type_suite'))[:90]}"))
-        stills_ok = [s for s in FIX_STILLS if os.path.exists(ctx.p("reports", "lookdev", "r3", "stills", f"{s}_fix.jpg"))]
-        md = ctx.p("reports", "lookdev", "r3", "strips", "MD-standard_fix.jpg")
-        _, sec = arabic_verdict(a_text)
-        md_reviewed = os.path.exists(md) and "MD-standard_fix" in sec and arabic_verdict(a_text)[0] == "PASS"
-        out.append(C_(f"{g6a_adr['id']}_cond_3_rerender_review", len(stills_ok) == len(FIX_STILLS) and md_reviewed,
-                      f"fix stills {len(stills_ok)}/{len(FIX_STILLS)}; MD strip {'present' if os.path.exists(md) else 'missing'}; "
-                      f"latest PASS Arabic review covers MD-standard_fix: {md_reviewed}"))
-        rg = cm.read_json(ctx.p("reports", "lookdev", "r3", "regress.json")) or {}
-        cov = set(rg.get("covers") or [])
-        c4 = rg.get("by") == "render-ops" and rg.get("pass") is True and set(FIX_STILLS) <= cov
+        required = {f"{x}_fix": None for x in FIX_STILLS} | {"MD-standard_fix": None}
+        missing = [n for n in required if n not in arts]
+        bad = {n: v for n, v in cov.items() if v[0] != "covered"}
+        out.append(C_(f"{g6a_adr['id']}_cond_3_rerender_review", not missing and not bad,
+                      f"re-rendered {len(required) - len(missing)}/{len(required)} required artifacts ({len(arts)} *_fix found)"
+                      + (f"; missing: {missing}" if missing else "")
+                      + f"; per-artifact coverage (latest naming verdict PASS, newer than the artifact) {sum(v[0] == 'covered' for v in cov.values())}/{len(cov)}: "
+                      + ", ".join(f"{n} {v[0]}" + (f" ({os.path.basename(v[1])})" if v[1] else "") for n, v in cov.items())))
+        rgp = round_file(ctx, "regress.json")
+        rg = (cm.read_json(rgp) if rgp else None) or {}
+        cov4 = set(rg.get("covers") or [])
+        newest = max([ct(q) for q in arts.values()], default=0)
+        c4 = rg.get("by") == "render-ops" and rg.get("pass") is True and set(FIX_STILLS) <= cov4 and (not rgp or ct(cm.rel(rgp)) >= newest)
         out.append(C_(f"{g6a_adr['id']}_cond_4_no_regression_diff", c4,
-                      ("reports/lookdev/r3/regress.json missing (render-ops: |delta| > 8/255 at 960 px only inside edited text boxes + 16 px)" if not rg
-                       else f"by={rg.get('by')} pass={rg.get('pass')} covers {sorted(cov)}; outside-box px {rg.get('outside_px')}")))
+                      ("reports/lookdev/rN/regress.json missing (render-ops: |delta| > 8/255 at 960 px only inside edited text boxes + 16 px)" if not rg
+                       else f"{cm.rel(rgp)} by={rg.get('by')} pass={rg.get('pass')} covers {sorted(cov4)}; outside-box px {rg.get('outside_px')}"
+                       + ("" if ct(cm.rel(rgp)) >= newest else "; regress.json is older than the newest re-rendered artifact"))))
     return out
