@@ -56,3 +56,28 @@ No meta.json was written or changed. No component is set to approved-critic.
   read as a list or table slide, that ComplexityRace stays LTR with Western numerals only where the spec allows, and that
   WireTangle and PageScan show depth and light, not flat diagrams.
 - Pass needs a mean >= 8.0 over the 06 section 3.2 rubric and a minimum >= 7 with no blocking issue.
+
+---
+
+## Round 2 (2026-10-10, critic, fresh read)
+
+Verdict: FAIL (still nothing reviewable). Scores: none. No meta.json written or changed. approved-critic: none.
+
+### Re-check of Round 1 blockers
+1. Baselines: studio/test/baselines/<Name>/ still absent for all 11 (only KineticWord, NumberCounter, TableGrid, plus an untracked CameraRig dir that is fx-b, not dom-b).
+2. Implementation: studio/src/components/<Name>/ for all 11 still holds only the frozen schema.ts. No component.tsx, no meta.json, no demo strip under reports/p7/.
+3. Process gate AT-13R: reports/sync/at13.md still does not exist and no chair record of a pass appears in harness/state/decisions.json
+   (the last HEAD commits, 07ca84b and f8f4a5c, are deferral/re-check notes). ADR-011 bars fan-out beyond the three reference components until AT-13R passes.
+4. Tree cleanliness: worse than in Round 1. git status still shows untracked fx-b work (AudioReactive, CameraRig incl. baselines, DepthLayers, FXTier, families/fx-b.ts,
+   demos/fx-b.tsx, _structb/) and now also ArtifactChain/domc_kit.tsx and CalloutArrow/target.ts, plus modified harness state and the render job log.
+   AT-13R needs a clean pinned RV1 engine; pin a commit or git worktree and exclude all of these.
+5. Data gaps D1 (ABSplit) and D2 (SampleScoop): no fact-checker ruling found. Do not show any A/B rate or sample size until ruled.
+
+### Scores
+All 11 (DeadlockCrossing, PageScan, AppliedSteps, SampleScoop, ABSplit, WireTangle, ModuleClusters, ComplexityRace, HashBuckets, StatusStamp, KeycardDoors):
+unreviewed. Legibility at 1080p, palette, depth and light, visual verb, Arabic, bullet-slide look cannot be judged without stills. A score would be invented.
+
+### Required order (unchanged)
+render-ops AT-13R renders from a pinned clean tree -> sync-verifier writes reports/sync/at13.md -> chair records pass -> motion-engineer builds the 11 dom-b components ->
+4 stills per component (p0, a1, p50, p100) at 1080p, Arabic QA output, demo strip -> critic Round 3.
+Pass bar for Round 3: mean >= 8.0 on the 06 section 3.2 rubric, minimum >= 7, no blocking issue.
