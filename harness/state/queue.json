@@ -314,30 +314,30 @@
       "updated": "2026-10-10T07:13:45Z"
     },
     "33": {
-      "label": "emphasis-S4:P04",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py asr emphasis a:S4:P04 --inline",
+      "label": "g6a-verify0-catalog-tsc",
+      "cmd": "bash /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/cat/run.sh",
       "tsp_id": 33,
       "status": "done",
-      "mem_gb": 2.5,
-      "expected_gb": 0.05,
+      "mem_gb": 1.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-08T14:12:57Z",
+      "submitted": "2026-10-10T07:24:02Z",
       "exit": "0",
-      "updated": "2026-10-08T14:14:02Z"
+      "updated": "2026-10-10T07:24:08Z"
     },
     "34": {
-      "label": "emphasis-S4:P05",
-      "cmd": "/home/user/Upload-documents/.venv/bin/python -I /home/user/Upload-documents/tools/dc.py asr emphasis a:S4:P05 --inline",
+      "label": "g6a-verify0-typesuite",
+      "cmd": "bash -c cd /home/user/Upload-documents && bash studio/scripts/check_type.sh > /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/type.out 2>&1; echo exit=$? >> /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/type.out",
       "tsp_id": 34,
       "status": "done",
-      "mem_gb": 2.5,
-      "expected_gb": 0.05,
+      "mem_gb": 1.0,
+      "expected_gb": 0.0,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-08T14:12:58Z",
+      "submitted": "2026-10-10T07:24:15Z",
       "exit": "0",
-      "updated": "2026-10-08T14:14:02Z"
+      "updated": "2026-10-10T07:29:45Z"
     },
     "35": {
       "label": "emphasis-S4:P06",
