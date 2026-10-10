@@ -1,0 +1,468 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-10T07:09:27Z",
+ "label": "r5-f7-standard_fix",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "fail",
+ "metrics": {
+  "strings": 9,
+  "failed": 1,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 7,
+  "ocr_pass": 6,
+  "ocr_min": 0.828,
+  "ocr_exact": 5,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 0,
+  "join_min": null,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "frame-crop": 9
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "F7fix-title",
+   "text": "دي الشغلانة كلها",
+   "size": 104,
+   "render_size": 104,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [
+    "OCR score 0.828 < 0.9 (frame-crop); got 'د> الشغلدنة كلما'"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "box": [
+     890,
+     70,
+     1800,
+     180
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.828,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "د> الشغلدنة كلما",
+    "join_junk": "",
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "F7fix-chip1",
+   "text": "1 الجهاز",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     845,
+     280,
+     1028,
+     330
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "1الجهاز .",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-chip2",
+   "text": "2 الداتا",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     1392,
+     234,
+     1578,
+     284
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "| 2الداتا —",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-chip3",
+   "text": "3 الأنظمة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     1522,
+     803,
+     1728,
+     853
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.947,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "3 الأنظمة 2",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-chip4",
+   "text": "4 المنصة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     925,
+     983,
+     1132,
+     1037
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "| 4 المنصة ©",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-chip5",
+   "text": "5 المجال",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     440,
+     712,
+     628,
+     762
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": ". 5 المجال",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-chip6",
+   "text": "6 AI",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "mono"
+    ]
+   },
+   "overflow": {
+    "box": [
+     375,
+     268,
+     545,
+     318
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-chip7",
+   "text": "7 الدليل",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     636,
+     124,
+     822,
+     174
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "7 الدليل .",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7fix-kafka",
+   "text": "Kafka",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "mono"
+    ]
+   },
+   "overflow": {
+    "box": [
+     1210,
+     790,
+     1350,
+     850
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

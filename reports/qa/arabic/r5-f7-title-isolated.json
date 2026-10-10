@@ -1,0 +1,120 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-10T07:09:45Z",
+ "label": "r5-f7-title-isolated",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "pass",
+ "metrics": {
+  "strings": 1,
+  "failed": 0,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 1,
+  "ocr_pass": 1,
+  "ocr_min": 0.966,
+  "ocr_exact": 0,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 0,
+  "join_min": null,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 1
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "s000",
+   "text": "دي الشغلانة كلها",
+   "size": 104,
+   "render_size": 104,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "ink_w": 891,
+    "ink_h": 149,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.966,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "دي | لشغلانة كلها",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

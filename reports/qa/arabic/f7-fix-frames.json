@@ -1,0 +1,11 @@
+[
+ {"id":"F7fix-title","text":"دي الشغلانة كلها","size":104,"kind":"kinetic","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[890,70,1800,180]},
+ {"id":"F7fix-chip1","text":"1 الجهاز","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[845,280,1028,330]},
+ {"id":"F7fix-chip2","text":"2 الداتا","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[1392,234,1578,284]},
+ {"id":"F7fix-chip3","text":"3 الأنظمة","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[1522,803,1728,853]},
+ {"id":"F7fix-chip4","text":"4 المنصة","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[925,983,1132,1037]},
+ {"id":"F7fix-chip5","text":"5 المجال","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[440,712,628,762]},
+ {"id":"F7fix-chip6","text":"6 AI","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[375,268,545,318]},
+ {"id":"F7fix-chip7","text":"7 الدليل","size":32,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[636,124,822,174]},
+ {"id":"F7fix-kafka","text":"Kafka","size":34,"kind":"label","frame":"reports/lookdev/r3/stills/F7-standard_fix.jpg","box":[1210,790,1350,850]}
+]
