@@ -318,3 +318,123 @@ Fix:
 | n2 | `component_guide.md` §5 lists the `DC_QA` kinds as "(overflow, perletter, label, digits, font)". Add `fragment` and `unsafe` |
 | n3 | The `transitionState` comment says two captions never overlap. But outgoing copy with no `until` fades out over the tail while the incoming copy is fully opaque. At t = 3 of a 14 f dissolve the incoming backdrop is still < 0.2 opaque (unit test), so most of the old caption is visible as the first new word reveals. This is a critic call. An exit before the cut avoids it |
 | n4 | Not from this review: `/tmp` holds 58 stale `remotion-webpack-bundle-*` folders from 2026-10-09, about 2.9 GB, with 3.5 GB free. render-ops should clear them |
+
+## Pre-fan-out check
+
+- **Reviewer:** an independent senior-engineer pass. I did not write the engine changes.
+- **Scope:** the engine commits after `2b5104e`: `08882ce` (Council C5 chair record, read only) and `2c5ea84` (Q3 P2 `PREVIEW.fps` 12 with a re-freeze; RV1 citing the chair record; M8, m12, n1, n2).
+- **Date:** 2026-10-10.
+- **Method.**
+  - Every check ran through the tsp queue on scratch roots built from `git archive 2c5ea84`. The roots used the shared `node_modules` through a symlink. They held copies of the baseline PNGs, which match their `meta.json` sha256 (12/12).
+  - The scratch driver is `p7.ts` with `enableCaching: false` added, so nothing was written to the shared webpack cache. That cache stayed at 932 MB, 3 entries. `TMPDIR` was private.
+  - Two mutation roots were made from the same tree. Their QA details come from the job logs (tsp 14, 15).
+  - The roots, bundles and renders are deleted. The repo was not touched, apart from this section and the queue log (`harness/state/queue.json`, `corpus/render/jobs.jsonl`: tsp 8–15).
+
+### Verdict: PASS. Nothing blocks the fan-out.
+
+- **Onset:** RV1 is implemented as the chair recorded it.
+- **Preview fps:** every preview path reads `PREVIEW.fps` = 12 from the token.
+- **M8:** fixed. The false positive is gone, and genuinely unsafe copy still fires.
+- **m12, n1, n2:** done.
+- **Snapshots:** all 3 reference snaps pass, and so does the self-test.
+- **Freeze:** only the authorised `tokens.ts` hash changed.
+- **New findings:** one minor (m13, reproducibility) and three nits. None blocks the fan-out.
+
+### What I ran
+
+| Check | Result |
+|---|---|
+| `freeze.json` against `2b5104e` | 227 → 227 entries, none added or removed. **1 changed: `studio/src/tokens.ts`** (`fc7f05ca…` → `e679727e…`), recorded in `contract_changes` (ADR-011, chair record `decision.Q3 = P2`) |
+| Re-hash of all 227 entries | 227/227 match, both in the working tree and in `git show HEAD:`. Of the files changed in `2b5104e..HEAD`, `tokens.ts` is the only hashed one |
+| `tokens.ts` undo test | Reverting exactly the 2 authorised lines (`PREVIEW` and `TOKENS_VERSION`) reproduces the old frozen hash `fc7f05ca…`. Nothing else in the file changed |
+| `dc gate check G6a` on the scratch root | PASS 8/8: "227 hashed files, 0 changed" |
+| `tsc --noEmit` | exit 0 (tsp 12). On a clean archive it fails first with exit 2: see m13 |
+| `check_p7.sh` | 3 suites pass (tsp 12): type, P7 type, compiler. They include the chair-record asserts (`Q2 = RV1`; `Q3 = P2`, `PREVIEW.fps` = token), `PREVIEW.fps = 12`, the hard-coded preview fps scan, and a 12 fps resolve that halves the span |
+| `snap _selftest` | **PASS** (tsp 13). `overflow`, `perletter`, `fragment`, `unsafe` and `label` each fire on their own fixture. `selftest:fitshrink` stays clean: 0 findings |
+| `snap KineticWord` | **PASS** (tsp 13). Frames 0/15/35/71, 0 px on all 4 stills, det 0, qa 0 |
+| `snap NumberCounter` | **PASS** (tsp 13). Frames 0/15/35/71, 0 px on all 4 stills, det 0, qa 0 |
+| `snap TableGrid` | **PASS** (tsp 13). Frames 0/11/54/109, 0 px on all 4 stills, det 0, qa 0 |
+
+### Onset = RV1, as the chair recorded it
+
+- **The chair record.** `harness/state/decisions.json` → `ADR-011` has `decision.Q2 = "RV1"`. `Q2_history` reads RV2 (C5 ballot), then RV1 (RT-011-2, evaluated by the chair on the RV2-valid AT-13 subset). `reveal_onset` says: first visible step on the anchor frame, preset length unchanged, settles at anchor + n − 1. `ADR-011` has `Status: decided`.
+- **The code.** `revealProgress(t, n) = interpolate(t + REVEAL_ONSET_F, [0, n])` with `REVEAL_ONSET_F = 1`. It returns 0 for t < 0, so anchor − 1 stays hidden.
+  - On the anchor frame, progress is `ease(1/n)`. For arrive that is 0.685 @ 24 fps (n 6) and 0.90 @ 12 fps (n 3), as the guide states.
+  - Progress reaches 1 at t = n − 1.
+  - Every preset branch of `revealStyle` goes through it. So do the component-owned motions: the TableGrid row entry, highlight and sort/filter travel.
+- **NumberCounter.** The roll starts at `t0 − REVEAL_ONSET_F`, so it has ink on the anchor and still lands on the word end. Its label is a secondary element, delayed by half a label preset and not tied to an anchor, so its raw `interpolate` is correct.
+- **The guard.** `p7.check.ts` asserts ink > 0 on the anchor frame for every preset × {12, 15, 24} fps × {rtl, ltr}. It also asserts that the chair record says RV1.
+- **Limit:** snapshot stills cannot see the onset. They fall on frames before the reveal or after it settles, which is why the baselines approved before `5ce4555` still pass at 0 px. The onset evidence is the unit check and the AT-11 RV1 set. The guide (§ onset) keeps fan-out beyond the three reference components behind **AT-13R** (render-ops + sync-verifier). I found no AT-13R result in `decisions.json`. That is a Council / sync-verifier precondition, not an engine defect.
+
+### `PREVIEW.fps` 12 is read from the token everywhere
+
+- `tokens.ts`: `PREVIEW.fps: 12`.
+- `resolve.ts`: `PREVIEW_FPS = PREVIEW.fps`.
+- The readers:
+  - SpecPlayer `calculateSpecMetadata` reads `props.fps ?? (preview ? PREVIEW_FPS : FPS)`.
+  - The `SpecPlayer` fallback now does the same. It used to read `FPS`, a real fix.
+  - `p7.ts spec` reads `opt.fps || (final ? FPS : PREVIEW_FPS)`.
+  - `dc render spec` passes `--fps` only when one is given.
+- **No hard-coded preview fps.** A grep of `studio/src`, `studio/scripts` and `tools/dclib` finds none. The remaining literals are:
+  - `fps={24}` in film-rate fixtures (QaSelftest, AT11);
+  - the 15 fps single-rounding test;
+  - the `freeze_p6.py` authorisation lines.
+- **Demo report.** `reports/p7/_demo.resolver.json` says fps 12, 615 f, 960x540, lite, 100 % resolved, qa 0.
+
+### M8: fixed, reproduced both ways
+
+How the fix works:
+- `settle.ts`. `useAutoFit` counts pending fits (`fitBegin` when it takes its handle, `fitEnd` when it releases it).
+- SpecPlayer and QaSelftest hold one `delayRender` per frame. They run per-letter, fragment and title-safe in `checkWhenSettled`: after the fonts are ready, pending = 0 and one more macrotask.
+- I read the commit order:
+  - `fitBegin` runs during render, before the parent's layout effect.
+  - A later re-fit (`setFit` in a child layout effect) re-renders synchronously, before the macrotask.
+  - Unmount releases the handle.
+
+  I found no path that hangs or checks early.
+
+Mutations of the KineticWord demo (all three are the `full` slot at `impact` size):
+
+| Root | kw2 = `INTERNATIONALIZATIONMIDDLEWARES` (fits only after shrinking) | kw3 = `…MIDDLEWARESINTERNATIONALIZATION` (51 chars; cannot fit at the 72 px floor) |
+|---|---|---|
+| `2c5ea84` (settled checks, tsp 14) | **no finding**: the r0 false positive is gone | **`overflow`** (natural 3838 px, max_w 1688, min 72) **and `unsafe`** (box −217…2133 vs title-safe 96…1824): still fires |
+| Control: same tree with `checkWhenSettled` forced synchronous, i.e. pre-M8 (tsp 15) | **`unsafe` box −245…2161**, the r0 job 78 box to the pixel: M8 reproduced | `unsafe` box −1001…2917 (pre-fit) + `overflow` |
+
+The self-test, mutated: the `selftest:fitshrink` box moved to x = 1100 (tsp 14), so the copy crosses title-safe only once it has been fitted.
+- Result: **`unsafe` box 1100…2074** fires on the settled layout.
+- The snap correctly reports it as a false positive and FAILs.
+
+So the settle step does not hide real violations. It removes only the pre-fit misread.
+
+### m12, n1, n2
+
+| # | Status | Evidence |
+|---|---|---|
+| m12 | done | `selftest:label` (LabelRow, gap 16) fires: "gap 16.0 px < 39.99". `LabelRow` checks against `LABEL_GAP_MIN_PX` × render scale, never the caller's `gap`. The self-test needs each kind on its own fixture id |
+| n1 | done (code read) | `snap --approve` computes `refuse` (determinism ≠ 0, QA findings, registry problems) before it writes anything. On refusal it does not copy the PNGs, does not write `meta.json`, fails each still with "not approved (baseline untouched)" and lists `approve_refused` |
+| n2 | done | Guide §5 lists `overflow, perletter, fragment, unsafe, label, digits, font`. It also documents the settle rule, and that components with their own measure-and-shrink must use `useAutoFit` or `fitBegin`/`fitEnd` |
+
+### New findings (non-blocking)
+
+**m13 (minor, pre-existing, matters for fan-out): a clean checkout neither typechecks nor bundles.**
+
+Where:
+- `studio/src/lookdev/motion.tsx:11` and `world.tsx:14` import `./data/ch33_window.json` and `./data/ch00_gates_window.json`.
+- The root `.gitignore` rule `data/` (meant for the top-level `data/`) also ignores `studio/src/lookdev/data/`.
+
+What happens on a `git archive 2c5ea84`:
+- `tsc` exits 2 with TS2307 (tsp 8).
+- The Remotion bundle fails on the missing module, so every snap and spec fails (tsp 9–11).
+- With the 2 local files copied in (5 KB), everything passes (tsp 12–15).
+
+Any fan-out agent that works in a worktree or a clean scratch root hits this.
+
+Fix: anchor the rule (`/data/`) or add `!studio/src/lookdev/data/`, then commit the two small JSON files. Owner: harness-engineer. They are derived look-dev data, not media.
+
+**Nits:**
+
+| # | Note |
+|---|---|
+| n5 | The settle contract is opt-in: a component that measures and shrinks outside `useAutoFit` without `fitBegin`/`fitEnd` would bring M8 back for itself. The guide says so. A cheap guard for the fan-out would be a registry or lint warning on `scrollWidth`/`getBoundingClientRect` plus `setState` in `src/components/**` outside `useAutoFit` |
+| n6 | Snapshot stills never sample the anchor frame (see the limit above). The fan-out reviewers should take onset evidence from the unit check, the AT-11 RV1 set and AT-13R, not from snaps |
+| n7 | `dc time ms2frame` and `frame2ms` default to `--fps 30`. The film rate is 24 (ADR-002). This is a P0 tool, not from this commit. Default it to `film_fps()` |
