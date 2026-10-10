@@ -1,6 +1,60 @@
 # G6a independent verification
 
-## Round 6 (supersedes Round 5 below)
+## Round 7 (workflow round 0 of the re-verification after the g06a.py per-artifact fix; supersedes Round 6 below)
+
+Verifier: a separate invocation that did not author or fix any P6 work. Read-only except this report (scratch files in the session scratchpad; queue jobs 33 and 34). Date: 2026-10-10 07:20 to 07:30 UTC. Repo HEAD at start and end: 601613e. I did not edit `harness/gates/g06a.py`, `freeze_p6.py` or any frozen file.
+
+### Verdict: PASS
+
+`python3 tools/dc.py gate check G6a` returns **PASS 8/8** (runs 07:20:39Z and 07:26:14Z, both 8/8). I then re-derived every 06 section 1 G6a criterion and every ADR-009 / ADR-010 close condition from the artifacts, not from the checker, and each holds. The Round 6 defect (cond 3 read only the latest review) is fixed in commit 601613e and I confirmed the fix on the real files and with the test suite. Three non-blocking observations and the carried P7/P8 items are listed at the end.
+
+### Criteria re-derived by me
+
+| Criterion | My evidence | Status |
+|---|---|---|
+| 06 s1: ADR-002/003/004/005 decided | `harness/state/decisions.json`: ADR-001..005, 009, 010 all `decided`; `docs/decisions/ADR-00{2,3,4,5}-*.md` present | ok |
+| Look mean >= 8.0 and parity >= 7.5 | Recomputed from `reports/lookdev/critic_r3.json` per-family scores: 10 families x 7 criteria, sum 561 / 70 = **8.0143**; parity read (7.5, 7.5, 7.5, 7.0, 8.0) = **7.50**; min criterion 7; F1-F6 standard 8.0017; without the cost column 7.817. Both meet the thresholds with zero headroom, and ADR-009 W-009-LOOK (decisions.json, scope "r3 style-frame set only: stills F1-F9 + F4-hero; strips MA, MB, MB-hero, MC, MD") explicitly covers r3. The critic wrote the scores (not the author) | ok |
+| Tokens, presets, catalog frozen | `harness/state/freeze.json` `status: frozen`, `open_preconditions: []`, `frozen_at 2026-10-10T07:10:47Z`, base c45d1d2. **227 hashed files** (tokens 1, type 2, fonts 12, catalog_src 106, catalog_json 106); I re-hashed every one with sha256: **227/227 match, 0 missing**. `git diff c45d1d2 HEAD` on `studio/src`, `studio/public`, `studio/fonts`, `harness/schemas` is empty. 04 section 8 lists **104** names = 104 `studio/src/components/*/schema.ts` dirs = `_index.json` count = all 208 per-component entries present in the freeze; `tokens.ts` and `type/arabic.ts` are in it | ok |
+| Freeze is newer than every `*_fix` still and strip | `frozen_at` 07:10:47Z vs newest artifact F7-standard_fix mtime 06:34:24 (commit 8ae7cc0, 06:35:14); the other six stills 23:01:46-23:03:14 on 10-09, MD strip 23:14:22. It is also newer than `regress.json` (07:09:07), `arabic_r5.md` (07:10:33), `fix.json` (06:34:58) and ADR-010 (06:12:54). The ADR-009 cond 5 ordering (freeze only after cond 1-4) holds | ok |
+| Projected final render <= 24 h | `corpus/edl/lock.json`: **332,651 frames** @ 24 fps (3.850 h). ADR-002 band S 0.141-0.183 / H 0.904-1.038 box s/frame at RT5 (5 % hero): by hand **16.55-20.86 h**; measured blended 0.1339 box s/frame (`r3/perf.json`) = **12.37 h**; worst **20.86 h** vs 24 h pure P12 (ADR-002 reads the budget as pure P12). Break-even is 0.2597 box s/frame. The +25 % contingency read is 26.07 h, which is the ADR-002 R2 ladder, not a G6a miss. AT-9 (plate bake cost) is still open and blocks P10 | ok |
+| ADR-009 cond 1 (fixes land) | Viewed my own crops of the delivered 1920x1080 stills: F3 title `الـ partition` shows a clear gap and the tatweel foot; F6 head and labels read `قسم الـ roadmap` / `قسم الـ idempotency`; F6 grid is RTL (`0.165`, arrow, `0.227`); F7 chip 6 reads `AI 6` with a serifed I; F8 ghost is two lines of 4 + 3 words; F5 unit 0.55 em (source and r3 re-check) | ok |
+| ADR-009 cond 2 (OCR >= 0.90, suite) | `r3/fix.json`: the four `gate: true` strings F3-title, roadmap-72, idem-72, F7-chip6 all **1.00 exact**; the non-gate probes (F6-head 0.651, caps-AI-32 0.80) are recorded as non-gate. I re-ran the type suite through the queue (job 34): **43 ok, 0 fail, "all type checks passed"**. `reports/qa/arabic/adr009-gate.json` (`dc qa arabic`) is pass on 6 items | ok |
+| ADR-009 cond 3 (re-render + fresh PASS review) | See the coverage table below: 8/8 artifacts, each covered by a PASS review by the arabic-typographer (not the author) that is newer than the artifact's current mtime and commit | ok |
+| ADR-009 cond 4 (no-regression diff) | `r3/regress.json` by render-ops, `pass: true`, `outside_px: 0`, covers all 7 stills, mtime 07:09:07 / commit 07:09:14, newer than the newest still (F7 06:34:24). **I recomputed all 7 diffs myself** (`*_fix` vs the scored r3 JPG, LANCZOS to 960x540, max-RGB |delta| > 8, allowed area = the recorded boxes + 16 px): changed-pixel counts equal render-ops' exactly (5184, 2581, 2577, 76, 43475, 1327, 10064), **0 px outside** in every still, largest delta outside 3/255 (F6) | ok |
+| ADR-009 cond 5 (freeze, then G6a only via the CLI) | Freeze after cond 1-4 (see ordering above); `g06a.py` cites W-009-LOOK in the look row and checks the evidence; the pass is from `dc gate check G6a` | ok |
+| ADR-010 values = `studio/src/type/arabic.ts` | `arabic.ts:60`: `JOIN_GAP = {display: {caps: 0.2, latin: 0.25}, text: {caps: 0.25, latin: 0.3}}`, display band >= `FONT.arDisplay.minPx` = 56. Identical in ADR-010 (table and machine-readable form), `decisions.json` ADR-010 `decision.JOIN_GAP` and `freeze.json` `join_gap`. ADR-010 status decided, committed 06:13:20, before the freeze | ok |
+| `g06a.py` tests | `python3 -I tools/tests/test_g06a.py`: **40 checks ok** (includes: older PASS stays valid after a newer unrelated PASS; a later FAIL re-opens only its artifact; an artifact newer than its only PASS is stale; unscoped FAIL after the last PASS; B-items inherit artifact coverage; regress.json older than the newest re-render fails cond 4) | ok |
+| Catalog 104/104 compiles | Queue job 33 on a scratch copy of `export_catalog.ts` (esbuild bundle, zod 4 export): "all catalog checks passed; 104 schemas", 25 ok / 0 FAIL; the 106 regenerated JSON files are **byte-identical** to the frozen `harness/schemas/components/` (`diff -rq` clean); `tsc --noEmit -p studio/tsconfig.json` **exit 0**. Nothing in the repo was written | ok |
+
+### Cond 3 and `arabic_review_pass`: per-artifact coverage by the true reviewing section (my reading of the reviews)
+
+| Artifact (current mtime UTC; commit) | Covering PASS I read | Review commit | Newer? |
+|---|---|---|---|
+| F3, F4-standard, F4-hero, F5, F6 `_fix` (10-09 23:01:46-47; a3b86c1 23:03:30) | `arabic_r3.md` "Re-check of the r3 Arabic fixes: PASS" (tesseract OCR by the arabic-typographer, B1/B2/R1/R2/R3 closed) | d6ac265 10-09 23:05:03 | yes, by 93 s |
+| F8 `_fix` (10-09 23:03:14; a3b86c1) | the same r3 re-check (R2 ghost) and `arabic_r4.md` (read on the F8 full-size still) | d6ac265 / 84ad38b | yes |
+| F7 `_fix` (10-10 06:34:24; 8ae7cc0 06:35:14, re-rendered with cv08) | `arabic_r5.md` "PASS: F7-standard_fix", 0 blocking, 0 required (the r3 re-check and r4 predate the re-render and correctly do not count) | c45d1d2 10-10 07:10:33 | yes |
+| MD-standard_fix strip (10-09 23:14:22; a773103) | `arabic_r4.md` "PASS (0 blocking, 0 required) ... scope MD-standard_fix" | 84ad38b 10-10 06:13:04 | yes |
+
+No review after the last PASS contains a FAIL. The only FAIL headings (r2, r3 "Verdict: FAIL") precede the re-check PASS in the same file. The gate prints the same 8/8 "covered" outcome.
+
+### Observations (non-blocking; none changes the verdict)
+
+1. **Gate attribution is looser than the truth, with the same outcome.** `names_artifact` credits an artifact to any later verdict section that names it, even in passing. The gate therefore reports F3/F4-standard/F6/F8 as covered by `arabic_r4.md` (a passing "F3/F4/F6/F7 `_fix` stills are valid evidence" sentence) and F5 by `arabic_r5.md` (an advisory list), while their real review is the r3 re-check. Every one of those artifacts does have a true PASS that postdates it, so no result is wrong now. The weakness is that a later PASS that merely mentions an artifact could mask an earlier FAIL on it. Suggested hardening for harness-engineer: require the artifact in the section heading or a `Scope:` line (or an explicit `covers:` list). `freeze_p6.py` mirrors the same heuristic.
+2. **Cond 4 row trusts the `pass` flag.** `g06a.py` requires `by == render-ops`, `pass is True`, the 7 stills and recency, and prints `outside_px`, but does not enforce `outside_px == 0`. I recomputed it (0), so the value is right.
+3. **MD strip is not in `regress.json`** (ADR-009 cond 4 says "stills", so by the letter it is not required). My own diff of `MD-standard_fix.jpg` vs `MD-standard.jpg` (4x2 tile grid): the changes are the ghost phrase region and the burned-in caption labels; the scene content is unchanged. Outside the ghost box + 16 px and the caption band, 2,111 of 1,036,800 pixels (0.20 %) exceed 8/255, max 54/255, scattered on particle dots and label edges; the same shot as a full-size still (F8) has 0 px outside. I treat that as strip-render noise. render-ops may add the strip to `regress.json` for completeness.
+4. **ADR-010 follow-up not yet in the harness:** `freeze_p6.py` still only checks that an amending ADR exists, and `g06a.py` relies on the `arabic.ts` hash; neither compares `JOIN_GAP` with the ADR-010 numbers. I compared them by hand (identical, above).
+
+### Carried to P7/P8/P10 (not G6a conditions)
+
+AT-1..AT-12 (AT-11 34 px join gap in motion with native-reader veto before G6b; AT-12 line-length at the 6-word limit), AT-9 plate bake cost (blocks P10), AT-10 full `dc qa arabic` for G6b, strips MA/MB/MB-hero/MC still pre-fix renders with the old gaps (ADR-010: re-render before any is cited as G6a/G8 evidence), canon drift `6 الـAI` vs the bare `AI 6` chip (scene-director to restore or log a pending-council override), F8 ghost line 1 measured 3.4:1 by the arabic-typographer against the AT-4 3.8:1 floor (do not dim further). G8 is not waivable under W-009-LOOK; the critic's r3 read is marginal (8.014 / 7.50) by its own words.
+
+### Side effects of this verification
+
+Wrote only this report. The gate runs refreshed `reports/gates/G6a.json`, `harness/state/progress.json` and `harness/state/queue.json` (uncommitted harness state, committed separately by the harness owner as in earlier rounds). Scratch under the session scratchpad only (`cat/`, `regress_check.py`, image crops). No repo file in the freeze set was touched.
+
+---
+
+## Round 6 (superseded by Round 7 above; kept for the record; it supersedes Round 5 below)
 
 Verifier: a separate invocation that did not author or fix any P6 work. Read-only except this report. Date: 2026-10-10 07:11 to 07:25 UTC. Repo HEAD at start and end: 0ab837c ("P6.4 freeze final").
 
