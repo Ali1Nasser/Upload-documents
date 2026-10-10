@@ -1,0 +1,13 @@
+{"v": 1, "chapter": "CH-99", "edl_version": "v1", "shots": [
+ {"shot_id": "CH-99-S01", "sentences": ["s:S1:t:0001"], "intent": "qa fixture: one good kinetic phrase, one chip, one bad per-letter layer",
+  "layers": [
+   {"component": "KWord", "props": {"text": "الترتيب داخل الـpartition", "size": 92, "preset": "arrive", "color": "#fff"}, "at": {"word": "w:S1:t:000001", "lead_frames": 3}},
+   {"component": "TermChip", "props": {"term": "offset", "gloss": "الإزاحة"}, "at": {"word": "w:S1:t:000002", "lead_frames": 2}},
+   {"component": "KWord", "props": {"text": "وغلط", "size": 160, "effect": "per-letter"}, "at": {"word": "w:S1:t:000003", "lead_frames": 3}}
+  ]},
+ {"shot_id": "CH-99-S02", "sentences": ["s:S1:t:0002"], "intent": "qa fixture: bad strings",
+  "layers": [
+   {"component": "KWord", "props": {"text": "النتيجة ٦٦ ٪", "size": 80}, "at": {"word": "w:S1:t:000004", "lead_frames": 3}},
+   {"component": "Caption", "props": {"caption": "دي كلمة اتحطت من غير الـ kafka خالص يا جماعة هنا وكمان كلمات كتير زيادة عشان نكسر الحد تماما", "size": 40}, "at": {"word": "w:S1:t:000005", "lead_frames": 3}}
+  ]}
+]}

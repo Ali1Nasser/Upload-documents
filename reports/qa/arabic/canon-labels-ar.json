@@ -1,0 +1,4512 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-10T06:30:39Z",
+ "label": "canon-labels-ar",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "fail",
+ "metrics": {
+  "strings": 117,
+  "failed": 11,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 115,
+  "ocr_pass": 109,
+  "ocr_min": 0.571,
+  "ocr_exact": 82,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 2,
+  "digits": 2,
+  "joins": 0,
+  "copy": 1,
+  "join_strings": 7,
+  "join_min": 0.824,
+  "join_below_min": [
+   "s025",
+   "s078"
+  ],
+  "rt_010_2": [
+   "s025"
+  ],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 117
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "s000",
+   "text": "هات الصفوف",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-00:labels_ar:0",
+    "canon:CH-36:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 172,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "هات الصفوف",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s001",
+   "text": "خليها موثوقة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-00:labels_ar:1",
+    "canon:CH-36:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 163,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "خليها موثوقة .",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s002",
+   "text": "جاوب على السؤال",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-00:labels_ar:2",
+    "canon:CH-36:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 231,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "جاوب على السؤال",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s003",
+   "text": "الصفوف الباقية",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-00:labels_ar:3",
+    "canon:CH-11:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 191,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الصفوف الباقية",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s004",
+   "text": "66.67 %",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-00:labels_ar:4"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "mono"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 135,
+    "ink_h": 23,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s005",
+   "text": "1 الجهاز ← 2 الداتا ← 3 الأنظمة ← 4 المنصة ← 5 المجال ← 6 الـAI ← 7 الدليل",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-01:labels_ar:0"
+   ],
+   "problems": [
+    "COPY-LINES 3 lines > 2"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 1024,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 1016
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.929,
+    "exact": false,
+    "psm": 6,
+    "scale": 100,
+    "got": "1 الجياز < 2 الداتا > 3 الأنظمة + 4 المنصة > 5 المجال > 6 الال8 > 7 الدليل",
+    "join_junk": "",
+    "join_region_ok": false,
+    "pass": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s006",
+   "text": "الحالة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-02:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 70,
+    "ink_h": 24,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الحالة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s007",
+   "text": "خطوة 4 / 9",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-02:labels_ar:1"
+   ],
+   "problems": [
+    "BIDI-EXPR numeric expression outside one isolate: use ⟦4 / 6 = 66.67 %⟧"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 156,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم خطوة 4 / 9",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s008",
+   "text": "قراءات الصفحات",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-02:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 210,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قراءات الصفحات",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s009",
+   "text": "المتوقع مقابل الحقيقي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-02:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 287,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "المتوقع مقابل الحقيقي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s010",
+   "text": "جلب",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-03:labels_ar:0"
+   ],
+   "problems": [
+    "OCR score 0.571 < 0.9 (pil-raqm-isolated); got 'cle \\u200fقسم\\u200e'"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 61,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.571,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "cle ‏قسم‎",
+    "join_junk": "",
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s011",
+   "text": "فك",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-03:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 44,
+    "ink_h": 26,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 140,
+    "got": "'قسم فك",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s012",
+   "text": "تنفيذ",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-03:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 63,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم تنفيذ",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s013",
+   "text": "RAM — مؤقتة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-03:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 182,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم ‎RAM‏ - مؤقتة .",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s014",
+   "text": "disk — دائمة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-03:labels_ar:4"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 168,
+    "ink_h": 24,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ‎disk‏ — دائمة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s015",
+   "text": "مسار مطلق",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-04:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 143,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "مسار مطلق",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s016",
+   "text": "مسار نسبي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-04:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 136,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.941,
+    "exact": false,
+    "psm": 7,
+    "scale": 70,
+    "got": "مسار نسي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s017",
+   "text": "أول pipeline هتكتبه في حياتك",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-04:labels_ar:2"
+   ],
+   "problems": [
+    "OCR score 0.88 < 0.9 (pil-raqm-isolated); got '\\u200epipeline Jol\\u200f هتكتبه في حياتك'"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 379,
+    "ink_h": 45,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.88,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "‎pipeline Jol‏ هتكتبه في حياتك",
+    "join_junk": "",
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s018",
+   "text": "المالك · المجموعة · الباقي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-05:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 329,
+    "ink_h": 41,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.93,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "المالك ‎٠‏ المجموعة ‎٠‏ الباق",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s019",
+   "text": "اقرا الـlog من تحت لفوق",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-05:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 314,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 304
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "اقرا ال ‎log‏ من تحت لفوق",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s020",
+   "text": "اسم ← قيمة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-06:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 160,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "قسم اسم > قيمة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s021",
+   "text": "الفرع اللي اتنفذ",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-06:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 193,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الفرع اللي اتنفذ",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s022",
+   "text": "stack frame",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-06:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "mono"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 199,
+    "ink_h": 23,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s023",
+   "text": "الداتا بتختفي لما البرنامج يقف",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-07:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 372,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "الداتا بتختفي لما البرنامج يقف |",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s024",
+   "text": "تحقّق، ما تفترضش",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-07:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 235,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.963,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "تحققء ما تفترضش",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s025",
+   "text": "نفس الـobject",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-08:labels_ar:0"
+   ],
+   "problems": [
+    "OCR score 0.897 < 0.9 (pil-raqm-isolated); got 'object J] \\u200fقسم نفس\\u200e'"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 186,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 177
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.897,
+    "exact": false,
+    "psm": 13,
+    "scale": 70,
+    "got": "object J] ‏قسم نفس‎",
+    "join_junk": "j]",
+    "join_region_ok": false,
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s026",
+   "text": "صف واحد في المرة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-08:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 237,
+    "ink_h": 41,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "صف واحد في المرة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s027",
+   "text": "أحمر ← أخضر ← إعادة هيكلة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-09:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 369,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "أحمر > أخضر > إعادة هيكلة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s028",
+   "text": "git مش بيخمّن",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-09:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 194,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.929,
+    "exact": false,
+    "psm": 13,
+    "scale": 70,
+    "got": "قسم ‎git‏ مش بيخقن |",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s029",
+   "text": "مفتاح أساسي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-10:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 163,
+    "ink_h": 47,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "مفتاح أساسي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s030",
+   "text": "مفتاح خارجي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-10:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 161,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.909,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "مفتاج خارجي ‏",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s031",
+   "text": "واحد لمتعدد",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-10:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 159,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "واحد لمتعدد",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s032",
+   "text": "تكامل مرجعي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-10:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 168,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تكامل مرجعي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s033",
+   "text": "الـalias بيتولد هنا",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-11:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 221,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 212
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "ال ‎alias‏ بيتولد هنا",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s034",
+   "text": "صف واحد لكل إيه؟",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-11:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 248,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "صف واحد لكل إيه؟",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s035",
+   "text": "تضخّم الصفوف: 6 ← 15",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-12:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 320,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.929,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "تضكم الصفوف: 6 > 15",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s036",
+   "text": "القسم",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-12:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 78,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم القسم",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s037",
+   "text": "الإطار",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-12:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 65,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الإطار",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s038",
+   "text": "NULL = NULL ← غير معروف",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-12:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 367,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "‎NULL = NULL‏ > غير معروف",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s039",
+   "text": "ذرّي · متّسق · معزول · دائم",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-13:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 355,
+    "ink_h": 42,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.919,
+    "exact": false,
+    "psm": 7,
+    "scale": 85,
+    "got": "ذرّي ‎٠‏ متّسق ‎٠‏ معزول ‎٠‏ دائم",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s040",
+   "text": "دورة انتظار",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-13:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 134,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "دورة انتظار",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s041",
+   "text": "الضحية",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-13:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 91,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الضحية",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s042",
+   "text": "الصفوف المفحوصة مش الملّي ثانية",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-14:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 453,
+    "ink_h": 48,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الصفوف المفحوصة مش الملّي ثانية",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s043",
+   "text": "3 صفحات مقابل 12 500",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-14:labels_ar:1"
+   ],
+   "problems": [
+    "BIDI-MULTIWORD Latin words '12' '500' are separate isolates (RTL reverses them); wrap in ⟦…⟧"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 325,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "3 صفحات مقابل 12 500",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s044",
+   "text": "تقديري مقابل فعلي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-14:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 245,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تقديري مقابل فعلي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s045",
+   "text": "إدخال واحد = كتابتين",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-14:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 269,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "إدخال واحد - كتابتين",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s046",
+   "text": "15 صف · 8 عيوب",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-15:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 239,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.963,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم 15 صف ‎٠‏ 8 عيوب",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s047",
+   "text": "11 كتابة ← 5 عملاء + واحد فاضي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-15:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 429,
+    "ink_h": 42,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.977,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "1 كتابة + 5 عملاء + واحد فاضي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s048",
+   "text": "الترتيب الصح",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-15:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 159,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الترتيب الصح",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s049",
+   "text": "من غير أي error",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-15:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 204,
+    "ink_h": 45,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم من غير أي ‎error‏",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s050",
+   "text": "المتوسط بيتحرك · الوسيط لأ",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-16:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 356,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.933,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "المتوسط بيتحرك ‎٠‏ الوسيط لآ",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s051",
+   "text": "التغطية 95٪",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-16:labels_ar:1"
+   ],
+   "problems": [
+    "EASTERN-DIGIT '٪' (U+066A): Western digits only (master 0.3)"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 153,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم التغطية ||95",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s052",
+   "text": "العيّنة مش الحقيقة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-16:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 237,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "| العينة مش الحقيقة ‏",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s053",
+   "text": "سياق الفلتر",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-17:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 140,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "سياق الفلتر.",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s054",
+   "text": "بيستبدل، مش بيضيّق",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-17:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 273,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.966,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "بيستبدل» مش بيضق |",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s055",
+   "text": "التباين 21.00 : 1",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-17:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 217,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم التباين 21.00 : 1",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s056",
+   "text": "الترابط",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-18:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 75,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الترابط",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s057",
+   "text": "التماسك",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-18:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 106,
+    "ink_h": 24,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم التماسك",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s058",
+   "text": "السلوك ما اتغيّرش",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-18:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 225,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.933,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "السلوك ما اتغترش",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s059",
+   "text": "قرار · بديل مرفوض · نتيجة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-18:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 340,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.95,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "قرار ‎٠‏ بديل مرفوض ‎٠‏ نتيجة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s060",
+   "text": "المقارنات",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-19:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 111,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "المقارنات",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s061",
+   "text": "معامل التحميل",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-19:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 189,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "معامل التحميل",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s062",
+   "text": "الجبهة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-19:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 78,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.9,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الجبية",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s063",
+   "text": "المزارة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-19:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 75,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم المزارة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s064",
+   "text": "دورة مكتشَفة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-19:labels_ar:4"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 164,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "دورة مكتشّفة /",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s065",
+   "text": "اسم ← عنوان",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-20:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 172,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "اسم © عنوان ‏",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s066",
+   "text": "مصافحة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-20:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 105,
+    "ink_h": 27,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم مصافحة .",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s067",
+   "text": "موثَّق ≠ مصرَّح له",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-20:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 212,
+    "ink_h": 49,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.909,
+    "exact": false,
+    "psm": 7,
+    "scale": 70,
+    "got": "مونّق * مصرّح له",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s068",
+   "text": "تحقّق ← حوّل ← حمّل",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-21:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 286,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تحقق > حول > حمل",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s069",
+   "text": "حجر صحي، ومعاه السبب",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-21:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 320,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.971,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "حجر صحيء ومعاه السبب",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s070",
+   "text": "من غير دورات",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-22:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 171,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "من غير دورات",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s071",
+   "text": "شغّلها مرتين ← نفس الأعداد",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-22:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 357,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.927,
+    "exact": false,
+    "psm": 7,
+    "scale": 140,
+    "got": "شقلا مرتين > نفس الأعداد",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s072",
+   "text": "النشر متوقف بسبب البوابة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-22:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 331,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "النشر متوقف بسبب البوابة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s073",
+   "text": "الحبيبة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-23:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 83,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "قسم الحبيبة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s074",
+   "text": "18 خلية ← 6",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-23:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 172,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم 18 خلية >6",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s075",
+   "text": "غير قابل للجمع",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-23:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 191,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "غير قابل للجمع",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s076",
+   "text": "زي ما كان، مش زي ما هو",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-23:labels_ar:3"
+   ],
+   "problems": [
+    "OCR score 0.875 < 0.9 (pil-raqm-isolated); got 'زي ماكان» مش \\u200eSj\\u200f ما هو'"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 323,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.875,
+    "exact": false,
+    "psm": 13,
+    "scale": 120,
+    "got": "زي ماكان» مش ‎Sj‏ ما هو",
+    "join_junk": "",
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s077",
+   "text": "بلوك · نسخة · رف",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-24:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 233,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.917,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "بلوك ‎٠‏ نسخة ‎٠‏ رف",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s078",
+   "text": "الـshuffle = شبكة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-24:labels_ar:1"
+   ],
+   "problems": [
+    "OCR score 0.824 < 0.9 (pil-raqm-isolated); got '\\u200eand\\u200f ال \\u200eshuffle\\u200f = شبكة'"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 227,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 218
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.824,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "‎and‏ ال ‎shuffle‏ = شبكة",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s079",
+   "text": "لسه حالي / اتستبدل / تاريخي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-24:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 371,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "لسه حالي / اتستبدل / تاريخي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s080",
+   "text": "كسول لحد الـaction",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-25:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 262,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 253
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "كسول لحد ال ‎action‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s081",
+   "text": "حدّ المرحلة = shuffle",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-25:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 277,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.909,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "shuffle = ‏المرحلة‎ A>",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s082",
+   "text": "متأخر واحد",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-25:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 138,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.9,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "متآخر واحد",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s083",
+   "text": "الإزاحة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-26:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 75,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الإزاحة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s084",
+   "text": "التأخر = آخر متاح − آخر معالج",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-26:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 370,
+    "ink_h": 41,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.955,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "التآخر = آخر متاح - آخر معالج",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s085",
+   "text": "الترتيب داخل الـpartition",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-26:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 315,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 306
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الترتيب داخل ال ‎partition‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s086",
+   "text": "وقت الحدث ≠ وقت الوصول",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-27:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 361,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "وقت الحدث * وقت الوصول",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s087",
+   "text": "الطزاجة ≤ 5 دقايق",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-27:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 234,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الطزاجة < 5 دقايق",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s088",
+   "text": "نفس رقم العملية",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-27:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 217,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "نفس رقم العملية",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s089",
+   "text": "7 متطابقين",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-28:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 141,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "7 متطابقين",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s090",
+   "text": "الصافي بيكدب",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-28:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 168,
+    "ink_h": 41,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.917,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "الصاقي بيكدب",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s091",
+   "text": "فقدان مقبول / زمن استرداد",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-28:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 349,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "فقدان مقبول / زمن استرداد",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s092",
+   "text": "الأساس",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-29:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 91,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الأساس",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s093",
+   "text": "النموذج",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-29:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 94,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم النموذج",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s094",
+   "text": "تدريب / تحقق / اختبار",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-29:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 288,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تدريب / تحقق / اختبار",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s095",
+   "text": "افتح الاختبار مرة واحدة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-29:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 284,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "افتح الاختبار مرة واحدة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s096",
+   "text": "الدقة 99٪ — مسك صفر",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-30:labels_ar:0"
+   ],
+   "problems": [
+    "EASTERN-DIGIT '٪' (U+066A): Western digits only (master 0.3)"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 313,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.966,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "الدقة |أ99 — مسك صفر",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s097",
+   "text": "العتبة = فلوس",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-30:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 184,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "العتبة - فلوس",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s098",
+   "text": "التدريب ينزل · الاختبار يطلع",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-30:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 342,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.98,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "التدريب ينزل ‎٠‏ الاختبار يطلع",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s099",
+   "text": "مجموع مرجّح",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-31:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 168,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "مجموع مرجح",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s100",
+   "text": "لا خطية",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-31:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 96,
+    "ink_h": 30,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم لاخطية .",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s101",
+   "text": "الخسارة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-31:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 95,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الخسارة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s102",
+   "text": "الميل",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-31:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 66,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الميل",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s103",
+   "text": "معدل تعلّم كبير ← تشتّت",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-31:labels_ar:4"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 315,
+    "ink_h": 44,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.941,
+    "exact": false,
+    "psm": 13,
+    "scale": 70,
+    "got": "معدل تعلّم كبير > تشئت |",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s104",
+   "text": "696 وزن",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-32:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 112,
+    "ink_h": 28,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "قسم 696 وزن",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s105",
+   "text": "مجموع الصف = 1.000",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-32:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 299,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "مجموع الصف - 1.000",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s106",
+   "text": "التيار المتبقي",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-32:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 157,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "التيار المتبقي",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s107",
+   "text": "الحرارة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-32:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 77,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الحرارة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s108",
+   "text": "اتمنع عند الاسترجاع",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-33:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 246,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "اتمنع عند الاسترجاع",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s109",
+   "text": "قائمة مسموح",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-33:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 173,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قائمة مسموح",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s110",
+   "text": "دور للقراءة فقط",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-33:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 196,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "دور للقراءة فقط",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s111",
+   "text": "سقف صفوف",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-33:labels_ar:3"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 168,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم سقف صفوف |",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s112",
+   "text": "5 ثوانٍ مقابل 57",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-34:labels_ar:0"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 211,
+    "ink_h": 43,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "5 ثوانٍ مقابل 57",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s113",
+   "text": "الإصدار متوقف",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-34:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 185,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "الإصدار متوقف /",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s114",
+   "text": "الرفض الصريح بيكسب",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-34:labels_ar:2"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 281,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الرفض الصريح بيكسب",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s115",
+   "text": "خلّصت ≠ أثبتّ",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-35:labels_ar:0"
+   ],
+   "problems": [
+    "OCR score 0.889 < 0.9 (pil-raqm-isolated); got 'خلصت # أثبك/'"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 187,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.889,
+    "exact": false,
+    "psm": 13,
+    "scale": 140,
+    "got": "خلصت # أثبك/",
+    "join_junk": "",
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s116",
+   "text": "رفضت إيه، وليه؟",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [
+    "canon:CH-35:labels_ar:1"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 211,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.96,
+    "exact": false,
+    "psm": 7,
+    "scale": 70,
+    "got": "رفضت إبيه, وليه؟",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

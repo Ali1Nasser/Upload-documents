@@ -1,0 +1,713 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-10T06:31:45Z",
+ "label": "r3-stills",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "pass",
+ "metrics": {
+  "strings": 12,
+  "failed": 0,
+  "negative_fixtures": 2,
+  "negative_caught": 2,
+  "ocr_scored": 12,
+  "ocr_pass": 11,
+  "ocr_min": 0.828,
+  "ocr_exact": 9,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 6,
+  "join_min": 1.0,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "frame-crop": 12
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "F3-title",
+   "text": "الترتيب داخل الـpartition",
+   "size": 92,
+   "render_size": 92,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     760,
+     60,
+     1810,
+     180
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "الترتيب داخل ال ‎partition‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F4-title",
+   "text": "بيحوّل النص لموضع",
+   "size": 92,
+   "render_size": 92,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "box": [
+     745,
+     85,
+     1800,
+     225
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.933,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "بيحؤل النص لموضع",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F4-roadmap",
+   "text": "قسم الـroadmap",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     1325,
+     445,
+     1590,
+     495
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎roadmap‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F4-idem",
+   "text": "قسم الـidempotency",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     295,
+     765,
+     625,
+     815
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎idempotency‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F6-head",
+   "text": "أعلى نتيجة: قسم الـroadmap",
+   "size": 72,
+   "render_size": 72,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     750,
+     160,
+     1745,
+     270
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "أعلى نتيجة: قسم ال ‎roadmap‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F6-label-roadmap",
+   "text": "قسم الـroadmap",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     900,
+     895,
+     1150,
+     945
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎roadmap‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F6-label-idem",
+   "text": "قسم الـidempotency",
+   "size": 34,
+   "render_size": 34,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     245,
+     895,
+     545,
+     945
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎idempotency‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F6-wrong",
+   "text": "وغلط",
+   "size": 160,
+   "render_size": 160,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "box": [
+     1010,
+     330,
+     1480,
+     560
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "وغلط",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F6-weak",
+   "text": "وضعيف",
+   "size": 120,
+   "render_size": 120,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "box": [
+     580,
+     390,
+     965,
+     510
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "وضعيف",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7-title",
+   "text": "دي الشغلانة كلها",
+   "size": 104,
+   "render_size": 104,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [],
+   "warnings": [
+    "FRAME-OCR-NOISE score 0.828 on a glow-composited frame crop (known_noise; the isolated render is the gate)"
+   ],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "box": [
+     890,
+     70,
+     1800,
+     180
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.828,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "د> الشغلدنة كلما",
+    "join_junk": "",
+    "pass": false
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7-district-4",
+   "text": "4 المنصة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     960,
+     990,
+     1100,
+     1030
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.941,
+    "exact": false,
+    "psm": 7,
+    "scale": 140,
+    "got": "4 المنئصة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "F7-district-3",
+   "text": "3 الأنظمة",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     1560,
+     810,
+     1700,
+     850
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "3 الأنظمة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "NEG-F3-title-prefix",
+   "text": "الترتيب داخل الـpartition",
+   "size": 92,
+   "render_size": 92,
+   "kind": "kinetic",
+   "sources": [],
+   "problems": [
+    "OCR join junk 'l' next to the Latin term (frame-crop; ADR-010 AT-11): got 'الترتيب داخل \\u200epartition!\\u200f'"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     760,
+     60,
+     1810,
+     180
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.955,
+    "exact": false,
+    "psm": 7,
+    "scale": 140,
+    "got": "الترتيب داخل ‎partition!‏",
+    "join_junk": "l",
+    "join_region_ok": false,
+    "pass": false
+   },
+   "status": "pass",
+   "expected_fail": true
+  },
+  {
+   "id": "NEG-F7-chip6-prefix",
+   "text": "6 الـAI",
+   "size": 32,
+   "render_size": 32,
+   "kind": "label",
+   "sources": [],
+   "problems": [
+    "OCR score 0.667 < 0.9 (frame-crop); got '6 الام'"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     375,
+     268,
+     545,
+     318
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.667,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "6 الام",
+    "join_junk": "",
+    "join_region_ok": false,
+    "pass": false
+   },
+   "status": "pass",
+   "expected_fail": true
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

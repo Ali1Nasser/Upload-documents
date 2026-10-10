@@ -1,0 +1,192 @@
+{
+ "v": 1,
+ "note": "r3 look-dev stills as fixtures: frame crops (glow composited) in 1920x1080 coordinates; NEG-* are the pre-fix stills",
+ "items": [
+  {
+   "id": "F3-title",
+   "text": "الترتيب داخل الـpartition",
+   "frame": "reports/lookdev/r3/stills/F3-standard_fix.jpg",
+   "box": [
+    760,
+    60,
+    1810,
+    180
+   ],
+   "size": 92,
+   "kind": "kinetic"
+  },
+  {
+   "id": "F4-title",
+   "text": "بيحوّل النص لموضع",
+   "frame": "reports/lookdev/r3/stills/F4-standard_fix.jpg",
+   "box": [
+    745,
+    85,
+    1800,
+    225
+   ],
+   "size": 92,
+   "kind": "kinetic"
+  },
+  {
+   "id": "F4-roadmap",
+   "text": "قسم الـroadmap",
+   "frame": "reports/lookdev/r3/stills/F4-standard_fix.jpg",
+   "box": [
+    1325,
+    445,
+    1590,
+    495
+   ],
+   "size": 34,
+   "kind": "label"
+  },
+  {
+   "id": "F4-idem",
+   "text": "قسم الـidempotency",
+   "frame": "reports/lookdev/r3/stills/F4-standard_fix.jpg",
+   "box": [
+    295,
+    765,
+    625,
+    815
+   ],
+   "size": 34,
+   "kind": "label"
+  },
+  {
+   "id": "F6-head",
+   "text": "أعلى نتيجة: قسم الـroadmap",
+   "frame": "reports/lookdev/r3/stills/F6-standard_fix.jpg",
+   "box": [
+    750,
+    160,
+    1745,
+    270
+   ],
+   "size": 72,
+   "kind": "kinetic"
+  },
+  {
+   "id": "F6-label-roadmap",
+   "text": "قسم الـroadmap",
+   "frame": "reports/lookdev/r3/stills/F6-standard_fix.jpg",
+   "box": [
+    900,
+    895,
+    1150,
+    945
+   ],
+   "size": 34,
+   "kind": "label"
+  },
+  {
+   "id": "F6-label-idem",
+   "text": "قسم الـidempotency",
+   "frame": "reports/lookdev/r3/stills/F6-standard_fix.jpg",
+   "box": [
+    245,
+    895,
+    545,
+    945
+   ],
+   "size": 34,
+   "kind": "label"
+  },
+  {
+   "id": "F6-wrong",
+   "text": "وغلط",
+   "frame": "reports/lookdev/r3/stills/F6-standard_fix.jpg",
+   "box": [
+    1010,
+    330,
+    1480,
+    560
+   ],
+   "size": 160,
+   "kind": "kinetic"
+  },
+  {
+   "id": "F6-weak",
+   "text": "وضعيف",
+   "frame": "reports/lookdev/r3/stills/F6-standard_fix.jpg",
+   "box": [
+    580,
+    390,
+    965,
+    510
+   ],
+   "size": 120,
+   "kind": "kinetic"
+  },
+  {
+   "id": "F7-title",
+   "text": "دي الشغلانة كلها",
+   "frame": "reports/lookdev/r3/stills/F7-standard_fix.jpg",
+   "box": [
+    890,
+    70,
+    1800,
+    180
+   ],
+   "size": 104,
+   "kind": "kinetic",
+   "known_noise": true
+  },
+  {
+   "id": "F7-district-4",
+   "text": "4 المنصة",
+   "frame": "reports/lookdev/r3/stills/F7-standard_fix.jpg",
+   "box": [
+    960,
+    990,
+    1100,
+    1030
+   ],
+   "size": 32,
+   "kind": "label",
+   "known_noise": true
+  },
+  {
+   "id": "F7-district-3",
+   "text": "3 الأنظمة",
+   "frame": "reports/lookdev/r3/stills/F7-standard_fix.jpg",
+   "box": [
+    1560,
+    810,
+    1700,
+    850
+   ],
+   "size": 32,
+   "kind": "label"
+  },
+  {
+   "id": "NEG-F3-title-prefix",
+   "text": "الترتيب داخل الـpartition",
+   "frame": "reports/lookdev/r3/stills/F3-standard.jpg",
+   "box": [
+    760,
+    60,
+    1810,
+    180
+   ],
+   "size": 92,
+   "kind": "kinetic",
+   "expect": "fail"
+  },
+  {
+   "id": "NEG-F7-chip6-prefix",
+   "text": "6 الـAI",
+   "frame": "reports/lookdev/r3/stills/F7-standard.jpg",
+   "box": [
+    375,
+    268,
+    545,
+    318
+   ],
+   "size": 32,
+   "kind": "label",
+   "expect": "fail"
+  }
+ ]
+}

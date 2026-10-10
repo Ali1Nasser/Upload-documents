@@ -6,7 +6,7 @@ from . import common as C
 
 PLANNED = {  # command group -> phase that implements it
     "spec": "P7/P8",
-    "render": "P6/P9", "sound": "P11", "qa": "P9", "dag": "P0 (later)",
+    "render": "P6/P9", "sound": "P11", "dag": "P0 (later)",
 }
 
 
@@ -208,6 +208,10 @@ def build():
     # deliver: `fyi` from P5 (FYI checkpoints); film delivery subcommands in P14
     from . import deliver
     deliver.register(sub)
+
+    # qa (P7/P9): `qa arabic` is implemented (tools/dclib/qa_arabic.py); chapter/film/sync are P9 stubs
+    from . import qa_arabic
+    qa_arabic.register(sub)
 
     # planned groups
     for grp, phase in PLANNED.items():
