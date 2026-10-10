@@ -19,8 +19,8 @@
     },
     {
       "name": "tokens_presets_catalog_frozen",
-      "pass": true,
-      "detail": "freeze.json 2026-10-10T06:17:31Z @ df2ee0d: 227 hashed files, 0 changed; 04 section 8 catalog 104 names, 0 not frozen; unlisted component dirs []; fonts 7; presets table ok"
+      "pass": false,
+      "detail": "harness/state/freeze.json missing or not status=frozen"
     },
     {
       "name": "projected_render_le_24h",
@@ -30,7 +30,7 @@
     {
       "name": "ADR-009_cond_1_2_fixes_ocr",
       "pass": false,
-      "detail": "isolated-render OCR gate strings 3/3 >= 0.90; F7 chip 6 (now Latin 'AI 6', no Arabic join): no isolated-render score, B1 closed by the Arabic re-check: False (its OCR 'Al 6' = Inter I/l); type suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed"
+      "detail": "isolated-render OCR gate strings 4/4 >= 0.90; F7 chip 6 (now Latin 'AI 6', no Arabic join): no isolated-render score, B1 closed by the Arabic re-check: False (its OCR 'Al 6' = Inter I/l); type suite: bash studio/scripts/check_type.sh: 43 ok, all type checks passed (re-run 2026-10-10 after the chip 6 change); tsc --noEmit 0"
     },
     {
       "name": "ADR-009_cond_3_rerender_review",
@@ -43,5 +43,5 @@
       "detail": "by=render-ops pass=True covers ['F3-standard', 'F4-hero', 'F4-standard', 'F5-standard', 'F6-standard', 'F7-standard', 'F8-standard']; outside-box px 0"
     }
   ],
-  "created": "2026-10-10T06:17:45Z"
+  "created": "2026-10-10T07:08:00Z"
 }

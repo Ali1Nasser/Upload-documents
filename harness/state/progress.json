@@ -20,22 +20,22 @@
     "G3": {
       "status": "pass",
       "report": "reports/gates/G3.json",
-      "checked": "2026-10-08T14:50:34Z"
+      "checked": "2026-10-10T06:59:54Z"
     },
     "G4": {
       "status": "pass",
       "report": "reports/gates/G4.json",
-      "checked": "2026-10-08T20:51:24Z"
+      "checked": "2026-10-10T06:59:58Z"
     },
     "G5": {
       "status": "pass",
       "report": "reports/gates/G5.json",
-      "checked": "2026-10-09T21:45:43Z"
+      "checked": "2026-10-10T07:00:37Z"
     },
     "G6a": {
       "status": "fail",
       "report": "reports/gates/G6a.json",
-      "checked": "2026-10-09T23:17:17Z"
+      "checked": "2026-10-10T07:08:00Z"
     },
     "G6b": {
       "status": "pending"
@@ -69,5 +69,5 @@
   "next_actions": [
     "P5: candidate EDLs, Council ADR-001, EDL cut, radio edit, audio lock (G5) | P6 in parallel: look-dev style frames + motion tests, Council ADR-002..005, freeze (G6a)"
   ],
-  "updated": "2026-10-09T23:17:17Z"
+  "updated": "2026-10-10T07:08:00Z"
 }
