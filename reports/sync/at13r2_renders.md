@@ -33,3 +33,5 @@ Per ADR-011 "AT-13R2". Renders only; no measurement or judgement. Pre-registrati
 | C14 | C14/_demo_c14.mp4 | 1229 | 960x540 | 24 | 0 | 0.0615 | 0f2eb005b8b7e706c9dfd7343c9320f24cdc2a715bb6e0ed069b73838531be1a |
 
 Renders are to be deleted after the AT-13R2 report; the worktree after countersign.
+
+Cleanup (render-ops, 2026-10-10): provenance countersigned in reports/sync/at13.md (sync-verifier, AT-13R2 pass=true). Worktree wt-at13r2 (HEAD 7ae7483) removed; data/renders/at13r2/ deleted; no temp remotion bundles remained.
