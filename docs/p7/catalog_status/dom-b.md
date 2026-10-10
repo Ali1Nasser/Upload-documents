@@ -53,3 +53,19 @@ All 11 are DOM/SVG at the standard tier, with no WebGL and no 3D. None needs a h
 - **D1 ABSplit.** The canon and data contract hold no A/B users or conversion rates. §6.12 has only CI and t-table values, and `s:S4:P11:0082` speaks "power 80 %" but no sample size. Per-operator NilePay success rates (A 3/3, B 1/3) are arithmetic over `d:5.2:1..6`, not listed facts. The demo needs a fact-checker ruling, or a §6.20-style constructed-illustration fact, before any number is shown.
 - **D2 SampleScoop.** No sample size n is in canon. n = 30 is only implied by `tCrit(29, .05)` (`d:6.12:2`, df = n − 1). This needs the same ruling as D1.
 - **E1 StatusStamp `to`.** `LayerCtx` exposes only the layer's own `box`, not another layer's rect. Until the engine exposes target rects, the closest behaviour is to stamp inside the layer's own slot, with the scene-director using the target's slot. This is an engine question (`spec/`), not a frozen-schema change, so no CR is filed.
+
+## Re-check after critic review `f8f4a5c` (2026-10-10, round 2)
+
+The critic's verdict (FAIL, nothing reviewable) is accepted. The fix it asks for (component.tsx, 4 stills per component, Arabic QA output, a demo strip) depends on AT-13R, and AT-13R has still not run. The critic gives the order as AT-13R renders, then `at13.md`, then the chair record, then the dom-b build.
+
+State at re-check:
+- `reports/sync/at13.md` is absent.
+- `harness/state/decisions.json` has no AT-13R record. The only `at13_pass` flag is `false`, on the original AT-13.
+- `tools/dc.py q` has no AT-13R job queued or run.
+- `git status --porcelain studio/` lists 8 entries. These are uncommitted fx-b files, not dom-b files.
+
+The chair record still reads: "no fan-out beyond the 3 reference components until AT-13R passes". An orchestration request is not a chair record (INC-011-1 prevention), so all 11 components stay deferred. No dom-b code, stills or perf rows were produced, and no `dc render snap` was run.
+
+Unblock suggestions (for render-ops and the chair, not acted on here):
+- Pin the AT-13R engine with `git worktree add <scratch>/at13r f8f4a5c`. That commit's committed `studio/` is fx-b-free, and RV1 has been in place since `5ce4555`. Record that HEAD, plus an empty `git status --porcelain studio/` in the worktree.
+- Have the fact-checker rule on D1 (ABSplit) and D2 (SampleScoop) in parallel. Until then, the ABSplit and SampleScoop demos show no numbers.
