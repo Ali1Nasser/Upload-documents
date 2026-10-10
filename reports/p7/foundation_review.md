@@ -159,3 +159,162 @@ Fix (both parts):
   - KText, MixedText and LabelRow animate whole elements, with an RTL clip wipe over the whole box and vertical overshoot for tashkeel.
   - The three components and AT-11 never split a word.
   - Guard gaps: M6.
+
+## Re-review r0
+
+- **Reviewer:** an independent senior-engineer pass. I did not write the fixes.
+- **Scope:** commit `87eb279` (B1–B3, M1–M7, m1–m12). I also read the later commits `33a2999`, `3f232c0` (critic approval of the baselines) and `fa168ac` (ADR-011) where they touch these items.
+- **Date:** 2026-10-10.
+- **Method.** Every render and check ran through the tsp queue on scratch roots built from `git archive 87eb279`. The repo was not touched.
+  - During the review another agent had uncommitted edits in `studio/`. I re-ran every measured probe on clean `87eb279` sources, so those edits are not in any number below.
+  - The scratch roots and renders are deleted.
+
+### Verdict: PASS. No blocking defect remains.
+
+- B1–B3 are fixed. Each regression they described now fails, and I reproduced each one.
+- M1–M7 are fixed.
+- m1–m12 are fixed, except that m12 is partial.
+- One new major (M8) should be fixed before the families with long display copy are baselined. The title-safe check reads the layout from before auto-fit in snapshot stills, so it reports false `unsafe` findings.
+
+### What I ran
+
+| Check | Result |
+|---|---|
+| `freeze.json`: re-hash all 227 entries | 227/227 unchanged, both in the working tree and at `87eb279` |
+| `npm run typecheck` (`tsc --noEmit`) on the `87eb279` sources | exit 0 (queue job 81) |
+| `check_p7.sh` on the `87eb279` sources | 3 suites pass (job 81). This includes the new cases: the 288 camera-envelope cases, single rounding at 15 fps, and dissolve text opacity |
+| `tools/tests/test_*.py` (each with `python3 -I`) | 13/13 pass. `test_p3a` now imports (job 53) |
+| `snap _selftest` | PASS (job 54). `overflow`, `perletter`, `fragment` and `unsafe` all fire |
+| `snap TableGrid`, unmodified | PASS (job 55). Stills p0 / a1 / p50 / p100 = frames 0 / 11 / 54 / 109, 0 px each. Determinism 0 px, QA 0 |
+
+### B1. Perf at production concurrency: fixed
+
+How perf measures now:
+- `dc render perf` renders with `concurrency: 3`.
+- It runs in a tsp job that claims all 3 slots (`tsp -N 3`). `queue.json` records `slots: 3` for jobs 39–41.
+- It reports box s/frame = wall / frames. The `/3` field is gone.
+- The method matches `render_bench.md` (renderer concurrency 3), so the figures compare directly with ADR-002.
+
+Budgets and results:
+- The budgets are now ADR-002's own figures: standard and lite 0.201, hero 1.038 box s/frame.
+- The committed v2 reports give standard 0.0856–0.0919, hero 0.0849–0.0932 and lite 0.0653–0.0664, with `other_jobs_running` 0. That is about 2.2× headroom on the R5 trigger.
+
+Exit status:
+- With the budgets forced to 0.001 in a scratch copy, `perf NumberCounter` exits 1 and so does its tsp job (job 58).
+- With `--report-only` the same run exits 0 (job 63).
+- From the code: `dc render perf --aggregate` exits 1 on any component that is over budget or still has a v1 report.
+
+### B2. Snapshot thresholds: fixed
+
+I reproduced the regressions against the approved baselines. The parameters are the current `SNAP` ones: threshold 0.1, `includeAA`, cap 16 px.
+
+| Simulated regression | Mismatched px | Snapshot verdict | Before the fix |
+|---|---|---|---|
+| One table cell `150` → `130` | p50 39, p100 37 | **FAIL** | `150` → `120` was 51 px and passed the 518 px ratio |
+| `sortBy` bug: rows T5 and T1 swapped | p100 403 (202 + 201 by row) | **FAIL** | 336 px, passed |
+| Four single-digit substitutions in one render (`5→6`, `0→8`, `8→6`, `0→9`), measured row by row | 41 / 36 / 53 / 49 | each **FAIL** (smallest is 2.25× the cap) | – |
+| M1: random offset injected into KineticWord, then `--approve` | determinism 12,561 px | **FAIL**: "not approved" on all 4 stills. Baseline PNGs and `meta.json` sha256 unchanged | it was written and reported as a PASS |
+
+The new `a1` still:
+- It sits at the first anchor + 6 + 1 frames: frame 11 for TableGrid, frame 15 for KineticWord and NumberCounter.
+- It carries ink: the digit edits move 130 px at a1.
+
+The baselines were re-approved by the critic in `3f232c0`. `meta.json` is now v2, records the thresholds and says `approved-critic`.
+
+### B3. Camera push and title-safe: fixed
+
+**Push total.** It is the 04 rate × shot length, capped at 6 %, but never below 1.5 % per 5 s. A `static` hold has no push. Measured from the pure function:
+
+| Shot | Total push |
+|---|---|
+| 6 s, k 0.4 | 2.52 % |
+| 12 s, k 0.5 | 5.40 % |
+| 25 s, k 0.5 or k 1 | 7.50 % (the floor binds) |
+| `static` | none (scale 1) |
+
+So the 6 % cap is soft for shots longer than 20 s. The envelope covers that case.
+
+**Envelope.**
+- `cameraSafeBox` shrinks each text layer's box for its depth plane. The `start` slot (829 px wide) shrinks to 797 px for a 6 s shot and to 738 px for a 25 s shot on the near plane.
+- In all 10 cases I computed, the peak right edge stays at or below 1823.7 px, against title-safe 1824. The cases include a 60 s shot at k 1 on the near plane.
+- Without the shrink, the same copy would reach 1853–1931 px.
+
+**Render reproduction.** A 25 s `push_in` at k 1, with `الـinfrastructure` auto-fitted to fill the `start` slot. Stills at frames 0 / 15 / 299 / 599.
+
+| Envelope | Result |
+|---|---|
+| on | 0 `DC_QA unsafe` findings (job 62) |
+| disabled in `resolve.ts` | `DC_QA unsafe` fires: right edge 1865 at p50 and 1906 at p100, against 1824. The run fails (job 56) |
+
+**Detector coverage.** `checkTitleSafe` measures after every transform. KineticWord's audio scale and the reveal's `impact` scale are both set on ancestors of `[data-dc-text]`, so they are inside the measured box.
+
+### Majors M1–M7
+
+| # | Status | Evidence |
+|---|---|---|
+| M1 | fixed | Determinism runs before compare and approve. Reproduced in B2 above |
+| M2 | fixed | The title has its own `useAutoFit` on the same `maxW`, starts at the table size, and reports overflow. Code read only; not rendered with a 40-char title |
+| M3 | fixed | Registry problems fail snap and spec in every mode. Unimplemented layers fail a final before rendering starts. Skipped family or demo files and duplicate demos are registry problems. A chapter spec fails on dropped shots |
+| M4 | fixed | Perf writes only `components/<Name>.json`. The aggregate comes from `--aggregate` |
+| M5 | fixed | Text layers are not faded in, so the first word after a dissolve is fully opaque (unit test). Residual nit n3 |
+| M6 | fixed | `checkArabicWholeWords` walks every text node and compares it with the prop lexicon. The self-test `fragment` case fires on `slice(0, 5)`. Limit (heuristic): a prefix that happens to be a whole word elsewhere in the props passes |
+| M7 | fixed | `PREVIEW_FPS = PREVIEW.fps`. ADR-011 (`fa168ac`) now decides 15 → 12 with a re-freeze, and the code follows the token |
+
+### Minors m1–m12
+
+All 12 are addressed in code:
+
+| # | Fix |
+|---|---|
+| m1 | code-point compare |
+| m2 | `formatValue` |
+| m3 | `labelPx` |
+| m4 | duplicate demos are registry problems |
+| m5 | `dropped_shots` |
+| m6 | single rounding in both resolve and SpecPlayer |
+| m7 | `static` has no push, and the comment is fixed |
+| m8 | `perfFrames` removed |
+| m9 | stale references fixed |
+| m10 | redundant `Math.max` removed |
+| m11 | `maskLead` scales with fps |
+| m12 | AT11 runs both whole-word guards |
+
+m12 is only partly done: the AT-4 `label` detector is still not in the self-test.
+
+### New findings
+
+**M8 (major, non-blocking): the title-safe check reads the layout from before auto-fit.**
+
+Where:
+- `SpecPlayer.tsx` (`useLayoutEffect`, deps `[frame, lexicon, scale]`);
+- the same pattern in `QaSelftest.tsx`;
+- `Text.tsx` `useAutoFit`, which waits for fonts and then calls `setState`.
+
+What happens:
+- The checks run in SpecPlayer's layout effect, in the commit that sets the frame.
+- On a freshly mounted page, auto-fit has not run yet. That is every snapshot still, and the first frame of each render tab.
+- When auto-fit settles, the checks do not run again. So `checkTitleSafe` measures the copy at its natural, unfitted size.
+
+Reproduction (job 78):
+- Setup: KineticWord `INTERNATIONALIZATIONMIDDLEWARES` in the `full` slot at `impact` size.
+- The check logged `DC_QA unsafe` with box x −245…2161.
+- The rendered stills show the fitted word at x ≈ 130…1786, inside title-safe. There is no `overflow` finding.
+- So the snapshot fails on a correct frame.
+
+Impact:
+- It fails closed. Auto-fit only shrinks, and aligned copy shrinks inside its unfitted box. I found no path where it passes an unsafe final layout.
+- Spec renders are checked correctly from the second frame of each tab.
+- But every component whose natural copy is wider than title-safe before fitting will fail its snapshot.
+
+Fix:
+- Re-run the checks once the frame has settled. For example, SpecPlayer holds its own `delayRender` per frame and runs the three checks after `document.fonts.ready` and after every `useAutoFit` handle has been released (a pending counter in `Text.tsx`). Then it calls `continueRender`.
+- Add a self-test case: copy that fits only after shrinking must report no `unsafe`.
+
+**Nits:**
+
+| # | Note |
+|---|---|
+| n1 | `snap --approve` still writes the PNG and `meta.json` when the run has QA findings or registry problems. The run fails, but the baseline is updated. Write baselines only on a passing run |
+| n2 | `component_guide.md` §5 lists the `DC_QA` kinds as "(overflow, perletter, label, digits, font)". Add `fragment` and `unsafe` |
+| n3 | The `transitionState` comment says two captions never overlap. But outgoing copy with no `until` fades out over the tail while the incoming copy is fully opaque. At t = 3 of a 14 f dissolve the incoming backdrop is still < 0.2 opaque (unit test), so most of the old caption is visible as the first new word reveals. This is a critic call. An exit before the cut avoids it |
+| n4 | Not from this review: `/tmp` holds 58 stale `remotion-webpack-bundle-*` folders from 2026-10-09, about 2.9 GB, with 3.5 GB free. render-ops should clear them |
