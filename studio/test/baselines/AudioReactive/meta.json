@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "39af4aeb3c70d7a72a00d462cfd0e52f402174044909d627a77cc73c6f0c05d6",
+  "p50": "0f353d8b85b8498919575573ec318688c9ef779bd961dd0ea4940934a2ba0b2e",
+  "p100": "be35a607b07e1483a67dcde9ea3430a080835e82651cc35d5bb336e4b8ad4d9b"
+ },
+ "v": 2,
+ "name": "AudioReactive",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 35,
+  "p100": 71
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-10T23:02:28Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

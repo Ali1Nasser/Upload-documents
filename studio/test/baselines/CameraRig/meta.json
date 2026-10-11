@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "819ac52b82fef4ba6651bccc582c672d6f43470be7f4e8be441cd050d6ef8e8b",
+  "p50": "1fb593ef8f25a1d447c06b52f1d2282a8ee32d99bfaa8925a0238c8e4855d7d3",
+  "p100": "5c79d21b6e250ea68e914d5607704f8c203ca98ef030c73f3110f5541c17e042"
+ },
+ "v": 2,
+ "name": "CameraRig",
+ "frames": {
+  "p0": 0,
+  "a1": 13,
+  "p50": 47,
+  "p100": 95
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-10T23:01:44Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

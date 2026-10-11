@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "a68e3f4b9af22d58e82f15a76b14bd3f0577978ce895d6ec72255161ace5c902",
+  "p50": "5135cd85f8fca6e24209e6bbad20455c8e5513825321377d3d03d27ee24ff983",
+  "p100": "dbee86a13c2af0fa05994614a6aef1d38db11d11b680ed057643a8f6ec96d85b"
+ },
+ "v": 2,
+ "name": "FXTier",
+ "frames": {
+  "p0": 0,
+  "a1": 15,
+  "p50": 35,
+  "p100": 71
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-10T23:02:13Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}
