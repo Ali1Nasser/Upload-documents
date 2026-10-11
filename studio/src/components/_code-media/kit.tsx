@@ -1,25 +1,27 @@
-// Shared helpers of P7 group "code-media" (Terminal, CodeTrace, SqlStages, LoopPlate, AIPlate, ManimInsert). Group-private:
-// no other group imports this folder, and nothing here re-implements the frozen type rules (src/type/arabic.ts).
+// Shared helpers of P7 group "code-media" (Terminal, CodeTrace, SqlStages). Group-private: no other group imports this folder,
+// and nothing here re-implements the frozen type rules (src/type/arabic.ts).
 //  - code runs: code / terminal / SQL text is an LTR mono block (04 section 3.4: never translated, never mirrored). Arabic inside
-//    code (comments, string literals) is cut out as WHOLE-WORD runs and set by MixedText as RTL isolates; Latin may be typed per
-//    character, Arabic never is (golden rule 10);
-//  - a small, deterministic syntax tokenizer (colours from tokens only);
-//  - film-frame helper, media paths (studio/public/media/* -> data/derived/*), a per-asset JSON sidecar cache.
+//    code (comments, string literals) is cut out as WHOLE-WORD runs and set by MixedText as RTL isolates. Latin may be typed per
+//    character (mono-only, allowed by 04 section 3.4); an Arabic run is always shown or hidden as a whole (golden rule 10);
+//  - a small deterministic syntax tokenizer. Syntax colours are NEUTRAL (ink / ink2 / ink3 / paperShade): semantic colours are
+//    never decorative (04 section 1.1), so `signal` is kept for the line being explained right now;
+//  - analytic code layout (JetBrains Mono advance = 0.6 em): size from SIZE.label down to the SIZE.labelMin floor, soft-wrap at
+//    the column limit, <= 12 visible rows (04 section 3.2). useAutoFit still measures the real block and reports an overflow.
 import React from 'react';
-import {continueRender, delayRender, staticFile} from 'remotion';
-import {C, FONT} from '../../tokens';
+import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import {MixedText} from '../../type/Text';
 import {isArabic} from '../../type/arabic';
+import type {Rect} from '../../type/safe';
 
 /** A duration given in film frames (24 fps, the ms-truth of 04 section 4) at the composition fps; at least 1. */
 export const f24 = (n: number, fps: number): number => Math.max(1, Math.round((n * fps) / 24));
 
-/** JetBrains Mono advance = 600 / 1000 em (fixed pitch): analytic layout for code blocks (no measure-then-shrink loop). */
+/** JetBrains Mono advance = 600 / 1000 em (fixed pitch). */
 export const MONO_ADV = 0.6;
-/** Rough advance of Plex Sans Arabic in code lines (only used to estimate wrapping of a line that carries Arabic). */
+/** Estimated advance of Plex Sans Arabic per character inside code (only for wrapping; the real width is measured). */
 export const AR_ADV = 0.56;
-/** 04 section 3.2: code / SQL / terminal 26-32 px mono, <= 12 lines visible. Size = SIZE.label (32), floor = SIZE.labelMin (28). */
+/** 04 section 3.2: code / SQL / terminal 26-32 px mono, <= 12 lines visible. */
 export const CODE_ROWS_MAX = 12;
 export const CODE_LH = 1.5;
 
@@ -28,7 +30,7 @@ const AR = '\\u0600-\\u06FF\\u0750-\\u077F\\uFB50-\\uFDFF\\uFE70-\\uFEFF';
 /** A maximal run of whole Arabic words (letters, marks, tatweel, Arabic punctuation) and the blanks between them. */
 const AR_RUN = new RegExp(`[${AR}]+(?:[ \\t]+[${AR}]+)*`, 'g');
 export type Run = {t: string; ar: boolean; at: number};
-/** Split a code line into Latin pieces and whole-word Arabic runs (boundaries never fall inside an Arabic word). */
+/** Split a string into Latin pieces and whole-word Arabic runs (boundaries never fall inside an Arabic word). */
 export const codeRuns = (line: string): Run[] => {
   const out: Run[] = [];
   let k = 0;
@@ -41,10 +43,77 @@ export const codeRuns = (line: string): Run[] => {
   if (k < line.length) out.push({t: line.slice(k), ar: false, at: k});
   return out;
 };
-export const hasArabic = (s: string): boolean => isArabic(s);
-/** Visual width of a code line in em (mono advance for Latin, an estimate for Arabic runs). Tabs are expanded by `detab`. */
-export const lineEm = (line: string): number => codeRuns(line).reduce((a, r) => a + r.t.length * (r.ar ? AR_ADV : MONO_ADV), 0);
 export const detab = (s: string): string => s.replace(/\t/g, '    ');
+/** Width of line[s, e) in mono columns (an Arabic character counts AR_ADV / MONO_ADV of a column). */
+const colsOf = (line: string, s: number, e: number): number => {
+  let w = 0;
+  for (let i = s; i < e; i++) w += isArabic(line[i]) ? AR_ADV / MONO_ADV : 1;
+  return w;
+};
+
+/** Soft-wrap one line at `cols` columns -> [start, end) pieces. Breaks after a blank or a separator when possible and NEVER
+ * inside an Arabic run (a run that does not fit moves to the next row whole; a run wider than a row gets its own row and the
+ * measured overflow check reports it). */
+export const wrapLine = (line: string, cols: number): [number, number][] => {
+  if (!line.length) return [[0, 0]];
+  const runs = codeRuns(line).filter((r) => r.ar);
+  const out: [number, number][] = [];
+  let s = 0;
+  const c = Math.max(8, Math.floor(cols));
+  while (s < line.length) {
+    let e = s;
+    while (e < line.length && colsOf(line, s, e + 1) <= c) e++;
+    if (e >= line.length) {
+      out.push([s, line.length]);
+      break;
+    }
+    const cut = runs.find((r) => r.at < e && r.at + r.t.length > e);
+    if (cut) e = cut.at > s ? cut.at : cut.at + cut.t.length;
+    else {
+      let b = -1;
+      for (let i = e; i > s + Math.floor(c * 0.4); i--) if (/[\s,;(=]/.test(line[i - 1])) {
+        b = i;
+        break;
+      }
+      if (b > s) e = b;
+    }
+    if (e <= s) e = Math.min(line.length, s + 1);
+    out.push([s, e]);
+    s = e;
+  }
+  return out;
+};
+
+export type CodeLayout = {size: number; cols: number; rows: {line: number; s: number; e: number}[]; visRows: number; rowH: number; textW: number; panelW: number; panelH: number; chromeH: number; pad: number; gutter: number};
+/** Analytic layout of a code block in a `maxW` x `maxH` rectangle: the largest size in [SIZE.labelMin, SIZE.label] at which
+ * no line wraps, else the floor with soft-wrapping. `gutterCols` = line-number gutter width in columns (0 = none). */
+export const codeLayout = (lines: string[], maxW: number, maxH: number, gutterCols = 0, extraRows = 0): CodeLayout => {
+  const lens = lines.map((l) => colsOf(l, 0, l.length));
+  const longest = Math.max(1, ...lens);
+  let size = SIZE.labelMin;
+  for (let s = SIZE.label; s >= SIZE.labelMin; s -= 2) {
+    const pad = Math.round(s * 0.9);
+    const avail = maxW - 2 * pad - (gutterCols ? (gutterCols + 1.5) * s * MONO_ADV : 0);
+    if (longest * s * MONO_ADV <= avail) {
+      size = s;
+      break;
+    }
+  }
+  const pad = Math.round(size * 0.9);
+  const gutter = gutterCols ? Math.round((gutterCols + 1.5) * size * MONO_ADV) : 0;
+  const cols = Math.max(8, Math.floor((maxW - 2 * pad - gutter) / (size * MONO_ADV)));
+  const rows: CodeLayout['rows'] = [];
+  lines.forEach((l, i) => wrapLine(l, cols).forEach(([s, e]) => rows.push({line: i, s, e})));
+  const rowH = Math.round(size * CODE_LH);
+  const chromeH = Math.round(size * 1.6);
+  const fitRows = Math.max(1, Math.floor((maxH - chromeH - 2 * pad) / rowH));
+  const visRows = Math.max(1, Math.min(CODE_ROWS_MAX, fitRows, rows.length + extraRows));
+  const textCols = Math.min(cols, Math.max(...rows.map((r) => colsOf(lines[r.line], r.s, r.e)), 1));
+  const textW = Math.ceil(textCols * size * MONO_ADV);
+  return {size, cols, rows, visRows, rowH, textW, panelW: Math.min(maxW, textW + gutter + 2 * pad), panelH: chromeH + visRows * rowH + 2 * pad, chromeH, pad, gutter};
+};
+/** Rect of a w x h panel centred in `box` (the text-safe rect of a code panel). */
+export const centred = (box: Rect, w: number, h: number): Rect => ({x: Math.round(box.x + (box.w - w) / 2), y: Math.round(box.y + (box.h - h) / 2), w: Math.round(w), h: Math.round(h)});
 
 // ---------- syntax tokens ----------
 export type TokKind = 'kw' | 'fn' | 'str' | 'num' | 'com' | 'op' | 'id' | 'ws' | 'ty';
@@ -54,7 +123,7 @@ const KW: Record<string, Set<string>> = {
   sql: words(
     'SELECT FROM WHERE JOIN LEFT RIGHT INNER OUTER FULL CROSS ON AS GROUP BY HAVING ORDER LIMIT OFFSET DISTINCT AND OR NOT IN IS NULL LIKE BETWEEN CASE WHEN THEN ELSE END ASC DESC UNION ALL INSERT INTO VALUES UPDATE SET DELETE CREATE TABLE INDEX VIEW WITH OVER PARTITION WINDOW ROWS RANGE EXISTS PRIMARY KEY REFERENCES BEGIN COMMIT ROLLBACK USING',
   ),
-  python: words('def return if elif else for while in not and or is None True False import from as class with try except finally raise lambda yield pass break continue async await print len sum range'),
+  python: words('def return if elif else for while in not and or is None True False import from as class with try except finally raise lambda yield pass break continue async await'),
   js: words('const let var function return if else for while of in new class extends import from export default async await try catch finally throw typeof instanceof null undefined true false this'),
   bash: words('if then else fi for do done while case esac function export echo cd ls cat grep wc sudo docker git python3 pip psql'),
   yaml: words('true false null yes no on off'),
@@ -65,22 +134,13 @@ const KW: Record<string, Set<string>> = {
   go: words('func package import var const type struct interface return if else for range go defer chan map select case switch default nil true false'),
 };
 KW.ts = new Set([...KW.js, ...words('type interface enum implements readonly as keyof')]);
-const COMMENT: Record<string, RegExp> = {
-  sql: /^--.*/,
-  python: /^#.*/,
-  bash: /^#.*/,
-  yaml: /^#.*/,
-  dockerfile: /^#.*/,
-  js: /^\/\/.*/,
-  ts: /^\/\/.*/,
-  scala: /^\/\/.*/,
-  java: /^\/\/.*/,
-  go: /^\/\/.*/,
-};
+KW.docker = KW.bash;
+KW.git = KW.bash;
+const COMMENT: Record<string, RegExp> = {sql: /^--.*/, python: /^#.*/, bash: /^#.*/, yaml: /^#.*/, dockerfile: /^#.*/, js: /^\/\/.*/, ts: /^\/\/.*/, scala: /^\/\/.*/, java: /^\/\/.*/, go: /^\/\/.*/};
 const CASELESS = new Set(['sql', 'dockerfile']);
+const BLOCK_C = new Set(['js', 'ts', 'java', 'go', 'scala', 'sql']);
 
-/** Tokenize one line (state = inside a block comment / triple-quoted string from the previous line). Deterministic, no regex
- * backtracking surprises: one pass, longest-match per position. */
+/** Tokenize one line (state = inside a block comment / triple-quoted string from the previous line). One pass, deterministic. */
 export const tokenize = (line: string, lang: string, state: {block: string | null} = {block: null}): Tok[] => {
   const out: Tok[] = [];
   const kw = KW[lang] ?? new Set<string>();
@@ -95,18 +155,19 @@ export const tokenize = (line: string, lang: string, state: {block: string | nul
   };
   if (state.block) {
     const end = line.indexOf(state.block);
+    const k: TokKind = state.block === '*/' ? 'com' : 'str';
     if (end < 0) {
-      push(line, state.block === '*/' ? 'com' : 'str');
+      push(line, k);
       return out;
     }
-    push(line.slice(0, end + state.block.length), state.block === '*/' ? 'com' : 'str');
+    push(line.slice(0, end + state.block.length), k);
     state.block = null;
   }
   while (i < line.length) {
     const rest = line.slice(i);
     let m: RegExpMatchArray | null;
     if (com && (m = rest.match(com))) push(m[0], 'com');
-    else if ((lang === 'js' || lang === 'ts' || lang === 'java' || lang === 'go' || lang === 'scala' || lang === 'sql') && rest.startsWith('/*')) {
+    else if (BLOCK_C.has(lang) && rest.startsWith('/*')) {
       const end = rest.indexOf('*/', 2);
       if (end < 0) {
         state.block = '*/';
@@ -132,101 +193,77 @@ export const tokenize = (line: string, lang: string, state: {block: string | nul
   }
   return out;
 };
-/** Token colours (tokens only). Quiet by design: keywords carry the signal colour, strings violet, numbers ember. */
-export const TOK_COLOR: Record<TokKind, string> = {kw: C.signal, fn: C.ink, ty: C.ink, str: C.violet, num: C.ember, com: C.ink3, op: C.ink3, id: C.ink2, ws: C.ink2};
+/** Tokens of every line of a block (block-comment / docstring state carried across lines). */
+export const tokenizeBlock = (lines: string[], lang: string): Tok[][] => {
+  const st = {block: null as string | null};
+  return lines.map((l) => tokenize(l, lang, st));
+};
+/** Neutral syntax colours (tokens only; 04 section 1.1: semantic colours are never decorative). */
+export const TOK_COLOR: Record<TokKind, string> = {kw: C.ink, fn: C.ink, ty: C.ink, str: C.paperShade, num: C.ink, com: C.ink3, op: C.ink3, id: C.ink2, ws: C.ink2};
 
 /**
- * One code line as spans: syntax colours, Arabic runs as whole-word MixedText isolates, and an optional per-character reveal
- * (`shown` = number of visible characters, Latin only: a line that carries Arabic is always passed shown = undefined and is
- * revealed as a whole by its caller). Hidden characters keep their layout (visibility: hidden), so typing never reflows.
+ * One visual row [s, e) of a tokenized code line. Arabic runs go through MixedText as whole-word RTL isolates. `shown` (chars of
+ * the line typed so far, absolute index) types LATIN characters one by one (mono-only, 04 section 3.4); an Arabic run appears
+ * whole once typing reaches it and is never sliced. Hidden characters keep their layout (visibility: hidden): typing never reflows.
  */
-export const CodeSpans: React.FC<{id: string; line: string; lang: string; size: number; state?: {block: string | null}; shown?: number; tint?: string; colorOf?: (k: TokKind) => string}> = ({
-  id,
-  line,
-  lang,
-  size,
-  state,
-  shown,
-  tint,
-  colorOf,
-}) => {
-  const toks = tokenize(line, lang, state);
+export const CodeRow: React.FC<{id: string; toks: Tok[]; s: number; e: number; size: number; shown?: number; tint?: string; caret?: React.ReactNode}> = ({id, toks, s, e, size, shown, tint, caret}) => {
   const out: React.ReactNode[] = [];
-  let ak = 0;
-  toks.forEach((tk, j) => {
-    const color = tint ?? (colorOf ? colorOf(tk.k) : TOK_COLOR[tk.k]);
-    // Arabic inside the token: whole-word runs through the type engine, never sliced
-    for (const r of codeRuns(tk.t)) {
-      const start = tk.at + r.at;
+  const caretAt = caret && shown !== undefined ? Math.min(shown, e) : -1; // the caret sits after the last typed character
+  let placed = caretAt < 0;
+  const place = (at: number) => {
+    if (!placed && at >= caretAt) {
+      out.push(<React.Fragment key="caret">{caret}</React.Fragment>);
+      placed = true;
+    }
+  };
+  for (const tk of toks) {
+    const a = Math.max(s, tk.at);
+    const b = Math.min(e, tk.at + tk.t.length);
+    if (b <= a) continue;
+    const color = tint ?? TOK_COLOR[tk.k];
+    for (const r of codeRuns(tk.t.slice(a - tk.at, b - tk.at))) {
+      const start = a + r.at;
+      place(start);
       if (r.ar) {
+        // whole-word Arabic run: visible as a unit once the typing cursor reaches its first character
+        const vis = shown === undefined || shown > start;
         out.push(
-          <span key={`${j}a${start}`} style={{color, fontSize: size}}>
-            <MixedText id={`${id}:ar${ak++}`} text={r.t} size={size} role="code" weight={FONT.arText.weight} color={color} />
+          <span key={`a${start}`} style={{visibility: vis ? undefined : 'hidden'}}>
+            <MixedText id={`${id}:a${start}`} text={r.t} size={size} role="code" weight={FONT.arText.weight} color={color} />
           </span>,
         );
         continue;
       }
-      if (shown === undefined || shown >= start + r.t.length) out.push(<span key={`${j}l${start}`} style={{color}}>{r.t}</span>);
+      // mono-only: per-character reveal of Latin / code text (never Arabic: Arabic runs are handled above)
+      if (shown === undefined || shown >= start + r.t.length) out.push(<span key={`l${start}`} style={{color}}>{r.t}</span>);
       else {
-        const n = Math.max(0, shown - start);
-        if (n > 0) out.push(<span key={`${j}l${start}`} style={{color}}>{r.t.slice(0, n)}</span>);
-        out.push(<span key={`${j}h${start}`} style={{color, visibility: 'hidden'}}>{r.t.slice(n)}</span>);
+        const n = Math.max(0, shown - start); // mono-only
+        if (n > 0) out.push(<span key={`l${start}`} style={{color}}>{r.t.slice(0, n) /* mono-only: Latin code text */}</span>);
+        place(start + n);
+        out.push(<span key={`h${start}`} style={{color, visibility: 'hidden'}}>{r.t.slice(n) /* mono-only */}</span>);
       }
     }
-  });
-  return <>{out}</>;
-};
-
-/** Window chrome: three dim status dots + a mono caption (e.g. the shell or the language). */
-export const Chrome: React.FC<{label: string; size: number; accent?: string}> = ({label, size, accent = C.signal}) => {
-  const d = Math.round(size * 0.36);
+  }
+  place(e);
   return (
-    <div style={{display: 'flex', alignItems: 'center', gap: Math.round(d * 0.8), height: Math.round(size * 1.6), padding: `0 ${Math.round(size * 0.7)}px`, borderBottom: `1px solid ${C.grid}`}}>
-      {[C.crit, C.warn, C.ok].map((c, i) => (
-        <div key={i} style={{width: d, height: d, borderRadius: '50%', background: `${c}${hex(0.55)}`}} />
-      ))}
-      <div style={{flex: 1}} />
-      <bdi dir="ltr" style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontSize: Math.round(size * 0.62), color: C.ink3, letterSpacing: '0.04em'}}>
-        {label}
-      </bdi>
-      <div style={{width: Math.round(size * 0.18), height: Math.round(size * 0.62), background: `${accent}${hex(0.7)}`, borderRadius: 2, marginLeft: Math.round(d * 0.8)}} />
-    </div>
+    <bdi dir="ltr" data-dc-text={id} style={{whiteSpace: 'pre', fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1'}}>
+      {out}
+    </bdi>
   );
 };
 
-// ---------- media (P10 plates, Manim inserts, ADR-006 plates) ----------
-/** studio/public/media/<kind> are symlinks to data/derived/<kind> (forwarded, never copied, into every bundle). */
-export const MEDIA = {plates: 'media/plates', manim: 'media/manim', genai: 'media/genai'} as const;
-export const mediaUrl = (kind: keyof typeof MEDIA, file: string): string => staticFile(`${MEDIA[kind]}/${file}`);
-
-/** JSON sidecar (<slug>.json next to a plate / clip): fetched once per page, render held with delayRender until it lands.
- * A missing sidecar resolves to null (the caller falls back to defaults); it never hangs a render. */
-const sidecars = new Map<string, Promise<unknown>>();
-const sidecarVals = new Map<string, unknown>();
-export const useSidecar = <T,>(url: string): T | null | undefined => {
-  const [, force] = React.useState(0);
-  const [handle] = React.useState(() => (sidecarVals.has(url) || typeof document === 'undefined' ? null : delayRender(`sidecar ${url}`)));
-  React.useLayoutEffect(() => {
-    if (sidecarVals.has(url)) {
-      if (handle !== null) continueRender(handle);
-      return;
-    }
-    let p = sidecars.get(url);
-    if (!p) {
-      p = fetch(url)
-        .then((r) => (r.ok ? r.json() : null))
-        .catch(() => null);
-      sidecars.set(url, p);
-    }
-    let live = true;
-    p.then((v) => {
-      sidecarVals.set(url, v);
-      if (live) force((x) => x + 1);
-      if (handle !== null) continueRender(handle);
-    });
-    return () => {
-      live = false;
-    };
-  }, [url]);
-  return sidecarVals.has(url) ? (sidecarVals.get(url) as T | null) : undefined;
+/** Window chrome: three dim status dots + a mono caption (the shell or the language). Dots are neutral (never semantic). */
+export const Chrome: React.FC<{label: string; size: number; h: number}> = ({label, size, h}) => {
+  const d = Math.round(size * 0.34);
+  return (
+    <div dir="ltr" style={{display: 'flex', alignItems: 'center', gap: Math.round(d * 0.8), height: h, padding: `0 ${Math.round(size * 0.7)}px`, borderBottom: `1px solid ${C.grid}`}}>
+      {[0.5, 0.34, 0.22].map((a, i) => (
+        <div key={i} style={{width: d, height: d, borderRadius: '50%', background: `${C.ink2}${hex(a)}`}} />
+      ))}
+      <div style={{flex: 1}} />
+      <bdi dir="ltr" style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontSize: Math.max(SIZE.secondaryMin, Math.round(size * 0.62)), color: C.ink3, letterSpacing: '0.04em'}}>
+        {label}
+      </bdi>
+    </div>
+  );
 };

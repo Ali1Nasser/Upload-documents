@@ -11,6 +11,7 @@ import {MixedText, useAutoFit} from '../../type/Text';
 import {isArabic, lineHeightFor, type LatinRole} from '../../type/arabic';
 import {revealProgress, revealStyle} from '../../type/reveal';
 import type {LayerCtx, ResolvedAction} from '../../spec/types';
+import {formatValue} from '../NumberCounter/NumberCounter';
 
 export const clamp01 = (x: number) => (x < 0 ? 0 : x > 1 ? 1 : x);
 export const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
@@ -204,3 +205,23 @@ export const proj = (c: THREE.PerspectiveCamera, v: THREE.Vector3, w: number, h:
 
 /** Glow text-shadow for Latin / numeral tags (never Arabic CA; plain glow is fine on any script). */
 export const tagGlow = (color: string, fx: Fx, k = 0.35) => `${halo}, ${glow(color, fx, k)}`;
+
+/** Horizontal placement of a label that wants to be centred on `x` with width `want` inside [0, w] (box-local): centred when
+ * the box edge leaves room, else anchored inward from the marker so it never leaves the box (title-safe). */
+export const placeLabel = (x: number, want: number, w: number, edge = 6): {x: number; maxW: number; align: 'center' | 'left' | 'right'} => {
+  const outerLeft = x < w / 2;
+  const outerRoom = (outerLeft ? x : w - x) - edge;
+  if (2 * outerRoom >= want) return {x, maxW: Math.max(40, want), align: 'center'};
+  const lx = outerLeft ? x - Math.max(0, Math.min(outerRoom, 36)) : x + Math.max(0, Math.min(outerRoom, 36));
+  return {x: lx, maxW: Math.max(40, Math.min(want, outerLeft ? w - lx - edge : lx - edge)), align: outerLeft ? 'left' : 'right'};
+};
+
+/** Index of the last element of `xs` (sorted by `t`) with t <= now, or -1. */
+export const lastAt = <T extends {t: number}>(xs: T[], now: number) => {
+  let k = -1;
+  for (let i = 0; i < xs.length; i++) if (xs[i].t <= now) k = i;
+  return k;
+};
+
+/** A data-contract number as on-screen text: Western digits, source decimals (default 0), unit after the number (same LTR run). */
+export const numText = (n: {value: number; unit?: string; decimals?: number}) => `${formatValue(n.value, 'decimal', n.decimals ?? 0)}${n.unit ? ` ${n.unit}` : ''}`;

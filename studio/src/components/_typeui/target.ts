@@ -7,6 +7,7 @@
 // caller's own layer space (its layer root is W x H before the camera / preview transforms), so the pointer follows the target
 // through the camera push, parallax and preview scale. Pure DOM reads: deterministic, no clock, no randomness.
 import React, {useLayoutEffect, useRef, useState} from 'react';
+// @ts-ignore -- react-dom ships no type declarations in this tree (no @types/react-dom); flushSync is the stable React 18 API
 import {flushSync} from 'react-dom';
 import {continueRender, delayRender} from 'remotion';
 import {H, W} from '../../tokens';

@@ -16,21 +16,27 @@ import {Lbl, Wire, acrylic, acts, born, boxStyle, f24, mix, pf, prog, pulse, sha
 const STEP_F24 = 8; // forward rhythm: one step every 8 film frames (333 ms)
 const COMP_F24 = 8; // compensation rhythm
 
-type State = {doneAt: number[]; failIdx: number | null; failAt: number | null; compAt: (number | null)[]};
+type State = {startAt: number[]; doneAt: number[]; failIdx: number | null; failAt: number | null; compAt: (number | null)[]};
+/** Forward run: step 0 is in flight from the layer anchor and each step completes STEP_F24 film frames after it started; the
+ * next step starts when the previous one completes. A `fail` pins step `at` as the failing one: the steps before it complete
+ * (compressed if needed) before the failure frame, the failing step flashes crit on its anchor, later steps never start. */
 export const sagaTimeline = (p: Props, ctx: LayerCtx): State => {
   const n = p.steps.length;
   const fail = acts(ctx, 'fail')[0];
   const failIdx = fail ? Math.min(n - 1, fail.props.at as number) : null;
   const failAt = fail ? fail.at : null;
+  const step = f24(ctx, STEP_F24);
   const doneAt = p.steps.map((_, k) => {
-    const b = born(ctx, k, STEP_F24);
-    if (failIdx === null || failAt === null) return b;
-    return k < failIdx ? Math.min(b, failAt - f24(ctx, 2) * (failIdx - k)) : Infinity; // steps before the failure are done by then
+    const base = ctx.at + (k + 1) * step;
+    if (failIdx === null || failAt === null) return base;
+    if (k >= failIdx) return Infinity;
+    return Math.max(ctx.at + k + 1, Math.min(base, failAt - f24(ctx, 2) * (failIdx - k)));
   });
+  const startAt = p.steps.map((_, k) => (k === 0 ? ctx.at : doneAt[k - 1]));
   const comp = acts(ctx, 'compensate')[0];
   const last = failIdx === null ? n - 1 : failIdx - 1; // compensate the completed steps, newest first
   const compAt = p.steps.map((_, k) => (comp && k <= last ? comp.at + f24(ctx, COMP_F24) * (last - k) : null));
-  return {doneAt, failIdx, failAt, compAt};
+  return {startAt, doneAt, failIdx, failAt, compAt};
 };
 
 export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
@@ -53,7 +59,7 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const qDone = done ? prog(ctx, tl.doneAt[k], P.label) : 0;
     const fAt = failedAt(k);
     const failed = fAt !== null;
-    const inFlight = tl.failIdx === k && !failed && t >= born(ctx, k, STEP_F24);
+    const inFlight = !done && !failed && t >= tl.startAt[k];
     const ca = tl.compAt[k];
     const undone = ca !== null && t >= ca ? prog(ctx, ca, P.morph) : 0;
     let col: string = C.ink3;
@@ -121,11 +127,8 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   for (let k = 0; k < n - 1; k++) {
     const x0 = cx(k) - nodeW / 2;
     const x1 = cx(k + 1) + nodeW / 2;
-    const start = born(ctx, k + 1, STEP_F24);
-    const isFail = tl.failIdx === k + 1;
-    const reached = tl.doneAt[k + 1] !== Infinity || isFail;
-    const t0 = isFail && tl.failAt !== null ? Math.min(start, tl.failAt) : Math.min(start, tl.doneAt[k + 1]);
-    const q = reached ? prog(ctx, t0, P.arrive) : 0;
+    const t0 = tl.startAt[k + 1]; // the saga moves on when step k completes (Infinity = never)
+    const q = Number.isFinite(t0) ? prog(ctx, t0, P.arrive) : 0;
     const col = failedAt(k + 1) !== null ? C.crit : t >= tl.doneAt[k + 1] ? C.ok : C.signal;
     wires.push(<Wire key={`g${k}`} d={`M ${x0} ${yNode} L ${x1} ${yNode}`} color={C.grid} w={2} opacity={prog(ctx, born(ctx, k + 1, 2), P.arrive)} />);
     wires.push(<Wire key={`f${k}`} d={`M ${x0} ${yNode} L ${x1} ${yNode}`} color={col} w={3} draw={q} len={x0 - x1 + 2} />);

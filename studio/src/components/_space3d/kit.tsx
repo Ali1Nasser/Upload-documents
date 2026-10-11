@@ -341,3 +341,21 @@ export const Chip: React.FC<{
   );
 };
 export {LABEL_RISE_PX};
+
+// ---------- layout ----------
+/** Top-left that keeps a w x h box inside `box` (the camera-envelope slot inside title-safe), nearest to (x, y). */
+export const clampInto = (box: Rect, x: number, y: number, w: number, h: number): {x: number; y: number} => ({
+  x: Math.max(box.x, Math.min(box.x + box.w - w, x)),
+  y: Math.max(box.y, Math.min(box.y + box.h - h, y)),
+});
+/** Full width of a chip whose label measured `natural` px at `base` and is drawn at `size`. */
+export const chipW = (natural: number, base: number, size: number): number => Math.ceil((natural * size) / base) + 2 * CHIP_PAD.x + 2;
+/** A shown number: Western digits, fixed decimals, U+2212 minus, thousands grouped only from 10 000 (data contract style). */
+export const fmtNum = (v: number, decimals = 0): string => {
+  const s = Math.abs(v).toFixed(decimals);
+  const [i, f] = s.split('.');
+  const g = Math.abs(v) >= 10000 ? i.replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F') : i;
+  return `${v < 0 ? '\u2212' : ''}${g}${f ? `.${f}` : ''}`;
+};
+/** Does the copy read right-to-left (any Arabic letter)? */
+export const anyArabic = (xs: readonly string[]): boolean => xs.some((x) => /[\u0600-\u06FF]/.test(x));

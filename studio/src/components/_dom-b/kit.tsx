@@ -141,3 +141,24 @@ export const Chip: React.FC<{id: string; text: string; color?: string; size?: nu
 
 /** Semantic status colour tokens (04 1.1: never decorative). */
 export const toneOf = (s: 'idle' | 'active' | 'ok' | 'warn' | 'fail'): string => (s === 'ok' ? C.ok : s === 'warn' ? C.warn : s === 'fail' ? C.crit : s === 'active' ? C.signal : C.ink3);
+
+// ---------- data helpers ----------
+/** Ordinal rank of every value among the distinct values (0 = lowest). Used where a ruling allows order but no magnitude
+ * (fact-check D1/D2): a length built from rank implies no value. */
+export const ranks = (vals: number[]): {rank: number[]; levels: number} => {
+  const d = [...new Set(vals)].sort((a, b) => a - b);
+  return {rank: vals.map((v) => d.indexOf(v)), levels: d.length};
+};
+/** FNV-1a 32-bit (deterministic on every host; never locale- or engine-dependent). */
+export const fnv1a = (s: string): number => {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h >>> 0;
+};
+/** Sorted actions of one name. */
+export const actsOf = (ctx: LayerCtx, name: string) => ctx.actions.filter((a) => a.name === name).sort((a, b) => a.at - b.at || a.li - b.li);
+/** Linear marching phase (04 section 2: linear motion is allowed for marching flows only), in cycles since `t0`. */
+export const march = (ctx: LayerCtx, t0: number, cyclesPerSecond: number) => ((ctx.frame - t0) * cyclesPerSecond) / ctx.fps;

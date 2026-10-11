@@ -32,6 +32,9 @@ export const mix = (a: string, b: string, q: number): string => {
   return `#${x.map((v, i) => Math.round(v + (y[i] - v) * q).toString(16).padStart(2, '0')).join('')}`.toUpperCase();
 };
 
+/** Token colour at alpha a (#RRGGBBAA). */
+export const alpha = (c: string, a: number): string => `${c}${hex(a)}`;
+
 // ---------- copy helpers ----------
 export const dirOf = (texts: string[]): RevealDir => (texts.some((t) => isArabic(t)) ? 'rtl' : 'ltr');
 export const roleOf = (t: string): LatinRole => (isArabic(t) ? 'sentence' : 'data');
@@ -92,11 +95,12 @@ export const useMeasure = (id: string, items: MItem[]): {w: number[] | null; h: 
 };
 
 /**
- * One scale for a whole diagram laid out in nominal px: s = min(1, avail / natural). The label size is size * s, floored at `min`
+ * One scale for a whole diagram laid out in nominal px: s = min(maxUp, avail / natural) (maxUp > 1 lets a small diagram grow
+ * towards SIZE.sub so it fills its slot). The label size is size * s, floored at `min`
  * (SIZE.labelMin = 28 px for object labels); below the floor -> overflow (DC_QA finding, crit outline, snapshot fails).
  */
-export const fitScale = (id: string, natural: Sz, avail: Sz, size: number, min: number = SIZE.labelMin): {s: number; fs: number; overflow: boolean} => {
-  const s = Math.min(1, avail.w / Math.max(1, natural.w), avail.h / Math.max(1, natural.h));
+export const fitScale = (id: string, natural: Sz, avail: Sz, size: number, min: number = SIZE.labelMin, maxUp = 1): {s: number; fs: number; overflow: boolean} => {
+  const s = Math.min(maxUp, avail.w / Math.max(1, natural.w), avail.h / Math.max(1, natural.h));
   const fs = size * s;
   if (fs < min - 0.01) {
     reportQa('overflow', id, {natural_w: Math.round(natural.w), natural_h: Math.round(natural.h), max_w: Math.round(avail.w), max_h: Math.round(avail.h), min, size});
@@ -329,7 +333,7 @@ export const overlaps = (pts: Pt[], sz: Sz[], gap = 0): number => {
 };
 
 // ---------- status glyphs (no copy: shape + colour, so state never relies on colour alone) ----------
-export type Glyph = 'dot' | 'ring' | 'check' | 'cross' | 'retry' | 'skip' | 'spin' | 'db' | 'folder' | 'file';
+export type Glyph = 'dot' | 'ring' | 'check' | 'cross' | 'retry' | 'skip' | 'spin' | 'db' | 'folder' | 'file' | 'clock' | 'diamond' | 'layers';
 /** A 24 x 24 viewBox glyph. `spin` rotates with `turn` (0..1). */
 export const GlyphIcon: React.FC<{g: Glyph; color: string; turn?: number}> = ({g, color, turn = 0}) => (
   <svg viewBox="0 0 24 24" width="100%" height="100%" style={{overflow: 'visible', display: 'block'}}>
@@ -368,6 +372,19 @@ export const GlyphIcon: React.FC<{g: Glyph; color: string; turn?: number}> = ({g
       </>
     ) : null}
     {g === 'folder' ? <path d="M3 7 V18 H21 V9 H11 L9 7 Z" fill={`${color}2E`} stroke={color} strokeWidth={2} strokeLinejoin="round" /> : null}
+    {g === 'clock' ? (
+      <>
+        <circle cx={12} cy={12} r={9} fill="none" stroke={color} strokeWidth={2} />
+        <path d="M12 7 V12 L15.5 14" fill="none" stroke={color} strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" />
+      </>
+    ) : null}
+    {g === 'diamond' ? <path d="M12 3 L21 12 L12 21 L3 12 Z" fill={`${color}2E`} stroke={color} strokeWidth={2} strokeLinejoin="round" /> : null}
+    {g === 'layers' ? (
+      <>
+        <path d="M12 4 L21 8.5 L12 13 L3 8.5 Z" fill={`${color}2E`} stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
+        <path d="M3 12.5 L12 17 L21 12.5 M3 16.5 L12 21 L21 16.5" fill="none" stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
+      </>
+    ) : null}
     {g === 'file' ? <path d="M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19" fill={`${color}1F`} stroke={color} strokeWidth={2} strokeLinejoin="round" /> : null}
   </svg>
 );

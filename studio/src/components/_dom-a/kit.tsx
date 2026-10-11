@@ -7,6 +7,7 @@ import {interpolate} from 'remotion';
 import {C, FONT, LINE, SIZE, type Fx} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
 import {MixedText, useAutoFit} from '../../type/Text';
+import {latinFeatures} from '../../type/words';
 import {isArabic, lineHeightFor, type LatinRole} from '../../type/arabic';
 import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {LayerCtx, ResolvedAction} from '../../spec/types';
@@ -129,7 +130,7 @@ export const Tag: React.FC<{id: string; text: string; color: string; size: numbe
       boxShadow: on > 0.02 ? emit(color, fx, 0.5 * on) : undefined,
       textShadow: halo,
       whiteSpace: 'nowrap',
-      fontFeatureSettings: '"tnum" 1',
+      fontFeatureSettings: latinFeatures(text) ?? '"tnum" 1', // rule 5: ALL-CAPS Latin with I gets cv08
       ...style,
     }}
   >
@@ -159,4 +160,39 @@ export const Floor: React.FC<{w: number; h: number; y: number; x?: number; opaci
       }}
     />
   </div>
+);
+
+/** Piecewise state timeline: the state in force at frame t, the one before it, and the RV1 progress of the change. */
+export type Ev<S> = {t: number; s: S};
+export const stateAt = <S,>(ev: Ev<S>[], ctx: LayerCtx, preset: 'label' | 'arrive' | 'morph' | 'impact' = 'label', easing = ease.arrive): {cur: S; prev: S; q: number; t: number; k: number} => {
+  let k = 0;
+  for (let j = 0; j < ev.length; j++) if (ev[j].t <= ctx.frame) k = j;
+  const q = k === 0 ? 1 : prog(ctx, ev[k].t, preset, easing);
+  return {cur: ev[k].s, prev: ev[Math.max(0, k - 1)].s, q, t: ev[k].t, k};
+};
+
+/** Padlock glyph (SVG, no copy). open 0..1 lifts and swings the shackle; tone = token colour. */
+export const LockGlyph: React.FC<{size: number; tone: string; open: number; fx: Fx; on?: number}> = ({size, tone, open, fx, on = 1}) => {
+  const w = size;
+  const h = size * 1.15;
+  const lift = open * size * 0.22;
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{overflow: 'visible', filter: on > 0.05 ? `drop-shadow(0 0 ${(fx.glowInner * 0.6 * on).toFixed(1)}px ${tone})` : undefined}}>
+      <g transform={`translate(${w * 0.68} ${h * 0.47 - lift}) rotate(${(-28 * open).toFixed(2)}) translate(${-w * 0.68} ${-(h * 0.47)})`}>
+        <path d={`M ${w * 0.3} ${h * 0.47} V ${h * 0.3} A ${w * 0.2} ${w * 0.2} 0 0 1 ${w * 0.7} ${h * 0.3} V ${h * 0.47}`} fill="none" stroke={tone} strokeWidth={Math.max(2, size * 0.09)} strokeLinecap="round" />
+      </g>
+      <rect x={w * 0.16} y={h * 0.45} width={w * 0.68} height={h * 0.5} rx={size * 0.1} fill={`${tone}${hex(0.16 + 0.2 * on)}`} stroke={tone} strokeWidth={Math.max(1.5, size * 0.06)} />
+      <circle cx={w * 0.5} cy={h * 0.66} r={size * 0.06} fill={tone} />
+      <rect x={w * 0.475} y={h * 0.68} width={w * 0.05} height={h * 0.12} fill={tone} />
+    </svg>
+  );
+};
+
+/** Key glyph (SVG, no copy): bow ring + blade with two bits. */
+export const KeyGlyph: React.FC<{size: number; tone: string; fx: Fx; on?: number}> = ({size, tone, fx, on = 1}) => (
+  <svg width={size * 1.6} height={size} viewBox={`0 0 ${size * 1.6} ${size}`} style={{overflow: 'visible', filter: on > 0.05 ? `drop-shadow(0 0 ${(fx.glowInner * 0.6 * on).toFixed(1)}px ${tone})` : undefined}}>
+    <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.3} fill={`${tone}${hex(0.12 + 0.2 * on)}`} stroke={tone} strokeWidth={Math.max(2, size * 0.09)} />
+    <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.1} fill={C.void} stroke={tone} strokeWidth={1.5} />
+    <path d={`M ${size * 0.92} ${size * 0.5} H ${size * 0.1} M ${size * 0.22} ${size * 0.5} V ${size * 0.74} M ${size * 0.42} ${size * 0.5} V ${size * 0.68}`} stroke={tone} strokeWidth={Math.max(2, size * 0.09)} strokeLinecap="round" fill="none" />
+  </svg>
 );

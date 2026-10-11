@@ -175,3 +175,105 @@ export const pf = (ctx: LayerCtx) => ({
   morphLong: presetFrames('morph', ctx.fps, true),
   exit: presetFrames('exit', ctx.fps),
 });
+
+// ---------- geometry ----------
+/** Point at angle `a` (degrees, 0 = 12 o'clock, clockwise) on a circle / ellipse. */
+export const polar = (cx: number, cy: number, rx: number, a: number, ry = rx): [number, number] => {
+  const r = (a * Math.PI) / 180;
+  return [cx + rx * Math.sin(r), cy - ry * Math.cos(r)];
+};
+/** SVG arc path from angle a0 to a1 (degrees, clockwise, 0 = up). */
+export const arcPath = (cx: number, cy: number, r: number, a0: number, a1: number): string => {
+  const [x0, y0] = polar(cx, cy, r, a0);
+  const [x1, y1] = polar(cx, cy, r, a1);
+  const large = Math.abs(a1 - a0) > 180 ? 1 : 0;
+  const sweep = a1 >= a0 ? 1 : 0;
+  return `M ${x0.toFixed(2)} ${y0.toFixed(2)} A ${r} ${r} 0 ${large} ${sweep} ${x1.toFixed(2)} ${y1.toFixed(2)}`;
+};
+/** Largest-remainder apportionment of n items to non-negative weights (sums exactly to n; ties -> lower index). */
+export const apportion = (w: number[], n: number): number[] => {
+  const s = w.reduce((a, b) => a + Math.max(0, b), 0) || 1;
+  const raw = w.map((x) => (Math.max(0, x) / s) * n);
+  const out = raw.map(Math.floor);
+  const order = raw.map((x, i) => [x - Math.floor(x), i] as const).sort((a, b) => b[0] - a[0] || a[1] - b[1]);
+  for (let k = 0; out.reduce((a, b) => a + b, 0) < n; k++) out[order[k % order.length][1]] += 1;
+  return out;
+};
+/** Seeded Fisher-Yates permutation of 0..n-1 (remotion `random`, never Math.random). */
+export const shuffle = (n: number, seed: string): number[] => {
+  const a = Array.from({length: n}, (_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(random(`${seed}:${i}`) * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+};
+
+// ---------- glyphs (SVG, stroke-only emissive line art; colour from the caller, always a token) ----------
+export type GlyphKind = 'code' | 'data' | 'model' | 'report' | 'image' | 'config' | 'db';
+/** A small line-art icon centred on (x, y), `s` = box size in px. */
+export const Glyph: React.FC<{kind: GlyphKind; x: number; y: number; s: number; color: string; w?: number; opacity?: number}> = ({kind, x, y, s, color, w = 2.5, opacity = 1}) => {
+  const h = s / 2;
+  const st = {fill: 'none', stroke: color, strokeWidth: w, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
+  let body: React.ReactNode;
+  if (kind === 'code')
+    body = (
+      <>
+        <path d={`M ${-h * 0.35} ${-h * 0.55} L ${-h * 0.85} 0 L ${-h * 0.35} ${h * 0.55}`} {...st} />
+        <path d={`M ${h * 0.35} ${-h * 0.55} L ${h * 0.85} 0 L ${h * 0.35} ${h * 0.55}`} {...st} />
+        <path d={`M ${h * 0.12} ${-h * 0.7} L ${-h * 0.12} ${h * 0.7}`} {...st} />
+      </>
+    );
+  else if (kind === 'data' || kind === 'db')
+    body = (
+      <>
+        <ellipse cx={0} cy={-h * 0.55} rx={h * 0.7} ry={h * 0.22} {...st} />
+        <path d={`M ${-h * 0.7} ${-h * 0.55} L ${-h * 0.7} ${h * 0.55} A ${h * 0.7} ${h * 0.22} 0 0 0 ${h * 0.7} ${h * 0.55} L ${h * 0.7} ${-h * 0.55}`} {...st} />
+        <path d={`M ${-h * 0.7} 0 A ${h * 0.7} ${h * 0.22} 0 0 0 ${h * 0.7} 0`} {...st} strokeOpacity={0.6} />
+      </>
+    );
+  else if (kind === 'model') {
+    const pts: [number, number][] = [[-h * 0.7, -h * 0.5], [-h * 0.7, h * 0.5], [0, -h * 0.7], [0, 0], [0, h * 0.7], [h * 0.7, 0]];
+    const edges = [[0, 2], [0, 3], [1, 3], [1, 4], [2, 5], [3, 5], [4, 5]];
+    body = (
+      <>
+        {edges.map(([a, b], i) => (
+          <path key={i} d={`M ${pts[a][0]} ${pts[a][1]} L ${pts[b][0]} ${pts[b][1]}`} {...st} strokeWidth={w * 0.6} strokeOpacity={0.7} />
+        ))}
+        {pts.map((p, i) => (
+          <circle key={`c${i}`} cx={p[0]} cy={p[1]} r={h * 0.13} fill={color} />
+        ))}
+      </>
+    );
+  } else if (kind === 'report')
+    body = (
+      <>
+        <path d={`M ${-h * 0.6} ${-h * 0.8} L ${h * 0.3} ${-h * 0.8} L ${h * 0.6} ${-h * 0.5} L ${h * 0.6} ${h * 0.8} L ${-h * 0.6} ${h * 0.8} Z`} {...st} />
+        <path d={`M ${-h * 0.3} ${h * 0.5} L ${-h * 0.3} ${h * 0.1} M 0 ${h * 0.5} L 0 ${-h * 0.25} M ${h * 0.3} ${h * 0.5} L ${h * 0.3} ${-h * 0.05}`} {...st} />
+      </>
+    );
+  else if (kind === 'image')
+    body = (
+      <>
+        <rect x={-h * 0.8} y={-h * 0.6} width={h * 1.6} height={h * 1.2} rx={h * 0.12} {...st} />
+        <path d={`M ${-h * 0.6} ${h * 0.4} L ${-h * 0.15} ${-h * 0.1} L ${h * 0.15} ${h * 0.2} L ${h * 0.35} 0 L ${h * 0.6} ${h * 0.4}`} {...st} />
+        <circle cx={h * 0.35} cy={-h * 0.3} r={h * 0.1} fill={color} />
+      </>
+    );
+  else
+    body = (
+      <>
+        {[-0.45, 0, 0.45].map((yy, i) => (
+          <React.Fragment key={i}>
+            <path d={`M ${-h * 0.75} ${h * yy} L ${h * 0.75} ${h * yy}`} {...st} strokeOpacity={0.55} />
+            <circle cx={h * [0.35, -0.3, 0.1][i]} cy={h * yy} r={h * 0.16} fill={C.ground} stroke={color} strokeWidth={w} />
+          </React.Fragment>
+        ))}
+      </>
+    );
+  return (
+    <g transform={`translate(${x.toFixed(2)} ${y.toFixed(2)})`} opacity={opacity}>
+      {body}
+    </g>
+  );
+};
