@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-10T23:03:19Z",
+ "created": "2026-10-11T07:15:22Z",
  "label": "p7-fx-b",
  "thresholds": {
   "ocr_min": 0.9,

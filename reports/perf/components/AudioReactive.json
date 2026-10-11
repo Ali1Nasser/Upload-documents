@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "AudioReactive",
+ "composition": "Demo-AudioReactive",
+ "at": "2026-10-11T07:15:11Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 72,
+   "wall_s": 5.39,
+   "box_s_per_frame": 0.0749,
+   "slot_s_per_frame": 0.2247,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.02,
+    5.34
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 72,
+   "wall_s": 7.13,
+   "box_s_per_frame": 0.0991,
+   "slot_s_per_frame": 0.2973,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.34,
+    5.51
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 72,
+   "wall_s": 7.47,
+   "box_s_per_frame": 0.1038,
+   "slot_s_per_frame": 0.3114,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    5.51,
+    5.8
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

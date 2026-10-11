@@ -2,7 +2,7 @@
  "v": 2,
  "name": "CameraRig",
  "composition": "Demo-CameraRig",
- "at": "2026-10-10T23:04:18Z",
+ "at": "2026-10-11T07:13:27Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,14 +21,14 @@
  "tiers": {
   "lite": {
    "frames": 96,
-   "wall_s": 8.52,
-   "box_s_per_frame": 0.0887,
-   "slot_s_per_frame": 0.2661,
+   "wall_s": 7.11,
+   "box_s_per_frame": 0.0741,
+   "slot_s_per_frame": 0.2223,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.39,
-    4.52
+    1.94,
+    2.03
    ],
    "queue": {
     "running": 1,
@@ -38,14 +38,14 @@
   },
   "standard": {
    "frames": 96,
-   "wall_s": 11.87,
-   "box_s_per_frame": 0.1237,
-   "slot_s_per_frame": 0.3711,
+   "wall_s": 9.09,
+   "box_s_per_frame": 0.0946,
+   "slot_s_per_frame": 0.2838,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.72,
-    5
+    1.94,
+    2.11
    ],
    "queue": {
     "running": 1,
@@ -55,14 +55,14 @@
   },
   "hero": {
    "frames": 96,
-   "wall_s": 11.31,
-   "box_s_per_frame": 0.1178,
-   "slot_s_per_frame": 0.3534,
+   "wall_s": 9.04,
+   "box_s_per_frame": 0.0941,
+   "slot_s_per_frame": 0.2823,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    4.92,
-    5.01
+    2.11,
+    2.71
    ],
    "queue": {
     "running": 1,

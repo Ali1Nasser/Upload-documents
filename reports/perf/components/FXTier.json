@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "FXTier",
+ "composition": "Demo-FXTier",
+ "at": "2026-10-11T07:14:39Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 72,
+   "wall_s": 5.61,
+   "box_s_per_frame": 0.0779,
+   "slot_s_per_frame": 0.2337,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.95,
+    3.79
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 72,
+   "wall_s": 7.57,
+   "box_s_per_frame": 0.1051,
+   "slot_s_per_frame": 0.3153,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.65,
+    4.23
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 72,
+   "wall_s": 7.66,
+   "box_s_per_frame": 0.1064,
+   "slot_s_per_frame": 0.3192,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.38,
+    4.75
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 0
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
