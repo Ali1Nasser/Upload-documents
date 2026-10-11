@@ -116,3 +116,8 @@ P3b-7. The G3 two-aligner clause names S5 (English): a gate-side substitute (cue
   2. Prune models P12-P14 does not need. Keep MMS and w2v for the sync checks and faster-whisper turbo for the A/V re-alignment. Drop large-v3 (already gone), demucs and the bge-m3 copies once P8 is done.
   3. Prune legacy MP4s in data/extracted once P8 no longer needs them.
   4. Choose a mezzanine CRF or bitrate that fits the space actually left. Encode per chapter and delete approved previews as you go (03 §P12.3).
+
+## 2026-10-11: Opus weekly cap, so the P7 fan-out runs motion-engineer on Sonnet
+- The account hit the weekly cap for the Opus tier, which resets 2026-10-16 12:00 UTC. Agents defined as `model: opus` (motion-engineer, council-chair, scene-director, story-editor, graph-engineer) fail immediately. Sonnet and Haiku still run.
+- Decision (lead, operational): the P7 build, fix and integration steps run motion-engineer with a `model: 'sonnet'` override. Every quality gate stays the same: an independent critic approves every baseline, snapshots, perf budgets and Arabic QA apply, and an independent verifier checks G6b. No threshold changes.
+- Council-chair rulings that are needed before the reset wait for it, or go to the user if they block.
