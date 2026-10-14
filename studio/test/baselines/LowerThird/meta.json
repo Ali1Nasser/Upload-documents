@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "043a4ee41f9b314d75575a30b633a141b89ad696892d3cb642e5eac1a252ac35",
+  "a1": "3d96febf6dfbebc05fe2e09804f19437de24e014b9a6f9ad0c64469f6adf3fce",
+  "p50": "30942444b2481d5b228381ff82af9e59d14afc397346d88ac8124479e771127f",
+  "p100": "d61d0508e59d0d20438a512389174099f4343effba0b28ddcaa100fcf740329f"
+ },
+ "v": 2,
+ "name": "LowerThird",
+ "frames": {
+  "p0": 0,
+  "a1": 13,
+  "p50": 35,
+  "p100": 71
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:03:05Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

@@ -21,7 +21,7 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const {box, fps, fx} = ctx;
   const t = ctx.frame;
   const n = props.steps.length;
-  const size = n <= 6 ? SIZE.body : SIZE.label;
+  const size = n <= 7 ? SIZE.sub : n <= 9 ? SIZE.body : SIZE.label;
   const pad = 28;
   const rail = Math.round(SIZE.label * 1.2);
   const headH = Math.round(SIZE.label * 2.2);
@@ -68,8 +68,8 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 position: 'absolute',
                 left: 0,
                 right: 0,
-                top: selY * rowH + 2,
-                height: rowH - 4,
+                top: selY * rowH + 4,
+                height: rowH - 8,
                 borderRadius: 10,
                 opacity: selQ,
                 background: `${C.signal}${hex(0.16)}`,
@@ -78,21 +78,25 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               }}
             />
           ) : null}
-          <div ref={ref} data-overflow={fit.overflow ? 1 : undefined} dir={rtl ? 'rtl' : 'ltr'} style={{width: 'max-content', minWidth: '100%', fontSize: fs, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined, position: 'relative'}}>
+          <div ref={ref} data-overflow={fit.overflow ? 1 : undefined} dir={rtl ? 'rtl' : 'ltr'} style={{display: 'flow-root', width: 'max-content', minWidth: '100%', fontSize: fs, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined, position: 'relative'}}>
             {props.steps.map((s, i) => {
               const ent = prog(ctx, ctx.at + stag(i, fps, 3), 'label');
               const applied = selIdx < 0 || i <= selIdx;
               const isSel = i === selIdx;
               const tick = selIdx >= 0 && i <= selIdx;
               return (
-                <div key={i} style={{height: rowH, display: 'flex', alignItems: 'center', gap: Math.round(fs * 0.5), padding: `0 ${Math.round(fs * 0.5)}px`, opacity: ent * (applied ? 1 : 0.42), transform: `translateY(${((1 - ent) * 6).toFixed(2)}px)`, borderBottom: i < n - 1 ? `1px solid ${C.grid}` : undefined}}>
+                <div key={i} style={{height: rowH - 8, margin: '4px 0', display: 'flex', alignItems: 'center', gap: Math.round(fs * 0.5), padding: `0 ${Math.round(fs * 0.5)}px`, opacity: ent * (applied ? 1 : 0.42), transform: `translateY(${((1 - ent) * 6).toFixed(2)}px)`, borderRadius: 9, border: `1px solid ${isSel ? 'transparent' : C.grid}`, background: isSel ? 'transparent' : `${C.void}${hex(0.45)}`}}>
                   <svg width={fs * 0.7} height={fs * 0.7} viewBox="0 0 10 10" style={{flex: 'none'}}>
                     {tick ? <path d="M1.5 5.2 L4 7.6 L8.6 2.6" fill="none" stroke={C.ok} strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round" /> : <circle cx={5} cy={5} r={2} fill={C.ink3} />}
                   </svg>
                   {s.kind ? <Chip id={`${ctx.id}:k${i}`} text={s.kind} color={isSel ? C.signal : C.ink2} size={Math.max(SIZE.labelMin, Math.round(fs * 0.72))} /> : null}
-                  <div style={{whiteSpace: 'nowrap', color: isSel ? C.ink : applied ? C.ink : C.ink3, textShadow: halo}}>
+                  <div style={{whiteSpace: 'nowrap', flex: 1, color: isSel ? C.ink : applied ? C.ink : C.ink3, textShadow: halo}}>
                     <MixedText id={`${ctx.id}:s${i}`} text={s.label} size={fs} weight={isSel ? FONT.label.strong : FONT.label.weight} />
                   </div>
+                  {/* the table after this step: a miniature (three columns, three rows); clean = ok once applied, signal when selected */}
+                  <svg width={fs * 1.5} height={fs * 0.95} viewBox="0 0 30 19" style={{flex: 'none', opacity: applied ? 1 : 0.5}}>
+                    {[0, 1, 2].map((r) => [0, 1, 2].map((c) => <rect key={`${r}${c}`} x={1 + c * 10} y={1 + r * 6.2} width={8} height={4.4} rx={1} fill={isSel ? C.signal : tick ? C.ok : C.ink3} opacity={r === 0 ? 0.95 : 0.5} />))}
+                  </svg>
                 </div>
               );
             })}

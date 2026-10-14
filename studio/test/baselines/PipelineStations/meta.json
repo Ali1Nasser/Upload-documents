@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "8fc793e877390b25db40dc8e1246756a26103c28de4f964b3f17f8a94d3105dd",
+  "a1": "ccc604c9b90db9c65c9625c8b9485b6c41798270a510566717f5194ea5448d84",
+  "p50": "b1bdedc3144fc968715875803a4c08d0407cc89752f55ec53251a5b981412e03",
+  "p100": "22de1158b9e3114ce98ee00edd1c5646cee9cc0e0062ccf92607471d8c2182d6"
+ },
+ "v": 2,
+ "name": "PipelineStations",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 95,
+  "p100": 191
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:13:26Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

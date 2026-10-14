@@ -261,18 +261,20 @@ export const Wire: React.FC<WireProps> = ({c, p, color, width = 2, opacity = 1, 
     const a = ang + Math.PI + (i === 0 ? 0 : da * 0.16);
     return `${(end.x + Math.cos(a) * r).toFixed(1)},${(end.y + Math.sin(a) * r).toFixed(1)}`;
   });
+  // alpha lives in each shape's stroke-/fill-opacity, never on the <g>: a group opacity < 1 becomes an offscreen compositing layer
+  // that spans raster tiles, and its tile seams differ run to run (snapshot determinism, struct-a lesson L1)
   return (
-    <g opacity={opacity}>
-      {glowPx > 0 ? <path d={d} fill="none" stroke={color} strokeOpacity={0.28} strokeWidth={width + glowPx} strokeLinecap="round" strokeDasharray={drawn} /> : null}
-      <path d={d} fill="none" stroke={color} strokeWidth={width} strokeLinecap="round" strokeDasharray={dash && p >= 1 ? '10 8' : drawn} />
-      {arrow && p > 0.85 ? <polygon points={tri.join(' ')} fill={color} /> : null}
+    <g>
+      {glowPx > 0 ? <path d={d} fill="none" stroke={color} strokeOpacity={0.28 * opacity} strokeWidth={width + glowPx} strokeLinecap="round" strokeDasharray={drawn} /> : null}
+      <path d={d} fill="none" stroke={color} strokeOpacity={opacity} strokeWidth={width} strokeLinecap="round" strokeDasharray={dash && p >= 1 ? '10 8' : drawn} />
+      {arrow && p > 0.85 ? <polygon points={tri.join(' ')} fill={color} fillOpacity={opacity} /> : null}
       {(pulses ?? []).map((u, i) => {
         if (u < 0 || u > p) return null;
         const q = bez(c, u);
         return (
           <g key={i}>
-            <circle cx={q.x} cy={q.y} r={pulseR * 2.2} fill={color} opacity={0.22} />
-            <circle cx={q.x} cy={q.y} r={pulseR} fill={C.white} opacity={0.95} />
+            <circle cx={q.x} cy={q.y} r={pulseR * 2.2} fill={color} fillOpacity={0.22 * opacity} />
+            <circle cx={q.x} cy={q.y} r={pulseR} fill={C.white} fillOpacity={0.95 * opacity} />
           </g>
         );
       })}

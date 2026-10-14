@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "ff4a6057b2e456f8540f138cd4a3519bc7b5ef4e951288c64ccf4e0957c184e4",
+  "a1": "9132845141154d6860fa3eba446d3ffd470bb5b13ce738e33d4b31dc18f0bf45",
+  "p50": "4fc7dcffc98ad684cc6d8217334254b865d9d60c863b12166889e4be83b9389d",
+  "p100": "8cef37ff05d4aab708efd517bd6cb9e96cb91ef47d717302e8489c3d29cac4bd"
+ },
+ "v": 2,
+ "name": "DagRun",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 107,
+  "p100": 215
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:09:53Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

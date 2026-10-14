@@ -162,3 +162,10 @@ export const fnv1a = (s: string): number => {
 export const actsOf = (ctx: LayerCtx, name: string) => ctx.actions.filter((a) => a.name === name).sort((a, b) => a.at - b.at || a.li - b.li);
 /** Linear marching phase (04 section 2: linear motion is allowed for marching flows only), in cycles since `t0`. */
 export const march = (ctx: LayerCtx, t0: number, cyclesPerSecond: number) => ((ctx.frame - t0) * cyclesPerSecond) / ctx.fps;
+
+/** A count with the data-contract thousands grouping (narrow no-break space) from 1 000 up: `5 000`, `12 500` (ids and years use
+ * NumberCounter's formatValue, which never groups below 10 000; a population is a count, so it groups like the contract). */
+export const fmtCount = (v: number, decimals = 0): string => {
+  const [i, f] = Math.abs(v).toFixed(decimals).split('.');
+  return `${v < 0 ? '-' : ''}${i.replace(/\B(?=(\d{3})+(?!\d))/g, '\u202F')}${f ? `.${f}` : ''}`;
+};

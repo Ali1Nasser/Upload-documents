@@ -218,7 +218,7 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const mx = grouped ? fs0 * 0.8 : 0;
     const mt = grouped ? fs0 * 2.4 : 0;
     const nat = {w: lay.nat.w + 2 * mx, h: lay.nat.h + mt + mx};
-    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0);
+    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.25);
     const s = fit.s;
     const ox = (ctx.box.w - nat.w * s) / 2 + mx * s;
     const oy = (ctx.box.h - nat.h * s) / 2 + mt * s;
@@ -369,7 +369,7 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const rv = revealStyle(t - hl.born, fps, 'label', dirOf([hl.g]));
         const gs = Math.max(SIZE.labelMin, Math.round(geo.fs * 0.75));
         return (
-          <div key={`g${hl.g}`} style={{position: 'absolute', top: hl.y0 - gs * 1.45, ...(rtl ? {left: hl.x1 - 2000, width: 2000, textAlign: 'right'} : {left: hl.x0}), fontSize: gs, color: C.violet, whiteSpace: 'nowrap', ...rv.style}}>
+          <div key={`g${hl.g}`} style={{position: 'absolute', top: hl.y0 - gs * 1.45, ...(rtl ? {right: ctx.box.w - hl.x1} : {left: hl.x0}), fontSize: gs, color: C.violet, whiteSpace: 'nowrap', padding: `0 ${Math.round(gs * 0.4)}px`, background: `${C.void}D9`, borderRadius: Math.round(gs * 0.3), ...rv.style}}>
             <MixedText id={`${ctx.id}:grp:${hl.g}`} text={hl.g} size={gs} weight={500} role="data" />
           </div>
         );

@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "7fd944d412856b536dfec40194f548ec8710b8c2599f7b9a3f68f9b2336a08cb",
+  "p50": "bedeb3d8787cabb5f8bb3d75007682d95eb909e76e9f99f7dc70e7b971a86790",
+  "p100": "7781fd9be1a638293bc68d18f8b4139b7cc2299423bd086e12467fd8fe55a1f4"
+ },
+ "v": 2,
+ "name": "ThresholdSlider",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 69,
+  "p100": 139
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:12:48Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

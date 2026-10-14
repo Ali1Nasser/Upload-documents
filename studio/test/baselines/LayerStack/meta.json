@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "a7352c7d6a4d1a300502b16f06af5a62b08905ca0b5fecb4352ab170b7a632d0",
+  "p50": "b563d4b9c2ed3c349766651b06f85052b936b2745466282df1138353d131393d",
+  "p100": "a5cf429fb04c05a8d2d535e196678feb9184c523449c83f1950e9f8a5604c2af"
+ },
+ "v": 2,
+ "name": "LayerStack",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 83,
+  "p100": 167
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:05:05Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

@@ -14,8 +14,8 @@ import {hex} from '../../fx/look';
 import {ease, presetFrames} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {formatValue} from '../NumberCounter/NumberCounter';
-import {At, Chip, FitLabel, Stage, Svg, f24, glowBox, lerp, prog, progN, rim, type Pt} from '../_dom-b/kit';
+import {isArabic} from '../../type/arabic';
+import {At, Chip, FitLabel, Stage, Svg, f24, fmtCount, glowBox, lerp, prog, progN, rim, type Pt} from '../_dom-b/kit';
 
 const DOTS = 240; // decorative population sprites (<= FX.lite.particles); not a quantity
 const PICK = 18; // decorative dots per scoop; not the sample size
@@ -90,12 +90,12 @@ export const SampleScoopView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const {dots, centres} = buildPop(props.seed, props.method, pc, rx, ry);
   // cup + histogram (left)
   const cupC = {x: W * 0.2, y: labelH + (H - labelH) * 0.3};
-  const cupW = Math.min(W * 0.17, 300);
+  const cupW = Math.min(W * 0.21, 380);
   const cupH = cupW * 0.8;
   const histY = labelH + (H - labelH) * 0.92;
-  const histW = Math.min(W * 0.3, 520);
+  const histW = Math.min(W * 0.32, 560);
   const binW = histW / BINS;
-  const blockH = Math.max(10, binW * 0.42);
+  const blockH = Math.max(12, binW * 0.5);
   // draws
   const first = ctx.at + f24(14, fps);
   const every = f24(40, fps);
@@ -124,7 +124,12 @@ export const SampleScoopView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     stacks.push({bin: d.bin, level: level[d.bin], t: d.t0 + drop});
     level[d.bin] += 1;
   }
-  const popText = props.population ? `${formatValue(props.population.value, 'integer', props.population.decimals ?? 0)}${props.population.unit ? ` ${props.population.unit}` : ''}` : null;
+  // the number is one LTR isolate; an Arabic unit follows it outside the isolate, a Latin unit stays inside (rule U1)
+  const popText = props.population ? (() => {
+    const n = fmtCount(props.population.value, props.population.decimals ?? 0);
+    const u = props.population.unit;
+    return !u ? `⟦${n}⟧` : isArabic(u) ? `⟦${n}⟧ ${u}` : `⟦${n} ${u}⟧`;
+  })() : null;
   const METHOD: Record<Props['method'], string> = {random: 'random', stratified: 'stratified', systematic: 'systematic', cluster: 'cluster'};
 
   return (

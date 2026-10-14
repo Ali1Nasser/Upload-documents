@@ -11,6 +11,7 @@
 // it reads the target's own layout; the frame is held (delayRender) until the drive is applied, and SpecPlayer's post-layout QA
 // (title-safe etc.) runs after it on the same settle signal, i.e. it checks the DRIVEN position.
 import React, {useLayoutEffect, useRef, useState} from 'react';
+// @ts-ignore -- react-dom ships no type declarations in this tree (no @types/react-dom); flushSync is the stable React 18 API
 import {flushSync} from 'react-dom';
 import {continueRender, delayRender} from 'remotion';
 import {H, W} from '../../tokens';
@@ -66,6 +67,46 @@ export const leafUnion = (el: Element, frameArea: number): DOMRect | null => {
     y1 = Math.max(y1, r.bottom);
   }
   return x1 > x0 ? new DOMRect(x0, y0, x1 - x0, y1 - y0) : null;
+};
+
+const paintsItself = (n: Element): boolean => {
+  const cs = getComputedStyle(n);
+  return (
+    (cs.backgroundColor !== 'rgba(0, 0, 0, 0)' && cs.backgroundColor !== 'transparent') ||
+    cs.backgroundImage !== 'none' ||
+    cs.boxShadow !== 'none' ||
+    parseFloat(cs.borderTopWidth) + parseFloat(cs.borderLeftWidth) > 0
+  );
+};
+/**
+ * Extent the target DRAWS, in the caller's layer space: the union of the drawn leaves AND of every container that paints itself (card
+ * background, border, shadow), so a shard plan covers the card and the ink overshoot of the copy, not only the layout boxes of the text.
+ * Frame-sized elements (backdrops) are ignored.
+ */
+export const paintedRect = (i: SettledInfo): Rect | null => {
+  const shot = i.mine?.parentElement;
+  if (!shot || !i.targets.length) return null;
+  const shotR = shot.getBoundingClientRect();
+  const area = shotR.width * shotR.height;
+  const me = i.mine.getBoundingClientRect();
+  let x0 = Infinity;
+  let y0 = Infinity;
+  let x1 = -Infinity;
+  let y1 = -Infinity;
+  for (const t of i.targets)
+    for (const n of [t, ...Array.from(t.querySelectorAll('*'))]) {
+      if (n.childElementCount > 0 && !paintsItself(n)) continue;
+      const r = n.getBoundingClientRect();
+      if (r.width < 0.5 || r.height < 0.5 || r.width * r.height >= FULL_FRAME * area) continue;
+      x0 = Math.min(x0, r.left);
+      y0 = Math.min(y0, r.top);
+      x1 = Math.max(x1, r.right);
+      y1 = Math.max(y1, r.bottom);
+    }
+  if (!(x1 > x0) || me.width < 1 || me.height < 1) return null;
+  const kx = W / me.width;
+  const ky = H / me.height;
+  return {x: (x0 - me.left) * kx, y: (y0 - me.top) * ky, w: (x1 - x0) * kx, h: (y1 - y0) * ky};
 };
 
 const roomOf = (layers: HTMLElement[], shotR: DOMRect): Room => {

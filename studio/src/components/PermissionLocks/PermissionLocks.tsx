@@ -10,7 +10,7 @@ import React from 'react';
 import {interpolate} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
-import {isArabic} from '../../type/arabic';
+import {isArabic, visLen} from '../../type/arabic';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {FitText, LockGlyph, Tag, acrylic, actsOf, clamp, ff, flashAt, layerStyle, mix, prog, stateAt, type Ev} from '../_dom-a/kit';
@@ -26,7 +26,7 @@ export const PermissionLocksView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
   const nr = roles.length;
   const nc = resources.length;
-  const headW = Math.round(box.w * 0.24);
+  const headW = Math.round(Math.min(box.w * 0.26, Math.max(220, Math.max(...roles.map((r) => visLen(r))) * 26 + 24))); // role column hugs its labels (the grid stays beside them)
   const headH = Math.round(SIZE.body * 2.2);
   const cellW = Math.min(300, (box.w - headW - 40) / nc);
   const cellH = Math.min(190, (box.h - headH) / nr);
@@ -35,7 +35,7 @@ export const PermissionLocksView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const xR = x0 + gridW + 40; // role label column left edge
   const y0 = box.y + (box.h - headH - cellH * nr) / 2 + headH;
   // per-cell event timelines
-  const ev: Ev<Level>[][] = roles.map((r) => resources.map((s) => [{t: -1e9, s: (props.grants.find((g) => g.role === r && g.resource === s)?.level ?? 'none') as Level}]));
+  const ev: Ev<Level>[][][] = roles.map((r) => resources.map((s) => [{t: -1e9, s: (props.grants.find((g) => g.role === r && g.resource === s)?.level ?? 'none') as Level}]));
   const deny: number[][][] = roles.map(() => resources.map(() => []));
   for (const a of [...actsOf(ctx, 'grant'), ...actsOf(ctx, 'deny')].sort((p, q) => p.at - q.at || p.li - q.li)) {
     const ri = roles.indexOf(a.props.role as string);

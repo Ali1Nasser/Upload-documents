@@ -359,3 +359,11 @@ export const fmtNum = (v: number, decimals = 0): string => {
 };
 /** Does the copy read right-to-left (any Arabic letter)? */
 export const anyArabic = (xs: readonly string[]): boolean => xs.some((x) => /[\u0600-\u06FF]/.test(x));
+
+/** Largest even size in [min, base] for which `ok(size)` holds; below the floor it returns min with overflow (reported, fails snapshots). */
+export const fitSearch = (base: number, min: number, ok: (size: number) => boolean): {size: number; overflow: boolean} => {
+  for (let s = base; s >= min; s -= 2) if (ok(s)) return {size: s, overflow: false};
+  return {size: min, overflow: !ok(min)};
+};
+/** Rescale a width measured at `base` to `size`. */
+export const scaleW = (natural: number, base: number, size: number): number => (natural * size) / base;

@@ -9,13 +9,13 @@ import React, {useRef} from 'react';
 import {interpolate} from 'remotion';
 import {C, FONT, H, SIZE, W} from '../../tokens';
 import {halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {isArabic, lineHeightFor} from '../../type/arabic';
 import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {filmF} from '../_typeui/kit';
+import {Mx, filmF} from '../_typeui/kit';
 import {useTargetRect} from '../_typeui/target';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
@@ -138,7 +138,7 @@ export const CalloutArrowView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               outline: fit.overflow ? `2px dashed ${C.crit}` : undefined,
             }}
           >
-            <MixedText id={`${ctx.id}:label`} text={props.label} size={ls} weight={FONT.label.strong} role={ar ? 'sentence' : 'chip'} />
+            <Mx id={`${ctx.id}:label`} text={props.label} size={ls} weight={FONT.label.strong} role={ar ? 'sentence' : 'chip'} />
           </div>
         </div>
       ) : null}

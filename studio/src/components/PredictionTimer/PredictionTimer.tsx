@@ -10,12 +10,12 @@ import React, {useRef} from 'react';
 import {interpolate} from 'remotion';
 import {C, FONT, LEAD_FRAMES, SIZE} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {breakCaption, isArabic, lineHeightFor, stackGap, visLen} from '../../type/arabic';
 import {LABEL_GAP_MIN_PX, type Rect} from '../../type/safe';
 import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
-import {clamp, exitFade, exitT, filmF} from '../_typeui/kit';
+import {Mx, clamp, exitFade, exitT, filmF} from '../_typeui/kit';
 import type {Props} from './schema';
 
 const OPT_K = SIZE.body / SIZE.sub;
@@ -82,7 +82,7 @@ export const PredictionTimerView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             const mt = i ? stackGap({text: lines[i - 1], size: fs}, {text: l, size: fs}) : 0;
             return (
               <div key={i} style={{marginTop: mt, fontSize: fs, lineHeight: lineHeightFor(l), color: C.ink, textShadow: `${halo}, ${glow(C.signal, ctx.fx, 0.45)}`, whiteSpace: 'nowrap', transformOrigin: rtl ? 'right center' : 'left center', ...r.style}}>
-                <MixedText id={`${ctx.id}:q${i}`} text={l} size={fs} />
+                <Mx id={`${ctx.id}:q${i}`} text={l} size={fs} />
               </div>
             );
           })}
@@ -129,7 +129,7 @@ export const PredictionTimerView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                     ...r.style,
                   }}
                 >
-                  <MixedText id={`${ctx.id}:o${i}`} text={o} size={os} weight={FONT.label.strong} />
+                  <Mx id={`${ctx.id}:o${i}`} text={o} size={os} weight={FONT.label.strong} />
                 </div>
               );
             })}

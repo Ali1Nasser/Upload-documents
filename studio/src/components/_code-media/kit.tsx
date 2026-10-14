@@ -246,7 +246,7 @@ export const CodeRow: React.FC<{id: string; toks: Tok[]; s: number; e: number; s
   }
   place(e);
   return (
-    <bdi dir="ltr" data-dc-text={id} style={{whiteSpace: 'pre', fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1'}}>
+    <bdi dir="ltr" data-dc-text={id} style={{whiteSpace: 'pre', fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1, "calt" 0', fontVariantLigatures: 'none'}}>
       {out}
     </bdi>
   );

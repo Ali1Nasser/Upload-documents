@@ -8,12 +8,12 @@
 import React, {useRef} from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {lineHeightFor, stackGap, visLen} from '../../type/arabic';
 import {ease, presetFrames, revealProgress, revealStyle, wipeClip} from '../../type/reveal';
 import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
-import {dirOf, exitFade, exitT, filmF} from '../_typeui/kit';
+import {Mx, dirOf, exitFade, exitT, filmF} from '../_typeui/kit';
 import type {Props} from './schema';
 
 const SUB_K = SIZE.label / SIZE.body; // subtitle one step below the title (32 / 40)
@@ -95,7 +95,7 @@ export const LowerThirdView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 <Glyph kind={props.kind} color={accent} s={Math.round(fs * 0.8)} />
               </div>
               <div style={{fontSize: fs, lineHeight: lineHeightFor(props.title), color: C.ink, textShadow: `${halo}, ${glow(accent, ctx.fx, 0.3 * k)}`, whiteSpace: 'nowrap', transformOrigin: 'right center', ...title.style}}>
-                <MixedText id={`${ctx.id}:title`} text={props.title} size={fs} weight={FONT.label.strong} />
+                <Mx id={`${ctx.id}:title`} text={props.title} size={fs} weight={FONT.label.strong} />
               </div>
             </div>
             {props.subtitle && sub ? (
@@ -110,7 +110,7 @@ export const LowerThirdView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                   ...sub.style,
                 }}
               >
-                <MixedText id={`${ctx.id}:sub`} text={props.subtitle} size={ss} weight={FONT.label.weight} />
+                <Mx id={`${ctx.id}:sub`} text={props.subtitle} size={ss} weight={FONT.label.weight} />
               </div>
             ) : null}
           </div>

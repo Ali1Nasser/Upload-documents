@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "f789fcc5dfb8f216750bf10f8311e75d19e058b5b4182c7eb712edba30451b9c",
+  "p50": "e114b0c50c77e2b554676d37a3d54a9622a094f0af769c311f7680625cefdf67",
+  "p100": "5974cedaaacaefa0d3946edca9f1d91796f7121a274ca0269acc3ae09a6a9897"
+ },
+ "v": 2,
+ "name": "SqlStages",
+ "frames": {
+  "p0": 0,
+  "a1": 13,
+  "p50": 114,
+  "p100": 229
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:08:48Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

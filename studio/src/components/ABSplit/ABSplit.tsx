@@ -34,12 +34,12 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // ---------- layout (RTL: source on the right, lanes run leftwards) ----------
   const src: Pt = {x: W * 0.94, y: H * 0.5};
   const split: Pt = {x: W * 0.7, y: H * 0.5};
-  const laneGap = Math.min(H / n, SIZE.label * 5.2);
+  const laneGap = Math.min((H / n) * 0.7, SIZE.label * 8);
   const laneY = (i: number) => H / 2 + (i - (n - 1) / 2) * laneGap;
   const laneX0 = W * 0.6; // lane mouth
   const laneX1 = W * 0.36; // lane end (label + bar start)
   const barMax = W * 0.3;
-  const barH = Math.max(SIZE.labelMin * 0.7, Math.min(laneGap * 0.32, SIZE.label * 1.1));
+  const barH = Math.max(SIZE.labelMin * 0.7, Math.min(laneGap * 0.3, SIZE.label * 1.6));
   const lanePath = (i: number) => bez(split, {x: lerp(split.x, laneX0, 0.6), y: split.y}, {x: lerp(split.x, laneX0, 0.4), y: laneY(i)}, {x: laneX0, y: laneY(i)}, 20);
   // ---------- timeline ----------
   const act = actsOf(ctx, 'reveal')[0];
@@ -56,7 +56,7 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // ---------- decorative stream dots ----------
   const DOTS = Math.min(fx.particles, 18 * n + 18);
   const cycle = f24(54, fps); // frames for a dot to run source -> lane end
-  const dotR = Math.max(3, SIZE.label * 0.14);
+  const dotR = Math.max(4, SIZE.label * 0.2);
   const dots = Array.from({length: DOTS}, (_, k) => {
     const lane = k % n; // random assignment is drawn equal (see header)
     const phase = random(`ab:${ctx.id}:${k}`);

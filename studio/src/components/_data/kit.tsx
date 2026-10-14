@@ -28,6 +28,14 @@ export const GAP = LABEL_GAP_MIN_PX;
 export const LABEL_MIN = SIZE.labelMin;
 /** `color` + alpha (0..1) as an 8-digit hex. */
 export const tint = (color: string, a: number): string => `${color}${hex(a)}`;
+const rgb = (h: string): number[] => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+/** Linear mix of two token colours (k = 0 -> a, 1 -> b), as #rrggbb. Endpoints are always tokens. */
+export const mix = (a: string, b: string, k: number): string => {
+  const x = rgb(a);
+  const y = rgb(b);
+  const q = Math.max(0, Math.min(1, k));
+  return `#${x.map((v, i) => Math.round(v + (y[i] - v) * q).toString(16).padStart(2, '0')).join('')}`;
+};
 
 // ---------- numbers ----------
 /** Decimals written in the source value (120 -> 0, 850.2 -> 1); Num.decimals wins when given. */

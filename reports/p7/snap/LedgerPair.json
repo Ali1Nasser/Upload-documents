@@ -1,0 +1,62 @@
+{
+ "v": 2,
+ "name": "LedgerPair",
+ "composition": "Demo-LedgerPair",
+ "at": "2026-10-11T17:18:07Z",
+ "frames": [
+  0,
+  11,
+  84,
+  169
+ ],
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "results": [
+  {
+   "tag": "p0",
+   "frame": 0,
+   "why": "0 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1045 px"
+  },
+  {
+   "tag": "a1",
+   "frame": 11,
+   "why": "first anchor settled (anchor + 6 + 1 f)",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1045 px"
+  },
+  {
+   "tag": "p50",
+   "frame": 84,
+   "why": "50 %",
+   "determinism_diff_px": 1045,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1045 px"
+  },
+  {
+   "tag": "p100",
+   "frame": 169,
+   "why": "100 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1045 px"
+  }
+ ],
+ "qa_findings": [],
+ "registry_problems": [],
+ "approve": true,
+ "approve_refused": [
+  "determinism 1045 px"
+ ],
+ "pass": false
+}

@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "6f990df36216be20d765629ad26ba541afe7141ad153df2c12f07af4b09cc56a",
+  "a1": "b50a6333a78e8f4db54654290ec22b654b040053abe3c6d6d31c91255b702e1d",
+  "p50": "e14ff8bb4d3cf8d8b85ed1fd99dfad5500f5c93ec6297090a56bf322eae34340",
+  "p100": "6095d487714a4f37deb08bbfd993641e5f6ff1d4f5818da144216abb8eefe559"
+ },
+ "v": 2,
+ "name": "DeepDiveCard",
+ "frames": {
+  "p0": 0,
+  "a1": 12,
+  "p50": 41,
+  "p100": 83
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:17:09Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

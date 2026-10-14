@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "e73b8b4f86ad4cb76ce5a02804c68ca5bdaf152cf6ffedaf7555aab254d879ae",
+  "p50": "5dc83f732b6c0a892f6e00b716639bd24d4d08e9f28451588bc62f01f8ffbba6",
+  "p100": "adec984839eb52cd4ef65b65446ec2c9bc0260405b355a5f7fbe2a624e4de5b2"
+ },
+ "v": 2,
+ "name": "CalloutArrow",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 41,
+  "p100": 83
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:17:49Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

@@ -2,10 +2,10 @@
  "v": 2,
  "name": "CameraRig",
  "composition": "Demo-CameraRig",
- "at": "2026-10-11T07:12:19Z",
+ "at": "2026-10-11T17:15:05Z",
  "frames": [
   0,
-  13,
+  7,
   47,
   95
  ],
@@ -26,34 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1070 px"
   },
   {
    "tag": "a1",
-   "frame": 13,
+   "frame": 7,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1070 px"
   },
   {
    "tag": "p50",
    "frame": 47,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "mismatch_px": 0,
-   "pass": true
+   "determinism_diff_px": 1070,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1070 px"
   },
   {
    "tag": "p100",
    "frame": 95,
    "why": "100 %",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1070 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
- "pass": true
+ "approve": true,
+ "approve_refused": [
+  "determinism 1070 px"
+ ],
+ "pass": false
 }

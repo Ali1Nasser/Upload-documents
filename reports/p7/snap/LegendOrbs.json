@@ -1,0 +1,62 @@
+{
+ "v": 2,
+ "name": "LegendOrbs",
+ "composition": "Demo-LegendOrbs",
+ "at": "2026-10-11T17:04:47Z",
+ "frames": [
+  0,
+  11,
+  74,
+  149
+ ],
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "results": [
+  {
+   "tag": "p0",
+   "frame": 0,
+   "why": "0 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1327 px"
+  },
+  {
+   "tag": "a1",
+   "frame": 11,
+   "why": "first anchor settled (anchor + 6 + 1 f)",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1327 px"
+  },
+  {
+   "tag": "p50",
+   "frame": 74,
+   "why": "50 %",
+   "determinism_diff_px": 1327,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1327 px"
+  },
+  {
+   "tag": "p100",
+   "frame": 149,
+   "why": "100 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1327 px"
+  }
+ ],
+ "qa_findings": [],
+ "registry_problems": [],
+ "approve": true,
+ "approve_refused": [
+  "determinism 1327 px"
+ ],
+ "pass": false
+}

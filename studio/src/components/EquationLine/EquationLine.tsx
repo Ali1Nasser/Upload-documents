@@ -8,12 +8,12 @@
 import React, {useRef} from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import {caShadow, glow, halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {isArabic, MINUS, minus, visLen} from '../../type/arabic';
 import {presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
-import {exitT} from '../_typeui/kit';
+import {Mx, exitT} from '../_typeui/kit';
 import type {Props} from './schema';
 
 const RESULT_K = 1.25;
@@ -62,7 +62,7 @@ export const EquationLineView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const tfs = res ? Math.round(fs * RESULT_K) : fs;
           return (
             <div key={i} data-dc-part={`t${i}`} style={{position: 'relative', display: 'inline-block', color, textShadow: base, fontSize: tfs, lineHeight: 1.3, transformOrigin: 'left center', ...r.style}}>
-              <MixedText id={`${ctx.id}:t${i}`} text={text} size={tfs} role={ar ? 'sentence' : 'data'} weight={ar ? undefined : FONT.mono.weight} caLatin={ca ? base + ca : undefined} />
+              <Mx id={`${ctx.id}:t${i}`} text={text} size={tfs} role={ar ? 'sentence' : 'data'} weight={ar ? undefined : FONT.mono.weight} caLatin={ca ? base + ca : undefined} />
               {res ? (
                 <div
                   style={{

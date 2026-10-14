@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "0f5f2cfe92a0d06a8e7ef85f13ab94cf42dcc351f77b853667c423301223dae8",
+  "p50": "0b5b55f351e1bdf4ba86e3cf9acf3b7e22c80a46edaab2293cb6bff601634d24",
+  "p100": "e626b043b7f9229b6b12f12d747ff1bd5d7baa59e6b6643a1e4f0b3890af4ff6"
+ },
+ "v": 2,
+ "name": "SagaChain",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 94,
+  "p100": 189
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:02:59Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

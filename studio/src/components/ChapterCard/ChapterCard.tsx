@@ -9,12 +9,12 @@ import React, {useRef} from 'react';
 import {interpolate} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {lineHeightFor, stackGap} from '../../type/arabic';
 import {ease, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
-import {clamp, exitFade, exitT, filmF} from '../_typeui/kit';
+import {Mx, clamp, exitFade, exitT, filmF} from '../_typeui/kit';
 import type {Props} from './schema';
 
 const EN_K = SIZE.label / SIZE.title; // English subtitle size relative to the title (32 / 104)
@@ -85,7 +85,7 @@ export const ChapterCardView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             </bdi>
           </div>
           <div style={{marginTop: Math.round(fs * 0.12), fontSize: fs, lineHeight: lineHeightFor(props.title_ar), color: C.ink, textShadow: `${halo}, ${glow(C.signal, ctx.fx, 0.5 * k)}`, whiteSpace: 'nowrap', transformOrigin: 'right center', ...title.style}}>
-            <MixedText id={`${ctx.id}:title`} text={props.title_ar} size={fs} />
+            <Mx id={`${ctx.id}:title`} text={props.title_ar} size={fs} />
           </div>
           {/* act colour bar: draws from the reading start (right) */}
           <div style={{alignSelf: 'stretch', marginTop: Math.round(fs * 0.18), height: Math.max(3, Math.round(fs * 0.05)), borderRadius: fs, background: `linear-gradient(270deg, ${C.signal}, ${C.signal}${hex(0.15)})`, boxShadow: glow(C.signal, ctx.fx, 0.35 * k), transform: `scaleX(${bar.toFixed(4)})`, transformOrigin: 'right center'}} />
@@ -102,14 +102,14 @@ export const ChapterCardView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             >
               {props.title_en && en ? (
                 <div style={{fontSize: es, color: C.ink2, textShadow: halo, whiteSpace: 'nowrap', ...en.style}}>
-                  <MixedText id={`${ctx.id}:en`} text={props.title_en} size={es} />
+                  <Mx id={`${ctx.id}:en`} text={props.title_en} size={es} />
                 </div>
               ) : (
                 <span />
               )}
               {props.act && act ? (
                 <div style={{fontSize: ts, color: C.ink3, letterSpacing: '0.08em', textShadow: halo, whiteSpace: 'nowrap', ...act.style}}>
-                  <MixedText id={`${ctx.id}:act`} text={props.act} size={ts} role="chip" />
+                  <Mx id={`${ctx.id}:act`} text={props.act} size={ts} role="chip" />
                 </div>
               ) : null}
             </div>

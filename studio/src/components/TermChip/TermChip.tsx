@@ -6,12 +6,12 @@
 import React, {useRef} from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {isArabic, lineHeightFor, stackGap, visLen} from '../../type/arabic';
 import {presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
-import {dirOf, exitT, filmF, justifyFor} from '../_typeui/kit';
+import {Mx, dirOf, exitT, filmF, justifyFor} from '../_typeui/kit';
 import type {Props} from './schema';
 
 const PAD = {x: 0.62, y: 0.26}; // pill padding in em of the term size
@@ -61,12 +61,12 @@ export const TermChipView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               textShadow: `${halo}, ${glow(color, ctx.fx, 0.35 * k)}`,
             }}
           >
-            <MixedText id={`${ctx.id}:term`} text={props.term} size={fs} role={termAr ? 'sentence' : props.kind === 'code' ? 'code' : 'chip'} weight={termAr ? undefined : FONT.mono.weight} latColor={color} />
+            <Mx id={`${ctx.id}:term`} text={props.term} size={fs} role={termAr ? 'sentence' : props.kind === 'code' ? 'code' : 'chip'} weight={termAr ? undefined : FONT.mono.weight} latColor={color} />
           </div>
         </div>
         {props.gloss_ar && gloss ? (
           <div style={{marginTop: Math.round(fs * 0.3) + stackGap({text: props.term, size: fs}, {text: props.gloss_ar, size: gs}), fontSize: gs, lineHeight: lineHeightFor(props.gloss_ar), color: C.ink2, textShadow: halo, whiteSpace: 'nowrap', ...gloss.style}}>
-            <MixedText id={`${ctx.id}:gloss`} text={props.gloss_ar} size={gs} weight={FONT.label.weight} />
+            <Mx id={`${ctx.id}:gloss`} text={props.gloss_ar} size={gs} weight={FONT.label.weight} />
           </div>
         ) : null}
       </div>

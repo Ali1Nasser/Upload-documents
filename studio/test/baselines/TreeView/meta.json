@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "177ed4eb55aa2bba0da201c90c4ad616c2e15a3aebb7f4b218a36932355eca92",
+  "p50": "ab477ad4669d1bba60a70ee92120eb575d4d788390ec75b7b8ec751e746c2ca3",
+  "p100": "2e33b2232e67d7611ad3588737f82f9ea1eb1c3a4fa8407f87a6351daf1e9957"
+ },
+ "v": 2,
+ "name": "TreeView",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 71,
+  "p100": 143
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:18:04Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

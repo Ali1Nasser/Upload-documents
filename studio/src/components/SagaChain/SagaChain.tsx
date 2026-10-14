@@ -11,7 +11,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {Lbl, Wire, acrylic, acts, born, boxStyle, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
+import {Dot, Lbl, Wire, acrylic, acts, born, boxStyle, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
 
 const STEP_F24 = 8; // forward rhythm: one step every 8 film frames (333 ms)
 const COMP_F24 = 8; // compensation rhythm
@@ -45,11 +45,12 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const P = pf(ctx);
   const tl = sagaTimeline(props, ctx);
   const cellW = ctx.box.w / n;
-  const nodeW = Math.round(cellW * 0.78);
-  const nodeH = Math.round(SIZE.label * 2.6);
+  const nodeW = Math.round(Math.min(cellW * 0.8, 330));
+  const nodeH = Math.round(Math.min(ctx.box.h * 0.2, n <= 5 ? 170 : 190));
   const yNode = Math.round(ctx.box.h * 0.36);
-  const yComp = Math.round(ctx.box.h * 0.72);
-  const compH = Math.round(SIZE.labelMin * 2.2);
+  const yComp = Math.round(ctx.box.h * 0.74);
+  const compH = Math.round(Math.min(ctx.box.h * 0.1, 96));
+  const stepSize = n <= 4 ? SIZE.body : SIZE.label;
   const cx = (k: number) => ctx.box.w - (k + 0.5) * cellW; // RTL: step 1 on the right
   const failedAt = (k: number) => (tl.failIdx === k && tl.failAt !== null && t >= tl.failAt ? tl.failAt : null);
   const node = (k: number) => {
@@ -88,8 +89,7 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           visibility: t < b ? 'hidden' : undefined,
         }}
       >
-        <Lbl id={`${ctx.id}:s${k}`} text={props.steps[k].label} maxW={nodeW - 24} maxH={nodeH - 8} fps={ctx.fps} color={idle ? C.ink2 : C.ink} weight={FONT.label.strong} />
-        {undone > 0 ? <div style={{position: 'absolute', left: 14, right: 14, top: '50%', height: 2, background: C.ink3, transform: `scaleX(${undone.toFixed(3)})`, transformOrigin: 'left center'}} /> : null}
+        <Lbl id={`${ctx.id}:s${k}`} text={props.steps[k].label} maxW={nodeW - 28} maxH={nodeH - 24} size={stepSize} wrap fps={ctx.fps} color={mix(idle ? C.ink2 : C.ink, C.ink3, undone)} weight={FONT.label.strong} />
       </div>
     );
   };
@@ -118,7 +118,7 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           visibility: t < ca ? 'hidden' : undefined,
         }}
       >
-        <Lbl id={`${ctx.id}:c${k}`} text={props.steps[k].compensation} maxW={nodeW - 28} maxH={compH} size={SIZE.labelMin} fps={ctx.fps} color={C.warn} />
+        <Lbl id={`${ctx.id}:c${k}`} text={props.steps[k].compensation} maxW={nodeW - 28} maxH={compH} size={SIZE.label} fps={ctx.fps} color={C.warn} />
       </div>
     );
   };
@@ -152,6 +152,40 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       if (r > 0) wires.push(<path key={`ra${k}`} d={`M ${xb - 12} ${yComp - 7} L ${xb} ${yComp} L ${xb - 12} ${yComp + 7}`} fill="none" stroke={C.warn} strokeWidth={2.5} opacity={r} strokeLinecap="round" />);
     }
   }
+  // status marks on top of the nodes: done = check (ok), failed = cross (crit), compensated = return arc (warn)
+  const marks: React.ReactNode[] = [];
+  const mk = (k: number) => {
+    const x = cx(k) + nodeW / 2 - 26;
+    const y = yNode - nodeH / 2 + 26;
+    const st = {fill: 'none', strokeWidth: 4, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
+    const ca = tl.compAt[k];
+    const fAt = failedAt(k);
+    if (fAt !== null) {
+      const q = prog(ctx, fAt, P.impact);
+      marks.push(<path key={`m${k}`} d={`M ${x - 9} ${y - 9} L ${x + 9} ${y + 9} M ${x + 9} ${y - 9} L ${x - 9} ${y + 9}`} stroke={C.crit} opacity={q} {...st} />);
+    } else if (ca !== null && t >= ca) {
+      const q = prog(ctx, ca, P.label);
+      marks.push(<path key={`m${k}`} d={`M ${x + 9} ${y + 4} A 10 10 0 1 0 ${x - 2} ${y + 11} M ${x - 11} ${y - 8} L ${x - 9} ${y + 3} L ${x - 1} ${y - 2}`} stroke={C.warn} opacity={q} {...st} />);
+    } else if (t >= tl.doneAt[k]) {
+      const q = prog(ctx, tl.doneAt[k], P.label);
+      marks.push(<path key={`m${k}`} d={`M ${x - 10} ${y} L ${x - 3} ${y + 8} L ${x + 11} ${y - 9}`} stroke={C.ok} opacity={q} {...st} />);
+    }
+  };
+  for (let k = 0; k < n; k++) mk(k);
+  // the saga token: rides the forward wire to the step in flight, and the return wire during the compensations
+  const tokens: React.ReactNode[] = [];
+  for (let k = 0; k < n - 1; k++) {
+    const t0 = tl.startAt[k + 1];
+    if (!Number.isFinite(t0)) continue;
+    const q = prog(ctx, t0, P.arrive);
+    if (q > 0 && q < 0.999) tokens.push(<Dot key={`tk${k}`} x={cx(k) - nodeW / 2 + (cx(k + 1) + nodeW / 2 - (cx(k) - nodeW / 2)) * q} y={yNode} r={8} color={C.signal} k={1} />);
+  }
+  for (let k = n - 1; k > 0; k--) {
+    const prev = tl.compAt[k - 1];
+    if (prev === null || prev === undefined) continue;
+    const q = prog(ctx, prev, P.arrive);
+    if (q > 0 && q < 0.999) tokens.push(<Dot key={`tc${k}`} x={cx(k) + nodeW / 2 + (cx(k - 1) - nodeW / 2 - (cx(k) + nodeW / 2)) * q} y={yComp} r={7} color={C.warn} k={1} />);
+  }
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
@@ -159,6 +193,10 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       </svg>
       {props.steps.map((_, k) => node(k))}
       {props.steps.map((_, k) => comp(k))}
+      <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        {marks}
+        {tokens}
+      </svg>
     </div>
   );
 };

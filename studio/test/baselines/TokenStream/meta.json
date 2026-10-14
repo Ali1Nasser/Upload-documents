@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
+  "a1": "be2550b6dc79669063f6671a2f2fd560d3ac2a478dba69f48a0470c262740ccb",
+  "p50": "0d4b07c634919ff81da76bb9b86dad5605487a82c34db286a5907bea6e73d994",
+  "p100": "9f5dbd7eccb2ca7e18bbd05844a039a4226ed95330f482a7f1957728256614c9"
+ },
+ "v": 2,
+ "name": "TokenStream",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 47,
+  "p100": 95
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:06:08Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

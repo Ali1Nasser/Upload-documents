@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TripleGate",
  "composition": "Demo-TripleGate",
- "at": "2026-10-10T23:03:30Z",
+ "at": "2026-10-11T17:05:37Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "mismatch_px": 6820,
+   "pass": false
   },
   {
    "tag": "p50",
    "frame": 59,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "baseline": "written"
+   "determinism_diff_px": 1193,
+   "mismatch_px": 31855,
+   "pass": false
   },
   {
    "tag": "p100",
    "frame": 119,
    "why": "100 %",
-   "baseline": "written"
+   "mismatch_px": 27462,
+   "pass": false
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
- "pass": true
+ "approve": false,
+ "pass": false
 }

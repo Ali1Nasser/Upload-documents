@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "c1ae7b3c1b9012f3de234d7ee219bbadee8a223c6c0f6b72f004fba1915c8ad8",
+  "p50": "66990eed896c4a47c58d94972da20d47cce2710a0ad0ef4b521b22f5260c716e",
+  "p100": "132ef7239f9ab3522057ae9140f528e81f044ff7e16e4e87fa8d626f068abe3b"
+ },
+ "v": 2,
+ "name": "Heatmap",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 64,
+  "p100": 129
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:13:43Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

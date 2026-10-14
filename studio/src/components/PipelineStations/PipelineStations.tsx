@@ -110,6 +110,7 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
       yReason: yTrack + (gateR + fs0 * 0.5 + pick.rows * rowH + fs0 * 1.1) * s,
       reasonH: fs0 * 1.6 * s,
       rw,
+      lw,
     };
   }, [m.w, props.stations, N, ctx.box.w, ctx.box.h, ctx.id, rtl, fs0]);
 
@@ -228,8 +229,8 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
             key={`l${st.id}`}
             style={{
               position: 'absolute',
-              left: geo.xs[i] - 1000,
-              width: 2000,
+              left: geo.xs[i] - ((geo.lw[i] * geo.s) / 2 + 4),
+              width: geo.lw[i] * geo.s + 8,
               top: geo.yLabel + row * geo.rowH,
               display: 'flex',
               justifyContent: 'center',

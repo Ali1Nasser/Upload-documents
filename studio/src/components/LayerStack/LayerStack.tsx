@@ -70,13 +70,14 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     if (!m.w) return null;
     const w = m.w as number[];
     const hF = Math.round(fs0 * 2.0);
-    const gap = Math.round(fs0 * 0.55);
-    const depth = Math.round(hF * 0.85);
+    const depth = Math.round(hF * 0.7);
+    // the top face (dy) of a slab sits in the gap above it: the gap is dy + a margin, so no face ever crosses the copy of the slab above
+    const gap = Math.round(depth * 0.55 + fs0 * 0.3);
     const icon = Math.round(hF * 0.55);
     const hasSize = sizes.some(Boolean);
     const sizeW = hasSize ? Math.max(...sizes.map((s, i) => (s ? w[n + i] : 0))) + fs0 * 1.2 : 0;
     const W0 = Math.max(...w.slice(0, n)) + fs0 * 1.6 + icon + fs0 * 0.6 + sizeW;
-    const lift = fs0 * 0.5;
+    const lift = gap * 0.4;
     const nat = {w: W0 + depth * 0.9, h: n * hF + (n - 1) * gap + depth * 0.55 + lift};
     const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.35);
     const s = fit.s;
@@ -119,14 +120,17 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         if (q <= 0) return null;
         const cached = !!L.cached && !c.built && c.inv <= 0;
         const fresh = c.built ? c.build : 0;
-        let col = cached ? C.ok : docker ? C.ink3 : C.ink3;
+        let col: string = cached ? C.ok : C.ink3;
         col = mix(col, C.signal, Math.max(hl[i], fresh));
         col = mix(col, C.crit, c.inv);
         const flash = c.invSince >= 0 && c.invSince < ff * 4 ? (c.invSince < ff ? 1 : 1 - (c.invSince - ff) / (3 * ff)) : 0;
         const drop = (1 - q) * 18 * geo.s;
         const y = geo.ys[i] - hl[i] * geo.lift - drop;
         const x = geo.ox;
+        // dimming goes through colour, never a group opacity < 1 (an offscreen layer across raster tiles breaks snapshot determinism)
         const dim = anyHl > 0 && hl[i] < 0.5 ? 1 - 0.35 * anyHl : 1;
+        const dm = (x: string) => (dim < 1 ? mix(x, C.ground, 1 - dim) : x);
+        col = dm(col);
         const k = (cached ? 0.45 : 0) + hl[i] * 0.8 + c.hit * 0.6 + flash * 1.2 + fresh * 0.5;
         const g: Glyph = c.inv > 0.5 ? 'cross' : c.built && c.build < 1 ? 'spin' : cached ? 'check' : c.built ? 'dot' : docker ? 'dot' : 'layers';
         const top = `${x},${y} ${x + geo.dx},${y - geo.dy} ${x + geo.W + geo.dx},${y - geo.dy} ${x + geo.W},${y}`;
@@ -134,7 +138,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const ar = isArabic(L.label);
         const sz = sizes[i];
         return (
-          <div key={i} style={{position: 'absolute', left: 0, top: 0, opacity: q * dim}}>
+          <div key={i} style={{position: 'absolute', left: 0, top: 0, ...(q < 1 ? {opacity: q} : {})}}>
             <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
               <polygon points={top} fill={mix(C.panel, col, 0.22)} fillOpacity={0.95} stroke={col} strokeOpacity={0.7} strokeWidth={1.5 * geo.s} strokeLinejoin="round" />
               <polygon points={side} fill={mix(C.void, col, 0.12)} fillOpacity={0.95} stroke={col} strokeOpacity={0.45} strokeWidth={1.5 * geo.s} strokeLinejoin="round" />
@@ -175,7 +179,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                   position: 'relative',
                   whiteSpace: 'nowrap',
                   fontSize: geo.fs,
-                  color: C.ink,
+                  color: dm(C.ink),
                   textShadow: halo,
                   lineHeight: 1.3,
                   ...revealStyle(t - born[i], fps, 'label', ar ? 'rtl' : 'ltr').style,
@@ -185,7 +189,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 <MixedText id={`${ctx.id}:l${i}`} text={L.label} size={geo.fs} weight={ar ? FONT.label.strong : FONT.mono.weight} role={ar ? 'sentence' : 'code'} />
               </div>
               {sz ? (
-                <div style={{flex: 'none', width: geo.sizeW, display: 'flex', justifyContent: rtl ? 'flex-start' : 'flex-end', fontSize: geo.fs * 0.9, color: C.ink2, textShadow: halo, position: 'relative'}}>
+                <div style={{flex: 'none', width: geo.sizeW, display: 'flex', justifyContent: rtl ? 'flex-start' : 'flex-end', fontSize: geo.fs * 0.9, color: dm(C.ink2), textShadow: halo, position: 'relative'}}>
                   <bdi dir="ltr" data-dc-text={`${ctx.id}:s${i}`} style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1'}}>
                     {sz}
                   </bdi>

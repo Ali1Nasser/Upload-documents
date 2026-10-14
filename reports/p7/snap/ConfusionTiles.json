@@ -1,0 +1,75 @@
+{
+ "v": 2,
+ "name": "ConfusionTiles",
+ "composition": "Demo-ConfusionTiles",
+ "at": "2026-10-11T17:11:18Z",
+ "frames": [
+  0,
+  11,
+  74,
+  149
+ ],
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "results": [
+  {
+   "tag": "p0",
+   "frame": 0,
+   "why": "0 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 817 px; 1 QA finding(s): overflow:cm:nums"
+  },
+  {
+   "tag": "a1",
+   "frame": 11,
+   "why": "first anchor settled (anchor + 6 + 1 f)",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 817 px; 1 QA finding(s): overflow:cm:nums"
+  },
+  {
+   "tag": "p50",
+   "frame": 74,
+   "why": "50 %",
+   "determinism_diff_px": 817,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 817 px; 1 QA finding(s): overflow:cm:nums"
+  },
+  {
+   "tag": "p100",
+   "frame": 149,
+   "why": "100 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 817 px; 1 QA finding(s): overflow:cm:nums"
+  }
+ ],
+ "qa_findings": [
+  {
+   "kind": "overflow",
+   "id": "cm:nums",
+   "detail": {
+    "natural_w": 335,
+    "natural_h": 655,
+    "max_w": 361,
+    "max_h": 96,
+    "min": 56
+   }
+  }
+ ],
+ "registry_problems": [],
+ "approve": true,
+ "approve_refused": [
+  "determinism 817 px",
+  "1 QA finding(s): overflow:cm:nums"
+ ],
+ "pass": false
+}

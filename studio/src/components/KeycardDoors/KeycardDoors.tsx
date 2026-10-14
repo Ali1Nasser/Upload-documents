@@ -29,17 +29,19 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
   const n = props.doors.length;
   const cellW = box.w / Math.max(n, 2.6);
-  const dw = Math.min(cellW * 0.62, 230);
-  const cardW = Math.min(170, dw * 0.9);
+  const dw = Math.min(cellW * 0.62, 300);
+  const u = dw / 230; // everything on a door scales with its width
+  const cardW = Math.min(230, dw * 0.9);
   const cardH = cardW * 0.62;
   const labelH = SIZE.label * 1.8;
-  const top = 64;
+  const top = 64 * u;
   const dh = Math.max(160, Math.min(dw * 1.75, box.h - top - labelH - cardH - 56));
   const x0 = (box.w - cellW * n) / 2;
   const cx = (i: number) => box.w - x0 - cellW * (i + 0.5); // RTL: door 0 on the right
-  const reader = (i: number) => ({x: cx(i) - dw / 2 - 26, y: top + dh * 0.52});
+  const reader = (i: number) => ({x: cx(i) - dw / 2 - 26 * u, y: top + dh * 0.52});
   const rest = {x: box.w / 2, y: top + dh + labelH + cardH / 2 + 28};
   const mf = morphF(fps);
+  const oy = Math.max(0, (box.h - (rest.y + cardH / 2)) / 2); // centre the whole scene vertically in the slot
 
   // swipe timeline
   const swipes = ctx.actions.filter((a) => a.name === 'swipe').sort((a, b) => a.at - b.at);
@@ -65,6 +67,7 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
 
   return (
     <Stage ctx={ctx}>
+      <div style={{position: 'absolute', left: 0, top: oy, width: '100%', height: '100%'}}>
       {props.doors.map((d, i) => {
         const a0 = ctx.at + stag(i, fps);
         const ent = prog(ctx, a0, 'label');
@@ -80,8 +83,8 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           <React.Fragment key={i}>
             <div style={{opacity: ent, transform: `translateY(${((1 - ent) * 6).toFixed(2)}px)`}}>
               {/* clearance pips (no digits) */}
-              <At x={cx(i)} y={top - 26}>
-                <Pips n={d.level} on={C.ink2} r={7} />
+              <At x={cx(i)} y={top - 26 * u}>
+                <Pips n={d.level} on={C.ink2} r={7 * u} />
               </At>
               {/* door */}
               <div
@@ -115,13 +118,14 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                   >
                     <div style={{position: 'absolute', left: '18%', right: '18%', top: '12%', height: '30%', border: `1px solid ${C.grid}`, borderRadius: 4}} />
                     <div style={{position: 'absolute', left: '18%', right: '18%', top: '50%', height: '38%', border: `1px solid ${C.grid}`, borderRadius: 4}} />
+                    <div style={{position: 'absolute', [leaf === 0 ? 'right' : 'left']: '8%', top: '44%', width: 5 * u, height: '12%', borderRadius: 3, background: C.ink3}} />
                   </div>
                 ))}
                 {denied ? <div style={{position: 'absolute', inset: 0, background: `${C.crit}${hex(0.18 * flash)}`}} /> : null}
               </div>
               {/* reader */}
-              <div style={{position: 'absolute', left: rd.x - 13, top: rd.y - 30, width: 26, height: 60, borderRadius: 6, background: C.panel, border: `1px solid ${C.grid}`, boxShadow: rim(0.2)}}>
-                <div style={{position: 'absolute', left: 8, top: 8, width: 10, height: 10, borderRadius: 5, background: led, boxShadow: led !== C.ink3 ? glowBox(led, fx, 0.6) : undefined}} />
+              <div style={{position: 'absolute', left: rd.x - 13 * u, top: rd.y - 30 * u, width: 26 * u, height: 60 * u, borderRadius: 6 * u, background: C.panel, border: `1px solid ${C.grid}`, boxShadow: rim(0.2)}}>
+                <div style={{position: 'absolute', left: 8 * u, top: 8 * u, width: 10 * u, height: 10 * u, borderRadius: 5 * u, background: led, boxShadow: led !== C.ink3 ? glowBox(led, fx, 0.6) : undefined}} />
               </div>
               <At x={cx(i)} y={top + dh + labelH / 2 + 6}>
                 <FitLabel id={`${ctx.id}:door${i}`} text={d.label} maxW={cellW - 24} color={frame === C.ink3 ? C.ink : frame} weight={FONT.label.strong} />
@@ -158,6 +162,7 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           </div>
         );
       })()}
+      </div>
     </Stage>
   );
 };

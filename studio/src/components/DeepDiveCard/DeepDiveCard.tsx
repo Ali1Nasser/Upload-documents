@@ -10,13 +10,13 @@ import React, {useRef} from 'react';
 import {interpolate} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
-import {MixedText, useAutoFit} from '../../type/Text';
+import {useAutoFit} from '../../type/Text';
 import {lineHeightFor, stackGap} from '../../type/arabic';
 import {LABEL_GAP_MIN_PX, type Rect} from '../../type/safe';
 import {ease, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import {conceptLabel} from '../_typeui/concepts';
-import {clamp, exitFade, exitT, filmF} from '../_typeui/kit';
+import {Mx, clamp, exitFade, exitT, filmF} from '../_typeui/kit';
 import type {Props} from './schema';
 
 const EN_K = SIZE.label / SIZE.sub;
@@ -111,11 +111,11 @@ export const DeepDiveCardView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             </bdi>
           </div>
           <div style={{marginTop: Math.round(fs * 0.3), fontSize: fs, lineHeight: lineHeightFor(props.title_ar), color: C.ink, textShadow: `${halo}, ${glow(ACC, ctx.fx, 0.45 * k)}`, whiteSpace: 'nowrap', transformOrigin: 'right center', ...title.style}}>
-            <MixedText id={`${ctx.id}:title`} text={props.title_ar} size={fs} />
+            <Mx id={`${ctx.id}:title`} text={props.title_ar} size={fs} />
           </div>
           {props.title_en && en ? (
             <div style={{marginTop: stackGap({text: props.title_ar, size: fs}, {text: props.title_en, size: es}, 'title-sub'), fontSize: es, color: C.ink2, textShadow: halo, whiteSpace: 'nowrap', ...en.style}}>
-              <MixedText id={`${ctx.id}:en`} text={props.title_en} size={es} />
+              <Mx id={`${ctx.id}:en`} text={props.title_en} size={es} />
             </div>
           ) : null}
           {pre.length ? (

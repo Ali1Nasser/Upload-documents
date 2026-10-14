@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "8166d12ee3fa57905911dcc937013bcc6404951d296e7d39af5d72bd26e7a1aa",
+  "p50": "1bd5e5d377cddf928eef42fe38a2a9c137128a36ac6a2947dff03bbb626ab0f4",
+  "p100": "e6cf5c1122b898c2959f934a80961c4184c192e4a50f4d954420270de0c0c0db"
+ },
+ "v": 2,
+ "name": "StackHeap",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 107,
+  "p100": 215
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:02:20Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

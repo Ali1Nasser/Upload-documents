@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "16bd7544881b729e58909da68d76df25bbfc5a484a4f5363baa6c0783316b2c5",
+  "p50": "46cc5fe340b59d6cc4a73d3f74dbce8f13b8671e61e4c94a8ba2239e2830176f",
+  "p100": "3c6ac15b67fea43e3366eda24b60554baa961cab7f40ca37cea6754bb83a8db7"
+ },
+ "v": 2,
+ "name": "KineticPhrase",
+ "frames": {
+  "p0": 0,
+  "a1": 13,
+  "p50": 41,
+  "p100": 83
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:00:19Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

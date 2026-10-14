@@ -1,0 +1,75 @@
+{
+ "v": 2,
+ "name": "KpiPanel",
+ "composition": "Demo-KpiPanel",
+ "at": "2026-10-11T17:12:13Z",
+ "frames": [
+  0,
+  11,
+  74,
+  149
+ ],
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "results": [
+  {
+   "tag": "p0",
+   "frame": 0,
+   "why": "0 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1422 px; 1 QA finding(s): overflow:kpi:vals"
+  },
+  {
+   "tag": "a1",
+   "frame": 11,
+   "why": "first anchor settled (anchor + 6 + 1 f)",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1422 px; 1 QA finding(s): overflow:kpi:vals"
+  },
+  {
+   "tag": "p50",
+   "frame": 74,
+   "why": "50 %",
+   "determinism_diff_px": 1422,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1422 px; 1 QA finding(s): overflow:kpi:vals"
+  },
+  {
+   "tag": "p100",
+   "frame": 149,
+   "why": "100 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1422 px; 1 QA finding(s): overflow:kpi:vals"
+  }
+ ],
+ "qa_findings": [
+  {
+   "kind": "overflow",
+   "id": "kpi:vals",
+   "detail": {
+    "natural_w": 673,
+    "natural_h": 818,
+    "max_w": 515,
+    "max_h": 107,
+    "min": 56
+   }
+  }
+ ],
+ "registry_problems": [],
+ "approve": true,
+ "approve_refused": [
+  "determinism 1422 px",
+  "1 QA finding(s): overflow:kpi:vals"
+ ],
+ "pass": false
+}

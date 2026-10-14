@@ -70,7 +70,8 @@ export const GitGraphView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     return tok ? C[tok] : k === 0 ? C.ink2 : C.violet;
   };
   // layout: branch chips at the lane start, columns after them in reading order
-  const chipW = Math.min(300, Math.max(180, w * 0.15));
+  const maxName = Math.max(...tl.lanes.map((n) => n.length));
+  const chipW = Math.min(w * 0.3, Math.max(190, 20 * maxName + 70));
   const pad = 36;
   const cols = Math.max(1, tl.nodes.length);
   const region = w - chipW - 2 * pad;

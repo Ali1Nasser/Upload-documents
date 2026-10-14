@@ -5,10 +5,27 @@ import React from 'react';
 import {interpolate} from 'remotion';
 import {C, LINE, type Fx, type PresetId} from '../../tokens';
 import {caShadow, glow, halo} from '../../fx/look';
-import {MixedText} from '../../type/Text';
+import {MixedText, type MixedTextProps} from '../../type/Text';
 import {isArabic, lineHeightFor} from '../../type/arabic';
 import {ease, presetFrames, revealStyle, type RevealDir} from '../../type/reveal';
 import type {LayerCtx} from '../../spec/types';
+
+
+/**
+ * Adjacent Latin / numeric tokens inside Arabic copy form ONE LTR isolate. The frozen `segment()` isolates every Latin token on its
+ * own, and consecutive isolates in an RTL run then read right -> left (`الـRelational Model` showed `Model Relational`). Wrapping the
+ * whole run in a forced isolate (`⟦Relational Model⟧`) keeps the reading order and never splits an Arabic word (request CR-006).
+ */
+const LAT_TOK = /[A-Za-z0-9][A-Za-z0-9._/+#@-]*/.source;
+const LAT_OP = /[=/%+−<>×÷-]/.source;
+const LAT_RUN = new RegExp(`${LAT_TOK}(?:[ \\t]+(?:${LAT_OP}[ \\t]+)*${LAT_TOK})+(?:[ \\t]+%)?`, 'g');
+export const isolateRuns = (text: string): string =>
+  text
+    .split(/(⟦[^⟧]*⟧)/)
+    .map((part) => (part.startsWith('⟦') ? part : part.replace(LAT_RUN, (m) => `⟦${m}⟧`)))
+    .join('');
+/** MixedText with the Latin-run fix above (use this, never MixedText directly, for copy that can mix Arabic with several Latin words). */
+export const Mx: React.FC<MixedTextProps> = (p) => <MixedText {...p} text={isArabic(p.text) ? isolateRuns(p.text) : p.text} />;
 
 export const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 
@@ -71,7 +88,7 @@ export const Unit: React.FC<{
         ...r.style,
       }}
     >
-      <MixedText id={id} text={text} size={size} weight={weight} role={emphasis === 'number' ? 'data' : 'sentence'} caLatin={ca ? base + ca : undefined} />
+      <Mx id={id} text={text} size={size} weight={weight} role={emphasis === 'number' ? 'data' : 'sentence'} caLatin={ca ? base + ca : undefined} />
     </div>
   );
 };

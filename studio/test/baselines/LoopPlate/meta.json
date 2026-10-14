@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "2b74f920354fe04b7f34551622019763830590d1a812366382435620e520a878",
+  "a1": "89a1d3a7cfd0e54314e54ec3c3270363a8c51d0a87364a436b9f0d342f6c9205",
+  "p50": "0fa6df2f5504bcd824b66866fadb348d31983a062a6372e88d71e1d84640c8b0",
+  "p100": "3d29c94632cb4e4f7d4b3fa887459d2eac7018ac90613844759d7395de4f3618"
+ },
+ "v": 2,
+ "name": "LoopPlate",
+ "frames": {
+  "p0": 0,
+  "a1": 7,
+  "p50": 59,
+  "p100": 119
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-11T17:13:10Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}
