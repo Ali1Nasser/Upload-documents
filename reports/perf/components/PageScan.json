@@ -2,7 +2,7 @@
  "v": 2,
  "name": "PageScan",
  "composition": "Demo-PageScan",
- "at": "2026-10-15T17:54:09Z",
+ "at": "2026-10-15T21:45:42Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,14 +21,14 @@
  "tiers": {
   "lite": {
    "frames": 204,
-   "wall_s": 25.46,
-   "box_s_per_frame": 0.1248,
-   "slot_s_per_frame": 0.3744,
+   "wall_s": 15.02,
+   "box_s_per_frame": 0.0736,
+   "slot_s_per_frame": 0.2208,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.98,
-    5.84
+    4.85,
+    5.67
    ],
    "queue": {
     "running": 1,
@@ -38,35 +38,35 @@
   },
   "standard": {
    "frames": 204,
-   "wall_s": 30.47,
-   "box_s_per_frame": 0.1494,
-   "slot_s_per_frame": 0.4482,
+   "wall_s": 18.62,
+   "box_s_per_frame": 0.0913,
+   "slot_s_per_frame": 0.2739,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.45,
-    5.84
+    5.67,
+    6.1
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 6
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 204,
-   "wall_s": 33.38,
-   "box_s_per_frame": 0.1637,
-   "slot_s_per_frame": 0.4911,
+   "wall_s": 20.48,
+   "box_s_per_frame": 0.1004,
+   "slot_s_per_frame": 0.3012,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.61,
-    5.96
+    6.1,
+    6.02
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 6
    },
    "other_jobs_running": 0
   }

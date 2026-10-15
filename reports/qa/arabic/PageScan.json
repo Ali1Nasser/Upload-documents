@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T17:38:23Z",
+ "created": "2026-10-15T21:46:55Z",
  "label": "PageScan",
  "thresholds": {
   "ocr_min": 0.9,
@@ -78,7 +78,7 @@
  "per_letter": [],
  "items": [
   {
-   "id": "PageScan:cnt_full:label",
+   "id": "cnt_full",
    "text": "صفحة اتقرت",
    "size": 32,
    "render_size": 32,
@@ -113,7 +113,7 @@
    "status": "pass"
   },
   {
-   "id": "PageScan:cnt_idx:label",
+   "id": "cnt_idx",
    "text": "صفحات اتقرت",
    "size": 32,
    "render_size": 32,

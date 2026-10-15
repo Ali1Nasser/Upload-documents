@@ -7,7 +7,7 @@ Date: 2026-10-10. Author: motion-engineer (dom-b).
 | Component | Status | Reason |
 |---|---|---|
 | DeadlockCrossing | implemented (baselines pending-critic; snap PASS det 0, perf standard 0.153 / hero 0.149 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1) |
-| PageScan | implemented (baselines pending-critic; snap PASS det 0, perf lite 0.125 / standard 0.149 / hero 0.164 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1). Grid keeps to the top 74 % of its slot; the lower quarter is the counter lane for NumberCounter (12 500 `d:6.5:3`, 3 `d:6.5:2`). |
+| PageScan | implemented (baselines pending-critic; snap PASS det 0, perf lite 0.074 / standard 0.091 / hero 0.100 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1). Grid keeps to the top 74 % of its slot; the lower quarter is the counter lane for NumberCounter (12 500 `d:6.5:3`, 3 `d:6.5:2`). |
 | AppliedSteps | deferred | AT-13R gate |
 | SampleScoop | deferred | AT-13R gate; data gap D2 |
 | ABSplit | deferred | AT-13R gate; data gap D1 |
