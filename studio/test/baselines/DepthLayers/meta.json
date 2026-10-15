@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "70479ad4e8043350f68bea3802a181ffd888a52f787ef31593886d7d9a3c08d1",
-  "a1": "7d34caaded426ee085c1162249dbc4daf67ec5a9994138bcc264b705f4146ce2",
-  "p50": "6026a30f153ac6f95b7cf78404cd6a62fe1d052be45509e2935a29d6628f2b08",
-  "p100": "164df525b251db269d35bfbc5592ebb5363f49ada8156c63c71a794b11400e98"
+  "p0": "5cb7ab075cceea922a0a9f7d4d39f7410fc25ec4f860684152f9ca8c01e0970a",
+  "a1": "b5fb2d6baa41bb53d6bb5d5a60ab4ef45287073f8320a65ec15e93b27fdc2677",
+  "p50": "8fbd13e47643ebb23c0d2d412146b7626c14fe383f0c863e2581b3ded3d16b01",
+  "p100": "9577fcbaac9fe7dcf9fc5235887930dc7748ef8af4c8325f67fdd8713226d9c5"
  },
  "v": 2,
  "name": "DepthLayers",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-15T22:05:20Z",
+ "written_at": "2026-10-15T22:09:18Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

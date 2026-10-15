@@ -17,7 +17,7 @@ TRF = [46, 49, 52, 54, 55, 57, 60, 63, 80]  # whip / streak: shot 1 ends at 55, 
 def jobs():
     J = [
         {"tag": "cam_std", "demo": "CameraRig", "tier": "standard", "frames": [8, 30, 60, 61, 62, 95]},
-        {"tag": "dl_std", "demo": "DepthLayers", "tier": "standard", "frames": [0, 70, 95]},
+        {"tag": "dl_std", "demo": "DepthLayers", "tier": "standard", "frames": [0, 7, 47, 70, 95]},
         {"tag": "dl_lite", "demo": "DepthLayers", "tier": "lite", "frames": [70]},
         {"tag": "dl_dof_std", "demo": "DepthLayers", "tier": "standard", "frames": [70], "planeBlur": {"grid": 0.6, "dust": 1}},
         {"tag": "dl_dof_hero", "demo": "DepthLayers", "tier": "hero", "frames": [70], "planeBlur": {"grid": 0.6, "dust": 1}},
@@ -124,11 +124,13 @@ def strips(src, out):
     if os.environ.get("FXB_ONLY") == "CameraRig":  # re-render only this strip (the other stills are not rendered)
         return
 
-    d0, d47, d95, l47 = im("dl_std", 0), im("dl_std", 70), im("dl_std", 95), im("dl_lite", 70)
+    d0, d7, d50, d47, d95, l47 = im("dl_std", 0), im("dl_std", 7), im("dl_std", 47), im("dl_std", 70), im("dl_std", 95), im("dl_lite", 70)
     ds, dh = im("dl_dof_std", 70), im("dl_dof_hero", 70)
     rows([
+        ([(d0, "p0 f0 bare backdrop (grid ink3 + dust + tier haze / bokeh)"), (d7, "a1 f7 NilePay settled"), (d50, "p50 f47 400 EGP settled"), (d95, "p100 f95 truck end")],
+         "DepthLayers STANDARD stills at the snapshot frames p0 / a1 / p50 / p100 (the lite PNG baselines show the same frames without the tier look)", {"pw": 960, "cols": 2}),
         ([(d0, "f0 truck start"), (d47, "f70"), (d95, "f95 truck end"), (onion(d0, d95), "onion f0 / f95: far 0.4 < mid 1 < near 1.3 < fg 1.6")],
-         "DepthLayers demo, standard (shipped): grid far, 400 EGP mid, NilePay near, dust fg; truck 0.7; blur 0 (cost, CR-017)", {"pw": 960, "cols": 2}),
+         "DepthLayers demo, standard (shipped): grid far, 400 EGP mid, NilePay near, dust fg; truck 1; blur 0 (cost, CR-017)", {"pw": 960, "cols": 2}),
         ([(d47, "f70 shipped demo (blur 0)"), (ds, "f70 DOF on: grid 0.6, dust 1 (standard, 4 px max)"), (dh, "f70 DOF on, hero"), (amp(d47, ds, 4), "|DOF on - off| x4: only the grid and dust change; copy never blurred")],
          "DepthLayers DOF (evidence only): standard +0.12 (grid) / +0.17 (dust) box s/frame, hero fits (0.48 of 1.038)", {"pw": 960, "cols": 2}),
         ([(l47, "f70 lite (dofBlurPx 0, DOF on = no change)"), (d47, "f70 standard (tier haze, bokeh, grain, vignette)"), (amp(l47, d47, 4), "|standard - lite| x4")],

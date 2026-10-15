@@ -31,8 +31,8 @@ const demos: DemoModule = {
       },
     },
     {
-      // 4 depth planes (04 section 1.2) under a strong truck (0.7) ("following data"), so the planes separate by differential parallax:
-      // grid far (0.4, dim token colour), the 400 EGP total mid (1.0), the NilePay term near (1.3), dust fg (1.6). The fg bokeh discs
+      // 4 depth planes (04 section 1.2) under a full truck (1) ("following data"), so the planes separate by differential parallax:
+      // grid far (0.4, the ink3 token: one step above the near-invisible grid token, so the far plane reads in lite stills), the 400 EGP total mid (1.0), the NilePay term near (1.3), dust fg (1.6). The fg bokeh discs
       // come from the standard / hero tier backdrop (FX.bokeh). DOF is OFF in this demo on purpose (blur 0): the engine blurs a layer
       // as one full-frame CSS filter, measured at +0.12 box s/frame (grid) and +0.17 (dust) at standard, i.e. 0.31 / 0.49 against the
       // 0.201 budget, so a blurred plane is a hero-tier choice (hero 0.48 of 1.038). The DOF look is shown by the evidence strip
@@ -40,12 +40,12 @@ const demos: DemoModule = {
       name: 'DepthLayers',
       frames: 96,
       words: [
-        [W('DepthLayers', 1), 2, 18],
-        [W('DepthLayers', 2), 30, 54],
+        [W('DepthLayers', 1), 6, 22],
+        [W('DepthLayers', 2), 24, 42],
       ],
       shot: {
         fx_tier: 'standard',
-        camera: {move: 'truck', intensity: 0.7},
+        camera: {move: 'truck', intensity: 1},
         layers: [
           {
             component: 'DepthLayers',
@@ -58,7 +58,7 @@ const demos: DemoModule = {
               ],
             },
           },
-          {component: 'HoloGrid', props: {id: 'grid', surface: 'floor', color: 'grid'}},
+          {component: 'HoloGrid', props: {id: 'grid', surface: 'floor', color: 'ink3'}},
           {component: 'KineticWord', props: {id: 'kw-brand', text: 'NilePay', slot: 'upper-third', size: 'sub', color: 'signal', emphasis: 'term'}, at: {word: W('DepthLayers', 1), lead_frames: 2}},
           {component: 'NumberCounter', props: {id: 'total', to: {value: 400, ref: 'd:5.2:8', unit: 'EGP', decimals: 0}, format: 'currency', label: 'الإجمالي الناجح', slot: 'center'}, at: {word: W('DepthLayers', 2), lead_frames: 0}},
           {component: 'ParticleField', props: {id: 'dust', count: 90, kind: 'dust', color: 'signal', seed: 52}},
