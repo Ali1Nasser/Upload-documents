@@ -42,3 +42,21 @@ Non-blocking (priority order, fix before pilot use):
 3. p50 (x 360-370 / y 215-230) and f460 (x 435-445 / y 148-158): pulse beads sit on the node corner rather than the wire; verify pulse positions are sampled on the same cubic as the drawn wire.
 4. f330 vs expand: the fs frame already shows tests/test_clean.py before the expand action is visible; supply a 12 fps strip for frames 300-345 (expand grow-out and re-flow) and 440-470 (search probe descent) at round 2, since stills cannot show motion intent. f385 exit blur is heavy (whole tree below ~25 % brightness); confirm it is one beat only.
 5. No particles/parallax/depth falloff on idle nodes (04 section 5 standard); rely on DepthLayers at scene level but add a light idle-node depth scale.
+
+## PipelineStations — round 1 (2026-10-15, critic, fresh read; baselines p0/a1/p50/p100 at 960x540 lite scale 0.5, snap/PipelineStations.jpg, plus critic-rendered lite frames 108, 112, 118, 128, 140, 146 (ETL fail at transform, fix) and 314, 322, 330, 336, 342 (CI/CD fail at prod, fix), deleted after review)
+
+Verdict: APPROVED (score 7.2, no blocking issue). meta.json set to approved-critic.
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8, mechanism visible 7.5 (gate ring -> spinner -> check; capsule hops gate to gate with a cyan pool on the track, f166; fail turns gate X, capsule and reason chip crit, f108-128, f314-330; fix returns gate and capsule to ok, f140/f336), look parity 6.5, typography 8 (Arabic shaped; "نشر Production", "نشر Staging", "بناء الـ Image" mixed-script order correct in RTL; flow starts on the right), camera and depth 6.5 (light shafts and a few motes are real depth cues, but faint; no parallax in the component), legibility 7.5 (labels about 24 px at 960 = 48 px at 1080; reason chip legible), accuracy 9 (no numerals; demo payloads are illustrative), tokens 9 (cyan, ok, crit, ink only via C.*), polish 7, no bullet-list look 7.5 (it reads close to a CI stepper widget because the band is small and flat), no legacy frames 10.
+
+Verified: RTL order, capsule colour follows state, reason chip sits clear of the label and the gate, fail on the last gate (CI/CD) has no track ahead and still reads via X, crit capsule and chip.
+
+Non-blocking issues (fix before pilot use, in priority order):
+1. f108-f128 (ETL), region x 235-335 / y 240-250: the "track ahead turns dashed crit" cue, the headline fail effect, is a 1-2 px pale-red dash on a near-black track and almost invisible at 960. Raise to about 3 px, add a crit glow under the dashes and let the dash march away from the failed gate.
+2. f140 (ETL fix), region x 300-465 / y 165-330 and f336 (CI/CD fix), region x 75-210 / y 195-290: the expanding ring is a 1 px ghost at about 8 % opacity, so the settle does not land. Make it 2 px at 35-40 % opacity at birth, plus a brief ok-green gate brightness pulse.
+3. All stills, whole frame: the gates and track fill about 45 % of frame height (gate diameter about 90 px at 960, rows y 120-400) with an empty lower band; with 4 to 5 stations it reads as a progress stepper. Let ctx.box fit scale gate and label up when n <= 5 (about x1.25) and add a soft idle-gate floor shadow or faint back-plane grid.
+4. f166, region x 280-335 / y 235-255: the capsule light pool is a small cyan smear on the track, about 70 px away from and below the capsule at y 160, so it reads as a detached blob. Anchor the pool under the capsule x and widen it to include the tether, or drop it to a thin lead glow on the track.
+5. Tether (x 380-386 / y 190-205 in f150): a 1 px dotted line from capsule to gate is barely visible; raise to 1.5 px or remove.
+6. Baselines p0/a1/p50/p100 never capture fail or fix (p50 = f179 is already past ETL fix, p100 = all ok). Add frames about 112 and 322 to the snap list so regressions on the crit state are caught.
+7. White flash and shake are not judgeable from stills; supply a 12 fps strip of frames 104-120 and 308-322 at round 2 to confirm the flash is 2-3 frames and the shake decays within 10 frames.
+8. p0 is a pure empty backdrop for the first frames, and the motes at p0 (x 760-800 / y 245-250) pop in ahead of the gates; fade motes in with the first gate.

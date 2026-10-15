@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-15T22:08:55Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.2,
+  "date": "2026-10-15",
+  "round": 1,
+  "notes": "Verb reads without narration (gates ring -> check, capsule hops, fail: crit X + crit capsule + reason chip, fix returns to ok; strip checked at f108-146 and f314-342). Palette via C.* only, Arabic and mixed-script order correct, no numerals. Non-blocking: ETL track-ahead crit dashes and the fix ring are faint at 960; pipeline fills ~45% of frame height; baselines never show fail/fix; flash and shake not judgeable from stills. See reports/p7/review_struct-a.md."
+ }
 }
