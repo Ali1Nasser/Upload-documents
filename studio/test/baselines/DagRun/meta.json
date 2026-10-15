@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-15T17:02:39Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.3,
+  "date": "2026-10-15",
+  "round": 1,
+  "notes": "Verb reads without narration (ring -> spinner -> check; cross + dashed crit wires; retry arrow; skipped dash). Palette via C.* only, Arabic and mixed-script order correct, no numerals. Non-blocking: diagram fills ~45% of frame height with no depth/particles; baselines never show failed/running (strip checked at f70/f88/f96); thin wires; schedule chip floats unattached. See reports/p7/review_struct-a.md."
+ }
 }
