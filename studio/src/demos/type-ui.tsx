@@ -65,7 +65,7 @@ const demos: DemoModule = {
               id: 'walls',
               slot: 'center',
               lines: 2,
-              size: 'sub',
+              size: 'kinetic',
               words: [
                 {text: 'الـconstraints', at: {word: W('KineticPhrase', 1), lead_frames: 2}, emphasis: 'term'},
                 {text: 'قواعد', at: {word: W('KineticPhrase', 2), lead_frames: 2}},
