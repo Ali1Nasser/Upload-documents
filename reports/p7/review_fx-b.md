@@ -121,3 +121,21 @@ Non-blocking, fix before the next re-baseline:
 8. CR-004 (move follow behaves as truck) and the scene-director rule: do not use follow until it lands; add a spec-lint warning.
 
 What works: the Arabic and palette discipline are clean, no legacy frames, no invented numbers, the author removed the X1/X2 drafts, perf is inside budget (lite 0.129 / standard 0.187 / hero 0.203 against 0.201 only at standard, check hero separately), and the standard strip does show bokeh, haze and differential parallax.
+
+## DepthLayers — round 2
+
+Date: 2026-10-15. Reviewer: critic (not the author). Read at full size: baselines p0, a1, p50, p100 (960x540, lite), reports/p7/snap/DepthLayers.jpg (lite 4-frame strip) and reports/p7/evidence/fx-b/DepthLayers_parallax.jpg (standard p0/a1/p50/p100, demo f0/f70/f95, onion, DOF on/off/hero, tier triptych).
+Verdict: APPROVED, score 7.0/10. meta.json set to approved-critic. No blocking issue remains.
+
+Round 1 blockers:
+1. Far grid readability: FIXED. The grid (ink3) is now clearly visible in all four stills (x 0-960, y 110-540) and the perspective shift a1 to p50 to p100 (cell width, vanishing line) is legible. Re-baseline at standard: NOT done as requested. The baselines stay lite (meta tier lite, scale 0.5) and the author supplied a standard-tier strip instead. Accepted: the repo convention is lite regression baselines, and the strip shows bokeh, haze and dust at standard. Condition: the lite stills prove geometry and parallax only; the tier look is proven by the strip alone.
+2. p0 clipped title: FIXED. p0 is now a bare backdrop (no word), a1 shows a fully settled "NilePay" (x 487-582, y 100-127), p50 and p100 show the settled counter.
+
+Rubric (1-10): legibility 7, token/palette 8, depth and light 7 (stills 6, standard strip 7), visual verb without narration 7, Arabic 9 (الإجمالي الناجح joined, correct), no bullet look 9, legacy frames 10, sourced numbers 9 (400 = d:5.2:8), motion intent 7 (onion panel shows far 0.4 < mid 1 < near 1.3 < fg 1.6). Mean about 8.0, capped to 7.0 because depth separation is moderate and not hero-grade.
+
+Non-blocking, fix before the next re-baseline (items 3-5 carried from round 1, unchanged):
+3. p50, p100 (x 380-540, y 95-125 against x 350-540, y 225-290): the near plane (NilePay) is smaller than the mid plane (400 EGP), so near does not read as nearer. Use size 'title' for the near word or overlap it onto the counter.
+4. p50, p100 (x 350-600, y 225-335): hard-edged dark scrim rectangle behind the counter. Feather it.
+5. p50, p100 (x 400-500, y 305-320): counter label about 18 px at 960 wide, low contrast. Raise to the secondary token.
+6. Standard strip, bokeh and fg dust are very faint (almost invisible at 974 px strip width). Raise bokeh alpha one step or the foreground dust size so the fg plane reads against the mid plane. DOF remains off (CR-017); show it on a hero baseline once decided.
+7. The onion panel is pure yellow and cyan (off-palette), acceptable as evidence only. The DOF difference panel needs a caption saying the copy is intentionally unblurred.
