@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TimelineTrack",
  "composition": "Demo-TimelineTrack",
- "at": "2026-10-15T18:17:46Z",
+ "at": "2026-10-15T21:52:21Z",
  "frames": [
   0,
   11,
@@ -26,45 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1546 px; 6 registry problem(s)"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1546 px; 6 registry problem(s)"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p50",
    "frame": 83,
    "why": "50 %",
-   "determinism_diff_px": 1546,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1546 px; 6 registry problem(s)"
+   "determinism_diff_px": 0,
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p100",
    "frame": 167,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1546 px; 6 registry problem(s)"
+   "mismatch_px": 0,
+   "pass": true
   }
  ],
  "qa_findings": [],
- "registry_problems": [
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]"
- ],
- "approve": true,
- "approve_refused": [
-  "determinism 1546 px",
-  "6 registry problem(s)"
- ],
- "pass": false
+ "registry_problems": [],
+ "approve": false,
+ "pass": true
 }
