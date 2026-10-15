@@ -145,3 +145,36 @@ Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, scale 0.5), reports/
 3. p100, tree: the nodes are about 14 px at 960 (28 px at 1080p), so the three-level index is small next to two large slabs. Scale the glyph by 1.3 and let the tree breathe into the empty band below it.
 4. a1 versus p50: column count changes (11 to 10 on the left, 12 on the right) as the slot boxes ease in, so tiles visibly reflow during entrance. Compute the layout from the final box, or hold it until the slot settles.
 5. Process: add a demo strip (frames 0, 11, 40, 101, 150, 203) to reports/p7/ and write baselines at 1080p before the pilot.
+
+## AppliedSteps — round 1 (2026-10-15, critic, not the author)
+
+Verdict: APPROVED (7.2/10, no blocking issue). meta.json set to approved-critic.
+Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, scale 0.5), reports/p7/snap/AppliedSteps.jpg, AppliedSteps.tsx and schema.ts. No motion strip exists, so the select travel, RV1 onset and the table clean-up were judged from code plus the three live stills, not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition (two plates, strip on the RTL start side, table opposite) | 7 |
+| Palette and token discipline (all C tokens: signal lit, ok applied, warn dirty, crit duplicate) | 8 |
+| Light and depth | 6 |
+| Typography and Arabic (six Egyptian labels, whole connected words, mono Latin kind chips in an aligned column) | 8 |
+| Legibility at 1080p (labels ~34 px, chips ~24 px) | 7 |
+| Visual verb without narration (dirty to clean as the lit frame advances) | 8 |
+| Not a bullet slide, no legacy frames | 7 |
+| Numbers (none drawn; counts left to NumberCounter) | 10 |
+| Motion intent (code plus stills) | 7 |
+| AI-Unpacked parity | 6 |
+
+### What works
+- a1 vs p50 vs p100: the table is truly "as of" the selected step. Orange cells remain only in the columns whose step is not yet applied (p50, group column), the red duplicate rows shrink as dedupe/filter apply, and at p100 the table is fully grey with a green rim and a GROUP chip. Cause and effect reads with no narration.
+- p50: lit frame has signal border, glow and chip, applied glyphs turn green, upcoming steps dim, and the beam fans from the lit row to the table.
+- Arabic is correct and idiomatic (شيل المسافات الزيادة, امسح الصف المكرر, اجمع حسب العميل), RTL order right, Latin chips isolated.
+
+### Non-blocking issues, ordered by impact
+1. Depth and light (all stills): two flat glass slabs on a near-black vignette, no particles, no parallax, no light on the table side except the thin green rim. Add a soft lit-frame bloom spilling onto the neighbouring rows, a faint floor reflection under the plates, and a few drifting dust motes behind the beam.
+2. Film-strip read (p50, strip region): rows are separated only by dashed lines, and the sprocket holes are ~16 px dark squares at the edges, so it reads closer to a list than a strip. Draw each row as a frame cell (rounded border, inter-frame gap of ~6 px) and brighten the sprocket holes next to the lit frame.
+3. Frame fill (all stills): the content occupies about 60 % of the width and 45 % of the height, with ~30 % empty void above and below. Let plateH grow with the slot (bigger row pitch) so labels reach ~40 px at 1080p.
+4. p50, FILTER and GROUP rows (upcoming steps): ink3 at 0.5 opacity is about 3:1; at 1080p the Arabic hairlines are weak. Raise the floor from 0.5 to about 0.65.
+5. p100, table region: the clean end state is a plain grey grid with only a border change; the payoff "clean" has no moment. Add a brief ok-green sweep across the table when allQ reaches 1, and let the group step visibly merge rows rather than only highlight a column.
+6. First select (code, bar and beam at selY = -1): the lit bar and beam start one row above the first step, i.e. over the APPLIED STEPS chip while opacity ramps. Start the bar at index 0 (or clamp the beam origin) so it never crosses the header.
+7. Process: p0 baseline is an empty frame (entrance not started), so it protects nothing. Move it to a frame where the first plate has entered, add a strip (frames 0, 11, 40, 83, 120, 167) to reports/p7/, and write 1080p baselines before the pilot.
