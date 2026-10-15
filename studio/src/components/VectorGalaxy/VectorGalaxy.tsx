@@ -132,7 +132,7 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const out = Math.max(box.x - p.x, p.x - (box.x + box.w), box.y - p.y, p.y - (box.y + box.h), 0);
       const vis = p.ok ? 1 - Math.min(1, out / 120) : 0;
       if (vis < 0.02) return;
-      chips.push({id: `${ctx.id}:cl${i}`, text, size: fit.size, x: p.x - w / 2, y: p.y + Math.max(70, p.s * 0.8), w, h, t0: ctx.at + ff(4 + 2 * i, ctx.fps), accent: C.violet, overflow: fit.overflow, alpha: (focus ? 1 : 0.55) * vis, cx: p.x, cy: p.y});
+      chips.push({id: `${ctx.id}:cl${i}`, text, size: fit.size, x: p.x - w / 2, y: p.y + Math.max(70, p.s * 0.8), w, h, t0: ctx.at + ff(4 + 2 * i, ctx.fps), accent: C.violet, overflow: fit.overflow, alpha: (focus ? 1 : 0.7) * vis, cx: p.x, cy: p.y});
     });
     const pr = probeOf(ctx, props);
     if (pr && pr.label) {
@@ -202,10 +202,11 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.lineWidth = 2;
       g.beginPath();
       g.moveTo(c.x + c.w / 2, c.y);
-      g.lineTo(c.cx, c.cy + 11);
+      g.lineTo(c.cx, c.cy + 14);
       g.stroke();
+      g.globalAlpha = 0.85 * u;
       g.beginPath();
-      g.arc(c.cx, c.cy, 9, 0, Math.PI * 2);
+      g.arc(c.cx, c.cy, 12, 0, Math.PI * 2);
       g.stroke();
     }
     g.globalCompositeOperation = 'lighter';

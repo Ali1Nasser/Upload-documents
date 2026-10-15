@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
-  "a1": "8766e8efbf0ad459d2141decda00e82a72d4cedb9e9ab71cb4359af365aaacbe",
-  "p50": "b9e1e68bf3e1d3831d5938b0b7c55832d085e2ce0157105dd80dac9a70074364",
-  "p100": "213a61a44b9e05ebf9a006436254a459d14c9c9ee7b2538e717d4e8dcd388915"
+  "a1": "aa6f0571541c5d3dc83975f473f673e8200c5d42c91f4e24f37f73307a0e89f0",
+  "p50": "0c32781f5827d81954986e07a008dd26b6cbc24b2b637bdfe1e3cc2e58d1ddae",
+  "p100": "34875a8d991d4bc5c5dfcd1867588b5cfa7f7c5a4d8ecf4949c3edc74a2e0f0e"
  },
  "v": 2,
  "name": "VectorGalaxy",
@@ -27,17 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:27:46Z",
+ "written_at": "2026-10-15T21:46:41Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "status": "approved-critic",
-  "score": 7.6,
-  "date": "2026-10-15",
-  "round": 2,
-  "by": "critic",
-  "notes": "Round-1 blocker fixed (query chip no longer covers probe at p50). Non-blocking: roadmap leader runs behind keyword chip at p50; ring markers r9 small; embeddings chip alpha low at p100; lite tier only evidenced, standard/hero stills and dolly strip requested."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
