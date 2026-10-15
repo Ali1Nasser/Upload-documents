@@ -9,7 +9,7 @@ The fx-b files never edit the shared engine. Where the engine drops a frozen pro
 
 | Component | Status | What renders it | Snap (lite, 4 stills) | Box s/frame lite / standard / hero (budget 0.201 / 0.201 / 1.038) |
 |---|---|---|---|---|
-| CameraRig | implemented | `resolve.ts` builds `ResolvedShot.camera` (move, ease, intensity, nudges resolved with one rounding); `rig.ts` provides `cameraAt`, `cameraSafeBox` and `planeStyle` | PASS, det 0 px, qa 0 | 0.0741 / **0.0946** / 0.0941 |
+| CameraRig | implemented | `resolve.ts` builds `ResolvedShot.camera` (move, ease, intensity, nudges resolved with one rounding); `rig.ts` provides `cameraAt`, `cameraSafeBox` and `planeStyle` | PASS, det 0 px, qa 0 | 0.1103 / **0.1288** / 0.1864 (re-measured 2026-10-15 under shared-box load 2.4-4.7) |
 | DepthLayers | implemented | `resolve.ts` maps each layer to its depth plane, parallax and blur; SpecPlayer draws the planes far→fg with `planeStyle`; DOF = blur × `FX[tier].dofBlurPx`, never on copy | PASS, det 0 px, qa 0 | 0.0795 / **0.0991** / 0.0991 |
 | FXTier | implemented | `ResolvedShot.tier` (priority: preview = lite > forced perf tier > FXTier > shot.fx_tier > standard); the frozen `FX[tier]` object; text-safe masks at every tier | PASS, det 0 px, qa 0 | 0.0779 / **0.1051** / 0.1064 |
 | AudioReactive | implemented | `resolve.ts` builds one curve per feature × smoothing from the locked P5 features (24 fps; coefficient re-derived per fps); `modAt` feeds `ctx.mod[param]`; haze drives the backdrop | PASS, det 0 px, qa 0 | 0.0749 / **0.0991** / 0.1038 |
@@ -43,6 +43,7 @@ The hero figures match standard because none of these demos uses WebGL. The hero
 
 ## Known limitations of the implemented four (closest correct behaviour)
 
+- **CameraRig re-verification 2026-10-15.** Demo is the exaggerated dolly_zoom (intensity 1) with a nudge on the third word; snap PASS (det 0 px; one run under box load 10 gave a 1,070 px determinism miss on p50, not reproduced in 2 further runs, reported to render-ops); baselines unchanged (pending-critic, critic round-1 B4 addressed by the demo plus `reports/p7/evidence/fx-b/CameraRig_motion.jpg`: onion skin f8/f95 and the f61/f62 nudge difference); Arabic QA `reports/qa/arabic/p7-CameraRig.json` PASS (2 strings, OCR 1.0). Still open: CR-004 (engine).
 - **CameraRig `follow`** (CR-004). The `follow` layer id is dropped, so `move: 'follow'` behaves like `truck`. `orbit` and `yaw` are 2D hints (pan + slight roll); a true orbit lives in the 3D components (04 §2).
 - **AudioReactive demo** (CR-005). `DemoDef` carries no features, so `Demo-AudioReactive` stills and perf show the unmodulated layers.
   - The modulation path is proven on synthetic features in `shot_level.check.ts`: curves in 0..1, smoothing order, the target only, and 12 fps tracking 24 fps.
