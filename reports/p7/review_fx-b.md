@@ -100,3 +100,24 @@ Still open (non-blocking, carry to the next re-baseline):
 6. Onion panel colours (pure yellow, cyan) are off-palette; acceptable for evidence only, never for a baseline.
 
 Rubric (1-10): legibility 8, token/palette 8, depth and light 6 at lite (8 at standard strip), visual verb without narration 7, Arabic 9, no bullet look 8, legacy frames 10, sourced numbers 9 (66.67 % in canon), motion intent 8. Mean about 7.9 on the strip, 7 on the stills alone; the stills-only depth score of 6 is the reason for the capped 7.
+
+## DepthLayers — round 1
+
+Date: 2026-10-15. Reviewer: critic (not the author). Read at full size: baselines p0, a1, p50, p100 (960x540, lite) and reports/p7/evidence/fx-b/DepthLayers_parallax.jpg (standard demo strip, onion, DOF evidence, tier triptych). Author's snap PASS (0 px) accepted as regression proof only.
+Verdict: NOT APPROVED, score 6.5/10. meta.json stays pending-critic. Two cheap blocking fixes, then re-review.
+
+Rubric (1-10): legibility 7, token/palette 8, depth and light 5 on the stills (7 on the standard strip), visual verb without narration 6, Arabic 9 (الإجمالي الناجح joined, OCR 1.0), no bullet look 9, legacy frames 10, sourced numbers 9 (400 = d:5.2:8), motion intent 7 (strip only). Stills-only mean about 7.2, capped by the verb and depth scores.
+
+Blocking:
+1. Baselines p0, a1, p50, p100 (all regions) do not show the component's verb. At lite there is no bokeh, no haze and no DOF (blur 0 in the shipped demo, CR-017), so the four planes read as one flat scene: the grid is a faint line field (almost invisible, x 0-960, y 130-540), the title and counter move together under the truck, and a1 to p100 differ only by a small global shift (title x 437-533 to 398-496). A reader of the stills cannot tell that there are four depths. Fix: re-baseline at standard (bokeh, haze, fg dust visible) for a1, p50 and p100, and raise the far-plane grid one token step so the far plane is readable; the strip already proves this at standard, so the baselines must match it.
+2. p0 (x 470-535, y 100-125): the title is cut mid-reveal ("NileP" with a hard clip at x 535). A regression reference must not be a half-revealed word. Use a settled frame (f8 or f12) instead of f0 and keep a1 only if the counter is already present.
+
+Non-blocking, fix before the next re-baseline:
+3. Depth hierarchy is inverted (strip f95, p100): the "near" plane (NilePay, parallax 1.3) renders smaller and dimmer than the "mid" plane (400 EGP), so near does not read as nearer. Scale the near word up (size 'title' instead of 'sub') or place it lower-left overlapping the mid plane so occlusion carries the depth.
+4. p50 and p100 (x 360-600, y 215-335): hard-edged dark scrim rectangle behind the counter, carry-over from NumberCounter. Feather it. Also visible in the strip at f70, f95.
+5. Counter label (p50, p100, x 410-500, y 305-320): about 18 px at 960 wide, low contrast. Raise to the secondary token.
+6. DOF is the second half of the catalog verb and ships off (CR-017 open, needs an engine-owner or Council decision). Acceptable for round 1 because the cost reasoning is measured (0.31 / 0.49 box s/frame against 0.201), but the compiler or spec lint must warn when planes[].blur > 0 in a standard shot, and DOF should be shown on a hero-tier baseline once CR-017 is decided.
+7. Strip onion panel is pure yellow (off-palette); evidence only, never in a baseline. The DOF difference panel (|on-off| x4) is near-black with the counter barely visible; add a label saying the copy is intentionally unblurred.
+8. CR-004 (move follow behaves as truck) and the scene-director rule: do not use follow until it lands; add a spec-lint warning.
+
+What works: the Arabic and palette discipline are clean, no legacy frames, no invented numbers, the author removed the X1/X2 drafts, perf is inside budget (lite 0.129 / standard 0.187 / hero 0.203 against 0.201 only at standard, check hero separately), and the standard strip does show bokeh, haze and differential parallax.
