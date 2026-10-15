@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-15T16:52:11Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.4,
+  "date": "2026-10-15",
+  "round": 1,
+  "notes": "Radial wedge tree and router read clean: no wire through a chip, hull label or the centre in p50/p100. Palette/tokens disciplined (C.violet/C.signal/C.void), Arabic and mixed AR+Latin (\"ال NameNode\") correct RTL. Non-blocking: inactive wires hairline grey with tiny arrowheads (p50 NameNode->C/D, p100 gateway->wallet), flat vs AI-Unpacked depth (no particles/parallax), hull label chip has visible dark box. Motion not verifiable from stills; strip requested for round 2 polish."
+ }
 }
