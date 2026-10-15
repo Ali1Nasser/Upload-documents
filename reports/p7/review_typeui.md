@@ -19,3 +19,22 @@ Non-blocking issues (fix next round, ordered by impact)
 6. Motion intent is unverified by stills: the strip holds settled frames only. Request a 6-frame strip at anchor-3, -1, 0, +2, +4, +6 for word 4 (clip-path wipe, scale 0.92 to 1, blur 6 to 0) in round 2 or at the G8 pilot.
 
 Score breakdown: legibility 8, palette/tokens 8, depth and light 5, visual verb without narration 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), layout stability 9.
+
+## TermChip — round 1
+
+Verdict: **approved-critic**, score **7/10** (no blocking issue). Evidence: baselines p0, a1, p50, p100 at 960x540 read at full size, a 4x crop of each chip, and a 6x levels-boosted copy of p100. No strip or snap exists for TermChip under reports/p7/ (only settled frames plus one mid-wipe frame, p50 SLO). Only kinds `term` (idempotency) and `acronym` (SLO) are baselined.
+
+Strengths
+- Legible: term mono about 32 px and gloss 28 px at 1080p; cyan on near-black; the green `ok` token used only for the acronym; no off-palette colour (token discipline holds).
+- Arabic gloss is correct, whole words, RTL right edge aligned under the chip, no per-letter animation; Latin term sits in an LTR isolate.
+- Light: the upper-right rim light reads on the pill border (p100, idempotency chip, top-right arc brighter than lower-left); an emissive pool sits behind the chip; the leading dot gives `term` its visual verb. p50 SLO shows the rim leading the wipe with a clean clip.
+- Not a bullet slide, no legacy frames, no numbers. Frozen schema respected.
+
+Non-blocking issues (fix next round, ordered by impact)
+1. p50 and p100, both chips, region x 600-915 / y 240-318 (idempotency) and x 30-305 / y 240-318 (SLO): a hard-edged darker rectangle sits behind the chip and gloss, with a vertical edge at x about 305 and x about 605 (visible unboosted, obvious at 6x). This is the same defect as KineticPhrase issue 2: it reads as a card edge, not light. Find what clips the pool or shadow (the glow div extends -35% beyond the wrapper; the 0 0.3fs 0.7fs void shadow plus the backdrop blur are the suspects) and feather it, or move the shadow to a filter drop-shadow so it follows the pill.
+2. Kinds `code` and `metric` have no baseline, no still and no demo use. The note says four kinds are finished; two are unverified. Add them to the demo (or a second baseline set) and request approval in round 2. Note `code` has ink text on darker stock and `metric` an underline at 12-88% width; both need a still.
+3. p100, gloss: `ink2` at 28 px reads dim against the pool; at 960 px the gloss is the weakest element. Lift to ink at about 0.85 or give it the pill's halo, so it holds on bright host shots.
+4. Motion intent is only partly verifiable: the +-1.5 px float is about 1.5 px at 1080p, under what a viewer perceives, so it adds determinism risk and no read. Either raise to about 4 px, or drop it. A 6-frame strip at anchor-2, 0, +2, +4, +8, +16 (rim, wipe, gloss rise) is requested for the G8 pilot.
+5. p50: chip and glow of SLO appear while its gloss is absent; the pool is already at near full strength for a half-revealed pill. Ramp the pool with the wipe so it lands with the term.
+
+Score breakdown: legibility 8, palette/tokens 8, depth and light 6 (hard plate, pool only), visual verb without narration 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 6.
