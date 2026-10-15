@@ -32,3 +32,37 @@ Mean 7.9, min 5.
 
 ### Calibration
 9 = rim-lit scene with a clear metaphor and no collision; 7 = correct and on-token but with one label collision (this component); 5 = labels over the key mark and flat lighting.
+
+## VectorGalaxy — round 2
+
+Critic: critic (not the author). Date: 2026-10-15. Evidence: baselines p0/a1/p50/p100 (lite, 960x540) read at full size, reports/p7/snap/VectorGalaxy.jpg present. Only the lite tier is evidenced. Commit 5dd90f0 reviewed.
+
+Verdict: APPROVED (score 7.6, no blocking issue). meta.json set to `approved-critic`.
+
+### Round-1 blocker
+Fixed. p50 upper-right (x 525-905, y 150-250): the query chip now sits left of the probe (chip right edge about x 712, ring left edge about x 726). The probe core, ring and the three beam origins are fully visible. p100: chip placed right of the probe, clear. No chip-over-probe collision in any still.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p | 7 |
+| Token / palette discipline | 9 |
+| Depth and light (lite only, flat dim dots, probe glow good) | 6 |
+| Visual verb reads without narration | 8 |
+| Arabic correct | 9 |
+| Not a bullet-list / slide look | 8 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (a1 -> p50 -> p100: clusters, probe, beams, dolly) | 7 |
+| Polish (collisions) | 7 |
+Mean 8.1, min 6. Overall 7.6 (depth and polish residuals weigh it down).
+
+### Non-blocking, carry forward (none gates approval)
+1. p50, left (x 215-415, y 295-420): the roadmap leader (x 347) still passes behind the right end of the "keyword search" chip and reappears below it, so it reads as the keyword chip's leader. Enter the leader from the side, or add a horizontal offset for stacked chips, or widen cluster separation in `buildField`.
+2. a1/p50, ring markers (r 9 px, thin): still the weakest link between chip and cluster at 1080p. Raise to r 12, alpha 0.85.
+3. p100, bottom-left (x 273-393, y 262-290): the "embeddings" chip is dimmed to about 3:1 contrast. Floor dimmed alpha at 0.7.
+4. p50: the probe is far from the cluster it will drop into, and the beams reach unlabelled dots, so the match is only completed at p100. Acceptable as a motion beat, but a 6-frame strip around the drop would confirm it reads.
+5. Still requested before the final lock: standard-tier p50 and p100 stills (nebula/halo must not wash chips) and a strip of the zoomCluster dolly. Not evidenced here.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct, on-token, small residual overlap or flat lighting (this component). 5 = labels over the key mark.
