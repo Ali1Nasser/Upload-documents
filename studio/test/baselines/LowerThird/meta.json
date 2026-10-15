@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "043a4ee41f9b314d75575a30b633a141b89ad696892d3cb642e5eac1a252ac35",
-  "a1": "3d96febf6dfbebc05fe2e09804f19437de24e014b9a6f9ad0c64469f6adf3fce",
-  "p50": "30942444b2481d5b228381ff82af9e59d14afc397346d88ac8124479e771127f",
-  "p100": "d61d0508e59d0d20438a512389174099f4343effba0b28ddcaa100fcf740329f"
+  "p0": "71b1584f3b8a592ae5eb2cfc1dc6f2642de473d7310f09e7699ad00888c01cb0",
+  "a1": "696f2dad780b94e0c48abccab6077085c293fc205e8d1905e28398ad1e072050",
+  "p50": "ffd4583c747cb1997a01074f5f67b6ac4e378d30b3ad8a7e66c3be1a772c9573",
+  "p100": "17c7242d191c09b9993aa47f5a8b003380bf764095929be2e4b9d179a2ffed21"
  },
  "v": 2,
  "name": "LowerThird",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:29:05Z",
+ "written_at": "2026-10-15T21:56:28Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
