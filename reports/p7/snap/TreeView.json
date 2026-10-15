@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TreeView",
  "composition": "Demo-TreeView",
- "at": "2026-10-15T17:59:51Z",
+ "at": "2026-10-15T21:47:38Z",
  "frames": [
   0,
   11,
@@ -26,41 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 259,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 519,
    "why": "100 %",
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
- "registry_problems": [
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]"
- ],
- "approve": false,
- "pass": false
+ "registry_problems": [],
+ "approve": true,
+ "pass": true
 }

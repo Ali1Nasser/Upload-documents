@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TreeView",
  "composition": "Demo-TreeView",
- "at": "2026-10-15T18:21:30Z",
+ "at": "2026-10-15T21:55:19Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 520,
-   "wall_s": 80.51,
-   "box_s_per_frame": 0.1548,
-   "slot_s_per_frame": 0.4644,
+   "wall_s": 32.67,
+   "box_s_per_frame": 0.0628,
+   "slot_s_per_frame": 0.1884,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    8.02,
-    9.73
-   ],
-   "queue": {
-    "running": 3,
-    "queued": 2
-   },
-   "other_jobs_running": 2
-  },
-  "standard": {
-   "frames": 520,
-   "wall_s": 71.43,
-   "box_s_per_frame": 0.1374,
-   "slot_s_per_frame": 0.4122,
-   "budget_box_s_per_frame": 0.201,
-   "within_budget": true,
-   "loadavg1": [
-    9.19,
-    6.18
+    4.89,
+    5.61
    ],
    "queue": {
     "running": 1,
-    "queued": 2
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 520,
+   "wall_s": 47.54,
+   "box_s_per_frame": 0.0914,
+   "slot_s_per_frame": 0.2742,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.61,
+    5.97
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 520,
-   "wall_s": 73.44,
-   "box_s_per_frame": 0.1412,
-   "slot_s_per_frame": 0.4236,
+   "wall_s": 43.07,
+   "box_s_per_frame": 0.0828,
+   "slot_s_per_frame": 0.2484,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.92,
-    6.28
+    5.97,
+    5.7
    ],
    "queue": {
     "running": 1,
-    "queued": 2
+    "queued": 5
    },
    "other_jobs_running": 0
   }
