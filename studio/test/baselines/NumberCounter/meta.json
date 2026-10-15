@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-10T13:18:18Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "by": "critic",
+  "score": 7,
+  "date": "2026-10-15",
+  "notes": "RV1 re-baseline (a1 now shows in-flight count 60.69 on the anchor frame; no regression elsewhere). Crisp tabular numerals, subordinate unit, correct Arabic labels, stable second-counter entry. Non-blocking: plate near-invisible with hard edge, wide decimal-dot gap, small labels at 960 px, p50 already near final value.",
+  "report": "reports/p7/baselines_review.md"
+ }
 }

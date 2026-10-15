@@ -23,3 +23,12 @@ Note: p0 is byte-identical across the three (empty backdrop, sha 84797c...). Tha
 
 ## Actions
 Metas updated: approval and status = approved-critic, with score, date and notes. Hashes untouched. Non-blocking fixes should go through a re-baseline with --approve and a new critic pass.
+
+## Re-review after ADR-011 RV1 (commit 5ce4555), 2026-10-15 (critic)
+
+Scope: NumberCounter and TableGrid a1/p50/p100 at full size (960x540); p0 unchanged (sha 84797c..., identical to before). PNG sha256 match meta.json. Only a1 changed in the re-baseline.
+
+- NumberCounter 7/10 (unchanged): a1 now shows the first visible count step (60.69 %) on the anchor frame, which is the intended RV1 behaviour and gives a real in-flight signal. p50 (66.67) and p100 (66.67 + 400 EGP) are stable; the second counter enters without shifting the first. Prior non-blocking notes still stand (near-invisible hard-edged plate, wide decimal-dot gap, labels small at 960 px, p50 close to final value).
+- TableGrid 8/10 (unchanged): a1 shows the table entering with its card height already reserved for the full row set, so p50/p100 do not reflow. RTL order, BiDi title, mono numerics, red failed rows with edge bar and the filter+sort result at p100 are intact. Card still about 31% of frame width.
+
+No blocking issues. Both metas set to approved-critic (score, date 2026-10-15, notes). Hashes untouched.

@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-10T13:19:51Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "by": "critic",
+  "score": 8,
+  "date": "2026-10-15",
+  "notes": "RV1 re-baseline (a1 shows first rows entering on anchor frame, card height reserved so layout is stable). Correct RTL column order, BiDi title, mono numerics, failed rows in red with edge bar, p100 shows filter+sort result. Non-blocking: card ~31% of frame width, body ~15 px at 960.",
+  "report": "reports/p7/baselines_review.md"
+ }
 }
