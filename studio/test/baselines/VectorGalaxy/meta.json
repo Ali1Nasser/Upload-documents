@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-15T21:46:41Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.7,
+  "date": "2026-10-15",
+  "by": "critic",
+  "round": 3,
+  "notes": "Re-baseline after carry-forward fixes confirmed: ring r12/alpha0.85 now clearly visible in a1/p50/p100; dimmed embeddings chip at p100 legible. Non-blocking: p50 roadmap leader (x347) still runs behind right end of keyword-search chip; lite stills only (no standard/hero still, no dolly strip); p0 is empty field; probe far from target cluster until p100."
+ }
 }

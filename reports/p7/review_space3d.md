@@ -66,3 +66,41 @@ Mean 8.1, min 6. Overall 7.6 (depth and polish residuals weigh it down).
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct, on-token, small residual overlap or flat lighting (this component). 5 = labels over the key mark.
+
+## VectorGalaxy — round 1 (re-baseline after carry-forward fixes)
+
+Critic: critic (not the author). Date: 2026-10-15. Evidence: baselines p0/a1/p50/p100 (lite, 960x540) read at full size. Only the lite tier is evidenced; no strip read this pass. Perf as reported by the author: lite 0.070, standard 0.121, hero 0.116 s/frame (budget 0.201 / 0.201 / 1.038); snap determinism 0.
+
+Verdict: APPROVED (score 7.7, no blocking issue). meta.json set to `approved-critic`.
+
+### Carry-forward fixes verified
+- Ring markers (r 12, alpha 0.85): now clearly visible in a1 (idempotency ring, x 710 y 299), p50 (four rings) and p100 (embeddings, idempotency). They read as the link between chip and cluster. Closed.
+- Dimmed chip floor 0.7: p100 "embeddings" chip (x 273-393, y 262-290) is dim but legible; label text and leader readable. Closed.
+- Query chip no longer covers the probe (p50 chip left of probe; p100 right of probe). Still clear.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p | 8 |
+| Token / palette discipline | 9 |
+| Depth and light (lite only; flat dim dots, probe glow good) | 6 |
+| Visual verb reads without narration | 8 |
+| Arabic correct (BiDi, tashkeel, "الـ") | 9 |
+| Not a bullet-list / slide look | 8 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible | 7 |
+| Polish | 7 |
+Mean 8.2, min 6. Overall 7.7.
+
+### Blocking
+None.
+
+### Non-blocking, carry forward
+1. p50, left (x 215-415, y 295-420): the roadmap leader (x 347) still passes behind the right end of the "keyword search" chip (right edge x 357). Enter from the side or widen cluster separation in `buildField`.
+2. p0 is an empty graded field (no particles, by design at frame 0); do not use p0 as the only proof of the opening. Request a frame around 8-12 for the next re-baseline.
+3. Standard- and hero-tier stills and a 6-frame strip of the zoomCluster dolly are still not evidenced; required before the final lock (nebula/halo must not wash chips).
+4. p50: the probe is far from the cluster it drops into; the match only completes at p100.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct, on-token, small residual overlap or flat lighting (this component). 5 = labels over the key mark.
