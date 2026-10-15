@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T21:48:02Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "approved_by": "critic",
+ "critic": {
+  "score": 7,
+  "date": "2026-10-15",
+  "round": 1,
+  "notes": "No blocking issue. Non-blocking: slab pre-sized so a1/p50 show an empty panel; impact flash and chromatic aberration not in any still (strip needed at G8); U+2212 minus not baselined; operator contrast dim. See reports/p7/review_typeui.md EquationLine round 1."
+ }
 }

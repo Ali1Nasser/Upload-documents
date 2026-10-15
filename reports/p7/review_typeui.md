@@ -56,3 +56,22 @@ Open, non-blocking
 - Faint residual shelf at 6x gain (above): feather the pool a further 20 percent if it ever shows on bright plates.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 7, visual verb without narration 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 7 (unverified), polish 8.
+
+## EquationLine - round 1 (critic)
+
+Verdict: **approved-critic**, score **7/10** (no blocking issue). Evidence: baselines p0, a1, p50, p100 at 960x540 read at full size, a 4x crop of the p100 slab, a 6x levels-boosted p100, reports/p7/snap/EquationLine.jpg, qa_arabic_EquationLine.json (pass), demo in studio/src/demos/type-ui.tsx. Commit under review 18e3c1f. No strip exists; stills are settled frames only.
+
+Strengths
+- Legible: operands about 40 px and result about 56 px at 1080p; ink-on-slab and signal cyan on near-black, no off-palette colour. Result at 1.25x clearly dominates (p100, x 440-690 / y 240-295).
+- Depth and light: rim-lit slab with a bright top edge toward the upper right, an emissive pool under the result, an emissive underline. A real object, not a flat card.
+- Visual verb reads without narration: 4, then / 6, then = 66.67 %, with the result flaring. Not a bullet slide; no legacy frame.
+- Numbers sourced: 4 / 6 = 66.67 % tagged d:5.2:7 (arithmetic checks, 66.666... rounds to 66.67). One LTR isolate, no Arabic strings, Arabic QA pass (5 strings, 0 failed).
+
+Non-blocking issues (ordered by impact)
+1. a1 and p50, slab region x 246-712 / y 216-324: the slab is already at nearly full final width while holding "4" (a1) or "4 / 6" (p50), so the right 40-60 percent is an empty glass panel. It reads as a placeholder box before the result lands. Grow the slab with the terms (width follows the last landed term, with the final width reserved only for centring), or fade the unreached part of the slab.
+2. Motion intent unverified: the impact flash and chromatic aberration at the result anchor are not in any still (the baselines are at frames 0, 13, 39, 79; the result anchor is about frame 42). At 4x crop the aberration on numerals is a barely visible cyan fringe. Request a 6-frame strip at result anchor-2, 0, +1, +3, +6, +12 for the G8 pilot, and an extra baseline at anchor+2.
+3. p100, region x 400-440 / y 262-290: the operator "=" is ink2 grey, dim next to the white operands. The U+2212 minus is not exercised by any baseline or demo (the demo uses "/" and "="). Add a minus variant (for example 6 - 2 = 4) so the claimed glyph is verified, and lift operator contrast slightly.
+4. 6x boost of p100, region x 230-300 / y 250-350 and below the slab: the pool and shadow have a faint hard-edged lobe left of the slab (same shelf as TermChip round 2). Invisible at normal gain; feather if it shows on bright plates.
+5. The slab is 940 px wide at 1080p in a 1920 frame; the host shot must carry camera and a concrete object (the demo's push_in 0.3 is not visible in the stills). The component is a label, not a scene.
+
+Score breakdown: legibility 8, palette/tokens 8, depth and light 7, visual verb without narration 8, Arabic 8 (no Arabic content; isolate correct), not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 6 (empty slab in a1/p50).
