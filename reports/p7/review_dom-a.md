@@ -118,3 +118,33 @@ Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 1529318. V
 
 ## Next review
 No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
+
+---
+
+# LatencyLadder — round 1
+
+Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 58efe07. Verdict: APPROVED, score 7/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1, p50, p100 (lite, 960x540) at full size, and reports/p7/snap/LatencyLadder.jpg (4-frame strip).
+- Demo props in studio/src/demos/dom-a.tsx (values carry refs d:6.6:6, d:6.6:4, d:6.7:1, d:6.7:2, so no unsourced numbers).
+
+## Scores
+- Legibility at 1080p: 8. Labels about 40 px, mono values about 36 px, whole phrases, no clipping.
+- Token and palette discipline: 8. Cyan signal climber, grey-teal bars, amber for the slow rung; no stray hues.
+- Depth and light: 6. Rim-lit bars, soft floor pools and a floor grid, but all rungs sit in one flat plane. The "perspective ladder" is not felt: the rails are nearly parallel verticals and the stack reads as a horizontal bar chart.
+- Visual verb without narration: 7. Bar length on a log scale plus the climbing orb and the cyan-to-amber ramp read well (150 ms to 57 s). The "each 10x is one equal step" idea is not visible: decade gridlines are about 8 percent alpha with no tick or x10 mark.
+- Arabic: 9. RTL order and BiDi isolates correct ("الـ pool", "pip install" bold, LTR values).
+- Bullet-list or slide look: 7. Not a list, but close to a dashboard bar chart. No legacy frames.
+- Motion intent: 6. No baseline shows the reach flash or the two puls; a1 shows one small ring at the 150 ms tip only. Climber comet tail is a few px.
+
+## Non-blocking fixes, in order of impact
+1. p50 and p100: strengthen the perspective. Give the rails a visible vanishing-point lean and step each trough in depth (scale 0.94 per rung up), so the ladder reads as a 3D object.
+2. p50 and p100, decade gridlines (x 200-640, y 120-420): raise to 20 percent alpha and add small "x10" ticks, so the equal-step log scale is explicit.
+3. Add a baseline at reach+4f of rung 3 (frame about 108) so the flash and puls are regression-tested; currently none are.
+4. p50, climber (x 650-670, y 225-260): comet tail is barely visible; make it 3x longer with a head glow.
+5. p50 and p100, empty bottom 20 percent (y 430-540): floor grid only; raise the ladder box by about 20 px or enlarge the floor reflection.
+6. a1: ring at the 150 ms tip (x 505-535, y 368-396) is the only impact visible; fine, but it is small.
+
+## Next review
+No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
