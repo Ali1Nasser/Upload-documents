@@ -9,7 +9,7 @@
 //   zoomCluster {cluster}       the camera dollies to that cluster's centre (camera ease, the morph preset length).
 // Scores are not drawn here: the action carries `scores_ref` but no values (CR-014); a NumberCounter / CalloutArrow shows them.
 // Tiers: lite = flat dots at half resolution; standard = + cluster nebulae and halos; hero = + bloom sprites (no WebGL needed, so
-// the ADR-002 RT5 hero share is not consumed; standard is the full fallback). Text-safe: every copy box is cut out of the field.
+// the ADR-002 RT5 hero share is not consumed; standard is the full fallback). Text-safe: every copy box (ours, and other layers') is cut out of the field inside the canvas (_space3d/knockout.tsx: no CSS mask).
 import React, {useMemo} from 'react';
 import {random} from 'remotion';
 import {C, CAMERA, H, SIZE, W} from '../../tokens';
@@ -19,6 +19,7 @@ import {
   Chip, Measure, MLabel, SpaceCanvas, actionsOf, blit, bloomOf, chipH, chipW, clampInto, enterK, exitK, ff, fitTo, gauss, lerp, moveK,
   project, rgba, secs, sprite, useMeasure, useOverflow, type Cam3, type V3,
 } from '../_space3d/kit';
+import {Origin, knockOut, useForeignText} from '../_space3d/knockout';
 
 const BASE = SIZE.label; // chip copy (32 px), floor SIZE.labelMin
 type Field = {centres: V3[]; pts: {p: V3; cl: number; tint: boolean; br: number}[]; q: V3; order: number[]};
@@ -42,10 +43,9 @@ const buildField = (nClusters: number, n: number, seed: number): Field => {
       : [c[0] + gauss(`${k}x`) * sp, c[1] + gauss(`${k}y`) * sp * 0.75, c[2] + gauss(`${k}z`) * sp];
     return {p, cl: uniform ? -1 : cl, tint: random(`${k}t`) < 0.4, br: 0.45 + random(`${k}b`) * 0.55};
   });
-  // the probe sits just outside clusters[0], on the side facing the field centre
+  // the probe hovers above clusters[0] (the vertical axis never foreshortens under the yaw orbit), so its beams drop into the group
   const c0 = centres[0];
-  const len = Math.hypot(c0[0], c0[1], c0[2]) || 1;
-  const q: V3 = nClusters === 1 ? [0.9, 0.4, 0.6] : [c0[0] - (c0[0] / len) * 1.7, c0[1] + 0.7, c0[2] - (c0[2] / len) * 1.7];
+  const q: V3 = nClusters === 1 ? [0.9, 1.3, 0.6] : [c0[0] + 0.3, c0[1] + 1.3, c0[2]];
   const d2 = (p: V3) => (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2 + (p[2] - q[2]) ** 2;
   const order = pts.map((_, i) => i).filter((i) => pts[i].cl === 0).sort((a, b) => d2(pts[a].p) - d2(pts[b].p) || a - b).slice(0, 10);
   return {centres, pts, q, order};
@@ -99,6 +99,7 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   }, [props.query, ctx.actions]);
   const all = [...props.clusters, ...queries];
   const [mref, m] = useMeasure(ctx.id, all.join('|'));
+  const [oref, foreign] = useForeignText(`${ctx.id}:`, ctx.fx, ctx.frame);
   const enter = enterK(ctx, 'morph');
   const k = enter * exitK(ctx);
   const cam = cameraAt(ctx, props, f);
@@ -113,6 +114,49 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ign = (r: number) => (hn ? moveK(ctx, hn.at + r * ff(2, ctx.fps), 6) : 0);
   const boost = 1 + 0.6 * ctx.mod.particles + 0.4 * ctx.mod.glow;
 
+  // ---------- copy: cluster chips at projected centres (decluttered), the query chip beside the probe ----------
+  const box = ctx.box;
+  const sizeOf = (i: number) => (m ? fitTo(BASE, m.w[i], box.w * 0.4, SIZE.labelMin) : {size: BASE, overflow: false});
+  const chips: {id: string; text: string; size: number; x: number; y: number; w: number; h: number; t0: number; accent: string; overflow: boolean; alpha: number; cx?: number; cy?: number}[] = [];
+  if (m) {
+    props.clusters.forEach((text, i) => {
+      const p = project(cam, f.centres[i]);
+      const fit = sizeOf(i);
+      const w = chipW(m.w[i], BASE, fit.size);
+      const h = chipH(text, fit.size);
+      const zoomed = actionsOf(ctx, 'zoomCluster').filter((a) => a.at <= ctx.frame).pop();
+      const focus = zoomed ? (zoomed.props as {cluster: string}).cluster === text : true;
+      // a cluster whose centre has left the slot (the camera dollied away) hides its chip instead of parking it in a corner
+      const out = Math.max(box.x - p.x, p.x - (box.x + box.w), box.y - p.y, p.y - (box.y + box.h), 0);
+      const vis = p.ok ? 1 - Math.min(1, out / 120) : 0;
+      if (vis < 0.02) return;
+      chips.push({id: `${ctx.id}:cl${i}`, text, size: fit.size, x: p.x - w / 2, y: p.y + Math.max(70, p.s * 0.8), w, h, t0: ctx.at + ff(4 + 2 * i, ctx.fps), accent: C.violet, overflow: fit.overflow, alpha: (focus ? 1 : 0.55) * vis, cx: p.x, cy: p.y});
+    });
+    const pr = probeOf(ctx, props);
+    if (pr && pr.label) {
+      const qi = props.clusters.length + queries.indexOf(pr.label);
+      const q = project(cam, qPos);
+      const fit = sizeOf(qi);
+      const w = chipW(m.w[qi], BASE, fit.size);
+      const h = chipH(pr.label, fit.size);
+      chips.push({id: `${ctx.id}:q${qi}`, text: pr.label, size: fit.size, x: q.x + 56, y: q.y - h / 2, w, h, t0: pr.labelAt, accent: C.signal, overflow: fit.overflow, alpha: 1});
+    }
+    // declutter: later chips step down past earlier ones (12 px gap), then clamp into the slot (title-safe at the camera peak)
+    const placed: {x: number; y: number; w: number; h: number}[] = [];
+    for (const c of chips) {
+      let pos = clampInto(box, c.x, c.y, c.w, c.h);
+      for (let guard = 0; guard < 12; guard++) {
+        const hit = placed.find((o) => pos.x < o.x + o.w + 12 && o.x < pos.x + c.w + 12 && pos.y < o.y + o.h + 12 && o.y < pos.y + c.h + 12);
+        if (!hit) break;
+        pos = clampInto(box, pos.x, hit.y + hit.h + 12, c.w, c.h);
+        if (pos.y + c.h >= box.y + box.h) pos = clampInto(box, pos.x, hit.y - c.h - 12, c.w, c.h);
+      }
+      c.x = pos.x;
+      c.y = pos.y;
+      placed.push({x: c.x, y: c.y, w: c.w, h: c.h});
+    }
+  }
+
   const draw = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
     g.globalCompositeOperation = 'lighter';
@@ -121,6 +165,7 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const p = project(cam, c);
         if (p.ok) blit(g, sprite(C.violet, 'glow'), p.x, p.y, Math.min(420, p.s * 2.2), 0.22 * glow * k);
       });
+    g.globalCompositeOperation = 'lighter';
     const lit = new Set(f.order.slice(0, nk));
     for (let i = 0; i < f.pts.length; i++) {
       if (lit.has(i)) continue;
@@ -134,6 +179,26 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       blit(g, sprite(col, 'dot'), p.x, p.y, r, a);
       if (glow && depth > 0.55) blit(g, sprite(col, 'glow'), p.x, p.y, r * 4.5, a * 0.3 * glow);
     }
+    // text-safe (ADR-002): the field (nebulae, points, halos) is cut out of every copy box, ours (analytic) and other layers' (settled)
+    knockOut(g, [...chips.filter((c) => ctx.frame >= c.t0 && c.alpha * k > 0.02), ...foreign], ctx.fx);
+    // cluster markers: a ring on the centroid and a leader down to its chip (the probe and its beams own the space above the group) (the chip names the group it points at)
+    g.globalCompositeOperation = 'source-over';
+    for (const c of chips) {
+      if (c.cx === undefined || c.cy === undefined) continue;
+      const u = moveK(ctx, c.t0, 8) * c.alpha * k;
+      if (u <= 0) continue;
+      g.globalAlpha = 0.6 * u;
+      g.strokeStyle = C.violet;
+      g.lineWidth = 2;
+      g.beginPath();
+      g.moveTo(c.x + c.w / 2, c.y);
+      g.lineTo(c.cx, c.cy + 11);
+      g.stroke();
+      g.beginPath();
+      g.arc(c.cx, c.cy, 9, 0, Math.PI * 2);
+      g.stroke();
+    }
+    g.globalCompositeOperation = 'lighter';
     const q = project(cam, qPos);
     if (hn && q.ok)
       f.order.slice(0, nk).forEach((pi, r) => {
@@ -174,48 +239,11 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     }
   };
 
-  // ---------- copy: cluster chips at projected centres (decluttered), the query chip beside the probe ----------
-  const box = ctx.box;
-  const sizeOf = (i: number) => (m ? fitTo(BASE, m.w[i], box.w * 0.4, SIZE.labelMin) : {size: BASE, overflow: false});
-  const chips: {id: string; text: string; size: number; x: number; y: number; w: number; h: number; t0: number; accent: string; overflow: boolean; alpha: number}[] = [];
-  if (m) {
-    props.clusters.forEach((text, i) => {
-      const p = project(cam, f.centres[i]);
-      const fit = sizeOf(i);
-      const w = chipW(m.w[i], BASE, fit.size);
-      const h = chipH(text, fit.size);
-      const zoomed = actionsOf(ctx, 'zoomCluster').filter((a) => a.at <= ctx.frame).pop();
-      const focus = zoomed ? (zoomed.props as {cluster: string}).cluster === text : true;
-      chips.push({id: `${ctx.id}:cl${i}`, text, size: fit.size, x: p.x - w / 2, y: p.y - p.s * 0.95 - h, w, h, t0: ctx.at + ff(4 + 2 * i, ctx.fps), accent: C.violet, overflow: fit.overflow, alpha: focus ? 1 : 0.55});
-    });
-    const pr = probeOf(ctx, props);
-    if (pr && pr.label) {
-      const qi = props.clusters.length + queries.indexOf(pr.label);
-      const q = project(cam, qPos);
-      const fit = sizeOf(qi);
-      const w = chipW(m.w[qi], BASE, fit.size);
-      const h = chipH(pr.label, fit.size);
-      chips.push({id: `${ctx.id}:q${qi}`, text: pr.label, size: fit.size, x: q.x - w - 48, y: q.y + 28, w, h, t0: pr.labelAt, accent: C.signal, overflow: fit.overflow, alpha: 1});
-    }
-    // declutter: later chips step down past earlier ones (12 px gap), then clamp into the slot (title-safe at the camera peak)
-    const placed: {x: number; y: number; w: number; h: number}[] = [];
-    for (const c of chips) {
-      let pos = clampInto(box, c.x, c.y, c.w, c.h);
-      for (let guard = 0; guard < 12; guard++) {
-        const hit = placed.find((o) => pos.x < o.x + o.w + 12 && o.x < pos.x + c.w + 12 && pos.y < o.y + o.h + 12 && o.y < pos.y + c.h + 12);
-        if (!hit) break;
-        pos = clampInto(box, pos.x, hit.y + hit.h + 12, c.w, c.h);
-        if (pos.y + c.h >= box.y + box.h) pos = clampInto(box, pos.x, hit.y - c.h - 12, c.w, c.h);
-      }
-      c.x = pos.x;
-      c.y = pos.y;
-      placed.push({x: c.x, y: c.y, w: c.w, h: c.h});
-    }
-  }
   useOverflow(ctx.id, chips.some((c) => c.overflow), {chips: chips.filter((c) => c.overflow).map((c) => c.text)});
   return (
     <>
-      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, n, props.seed, ctx.fx.id, boost, nk]} textSafe />
+      <Origin oref={oref} />
+      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, n, props.seed, ctx.fx.id, boost, nk, !!m, foreign]} />
       <Measure mref={mref} size={BASE}>
         {all.map((t, i) => <MLabel key={i} text={t} size={BASE} />)}
       </Measure>
