@@ -8,7 +8,7 @@ Date: 2026-10-10. Author: motion-engineer (dom-b).
 |---|---|---|
 | DeadlockCrossing | implemented (baselines pending-critic; snap PASS det 0, perf standard 0.153 / hero 0.149 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1) |
 | PageScan | implemented (baselines pending-critic; snap PASS det 0, perf lite 0.074 / standard 0.091 / hero 0.100 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1). Grid keeps to the top 74 % of its slot; the lower quarter is the counter lane for NumberCounter (12 500 `d:6.5:3`, 3 `d:6.5:2`). |
-| AppliedSteps | deferred | AT-13R gate |
+| AppliedSteps | implemented (baselines pending-critic; snap PASS det 0, perf lite 0.062 / standard 0.113 / hero 0.134 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1). Film-strip list (glyph per kind, sprocket rails advance with the selection) plus a table miniature that cleans per step (column steps straighten a column, dedupe/filter collapse rows); a projector beam links them. No numbers drawn (row counts belong to NumberCounter, d:6.1:2, d:6.2:1). Narrow slots (< 1.4 : 1) drop the table. |
 | SampleScoop | deferred | AT-13R gate; data gap D2 |
 | ABSplit | deferred | AT-13R gate; data gap D1 |
 | WireTangle | deferred | AT-13R gate |
