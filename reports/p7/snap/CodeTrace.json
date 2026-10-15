@@ -2,7 +2,7 @@
  "v": 2,
  "name": "CodeTrace",
  "composition": "Demo-CodeTrace",
- "at": "2026-10-15T18:03:42Z",
+ "at": "2026-10-15T22:05:41Z",
  "frames": [
   0,
   13,
@@ -26,44 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): 6 registry problem(s)"
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 13,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): 6 registry problem(s)"
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 74,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "pass": false,
-   "error": "not approved (baseline untouched): 6 registry problem(s)"
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 149,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): 6 registry problem(s)"
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
- "registry_problems": [
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]"
- ],
+ "registry_problems": [],
  "approve": true,
- "approve_refused": [
-  "6 registry problem(s)"
- ],
- "pass": false
+ "pass": true
 }

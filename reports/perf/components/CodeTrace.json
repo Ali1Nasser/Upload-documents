@@ -2,7 +2,7 @@
  "v": 2,
  "name": "CodeTrace",
  "composition": "Demo-CodeTrace",
- "at": "2026-10-15T18:16:59Z",
+ "at": "2026-10-15T22:09:59Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 150,
-   "wall_s": 15.07,
-   "box_s_per_frame": 0.1005,
-   "slot_s_per_frame": 0.3015,
+   "wall_s": 8.89,
+   "box_s_per_frame": 0.0592,
+   "slot_s_per_frame": 0.1776,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.84,
-    5.24
+    7.02,
+    6.78
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 3
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 150,
-   "wall_s": 18.38,
-   "box_s_per_frame": 0.1225,
-   "slot_s_per_frame": 0.3675,
+   "wall_s": 11.33,
+   "box_s_per_frame": 0.0755,
+   "slot_s_per_frame": 0.2265,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.06,
-    5.18
+    6.32,
+    6.05
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 150,
-   "wall_s": 18.57,
-   "box_s_per_frame": 0.1238,
-   "slot_s_per_frame": 0.3714,
+   "wall_s": 10.72,
+   "box_s_per_frame": 0.0715,
+   "slot_s_per_frame": 0.2145,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.17,
-    5.52
+    5.72,
+    5.84
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 5
    },
    "other_jobs_running": 0
   }

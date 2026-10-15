@@ -92,10 +92,16 @@ export const CodeTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const bp = band(prev) ?? bc;
   const top = bc && bp ? bp[0] + (bc[0] - bp[0]) * q : 0;
   const bot = bc && bp ? bp[1] + (bc[1] - bp[1]) * q : 0;
-  // scroll window follows the band centre, clamped to the block
-  const scrollOf = (b: [number, number] | null) => (b ? Math.min(Math.max(0, nRows - vis), Math.max(0, (b[0] + b[1]) / 2 - vis / 2)) : 0);
+  // scroll window follows the band centre, clamped to the block, in whole rows (a settled window never cuts a row in half)
+  const scrollOf = (b: [number, number] | null) => (b ? Math.min(Math.max(0, nRows - vis), Math.max(0, Math.round((b[0] + b[1]) / 2 - vis / 2))) : 0);
   const sc0 = scrollOf(bp);
   const scroll = bc ? sc0 + (scrollOf(bc) - sc0) * q : 0;
+  // rows that run off the window while it travels fade out over 0.45 row instead of being cut by the hard edge (text-safe mask)
+  const fadePx = rowH * 0.45;
+  const fTop = fadePx * Math.min(1, scroll);
+  const fBot = fadePx * Math.min(1, nRows - vis - scroll);
+  const winH = vis * rowH;
+  const edgeMask = fTop > 0.5 || fBot > 0.5 ? `linear-gradient(180deg, transparent 0px, #000 ${fTop.toFixed(1)}px, #000 ${(winH - fBot).toFixed(1)}px, transparent ${winH}px)` : undefined;
   // brightness of row r: the weight of being inside the current / previous band
   const inside = (b: [number, number] | null, r: number) => (b && r >= b[0] && r < b[1] ? 1 : 0);
   const weight = (r: number) => (cur ? inside(bp, r) * (1 - q) + inside(bc, r) * q : 1);
@@ -130,7 +136,7 @@ export const CodeTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             })}
           </div>
         ) : null}
-        <div style={{height: vis * rowH, margin: `${L.pad}px 0`, overflow: 'hidden', position: 'relative'}}>
+        <div style={{height: vis * rowH, margin: `${L.pad}px 0`, overflow: 'hidden', position: 'relative', ...(edgeMask ? {WebkitMaskImage: edgeMask, maskImage: edgeMask} : {})}}>
           <div style={{position: 'absolute', left: 0, right: 0, top: 0, transform: `translateY(${(-scroll * rowH).toFixed(2)}px)`}}>
             {bc ? (
               <>

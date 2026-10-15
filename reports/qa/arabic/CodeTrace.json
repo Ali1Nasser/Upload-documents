@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T18:03:57Z",
+ "created": "2026-10-15T22:10:02Z",
  "label": "CodeTrace",
  "thresholds": {
   "ocr_min": 0.9,
@@ -16,28 +16,28 @@
  },
  "verdict": "pass",
  "metrics": {
-  "strings": 4,
+  "strings": 3,
   "failed": 0,
   "negative_fixtures": 0,
   "negative_caught": 0,
-  "ocr_scored": 4,
-  "ocr_pass": 4,
+  "ocr_scored": 3,
+  "ocr_pass": 3,
   "ocr_min": 1.0,
-  "ocr_exact": 4,
+  "ocr_exact": 3,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
   "digits": 0,
   "joins": 0,
   "copy": 0,
-  "join_strings": 0,
-  "join_min": null,
+  "join_strings": 2,
+  "join_min": 1.0,
   "join_below_min": [],
   "rt_010_2": [],
   "join_script_ambiguous": [],
   "per_letter_hits": 0,
   "evidence": {
-   "pil-raqm-isolated": 4
+   "pil-raqm-isolated": 3
   }
  },
  "join_policy": {
@@ -78,24 +78,30 @@
  "per_letter": [],
  "items": [
   {
-   "id": "note1",
-   "text": "نبدأ المجموع من صفر",
-   "size": 40,
-   "render_size": 40,
+   "id": "s000",
+   "text": "# الطبقة الوحيدة اللي اتغيرت",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
-   "sources": [],
+   "sources": [
+    "studio/src/demos/code-media.tsx:40"
+   ],
    "problems": [],
    "warnings": [],
    "join": false,
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 353,
-    "ink_h": 49,
+    "ink_w": 391,
+    "ink_h": 41,
     "container_w": 1784,
     "lines": 1
    },
@@ -106,68 +112,95 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "نبدأ المجموع من صفر",
+    "got": "# الطبقة الوحيدة اللي اتغيرت",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "note2",
-   "text": "نمر على كل إيصال ناجح",
-   "size": 40,
-   "render_size": 40,
+   "id": "s001",
+   "text": "الـlatency",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
-   "sources": [],
+   "sources": [
+    "studio/src/demos/code-media.tsx:131"
+   ],
    "problems": [],
    "warnings": [],
-   "join": false,
+   "join": true,
    "tofu": {
     "missing": [],
     "faces": [
-     "ar-text"
+     "ar-display",
+     "ar-text",
+     "lat"
     ]
    },
+   "carrier": "قسم",
    "overflow": {
-    "ink_w": 373,
-    "ink_h": 42,
+    "ink_w": 134,
+    "ink_h": 31,
     "container_w": 1784,
-    "lines": 1
+    "lines": 1,
+    "ink_w_without_gap": 124
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
     "score": 1.0,
     "exact": true,
-    "psm": 7,
+    "psm": 13,
     "scale": 100,
-    "got": "نمر على كل إيصال ناجح",
+    "got": "قسم ال ‎latency‏",
     "join_junk": "",
-    "pass": true
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "note3",
-   "text": "المجموع الناجح أربعمية جنيه",
-   "size": 40,
-   "render_size": 40,
+   "id": "s002",
+   "text": "الـdepth",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
-   "sources": [],
+   "sources": [
+    "studio/src/demos/code-media.tsx:156"
+   ],
    "problems": [],
    "warnings": [],
-   "join": false,
+   "join": true,
    "tofu": {
     "missing": [],
     "faces": [
-     "ar-text"
+     "ar-display",
+     "ar-text",
+     "lat"
     ]
    },
+   "carrier": "قسم",
    "overflow": {
-    "ink_w": 455,
-    "ink_h": 49,
+    "ink_w": 113,
+    "ink_h": 31,
     "container_w": 1784,
-    "lines": 1
+    "lines": 1,
+    "ink_w_without_gap": 103
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
@@ -175,45 +208,15 @@
     "score": 1.0,
     "exact": true,
     "psm": 7,
-    "scale": 100,
-    "got": "المجموع الناجح أربعمية جنيه",
+    "scale": 70,
+    "got": "قسم ال ‎depth‏",
     "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "comment",
-   "text": "المجموع الناجح",
-   "size": 32,
-   "render_size": 32,
-   "kind": "label",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "overflow": {
-    "ink_w": 196,
-    "ink_h": 34,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "المجموع الناجح",
-    "join_junk": "",
-    "pass": true
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   }

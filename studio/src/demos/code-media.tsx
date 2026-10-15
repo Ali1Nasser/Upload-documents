@@ -49,7 +49,7 @@ const demos: DemoModule = {
       },
     },
     {
-      // CH-27 receipts (data contract 5.2: the OK receipts T1 120 + T2 80 + T4 50 + T5 150 = 400 EGP, d:5.2:8). The cursor steps on the
+      // CH-27 receipts (data contract 5.2: rows d:5.2:1..6 are the six transactions, amounts 120, 80, 200, 50, 150, 100, T3 and T6 FAILED; the OK ones sum to 400 EGP, d:5.2:8). The cursor steps on the
       // spoken lines; the Arabic comment is a whole-word run inside the code; the footer note is one whole Arabic phrase per step.
       name: 'CodeTrace',
       frames: 150,
@@ -69,16 +69,16 @@ const demos: DemoModule = {
             props: {
               id: 'trace',
               lang: 'python',
-              code: 'total = 0\nfor r in receipts:\n    if r["status"] == "OK":\n        total += r["amount_egp"]\n# المجموع الناجح\nprint(total)  # 400',
+              code: 'amounts = [120, 80, 200, 50, 150, 100]\nfailed = {"T3", "T6"}\ntotal = 0\nfor i, a in enumerate(amounts, 1):\n    if f"T{i}" not in failed:\n        total += a\n# المجموع الناجح\nprint(total)  # 400',
               highlights: [
-                {lines: [1, 1], at: {word: CT(2), lead_frames: 2}, note_ar: 'نبدأ المجموع من صفر'},
-                {lines: [2, 3], at: {word: CT(3), lead_frames: 2}, note_ar: 'نمر على كل إيصال ناجح'},
-                {lines: [6, 6], at: {word: CT(5), lead_frames: 2}, note_ar: 'المجموع الناجح أربعمية جنيه'},
+                {lines: [1, 2], at: {word: CT(2), lead_frames: 2}, note_ar: 'ست عمليات، اتنين منهم فشلوا'},
+                {lines: [4, 5], at: {word: CT(3), lead_frames: 2}, note_ar: 'نمر على كل عملية ناجحة'},
+                {lines: [8, 8], at: {word: CT(5), lead_frames: 2}, note_ar: 'المجموع الناجح أربعمية جنيه'},
               ],
             },
             at: {word: CT(1), lead_frames: 2},
           },
-          {component: 'CodeTrace.step', props: {target: 'trace', line: 4}, at: {word: CT(4), lead_frames: 2}},
+          {component: 'CodeTrace.step', props: {target: 'trace', line: 6}, at: {word: CT(4), lead_frames: 2}},
         ],
       },
     },
