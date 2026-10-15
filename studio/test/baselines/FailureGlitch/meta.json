@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-15T17:01:43Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "by": "critic",
+  "score": 7,
+  "date": "2026-10-15",
+  "notes": "Glitch jolt, crit/signal scan slices, held brackets and Arabic chip (العملية فشلت, correct BiDi, RTL columns) read the failure without narration; palette is crit/signal/ink only. Non-blocking: baselines are lite so shockwave sparks/glow/screen blend are unevidenced; ring is faint; grey block noise reads as dead pixels; FAILED rows not red-marked; p0 empty; card ~31% of frame.",
+  "report": "reports/p7/review_fx-a.md"
+ }
 }
