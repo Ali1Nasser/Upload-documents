@@ -104,3 +104,42 @@ None.
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct, on-token, small residual overlap or flat lighting (this component). 5 = labels over the key mark.
+
+## NeuralNet3D — round 1
+Reviewed: studio/test/baselines/NeuralNet3D/{p0,a1,p50,p100}.png (960x540, lite tier, scale 0.5) and reports/p7/snap/NeuralNet3D.jpg. Arabic QA: pass (31/31 OCR exact).
+
+### What works
+- Verb reads: three layers in depth, input on the right (RTL flow), wider hidden layer as a 2-column y-z grid, links of seeded brightness/width, neuron cores tinted by activation (a1).
+- p50: forward signal packets sit in the hidden-to-output gap while the hidden pane is lit. Wave is visible and directional.
+- p100: highlightLayer rings the hidden layer, brightens its pane and chip, and dims the others. Clear focus.
+- Labels المدخلات / الطبقة المخفية / المخرجات are correctly shaped and BiDi-safe. About 14 px at half scale, so about 28 px at 1080p. Legible.
+- Palette is cyan on near-black and on token. No bullets, legacy frames or numbers.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p | 8 |
+| Token / palette discipline | 9 |
+| Depth and light | 6.5 |
+| Visual verb reads without narration | 8 |
+| Arabic correct | 9 |
+| Not a slide / bullet look | 8 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible | 6.5 |
+| Polish | 7 |
+Mean 8.2, min 6.5. Overall 7.2.
+
+### Blocking
+None. Approved at 7.2 for the lite tier, with the carry-forwards below required before the final lock.
+
+### Non-blocking, carry forward
+1. Backprop is not evidenced: no still shows the warn-coloured wave (frames a1, p50 and p100 are forward or highlight only). Add a snap frame mid-backprop (warn tint, travelling right to left in the data direction reversed) and a 6-frame strip of one forward and one backprop pass. Motion intent is only partly proven.
+2. a1, all three panes (x 40-60, 490-550, 740-775): the "rim-lit glass" is barely visible. Panes read as thin outlines until highlighted at p100. Raise pane fill and rim alpha about 1.5x so the depth reads in the unhighlighted state.
+3. a1, centre field (x 200-740, y 60-380): the full-connection link field is dense spaghetti, and at the middle the links hide the hidden-layer neurons. Cap the visible link alpha or draw weak links thinner than 0.5 px so strong weights stand out.
+4. p50, hidden layer: all neurons at full cyan with the wave still on the output side. Activation tint loses contrast against the forward wave. Make the wave head brighter than the lit cores.
+5. p0 is empty (by design). Request frame about 8 for the next re-baseline. Labels sit at y 430, far below the layers (y 40-390), with a large dark band between. Raise labels about 20 px or add a floor reflection under them.
+6. Standard and hero tier stills are not evidenced. Add them before lock.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token with flat panes or one unproven motion verb (this component). 5 = labels over the key mark.
