@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T22:05:41Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.3,
+  "date": "2026-10-15",
+  "reviewer": "critic",
+  "notes": "No blocking issues. Non-blocking: 400 in row 8 is dim (p100); no running-state chip so verb reads as highlighter; small plate on empty field; motion strip still wanted. See reports/p7/review_code-media.md \"CodeTrace — round 1\"."
+ }
 }

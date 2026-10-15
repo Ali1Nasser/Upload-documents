@@ -51,3 +51,32 @@ Non-blocking, by impact:
 3. Depth and light: add a soft signal glow that follows the active row, or a camera drift (spec-level `camera` push of 2-3 %), so the shot is not static glass.
 4. The miss message is synthetic (real docker build does not print it). Mark the row as an illustration in the spec and tie the figure to d:6.7:2 only.
 5. Still wanted: a motion strip (frames 0-149 every 6 f) under reports/p7/ for the row cascade and scroll.
+
+## CodeTrace — round 1
+
+Reviewed: studio/test/baselines/CodeTrace/{p0,a1,p50,p100}.png at full size (960x540 lite) and reports/p7/snap/CodeTrace.jpg (the same four frames; no motion strip exists). Author: motion-engineer (not the critic). Demo: CH-27 receipts, amounts 120/80/200/50/150/100 from d:5.2:1..6 (T3 200 and T6 100 FAILED); 120+80+50+150 = 400 is correct and matches d:5.2.
+
+Score: 7.3 / 10. Verdict: approved-critic. Blocking issues: none.
+
+| Criterion | Score | Note |
+|---|---|---|
+| Legibility at 1080p | 7.5 | Mono about 24 px on the 960 render, so about 28 px at 1080p; active rows are ink on glass. Inactive rows (ink3 at 0.45) and the Arabic comment on row 7 are low contrast. |
+| Token / palette discipline | 8.5 | ink / ink2 / ink3 / signal only; no stray colours. |
+| Depth and light | 6.5 | Glass plate, rim glow, signal band with edge bar, pip glow, haze behind. Still a small, quiet plate (about 44 % of frame width) on a mostly empty field. |
+| Visual verb without narration | 7 | p50: the lit band on `for ... enumerate` and `if ... not in failed` with the pips and the footer note reads as "the loop checks each receipt". Nothing shows a running state (i, total), so "trace" is a highlighter, not a computation. |
+| Arabic | 8.5 | Footers "نمر على كل عملية ناجحة" and "المجموع الناجح أربعمية جنيه" are whole phrases, joined, idiomatic Egyptian. The row-7 comment keeps "#" on the left in the LTR run. No per-letter animation. |
+| No bullet-list look | 8 | Reads as an editor, not a list. |
+| No legacy frames / unsourced numbers | 9 | All six amounts map to d:5.2:1..6, total 400 derives from them. |
+| Motion intent | 6.5 | Whole-row window at p50 is verified (rows 2 to 8, none cut; row 2 fades at the top). The cursor travel and the 0.45-row edge fade between p50 and p100 are inferred from code; no strip was supplied. |
+
+Blocking: none.
+
+Non-blocking, by impact:
+1. p100, row 8 "print(total)  # 400" (x 289-477, y 327-347): the headline answer "400" is in the dim comment tint, the dimmest token on the active row. Lift it to ink-bright (the additive `Tok.c` field exists in kit.tsx), or pair it with NumberCounter beside the plate, so the figure does not depend on the footer line.
+2. p50 and p100, whole plate: no running state. Add a small side chip for `total` that counts up on each passing receipt (120, 200, 250, 400) and ghost the failed rows T3 and T6 in crit at the moment `not in failed` is read; that makes the verb legible without narration and keeps every number sourced to d:5.2.
+3. Depth and light: the plate is about 420 x 260 of 960 x 540 and the surround is empty. In the CH-27 spec use a camera push of 4-6 %, or place the plate off-centre with a data plate (receipt table) beside it, so the frame is not a lone panel.
+4. p50 and p100, row 7 (x 292-412, y 304-322): the Arabic comment at 0.45 opacity ink3 is hard to read at 1080p. It is a comment, not the lesson, so acceptable; keep the Arabic spec comments short, or raise the floor to 0.55.
+5. p0 is deliberately empty (haze only); keep the first anchor within 0.5 s in specs so the opening does not read as a blank shot.
+6. Still wanted: a motion strip (frames 0-149 every 6 f) under reports/p7/ for the band travel and the row fade.
+
+What worked: whole-row scroll with no half-cut rows at p50; band, edge bar and pips agree on the active rows; the Arabic footer is the brightest text in the plate, so it carries the sentence.
