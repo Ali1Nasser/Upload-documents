@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T17:30:55Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7,
+  "date": "2026-10-15",
+  "by": "critic",
+  "notes": "Verb reads: two lit slabs, PK-FK beams with sparks, fan-out (green customer to two orders), crit rings on unmatched rows, fuse into one list with green seams, hollow dashed NULL cells and a floor pool. Approved with conditions: (1) the demo shows 6 fused rows under a '15 rows' counter (p100 x 305-655 y 118-460 vs x 450-510 y 480-500), contradicting each other, so the scene must show or label the 15 (e.g. a +9 fan-out tally) or the abstract table must not read as the real one; (2) light is faint at 960 px: beams 1 px, sparks 5 px, shaft and floor pool 16-30 percent (p50 beams x 285-673; p100 x 300-660 y 270-290 and 462-480); (3) result count unit 'rows' is tiny English (p100 x 450-510 y 485-500), spec must pass an Arabic unit; (4) amber fan-out edge unexplained; (5) no motion strip: slide-together move not judged. None blocking."
+ }
 }
