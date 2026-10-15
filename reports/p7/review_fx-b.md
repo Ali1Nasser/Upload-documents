@@ -65,3 +65,18 @@ Do not approve on "mapped".
 5. Council ADR for CR-003, implement, then strips for the 3 transitions (B5).
 
 Resubmit with 4 stills per component at standard (hero for FXTier and the whip) and a strip. Pass bar: mean >= 8.0 on the rubric, minimum >= 7, no blocking issue.
+
+## CameraRig — round 1 (re-review)
+
+Date: 2026-10-15. Reviewer: critic (not the author). Evidence read at full size: studio/test/baselines/CameraRig/{p0,a1,p50,p100}.png (960x540, lite, scale 0.5) and reports/p7/evidence/fx-b/CameraRig_motion.jpg (standard tier).
+Verdict: APPROVED, score 7/10, no blocking issue. meta.json set to approved-critic.
+
+What now works: the demo is an exaggerated dolly_zoom (intensity 1) and the move reads from the stills: the title grows from 132 px wide (a1) to 147 px (p100), about +11 %, and rises from y 120 to y 102. The 66.67 % counter (d:5.2:7, in canon chapters.json) grows from 250 to 265 px across p50 to p100 while it is still rolling. The strip shows the standard-tier backdrop (bokeh) counter-scaling between f8 and f95, and the |f62 - f61| x6 panel has a bright outline on both title and counter against a near-black |f61 - f60| panel, so the 4 px one-frame nudge on the word anchor is visible. Arabic (الإيصالات, نسبة النجاح) is joined and correct, palette is token-only, no bullets, no legacy frames, no unsourced numbers.
+
+Non-blocking, fix before the next re-baseline:
+1. Baselines are lite, the demo declares standard. At lite there is no bokeh and no backdrop counter-scale, so p0 to p100 show only the subject scale; the depth half of the dolly_zoom is proven only by the strip. Re-baseline at standard (a1 and p100 at least).
+2. p0 shows the title mid-reveal, clipped at the left edge (x 457, y 120: "الإيصا"); the reveal mask cuts a letter. Use a settled frame (f8) instead of f0.
+3. Onion legend (strip, top right) says "f8 cyan / f95 coral" but renders yellow and cyan, and the counter does not exist at f8, so the onion shows the title offset only. Fix the legend, or onion f30 against f95 for the counter.
+4. Hard-edged dark scrim behind the counter (x 320-640, y 250-335, p50 and p100): carry-over from NumberCounter, feather it.
+5. CR-004 is still open: move 'follow' behaves as 'truck'. Condition of approval: scene-directors must not use follow until it lands (add a spec-lint warning), because a schema field that is silently ignored is a trap.
+6. Strip frames are dark at 480 px per panel: raise the strip panel size to 960 px for the next evidence.
