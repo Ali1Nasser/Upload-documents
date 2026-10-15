@@ -55,3 +55,34 @@ No meta.json was written or changed. None is set to approved-critic.
 
 ## Next review
 Resubmit with 4 stills per component, Arabic QA output and a demo strip. Pass needs every score >= 7 and no blocking issue.
+
+---
+
+# TripleGate — round 1
+
+Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 2e4eba0. Verdict: APPROVED, score 8/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1, p50, p100 (lite, 960x540) at full size, and reports/p7/snap/TripleGate.jpg.
+- Extra dev stills at standard tier (frames 36, 66, 72), rendered through the queue, because the baselines show no mid-travel frame. Frames 78, 84, 92 did not render (job 112 exit 1, not investigated; scratch only, nothing committed).
+- Source TripleGate.tsx and the demo in studio/src/demos/dom-a.tsx. schema.ts was not changed.
+
+## Scores (docs/plan/06 §3.2 and component acceptance)
+- Legibility at 1080p: 8. Gate labels are about 40 px, capsule text about 32 px, high contrast on the dark ground.
+- Token and palette discipline: 9. Cyan (lit), green (ok) and the ink greys only. Crit is not shown in any still.
+- Depth and light: 8. Rim light, shaft, floor pool, back glow, grid and bokeh (standard tier) read as layered.
+- Visual verb without narration: 8. Doors light in turn, the receipt crosses and each gate turns green behind it (frames 66 and 72 show it clearly).
+- Arabic: 9. Whole-phrase labels, correct RTL order (gate 0 on the right), the capsule reads "إيصالات NilePay" with the Arabic on the right.
+- Bullet-list or slide look: 9, none. No legacy frames. No numbers, so none unsourced.
+- Motion intent: 7. Stills show the crossing at standard tier but the committed baselines miss it, and the effects below are too small.
+- Mean about 8.3.
+
+## Non-blocking fixes, in order of impact
+1. p100 and the 72 dev still, gate floor line: the crossing sparks are 3 to 6 px and look like noise. Raise size to 5-10 px and count to 20+, or add a short streak. This is the impact on the stressed word.
+2. Dev still 66, payload capsule: the comet trail is an 8 px, low-alpha line that streams to the right and is barely visible. Make it 14 px tall with higher alpha at the head.
+3. The reject path (gate fail, crit bar and X, shake, recoil) has no still. Add a Demo-TripleGate-reject frame or a strip before the first spec uses `reject`.
+4. p50 and p100: the lower 25 percent of the frame under the labels is empty. Consider a taller gate (gh up to 0.85 of the box) or a larger floor reflection. Not blocking, because the box may be placed by the scene.
+5. p0: fully blank by design (reveal starts later). Acceptable.
+
+## Next review
+No resubmission is needed for approval. Re-review only if fixes 1 to 3 change the baselines.
