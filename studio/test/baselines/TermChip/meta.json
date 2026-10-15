@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "b0a0e9b614a00ae8caa48f65bf01040ec52cd3649c5fd17da5a5b26e1ff7cf56",
-  "p50": "6bd12e63d74de94ee894d5ca074fc39ee093a46790a2250b79892594d8874f70",
-  "p100": "cd777a955ad9d4e6eb72ec2e1d16001c44d596131dace2e0f3d7d849cd9edb9a"
+  "a1": "1367689b59eb637a70d5096d839583b14b3a83bb1e9b6585cab7ec5272a7f3d6",
+  "p50": "e47563e28a2aa5ffd2dd6b0ea6d72695060db83cde358a5deef4dbeee01d8d31",
+  "p100": "994d91bbf577f6b18a9e7129a52b2ecbff91113435a457f8706dff32657c9817"
  },
  "v": 2,
  "name": "TermChip",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:26:01Z",
+ "written_at": "2026-10-15T17:28:18Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

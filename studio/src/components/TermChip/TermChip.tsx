@@ -2,7 +2,10 @@
 // terms such as `الـoffset` go through MixedText with the ADR-010 join gap), with an optional Arabic gloss under it. The pill
 // arrives on the anchor with an LTR `arrive` wipe (rim light first, then the term), the gloss follows 2 film frames later on
 // the `label` preset (RTL fade + rise). Floor: 28 px when spoken (SIZE.labelMin), 18 px otherwise (SIZE.secondaryMin).
-// Kinds: `term` = leading emissive dot; `acronym` = tracked caps; `code` = darker code stock + brackets rim; `metric` = tabular.
+// Light (ADR-003 LK-F, 04 §1.2): the key rim light comes from the upper right (a gradient border that fades to the lower left), the
+// pill is glass (12 px backdrop blur from the standard tier up), sits in a soft emissive pool and breathes by +-1.5 px (deterministic,
+// frame-driven) so it reads as a floating plate in depth, not a sticker.
+// Kinds: `term` = leading emissive dot; `acronym` = tracked caps; `code` = darker code stock, square-ish corners, ink text; `metric` = accent underline.
 import React, {useRef} from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import {glow, halo, hex} from '../../fx/look';
@@ -32,10 +35,15 @@ export const TermChipView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const gloss = props.gloss_ar ? revealStyle(t - ctx.at - filmF(2, ctx.fps), ctx.fps, 'label', 'rtl', ex) : null;
   const code = props.kind === 'code';
   const k = 0.5 + 0.5 * rim + ctx.mod.glow;
+  const settled = revealProgress(t - ctx.at - presetFrames('arrive', ctx.fps), presetFrames('label', ctx.fps));
+  const bob = 1.5 * Math.sin((2 * Math.PI * (t - ctx.at)) / (ctx.fps * 4)) * settled; // px, pure function of the frame
+  const stock = code ? `linear-gradient(180deg, ${C.void}${hex(0.92)}, ${C.ground}${hex(0.92)})` : `linear-gradient(180deg, ${C.panel}${hex(0.9)}, ${C.ground}${hex(0.85)})`;
+  const rimLight = `linear-gradient(to bottom left, ${color}${hex(0.95 * rim)} 0%, ${color}${hex(0.3 * rim)} 38%, ${color}${hex(0.12 + 0.1 * rim)} 100%)`;
   const termAr = isArabic(props.term);
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: justifyFor(props.slot)}}>
-      <div ref={ref} data-overflow={fit.overflow ? 1 : undefined} style={{display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'max-content', outline: fit.overflow ? `2px dashed ${C.crit}` : undefined}}>
+      <div ref={ref} data-overflow={fit.overflow ? 1 : undefined} style={{position: 'relative', top: bob.toFixed(2) + 'px', display: 'flex', flexDirection: 'column', alignItems: 'center', width: 'max-content', outline: fit.overflow ? `2px dashed ${C.crit}` : undefined}}>
+        <div aria-hidden style={{position: 'absolute', left: '-35%', right: '-35%', top: '-70%', height: '170%', background: `radial-gradient(ellipse at 50% 50%, ${color}${hex(0.2 * rim)} 0%, ${color}${hex(0.06 * rim)} 45%, transparent 72%)`, pointerEvents: 'none'}} />
         <div
           data-dc-part="chip"
           style={{
@@ -44,9 +52,10 @@ export const TermChipView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             gap: Math.round(fs * 0.4),
             padding: `${(PAD.y * fs).toFixed(1)}px ${(PAD.x * fs).toFixed(1)}px`,
             borderRadius: code ? Math.round(fs * 0.3) : fs,
-            background: code ? `linear-gradient(180deg, ${C.void}${hex(0.92)}, ${C.ground}${hex(0.92)})` : `linear-gradient(180deg, ${C.panel}${hex(0.9)}, ${C.ground}${hex(0.85)})`,
-            border: `1px solid ${color}${hex(0.25 + 0.45 * rim)}`,
-            boxShadow: `inset 0 1px 0 ${C.ink}${hex(0.1)}, 0 0 ${Math.round(ctx.fx.glowInner * 1.6 * k)}px ${color}${hex(0.28 * rim)}`,
+            position: 'relative',
+            background: `${stock} padding-box, ${rimLight} border-box`,
+            border: '1.5px solid transparent',
+            boxShadow: `inset 0 1px 0 ${C.ink}${hex(0.1)}, 0 0 ${Math.round(ctx.fx.glowInner * 1.6 * k)}px ${color}${hex(0.28 * rim)}, 0 ${Math.round(fs * 0.3)}px ${Math.round(fs * 0.7)}px ${C.void}${hex(0.55)}`,
             whiteSpace: 'nowrap',
             ...pill.style,
           }}
@@ -63,6 +72,7 @@ export const TermChipView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           >
             <Mx id={`${ctx.id}:term`} text={props.term} size={fs} role={termAr ? 'sentence' : props.kind === 'code' ? 'code' : 'chip'} weight={termAr ? undefined : FONT.mono.weight} latColor={color} />
           </div>
+          {props.kind === 'metric' ? <span aria-hidden style={{position: 'absolute', left: '12%', right: '12%', bottom: Math.round(fs * 0.1), height: 2, borderRadius: 1, background: `linear-gradient(90deg, ${color}${hex(0.9 * rim)}, ${color}00)`}} /> : null}
         </div>
         {props.gloss_ar && gloss ? (
           <div style={{marginTop: Math.round(fs * 0.3) + stackGap({text: props.term, size: fs}, {text: props.gloss_ar, size: gs}), fontSize: gs, lineHeight: lineHeightFor(props.gloss_ar), color: C.ink2, textShadow: halo, whiteSpace: 'nowrap', ...gloss.style}}>

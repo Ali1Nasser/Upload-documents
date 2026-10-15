@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "TermChip",
+ "composition": "Demo-TermChip",
+ "at": "2026-10-15T17:47:48Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 72,
+   "wall_s": 8.33,
+   "box_s_per_frame": 0.1157,
+   "slot_s_per_frame": 0.3471,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    2.62,
+    3.16
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 72,
+   "wall_s": 10.1,
+   "box_s_per_frame": 0.1403,
+   "slot_s_per_frame": 0.4209,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.47,
+    4.09
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 72,
+   "wall_s": 10.18,
+   "box_s_per_frame": 0.1413,
+   "slot_s_per_frame": 0.4239,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.09,
+    4
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
