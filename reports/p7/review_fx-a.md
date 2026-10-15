@@ -41,3 +41,23 @@ Verdict: NOT APPROVED, 6/10, 2 blocking issues. meta.json status set to changes-
 
 ### Scores (component acceptance, 1-10)
 Legibility 8, token discipline 9, depth and light 5, verb reads without narration 5 (end state only, and contradicted by FAILED rows), Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 3 (unevidenced). Mean about 7.4 but the two blocking items cap the verdict at 6.
+
+## FixSettle — round 2
+
+Date: 2026-10-15. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 (960x540 lite, full size), reports/p7/snap/FixSettle_beat.jpg (standard f37-f43 anchor-1..+5, hero +1, hold), crop zoom of p100 title corner. Commit under review 334ad03.
+
+Verdict: APPROVED, 7/10, no blocking issue. meta.json status and approval set to approved-critic.
+
+### Round 1 blockers
+1. Motion intent not evidenced: RESOLVED. The beat strip shows the table drop with the 100 px ring converging onto the rim, brackets closing, the green sweep crossing right to left at +5, and motes landing at standard and hero. Chip appears at anchor+0. The verb "converge and settle" reads.
+2. Contradictory state: RESOLVED. In the strip, row T3 flips FAILED to OK and the settling highlight lands on the fixed row; at hold both T3 and T6 are OK, matching the chip "اتصلحت والعملية نجحت". a1 is still pre-settle (4 rows, FAILED visible), which is acceptable as the "before" baseline (CR logged).
+
+### Non-blocking (fix at next re-baseline)
+1. p50/p100, region x 604-614, y 180-205 (confirmed on zoom): the table-rect bracket frame (vertical line plus top-right L) runs through the "إ" of the title "إيصالات" and clips its hamza. Same in the strip. The outer rim is now padded correctly; the inner brackets are not. Fix: inset the inner frame from the card text box by at least 8 px, or drop the thin joining line and keep only corner L-brackets placed outside the text column.
+2. Lite baselines (p50/p100) carry only brackets and chip; no ring, glow or motes, so a lite regression will not catch standard features. Add a standard-tier baseline at anchor+1 (f39) next re-baseline.
+3. Depth and light still modest at standard: ring is a thin 1-2 px green line, motes are 1-2 px dots barely visible at 960 px; glow is soft. Consider a thicker leading edge on the ring and 2 px motes at 1080p.
+4. In the strip +2/+3 the added row T6 is clipped by the inner frame while sliding in (OK 100 B T6 half cut off); acceptable as motion, but check no clipping of the chip/frame at hero.
+5. p0 is still the empty gradient (sha 84797c...); card about 31 % of frame width, body text about 14 px at 960 (about 28 px at 1080p, legible).
+
+### Scores (1-10)
+Legibility 8, token discipline 9, depth and light 6, verb reads without narration 7, Arabic 8 (alef clipped by frame), no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 7. Mean about 8.1, min 6, capped to 7 overall by the alef overlap and modest depth.
