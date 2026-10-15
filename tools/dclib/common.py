@@ -7,6 +7,8 @@ import shutil
 import subprocess
 import sys
 
+from . import stateio
+
 ROOT = os.environ.get("DC_REPO_ROOT") or os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 STATE = os.path.join(ROOT, "harness", "state")
 GATE_IDS = ["G0", "G1", "G2", "G3", "G4", "G5", "G6a", "G6b", "G7", "G8", "G9a", "G9b", "G10a", "G10"]
@@ -45,6 +47,8 @@ def read_json(path, default=None):
 
 
 def write_json(path, obj, indent=2):
+    if stateio.in_state(path, STATE):   # harness/state/**: serialized (fcntl) + atomic (tmp+fsync+replace)
+        return stateio.write_json(path, obj, indent=indent)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     tmp = path + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:

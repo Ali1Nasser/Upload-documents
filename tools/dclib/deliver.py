@@ -12,6 +12,7 @@ import subprocess
 import time
 
 from . import common as C
+from . import stateio
 
 FYI_STATE = C.p("harness", "state", "fyi.json")
 CHECK_DIR = C.p("data", "delivery_check", "fyi")
@@ -101,13 +102,15 @@ def cmd_fyi(args):
         if host == "temp.sh":
             entry["note"] = "temp.sh opens a page; press Download (the file is served on POST)"
         break
-    st = C.read_json(FYI_STATE, None) or {"v": 1, "items": []}
-    if entry:
-        st["items"].append(entry)
-    else:
-        st.setdefault("failures", []).append({"file": C.rel(path), "sha256": sha, "at": C.now_iso(), "tries": tries})
-    st["updated"] = C.now_iso()
-    C.write_json(FYI_STATE, st)
+    def _record(st):   # locked read-modify-write of harness/state/fyi.json
+        st = st or {"v": 1, "items": []}
+        if entry:
+            st["items"].append(entry)
+        else:
+            st.setdefault("failures", []).append({"file": C.rel(path), "sha256": sha, "at": C.now_iso(), "tries": tries})
+        st["updated"] = C.now_iso()
+        return st
+    stateio.update_json(FYI_STATE, _record, default=None)
     if not entry:
         C.fail(f"fyi upload failed on every host: {tries}", 4)
     if tries:

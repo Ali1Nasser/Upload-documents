@@ -3,6 +3,7 @@ import os
 import subprocess
 
 from . import common as C
+from . import stateio
 
 PROGRESS = os.path.join(C.STATE, "progress.json")
 MAX_BRIEF = 25
@@ -106,6 +107,11 @@ def cmd_snapshot(args):
 
 
 def cmd_set_phase(args):
+    with stateio.lock(PROGRESS):  # load -> mutate -> save is one critical section
+        return _cmd_set_phase(args)
+
+
+def _cmd_set_phase(args):
     import re
     if not re.fullmatch(r"P\d{1,2}", args.phase):
         C.fail(f"phase must look like P0..P15, got {args.phase!r}", 2)
@@ -117,6 +123,11 @@ def cmd_set_phase(args):
 
 
 def cmd_block(args):
+    with stateio.lock(PROGRESS):  # load -> mutate -> save is one critical section
+        return _cmd_block(args)
+
+
+def _cmd_block(args):
     prog = load()
     prog["blockers"].append(args.text)
     save(prog)
@@ -125,6 +136,11 @@ def cmd_block(args):
 
 
 def cmd_unblock(args):
+    with stateio.lock(PROGRESS):  # load -> mutate -> save is one critical section
+        return _cmd_unblock(args)
+
+
+def _cmd_unblock(args):
     prog = load()
     n = args.n
     if not 1 <= n <= len(prog["blockers"]):
@@ -136,6 +152,11 @@ def cmd_unblock(args):
 
 
 def cmd_next(args):
+    with stateio.lock(PROGRESS):  # load -> mutate -> save is one critical section
+        return _cmd_next(args)
+
+
+def _cmd_next(args):
     prog = load()
     if args.done is not None:
         n = args.done

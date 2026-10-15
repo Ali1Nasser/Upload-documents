@@ -63,14 +63,15 @@ def cmd_check(args):
     report = {"gate": g, "pass": ok, "checks": checks, "created": C.now_iso()}
     rpath = C.p("reports", "gates", f"{g}.json")
     C.write_json(rpath, report)
-    prog = state.load()
-    cur = prog["gates"].get(g, {})
-    unimplemented = all(c["detail"] == "not implemented yet" for c in checks)
-    if unimplemented:  # a gate that has no checker yet stays `pending`; it is not a failure of the work
-        pass
-    elif cur.get("status") != "waived":  # waivers come from ADRs only
-        prog["gates"][g] = {"status": "pass" if ok else "fail", "report": C.rel(rpath), "checked": report["created"]}
-    state.save(prog)
+    with state.stateio.lock(state.PROGRESS):  # progress.json load -> set gate -> save is one critical section
+        prog = state.load()
+        cur = prog["gates"].get(g, {})
+        unimplemented = all(c["detail"] == "not implemented yet" for c in checks)
+        if unimplemented:  # a gate that has no checker yet stays `pending`; it is not a failure of the work
+            pass
+        elif cur.get("status") != "waived":  # waivers come from ADRs only
+            prog["gates"][g] = {"status": "pass" if ok else "fail", "report": C.rel(rpath), "checked": report["created"]}
+        state.save(prog)
     if args.quiet:
         return 0 if ok else 1
     print(f"{g}: {'PASS' if ok else 'FAIL'}  ({sum(c['pass'] for c in checks)}/{len(checks)} checks)  -> {C.rel(rpath)}")

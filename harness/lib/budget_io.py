@@ -1,19 +1,27 @@
-"""Tiny locked read-modify-write for harness/state/budget.json (several agents write different keys)."""
-import fcntl, json, os
+"""Locked, atomic read-modify-write for harness/state/budget.json (several agents write different keys).
+IO goes through tools/dclib/stateio.py: one fcntl lock (harness/state/.lock), temp file + fsync + os.replace, bounded retry."""
+import importlib.util
 from pathlib import Path
-P = Path(__file__).resolve().parents[1] / "state" / "budget.json"
+
+_root = Path(__file__).resolve().parents[2]
+_spec = importlib.util.spec_from_file_location("dc_stateio", str(_root / "tools" / "dclib" / "stateio.py"))
+stateio = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(stateio)
+
+P = _root / "harness" / "state" / "budget.json"
+
 
 def update(**kv):
-    P.parent.mkdir(parents=True, exist_ok=True)
-    with open(str(P) + ".lock", "w") as lk:
-        fcntl.flock(lk, fcntl.LOCK_EX)
-        d = json.loads(P.read_text()) if P.exists() and P.read_text().strip() else {}
+    def _merge(d):
+        d = d if isinstance(d, dict) else {}
         for k, v in kv.items():
-            if isinstance(v, dict) and isinstance(d.get(k), dict): d[k].update(v)
-            else: d[k] = v
-        tmp = P.with_suffix(".tmp"); tmp.write_text(json.dumps(d, indent=2, ensure_ascii=False, sort_keys=True) + "\n"); os.replace(tmp, P)
-    return d
+            if isinstance(v, dict) and isinstance(d.get(k), dict):
+                d[k].update(v)
+            else:
+                d[k] = v
+        return d
+    return stateio.update_json(str(P), _merge, default=dict, sort_keys=True)
 
 
 def read():
-    return json.loads(P.read_text()) if P.exists() and P.read_text().strip() else {}
+    return stateio.read_json(str(P), {})

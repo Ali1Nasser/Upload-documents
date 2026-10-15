@@ -12,6 +12,7 @@ import sys
 import time
 
 from . import common as C
+from . import stateio
 
 QUEUE_JSON = os.path.join(C.STATE, "queue.json")
 JOBS_JSONL = C.p("corpus", "render", "jobs.jsonl")
@@ -113,8 +114,10 @@ def submit(label, cmd, mem_gb=1.0, expected_gb=0.0, engine="", slots_req=1):
     tid = int(r.stdout.strip())
     job = {"label": label, "cmd": " ".join(cmd), "tsp_id": tid, "status": "queued", "mem_gb": mem_gb,
            "expected_gb": expected_gb, "engine": engine, "attempts": 1, "submitted": C.now_iso(), "slots": n}
-    q["jobs"][str(tid)] = job
-    _save(q)
+    with stateio.lock(QUEUE_JSON):   # re-read under the lock: other submitters/refreshers wrote since our guard read
+        q = _load()
+        q["jobs"][str(tid)] = job
+        _save(q)
     if _is_render(label):
         _ledger(job)
     return job
@@ -132,12 +135,18 @@ def parse_list(txt):
 
 def refresh():
     """Sync ledger statuses from tsp. Returns (queue, listing text)."""
-    q = _load()
     exe = tsp_bin()
     if not exe:
-        return q, ""
-    txt = _tsp(["-l"]).stdout
+        return _load(), ""
+    txt = _tsp(["-l"]).stdout            # slow call outside the lock
     states = parse_list(txt)
+    with stateio.lock(QUEUE_JSON):
+        q = _refresh_locked(states)
+    return q, txt
+
+
+def _refresh_locked(states):
+    q = _load()
     for tid, (st, ex) in states.items():
         j = q["jobs"].get(str(tid))
         if not j:
@@ -154,7 +163,7 @@ def refresh():
             if _is_render(j["label"]):
                 _ledger(j)
     _save(q)
-    return q, txt
+    return q
 
 
 def cmd_submit(args):
