@@ -81,7 +81,12 @@ export const GitGraphView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const bandH = h / nl;
   const yOf = (k: number) => (k + 0.5) * bandH;
   const lblH = Math.round(SIZE.label * 1.7);
-  const roomy = bandH >= 2 * (lblH + 34) + 28 && 2 * colW - 40 >= 150;
+  // messages sit on the OUTER side of their lane (away from the fork / merge curves, which run between lanes); same-lane
+  // neighbours alternate near / far rows so two adjacent messages never overlap. Needs two rows of room above or below.
+  const roomy = bandH / 2 >= 22 + 2 * lblH + 4 && 2 * colW - 40 >= 150;
+  const laneIdx = new Map<string, number>();
+  tl.nodes.filter((n) => n.msg).forEach((n) => laneIdx.set(n.id, tl.nodes.filter((m) => m.msg && m.lane === n.lane).indexOf(n)));
+  const sideUp = (n: GNode) => (2 * n.lane < nl - 1 ? true : 2 * n.lane > nl - 1 ? false : n.col % 2 === 1);
   const k = 1 + ctx.mod.glow;
   const arrive = presetFrames('arrive', ctx.fps);
   const morph = presetFrames('morph', ctx.fps, true);
@@ -131,8 +136,8 @@ export const GitGraphView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const flash = n.merge ? 1 - prog(t, n.born + arrive, morph) : 0;
           return (
             <g key={n.id} transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${(0.5 + 0.5 * pop).toFixed(3)})`} opacity={Math.min(1, pop * 1.5)}>
-              {n.merge ? <Dot x={0} y={0} r={19} color={C.ok} fx={ctx.fx} k={0.5 + flash} ring={2} /> : null}
-              <Dot x={0} y={0} r={n.merge ? 11 : 13} color={n.merge ? C.ok : col} fill={n === newest ? col : undefined} fx={ctx.fx} k={(n === newest ? 1 : 0.45) * k} ring={3} />
+              {n.merge ? <Dot x={0} y={0} r={22} color={C.ok} fx={ctx.fx} k={0.5 + flash} ring={2} /> : null}
+              <Dot x={0} y={0} r={n.merge ? 13 : 15} color={n.merge ? C.ok : col} fill={n === newest ? col : undefined} fx={ctx.fx} k={(n === newest ? 1 : 0.45) * k} ring={3} />
             </g>
           );
         })}
@@ -177,9 +182,11 @@ export const GitGraphView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const lp = prog(t, n.born, presetFrames('label', ctx.fps));
         const x = xOf(n.col);
         const y = yOf(n.lane);
-        const up = roomy ? n.col % 2 === 1 : n.lane > 0 || nl === 1;
+        const up = sideUp(n);
+        const row = roomy ? (laneIdx.get(n.id) ?? 0) % 2 : 0;
         const pl = placeLabel(x, roomy ? 2 * colW - 40 : Math.min(w * 0.4, 4 * colW), w);
-        const off = up ? (hp && Math.abs(hp.x - x) < 4 && n.lane === headLane ? 64 + lblH : 30) : 30;
+        const headHere = !!hp && Math.abs(hp.x - x) < 4 && n.lane === headLane;
+        const off = (up && headHere ? 64 + lblH : 22) + row * (lblH + 4);
         return (
           <Lbl
             key={`m${i}`}

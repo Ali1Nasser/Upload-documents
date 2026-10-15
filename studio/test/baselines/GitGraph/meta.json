@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "5c85e4b4f1bbc1e14887c7b80e8440b6088960b9d4e87dfd8d67c921bf60fc8b",
-  "p50": "944c8d3d4baf09ac56d30605fbe31e1f67a019352ba0811bb09ae4780148958b",
-  "p100": "896391142c4a8af76b114dbb4b2775451ebd1f6f266919a6a1326378bf03d416"
+  "a1": "abb06a0c4cd4344318ad02fbb7cab67d5d866c962e4c823caebf17c6896d09fc",
+  "p50": "00a6050dbe4545277d3721cc77ab9640f2b5c05dae4893bf1b6cb4c915ca7971",
+  "p100": "f93d5661ad25194a0d36c759d0f7d46986fd57404ccdc0d1f945b6324e30ec9f"
  },
  "v": 2,
  "name": "GitGraph",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:28:50Z",
+ "written_at": "2026-10-15T22:01:44Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
