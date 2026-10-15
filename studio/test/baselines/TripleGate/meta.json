@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "c0f4ac58db1f915e57e3e646ddd0e60e48895187f1107e7ce60a58a5c4cad861",
-  "p50": "95f0a21de13a7200dec9aac993b235e065dd5e05f00e3cb110ded28581b967d5",
-  "p100": "8a909566b8d2975071e16d7b0e439b513c75f771ff087dc22d03e8aa96e67c73"
+  "a1": "191114747eb4ab8b5b9a0b0255d56bbc7ebe3c3317cfc6596d1c18e41c484c61",
+  "p50": "89f3139434592b22e35be4249686ed6458308e700bb5b193ac8cb0e2f1b02c46",
+  "p100": "96d1ea654a0d2b73f47558e3740a3bdd70fbf900dc032dfa48443e45cef87aec"
  },
  "v": 2,
  "name": "TripleGate",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-10T23:03:30Z",
+ "written_at": "2026-10-15T17:08:22Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
