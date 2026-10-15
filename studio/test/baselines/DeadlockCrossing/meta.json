@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-15T16:47:41Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.2,
+  "date": "2026-10-15",
+  "reviewer": "critic",
+  "notes": "Hold (solid tether + padlock) vs wait (dashed warn arrow) vs crit cycle vs green grant reads without narration; Arabic labels whole words, tokens respected (32px labels). Non-blocking: blocks show an X placeholder look, trains are single capsules, DEADLOCK moment lacks bloom/camera accent, p100 asymmetric layout, no motion strip reviewed. See reports/p7/review_dom-b.md."
+ }
 }

@@ -81,3 +81,36 @@ unreviewed. Legibility at 1080p, palette, depth and light, visual verb, Arabic, 
 render-ops AT-13R renders from a pinned clean tree -> sync-verifier writes reports/sync/at13.md -> chair records pass -> motion-engineer builds the 11 dom-b components ->
 4 stills per component (p0, a1, p50, p100) at 1080p, Arabic QA output, demo strip -> critic Round 3.
 Pass bar for Round 3: mean >= 8.0 on the 06 section 3.2 rubric, minimum >= 7, no blocking issue.
+
+---
+
+## DeadlockCrossing — round 1 (2026-10-15, critic, not the author)
+
+Verdict: APPROVED (7.2/10, no blocking issue). meta.json set to approved-critic.
+Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, scale 0.5) and DeadlockCrossing.tsx. No motion strip exists under reports/p7/, so motion was judged from code (march, retract, ease), not seen.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition | 7 |
+| Palette and token discipline | 8 |
+| Light and depth | 6 |
+| Typography and Arabic | 8 |
+| Legibility at 1080p (labels 32 px, chips 28-32 px, at the token floor) | 7 |
+| Visual verb without narration | 8 |
+| Not a bullet slide, no legacy frames, no numbers | 9 |
+| Motion intent (code only) | 7 |
+| AI-Unpacked parity | 6 |
+
+### What works
+- p50: two solid red tethers with cyan padlocks versus two dashed warn arrows closing a ring, with a DEADLOCK chip at the centre. The cycle reads as a loop.
+- p100: B recedes (dim, smaller) with a ROLLBACK chip, A's wait becomes a solid green grant and its padlock turns green, and A keeps the cyan hold on row 1.
+- Arabic "الصف الأول" and "الصف التاني" are whole connected words through MixedText. No digits, so nothing is unsourced.
+
+### Non-blocking issues, ordered by impact
+1. p50, DEADLOCK chip (centre): a small chip in a large empty middle. The key beat has no light event. Add a crit bloom or vignette pulse behind the ring and a 2-3 % camera push on the chip anchor. Light and depth are the weakest scores (6).
+2. p0/a1/p50, row blocks: the X crossing lines read as a broken-image placeholder. Replace them with a rail-crossing glyph (two rails and a sleeper, offset from the label) or lower the X stroke to a texture level.
+3. All stills, trains: each session is a single capsule with two dots. "Train" is not legible. Add 2-3 trailing coupled cars, or a motion trail, behind the capsule.
+4. p100: the layout becomes asymmetric (B fades low, large void bottom-left and bottom-right). Keep B on the ring and fade it in place, or recentre the group.
+5. p50: both sessions are amber while the edges are crit. Tint the session rim crit-ish on the cycle so the "stuck" state sits on the trains too.
+6. Process: add a demo strip (frames 6, 24, 60, 104, 124, 167) to reports/p7/ so motion can be verified, and write baselines at 1080p for the next critic round. Required before the pilot, not before this approval.
