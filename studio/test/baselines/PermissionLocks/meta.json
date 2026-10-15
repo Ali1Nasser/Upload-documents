@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-15T22:09:07Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7,
+ "date": "2026-10-15",
+ "approved_by": "critic",
+ "notes": "Round 1: no blocking issue. Padlock + rim-lit tile + color-by-level reads as permissions without narration (open shackle = granted, steel closed = denied; p50 grant and p100 deny visible). Weak: no baseline of the grant/deny impact (flash, pulse ring, shake); tiles flat in one plane (depth only from floor grid); matrix/table look; role labels far from rows (tiny tick); locked tags '---' low contrast; padlock small in tile; p0 empty."
 }

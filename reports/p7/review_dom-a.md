@@ -148,3 +148,35 @@ Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 58efe07. V
 
 ## Next review
 No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
+
+---
+
+# PermissionLocks — round 1
+
+Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 705ee15. Verdict: APPROVED, score 7/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1, p50, p100 (lite, 960x540) at full size, and reports/p7/snap/PermissionLocks.jpg (4-frame strip).
+- Demo props in studio/src/demos/dom-a.tsx (owner/group/other roles; 700/600/644/777 modes cite s:S4:P03:0023-0027, so no unsourced numbers).
+- reports/p7/qa_arabic_PermissionLocks.json: pass (OCR min 0.947, no tofu, no overflow, no bidi issue).
+
+## Scores
+- Legibility at 1080p: 8. Resource names about 40 px mono, role labels about 40 px whole words, tags about 36 px. Margins are respected.
+- Token and palette discipline: 8. Green (write), cyan (read), violet (admin), steel grey (none). Only the three level hues; no stray color.
+- Depth and light: 6. Rim-lit tiles, floor light pools, holographic floor grid, slow push-in. But all tiles sit in one flat plane and the grid floor is only a thin strip at the bottom.
+- Visual verb without narration: 8. Open shackle on a colored body versus closed steel padlock reads at once. p50 shows the grant on the bottom-right tile (rwx), p100 shows the deny closing it again.
+- Arabic: 9. Whole-word RTL labels, right-aligned, LTR mono resources.
+- Bullet-list or slide look: 6-7. Not a list, but a roles x resources matrix of equal tiles reads close to a permissions table or dashboard.
+- Motion intent: 6. No baseline shows the grant flash, pulse ring, tone change, or deny shake. Only end states are regression-tested.
+- Legacy frames: none.
+
+## Non-blocking fixes, in order of impact
+1. Add baselines at grant+3f (about frame 67) and deny+3f (about frame 117) so the flash, pulse ring and shake are regression-tested. Today none of the four baselines can show them.
+2. p50 and p100, all tiles (x 120-700, y 88-466): add depth. Tilt the matrix with a mild perspective or stagger the rows in z; let the floor pool of the active tile spill onto the floor grid.
+3. p50 and p100, role labels (x 780-845) and ticks (x 705-725): about 80 px gap from the tile row, hairline tick is weak. Lengthen the tick to the tile edge or tint it with the row color so rows bind to their labels.
+4. p50 and p100, tags on locked tiles ("---", x 380-440 and 575-635): contrast is low at 1080p; raise to about 55 percent alpha.
+5. p50, padlock size (about 45 px high in a 115 px tile): enlarge about 1.25x so the lock is the hero of each tile and the matrix looks less like a table.
+6. p0: empty baseline (nothing before the first word). Acceptable for the entrance, but a frame at 6 would catch the tile stagger.
+
+## Next review
+No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
