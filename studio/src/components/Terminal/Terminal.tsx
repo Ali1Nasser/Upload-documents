@@ -100,24 +100,26 @@ export const TerminalView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   for (let i = 0; i < tl.length; i++) if (t >= tl[i].start) active = i;
   const caretOn = (since: number) => Math.floor(Math.max(0, since) / f24(12, ctx.fps)) % 2 === 0; // 0.5 s blink, frame-driven
   const typing = active >= 0 && props.lines[active].kind === 'cmd' && t < tl[active].end;
-  const panel = revealStyle(t - ctx.at, ctx.fps, 'label', 'ltr', ctx.until !== undefined ? t - ctx.until : undefined);
+  const panel0 = revealStyle(t - ctx.at, ctx.fps, 'label', 'ltr', ctx.until !== undefined ? t - ctx.until : undefined);
+  // a settled reveal carries no opacity / transform: no needless stacking context or raster layer over the whole plate
+  const panel = {...panel0, style: panel0.p >= 1 && ctx.until === undefined ? {} : panel0.style};
   const caret = (
-    <span style={{position: 'relative', display: 'inline-block', width: 0}}>
-      <span style={{position: 'absolute', left: 0, top: '0.12em', width: '0.6em', height: '1.1em', background: C.signal, boxShadow: `0 0 ${ctx.fx.glowInner}px ${C.signal}`}} />
+    <span style={{position: 'relative', display: 'inline-block', width: 0, height: '1.1em', verticalAlign: '-0.2em'}}>
+      <span style={{position: 'absolute', left: 0, top: 0, width: '0.6em', height: '100%', background: C.signal}} />
     </span>
   );
   const prompt = props.prompt ?? PROMPT[props.shell];
   const idleVisible = t >= idleBorn && props.lines[props.lines.length - 1].kind !== 'cmd';
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center', ...panel.style}}>
-      <Glass style={{maxWidth: ctx.box.w, overflow: 'hidden'}}>
+      <Glass accent={C.signal} style={{maxWidth: ctx.box.w, overflow: 'hidden'}}>
         <Chrome label={props.shell} size={fs} h={L.chromeH} />
         <div style={{height: L.visRows * rowH, margin: L.pad, overflow: 'hidden', position: 'relative'}}>
           <div
             ref={ref}
             dir="ltr"
             data-overflow={fit.overflow ? 1 : undefined}
-            style={{width: 'max-content', fontSize: fs, lineHeight: `${rowH}px`, transform: `translateY(${(-scroll * rowH).toFixed(2)}px)`, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined}}
+            style={{width: 'max-content', fontSize: fs, lineHeight: `${rowH}px`, transform: scroll ? `translateY(${(-scroll * rowH).toFixed(2)}px)` : undefined, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined}}
           >
             {L.rows.map((r, k) => {
               const i = r.line;
@@ -125,10 +127,14 @@ export const TerminalView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               const shown = shownOf(i);
               const born = rowBorn[k];
               const hidden = t < born || shown < 0;
-              const st = kind === 'cmd' ? {} : revealStyle(t - born, ctx.fps, 'label', 'ltr').style;
+              const rv = kind === 'cmd' ? undefined : revealStyle(t - born, ctx.fps, 'label', 'ltr');
+              const st = rv && rv.p < 1 ? rv.style : {};
               const err = kind === 'err';
               const isCaretRow = typing && i === active && shown >= r.s && (shown < r.e || (shown === r.e && r.e === dl[i].pre.length + dl[i].text.length));
               const lastRowOfLine = k === L.rows.length - 1 || L.rows[k + 1].line !== i;
+              // the line explained right now carries a signal rim (04 section 1.1: signal = the thing named now); err keeps its crit band
+              const isActive = i === active && !err && t >= tl[i].start;
+              const act = isActive ? revealProgress(t - tl[i].start, presetFrames('label', ctx.fps), ease.arrive) : 0;
               const doneCaret = !typing && i === active && kind === 'cmd' && lastRowOfLine && !idleVisible && caretOn(t - tl[i].end);
               return (
                 <div
@@ -137,9 +143,11 @@ export const TerminalView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                     height: rowH,
                     whiteSpace: 'pre',
                     visibility: hidden ? 'hidden' : undefined,
-                    background: err ? `${C.crit}${hex(0.12)}` : undefined,
-                    boxShadow: err ? `inset 3px 0 0 ${C.crit}` : undefined,
-                    paddingLeft: err ? Math.round(fs * 0.3) : undefined,
+                    // a 3 px rim + a faint band as two background layers (no extra element, no inset shadow)
+                    backgroundColor: err ? `${C.crit}${hex(0.12)}` : isActive ? `${C.signal}${hex(0.07 * act)}` : undefined,
+                    backgroundImage: isActive ? `linear-gradient(90deg, ${C.signal}${hex(act)} 0 3px, transparent 3px)` : undefined,
+                    marginLeft: -Math.round(L.pad * 0.5),
+                    paddingLeft: Math.round(L.pad * 0.5),
                     ...st,
                   }}
                 >
