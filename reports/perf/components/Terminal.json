@@ -2,7 +2,7 @@
  "v": 2,
  "name": "Terminal",
  "composition": "Demo-Terminal",
- "at": "2026-10-15T17:49:10Z",
+ "at": "2026-10-15T21:56:06Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 150,
-   "wall_s": 15.99,
-   "box_s_per_frame": 0.1066,
-   "slot_s_per_frame": 0.3198,
+   "wall_s": 9.04,
+   "box_s_per_frame": 0.0602,
+   "slot_s_per_frame": 0.1806,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    3.56,
-    3.67
+    5.33,
+    5.8
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 150,
-   "wall_s": 19.91,
-   "box_s_per_frame": 0.1327,
-   "slot_s_per_frame": 0.3981,
+   "wall_s": 11.26,
+   "box_s_per_frame": 0.0751,
+   "slot_s_per_frame": 0.2253,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    3.67,
-    5.17
+    5.89,
+    6.15
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 150,
-   "wall_s": 18.98,
-   "box_s_per_frame": 0.1265,
-   "slot_s_per_frame": 0.3795,
+   "wall_s": 14.22,
+   "box_s_per_frame": 0.0948,
+   "slot_s_per_frame": 0.2844,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    4.83,
-    4.93
+    6.15,
+    6.35
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 5
    },
    "other_jobs_running": 0
   }

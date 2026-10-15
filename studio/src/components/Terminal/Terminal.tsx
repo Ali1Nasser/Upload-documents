@@ -34,6 +34,20 @@ const displayLines = (p: Props) => {
   });
 };
 
+/** Output rows carry their own emphasis (critic r1 #1/#2): a cache hit keyword in signal, a spoken figure ("5 s") one step brighter. */
+const outToks = (text: string): Tok[] => {
+  const out: Tok[] = [];
+  let at = 0;
+  for (const m of text.matchAll(/CACHED|\b\d+ ?(?:s|ms|MB|GB)\b/g)) {
+    const i = m.index ?? 0;
+    if (i > at) out.push({t: text.slice(at, i), k: 'id', at, c: C.ink2});
+    out.push({t: m[0], k: 'num', at: i, c: m[0] === 'CACHED' ? C.signal : C.ink});
+    at = i + m[0].length;
+  }
+  if (at < text.length || !out.length) out.push({t: text.slice(at), k: 'id', at, c: C.ink2});
+  return out;
+};
+
 export const terminalLayout = (p: Props, box: Rect) => {
   const dl = displayLines(p);
   return {dl, L: codeLayout(dl.map((d) => d.pre + d.text), box.w, box.h, 0, 1)};
@@ -66,7 +80,8 @@ export const TerminalView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const tl = terminalTimeline(props, ctx);
   const lang = LANG[props.shell];
   const toks: Tok[][] = dl.map((d, i) => {
-    if (props.lines[i].kind !== 'cmd') return [{t: d.text, k: 'id', at: 0}];
+    if (props.lines[i].kind === 'err') return [{t: d.text, k: 'id', at: 0}];
+    if (props.lines[i].kind === 'out') return outToks(d.text);
     const body = tokenize(d.text, lang).map((k) => ({...k, at: k.at + d.pre.length}));
     return [{t: d.pre, k: 'com', at: 0}, ...body];
   });
@@ -151,7 +166,7 @@ export const TerminalView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                     ...st,
                   }}
                 >
-                  <CodeRow id={`${ctx.id}:r${k}`} toks={toks[i]} s={r.s} e={r.e} size={fs} shown={kind === 'cmd' ? shown : undefined} tint={kind === 'out' ? C.ink2 : err ? C.crit : undefined} caret={isCaretRow || doneCaret ? caret : undefined} />
+                  <CodeRow id={`${ctx.id}:r${k}`} toks={toks[i]} s={r.s} e={r.e} size={fs} shown={kind === 'cmd' ? shown : undefined} tint={err ? C.crit : undefined} caret={isCaretRow || doneCaret ? caret : undefined} />
                 </div>
               );
             })}

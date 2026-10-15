@@ -117,7 +117,7 @@ export const centred = (box: Rect, w: number, h: number): Rect => ({x: Math.roun
 
 // ---------- syntax tokens ----------
 export type TokKind = 'kw' | 'fn' | 'str' | 'num' | 'com' | 'op' | 'id' | 'ws' | 'ty';
-export type Tok = {t: string; k: TokKind; at: number};
+export type Tok = {t: string; k: TokKind; at: number; c?: string}; // c = explicit colour (a token, e.g. C.signal), wins over the kind colour
 const words = (s: string) => new Set(s.split(/\s+/).filter(Boolean));
 const KW: Record<string, Set<string>> = {
   sql: words(
@@ -220,7 +220,7 @@ export const CodeRow: React.FC<{id: string; toks: Tok[]; s: number; e: number; s
     const a = Math.max(s, tk.at);
     const b = Math.min(e, tk.at + tk.t.length);
     if (b <= a) continue;
-    const color = tint ?? TOK_COLOR[tk.k];
+    const color = tint ?? tk.c ?? TOK_COLOR[tk.k];
     for (const r of codeRuns(tk.t.slice(a - tk.at, b - tk.at))) {
       const start = a + r.at;
       place(start);

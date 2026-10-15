@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "8927e7ef7c4929efccfc0072d82d60f84a0e4264bd21392f3204554cb9d745f1",
-  "p50": "4236e6c830315b74db40122ade1249ba8bac4b4092c23c77d22a8fd9cf4fce59",
-  "p100": "589633741feffeff1c225e04089a5e4c1cfbfb685daa8640ee37923873136bf9"
+  "a1": "ee7fcaa6456ab6182ebde29895441277a2e565ffffb18d38b6feefc54774e72d",
+  "p50": "568f52351abeeb4502c5970883b3e20bc1f6ee24e5a3ef48211b1475a21b2221",
+  "p100": "7e6f1afa71eae65d2de3c963fab4269284654a73e52aab482b7538b70f9a0248"
  },
  "v": 2,
  "name": "Terminal",
@@ -27,15 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:41:25Z",
+ "written_at": "2026-10-15T21:51:54Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7.5,
-  "date": "2026-10-15",
-  "round": 1,
-  "notes": "Stills p0/a1/p50/p100 read at full size. Legible, token-clean, Arabic comment whole and correctly bidi-placed, signal rim/band on active row, crit band on error, 5 s / 57 s sourced to d:6.7:1 and d:6.7:2. Non-blocking: CACHED vs miss not colour-differentiated, 5 s / 57 s not emphasised, plate mostly empty at a1, no motion strip supplied."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
