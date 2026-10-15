@@ -187,7 +187,7 @@ const demos: DemoModule = {
       // CH-32 (d:6.17:1): the feed-forward block d_model 8 -> d_ff 16 -> 8. forward on the first beat, gradients back on the second.
       name: 'NeuralNet3D',
       frames: 144,
-      words: words('NeuralNet3D', [6, 16], [48, 60], [92, 104], [120, 132]),
+      words: words('NeuralNet3D', [6, 16], [62, 74], [100, 112], [124, 134]),
       shot: {
         fx_tier: 'standard',
         camera: {move: 'push_in', intensity: 0.2},

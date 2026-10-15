@@ -4,7 +4,7 @@
 // Connections: every pair between adjacent layers, or a seeded subset of 160 per gap when the full set is denser (legibility and
 // cost; documented in docs/p7/catalog_status/space3d.md). Seeded weight magnitudes drive line brightness only (never a number).
 // Actions (each on its own word, RV1 through revealProgress):
-//   forward       a `signal` wave crosses gap by gap (5 film frames per gap); each layer flashes as the wave reaches it;
+//   forward       a `signal` wave crosses gap by gap (7 film frames per gap); each layer flashes as the wave reaches it;
 //   backprop      a `warn` wave (the error signal) crosses back from the output to the input;
 //   highlightLayer {index}   that layer takes a signal ring and its label; the other layers dim (latest highlight wins).
 // Labels (optional, one per layer) sit on one baseline under the set, >= 40 px apart (AT-4), auto-fit to the layer pitch with the
@@ -26,9 +26,9 @@ import {Origin, knockOut, useForeignText} from '../_space3d/knockout';
 
 const BASE = SIZE.label;
 const MAX_LINKS = 160; // per gap
-const GAP_F24 = 5; // film frames for the wave to cross one gap
+const GAP_F24 = 7; // film frames for the wave to cross one gap
 
-type Net = {pos: V3[][]; links: {g: number; a: number; b: number; w: number}[][]};
+type Net = {pos: V3[][]; act: number[][]; links: {g: number; a: number; b: number; w: number}[][]};
 const buildNet = (layers: number[]): Net => {
   const L = layers.length;
   const span = Math.min(12, 4.6 * (L - 1));
@@ -49,7 +49,8 @@ const buildNet = (layers: number[]): Net => {
     for (let a = 0; a < na; a++) for (let b = 0; b < nb; b++) all.push({g, a, b, w: random(`nn${g}:${a}:${b}w`), r: random(`nn${g}:${a}:${b}r`)});
     return (all.length > MAX_LINKS ? [...all].sort((x, y) => x.r - y.r).slice(0, MAX_LINKS) : all).map(({g: gg, a, b, w}) => ({g: gg, a, b, w}));
   });
-  return {pos, links};
+  const act = layers.map((n, l) => Array.from({length: n}, (_, i) => random(`nn${l}:${i}act`)));
+  return {pos, act, links};
 };
 
 /** The set's bounding corners (3D), so the camera can fit it to the slot at any orbit angle. */
@@ -65,7 +66,7 @@ const LABEL_BAND = 0.2; // share of the slot height kept for the layer labels
 
 const camOf = (ctx: LayerCtx, hull: V3[]): Cam3 =>
   fitCam(
-    {yaw: 0.62 + ((CAMERA.orbitDegPerS * Math.PI) / 180) * secs(ctx) * 4, pitch: 0.2, dist: 12, fovDeg: 40, cx: 0, cy: 0, viewH: H, target: [0, 0, 0]},
+    {yaw: 0.5 + ((CAMERA.orbitDegPerS * Math.PI) / 180) * secs(ctx) * 4, pitch: 0.2, dist: 18, fovDeg: 30, cx: 0, cy: 0, viewH: H, target: [0, 0, 0]},
     hull,
     {w: ctx.box.w * 0.96, h: ctx.box.h * (1 - LABEL_BAND), cx: ctx.box.x + ctx.box.w / 2, cy: ctx.box.y + (ctx.box.h * (1 - LABEL_BAND)) / 2},
   );
@@ -181,7 +182,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.fill();
       if (heat > 0 || isHl) {
         g.globalCompositeOperation = 'lighter';
-        g.fillStyle = rgba(isHl && heat <= 0 ? C.signal : hc, (0.16 * heat + (isHl ? 0.08 * hlK : 0)) * e);
+        g.fillStyle = rgba(isHl && heat <= 0 ? C.signal : hc, (0.24 * heat + (isHl ? 0.08 * hlK : 0)) * e);
         g.fill();
         g.globalCompositeOperation = 'source-over';
       }
@@ -225,8 +226,8 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const b = P[gi + 1][ln.b];
         if (!a.ok || !b.ok) continue;
         g.globalAlpha = 1;
-        g.strokeStyle = rgba(hot ? mix(C.ink3, hot, 0.6) : mix(C.ink3, C.signal, ln.w * 0.5), (0.05 + 0.22 * ln.w) * e * fa * (hot ? 1.8 : 1) * boost);
-        g.lineWidth = 0.8 + 1.4 * ln.w;
+        g.strokeStyle = rgba(hot ? mix(C.ink3, hot, 0.7) : mix(C.ink3, C.signal, ln.w * 0.85), (0.07 + 0.3 * ln.w * ln.w) * e * fa * (hot ? 2 : 1) * boost);
+        g.lineWidth = 0.8 + 1.8 * ln.w * ln.w;
         g.beginPath();
         g.moveTo(a.x, a.y);
         g.lineTo(b.x, b.y);
@@ -250,7 +251,8 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     });
     // neurons, painted far to near; rim-lit discs (upper-right key light)
     const order = P.flatMap((ly, l) => ly.map((p, i) => ({l, i, p}))).sort((a, b) => b.p.d - a.p.d || a.l - b.l || a.i - b.i);
-    for (const {l, p} of order) {
+    for (const {l, i, p} of order) {
+      const av = net.act[l][i]; // seeded resting activation: brighter cores read as stronger units (never a printed number)
       const e = enterL(l) * k * dimOf(l);
       if (e <= 0 || !p.ok) continue;
       const {f, b} = act(l);
@@ -276,7 +278,8 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.arc(p.x, p.y, r, -1.35, -0.15); // the rim on the upper-right
       g.stroke();
       g.globalCompositeOperation = 'lighter';
-      blit(g, sprite(heat > 0 ? c : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * (0.25 * fa + 0.75 * heat));
+      blit(g, sprite(heat > 0 ? c : av > 0.5 ? C.signal : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * ((0.2 + 0.5 * av) * fa + 0.75 * heat));
+      if (glow && heat <= 0 && av > 0.7) blit(g, sprite(C.signal, 'glow'), p.x, p.y, r * 2.6, e * fa * glow * 0.35 * av);
       if (glow && (heat > 0 || isHl)) blit(g, sprite(heat > 0 ? c : C.signal, 'glow'), p.x, p.y, r * 4, e * glow * Math.max(heat, isHl ? 0.5 * hlK : 0));
     }
     // text-safe (ADR-002): the set is cut out of every copy box, ours (analytic) and other layers' (settled)

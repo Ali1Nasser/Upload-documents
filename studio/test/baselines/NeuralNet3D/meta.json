@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
+  "a1": "4b324ae080d58c1a5fc8b340ae56a1d0ec6be146b482f26f25f8813b4e3d774b",
+  "p50": "ecfb923bf3de1b02b0183edef92f9766656b2c3bf72d1e90cf02ea6274a3d5da",
+  "p100": "8952897cad8c38b4efa09116b56dca0844f440277474362a135ad0c2a6504456"
+ },
+ "v": 2,
+ "name": "NeuralNet3D",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 71,
+  "p100": 143
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-15T21:57:26Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

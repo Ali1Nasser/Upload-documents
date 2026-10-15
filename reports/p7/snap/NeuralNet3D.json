@@ -2,7 +2,7 @@
  "v": 2,
  "name": "NeuralNet3D",
  "composition": "Demo-NeuralNet3D",
- "at": "2026-10-15T18:17:21Z",
+ "at": "2026-10-15T21:57:26Z",
  "frames": [
   0,
   11,
@@ -26,45 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1596 px; 6 registry problem(s)"
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1596 px; 6 registry problem(s)"
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 71,
    "why": "50 %",
-   "determinism_diff_px": 1596,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1596 px; 6 registry problem(s)"
+   "determinism_diff_px": 0,
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 143,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1596 px; 6 registry problem(s)"
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
- "registry_problems": [
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
-  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]"
- ],
+ "registry_problems": [],
  "approve": true,
- "approve_refused": [
-  "determinism 1596 px",
-  "6 registry problem(s)"
- ],
- "pass": false
+ "pass": true
 }
