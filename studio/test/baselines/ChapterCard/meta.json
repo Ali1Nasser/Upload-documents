@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "722aac40b3fbc910773ae9f08a986c7ff067d746961a46672d7f7e8ba2a06c9a",
-  "p50": "c01045645ca831272847e5ca53b42f0b90405378d78a7d69810d26ef78bc0580",
-  "p100": "63b642a8eb331098be265864c029036c75cb4ad0a0e090c2690706b50979f307"
+  "a1": "4892b21289900ce2dafc176bc6c7e4abc753ffb291c2d9b7967802c82e557695",
+  "p50": "0e4fcf08a139c285d08d9affdeabd2784edb21a877d140914d02435490edaabf",
+  "p100": "5812d74b5bcce8d5d47c228224743d3acc55d6c426edc189ad8fac9b4e59bd1b"
  },
  "v": 2,
  "name": "ChapterCard",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:30:16Z",
+ "written_at": "2026-10-15T22:14:41Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
