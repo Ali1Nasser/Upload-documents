@@ -1,17 +1,17 @@
 {
  "sha256": {
-  "p0": "8fc793e877390b25db40dc8e1246756a26103c28de4f964b3f17f8a94d3105dd",
-  "a1": "ccc604c9b90db9c65c9625c8b9485b6c41798270a510566717f5194ea5448d84",
-  "p50": "b1bdedc3144fc968715875803a4c08d0407cc89752f55ec53251a5b981412e03",
-  "p100": "22de1158b9e3114ce98ee00edd1c5646cee9cc0e0062ccf92607471d8c2182d6"
+  "p0": "e7580fc5c4387498e11b17ef6eeff937ec5c46eb2fff72e3d8ea0ea0b03a90be",
+  "a1": "038ff1fab1e67ad00b22943b716fdd296aaaf2ada839418ca26c40151e5f6e1d",
+  "p50": "4c66d46a29bec565bcd97ee35fff39d7d8aabfc2b2a3e728b13d7ff8144cd2ba",
+  "p100": "88f266851cb9bea3c32b910a6e64f6b6b0a16e2e05a3dfde7439129941d96030"
  },
  "v": 2,
  "name": "PipelineStations",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 95,
-  "p100": 191
+  "p50": 179,
+  "p100": 359
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:13:26Z",
+ "written_at": "2026-10-15T22:08:55Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

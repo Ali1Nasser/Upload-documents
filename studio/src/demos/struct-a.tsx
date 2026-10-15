@@ -263,9 +263,10 @@ const demos: DemoModule = {
     },
     {
       // 04 section 6 "ETL/ELT pipeline stations": the cleaned-export payload crosses the stations, the transform fails on a
-      // bad date format (d:6.1:6), is fixed, and the payload moves on to the load.
+      // bad date format (d:6.1:6, the ambiguous 03/02/2026), is fixed, and the payload moves on to the load. Then the 04 section 6
+      // "CI/CD gated pipeline" (containers, CI/CD): a release crosses five gates, the production gate fails and is fixed.
       name: 'PipelineStations',
-      frames: 192,
+      frames: 360,
       words: words('PipelineStations', [
         [6, 20],
         [44, 58],
@@ -273,6 +274,12 @@ const demos: DemoModule = {
         [106, 120],
         [138, 152],
         [164, 178],
+        [188, 198], // 7 exit of the ETL pipeline
+        [206, 220], // 8 CI/CD entrance
+        [240, 254], // 9 advance to staging
+        [276, 290], // 10 advance to production
+        [308, 322], // 11 fail
+        [336, 348], // 12 fix
       ]),
       shot: {
         fx_tier: 'standard',
@@ -283,6 +290,7 @@ const demos: DemoModule = {
             props: {
               id: 'etl',
               payload: 'ملف الإيصالات',
+              until: A('PipelineStations', 7),
               stations: [
                 {id: 'extract', label: 'استخراج'},
                 {id: 'clean', label: 'تنقية'},
@@ -297,6 +305,25 @@ const demos: DemoModule = {
           {component: 'PipelineStations.fail', props: {target: 'etl', at: 'transform', reason: 'صيغة التاريخ غلط'}, at: A('PipelineStations', 4)},
           {component: 'PipelineStations.fix', props: {target: 'etl', at: 'transform'}, at: A('PipelineStations', 5)},
           {component: 'PipelineStations.advance', props: {target: 'etl', to: 'load'}, at: A('PipelineStations', 6)},
+          {
+            component: 'PipelineStations',
+            props: {
+              id: 'cicd',
+              payload: 'إصدار جديد',
+              stations: [
+                {id: 'build', label: 'بناء الـImage'},
+                {id: 'test', label: 'اختبار'},
+                {id: 'scan', label: 'فحص أمني'},
+                {id: 'stg', label: 'نشر Staging'},
+                {id: 'prod', label: 'نشر Production'},
+              ],
+            },
+            at: A('PipelineStations', 8),
+          },
+          {component: 'PipelineStations.advance', props: {target: 'cicd', to: 'stg'}, at: A('PipelineStations', 9)},
+          {component: 'PipelineStations.advance', props: {target: 'cicd', to: 'prod'}, at: A('PipelineStations', 10)},
+          {component: 'PipelineStations.fail', props: {target: 'cicd', at: 'prod', reason: 'فحص الصحة فشل'}, at: A('PipelineStations', 11)},
+          {component: 'PipelineStations.fix', props: {target: 'cicd', at: 'prod'}, at: A('PipelineStations', 12)},
         ],
       },
     },

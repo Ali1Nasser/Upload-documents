@@ -11,6 +11,7 @@
 //   fix     -> the station settles to ok (check glyph, one expanding ok ring), the reason chip fades, the capsule recovers.
 // The whole diagram auto-fits ctx.box as one unit (labels >= 28 px, SIZE.labelMin), else DC_QA overflow (snapshot fails).
 import React, {useMemo} from 'react';
+import {random} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
 import {MixedText} from '../../type/Text';
 import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
@@ -55,6 +56,9 @@ const failStates = (p: Props, ctx: Ctx, t: number): FailSt[] => {
   return st;
 };
 
+/** 0..1 failure flash for a station (2 film frames at full, then a ~6 f decay; only until the fix). */
+const flashOf = (f: FailSt, ff: number): number => (f.failSince >= 0 && f.fixSince < 0 ? (f.failSince < ff ? 1 : Math.max(0, 1 - (f.failSince - ff) / (3 * ff))) : 0);
+
 export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const N = props.stations.length;
   const fs0 = SIZE.body;
@@ -90,8 +94,13 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
     const d = Math.min((ctx.box.w - pick.edge * s) / Math.max(1, N - 1), pick.d0 * s * 2.6);
     const trackW = d * (N - 1);
     const x0 = (ctx.box.w - trackW) / 2;
-    const top = (ctx.box.h - pick.nat.h * s) / 2;
-    const yTrack = top + (capH + fs0 * 0.6 + gateR) * s;
+    // the gates grow with the station spacing (few stations -> big gates) while the whole stack still fits the slot height
+    const capHs = capH * s;
+    const restH = capHs + (fs0 * 0.6 + fs0 * 0.7 + pick.rows * rowH) * s + reasonH * s;
+    const R = Math.max(gateR * s, Math.min(d * 0.23, gateR * s * 1.9, (ctx.box.h - restH) / 2));
+    const H = restH + 2 * R;
+    const top = (ctx.box.h - H) / 2;
+    const yTrack = top + capHs + fs0 * 0.6 * s + R;
     const xs = props.stations.map((_, i) => (rtl ? x0 + trackW - i * d : x0 + i * d));
     return {
       s,
@@ -100,14 +109,15 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
       xs,
       d,
       yTrack,
-      gateR: gateR * s,
-      capH: capH * s,
+      gateR: R,
+      capH: capHs,
       capW: capW * s,
-      yCap: top + (capH / 2) * s,
+      yCap: top + capHs / 2,
+      yTop: top,
       rows: pick.rows,
-      yLabel: yTrack + (gateR + fs0 * 0.7) * s,
+      yLabel: yTrack + R + fs0 * 0.7 * s,
       rowH: rowH * s,
-      yReason: yTrack + (gateR + fs0 * 0.7 + pick.rows * rowH + fs0 * 1.1) * s,
+      yReason: yTrack + R + (fs0 * 0.7 + pick.rows * rowH + fs0 * 1.1) * s,
       reasonH: fs0 * 1.6 * s,
       rw,
       lw,
@@ -143,10 +153,55 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
   const tx = Math.min(x0, xN);
   const tw = Math.abs(xN - x0);
 
+  const gid = `ps-${ctx.id}`;
+  const bandH = geo.gateR * 0.9;
+  const cols = props.stations.map((_, i) => {
+    const f = fails[i];
+    const done = t >= capBorn && pos >= i - 0.02 && restIdx !== i ? 1 : 0;
+    const active = restIdx === i && t >= capBorn ? 1 : 0;
+    let c = mix(C.ink3, C.ok, done);
+    c = mix(c, C.signal, active);
+    c = mix(c, C.crit, f.failQ);
+    return mix(c, C.ok, f.fixQ);
+  });
+  const shaftK = props.stations.map((_, i) => Math.max(restIdx === i ? 1 : 0, fails[i].failQ * (1 - fails[i].fixQ)));
+  const moteN = ctx.fx.id === 'lite' ? 8 : 16;
+  const moteH = Math.max(40, geo.yTrack - geo.gateR * 1.3 - geo.yTop);
+  const motes = Array.from({length: moteN}, (_, k) => ({
+    x: random(`${ctx.id}:mx${k}`),
+    y: random(`${ctx.id}:my${k}`) * moteH,
+    v: (6 + random(`${ctx.id}:mv${k}`) * 10) / fps,
+    r: 1.5 + random(`${ctx.id}:mr${k}`) * 2,
+    a: 0.2 + random(`${ctx.id}:ma${k}`) * 0.3,
+    violet: random(`${ctx.id}:mc${k}`) > 0.7,
+  }));
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
       {m.node}
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        {/* depth: a glass floor band under the track, a light shaft above every gate and a few drifting motes (seeded, linear drift) */}
+        <defs>
+          <linearGradient id={`${gid}-floor`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={C.panel} stopOpacity={0.15} />
+            <stop offset="0.5" stopColor={C.panel} stopOpacity={0.85} />
+            <stop offset="1" stopColor={C.void} stopOpacity={0.25} />
+          </linearGradient>
+          {props.stations.map((st, i) => (
+            <linearGradient key={st.id} id={`${gid}-s${i}`} x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0" stopColor={cols[i]} stopOpacity={0.16 + 0.12 * shaftK[i]} />
+              <stop offset="1" stopColor={cols[i]} stopOpacity={0} />
+            </linearGradient>
+          ))}
+        </defs>
+        <rect x={tx - geo.gateR * 1.35} y={geo.yTrack - bandH / 2} width={tw + geo.gateR * 2.7} height={bandH} rx={bandH / 2} fill={`url(#${gid}-floor)`} stroke={C.grid} strokeWidth={1.5 * geo.s} opacity={trackP} />
+        <line x1={tx - geo.gateR * 1.1} y1={geo.yTrack - bandH / 2 + 1.5} x2={tx + tw + geo.gateR * 1.1} y2={geo.yTrack - bandH / 2 + 1.5} stroke={C.ink3} strokeOpacity={0.3 * trackP} strokeWidth={1.5 * geo.s} strokeLinecap="round" />
+        {props.stations.map((st, i) =>
+          t >= born[i] ? <polygon key={`sh${st.id}`} points={`${geo.xs[i] - geo.gateR * 0.85},${geo.yTrack - geo.gateR * 0.6} ${geo.xs[i] - geo.gateR * 0.5},${geo.yTrack - geo.gateR * 2.7} ${geo.xs[i] + geo.gateR * 0.5},${geo.yTrack - geo.gateR * 2.7} ${geo.xs[i] + geo.gateR * 0.85},${geo.yTrack - geo.gateR * 0.6}`} fill={`url(#${gid}-s${i})`} opacity={revealProgress(t - born[i], lab)} /> : null,
+        )}
+        {motes.map((q, i) => {
+          const y = geo.yTop + ((((q.y - t * q.v) % moteH) + moteH) % moteH);
+          return <circle key={i} cx={q.x * ctx.box.w} cy={y} r={q.r * geo.s} fill={q.violet ? C.violet : C.signal} fillOpacity={q.a * trackP} />;
+        })}
         {/* track: dim rail drawn from the first station, the processed part glows ok with a marching flow */}
         <line
           x1={x0}
@@ -154,20 +209,20 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
           x2={x0 + (xN - x0) * trackP}
           y2={geo.yTrack}
           stroke={C.grid}
-          strokeWidth={6 * geo.s}
+          strokeWidth={9 * geo.s}
           strokeLinecap="round"
         />
-        <line x1={x0} y1={geo.yTrack} x2={x0 + (xN - x0) * trackP} y2={geo.yTrack} stroke={C.ink3} strokeOpacity={0.5} strokeWidth={2 * geo.s} strokeLinecap="round" />
+        <line x1={x0} y1={geo.yTrack} x2={x0 + (xN - x0) * trackP} y2={geo.yTrack} stroke={C.ink3} strokeOpacity={0.6} strokeWidth={2.5 * geo.s} strokeLinecap="round" />
         {t >= capBorn && pos > 0 ? (
           <>
-            <line x1={x0} y1={geo.yTrack} x2={capX} y2={geo.yTrack} stroke={C.ok} strokeOpacity={0.35} strokeWidth={10 * geo.s} strokeLinecap="round" />
+            <line x1={x0} y1={geo.yTrack} x2={capX} y2={geo.yTrack} stroke={C.ok} strokeOpacity={0.35} strokeWidth={14 * geo.s} strokeLinecap="round" />
             <line
               x1={x0}
               y1={geo.yTrack}
               x2={capX}
               y2={geo.yTrack}
               stroke={C.ok}
-              strokeWidth={3 * geo.s}
+              strokeWidth={4 * geo.s}
               strokeDasharray={`${dash} ${dash}`}
               strokeDashoffset={rtl ? flowOff : -flowOff}
               strokeLinecap="round"
@@ -176,6 +231,14 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
         ) : null}
         {/* capsule tether to the track */}
         {t >= capBorn ? <line x1={capX} y1={geo.yCap + geo.capH / 2} x2={capX} y2={geo.yTrack - geo.gateR} stroke={mix(C.signal, C.crit, capCrit)} strokeOpacity={0.6} strokeWidth={2 * geo.s} strokeDasharray={`${4 * geo.s} ${4 * geo.s}`} /> : null}
+        {/* the failed gate bars the track ahead of it: dashed crit until the fix */}
+        {props.stations.map((st, i) => {
+          const f = fails[i];
+          const k = f.failQ * (1 - f.fixQ);
+          if (k <= 0 || i >= N - 1) return null;
+          return <line key={`bar${st.id}`} x1={geo.xs[i]} y1={geo.yTrack} x2={geo.xs[i + 1]} y2={geo.yTrack} stroke={C.crit} strokeOpacity={0.55 * k} strokeWidth={4 * geo.s} strokeDasharray={`${dash} ${dash}`} strokeLinecap="round" />;
+        })}
+        {t >= capBorn ? <ellipse cx={capX} cy={geo.yTrack} rx={geo.gateR * 0.95} ry={geo.gateR * 0.2} fill={mix(C.signal, C.crit, capCrit)} fillOpacity={0.3} /> : null}
         {props.stations.map((st, i) => {
           const f = fails[i];
           const q = revealProgress(t - born[i], lab);
@@ -191,10 +254,12 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
           const x = geo.xs[i] + dx;
           return (
             <g key={st.id} opacity={q}>
-              <ellipse cx={x} cy={geo.yTrack + geo.gateR * 1.3} rx={geo.gateR * 1.15} ry={geo.gateR * 0.22} fill={col} fillOpacity={0.1 + 0.16 * Math.max(active, f.failQ, done * 0.5)} />
+              <ellipse cx={x} cy={geo.yTrack + geo.gateR + 3 * geo.s} rx={geo.gateR * 1.1} ry={geo.gateR * 0.1} fill={col} fillOpacity={0.1 + 0.16 * Math.max(active, f.failQ, done * 0.5)} />
               <circle cx={x} cy={geo.yTrack} r={geo.gateR * 1.16} fill="none" stroke={col} strokeOpacity={0.3} strokeWidth={1.5 * geo.s} />
               <circle cx={x} cy={geo.yTrack} r={geo.gateR} fill={C.panel} fillOpacity={0.92} stroke={col} strokeWidth={3 * geo.s} />
               <circle cx={x} cy={geo.yTrack} r={geo.gateR * 0.78} fill={col} fillOpacity={0.1 + 0.12 * Math.max(active, f.failQ, done * 0.5)} stroke={col} strokeOpacity={0.35} strokeWidth={1.5 * geo.s} />
+              <path d={`M${x - geo.gateR * 0.8},${geo.yTrack - geo.gateR * 0.3} A${geo.gateR * 0.85},${geo.gateR * 0.85} 0 0 1 ${x + geo.gateR * 0.8},${geo.yTrack - geo.gateR * 0.3}`} fill="none" stroke={C.white} strokeOpacity={0.22} strokeWidth={2 * geo.s} strokeLinecap="round" />
+              {flashOf(f, ff) > 0 ? <circle cx={x} cy={geo.yTrack} r={geo.gateR} fill={C.white} fillOpacity={0.22 * flashOf(f, ff)} /> : null}
               {ring > 0 && ring < 1 ? <circle cx={x} cy={geo.yTrack} r={geo.gateR * (1 + ring * 0.9)} fill="none" stroke={C.ok} strokeWidth={3 * geo.s} opacity={1 - ring} /> : null}
             </g>
           );
@@ -210,7 +275,7 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
         const failed = f.failQ > 0 && f.fixQ <= 0;
         const g: Glyph = f.fixQ > 0 ? 'check' : failed ? 'cross' : done ? 'check' : active ? 'spin' : 'dot';
         const col = f.fixQ > 0 ? C.ok : failed ? C.crit : done ? C.ok : active ? C.signal : C.ink3;
-        const flash = f.failSince >= 0 && f.fixSince < 0 ? (f.failSince < ff ? 1 : Math.max(0, 1 - (f.failSince - ff) / (3 * ff))) : 0;
+        const flash = flashOf(f, ff);
         const k = (active ? 0.8 : failed ? 0.7 : done || f.fixQ > 0 ? 0.45 : 0) + flash * 1.3;
         const dx = f.failSince >= 0 && f.fixSince < 0 ? shake(f.failSince, fps, `${ctx.id}:${st.id}`) : 0;
         const R = geo.gateR;
