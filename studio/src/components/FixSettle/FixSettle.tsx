@@ -74,11 +74,11 @@ export const FixSettleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <div ref={ref} style={{position: 'absolute', inset: 0, pointerEvents: 'none', opacity: k}}>
       {r && t >= 0 ? (
         <>
-          <div style={{...abs(pad(r, 12)), borderRadius: 10, boxShadow: lite ? `0 0 0 1px ${C.ok}${hex(0.5 * st.q)}` : `0 0 0 1px ${C.ok}${hex(0.5 * st.q)}, ${boxGlow(C.ok, ctx.fx, 0.5 * st.q)}`}} />
+          <div style={{...abs(pad(r, 18)), borderRadius: 10, boxShadow: lite ? `0 0 0 1px ${C.ok}${hex(0.5 * st.q)}` : `0 0 0 1px ${C.ok}${hex(0.5 * st.q)}, ${boxGlow(C.ok, ctx.fx, 0.5 * st.q)}`}} />
           {st.on ? <Converge r={r} u={Math.min(1, t / settleLen(ctx.fps))} seed={seed} fx={ctx.fx} /> : null}
           <Brackets r={r} color={C.ok} fx={ctx.fx} opacity={Math.min(1, 0.4 + st.q)} spread={18 + CLOSE_PX * (1 - st.q)} />
           {sweepOn ? (
-            <div style={{...abs(pad(r, 12)), overflow: 'hidden', borderRadius: 10}}>
+            <div style={{...abs(pad(r, 18)), overflow: 'hidden', borderRadius: 10}}>
               <div
                 style={{
                   position: 'absolute',

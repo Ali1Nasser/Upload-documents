@@ -22,7 +22,17 @@ const RECEIPTS = {
     {id: 'T6', operator: 'B', amount_egp: 100, status: 'FAILED'},
   ],
 };
-const table = (name: string) => ({component: 'TableGrid', props: {id: 'receipts', ref: 'd:5.2:1', title: 'إيصالات NilePay', slot: 'center', ...RECEIPTS}, at: {word: W(name, 1), lead_frames: 2}});
+// FixSettle: 4 rows + the 2 retried rows added on the anchor = 6, so the table keeps the body size and stays inside the slot
+const FIX_RECEIPTS = {
+  columns: RECEIPTS.columns,
+  rows: [
+    {id: 'T1', operator: 'A', amount_egp: 120, status: 'OK'},
+    {id: 'T3', operator: 'B', amount_egp: 200, status: 'FAILED'},
+    {id: 'T5', operator: 'B', amount_egp: 150, status: 'OK'},
+    {id: 'T6', operator: 'B', amount_egp: 100, status: 'FAILED'},
+  ],
+};
+const table = (name: string, data: typeof RECEIPTS = RECEIPTS) => ({component: 'TableGrid', props: {id: 'receipts', ref: 'd:5.2:1', title: 'إيصالات NilePay', slot: 'center', ...data}, at: {word: W(name, 1), lead_frames: 2}});
 const rate = (name: string, id = 'rate', slot = 'center') => ({
   component: 'NumberCounter',
   props: {id, to: {value: 66.67, ref: 'd:5.2:7', unit: '%', decimals: 2}, format: 'percent', label: 'نسبة النجاح', slot},
@@ -62,7 +72,13 @@ const demos: DemoModule = {
         fx_tier: 'standard',
         camera: cam,
         layers: [
-          table('FixSettle'),
+          table('FixSettle', FIX_RECEIPTS),
+          // the flip, on the anchor: the two FAILED rows (T3, T6) close up and leave, and the same two receipts re-arrive as OK (retried),
+          // filled ok; the settle then lands on the table, so the chip never contradicts a visible FAILED row
+          {component: 'TableGrid.filterRows', props: {target: 'receipts', keep: [0, 2]}, at: {word: W('FixSettle', 2), lead_frames: 2}},
+          {component: 'TableGrid.addRow', props: {target: 'receipts', row: {id: 'T3', operator: 'B', amount_egp: 200, status: 'OK'}}, at: {word: W('FixSettle', 2), lead_frames: 2}},
+          {component: 'TableGrid.addRow', props: {target: 'receipts', row: {id: 'T6', operator: 'B', amount_egp: 100, status: 'OK'}}, at: {word: W('FixSettle', 2), lead_frames: 2}},
+          {component: 'TableGrid.highlightRows', props: {target: 'receipts', rows: [4, 5], color: 'ok'}, at: {word: W('FixSettle', 2), lead_frames: 2}},
           {component: 'FixSettle', props: {to: 'receipts', label_ar: 'اتصلحت والعملية نجحت', slot: 'lower-third'}, at: {word: W('FixSettle', 2), lead_frames: 2}},
         ],
       },

@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "0e15a06f5cd57b05d45b5261135e593fe2661a87bc3307dc39c0e82031abc68f",
-  "p50": "7437bccf273af31a7dec692fbeb4492959aacc315528e0a018aad0ef37838b04",
-  "p100": "050232df85c05fd2a21853b1a7d4d4fc71dbe41768052cda1129714e6c682862"
+  "a1": "974cc57a0a9373b6238b4cdd3140091dfcbc9efcc1df3ee040d563fb45ce5f70",
+  "p50": "990683e092069b3b436a2b5f78d55fafc4f8a9c17556d9cd0f22501ba7140445",
+  "p100": "bfe0fcd5b56b567b882b9676a07397abac27b8047d1cff3c53fe1f37d5966c94"
  },
  "v": 2,
  "name": "FixSettle",
@@ -27,17 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:16:07Z",
+ "written_at": "2026-10-15T17:52:15Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "changes-requested",
- "critic": {
-  "by": "critic",
-  "score": 6,
-  "date": "2026-10-15",
-  "verdict": "not approved (round 1)",
-  "notes": "Held end state is clean ok-token UI with a correct Arabic chip, but no still or strip shows the settle beat (drop, converging ring, brackets closing, sweep, motes); p50/p100 still show FAILED rows beside an \"ok, fixed\" chip; ok rim cuts the title alef. See report.",
-  "report": "reports/p7/review_fx-a.md"
- }
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
