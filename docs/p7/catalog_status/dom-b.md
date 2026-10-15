@@ -6,7 +6,7 @@ Date: 2026-10-10. Author: motion-engineer (dom-b).
 
 | Component | Status | Reason |
 |---|---|---|
-| DeadlockCrossing | deferred | AT-13R gate |
+| DeadlockCrossing | implemented (baselines pending-critic; snap PASS det 0, perf standard 0.153 / hero 0.149 box s/frame, Arabic QA PASS) | AT-13R no longer blocks (ADR-011 RV1) |
 | PageScan | deferred | AT-13R gate |
 | AppliedSteps | deferred | AT-13R gate |
 | SampleScoop | deferred | AT-13R gate; data gap D2 |

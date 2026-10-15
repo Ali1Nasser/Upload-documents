@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "DeadlockCrossing",
+ "composition": "Demo-DeadlockCrossing",
+ "at": "2026-10-15T17:04:26Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 168,
+   "wall_s": 19.74,
+   "box_s_per_frame": 0.1175,
+   "slot_s_per_frame": 0.3525,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.67,
+    5.26
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 168,
+   "wall_s": 25.76,
+   "box_s_per_frame": 0.1534,
+   "slot_s_per_frame": 0.4602,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.16,
+    5.6
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 168,
+   "wall_s": 24.96,
+   "box_s_per_frame": 0.1486,
+   "slot_s_per_frame": 0.4458,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    5.6,
+    5.81
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

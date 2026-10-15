@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "73e5d6302dd3c0172465c739baa0b7d2d16a1bf580c25e58f3743d522b7b8e82",
-  "p50": "9dc2455d8d19c9844ddb3cfaa3fc529d2c417ecbff3c0a5503e916f3ca6e0d4a",
-  "p100": "5d92e8111000a939bcb918c7207c1ad40060df86cfdd1aeba09d29d4738a425b"
+  "p0": "ff4a6057b2e456f8540f138cd4a3519bc7b5ef4e951288c64ccf4e0957c184e4",
+  "a1": "b0d918e6b3d4ed5494a931a2c51b9a49cccdfff04e2a0c112bd1e23d386e626e",
+  "p50": "6ecaf2512638a7013e8b18ec621434590ab13d384437a239652b989530964c89",
+  "p100": "a8b7a3cfb6eba4f49515ec5ae8246b75feb6825ac7e334cff16c3aa20fd74eb1"
  },
  "v": 2,
  "name": "DeadlockCrossing",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T07:49:45Z",
+ "written_at": "2026-10-15T16:47:41Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
