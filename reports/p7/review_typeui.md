@@ -38,3 +38,21 @@ Non-blocking issues (fix next round, ordered by impact)
 5. p50: chip and glow of SLO appear while its gloss is absent; the pool is already at near full strength for a half-revealed pill. Ramp the pool with the wipe so it lands with the term.
 
 Score breakdown: legibility 8, palette/tokens 8, depth and light 6 (hard plate, pool only), visual verb without narration 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 6.
+
+## TermChip - round 2 (critic)
+
+Verdict: **approved-critic**, score **8/10** (no blocking issue). Evidence: baselines p0, a1, p50, p100 at 960x540 read at full size, a 4x crop of the idempotency chip, a 6x levels-boosted p100, and reports/p7/snap/TermChip.jpg. Commit 17cd37f.
+
+Round-1 items
+1. Hard plate: closed. Unboosted, no card edge is visible at p50/p100; the pool is a soft ellipse. At 6x boost only a faint shelf edge remains (x 640-920, y about 232 above idempotency; same band left of SLO). Not visible at normal gain.
+2. Code and metric kinds: closed. GROUP BY department (code, lighter mono on darker stock, cool border) and p95 (metric, amber with underline) are in p50/p100 with glosses; all four kinds are distinct without narration.
+3. Gloss contrast: closed. Gloss reads clearly at 960 px.
+4. Float: closed. Visible 3-4 px drop between p50 and p100 (chips settle), deterministic.
+5. Pool ramp: closed. The pool lands with the wipe in a1 (idempotency only, soft glow, no orphan SLO pool).
+
+Open, non-blocking
+- Motion intent still unverified by a strip: request 6 frames at anchor-2, 0, +2, +4, +8, +16 (rim, wipe, gloss rise) at the G8 pilot.
+- Chips are small (largest about 210 px wide at 960 px); the host shot must supply depth, camera and a concrete object. TermChip alone is a label, not a scene.
+- Faint residual shelf at 6x gain (above): feather the pool a further 20 percent if it ever shows on bright plates.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 7, visual verb without narration 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 7 (unverified), polish 8.

@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-15T21:46:06Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 8,
+  "date": "2026-10-15",
+  "by": "critic",
+  "round": 2,
+  "notes": "Round 2 closes all five round-1 items: pool is now a soft ellipse landing with the wipe (hard plate gone unboosted; only a faint shelf remains at 6x levels around SLO/idempotency, y~232), all four kinds baselined (term cyan dot, acronym green, code on darker stock, metric amber with underline), gloss at ink 0.85 reads, 4 px float visible p50 to p100. Non-blocking: no mid-wipe strip yet (request at G8: anchor-2,0,+2,+4,+8,+16); chips are small (about 30% of frame width max) so the host shot must supply depth/camera; faint residual shelf at 6x boost."
+ }
 }
