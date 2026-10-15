@@ -178,3 +178,35 @@ Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, scale 0.5), reports/
 5. p100, table region: the clean end state is a plain grey grid with only a border change; the payoff "clean" has no moment. Add a brief ok-green sweep across the table when allQ reaches 1, and let the group step visibly merge rows rather than only highlight a column.
 6. First select (code, bar and beam at selY = -1): the lit bar and beam start one row above the first step, i.e. over the APPLIED STEPS chip while opacity ramps. Start the bar at index 0 (or clamp the beam origin) so it never crosses the header.
 7. Process: p0 baseline is an empty frame (entrance not started), so it protects nothing. Move it to a frame where the first plate has entered, add a strip (frames 0, 11, 40, 83, 120, 167) to reports/p7/, and write 1080p baselines before the pilot.
+
+## SampleScoop — round 1
+
+Verdict: APPROVED (7.3/10, no blocking issue). meta.json set to approved-critic.
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, scale 0.5), reports/p7/snap/SampleScoop.jpg strip of the four frames, SampleScoop.tsx and schema.ts. No true motion strip exists, so the lift arc, mean-drop line and return-to-pool were judged from code plus stills (p50 lit dots in pool, p100 rings at origins with dots in beaker), not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition (dish right, beaker and histogram on the RTL end side) | 6 |
+| Palette and token discipline (C tokens only; signal lit, violet reserved for strata/clusters) | 8 |
+| Light and depth (rim light, floor shadow, seeded dot size/tone/halo, liquid) | 7 |
+| Typography and Arabic (`5 000 طلب` as one LTR isolate plus Arabic unit, correct RTL order; Latin mono method chip) | 8 |
+| Legibility at 1080p (population label ~34 px, dots ~10 px, blocks ~48 px) | 7 |
+| Visual verb without narration (scoop lifts into beaker, block drops onto histogram, stack grows) | 8 |
+| Not a bullet slide, no legacy frames | 8 |
+| Numbers (only the sourced population prop; dots/histogram carry no quantity, no axis, no digits) | 9 |
+| Motion intent (code plus stills) | 7 |
+| AI-Unpacked parity | 6 |
+
+### What works
+- a1 to p50 to p100: lit dots in the dish, liquid rising in the beaker, blocks stacking (p100 has a 2-high bin) tell sampling-distribution assembly with no words. Lit dots return to the pool between draws (independence).
+- Dish has a real top face, wall, floor shadow and upper-right rim arc; near dots carry halos.
+- Arabic population label is correct; digits are Latin tabular with a thin group space, the unit sits outside the isolate.
+
+### Non-blocking issues, ordered by impact
+1. Composition (all stills, lower-left): beaker and histogram are disconnected from the dish, and ~35 % of the frame between beaker foot and histogram is dead. Raise the histogram toward the beaker (histY ~0.80) and widen it, or add a faint pour-lane glow between dish and beaker.
+2. p50/p100, histogram region: the blocks are 0.62 signal fill on a near-black plate and the 7 px base slab is nearly invisible; at 1080p it reads as a small footnote. Enlarge blockH by ~1.4 and brighten the base line.
+3. Depth (all stills): no drifting motes or parallax behind the dish; dots are all one plane apart from size. Add 20-30 far motes and a slight dish tilt/camera drift.
+4. a1, beaker: liquid is a thin sliver at 11 frames and the 'random' chip floats over the rim; nudge the chip up ~8 px and give the empty beaker a faint inner back-wall tint.
+5. p0 baseline is an empty frame; move to a frame after the first entrance, add a motion strip (frames 11, 30, 50, 75, 107, 150, 215) under reports/p7/, and write 1080p baselines before the pilot.
+6. The mean-drop dashed line (stroke 2 px, 0.8 opacity) is not visible in any still; confirm in a strip and thicken to ~3 px if lost at 1080p.

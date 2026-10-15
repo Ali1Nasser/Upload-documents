@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-15T22:05:32Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.3,
+ "date": "2026-10-15",
+ "approved_by": "critic",
+ "notes": "Round 1: no blocking issue. Glass dish + rim light, seeded depth dots, glass beaker filling, histogram assembling without axis/digits; scoop-and-return verb reads from p50/p100. Weak: no particles/parallax beyond dot depth, dead space lower-left, small low-contrast histogram, no mean-drop line visible in stills, p0 empty, no motion strip, 960 px lite baselines only."
 }
