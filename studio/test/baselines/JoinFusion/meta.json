@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "79ec22277190d35994beb6ca5a3b4770fc6e0e153b30c329f9428126aaa0e840",
-  "p50": "811d9057342966f6e2e2e461390a09fb0f800dfcd8167a33be621a2eb994d70d",
-  "p100": "6070e3f2399f0e66fde2b5bab3f284889b1c9c36a72a158828b697a39c583ac4"
+  "a1": "0be980c20220ea9a26c3c8ba378baee02088154ab1a52e12b85d8505b29ef528",
+  "p50": "2e3b7830f51619a8d89f35b23344a4faf3a50f4d75b0f68c14a4f68fceded2b2",
+  "p100": "c019838f5c4552f94c253b7982a163ba338770932d5ba1eb136da0057c887804"
  },
  "v": 2,
  "name": "JoinFusion",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:16:51Z",
+ "written_at": "2026-10-15T17:30:55Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

@@ -175,6 +175,44 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   // seams of fused rows: an ok bar where both sides are present
   const seams = res.map((rw, j) => (rw.l !== null && rw.r !== null && e > 0.5 ? <div key={`s${j}`} style={{position: 'absolute', left: W / 2 - 3, top: yPost(j) - cellH(1) / 2, width: 6, height: cellH(1), background: tint(C.ok, 0.9 * Math.min(1, (e - 0.5) / 0.5)), borderRadius: 3, boxShadow: `0 0 ${ctx.fx.glowInner}px ${tint(C.ok, 0.6)}`}} /> : null));
+  // depth + light (ADR-003 LK-F): each table stands on a slab with a rim-lit top edge, the matching keys are joined by beams
+  // (PK -> FK) with a travelling spark (deterministic phase), and the fused result is lit by a seam shaft and a floor pool.
+  const slabIn = Math.max(0, 1 - Math.min(1, e * 1.4));
+  const slabTop = pad + headH + 4;
+  const slabH = H - slabTop - pad - (props.result_rows ? Math.round(SIZE.body * 1.9) : 0) + 8;
+  const slab = (side: 'l' | 'r') => {
+    const x0 = side === 'l' ? pad - 10 : W - pad - tableW - 10;
+    return (
+      <div key={`slab${side}`} style={{position: 'absolute', left: x0, top: slabTop, width: tableW + 20, height: slabH, opacity: head * slabIn, borderRadius: 16, background: `linear-gradient(180deg, ${tint(C.signal, 0.1)} 0%, ${tint(C.panel, 0.55)} 14%, ${tint(C.panel, 0.2)} 100%)`, borderTop: `2px solid ${tint(C.signal, 0.55)}`, boxShadow: `0 -${Math.round(ctx.fx.glowInner * 0.5)}px ${Math.round(ctx.fx.glowInner * 1.6)}px ${tint(C.signal, 0.12)}`}} />
+    );
+  };
+  const beamsQ = prog(ctx, ctx.at + stag(ctx, 5, 2), 'morph') * Math.max(0, 1 - e * 2.2);
+  const beams: React.ReactNode[] = [];
+  if (beamsQ > 0.01) {
+    const x0 = xLpre + cw / 2;
+    const x1 = xRpre - cw / 2;
+    LEFT.forEach((lk, l) =>
+      RIGHT.forEach((rk, r) => {
+        if (rk !== lk) return;
+        const col = C[KEYC[lk % KEYC.length]];
+        const y0 = yPre(l);
+        const y1 = yPre(r);
+        const mx = (x0 + x1) / 2;
+        const ph = (((t - ctx.at) / (1.6 * ctx.fps) + (l * 5 + r) * 0.13) % 1 + 1) % 1;
+        const u = 1 - ph;
+        const bx = u * u * u * x0 + 3 * u * u * ph * mx + 3 * u * ph * ph * mx + ph * ph * ph * x1;
+        const by = u * u * u * y0 + 3 * u * u * ph * y0 + 3 * u * ph * ph * y1 + ph * ph * ph * y1;
+        beams.push(
+          <g key={`bm${l}.${r}`} opacity={beamsQ}>
+            <path d={`M${x0} ${y0} C${mx} ${y0} ${mx} ${y1} ${x1} ${y1}`} stroke={tint(col, 0.55)} strokeWidth={3} fill="none" strokeLinecap="round" />
+            <circle cx={bx} cy={by} r={6} fill={col} opacity={0.9} />
+            <circle cx={bx} cy={by} r={13} fill={tint(col, 0.22)} />
+          </g>,
+        );
+      }),
+    );
+  }
+  const shaftQ = Math.min(1, e * 1.6);
   const rr = props.result_rows;
   const fl = flashAt(ctx, fu && t >= landOf(ctx, fu) ? landOf(ctx, fu) : null);
   const tableHead = (side: 'l' | 'r') => {
@@ -196,6 +234,19 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <Shell ctx={ctx}>
       {fName.probe}
       <Plate style={{position: 'absolute', inset: 0, opacity: head}} />
+      {slab('l')}
+      {slab('r')}
+      {beams.length ? (
+        <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+          {beams}
+        </svg>
+      ) : null}
+      {shaftQ > 0 ? (
+        <>
+          <div style={{position: 'absolute', left: W / 2 - cw * 0.9, width: cw * 1.8, top: rowsTop - 10, height: rowsH + 20, opacity: shaftQ * (0.6 + 0.4 * fl), background: `radial-gradient(ellipse at 50% 50%, ${tint(C.ok, 0.16)} 0%, ${tint(C.ok, 0)} 70%)`}} />
+          <div style={{position: 'absolute', left: W / 2 - cw * 1.1, width: cw * 2.2, top: rowsTop + rowsH - 6, height: Math.max(14, rowsH * 0.06), opacity: shaftQ, background: `radial-gradient(ellipse at 50% 50%, ${tint(C.ok, 0.3)} 0%, ${tint(C.ok, 0)} 70%)`}} />
+        </>
+      ) : null}
       {tableHead('l')}
       {tableHead('r')}
       {/* the join condition between the tables, then the kind once fused */}
