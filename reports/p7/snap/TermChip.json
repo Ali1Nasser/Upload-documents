@@ -2,12 +2,12 @@
  "v": 2,
  "name": "TermChip",
  "composition": "Demo-TermChip",
- "at": "2026-10-15T17:28:18Z",
+ "at": "2026-10-15T21:46:06Z",
  "frames": [
   0,
   13,
-  35,
-  71
+  41,
+  83
  ],
  "thresholds": {
   "scale": 0.5,
@@ -36,14 +36,14 @@
   },
   {
    "tag": "p50",
-   "frame": 35,
+   "frame": 41,
    "why": "50 %",
    "determinism_diff_px": 0,
    "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 71,
+   "frame": 83,
    "why": "100 %",
    "baseline": "written"
   }

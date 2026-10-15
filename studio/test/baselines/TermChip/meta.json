@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "1367689b59eb637a70d5096d839583b14b3a83bb1e9b6585cab7ec5272a7f3d6",
-  "p50": "e47563e28a2aa5ffd2dd6b0ea6d72695060db83cde358a5deef4dbeee01d8d31",
-  "p100": "994d91bbf577f6b18a9e7129a52b2ecbff91113435a457f8706dff32657c9817"
+  "a1": "b5252b4e72b710a70e586683d676139e409d93c960ebbe93e0091392ba043801",
+  "p50": "1fee3b3dc4a48b07abc42018852ed7045b3008a53f828cf134d64bfbc3764cf3",
+  "p100": "5e60d4947d9cea802b3e16928f6da7ae46b9a0877039c409e3f39bb43ef8da10"
  },
  "v": 2,
  "name": "TermChip",
  "frames": {
   "p0": 0,
   "a1": 13,
-  "p50": 35,
-  "p100": 71
+  "p50": 41,
+  "p100": 83
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,16 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:28:18Z",
+ "written_at": "2026-10-15T21:46:06Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7,
-  "date": "2026-10-15",
-  "by": "critic",
-  "round": 1,
-  "notes": "Legible (term ~32 px, gloss 28 px at 1080p), token-disciplined (signal/ok only), correct Arabic gloss, upper-right rim light and emissive pool read. Non-blocking: hard-edged dark plate behind each chip at slot-box edge (p50/p100 x 600-915 and 30-305, y 240-318); only term and acronym kinds baselined (code and metric unverified); gloss ink2 low-contrast and 1.5 px float imperceptible; no strip of the wipe."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

@@ -80,12 +80,15 @@ const demos: DemoModule = {
       },
     },
     {
-      // glossary first-mention glosses (corpus/canon/glossary.json): a term chip and an acronym chip
+      // glossary first-mention glosses (corpus/canon/glossary.json): term, acronym, plus a code chip (GROUP BY department, canon
+      // SQL) and a metric chip (p95, canon incident copy); no numbers are invented
       name: 'TermChip',
-      frames: 72,
+      frames: 84,
       words: [
-        [W('TermChip', 1), 8, 26],
-        [W('TermChip', 2), 36, 50],
+        [W('TermChip', 1), 8, 18],
+        [W('TermChip', 2), 18, 28],
+        [W('TermChip', 3), 28, 38],
+        [W('TermChip', 4), 38, 48],
       ],
       shot: {
         fx_tier: 'standard',
@@ -93,6 +96,8 @@ const demos: DemoModule = {
         layers: [
           {component: 'TermChip', props: {id: 'idem', term: 'idempotency', gloss_ar: 'إن تكرار نفس الطلب ما يعملش أثر زيادة', kind: 'term', slot: 'start'}, at: {word: W('TermChip', 1), lead_frames: 2}},
           {component: 'TermChip', props: {id: 'slo', term: 'SLO', gloss_ar: 'الهدف المتفق عليه لمستوى الخدمة', kind: 'acronym', color: 'ok', slot: 'end'}, at: {word: W('TermChip', 2), lead_frames: 2}},
+          {component: 'TermChip', props: {id: 'sql', term: 'GROUP BY department', gloss_ar: 'تجميع الصفوف حسب القسم', kind: 'code', color: 'signal', slot: 'lower-third'}, at: {word: W('TermChip', 3), lead_frames: 2}},
+          {component: 'TermChip', props: {id: 'p95', term: 'p95', gloss_ar: 'زمن الاستجابة للطلبات البطيئة', kind: 'metric', color: 'warn', slot: 'upper-third'}, at: {word: W('TermChip', 4), lead_frames: 2}},
         ],
       },
     },
