@@ -13,6 +13,7 @@ import {C} from '../../tokens';
 import {presetFrames, revealProgress} from '../../type/reveal';
 import {safeRect, type Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
+type ReactFx = import('../../spec/types').LayerCtx['fx'];
 import {IDENTITY, clampToRoom, useFxTarget} from '../_fx-a/drive';
 import {Brackets, Chip, IconCross, abs, beat, boxGlow, chipRect, exitK, filmIx, pad, rnd, stepLen} from '../_fx-a/kit';
 import type {Props} from './schema';
@@ -38,7 +39,7 @@ const Slices: React.FC<{r: Rect; g: GlitchState; seed: string; intensity: number
     const h = 2 + rnd(seed, 'h', g.step, i) * r.h * 0.07;
     const dx = (rnd(seed, 'd', g.step, i) * 2 - 1) * g.amp * 3;
     const col = i % 3 === 0 ? C.signal : C.crit;
-    out.push(<div key={`s${i}`} style={{position: 'absolute', left: dx, top: y, width: r.w, height: h, background: `${col}${hex(0.22 + 0.25 * intensity)}`}} />);
+    out.push(<div key={`s${i}`} style={{position: 'absolute', left: dx, top: y, width: r.w, height: h, background: `${col}${hex(0.16 + 0.2 * intensity)}`}} />);
   }
   for (let i = 0; i < nBl; i++) {
     const s = 6 + rnd(seed, 'bs', g.step, i) * 18;
@@ -54,6 +55,35 @@ const Slices: React.FC<{r: Rect; g: GlitchState; seed: string; intensity: number
       {flash > 0 ? <div style={{position: 'absolute', inset: 0, background: `${C.crit}${hex(0.3 * flash)}`}} /> : null}
       {out}
     </div>
+  );
+};
+
+/** Red shockwave (04 section 6: "an exception is a red shockwave"): a crit ring leaves the target's edge and fades, with seeded
+ * sparks flung outward (standard / hero only; <= 14 small rects, far below FX[tier].particles). Outside the card, so never on copy. */
+const Shockwave: React.FC<{r: Rect; u: number; seed: string; intensity: number; fx: ReactFx}> = ({r, u, seed, intensity, fx}) => {
+  const e = 1 - (1 - u) * (1 - u); // radius: decelerating; alpha fades linearly so the ring is readable across the whole beat
+  const reach = 70 + 110 * intensity;
+  const a = (1 - u) * (0.55 + 0.4 * intensity);
+  const R = pad(r, 12 + reach * e);
+  const nSp = fx.id === 'lite' ? 0 : 6 + Math.round(8 * intensity);
+  const cx = r.x + r.w / 2;
+  const cy = r.y + r.h / 2;
+  const sparks: React.ReactNode[] = [];
+  for (let i = 0; i < nSp; i++) {
+    const ang = rnd(seed, 'sa', i) * Math.PI * 2;
+    const dx = Math.cos(ang);
+    const dy = Math.sin(ang);
+    // start on the (rounded) card edge along the ray from the centre, then fly outward
+    const k = Math.min((r.w / 2 + 12) / Math.max(0.001, Math.abs(dx)), (r.h / 2 + 12) / Math.max(0.001, Math.abs(dy)));
+    const d = k + reach * (0.5 + rnd(seed, 'sd', i)) * e;
+    const w = 10 + rnd(seed, 'sw', i) * 16;
+    sparks.push(<div key={i} style={{position: 'absolute', left: cx + dx * d - w / 2, top: cy + dy * d - 2, width: w, height: 4, transform: `rotate(${ang.toFixed(3)}rad)`, background: i % 3 ? C.crit : C.signal, opacity: 1 - u}} />);
+  }
+  return (
+    <>
+      <div style={{...abs(R), borderRadius: 14 + reach * e * 0.4, border: `2px solid ${C.crit}${hex(a)}`, boxShadow: fx.id === 'lite' ? undefined : `0 0 ${fx.glowPx * 0.6}px ${C.crit}${hex(a * 0.7)}`}} />
+      {sparks}
+    </>
   );
 };
 
@@ -76,6 +106,7 @@ export const FailureGlitchView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   return (
     <div ref={ref} style={{position: 'absolute', inset: 0, pointerEvents: 'none', opacity: k}}>
       {r && g.on ? <Slices r={pad(r, 6)} g={g} seed={seed} intensity={props.intensity} blend={ctx.fx.id !== 'lite'} flash={flash} /> : null}
+      {r && g.on ? <Shockwave r={r} u={g.u} seed={seed} intensity={props.intensity} fx={ctx.fx} /> : null}
       {r && g.on && ctx.fx.id !== 'lite' ? (
         // RGB split on the box EDGES only (never on copy)
         <>
