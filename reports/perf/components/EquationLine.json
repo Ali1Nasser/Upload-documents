@@ -2,7 +2,7 @@
  "v": 2,
  "name": "EquationLine",
  "composition": "Demo-EquationLine",
- "at": "2026-10-15T18:18:29Z",
+ "at": "2026-10-15T21:51:34Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,56 +21,56 @@
  "tiers": {
   "lite": {
    "frames": 80,
-   "wall_s": 17.33,
-   "box_s_per_frame": 0.2166,
-   "slot_s_per_frame": 0.6498,
+   "wall_s": 5.49,
+   "box_s_per_frame": 0.0686,
+   "slot_s_per_frame": 0.2058,
    "budget_box_s_per_frame": 0.201,
-   "within_budget": false,
+   "within_budget": true,
    "loadavg1": [
-    6,
-    7.05
+    3.77,
+    3.95
    ],
    "queue": {
-    "running": 3,
-    "queued": 4
+    "running": 1,
+    "queued": 5
    },
-   "other_jobs_running": 2
+   "other_jobs_running": 0
   },
   "standard": {
    "frames": 80,
-   "wall_s": 27.84,
-   "box_s_per_frame": 0.3479,
-   "slot_s_per_frame": 1.0437,
+   "wall_s": 7.97,
+   "box_s_per_frame": 0.0996,
+   "slot_s_per_frame": 0.2988,
    "budget_box_s_per_frame": 0.201,
-   "within_budget": false,
+   "within_budget": true,
    "loadavg1": [
-    6.89,
-    10.03
+    3.95,
+    4.66
    ],
    "queue": {
-    "running": 3,
-    "queued": 2
+    "running": 1,
+    "queued": 5
    },
-   "other_jobs_running": 2
+   "other_jobs_running": 0
   },
   "hero": {
    "frames": 80,
-   "wall_s": 21.66,
-   "box_s_per_frame": 0.2707,
-   "slot_s_per_frame": 0.8121,
+   "wall_s": 7.7,
+   "box_s_per_frame": 0.0962,
+   "slot_s_per_frame": 0.2886,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    10.02,
-    11.77
+    4.66,
+    4.71
    ],
    "queue": {
-    "running": 2,
-    "queued": 2
+    "running": 1,
+    "queued": 5
    },
-   "other_jobs_running": 1
+   "other_jobs_running": 0
   }
  },
- "within_budget": false,
+ "within_budget": true,
  "qa_findings": []
 }

@@ -1,0 +1,5 @@
+# P7 catalog status: Type and UI, group typeui
+
+| Component | Status | Notes |
+|---|---|---|
+| EquationLine | implemented | One formula in ONE LTR isolate on a rim-lit glass slab (key rim from the upper right, drop shadow, 1.5 px frame-driven float). Operands mono ink, operators ink-3 with U+2212 minus, result signal at 1.25x with impact flash, CA on numerals only and an emissive underline drawn left to right; the slab warms when the result lands. Each term arrives on its own anchor (RV1) and unanchored terms inherit the next anchored one; hidden terms keep their layout, and the slab itself now arrives with the first term (no empty panel before the anchor). Each term is a `data-dc-part` target. 2D only, so hero = standard. Demo = NilePay success rate 4 / 6 = 66.67 % (d:5.2:7 context line, data contract). Baselines pending-critic. Snap PASS det 0 qa 0. Perf box s/frame at 3 slots: lite 0.069, standard 0.100, hero 0.096 (budgets 0.201 / 0.201 / 1.038). Arabic QA pass (Latin and numeral strings only). Open note: the demo has no Arabic operand. |

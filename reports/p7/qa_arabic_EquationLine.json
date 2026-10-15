@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T18:05:15Z",
+ "created": "2026-10-15T21:50:13Z",
  "label": "EquationLine",
  "thresholds": {
   "ocr_min": 0.9,
@@ -78,7 +78,7 @@
  "per_letter": [],
  "items": [
   {
-   "id": "eq-operand-4",
+   "id": "op1",
    "text": "4",
    "size": 92,
    "render_size": 92,
@@ -108,37 +108,7 @@
    "status": "pass"
   },
   {
-   "id": "eq-op-div",
-   "text": "/",
-   "size": 92,
-   "render_size": 92,
-   "kind": "number",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 44,
-    "ink_h": 85,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
-   },
-   "status": "pass"
-  },
-  {
-   "id": "eq-operand-6",
+   "id": "op2",
    "text": "6",
    "size": 92,
    "render_size": 92,
@@ -168,7 +138,7 @@
    "status": "pass"
   },
   {
-   "id": "eq-result",
+   "id": "res",
    "text": "66.67 %",
    "size": 115,
    "render_size": 115,
@@ -199,8 +169,8 @@
    "status": "pass"
   },
   {
-   "id": "eq-eq",
-   "text": "4 / 6 = 66.67 %",
+   "id": "slash",
+   "text": "/",
    "size": 92,
    "render_size": 92,
    "kind": "number",
@@ -211,14 +181,43 @@
    "tofu": {
     "missing": [],
     "faces": [
-     "ar-display",
-     "mono"
+     "ar-display"
     ]
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 709,
+    "ink_w": 44,
     "ink_h": 85,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "eq",
+   "text": "=",
+   "size": 92,
+   "render_size": 92,
+   "kind": "number",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 41,
+    "ink_h": 30,
     "container_w": 1784,
     "lines": 1
    },

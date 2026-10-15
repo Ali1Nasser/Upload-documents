@@ -52,14 +52,15 @@ export const EquationLineView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const settled = revealProgress(t - first - presetFrames('arrive', ctx.fps), presetFrames('label', ctx.fps));
   const bob = Math.round(1.5 * Math.sin((2 * Math.PI * (t - first)) / (ctx.fps * 4)) * settled); // whole px, a pure function of the frame (a fractional offset broke determinism, see TermChip)
   const fade = ex === undefined || ex < 0 ? 1 : 1 - revealProgress(ex, presetFrames('exit', ctx.fps));
-  const slab = `linear-gradient(180deg, ${C.panel}${hex(0.78)}, ${C.ground}${hex(0.7)})`;
-  const rimLight = `linear-gradient(to bottom left, ${C.signal}${hex(0.85 * rim)} 0%, ${C.signal}${hex(0.22 * rim)} 36%, ${C.ink}${hex(0.06 + 0.06 * rim)} 100%)`;
+  const lit = rim * fade; // the slab (glass, rim, pool, shadow) arrives with the first term and leaves with the exit; hidden = no empty panel
+  const slab = `linear-gradient(180deg, ${C.panel}${hex(0.78 * lit)}, ${C.ground}${hex(0.7 * lit)})`;
+  const rimLight = `linear-gradient(to bottom left, ${C.signal}${hex(0.85 * lit)} 0%, ${C.signal}${hex(0.22 * lit)} 36%, ${C.ink}${hex((0.06 + 0.06 * rim) * lit)} 100%)`;
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
       <div style={{position: 'relative', top: bob + 'px'}}>
       <div
         aria-hidden
-        style={{position: 'absolute', left: '-6%', right: '-6%', top: '22%', bottom: '-34%', background: `radial-gradient(ellipse closest-side at 50% 50%, ${C.void}${hex(0.6 * rim)} 0%, ${C.void}${hex(0.3 * rim)} 60%, ${C.void}00 100%)`, pointerEvents: 'none'}}
+        style={{position: 'absolute', left: '-6%', right: '-6%', top: '22%', bottom: '-34%', background: `radial-gradient(ellipse closest-side at 50% 50%, ${C.void}${hex(0.6 * lit)} 0%, ${C.void}${hex(0.3 * lit)} 60%, ${C.void}00 100%)`, pointerEvents: 'none'}}
       />
       <div
         data-dc-part="slab"
@@ -69,13 +70,12 @@ export const EquationLineView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           borderRadius: Math.round(size * 0.28),
           background: `${slab} padding-box, ${rimLight} border-box`,
           border: '1.5px solid transparent',
-          boxShadow: `inset 0 1px 0 ${C.ink}${hex(0.08 * rim)}`,
-          opacity: fade < 1 ? fade : undefined,
+          boxShadow: `inset 0 1px 0 ${C.ink}${hex(0.08 * lit)}`,
         }}
       >
         <div
           aria-hidden
-          style={{position: 'absolute', left: '-8%', right: '-8%', bottom: '-55%', height: '120%', background: `radial-gradient(ellipse closest-side at 62% 50%, ${C.signal}${hex(0.1 + 0.2 * warm)} 0%, ${C.signal}${hex(0.05 + 0.05 * warm)} 55%, ${C.signal}00 100%)`, pointerEvents: 'none'}}
+          style={{position: 'absolute', left: '-8%', right: '-8%', bottom: '-55%', height: '120%', background: `radial-gradient(ellipse closest-side at 62% 50%, ${C.signal}${hex((0.1 + 0.2 * warm) * lit)} 0%, ${C.signal}${hex((0.05 + 0.05 * warm) * lit)} 55%, ${C.signal}00 100%)`, pointerEvents: 'none'}}
         />
       <bdi
         ref={ref as React.RefObject<HTMLElement>}
