@@ -31,10 +31,12 @@ const demos: DemoModule = {
       },
     },
     {
-      // 4 depth planes (04 section 1.2: background grid + haze blurred and dim, sharp midground subject, blurred foreground bokeh) under a
-      // strong truck (0.7) ("following data"), so the planes separate by parallax: grid far (0.4, DOF 0.6), the 400 EGP total mid (1.0),
-      // the NilePay term near (1.3), dust fg (1.6, DOF 1). DOF = blur x FX[tier].dofBlurPx (0 at lite, 4 px at standard / hero) and never
-      // touches copy, so the blurred planes are the two non-copy layers. Review B3.
+      // 4 depth planes (04 section 1.2) under a strong truck (0.7) ("following data"), so the planes separate by differential parallax:
+      // grid far (0.4, dim token colour), the 400 EGP total mid (1.0), the NilePay term near (1.3), dust fg (1.6). The fg bokeh discs
+      // come from the standard / hero tier backdrop (FX.bokeh). DOF is OFF in this demo on purpose (blur 0): the engine blurs a layer
+      // as one full-frame CSS filter, measured at +0.12 box s/frame (grid) and +0.17 (dust) at standard, i.e. 0.31 / 0.49 against the
+      // 0.201 budget, so a blurred plane is a hero-tier choice (hero 0.48 of 1.038). The DOF look is shown by the evidence strip
+      // (reports/p7/evidence/fx-b/DepthLayers_parallax.jpg, blur 0.6 / 1 at standard and hero) and filed as CR-017.
       name: 'DepthLayers',
       frames: 96,
       words: [
@@ -49,78 +51,16 @@ const demos: DemoModule = {
             component: 'DepthLayers',
             props: {
               planes: [
-                {layer: 'grid', plane: 'far', parallax: 0.4, blur: 0.6},
+                {layer: 'grid', plane: 'far', parallax: 0.4, blur: 0},
                 {layer: 'total', plane: 'mid', parallax: 1, blur: 0},
                 {layer: 'kw-brand', plane: 'near', parallax: 1.3, blur: 0},
-                {layer: 'dust', plane: 'fg', parallax: 1.6, blur: 1},
+                {layer: 'dust', plane: 'fg', parallax: 1.6, blur: 0},
               ],
             },
           },
           {component: 'HoloGrid', props: {id: 'grid', surface: 'floor', color: 'grid'}},
           {component: 'KineticWord', props: {id: 'kw-brand', text: 'NilePay', slot: 'upper-third', size: 'sub', color: 'signal', emphasis: 'term'}, at: {word: W('DepthLayers', 1), lead_frames: 2}},
           {component: 'NumberCounter', props: {id: 'total', to: {value: 400, ref: 'd:5.2:8', unit: 'EGP', decimals: 0}, format: 'currency', label: 'الإجمالي الناجح', slot: 'center'}, at: {word: W('DepthLayers', 2), lead_frames: 0}},
-          {component: 'ParticleField', props: {id: 'dust', count: 90, kind: 'dust', color: 'signal', seed: 52}},
-        ],
-      },
-    },
-    {
-      // 4 depth planes (04 section 1.2: background grid + haze blurred and dim, sharp midground subject, blurred foreground bokeh) under a
-      // strong truck (0.7) ("following data"), so the planes separate by parallax: grid far (0.4, DOF 0.6), the 400 EGP total mid (1.0),
-      // the NilePay term near (1.3), dust fg (1.6, DOF 1). DOF = blur x FX[tier].dofBlurPx (0 at lite, 4 px at standard / hero) and never
-      // touches copy, so the blurred planes are the two non-copy layers. Review B3.
-      name: 'DepthLayersX1',
-      frames: 96,
-      words: [
-        [W('DepthLayersX1', 1), 2, 18],
-        [W('DepthLayersX1', 2), 30, 54],
-      ],
-      shot: {
-        fx_tier: 'standard',
-        camera: {move: 'truck', intensity: 0.7},
-        layers: [
-          {
-            component: 'DepthLayers',
-            props: {
-              planes: [
-                {layer: 'grid', plane: 'far', parallax: 0.4, blur: 0.6},
-                {layer: 'total', plane: 'mid', parallax: 1, blur: 0},
-                {layer: 'kw-brand', plane: 'near', parallax: 1.3, blur: 0},
-              ],
-            },
-          },
-          {component: 'HoloGrid', props: {id: 'grid', surface: 'floor', color: 'grid'}},
-          {component: 'KineticWord', props: {id: 'kw-brand', text: 'NilePay', slot: 'upper-third', size: 'sub', color: 'signal', emphasis: 'term'}, at: {word: W('DepthLayersX1', 1), lead_frames: 2}},
-          {component: 'NumberCounter', props: {id: 'total', to: {value: 400, ref: 'd:5.2:8', unit: 'EGP', decimals: 0}, format: 'currency', label: 'الإجمالي الناجح', slot: 'center'}, at: {word: W('DepthLayersX1', 2), lead_frames: 0}},
-        ],
-      },
-    },
-    {
-      // 4 depth planes (04 section 1.2: background grid + haze blurred and dim, sharp midground subject, blurred foreground bokeh) under a
-      // strong truck (0.7) ("following data"), so the planes separate by parallax: grid far (0.4, DOF 0.6), the 400 EGP total mid (1.0),
-      // the NilePay term near (1.3), dust fg (1.6, DOF 1). DOF = blur x FX[tier].dofBlurPx (0 at lite, 4 px at standard / hero) and never
-      // touches copy, so the blurred planes are the two non-copy layers. Review B3.
-      name: 'DepthLayersX2',
-      frames: 96,
-      words: [
-        [W('DepthLayersX2', 1), 2, 18],
-        [W('DepthLayersX2', 2), 30, 54],
-      ],
-      shot: {
-        fx_tier: 'standard',
-        camera: {move: 'truck', intensity: 0.7},
-        layers: [
-          {
-            component: 'DepthLayers',
-            props: {
-              planes: [
-                {layer: 'total', plane: 'mid', parallax: 1, blur: 0},
-                {layer: 'kw-brand', plane: 'near', parallax: 1.3, blur: 0},
-                {layer: 'dust', plane: 'fg', parallax: 1.6, blur: 1},
-              ],
-            },
-          },
-          {component: 'KineticWord', props: {id: 'kw-brand', text: 'NilePay', slot: 'upper-third', size: 'sub', color: 'signal', emphasis: 'term'}, at: {word: W('DepthLayersX2', 1), lead_frames: 2}},
-          {component: 'NumberCounter', props: {id: 'total', to: {value: 400, ref: 'd:5.2:8', unit: 'EGP', decimals: 0}, format: 'currency', label: 'الإجمالي الناجح', slot: 'center'}, at: {word: W('DepthLayersX2', 2), lead_frames: 0}},
           {component: 'ParticleField', props: {id: 'dust', count: 90, kind: 'dust', color: 'signal', seed: 52}},
         ],
       },

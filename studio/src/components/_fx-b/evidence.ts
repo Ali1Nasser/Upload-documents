@@ -19,7 +19,7 @@ import type {DemoDef, Features, SpecInput} from '../../spec/types';
 const BROWSER = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
 const chromiumOptions = {gl: 'swiftshader' as const};
 
-type Job = {tag: string; demo?: string; input?: SpecInput; features?: Features | null; tier: 'lite' | 'standard' | 'hero'; frames: number[]; debug?: Record<string, unknown> | null; scale?: number; det?: number};
+type Job = {tag: string; demo?: string; input?: SpecInput; features?: Features | null; tier: 'lite' | 'standard' | 'hero'; frames: number[]; debug?: Record<string, unknown> | null; scale?: number; det?: number; planeBlur?: Record<string, number>};
 
 /** Same mapping as SpecPlayer demoInput (a demo = a one-shot spec on synthetic word ids), plus optional synthetic features. */
 const inputOfDemo = (d: DemoDef, features: Features | null): SpecInput => {
@@ -54,6 +54,11 @@ const main = async () => {
       const d = j.demo ? demos.demos.find((x) => x.name === j.demo) : undefined;
       const input = j.input ?? (d ? inputOfDemo(d, j.features ?? null) : null);
       if (!input) throw new Error(`job ${j.tag}: no input`);
+      if (j.planeBlur) {
+        // DOF evidence: same demo, DepthLayers planes[].blur overridden by layer id (the shipped demo has blur 0, CR-017)
+        for (const sh of (input.spec as {shots: {layers: {component: string; props: {planes?: {layer: string; blur: number}[]}}[]}[]}).shots)
+          for (const l of sh.layers) if (l.component === 'DepthLayers') for (const p of l.props.planes ?? []) if (j.planeBlur[p.layer] !== undefined) p.blur = j.planeBlur[p.layer];
+      }
       const inputProps = {input, tier: j.tier, debug: j.debug ?? null};
       const comp = await selectComposition({...c, id: 'SpecPlayer', inputProps});
       const files: string[] = [];

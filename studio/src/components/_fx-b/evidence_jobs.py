@@ -19,6 +19,8 @@ def jobs():
         {"tag": "cam_std", "demo": "CameraRig", "tier": "standard", "frames": [8, 30, 60, 61, 62, 95]},
         {"tag": "dl_std", "demo": "DepthLayers", "tier": "standard", "frames": [0, 70, 95]},
         {"tag": "dl_lite", "demo": "DepthLayers", "tier": "lite", "frames": [70]},
+        {"tag": "dl_dof_std", "demo": "DepthLayers", "tier": "standard", "frames": [70], "planeBlur": {"grid": 0.6, "dust": 1}},
+        {"tag": "dl_dof_hero", "demo": "DepthLayers", "tier": "hero", "frames": [70], "planeBlur": {"grid": 0.6, "dust": 1}},
     ]
     for t in ["lite", "standard", "hero"]:
         J.append({"tag": f"fx_{t}", "demo": "FXTier", "tier": t, "frames": [33, 50]})
@@ -51,6 +53,8 @@ def jobs():
     J.append({"tag": "tr_whip_hero", "input": tr_input("whip", whip), "tier": "hero", "frames": TRF})
     J.append({"tag": "tr_streak_std", "input": tr_input("streak", {"component": "LightStreakTransition", "props": {"direction": "rtl", "color": "signal"}}), "tier": "standard", "frames": TRF})
     J.append({"tag": "tr_match_std", "input": tr_input("match", {"component": "MatchCut", "props": {"from": "total", "to": "rate", "kind": "shape"}}), "tier": "standard", "frames": TRF})
+    if os.environ.get("FXB_ONLY"):  # restrict the job list to one component's stills
+        J = [j for j in J if j.get("demo") == os.environ["FXB_ONLY"]]
     # determinism of the evidence stills themselves (same frame twice)
     for j in J:
         if j["frames"]:
@@ -109,23 +113,29 @@ def strips(src, out):
             y += i.height
         o.save(path, quality=86)
 
-    c = {f: im("cam_std", f) for f in [8, 30, 60, 61, 62, 95]}
-    rows([
-        ([(c[8], "f8 (word 1 settled)"), (c[30], "f30 (counter rolling to its word end)"), (c[95], "f95 (end)"), (onion(c[30], c[95]), "onion: f30 cyan / f95 yellow (title + counter)")],
-         "CameraRig dolly_zoom, intensity 1, standard tier: subject +12 %, backdrop counter-scales", {"pw": 960, "cols": 2}),
-        ([(c[61], "f61"), (c[62], "f62 = nudge word anchor (RV1)"), (amp(c[60], c[61], 6), "|f61 - f60| x6 (camera drift only)"), (amp(c[61], c[62], 6), "|f62 - f61| x6 (drift + 4 px nudge)")],
-         "CameraRig impact nudge: one frame, 4 px (IMPACT.nudgePxMax) on the anchor frame", {"pw": 960, "cols": 2}),
-    ], os.path.join(out, "CameraRig_motion.jpg"))
+    if os.environ.get("FXB_ONLY") != "DepthLayers":
+        c = {f: im("cam_std", f) for f in [8, 30, 60, 61, 62, 95]}
+        rows([
+            ([(c[8], "f8 (word 1 settled)"), (c[30], "f30 (counter rolling to its word end)"), (c[95], "f95 (end)"), (onion(c[30], c[95]), "onion: f30 cyan / f95 yellow (title + counter)")],
+             "CameraRig dolly_zoom, intensity 1, standard tier: subject +12 %, backdrop counter-scales", {"pw": 960, "cols": 2}),
+            ([(c[61], "f61"), (c[62], "f62 = nudge word anchor (RV1)"), (amp(c[60], c[61], 6), "|f61 - f60| x6 (camera drift only)"), (amp(c[61], c[62], 6), "|f62 - f61| x6 (drift + 4 px nudge)")],
+             "CameraRig impact nudge: one frame, 4 px (IMPACT.nudgePxMax) on the anchor frame", {"pw": 960, "cols": 2}),
+        ], os.path.join(out, "CameraRig_motion.jpg"))
     if os.environ.get("FXB_ONLY") == "CameraRig":  # re-render only this strip (the other stills are not rendered)
         return
 
     d0, d47, d95, l47 = im("dl_std", 0), im("dl_std", 70), im("dl_std", 95), im("dl_lite", 70)
+    ds, dh = im("dl_dof_std", 70), im("dl_dof_hero", 70)
     rows([
         ([(d0, "f0 truck start"), (d47, "f70"), (d95, "f95 truck end"), (onion(d0, d95), "onion f0 / f95: far 0.4 < mid 1 < near 1.3 < fg 1.6")],
-         "DepthLayers, standard: grid far (DOF 0.6), 400 EGP mid, NilePay near, dust fg (DOF 1); truck 0.7"),
-        ([(l47, "f70 lite (dofBlurPx 0)"), (d47, "f70 standard (dofBlurPx 4)"), (amp(l47, d47, 4), "|standard - lite| x4: DOF + tier FX; copy never blurred")],
-         "DepthLayers DOF by tier"),
+         "DepthLayers demo, standard (shipped): grid far, 400 EGP mid, NilePay near, dust fg; truck 0.7; blur 0 (cost, CR-017)", {"pw": 960, "cols": 2}),
+        ([(d47, "f70 shipped demo (blur 0)"), (ds, "f70 DOF on: grid 0.6, dust 1 (standard, 4 px max)"), (dh, "f70 DOF on, hero"), (amp(d47, ds, 4), "|DOF on - off| x4: only the grid and dust change; copy never blurred")],
+         "DepthLayers DOF (evidence only): standard +0.12 (grid) / +0.17 (dust) box s/frame, hero fits (0.48 of 1.038)", {"pw": 960, "cols": 2}),
+        ([(l47, "f70 lite (dofBlurPx 0, DOF on = no change)"), (d47, "f70 standard (tier haze, bokeh, grain, vignette)"), (amp(l47, d47, 4), "|standard - lite| x4")],
+         "DepthLayers by tier: lite carries parallax only (previews), standard adds the tier backdrop with foreground bokeh", {"pw": 640, "cols": 3}),
     ], os.path.join(out, "DepthLayers_parallax.jpg"))
+    if os.environ.get("FXB_ONLY") == "DepthLayers":
+        return
 
     fl, fs_, fh = im("fx_lite", 50), im("fx_standard", 50), im("fx_hero", 50)
     rows([

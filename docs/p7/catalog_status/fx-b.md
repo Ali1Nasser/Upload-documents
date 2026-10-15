@@ -10,7 +10,7 @@ The fx-b files never edit the shared engine. Where the engine drops a frozen pro
 | Component | Status | What renders it | Snap (lite, 4 stills) | Box s/frame lite / standard / hero (budget 0.201 / 0.201 / 1.038) |
 |---|---|---|---|---|
 | CameraRig | implemented | `resolve.ts` builds `ResolvedShot.camera` (move, ease, intensity, nudges resolved with one rounding); `rig.ts` provides `cameraAt`, `cameraSafeBox` and `planeStyle` | PASS, det 0 px, qa 0 | 0.1645 (queue load 6.7) / **0.0792** / 0.0769 (re-measured 2026-10-15 21:42) |
-| DepthLayers | implemented | `resolve.ts` maps each layer to its depth plane, parallax and blur; SpecPlayer draws the planes far→fg with `planeStyle`; DOF = blur × `FX[tier].dofBlurPx`, never on copy | PASS, det 0 px, qa 0 | 0.0795 / **0.0991** / 0.0991 |
+| DepthLayers | implemented | `resolve.ts` maps each layer to its depth plane, parallax and blur; SpecPlayer draws the planes far→fg with `planeStyle`; DOF = blur × `FX[tier].dofBlurPx`, never on copy | PASS, det 0 px, qa 0 | 0.1289 / **0.1872** / 0.2033 (2026-10-15, 4 planes: HoloGrid far, KineticWord, NumberCounter, ParticleField fg; blur 0, see CR-017) |
 | FXTier | implemented | `ResolvedShot.tier` (priority: preview = lite > forced perf tier > FXTier > shot.fx_tier > standard); the frozen `FX[tier]` object; text-safe masks at every tier | PASS, det 0 px, qa 0 | 0.0779 / **0.1051** / 0.1064 |
 | AudioReactive | implemented | `resolve.ts` builds one curve per feature × smoothing from the locked P5 features (24 fps; coefficient re-derived per fps); `modAt` feeds `ctx.mod[param]`; haze drives the backdrop | PASS, det 0 px, qa 0 | 0.0749 / **0.0991** / 0.1038 |
 | WhipPan | mapped → compiler transition `whip` | `TRANSITION_ALIAS` WhipPan → whip (12 f @ 24); `rig.ts transitionState` | n/a (see below) | n/a |
@@ -50,10 +50,13 @@ The hero figures match standard because none of these demos uses WebGL. The hero
   - The modulation path is proven on synthetic features in `shot_level.check.ts`: curves in 0..1, smoothing order, the target only, and 12 fps tracking 24 fps.
   - It is also proven in chapter renders, which carry the locked P5 features.
   - Which params a target honours is up to the target component: KineticWord reads glow, scale and opacity; NumberCounter reads glow; haze drives the backdrop.
-- **DepthLayers demo.**
-  - Both subject layers carry copy, so the far plane's `blur: 0.6` has no visible effect: DOF never blurs copy (ADR-002).
-  - Snapshots are lite, where `dofBlurPx` is 0, so they show parallax only.
-  - The demos use only the reviewed reference components (KineticWord, NumberCounter, TableGrid), so other groups' baselines cannot break fx-b snapshots.
+- **DepthLayers demo (2026-10-15, critic round-1 B3 addressed).**
+  - The demo has 4 planes: HoloGrid far (0.4), NumberCounter 400 EGP mid (1.0), KineticWord NilePay near (1.3) and ParticleField dust fg (1.6) under a 0.7 truck. Foreground bokeh discs come from the tier backdrop. The two non-copy planes are the far and fg ones.
+  - Evidence `reports/p7/evidence/fx-b/DepthLayers_parallax.jpg`: onion f0/f95 (differential parallax), DOF on vs off at standard and hero, lite vs standard. The evidence stills are not byte-deterministic at threshold 0 for the lite and DOF-standard jobs (about 1,550 px); the snapshot (threshold 0.1) is det 0 px.
+  - **DOF is OFF (blur 0) in the shipped demo because of cost (CR-017).** The engine blurs a layer as one full-frame CSS filter. Measured at standard: 0.194 without blur, 0.311 with the grid blurred, 0.485 with grid and dust blurred (budget 0.201). Hero fits (0.478 of 1.038). Until CR-017 lands, a spec that sets `planes[].blur > 0` in a standard shot spends 0.12-0.17 box s/frame per blurred plane; use it on hero shots only. Spec lint does not warn yet (outside the fx-b paths).
+  - Snapshots are lite, where `dofBlurPx` is 0, so they show parallax and atmospheric dimming only. The baselines are pending-critic (p50 re-written; 0 px visual diff against the previous one).
+  - The hard-edged dark rectangle behind the counter in the lite stills is the NumberCounter / backdrop text-safe cut-out, not DepthLayers.
+  - The old draft demos `DepthLayersX1` / `DepthLayersX2` were removed (they were not catalog components and made the snap runs of other fx-b components report a registry problem).
 
 ## Demo content (canon, data contract §5.2)
 
@@ -63,3 +66,5 @@ All demo copy comes from NilePay receipts T1–T6 (`d:5.2:1`–`d:5.2:6`):
 - T3 200 EGP FAILED (`d:5.2:3`).
 
 There are no invented numbers. The Arabic labels are الإيصالات / نسبة النجاح / الإجمالي الناجح / إيصال T3 / إيصالات NilePay.
+
+Arabic QA for DepthLayers (label الإجمالي الناجح, the only Arabic string): `reports/qa/arabic/p7-DepthLayers.json`, PASS (OCR 1.0).

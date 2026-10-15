@@ -2,7 +2,7 @@
  "v": 2,
  "name": "DepthLayers",
  "composition": "Demo-DepthLayers",
- "at": "2026-10-15T17:57:52Z",
+ "at": "2026-10-15T22:02:59Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,56 +21,56 @@
  "tiers": {
   "lite": {
    "frames": 96,
-   "wall_s": 21.92,
-   "box_s_per_frame": 0.2283,
-   "slot_s_per_frame": 0.6849,
+   "wall_s": 12.38,
+   "box_s_per_frame": 0.1289,
+   "slot_s_per_frame": 0.3867,
    "budget_box_s_per_frame": 0.201,
-   "within_budget": false,
+   "within_budget": true,
    "loadavg1": [
-    5.41,
-    5.09
+    6.66,
+    6.39
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 2
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 96,
-   "wall_s": 82.06,
-   "box_s_per_frame": 0.8548,
-   "slot_s_per_frame": 2.5644,
+   "wall_s": 17.97,
+   "box_s_per_frame": 0.1872,
+   "slot_s_per_frame": 0.5616,
    "budget_box_s_per_frame": 0.201,
-   "within_budget": false,
+   "within_budget": true,
    "loadavg1": [
-    4.61,
-    2.68
+    6.28,
+    5.33
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 4
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 96,
-   "wall_s": 81.11,
-   "box_s_per_frame": 0.8449,
-   "slot_s_per_frame": 2.5347,
+   "wall_s": 19.52,
+   "box_s_per_frame": 0.2033,
+   "slot_s_per_frame": 0.6099,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    2.79,
-    2.3
+    5.78,
+    5.44
    ],
    "queue": {
     "running": 1,
-    "queued": 8
+    "queued": 4
    },
    "other_jobs_running": 0
   }
  },
- "within_budget": false,
+ "within_budget": true,
  "qa_findings": []
 }
