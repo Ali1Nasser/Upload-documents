@@ -80,3 +80,23 @@ Non-blocking, fix before the next re-baseline:
 4. Hard-edged dark scrim behind the counter (x 320-640, y 250-335, p50 and p100): carry-over from NumberCounter, feather it.
 5. CR-004 is still open: move 'follow' behaves as 'truck'. Condition of approval: scene-directors must not use follow until it lands (add a spec-lint warning), because a schema field that is silently ignored is a trap.
 6. Strip frames are dark at 480 px per panel: raise the strip panel size to 960 px for the next evidence.
+
+## CameraRig — round 1 (confirmation after author's non-blocking fixes)
+
+Date: 2026-10-15. Reviewer: critic (not the author). Read at full size: baselines p0, a1, p50, p100 (960x540, lite, unchanged pixels, snap 0 px mismatch on all four) and the re-rendered reports/p7/evidence/fx-b/CameraRig_motion.jpg (960 px panels, two per line).
+Verdict: APPROVED stays, score 7/10, no blocking issue.
+
+Closed since the previous pass:
+- Strip panel size is now 960 px: bokeh, scrim and Arabic are readable (was 480 px, dark).
+- Onion legend now says "f30 cyan / f95 yellow (title + counter)" and matches the render (cyan = f30 at the lower position, yellow = f95 larger and higher). Title and counter both show offset, so the dolly_zoom reads as a push-in without narration.
+- |f62-f61| x6 still shows the 4 px nudge as a bright outline against the near-black |f61-f60|.
+
+Still open (non-blocking, carry to the next re-baseline):
+1. p0 (x 457-545, y 105-135): the title is still clipped at its left edge ("الإيصا" with a hard cut at x 457). Use a settled frame (f8) instead of f0.
+2. Baselines are lite: no bokeh and no backdrop counter-scale in p0/a1/p50/p100 (flat gradient only). The depth half of the move is evidenced only by the strip. Re-baseline a1 and p100 at standard.
+3. p50 and p100, hard-edged dark scrim behind the counter (x 320-640, y 250-335 at 960 px): feather it. Visible as a rectangle on the bokeh strip panels too (f30, f95, x 1080-1370, y 650-830 in the strip).
+4. Counter label "نسبة النجاح" is small (about 18 px at 960 px wide; about 36 px at 1080p, acceptable) but low contrast: raise to the secondary token.
+5. CR-004 (follow behaves as truck) still open. Condition: scene-directors must not use move follow until it lands; add a spec-lint warning.
+6. Onion panel colours (pure yellow, cyan) are off-palette; acceptable for evidence only, never for a baseline.
+
+Rubric (1-10): legibility 8, token/palette 8, depth and light 6 at lite (8 at standard strip), visual verb without narration 7, Arabic 9, no bullet look 8, legacy frames 10, sourced numbers 9 (66.67 % in canon), motion intent 8. Mean about 7.9 on the strip, 7 on the stills alone; the stills-only depth score of 6 is the reason for the capped 7.

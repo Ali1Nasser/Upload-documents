@@ -36,6 +36,6 @@
   "score": 7,
   "date": "2026-10-15",
   "by": "critic",
-  "notes": "Round 1 B4 closed by the dolly_zoom demo plus CameraRig_motion.jpg (title +11 % p0-p100, 4 px nudge visible in the f62-f61 difference). Conditions: lite baselines show no bokeh or counter-scale (strip is the standard-tier evidence); CR-004 (follow = truck) still open, scene-directors must not use move follow until it lands; onion-skin legend says cyan/coral but renders yellow/cyan; hard-edged scrim behind the counter (x 320-640, y 250-335 in p50/p100) is a non-blocking carry-over."
+  "notes": "Round 1 confirmed (7/10, no blocking). Closed: onion legend matches colours (f30 cyan / f95 yellow, title+counter), strip at 960 px, 4 px nudge visible in |f62-f61|. Open non-blocking: p0 title clipped (use f8); lite baselines show no bokeh/counter-scale (re-baseline a1,p100 at standard); hard-edged scrim behind counter (x 320-640, y 250-335); CR-004 follow=truck, scene-directors must not use follow until it lands."
  }
 }
