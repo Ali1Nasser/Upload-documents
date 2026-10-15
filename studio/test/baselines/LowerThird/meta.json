@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-15T21:56:28Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7,
+  "date": "2026-10-15",
+  "by": "critic",
+  "round": 1,
+  "notes": "Legible (title 56 px bold, subtitle 40 px ink2), palette-clean (signal cyan on panel/ground), rim-lit glass plate + accent bar + glowing badge; Arabic and mixed-script title correct (tatweel + Latin grain, shadda clear). Non-blocking: baselines show only settled frames (a1 at f13 is already fully open) so wipe, bar growth and foot sweep are unverified, request strip anchor-2,0,+2,+4,+8,+16; only kind=term baselined (source/speaker/location glyphs unverified); floor pool barely visible at normal gain and shows a shelf edge at 6x (x 440-580, y~395); plate is a label (~540 px wide at 1080p) so the host shot must supply depth and a concrete object."
+ }
 }

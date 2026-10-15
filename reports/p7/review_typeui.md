@@ -75,3 +75,22 @@ Non-blocking issues (ordered by impact)
 5. The slab is 940 px wide at 1080p in a 1920 frame; the host shot must carry camera and a concrete object (the demo's push_in 0.3 is not visible in the stills). The component is a label, not a scene.
 
 Score breakdown: legibility 8, palette/tokens 8, depth and light 7, visual verb without narration 8, Arabic 8 (no Arabic content; isolate correct), not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 6 (empty slab in a1/p50).
+
+## LowerThird - round 1 (critic)
+
+Verdict: **approved-critic**, score **7/10** (no blocking issue). Evidence: baselines p0, a1, p50, p100 at 960x540 read at full size, a 4x crop and a 6x levels-boosted p100, reports/p7/snap/LowerThird.jpg, qa_arabic_LowerThird.json (pass), demo in studio/src/demos/type-ui.tsx. Commit under review c525f27. No strip exists; stills are settled frames.
+
+Strengths
+- Legible: title about 56 px bold ink and subtitle about 40 px ink2 on a dark glass plate (p100, x 580-856 / y 400-502 at 960 px). Shadda in بيمثّل and the tatweel + Latin "الـ grain" title render correctly, order right-to-left correct, badge sits on the start side.
+- Light and depth: cyan rim along the upper-right edge, emissive accent bar on the start edge, glowing toggle badge, thin foot sweep. It reads as a lit object, not a flat card.
+- Palette: only signal cyan, ink, ink2, panel, ground; kind glyph is drawn SVG, no copy. No legacy frames, no numbers.
+- Visual verb: toggle badge in cyan = a term being defined; subtitle supplies the gloss. Not a bullet slide.
+
+Non-blocking issues (ordered by impact)
+1. All stills (a1 f13, p50, p100), whole plate: a1 is already fully open, so the bar growth, RTL plate wipe, 2-frame subtitle lag and foot sweep are not visible anywhere. Request a strip at anchor-2, 0, +2, +4, +8, +16 for the G8 pilot, plus a baseline at anchor+2.
+2. Baselines cover kind=term only. The source (document), speaker (waveform) and location (pin) glyphs are not in any still; add one baseline or demo frame per kind.
+3. p100 at 6x boost, region x 440-580 / y 395-440: the floor pool shows a shelf edge to the left of the plate; at normal gain the pool (alpha 0.16) is nearly invisible, so it contributes little depth. Feather the left edge and lift peak to about 0.22.
+4. p100, plate overall: about 540 px wide at 1080p, an anchored label. The host shot must supply the camera, depth and a concrete object; LowerThird alone is not a scene.
+5. p100, foot sweep, region x 580-840 / y 497-500: a 2 px line that is fully settled and barely perceptible at 960 px; optional.
+
+Score breakdown: legibility 8, palette/tokens 8, depth and light 7, visual verb without narration 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 5 (unverified), polish 8.
