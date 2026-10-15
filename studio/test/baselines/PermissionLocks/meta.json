@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "b8fb0a6924332150fb1ed067b8624fcf3f541f12246defda06d81e3aff61c308",
-  "p50": "852826a46da5c36a83773692428d316ddef9680b039be329296f485fe08434a9",
-  "p100": "022276c0c9b98ca5ed039d285598acc88a5135e5ade316be3702df8e4199dd6e"
+  "a1": "9ad15896c37629c8a6d93f77a096c10f96344af0e836c174d758caf095c79f32",
+  "p50": "d6118ebf52dbbf290ba4373e6949012bccb7e8886bb8eedcd0b2a18dc7acd3ba",
+  "p100": "206c75f7eef251c9664d84778d56a8c61dcc2eef47709435efbbb938cf565501"
  },
  "v": 2,
  "name": "PermissionLocks",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 79,
-  "p100": 159
+  "p50": 84,
+  "p100": 169
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:19:18Z",
+ "written_at": "2026-10-15T22:09:07Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

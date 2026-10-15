@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "PermissionLocks",
+ "composition": "Demo-PermissionLocks",
+ "at": "2026-10-15T22:12:43Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 170,
+   "wall_s": 14.84,
+   "box_s_per_frame": 0.0873,
+   "slot_s_per_frame": 0.2619,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.11,
+    6.15
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 170,
+   "wall_s": 18.04,
+   "box_s_per_frame": 0.1061,
+   "slot_s_per_frame": 0.3183,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.15,
+    6.03
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 170,
+   "wall_s": 18.82,
+   "box_s_per_frame": 0.1107,
+   "slot_s_per_frame": 0.3321,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    6.03,
+    6.18
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

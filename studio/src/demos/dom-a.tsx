@@ -97,14 +97,16 @@ const latencyLadder: DemoDef = {
   },
 };
 
-// PermissionLocks: rwx as a grid of locks (04 §6 "Linux ops"): "600 يعني مقفولة بالظبط والمفتاح على صاحب الملف وبس".
+// PermissionLocks: rwx as a grid of locks (04 §6 "Linux ops"), the real modes of s:S4:P03:0026-0027: "700 للمفاتيح الخاصة"
+// (owner rwx, nobody else), a 600 backup (owner rw-), a 644 page (rw- r-- r--); then the 777 disaster ("أي حد يقدر يعمل أي حاجة")
+// opens the key to everyone and the fix closes it again. Roles = owner / group / other as the narration names them (s:S4:P03:0023).
 const permissionLocks: DemoDef = {
   name: 'PermissionLocks',
-  frames: 160,
+  frames: 170,
   words: [
     [W('PermissionLocks', 1), 6, 20],
-    [W('PermissionLocks', 2), 60, 76],
-    [W('PermissionLocks', 3), 108, 124],
+    [W('PermissionLocks', 2), 64, 80],
+    [W('PermissionLocks', 3), 114, 130],
   ],
   shot: {
     fx_tier: 'standard',
@@ -114,22 +116,20 @@ const permissionLocks: DemoDef = {
         component: 'PermissionLocks',
         props: {
           id: 'locks',
-          roles: ['صاحب الملف', 'المجموعة', 'أي حد'],
-          resources: ['config.yaml', 'deploy.sh', 'app.log'],
+          roles: ['المالك', 'الجروب', 'الباقي'],
+          resources: ['deploy.key', 'backup.sql', 'index.html'],
           grants: [
-            {role: 'صاحب الملف', resource: 'config.yaml', level: 'write'},
-            {role: 'المجموعة', resource: 'config.yaml', level: 'read'},
-            {role: 'صاحب الملف', resource: 'deploy.sh', level: 'admin'},
-            {role: 'المجموعة', resource: 'deploy.sh', level: 'read'},
-            {role: 'صاحب الملف', resource: 'app.log', level: 'write'},
-            {role: 'المجموعة', resource: 'app.log', level: 'read'},
-            {role: 'أي حد', resource: 'app.log', level: 'read'},
+            {role: 'المالك', resource: 'deploy.key', level: 'admin'},
+            {role: 'المالك', resource: 'backup.sql', level: 'write'},
+            {role: 'المالك', resource: 'index.html', level: 'write'},
+            {role: 'الجروب', resource: 'index.html', level: 'read'},
+            {role: 'الباقي', resource: 'index.html', level: 'read'},
           ],
         },
         at: A('PermissionLocks', 1),
       },
-      {component: 'PermissionLocks.deny', props: {target: 'locks', role: 'أي حد', resource: 'app.log'}, at: A('PermissionLocks', 2)},
-      {component: 'PermissionLocks.grant', props: {target: 'locks', role: 'المجموعة', resource: 'deploy.sh', level: 'write'}, at: A('PermissionLocks', 3)},
+      {component: 'PermissionLocks.grant', props: {target: 'locks', role: 'الباقي', resource: 'deploy.key', level: 'admin'}, at: A('PermissionLocks', 2)},
+      {component: 'PermissionLocks.deny', props: {target: 'locks', role: 'الباقي', resource: 'deploy.key'}, at: A('PermissionLocks', 3)},
     ],
   },
 };

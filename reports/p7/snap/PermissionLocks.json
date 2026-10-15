@@ -2,12 +2,12 @@
  "v": 2,
  "name": "PermissionLocks",
  "composition": "Demo-PermissionLocks",
- "at": "2026-10-14T08:19:18Z",
+ "at": "2026-10-15T22:09:07Z",
  "frames": [
   0,
   11,
-  79,
-  159
+  84,
+  169
  ],
  "thresholds": {
   "scale": 0.5,
@@ -36,14 +36,14 @@
   },
   {
    "tag": "p50",
-   "frame": 79,
+   "frame": 84,
    "why": "50 %",
    "determinism_diff_px": 0,
    "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 159,
+   "frame": 169,
    "why": "100 %",
    "baseline": "written"
   }
