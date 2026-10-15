@@ -114,3 +114,34 @@ Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, scale 0.5) and Deadl
 4. p100: the layout becomes asymmetric (B fades low, large void bottom-left and bottom-right). Keep B on the ring and fade it in place, or recentre the group.
 5. p50: both sessions are amber while the edges are crit. Tint the session rim crit-ish on the cycle so the "stuck" state sits on the trains too.
 6. Process: add a demo strip (frames 6, 24, 60, 104, 124, 167) to reports/p7/ so motion can be verified, and write baselines at 1080p for the next critic round. Required before the pilot, not before this approval.
+
+## PageScan — round 1 (2026-10-15, critic, not the author)
+
+Verdict: APPROVED (7.5/10, no blocking issue). meta.json set to approved-critic.
+Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, scale 0.5), reports/p7/snap/PageScan.jpg and PageScan.tsx. No motion strip exists, so motion (read head sweep, 3 hops, arc landing) was judged from code and the stills, not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition (grid top 74 %, counter lane free) | 8 |
+| Palette and token discipline (signal cyan reads, ok green hit, grey unread) | 8 |
+| Light and depth | 6 |
+| Typography and Arabic ("صفحة اتقرت" / "صفحات اتقرت" whole connected words; mono chips) | 8 |
+| Legibility at 1080p (chips ~28 px, tiles ~50 px, counter label ~36 px) | 7 |
+| Visual verb without narration | 8 |
+| Not a bullet slide, no legacy frames | 9 |
+| Numbers (12 470 / 3 are NumberCounter refs, none in the component) | 9 |
+| Motion intent (code plus stills) | 7 |
+| AI-Unpacked parity | 6 |
+
+### What works
+- p100: left slab is almost all dark, one green page lit by a cyan root-branch-leaf path and a green arc, against a right slab where every page is cyan. "3 versus all" reads with no narration.
+- p50: the read head sits at the lit frontier of the full scan with the hit page already green, and the counter lane under it is clean.
+- Dark unread pages make the count visible as a picture, as the author intended.
+
+### Non-blocking issues, ordered by impact
+1. p100, right slab: 60 identical cyan tiles read as a flat wall; 12 500 has no sense of scale. Add a faint pile or edge-stack under the slab (2-3 offset plates) or an ellipsis fade at the slab edge, and a brief crit-tinted bloom as the last page lights.
+2. p50, read head: the wedge is faint and one tile wide at 960 px. Widen to about 2.5 tiles and lift its start opacity from 0.3 to about 0.45, plus a trailing blur on the lit frontier.
+3. p100, tree: the nodes are about 14 px at 960 (28 px at 1080p), so the three-level index is small next to two large slabs. Scale the glyph by 1.3 and let the tree breathe into the empty band below it.
+4. a1 versus p50: column count changes (11 to 10 on the left, 12 on the right) as the slot boxes ease in, so tiles visibly reflow during entrance. Compute the layout from the final box, or hold it until the slot settles.
+5. Process: add a demo strip (frames 0, 11, 40, 101, 150, 203) to reports/p7/ and write baselines at 1080p before the pilot.

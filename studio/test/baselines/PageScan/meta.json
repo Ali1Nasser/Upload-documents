@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T21:46:40Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.5,
+  "date": "2026-10-15",
+  "by": "critic",
+  "notes": "Approved, no blocking issue. Looked at p0,a1,p50,p100 (960x540 lite) + PageScan.tsx; no motion strip, motion judged from code. Non-blocking: wall of identical cyan tiles gives no sense of scale (60 tiles stand for 12 500); read-head wedge faint at p50; tree nodes small (~28 px at 1080p); no strip. See reports/p7/review_dom-b.md."
+ }
 }
