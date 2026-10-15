@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T21:51:58Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.3,
+  "date": "2026-10-15",
+  "by": "critic",
+  "notes": "Approved, no blocking issue. Viewed p0,a1,p50,p100 (960x540 lite) + snap contact sheet; no motion strip, motion read from the p0/a1/p50/p100 progression. Non-blocking: card/when text ~22-26 px at 1080p and dim states low contrast; lower ~45% of frame empty and floor plane barely visible; cursor reticle covers the incident triangle at p50; cone clipped behind the card; demo numbers need spec anchors. See reports/p7/review_struct-b.md."
+ }
 }
