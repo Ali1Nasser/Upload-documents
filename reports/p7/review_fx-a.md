@@ -18,3 +18,26 @@ Verdict: APPROVED, 7/10, no blocking issue. meta.json set to approved-critic.
 3. p50, noise blocks (e.g. x 400-430, y 275-285; x 427-440, y 160-163): ink3 blocks at 0.35 alpha read as grey dead pixels, not sparks or glitch. Fix: tint them crit/signal or drop the ink3 ones.
 4. p100 (rows T3 and T6, region x 350-610, y 280-390): FAILED rows carry no red mark, so the held failure state is attached only to the chip and brackets. TableGrid already gives failed rows a red edge bar. Fix: at least offer an optional red row mark or tie the chip to the failed row.
 5. p0 is the same empty gradient (sha 84797c...) as in other components and carries no signal. The card is about 31 % of the frame width, with body text about 14 px at 960. The inner bracket frame clips the first letter of the title's "إ" (region x 604-612, y 155-165).
+
+## FixSettle — round 1
+
+Date: 2026-10-15. Reviewer: critic (did not author; finished in 57478f2). Scope: baselines p0/a1/p50/p100 at full size (960x540, lite tier; sha256 match meta.json), reports/p7/snap/FixSettle.jpg (the same 4 frames, no extra strip), FixSettle.tsx source. Snap: determinism 0 px, 0 QA findings.
+
+Verdict: NOT APPROVED, 6/10, 2 blocking issues. meta.json status set to changes-requested (approval stays pending-critic).
+
+### Good
+- Held end state (p50/p100): ok rim and L-brackets frame the table, the chip "اتصلحت والعملية نجحت" is shaped correctly (check on the leading right edge, ok edge bar), legible (about 34 px at 1080p). Colours are ok/signal/ink tokens only, seeded rnd, no Math.random, no numbers invented, no bullets, no legacy frames.
+- Source intent is sound: outBack drop of 10 px with 1.03 to 1 scale, ring converging as the release of the crit shockwave, motes landing on the rim, sweep right to left.
+
+### Blocking
+1. Motion intent is not evidenced in any still (whole component). a1 (frame 11, region whole card x 333-625, y 128-410) is pre-settle: 4 rows, no rim, no brackets, no chip. p50 (47) and p100 (95) are post-settle holds. The drop, the 100 px converging ring, brackets closing from 36 px, the light sweep and the 10 landing motes appear in none of them. Motes are standard/hero only and no baseline or strip is standard. The two "visual verb" claims (ring is the release of the shockwave; motes land) are therefore unverified. Fix: add a strip at standard tier (or hero) at anchor+0, +1, +2, +3, +5 frames (settle is about 5 frames at 12 fps) plus an onion-skin, and re-point a1 to anchor+1 so a baseline shows the beat. Re-submit for round 2.
+2. Contradictory state, p50/p100, region x 350-420, y 280-390 (rows T3 and T6 "FAILED" with a green "fixed and the operation succeeded" chip and ok frame). Without narration the picture says the opposite of the chip, so the verb "fix" does not read. Fix: in the Demo composition, flip the failed rows to OK on the anchor (or retried ok), or draw an ok mark/seat on the settling row. Note that the settle should land on the row that was fixed, not on the whole table.
+
+### Non-blocking (fix at the next re-baseline)
+3. p50/p100, region x 604-612, y 152-170: the ok rim (right edge at x about 609) runs through the "إ" of the title "إيصالات". Brackets at x 347-352 sit 5 px from "FAILED". This contradicts "nothing touches the copy". Fix: pad the rim from the card rect (not the table rect) by at least 18 px, or inset it clear of text.
+4. Depth and light are modest: the rim is 1 px at about 50 % alpha and the ok glow is nearly invisible at lite. The held state looks like a thin outlined box. Standard/hero baselines should show the sweep and glow so depth can be judged.
+5. p0 is the same empty gradient as in other components (sha 84797c...), no signal. Card is about 31 % of frame width, body text about 14 px at 960.
+6. Chip (p100) sits very close to the card bottom (gap about 5 px at x 375-580, y 413-418); give it 12-16 px of air.
+
+### Scores (component acceptance, 1-10)
+Legibility 8, token discipline 9, depth and light 5, verb reads without narration 5 (end state only, and contradicted by FAILED rows), Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 3 (unevidenced). Mean about 7.4 but the two blocking items cap the verdict at 6.
