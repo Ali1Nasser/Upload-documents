@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T17:15:21Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7,
+  "date": "2026-10-15",
+  "by": "critic",
+  "notes": "Funnel metaphor reads without narration (row dots narrowing stage to stage, big counter 14 -> 1, chip row, rail). Approved with conditions: (1) dropped-row tumble is too small and short to read (x travel ~0.14 pitch, finished in about 6 frames; frames 84-128 show red dots simply parked above/below the survivors, p100 x 320-340 y 150-410), raise travel and hold; (2) under-light pool and band gradients are faint at 960 px, so light/depth is dashboard-level not cinematic; (3) the Arabic unit sits on the wrong side of the number for an RTL reader (p50/p100 header, x 690-910 y 45-110), needs arabic-typographer check; (4) resting crit marks overlap the band edge at GROUP BY (p100 x 320-345, y 150-240) and the first-stage drops float detached (p50 x 115-235, y 125-145). None blocking."
+ }
 }
