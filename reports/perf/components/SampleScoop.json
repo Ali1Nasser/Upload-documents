@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "SampleScoop",
+ "composition": "Demo-SampleScoop",
+ "at": "2026-10-15T22:08:29Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 216,
+   "wall_s": 12.46,
+   "box_s_per_frame": 0.0577,
+   "slot_s_per_frame": 0.1731,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.15,
+    6.5
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 216,
+   "wall_s": 22.6,
+   "box_s_per_frame": 0.1046,
+   "slot_s_per_frame": 0.3138,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.5,
+    6.33
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 216,
+   "wall_s": 16.22,
+   "box_s_per_frame": 0.0751,
+   "slot_s_per_frame": 0.2253,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    6.33,
+    6.13
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
