@@ -67,7 +67,8 @@ const Lamp: React.FC<{s: St; r: number; ctx: LayerCtx; t0: number; q: number}> =
   const d = 2 * r;
   const spin = ((ctx.frame * 360) / ff(18, ctx.fps)) % 360;
   return (
-    <svg width={d} height={d} viewBox={`0 0 ${d} ${d}`} style={{overflow: 'visible', filter: s === 'pending' ? undefined : `drop-shadow(0 0 ${(ctx.fx.glowInner * 0.5).toFixed(1)}px ${tone})`}}>
+    <svg width={d} height={d} viewBox={`0 0 ${d} ${d}`} style={{overflow: 'visible'}}>
+      {s === 'pending' ? null : <circle cx={r} cy={r} r={r - 3} fill="none" stroke={tone} strokeOpacity={0.2} strokeWidth={3 + ctx.fx.glowInner * 1.2} />}
       {s === 'running' ? (
         <g transform={`rotate(${spin.toFixed(1)} ${r} ${r})`}>
           <circle cx={r} cy={r} r={r - 3} fill="none" stroke={`${tone}${hex(0.25)}`} strokeWidth={3} />

@@ -12,7 +12,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Lbl, NumText, acts, arcPath, boxStyle, clamp01, mix, pf, polar, prog, pulse, roll, shell} from '../_dom-c/kit';
+import {Floor, Lbl, NumText, acts, arcPath, boxStyle, clamp01, mix, pf, polar, prog, pulse, roll, shell} from '../_dom-c/kit';
 import {f24} from '../_dom-c/kit';
 
 const A0 = -135;
@@ -80,21 +80,26 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const H = ctx.box.h;
   const {v, lastT, dec} = dialValues(props, ctx, t);
   const cellW = Math.min(W / n, 560);
-  const r = Math.min(cellW * 0.34, H * 0.2);
-  const cy = H * 0.3;
+  const r = Math.min(cellW * 0.3, H * 0.17);
+  const cy = H * 0.27;
   const ent = prog(ctx, ctx.at, P.arrive);
   const norm = (i: number) => {
     const pr = props.params[i];
     return clamp01((v[i] - pr.min) / Math.max(1e-9, pr.max - pr.min));
   };
-  const dist = distribution(norm(0), n > 1 ? norm(1) : null);
-  const panelY = H * 0.6;
-  const panelH = H * 0.3;
+  // which dial drives what: a label that names top-p / nucleus drives the nucleus cut, the first other dial is the temperature
+  const isP = props.params.map((x) => /top[\s_-]?p|nucleus|توب/i.test(x.label));
+  const ti = isP.findIndex((x) => !x);
+  const pi = isP.findIndex((x) => x);
+  const dist = distribution(ti >= 0 ? norm(ti) : 0.5, pi >= 0 ? norm(pi) : null);
+  const panelY = H * 0.66;
+  const panelH = H * 0.26;
   const bw = Math.min(70, (W * 0.5) / LOGITS.length - 14);
   const bgap = 16;
   const totalBw = LOGITS.length * (bw + bgap) - bgap;
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`sm-${ctx.id}`} w={W} h={H} y={panelY - 20} color={C.violet} pool={0.1} opacity={ent} />
       {props.params.map((pr, i) => {
         const cx = W / 2 + ((n - 1) / 2 - i) * cellW;
         const b = ctx.at + Math.round((3 * i * ctx.fps) / 24);
@@ -111,6 +116,11 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         return (
           <div key={i} style={{position: 'absolute', left: cx - cellW / 2, top: 0, width: cellW, height: H, opacity: e}}>
             <svg width={cellW} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+              {/* dial housing: contact shadow, extruded side, glass face with a lit rim */}
+              <ellipse cx={cellW / 2} cy={cy + r + 56} rx={r * 1.0} ry={r * 0.12} fill={C.void} fillOpacity={0.6} />
+              <circle cx={cellW / 2} cy={cy + 10} r={r + 40} fill={mix(col, C.void, 0.8)} />
+              <circle cx={cellW / 2} cy={cy} r={r + 40} fill={`${C.panel}F2`} stroke={`${C.ink}${hex(0.16)}`} strokeWidth={2} />
+              <path d={arcPath(cellW / 2, cy, r + 39, 15, 95)} fill="none" stroke={C.ink} strokeOpacity={0.18} strokeWidth={3} strokeLinecap="round" />
               <path d={arcPath(cellW / 2, cy, r, A0, A1)} fill="none" stroke={C.grid} strokeWidth={24} strokeLinecap="round" />
               {frac > 0.004 ? (
                 <>
@@ -126,7 +136,7 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <div style={{position: 'absolute', left: 0, right: 0, top: cy - SIZE.numberBig * 0.3, display: 'flex', justifyContent: 'center'}}>
               <NumText id={`${ctx.id}:v${i}`} value={v[i]} target={widest} decimals={dec[i]} unit={pr.value.unit} maxW={r * 1.5} size={SIZE.numberBig * 0.55} color={C.ink} glow={land > 0 ? `0 0 ${(ctx.fx.glowPx * land).toFixed(1)}px ${col}${hex(0.6)}` : undefined} />
             </div>
-            <div style={{position: 'absolute', left: 0, width: cellW, top: cy + r * 0.78, display: 'flex', justifyContent: 'center'}}>
+            <div style={{position: 'absolute', left: 0, width: cellW, top: cy + r + 66, display: 'flex', justifyContent: 'center'}}>
               <Lbl id={`${ctx.id}:l${i}`} text={pr.label} maxW={cellW * 0.9} maxH={SIZE.body * 1.6} size={SIZE.body} fps={ctx.fps} color={C.ink} weight={FONT.label.strong} />
             </div>
           </div>

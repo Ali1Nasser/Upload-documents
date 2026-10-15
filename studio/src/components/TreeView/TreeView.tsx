@@ -79,10 +79,17 @@ export const TreeViewView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       return {w: Math.max(lw, kw), h};
     });
     const gapX = Math.max(fs0 * 1.1, 44);
-    const levelH = h + kindH + Math.max(fs0 * 1.6, 56);
-    const lay = (vis: boolean[]) =>
-      v === 'fs' ? indentTree(tr, sz, Math.round(fs0 * 1.6), Math.round(h * 1.32), rtl, vis) : tidyTree(tr, sz, gapX, levelH, rtl, vis);
-    const all = lay(props.nodes.map(() => true));
+    const levelH0 = h + kindH + Math.max(fs0 * 1.6, 56);
+    const allVis = props.nodes.map(() => true);
+    const layAt = (vis: boolean[], lh: number) =>
+      v === 'fs' ? indentTree(tr, sz, Math.round(fs0 * 1.6), Math.round(h * 1.32), rtl, vis) : tidyTree(tr, sz, gapX, lh, rtl, vis);
+    // a first pass at the base level gap, then the levels open up (up to 1.9x) so the tree fills the slot height
+    const first = layAt(allVis, levelH0);
+    const s0 = Math.min(1.3, ctx.box.w / first.nat.w, ctx.box.h / (first.nat.h + kindH));
+    const maxDepth = Math.max(1, ...tr.depth);
+    const levelH = v === 'fs' ? levelH0 : levelH0 + Math.min(levelH0 * 0.9, (Math.max(0, ctx.box.h / s0 - (first.nat.h + kindH)) * 0.85) / maxDepth);
+    const lay = (vis: boolean[]) => layAt(vis, levelH);
+    const all = lay(allVis);
     const nat = {w: all.nat.w, h: all.nat.h + kindH};
     const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.3);
     const s = fit.s;

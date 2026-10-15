@@ -104,10 +104,10 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         })}
       </Svg>
       <At x={px1 + 18} y={py0 + SIZE.label * 1.1} ax={1} style={{opacity: ent}}>
-        <Chip id={`${ctx.id}:xn`} text={nTxt ? `n = ${nTxt}` : 'n'} color={C.ink2} size={SIZE.labelMin} />
+        <Chip id={`${ctx.id}:xn`} text={nTxt ? `n = ${nTxt}` : 'n'} color={C.ink2} size={SIZE.label} />
       </At>
       <At x={px0 + 6} y={py1 - SIZE.label * 0.6} ax={0} style={{opacity: ent}}>
-        <Chip id={`${ctx.id}:yw`} text="work" color={C.ink2} size={SIZE.labelMin} />
+        <Chip id={`${ctx.id}:yw`} text="work" color={C.ink2} size={SIZE.label} />
       </At>
       {racers.map((r, k) => {
         const e = prog(ctx, ctx.at + stag(k, fps, 3), 'label');
@@ -119,7 +119,7 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <div style={{width: lw * 4, alignSelf: 'stretch', margin: '12px 0', borderRadius: lw * 2, background: col, boxShadow: `0 0 10px ${col}${hex(0.5)}`, flex: 'none'}} />
             <FitLabel id={`${ctx.id}:r${r.i}`} text={r.label} maxW={legW - 36 - lw * 4 - 150} color={C.ink} weight={FONT.label.strong} />
             <div style={{flex: 'none', textShadow: `${halo}, ${glow(col, fx, 0.3)}`}}>
-              <Chip id={`${ctx.id}:b${r.i}`} text={bigOText(r.big_o)} color={col} size={SIZE.labelMin} />
+              <Chip id={`${ctx.id}:b${r.i}`} text={bigOText(r.big_o)} color={col} size={SIZE.label} />
             </div>
           </div>
         );

@@ -68,8 +68,8 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
     if (!m.w) return null;
     const w = m.w as number[];
     const lw = w.slice(0, N);
-    const gateR = fs0 * 1.15;
-    const capH = Math.round(fs0 * 2.0);
+    const gateR = fs0 * 1.45;
+    const capH = Math.round(fs0 * 2.2);
     const capW = w[N] + fs0 * 1.6 + capH * 0.8;
     const rw = w.slice(N + 1);
     const reasonW = rw.length ? Math.max(...rw) + fs0 * 1.6 : 0;
@@ -80,14 +80,14 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
       const need = rows === 1 ? Math.max(...lw) + 40 : Math.max(...lw.slice(0, -1).map((x, i) => (x + lw[i + 1]) / 2)) / 2 + 40;
       const d0 = Math.max(need, gateR * 3.2, rows === 1 ? 0 : (Math.max(...lw) + 40) / 2);
       const edge = Math.max(lw[0], lw[N - 1], capW, reasonW, gateR * 2);
-      const nat = {w: d0 * (N - 1) + edge, h: capH + fs0 * 0.6 + 2 * gateR + fs0 * 0.5 + rows * rowH + reasonH};
+      const nat = {w: d0 * (N - 1) + edge, h: capH + fs0 * 0.6 + 2 * gateR + fs0 * 0.7 + rows * rowH + reasonH};
       const s = Math.min(1.3, ctx.box.w / nat.w, ctx.box.h / nat.h);
       return {rows, d0, edge, nat, s};
     });
     const pick = cand[1].s > cand[0].s * 1.08 && cand[0].s * fs0 < SIZE.body ? cand[1] : cand[0];
     const fit = fitScale(ctx.id, pick.nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.3);
     const s = fit.s;
-    const d = Math.min((ctx.box.w - pick.edge * s) / Math.max(1, N - 1), pick.d0 * s * 1.9);
+    const d = Math.min((ctx.box.w - pick.edge * s) / Math.max(1, N - 1), pick.d0 * s * 2.6);
     const trackW = d * (N - 1);
     const x0 = (ctx.box.w - trackW) / 2;
     const top = (ctx.box.h - pick.nat.h * s) / 2;
@@ -105,9 +105,9 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
       capW: capW * s,
       yCap: top + (capH / 2) * s,
       rows: pick.rows,
-      yLabel: yTrack + (gateR + fs0 * 0.5) * s,
+      yLabel: yTrack + (gateR + fs0 * 0.7) * s,
       rowH: rowH * s,
-      yReason: yTrack + (gateR + fs0 * 0.5 + pick.rows * rowH + fs0 * 1.1) * s,
+      yReason: yTrack + (gateR + fs0 * 0.7 + pick.rows * rowH + fs0 * 1.1) * s,
       reasonH: fs0 * 1.6 * s,
       rw,
       lw,
@@ -191,6 +191,8 @@ export const PipelineStationsView: React.FC<DcProps<Props>> = ({props, ctx}) => 
           const x = geo.xs[i] + dx;
           return (
             <g key={st.id} opacity={q}>
+              <ellipse cx={x} cy={geo.yTrack + geo.gateR * 1.3} rx={geo.gateR * 1.15} ry={geo.gateR * 0.22} fill={col} fillOpacity={0.1 + 0.16 * Math.max(active, f.failQ, done * 0.5)} />
+              <circle cx={x} cy={geo.yTrack} r={geo.gateR * 1.16} fill="none" stroke={col} strokeOpacity={0.3} strokeWidth={1.5 * geo.s} />
               <circle cx={x} cy={geo.yTrack} r={geo.gateR} fill={C.panel} fillOpacity={0.92} stroke={col} strokeWidth={3 * geo.s} />
               <circle cx={x} cy={geo.yTrack} r={geo.gateR * 0.78} fill={col} fillOpacity={0.1 + 0.12 * Math.max(active, f.failQ, done * 0.5)} stroke={col} strokeOpacity={0.35} strokeWidth={1.5 * geo.s} />
               {ring > 0 && ring < 1 ? <circle cx={x} cy={geo.yTrack} r={geo.gateR * (1 + ring * 0.9)} fill="none" stroke={C.ok} strokeWidth={3 * geo.s} opacity={1 - ring} /> : null}

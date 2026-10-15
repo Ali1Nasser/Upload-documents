@@ -9,7 +9,7 @@ import React from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Glyph, Lbl, Wire, acrylic, acts, boxStyle, clamp01, f24, mix, pf, prog, pulse, shell, type GlyphKind} from '../_dom-c/kit';
+import {Dot, Floor, Glyph, Lbl, Wire, acrylic, acts, boxStyle, clamp01, f24, mix, pf, prog, pulse, shell, type GlyphKind} from '../_dom-c/kit';
 
 type Kind = Props['artifacts'][number]['kind'];
 const KIND_COLOR: Record<Kind, string> = {code: C.signal, data: C.violet, model: C.ember, report: C.ink, image: C.ink2, config: C.ink3};
@@ -108,6 +108,7 @@ export const ArtifactChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`ac-${ctx.id}`} w={W} h={H} y={cy + cardH * 0.18} color={C.signal} pool={0.09} opacity={prog(ctx, ctx.at, P.arrive)} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>{wires}</svg>
       {cards}
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>

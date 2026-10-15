@@ -6,7 +6,7 @@
 // (`d:x.y:n`); the A/B figures are not yet in the contract, so today every scene renders ORDINAL bars: lengths follow the
 // rank of the rates only (no axis, no ticks, no digits, no proportional length). `users` never sets a dot count: the
 // stream dots are decorative (<= FX[tier].particles). The split is drawn equal (the share is a statement the sources
-// make only as 50 / 50, add:6.12:13, not yet ratified). CR-006 asks for an explicit numbers mode.
+// make only as 50 / 50, add:6.12:13, not yet ratified). CR-010 asks for optional users and rate.
 import React from 'react';
 import {interpolate, random} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
@@ -17,7 +17,7 @@ import type {Rect} from '../../type/safe';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {formatValue} from '../NumberCounter/NumberCounter';
-import {At, FitLabel, GlowLine, Stage, Svg, actsOf, bez, f24, glowBox, lerp, prog, progN, ranks, rim, stag, type Pt} from '../_dom-b/kit';
+import {At, Chip, FitLabel, GlowLine, Stage, Svg, actsOf, bez, f24, fmtCount, glowBox, lerp, prog, progN, ranks, rim, stag, type Pt} from '../_dom-b/kit';
 
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 /** Digits only for contract facts (D1 ruling 1-2). */
@@ -34,12 +34,12 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // ---------- layout (RTL: source on the right, lanes run leftwards) ----------
   const src: Pt = {x: W * 0.94, y: H * 0.5};
   const split: Pt = {x: W * 0.7, y: H * 0.5};
-  const laneGap = Math.min((H / n) * 0.7, SIZE.label * 8);
+  const laneGap = Math.min((H / n) * 0.78, SIZE.label * 13);
   const laneY = (i: number) => H / 2 + (i - (n - 1) / 2) * laneGap;
   const laneX0 = W * 0.6; // lane mouth
   const laneX1 = W * 0.36; // lane end (label + bar start)
   const barMax = W * 0.3;
-  const barH = Math.max(SIZE.labelMin * 0.7, Math.min(laneGap * 0.3, SIZE.label * 1.6));
+  const barH = Math.max(SIZE.labelMin * 0.9, Math.min(laneGap * 0.34, SIZE.label * 2.2));
   const lanePath = (i: number) => bez(split, {x: lerp(split.x, laneX0, 0.6), y: split.y}, {x: lerp(split.x, laneX0, 0.4), y: laneY(i)}, {x: laneX0, y: laneY(i)}, 20);
   // ---------- timeline ----------
   const act = actsOf(ctx, 'reveal')[0];
@@ -56,7 +56,7 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // ---------- decorative stream dots ----------
   const DOTS = Math.min(fx.particles, 18 * n + 18);
   const cycle = f24(54, fps); // frames for a dot to run source -> lane end
-  const dotR = Math.max(4, SIZE.label * 0.2);
+  const dotR = Math.max(5, SIZE.label * 0.24);
   const dots = Array.from({length: DOTS}, (_, k) => {
     const lane = k % n; // random assignment is drawn equal (see header)
     const phase = random(`ab:${ctx.id}:${k}`);
@@ -94,7 +94,7 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       </Svg>
       {/* the splitter: a random-assignment die on a glass plate */}
       <At x={split.x} y={split.y} style={{opacity: ent}}>
-        <div style={{width: SIZE.label * 2, height: SIZE.label * 2, borderRadius: SIZE.label * 0.4, border: `2px solid ${C.violet}`, background: `linear-gradient(135deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.22)}, ${glowBox(C.violet, fx, 0.4 + ctx.mod.glow)}`, transform: `rotate(${(((t - ctx.at) * 90) / Math.max(1, cycle)) % 90}deg)`}}>
+        <div style={{width: SIZE.label * 2.6, height: SIZE.label * 2.6, borderRadius: SIZE.label * 0.5, border: `2px solid ${C.violet}`, background: `linear-gradient(135deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.22)}, ${glowBox(C.violet, fx, 0.4 + ctx.mod.glow)}`, transform: `rotate(${(((t - ctx.at) * 90) / Math.max(1, cycle)) % 90}deg)`}}>
           {[
             [0.28, 0.28],
             [0.72, 0.72],
@@ -118,9 +118,15 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         return (
           <React.Fragment key={i}>
             {/* lane label on the lane mouth (above the line) */}
-            <At x={(laneX0 + laneX1) / 2} y={y - SIZE.label * 0.95} style={{opacity: e}}>
-              <FitLabel id={`${ctx.id}:lane${i}`} text={v.label} maxW={laneX0 - laneX1 - 16} color={win ? C.ok : C.ink} weight={FONT.label.strong} shadow={win ? `${halo}, ${glow(C.ok, fx, 0.5 * qWin)}` : undefined} />
+            <At x={(laneX0 + laneX1) / 2} y={y - SIZE.body * 1.15} style={{opacity: e}}>
+              <FitLabel id={`${ctx.id}:lane${i}`} text={v.label} maxW={laneX0 - laneX1 - 16} size={SIZE.body} color={win ? C.ok : C.ink} weight={FONT.label.strong} shadow={win ? `${halo}, ${glow(C.ok, fx, 0.5 * qWin)}` : undefined} />
             </At>
+            {/* users of the lane: a count, shown only in values mode and only when its own ref is a contract fact */}
+            {values && /^d:/.test(v.users.ref) ? (
+              <At x={(laneX0 + laneX1) / 2} y={y + SIZE.body * 0.95} style={{opacity: e}}>
+                <Chip id={`${ctx.id}:users${i}`} text={`n = ${fmtCount(v.users.value, v.users.decimals ?? 0)}${v.users.unit ? ` ${v.users.unit}` : ''}`} color={C.ink2} size={SIZE.labelMin} />
+              </At>
+            ) : null}
             {/* rate bar track + fill (ordinal unless values) */}
             <div style={{position: 'absolute', left: laneX1 - barMax - SIZE.label * 0.6, top: y - barH / 2, width: barMax, height: barH, borderRadius: barH / 2, background: `${C.ink}${hex(0.05)}`, border: `1px solid ${C.grid}`, opacity: e, boxShadow: rim(0.12)}}>
               <div style={{position: 'absolute', right: 0, top: 0, bottom: 0, width: len, borderRadius: barH / 2, background: `linear-gradient(270deg, ${col}${hex(0.35)} 0%, ${col} 100%)`, boxShadow: q > 0 ? glowBox(col, fx, 0.35 + (win ? 0.7 * qWin : 0) + ctx.mod.glow) : undefined}} />

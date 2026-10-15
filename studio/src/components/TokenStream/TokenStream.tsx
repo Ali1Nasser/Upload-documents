@@ -8,7 +8,7 @@
 //   emit {count}:   the layer anchor shows the empty lane (+ tokenizer label); each emit action releases the next `count` tokens on
 //                   ITS word (generation / streaming: one token per spoken beat).
 // show_ids: the schema carries no token-id values, so the small mono figure under a tile is its POSITION in the stream ("#3"),
-//   never a vocabulary id (no invented numbers; CR-006 asks for an `ids` prop).
+//   never a vocabulary id (no invented numbers; CR-013 asks for an `ids` prop).
 // Tiers: lite = flat lane; standard = + marching flow dashes and a head halo; hero = + bloom on the head. Text-safe: every copy
 // box is cut out of the lane canvas. Auto-fit: tile size shrinks to SIZE.labelMin; below it an overflow is reported.
 import React from 'react';
@@ -168,7 +168,7 @@ export const TokenStreamView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             if (!Number.isFinite(t0)) return null;
             const k = moveK(ctx, t0, 6, ease.arrive);
             const head = t.i === lastEmitted;
-            const dx = -dirK * (1 - k) * 160; // slides in from upstream (the right for Arabic, the left for Latin)
+            const dx = -dirK * (1 - k) * 70; // slides in from upstream (the right for Arabic, the left for Latin)
             return (
               <div key={t.i} style={{position: 'absolute', left: 0, top: 0, transform: `translateX(${dx.toFixed(2)}px)`}}>
                 <Chip ctx={ctx} id={`${ctx.id}:t${t.i}`} text={toks[t.i]} size={size} x={t.x} y={y0 + t.y + VEC_H} t0={t0} accent={head ? C.signal : undefined} color={head ? C.ink : C.ink2} overflow={fit.overflow} alpha={1} />

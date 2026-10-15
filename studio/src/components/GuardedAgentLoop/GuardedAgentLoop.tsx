@@ -14,7 +14,8 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Lbl, acrylic, acts, boxStyle, clamp01, f24, mix, pf, polar, prog, pulse, shake, shell} from '../_dom-c/kit';
+import {REVEAL_ONSET_F} from '../../type/reveal';
+import {Dot, Floor, Lbl, acrylic, acts, boxStyle, clamp01, f24, mix, pf, polar, prog, pulse, shake, shell} from '../_dom-c/kit';
 
 type Kind = Props['steps'][number]['kind'];
 const KIND_COLOR: Record<Kind, string> = {plan: C.violet, act: C.signal, observe: C.ink, guard: C.warn};
@@ -77,10 +78,10 @@ export const GuardedAgentLoopView: React.FC<DcProps<Props>> = ({props, ctx}) => 
   if (run) {
     if (run.stop) {
       const total = run.stop.edge + 0.5;
-      s = clamp01((t - run.start) / Math.max(1, run.stop.at - run.start)) * total;
+      s = clamp01((t - run.start + REVEAL_ONSET_F) / Math.max(1, run.stop.at - run.start + REVEAL_ONSET_F)) * total; // RV1: first step ON the lap's anchor frame
       blocked = run.stop;
       blockedHit = t >= run.stop.at;
-    } else s = Math.min(n, (t - run.start) / stepF);
+    } else s = Math.min(n, (t - run.start + REVEAL_ONSET_F) / stepF);
   }
   const ent = prog(ctx, ctx.at, P.arrive);
   const ringPath = (() => {
@@ -121,8 +122,8 @@ export const GuardedAgentLoopView: React.FC<DcProps<Props>> = ({props, ctx}) => 
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingInlineStart: 72,
-          paddingInlineEnd: 14,
+          paddingLeft: 14,
+          paddingRight: 80,
           opacity: e * (state === 'off' ? 0.5 : 1),
           transform: `translateY(${((1 - e) * 10).toFixed(2)}px)`,
           visibility: t < b ? 'hidden' : undefined,
@@ -185,7 +186,13 @@ export const GuardedAgentLoopView: React.FC<DcProps<Props>> = ({props, ctx}) => 
   });
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`gal-${ctx.id}`} w={W} h={H} y={cy - ry * 0.3} color={blocked && blockedHit ? C.crit : C.signal} pool={0.1} opacity={ent} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        {/* the sandbox: a second, inner guard ring around the agent core (the loop ring is the outer one) */}
+        {props.guards.length > 0 ? <ellipse cx={cx} cy={cy} rx={rx * 0.56} ry={ry * 0.56} fill="none" stroke={C.warn} strokeOpacity={0.4 * ent} strokeWidth={3} strokeDasharray="16 12" /> : null}
+        <circle cx={cx} cy={cy} r={64 + 8 * (run ? pulse(t, run.start, f24(ctx, 12)) : 0)} fill={blocked && blockedHit ? C.crit : C.signal} fillOpacity={0.08 * ent} />
+        <circle cx={cx} cy={cy} r={34} fill={`${C.panel}F2`} stroke={blocked && blockedHit ? C.crit : C.signal} strokeWidth={4} opacity={ent} />
+        <circle cx={cx} cy={cy} r={11} fill={blocked && blockedHit ? C.crit : C.signal} opacity={ent} />
         <path d={ringPath} fill="none" stroke={C.grid} strokeWidth={6} opacity={ent} />
         <path d={ringPath} fill="none" stroke={C.ink3} strokeWidth={2} strokeDasharray="2 14" strokeLinecap="round" opacity={ent * 0.9} />
         {run

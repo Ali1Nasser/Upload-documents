@@ -3,7 +3,7 @@
 // as the stamp lands; worn-ink speckle is seeded (random(seed)), never Math.random.
 // Colour is semantic (04 1.1): ok / approved -> ok, fail / rejected -> crit, pending / retry -> warn.
 // The status word is Latin caps (cv08 serifed I via MixedText, e.g. PENDING); `label_ar` is set whole by the type engine.
-// `to` (target layer): LayerCtx exposes only this layer's own box (engine note E1, docs/p7/catalog_status/dom-b.md), so
+// `to` (target layer): LayerCtx exposes only this layer's own box (engine request CR-011), so
 // the stamp lands in its own slot; scene-directors place it on the target's slot. No digits are shown.
 import React, {useRef} from 'react';
 import {interpolate, random} from 'remotion';

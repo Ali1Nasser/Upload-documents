@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "Terminal",
+ "composition": "Demo-Terminal",
+ "at": "2026-10-14T08:33:35Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 150,
+   "wall_s": 11.52,
+   "box_s_per_frame": 0.0768,
+   "slot_s_per_frame": 0.2304,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.56,
+    4.87
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 8
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 150,
+   "wall_s": 16.15,
+   "box_s_per_frame": 0.1077,
+   "slot_s_per_frame": 0.3231,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.87,
+    5.08
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 8
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 150,
+   "wall_s": 15.19,
+   "box_s_per_frame": 0.1013,
+   "slot_s_per_frame": 0.3039,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    5.08,
+    5.06
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 8
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

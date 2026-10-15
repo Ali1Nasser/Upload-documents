@@ -12,7 +12,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Lbl, NumText, acts, apportion, boxStyle, f24, pf, prog, shell, shuffle} from '../_dom-c/kit';
+import {Floor, Lbl, NumText, acts, apportion, boxStyle, f24, mix, pf, prog, shell, shuffle} from '../_dom-c/kit';
 
 export const CARDS = 50;
 const PILE_COLORS = [C.signal, C.violet, C.ink, C.ember] as const;
@@ -38,7 +38,7 @@ export const SplitDeckView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const deal = acts(ctx, 'deal')[0];
   const step = Math.max(1, Math.round(ctx.fps / 24));
   const flight = f24(ctx, 9);
-  const cw = Math.min(104, (W / n) * 0.3);
+  const cw = Math.min(150, (W / n) * 0.34);
   const chh = cw * 1.4;
   const spacing = Math.min((W * 0.92) / n, 440);
   const px = props.splits.map((_, i) => W / 2 + ((n - 1) / 2 - i) * spacing);
@@ -67,7 +67,8 @@ export const SplitDeckView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         borderRadius: 10,
         background: tint ? `linear-gradient(200deg, ${tint}33 0%, ${C.ground} 100%)` : `linear-gradient(200deg, ${C.panel} 0%, ${C.ground} 100%)`,
         border: `2.5px solid ${tint ?? C.ink3}`,
-        boxShadow: tint ? `0 0 ${ctx.fx.glowInner}px ${tint}${hex(0.35)}` : `inset 0 1px 0 ${C.ink}14`,
+        // key light upper right: specular top edge, 5 px card thickness, soft contact shadow
+        boxShadow: `inset 0 2px 0 ${C.ink}${hex(0.2)}, 0 5px 0 -1px ${mix(tint ?? C.ink3, C.void, 0.7)}, ${tint ? `0 0 ${ctx.fx.glowInner}px ${tint}${hex(0.35)}, ` : ''}0 14px 16px -8px ${C.void}`,
         transform: `rotate(${rot.toFixed(2)}deg)`,
         opacity: a,
       }}
@@ -103,6 +104,7 @@ export const SplitDeckView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`sd-${ctx.id}`} w={W} h={H} y={pileY - chh * 0.2} color={C.violet} pool={0.1} opacity={ent} />
       {els}
       {props.splits.map((s, i) => {
         const tb = deal ? deal.at + Math.round((4 * i * ctx.fps) / 24) : Infinity;

@@ -1,15 +1,15 @@
 {
  "sha256": {
-  "p0": "d6ece7aaca12b532e78c0318d4a3077ccc507387115940ac2c2d0bb74b64f968",
-  "a1": "e4e0adb9970a685c7ab4aed280e3e3c08dc2190cb98a963b2659eba4964080b0",
-  "p50": "23a3f539fa591cf898b3f02961f51b2f7ae8076dacc595cd079c871d9802a6fd",
-  "p100": "1ae1237378f92d8658c94b5654f7c0dc2fae0def754fcd7edb0aa1516305475d"
+  "p0": "70479ad4e8043350f68bea3802a181ffd888a52f787ef31593886d7d9a3c08d1",
+  "a1": "7d34caaded426ee085c1162249dbc4daf67ec5a9994138bcc264b705f4146ce2",
+  "p50": "2bbefda2402ed7aa20ac37784fc229e911139d2350b6d0f557a5904da97898e3",
+  "p100": "164df525b251db269d35bfbc5592ebb5363f49ada8156c63c71a794b11400e98"
  },
  "v": 2,
  "name": "DepthLayers",
  "frames": {
   "p0": 0,
-  "a1": 11,
+  "a1": 7,
   "p50": 47,
   "p100": 95
  },
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-10T23:03:01Z",
+ "written_at": "2026-10-14T07:53:37Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

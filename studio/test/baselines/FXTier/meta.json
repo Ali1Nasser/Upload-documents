@@ -1,15 +1,15 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "a68e3f4b9af22d58e82f15a76b14bd3f0577978ce895d6ec72255161ace5c902",
-  "p50": "5135cd85f8fca6e24209e6bbad20455c8e5513825321377d3d03d27ee24ff983",
-  "p100": "dbee86a13c2af0fa05994614a6aef1d38db11d11b680ed057643a8f6ec96d85b"
+  "p0": "d8ecb74e3f10bd4be523ef7a5f386987954ee7b20e90708768926940d447c43a",
+  "a1": "f53fe4dd469fb334626e0ad970027bfcdd497df410e00ac333a217494e087eac",
+  "p50": "bb98b5d47ab51903434755d7249e33d88a9fc4b0cb79eca15f45b0c586edb078",
+  "p100": "7b92d6a8919a695c181a2af28c3e5a51996a2f37e06f75251bbbaf6b296332e9"
  },
  "v": 2,
  "name": "FXTier",
  "frames": {
   "p0": 0,
-  "a1": 15,
+  "a1": 9,
   "p50": 35,
   "p100": 71
  },
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-10T23:02:13Z",
+ "written_at": "2026-10-14T08:18:51Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

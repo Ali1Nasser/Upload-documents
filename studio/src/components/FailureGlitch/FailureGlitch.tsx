@@ -1,5 +1,6 @@
 // FailureGlitch (catalog: State & FX). The failure beat of the scene contract (04 §4: "failure (crit glitch)"; master §4).
-// On the anchor frame (RV1) the target (`to`, else the whole title-safe frame) glitches for one beat (morph upper bound, 500 ms):
+// On the anchor frame (RV1) the target (`to`, else every other layer of the shot and the whole title-safe frame) glitches for one beat
+// (morph upper bound, 500 ms):
 //  - the target jumps sideways on seeded film-frame steps (<= 4 + 8 x intensity px, the Shake cap of 12 px), title-safe clamped;
 //  - crit / signal scan slices and block noise flicker over its box (screen blend at standard; never a copy of the target's text,
 //    so no chromatic aberration ever touches Arabic, ADR-002);
@@ -61,7 +62,7 @@ export const FailureGlitchView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const g = glitchAt(t, ctx.fps, props.intensity);
   const seed = `glitch:${ctx.id}`;
   const jx = g.on ? (rnd(seed, 'jx', g.step) * 2 - 1) * g.amp : 0;
-  const {ref, m} = useFxTarget(props.to, ctx.frame, seed, (mm) => {
+  const {ref, m} = useFxTarget(props.to ?? '*', ctx.frame, seed, (mm) => {
     if (!g.on) return null;
     const [tx] = clampToRoom(jx, 0, mm.room);
     return {...IDENTITY, tx};

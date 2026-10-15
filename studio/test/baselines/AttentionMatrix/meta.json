@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
+  "a1": "c379cde1f5b68fa729a0fc56c09dade342c2e565bda81dbc78ad1e97720c659b",
+  "p50": "b5a841eec7964524e61e2f77bb1cadae6890b3c0a5a70047d52c177573f75597",
+  "p100": "103d55ccf4f95ef213d1cc25391e008317d34bed84d45e8f528cfa7923f2bd12"
+ },
+ "v": 2,
+ "name": "AttentionMatrix",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 59,
+  "p100": 119
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-14T08:35:37Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

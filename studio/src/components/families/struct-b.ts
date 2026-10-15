@@ -6,6 +6,8 @@ import {StackHeap} from '../StackHeap/StackHeap';
 import {PartitionLanes} from '../PartitionLanes/PartitionLanes';
 import {BlockReplication} from '../BlockReplication/BlockReplication';
 import {RequestJourney} from '../RequestJourney/RequestJourney';
+import {Conveyor} from '../Conveyor/Conveyor';
+import {WorldMapA01} from '../WorldMapA01/WorldMapA01';
 
-const family: FamilyModule = {family: 'Structure & flow', components: [TimelineTrack, GitGraph, StackHeap, PartitionLanes, BlockReplication, RequestJourney]};
+const family: FamilyModule = {family: 'Structure & flow', components: [TimelineTrack, GitGraph, StackHeap, PartitionLanes, BlockReplication, RequestJourney, Conveyor, WorldMapA01]};
 export default family;

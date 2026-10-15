@@ -10,7 +10,7 @@ import React from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Lbl, Wire, acrylic, acts, bez, boxStyle, f24, mix, pf, prog, pulse, shake, shell, statusColor} from '../_dom-c/kit';
+import {Dot, Floor, Lbl, Wire, acrylic, acts, bez, boxStyle, f24, mix, pf, prog, pulse, shake, shell, statusColor} from '../_dom-c/kit';
 
 export const BranchPathsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
@@ -66,12 +66,15 @@ export const BranchPathsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     // branch chip
     const be = prog(ctx, bT(i), P.label);
     const stc = statusColor(b.status);
-    const outAt = tPick !== null && chosen ? tPick + f24(ctx, 8) : bT(i) + f24(ctx, 6);
+    // every outcome is revealed with its path; with a `choose` action the chosen outcome takes its status colour (and the
+    // glow / failure shake) on the choose word, the others stay neutral; without one every status shows with its outcome
+    const outAt = bT(i) + f24(ctx, 6);
+    const stAt = pick === null ? outAt : chosen && tPick !== null ? tPick + f24(ctx, 4) : Infinity;
     const oe = prog(ctx, outAt, P.label);
-    const showStatus = b.status !== undefined && b.status !== 'idle' && b.status !== 'active' && (pick === null || chosen);
+    const showStatus = b.status !== undefined && b.status !== 'idle' && b.status !== 'active' && t >= stAt;
     const oc = showStatus ? stc : lit ? C.signal : C.ink3;
-    const land = chosen && tPick !== null ? pulse(t, outAt, f24(ctx, 8)) : 0;
-    const dx = chosen && b.status === 'fail' && tPick !== null ? shake(`bp-${ctx.id}`, t, outAt, f24(ctx, 5), 5) : 0;
+    const land = Number.isFinite(stAt) ? pulse(t, stAt, f24(ctx, 8)) : 0;
+    const dx = b.status === 'fail' && Number.isFinite(stAt) ? shake(`bp-${ctx.id}-${i}`, t, stAt, f24(ctx, 5), 5) : 0;
     nodes.push(
       <div
         key={`c${i}`}
@@ -93,6 +96,7 @@ export const BranchPathsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`bp-${ctx.id}`} w={W} h={H} y={outY - outH * 0.3} color={C.signal} pool={0.09} opacity={ent} />
       <div style={{position: 'absolute', left: W / 2 - qW / 2, top: qY, width: qW, height: qH, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: ent}}>
         <Lbl id={`${ctx.id}:q`} text={props.question} maxW={qW} maxH={qH} size={SIZE.sub} wrap fps={ctx.fps} t={t - ctx.at} preset="arrive" color={C.ink} weight={FONT.arDisplay.weight} />
       </div>

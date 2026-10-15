@@ -145,22 +145,31 @@ export const mix = (a: string, b: string, q: number): string => {
   return `#${[0, 1, 2].map((i) => c(i).toString(16).padStart(2, '0')).join('')}`;
 };
 
-/** Holographic floor grid under a set (04 §1.1 grid @ 30-40 %), perspective-tilted; decorative, no copy. */
-export const Floor: React.FC<{w: number; h: number; y: number; x?: number; opacity?: number}> = ({w, h, y, x = 0, opacity = 0.5}) => (
-  <div style={{position: 'absolute', left: x, top: y, width: w, height: h, perspective: 900, pointerEvents: 'none', opacity}}>
-    <div
-      style={{
-        position: 'absolute',
-        inset: 0,
-        transform: 'rotateX(68deg)',
-        transformOrigin: '50% 0%',
-        backgroundImage: `linear-gradient(${C.grid} 1px, transparent 1px), linear-gradient(90deg, ${C.grid} 1px, transparent 1px)`,
-        backgroundSize: '64px 64px',
-        maskImage: `radial-gradient(ellipse 60% 90% at 50% 0%, ${C.void} 0%, transparent 75%)`,
-      }}
-    />
-  </div>
-);
+/** Holographic floor grid under a set (04 §1.1 grid @ 30-40 %), perspective-tilted; decorative, no copy.
+ * Plain 2D SVG lines laid out in perspective on the CPU (a CSS 3D transform + mask-image layer rasterises differently per
+ * browser page at tile seams: determinism 1 193 px in the first dom-a snapshot run). Per-line opacity does the fade; no mask. */
+export const Floor: React.FC<{w: number; h: number; y: number; x?: number; opacity?: number}> = ({w, h, y, x = 0, opacity = 0.5}) => {
+  const rows = 8;
+  const cols = 16;
+  const cx = w / 2;
+  const lines: React.ReactNode[] = [];
+  for (let k = 1; k <= rows; k++) {
+    const yy = h * Math.pow(k / rows, 1.7);
+    const reach = 0.38 + 0.62 * (k / rows); // far lines are narrower (perspective)
+    const a = Math.pow(1 - k / (rows + 1), 1.3);
+    lines.push(<line key={`h${k}`} x1={cx - (w / 2) * reach} x2={cx + (w / 2) * reach} y1={yy} y2={yy} stroke={C.ink3} strokeOpacity={(0.32 * a * opacity).toFixed(3)} strokeWidth={1.5} />);
+  }
+  for (let i = 0; i <= cols; i++) {
+    const u = i / cols - 0.5;
+    const a = 1 - Math.abs(u) * 1.5;
+    lines.push(<line key={`v${i}`} x1={cx + u * w * 0.38} x2={cx + u * w} y1={0} y2={h} stroke={C.ink3} strokeOpacity={(0.3 * Math.max(0, a) * opacity).toFixed(3)} strokeWidth={1.5} />);
+  }
+  return (
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{position: 'absolute', left: x, top: y, pointerEvents: 'none', overflow: 'hidden'}}>
+      {lines}
+    </svg>
+  );
+};
 
 /** Piecewise state timeline: the state in force at frame t, the one before it, and the RV1 progress of the change. */
 export type Ev<S> = {t: number; s: S};
@@ -171,16 +180,22 @@ export const stateAt = <S,>(ev: Ev<S>[], ctx: LayerCtx, preset: 'label' | 'arriv
   return {cur: ev[k].s, prev: ev[Math.max(0, k - 1)].s, q, t: ev[k].t, k};
 };
 
-/** Padlock glyph (SVG, no copy). open 0..1 lifts and swings the shackle; tone = token colour. */
+/** Padlock glyph (SVG, no copy). open 0..1 lifts and swings the shackle; tone = token colour. The glow is a wide faint stroke
+ * under the line work, never an SVG/CSS filter (drop-shadow rasterises non-deterministically at tile seams). */
 export const LockGlyph: React.FC<{size: number; tone: string; open: number; fx: Fx; on?: number}> = ({size, tone, open, fx, on = 1}) => {
   const w = size;
   const h = size * 1.15;
   const lift = open * size * 0.22;
+  const sw = Math.max(2, size * 0.09);
+  const shackle = `M ${w * 0.3} ${h * 0.47} V ${h * 0.3} A ${w * 0.2} ${w * 0.2} 0 0 1 ${w * 0.7} ${h * 0.3} V ${h * 0.47}`;
+  const gw = sw + fx.glowInner * 1.2 * on;
   return (
-    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{overflow: 'visible', filter: on > 0.05 ? `drop-shadow(0 0 ${(fx.glowInner * 0.6 * on).toFixed(1)}px ${tone})` : undefined}}>
+    <svg width={w} height={h} viewBox={`0 0 ${w} ${h}`} style={{overflow: 'visible'}}>
       <g transform={`translate(${w * 0.68} ${h * 0.47 - lift}) rotate(${(-28 * open).toFixed(2)}) translate(${-w * 0.68} ${-(h * 0.47)})`}>
-        <path d={`M ${w * 0.3} ${h * 0.47} V ${h * 0.3} A ${w * 0.2} ${w * 0.2} 0 0 1 ${w * 0.7} ${h * 0.3} V ${h * 0.47}`} fill="none" stroke={tone} strokeWidth={Math.max(2, size * 0.09)} strokeLinecap="round" />
+        {on > 0.05 ? <path d={shackle} fill="none" stroke={tone} strokeOpacity={0.2 * on} strokeWidth={gw} strokeLinecap="round" /> : null}
+        <path d={shackle} fill="none" stroke={tone} strokeWidth={sw} strokeLinecap="round" />
       </g>
+      {on > 0.05 ? <rect x={w * 0.16} y={h * 0.45} width={w * 0.68} height={h * 0.5} rx={size * 0.1} fill="none" stroke={tone} strokeOpacity={0.2 * on} strokeWidth={Math.max(1.5, size * 0.06) + fx.glowInner * 1.2 * on} /> : null}
       <rect x={w * 0.16} y={h * 0.45} width={w * 0.68} height={h * 0.5} rx={size * 0.1} fill={`${tone}${hex(0.16 + 0.2 * on)}`} stroke={tone} strokeWidth={Math.max(1.5, size * 0.06)} />
       <circle cx={w * 0.5} cy={h * 0.66} r={size * 0.06} fill={tone} />
       <rect x={w * 0.475} y={h * 0.68} width={w * 0.05} height={h * 0.12} fill={tone} />
@@ -188,11 +203,22 @@ export const LockGlyph: React.FC<{size: number; tone: string; open: number; fx: 
   );
 };
 
-/** Key glyph (SVG, no copy): bow ring + blade with two bits. */
-export const KeyGlyph: React.FC<{size: number; tone: string; fx: Fx; on?: number}> = ({size, tone, fx, on = 1}) => (
-  <svg width={size * 1.6} height={size} viewBox={`0 0 ${size * 1.6} ${size}`} style={{overflow: 'visible', filter: on > 0.05 ? `drop-shadow(0 0 ${(fx.glowInner * 0.6 * on).toFixed(1)}px ${tone})` : undefined}}>
-    <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.3} fill={`${tone}${hex(0.12 + 0.2 * on)}`} stroke={tone} strokeWidth={Math.max(2, size * 0.09)} />
-    <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.1} fill={C.void} stroke={tone} strokeWidth={1.5} />
-    <path d={`M ${size * 0.92} ${size * 0.5} H ${size * 0.1} M ${size * 0.22} ${size * 0.5} V ${size * 0.74} M ${size * 0.42} ${size * 0.5} V ${size * 0.68}`} stroke={tone} strokeWidth={Math.max(2, size * 0.09)} strokeLinecap="round" fill="none" />
-  </svg>
-);
+/** Key glyph (SVG, no copy): bow ring + blade with two bits; glow = underlay stroke (no filter). */
+export const KeyGlyph: React.FC<{size: number; tone: string; fx: Fx; on?: number}> = ({size, tone, fx, on = 1}) => {
+  const sw = Math.max(2, size * 0.09);
+  const gw = sw + fx.glowInner * 1.2 * on;
+  const blade = `M ${size * 0.92} ${size * 0.5} H ${size * 0.1} M ${size * 0.22} ${size * 0.5} V ${size * 0.74} M ${size * 0.42} ${size * 0.5} V ${size * 0.68}`;
+  return (
+    <svg width={size * 1.6} height={size} viewBox={`0 0 ${size * 1.6} ${size}`} style={{overflow: 'visible'}}>
+      {on > 0.05 ? (
+        <>
+          <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.3} fill="none" stroke={tone} strokeOpacity={0.2 * on} strokeWidth={gw} />
+          <path d={blade} stroke={tone} strokeOpacity={0.2 * on} strokeWidth={gw} strokeLinecap="round" fill="none" />
+        </>
+      ) : null}
+      <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.3} fill={`${tone}${hex(0.12 + 0.2 * on)}`} stroke={tone} strokeWidth={sw} />
+      <circle cx={size * 1.22} cy={size * 0.5} r={size * 0.1} fill={C.void} stroke={tone} strokeWidth={1.5} />
+      <path d={blade} stroke={tone} strokeWidth={sw} strokeLinecap="round" fill="none" />
+    </svg>
+  );
+};

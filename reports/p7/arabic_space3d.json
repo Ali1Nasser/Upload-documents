@@ -1,0 +1,1537 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-14T08:27:29Z",
+ "label": "space3d-demos",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "pass",
+ "metrics": {
+  "strings": 31,
+  "failed": 0,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 31,
+  "ocr_pass": 31,
+  "ocr_min": 1.0,
+  "ocr_exact": 31,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 9,
+  "join_min": 1.0,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 31
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "s000",
+   "text": "قسم الـidempotency",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:25",
+    "studio/src/demos/space3d.tsx:30",
+    "studio/src/demos/space3d.tsx:128"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 298,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 288
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 70,
+    "got": "قسم قسم ال ‎idempotency‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s001",
+   "text": "قسم الـroadmap",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:25"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 237,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 227
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم قسم ال ‎roadmap‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s002",
+   "text": "الـ⟦keyword search⟧",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:25"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 259,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 249
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "keyword search ‏قسم ال‎",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s003",
+   "text": "الـembeddings",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:25"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 209,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 198
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎embeddings‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s004",
+   "text": "تحمّل نفس الصفوف مرتين",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:28"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 361,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تحمل نفس الصفوف مرتين",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s005",
+   "text": "الـembedding",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:44"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 192,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 182
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎embedding‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s006",
+   "text": "العميل",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:71",
+    "studio/src/demos/space3d.tsx:108"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 87,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم العميل",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s007",
+   "text": "ضغط",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:71",
+    "studio/src/demos/space3d.tsx:108"
+   ],
+   "problems": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.571 < 0.9 (pil-raqm-isolated); got 'had \\u200fقسم\\u200e'"
+   ],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 72,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 85,
+    "got": "قسم ضغط.",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.571
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s008",
+   "text": "الدفع",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:71",
+    "studio/src/demos/space3d.tsx:108"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 71,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الدفع",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s009",
+   "text": "مرتين",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:71",
+    "studio/src/demos/space3d.tsx:108"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 70,
+    "ink_h": 29,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم مرتين",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s010",
+   "text": "الـKafka",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.857 < 0.9 (pil-raqm-isolated); got 'Kafka J] \\u200fقسم\\u200e'"
+   ],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 112,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 101
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎Kafka‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 0.857,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s011",
+   "text": "بيبعت",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 80,
+    "ink_h": 24,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم بيبعت/",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s012",
+   "text": "الرسالة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 88,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الرسالة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s013",
+   "text": "ثم",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 33,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ثم",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s014",
+   "text": "بتتخزن",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 88,
+    "ink_h": 29,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم بتتخزن ‏",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s015",
+   "text": "في",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 24,
+    "ink_h": 44,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم في",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s016",
+   "text": "الـpartition",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:91"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 151,
+    "ink_h": 31,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 141
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم ال ‎partition‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s017",
+   "text": "الـAPI",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:108"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 77,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 68
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎API‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s018",
+   "text": "رفض",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:108"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 69,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم رفض",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s019",
+   "text": "تعليمات النظام",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:128"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 201,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تعليمات النظام",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s020",
+   "text": "سؤال العميل",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:128"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 172,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "سؤال العميل",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.909
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s021",
+   "text": "نتيجة الـAPI",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:132"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 161,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 153
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "نتيجة ال ‎API‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s022",
+   "text": "الإجابة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:133"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 82,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الإجابة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s023",
+   "text": "سؤال تاني",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:134"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 128,
+    "ink_h": 41,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 70,
+    "got": "سؤال تاني",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s024",
+   "text": "الموديل بيفكر",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:147"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 180,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الموديل بيفكر",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s025",
+   "text": "الطلبات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:164"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 100,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الطلبات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s026",
+   "text": "المدفوعات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:164"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 145,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "المدفوعات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s027",
+   "text": "المرتجعات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:164"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 134,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "المرتجعات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s028",
+   "text": "المدخلات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:195"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 127,
+    "ink_h": 26,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "المدخلات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.947
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s029",
+   "text": "الطبقة المخفية",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:195"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 199,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الطبقة المخفية",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.963,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s030",
+   "text": "المخرجات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/space3d.tsx:195"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 129,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "المخرجات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

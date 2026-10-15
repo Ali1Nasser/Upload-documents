@@ -32,9 +32,9 @@ const R = (inp: SpecInput, fps = 24, extra: {preview?: boolean; tier?: 'lite' | 
 for (const fps of [24, 12]) {
   const r = R(inputOf(demo('CameraRig')), fps);
   const sh = r.shots[0];
-  const want = Math.floor((54 * fps) / 24 + 0.5); // W3 starts at 54 (24 fps), lead 0, one half-up rounding (ADR-011 RD1)
+  const want = Math.floor((62 * fps) / 24 + 0.5); // W3 starts at 62 (24 fps), lead 0, one half-up rounding (ADR-011 RD1)
   ok(`CameraRig nudge resolves to the anchor frame @${fps}`, JSON.stringify(sh.camera.nudges) === JSON.stringify([want]), sh.camera.nudges);
-  ok(`CameraRig props reach the shot camera @${fps}`, sh.camera.move === 'push_in' && sh.camera.intensity === 0.7 && sh.camera.ease === 'inOutCubic', sh.camera);
+  ok(`CameraRig props reach the shot camera @${fps}`, sh.camera.move === 'dolly_zoom' && sh.camera.intensity === 1 && sh.camera.ease === 'inOutCubic', sh.camera);
   ok(`CameraRig draws no layer @${fps}`, !sh.layers.some((l) => l.component === 'CameraRig') && sh.layers.length === 2);
   const c = (t: number) => cameraAt(sh.camera, t, sh.dur, fps);
   ok(`CameraRig nudge = ${IMPACT.nudgePxMax} px on the anchor frame only @${fps}`, c(want).x === IMPACT.nudgePxMax && c(want - 1).x === 0 && c(want + 1).x === 0, [c(want - 1).x, c(want).x, c(want + 1).x]);
@@ -53,7 +53,9 @@ for (const fps of [24, 12]) {
 {
   const r = R(inputOf(demo('DepthLayers')));
   const L = Object.fromEntries(r.shots[0].layers.map((l) => [l.id, l]));
-  ok('DepthLayers maps receipts -> far (parallax 0.4, blur 0.6)', L.receipts?.depth === 'far' && L.receipts.parallax === 0.4 && L.receipts.blur === 0.6, L.receipts);
+  ok('DepthLayers maps grid -> far (parallax 0.4, blur 0.6)', L.grid?.depth === 'far' && L.grid.parallax === 0.4 && L.grid.blur === 0.6, L.grid);
+  ok('DepthLayers maps kw-brand -> near (1.3) and dust -> fg (1.6, blur 1)', L['kw-brand']?.depth === 'near' && L['kw-brand'].parallax === 1.3 && L.dust?.depth === 'fg' && L.dust.parallax === 1.6 && L.dust.blur === 1, [L['kw-brand'], L.dust]);
+  ok('DepthLayers: 4 planes in use', new Set(r.shots[0].layers.map((l) => l.depth)).size === 4);
   ok('DepthLayers maps total -> mid (parallax 1, blur 0)', L.total?.depth === 'mid' && L.total.parallax === 1 && L.total.blur === 0, L.total);
   ok('DepthLayers draws no layer', !r.shots[0].layers.some((l) => l.component === 'DepthLayers'));
   ok('DepthLayers DOF capped by tier (lite 0 px, standard/hero <= 4 px)', FX.lite.dofBlurPx === 0 && FX.standard.dofBlurPx <= 4 && FX.hero.dofBlurPx <= 4);
@@ -89,7 +91,7 @@ for (const fps of [24, 12]) {
   ok('AudioReactive smoothing high is smoother than medium', tv(r.curves['rms_dbfs:high']) < tv(r.curves['rms_dbfs:medium']));
   const k = 30;
   const mt = modAt(sh, 'total', r.curves, k);
-  ok('AudioReactive glow on target = amount x curve', Math.abs(mt.glow - 0.5 * r.curves['rms_dbfs:medium'][k]) < 1e-9 && mt.scale === 0, mt);
+  ok('AudioReactive glow on target = amount x curve', Math.abs(mt.glow - 1 * r.curves['rms_dbfs:medium'][k]) < 1e-9 && mt.scale === 0, mt);
   ok('AudioReactive modulates only its target', modAt(sh, 'kw-brand', r.curves, k).glow === 0 && modAt(sh, 'kw-brand', r.curves, 24).scale > 0);
   ok('AudioReactive draws no layer', sh.layers.length === 2 && sh.mods.length === 3);
   const r12 = R(inputOf(d, feat), 12);

@@ -15,7 +15,7 @@ import {C} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Glyph, Wire, acrylic, acts, boxStyle, clamp01, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
+import {Dot, Floor, Glyph, Wire, acrylic, acts, boxStyle, clamp01, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
 
 type Board = {t: number; bay: number};
 type Sim = {
@@ -109,10 +109,10 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // rank grid on the end side
   const cols = n <= 4 ? n : n <= 10 ? Math.ceil(n / 2) : 5;
   const rows = Math.ceil(n / cols);
-  const rankX0 = W * 0.13;
-  const rankW = W * 0.42;
+  const rankX0 = W * 0.12;
+  const rankW = W * 0.5;
   const bayW = rankW / cols;
-  const bayH = Math.min(H * 0.8 / rows, bayW * 0.82);
+  const bayH = Math.min((H * 0.74) / rows, bayW * 1.02);
   const rankY0 = H / 2 - (rows * bayH) / 2;
   const bayC = (b: number): [number, number] => {
     const r = Math.floor(b / cols);
@@ -177,7 +177,7 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // queue lane
   els.push(<Wire key="lane" d={`M ${gateX + 10} ${qY} L ${laneR} ${qY}`} color={C.grid} w={2} opacity={ent * 0.8} dash="2 14" />);
   // requests
-  const dotR = Math.max(7, Math.min(13, qGap * 0.3));
+  const dotR = Math.max(9, Math.min(15, qGap * 0.32));
   for (let i = 0; i < props.requests; i++) {
     if (t < sim.born[i]) continue;
     const bd = sim.board[i];
@@ -214,6 +214,7 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   }
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx, 'ltr')}}>
+      <Floor gid={`cpt-${ctx.id}`} w={W} h={H} y={H * 0.36} color={critK > 0 ? C.crit : C.signal} pool={0.1 + 0.08 * critK} cx={rankX0 + rankW / 2} opacity={ent} />
       <div style={{position: 'absolute', left: rankX0 - W * 0.01, top: rankY0 - bayH * 0.1, width: rankW + W * 0.02, height: rows * bayH + bayH * 0.2, borderRadius: 22, ...acrylic(critK > 0 ? C.crit : C.grid, ctx.fx, 0.15 + 0.4 * critK + ctx.mod.glow, true), opacity: ent * 0.9}} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         {els}

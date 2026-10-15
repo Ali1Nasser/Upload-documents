@@ -17,7 +17,7 @@ import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
 import {
   CHIP_PAD, Chip, Measure, MLabel, SpaceCanvas, actionsOf, blit, bloomOf, chipH, chipW, clampInto, enterK, exitK, ff, fitTo, lerp, mix,
-  moveK, project, rgba, secs, sprite, useMeasure, useOverflow, type Cam3, type V3,
+  moveK, fitCam, project, rgba, secs, sprite, useMeasure, useOverflow, type Cam3, type V3,
 } from '../_space3d/kit';
 
 const BASE = SIZE.label;
@@ -27,7 +27,7 @@ const GAP_F24 = 5; // film frames for the wave to cross one gap
 type Net = {pos: V3[][]; links: {g: number; a: number; b: number; w: number}[][]};
 const buildNet = (layers: number[]): Net => {
   const L = layers.length;
-  const span = Math.min(9, 2.2 * (L - 1));
+  const span = Math.min(10, 3.4 * (L - 1));
   const pos = layers.map((n, l) => {
     const x = span / 2 - (span * l) / Math.max(1, L - 1);
     const cols = Math.ceil(n / 8);
@@ -36,7 +36,7 @@ const buildNet = (layers: number[]): Net => {
       const c = Math.floor(i / rows);
       const r = i % rows;
       const inCol = c === cols - 1 ? n - c * rows : rows;
-      return [x, ((inCol - 1) / 2 - r) * 0.62, (c - (cols - 1) / 2) * 0.62];
+      return [x, ((inCol - 1) / 2 - r) * 0.62, (c - (cols - 1) / 2) * 0.95];
     });
   });
   const links = layers.slice(0, -1).map((na, g) => {
@@ -48,16 +48,23 @@ const buildNet = (layers: number[]): Net => {
   return {pos, links};
 };
 
-const camOf = (ctx: LayerCtx, L: number): Cam3 => ({
-  yaw: 0.42 + ((CAMERA.orbitDegPerS * Math.PI) / 180) * secs(ctx) * 4,
-  pitch: 0.16,
-  dist: 7.5 + 1.1 * L,
-  fovDeg: 40,
-  cx: W / 2,
-  cy: H * 0.46,
-  viewH: H,
-  target: [0, 0, 0],
-});
+/** The set's bounding corners (3D), so the camera can fit it to the slot at any orbit angle. */
+const hullOf = (net: Net): V3[] =>
+  net.pos.flatMap((ly) => {
+    const xs = ly[0][0];
+    const ys = ly.map((p) => p[1]);
+    const zs = ly.map((p) => p[2]);
+    const [y0, y1, z0, z1] = [Math.min(...ys) - 0.2, Math.max(...ys) + 0.2, Math.min(...zs) - 0.2, Math.max(...zs) + 0.2];
+    return [y0, y1].flatMap((y) => [z0, z1].map((z): V3 => [xs, y, z]));
+  });
+const LABEL_BAND = 0.2; // share of the slot height kept for the layer labels
+
+const camOf = (ctx: LayerCtx, hull: V3[]): Cam3 =>
+  fitCam(
+    {yaw: 0.62 + ((CAMERA.orbitDegPerS * Math.PI) / 180) * secs(ctx) * 4, pitch: 0.2, dist: 12, fovDeg: 40, cx: 0, cy: 0, viewH: H, target: [0, 0, 0]},
+    hull,
+    {w: ctx.box.w * 0.96, h: ctx.box.h * (1 - LABEL_BAND), cx: ctx.box.x + ctx.box.w / 2, cy: ctx.box.y + (ctx.box.h * (1 - LABEL_BAND)) / 2},
+  );
 
 /** Wave state of one action at layer l: 0..1 bell around the arrival of the wave at that layer. */
 const waveAt = (ctx: LayerCtx, t0: number, l: number, L: number, back: boolean): number => {
@@ -82,7 +89,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const labels = (props.labels ?? []).slice(0, L);
   const [mref, m] = useMeasure(ctx.id, labels.join('|'));
   const k = exitK(ctx);
-  const cam = camOf(ctx, L);
+  const cam = camOf(ctx, hullOf(net));
   const glow = bloomOf(ctx.fx);
   const enterL = (l: number) => enterK(ctx, 'arrive', ctx.at <= 0 ? 0 : 0) * (ctx.at <= 0 ? 1 : moveK(ctx, ctx.at + l * ff(2, ctx.fps), 6));
   const fw = actionsOf(ctx, 'forward').filter((a) => a.at <= ctx.frame);
@@ -195,4 +202,4 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   );
 };
 
-export const NeuralNet3D: DcComponent<Props> = {name: 'NeuralNet3D', Component: NeuralNet3DView, text: true, slot: 'center'};
+export const NeuralNet3D: DcComponent<Props> = {name: 'NeuralNet3D', Component: NeuralNet3DView, text: true, slot: 'full'};

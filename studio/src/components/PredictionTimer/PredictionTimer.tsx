@@ -5,7 +5,8 @@
 // invited to choose). The ring is a clock, so it drains linearly (the one allowed linear motion: a marching flow). On the reveal
 // frame the ring bursts with the 80 ms impact flash and the question and options recede into depth (opacity + scale), handing the
 // frame to the answer layer of the shot. No digits are drawn (a countdown number would be a number without a data ref).
-// The schema has no `answer` field, so the timer cannot mark the right option itself (CR filed: corpus/specs/_component_requests.jsonl).
+// The schema has no `answer` field, so the timer never marks the right option itself: the answer layer of the shot does, by pointing a
+// Spotlight / CalloutArrow at the option part (`to: '<layer>.opt<i>'`, every option carries data-dc-part="opt<i>").
 import React, {useRef} from 'react';
 import {interpolate} from 'remotion';
 import {C, FONT, LEAD_FRAMES, SIZE} from '../../tokens';

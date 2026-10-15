@@ -1,0 +1,2075 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-14T08:29:39Z",
+ "label": "struct-a",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "fail",
+ "metrics": {
+  "strings": 43,
+  "failed": 1,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 43,
+  "ocr_pass": 42,
+  "ocr_min": 0.833,
+  "ocr_exact": 40,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 3,
+  "join_min": 1.0,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 43
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "s000",
+   "text": "العميل",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:45",
+    "studio/src/demos/struct-a.tsx:420"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 87,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم العميل",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s001",
+   "text": "الـNameNode",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:46"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 189,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 179
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎NameNode‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s002",
+   "text": "الرف الأول",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:47",
+    "studio/src/demos/struct-a.tsx:48"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 133,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الرف الأول",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s003",
+   "text": "الرف التاني",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:49",
+    "studio/src/demos/struct-a.tsx:50"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 133,
+    "ink_h": 43,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الرف التاني",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s004",
+   "text": "خدمة الدفع",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:74"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 161,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "خدمة الدفع",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s005",
+   "text": "المحفظة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:75"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 115,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم المحفظة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s006",
+   "text": "الإشعارات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:76"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 122,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "الإشعارات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s007",
+   "text": "البنك",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:77"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 69,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم البنك",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s008",
+   "text": "الـKafka",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:78"
+   ],
+   "problems": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.857 < 0.9 (pil-raqm-isolated); got 'Kafka J] \\u200fقسم\\u200e'"
+   ],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 112,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 101
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎Kafka‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 0.857,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s009",
+   "text": "قاعدة البيانات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:79"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 186,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قاعدة البيانات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s010",
+   "text": "استخراج الإيصالات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:124"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 239,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "استخراج الإيصالات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s011",
+   "text": "تنقية البيانات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:125"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 174,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تنقية البيانات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s012",
+   "text": "فحص الجودة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:126"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 182,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "فحص الجودة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.9,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s013",
+   "text": "تجهيز الـWarehouse",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:127"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 278,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 268
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تجهيز ال ‎Warehouse‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 0.941,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s014",
+   "text": "تقرير الصباح",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:128"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 163,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تقرير الصباح",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s015",
+   "text": "أول صف",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:191"
+   ],
+   "problems": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.667 < 0.9 (pil-raqm-isolated); got 'قسم \\u200eJol\\u200f صف'"
+   ],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 122,
+    "ink_h": 39,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم أول صف",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.667,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s016",
+   "text": "ترتيب",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:192"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 74,
+    "ink_h": 29,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 70,
+    "got": "قسم ترتيب/",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s017",
+   "text": "تجميع بالشريحة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:193"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 214,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 70,
+    "got": "تجميع بالشريحة ‏",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s018",
+   "text": "ربط",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:194"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 46,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ربط",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s019",
+   "text": "تصفية delivered",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:195"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 228,
+    "ink_h": 32,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم تصفية ‎delivered‏",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.944,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s020",
+   "text": "الطلبات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:196",
+    "studio/src/demos/struct-a.tsx:384"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 100,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الطلبات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s021",
+   "text": "العملاء",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:197",
+    "studio/src/demos/struct-a.tsx:386",
+    "studio/src/demos/struct-a.tsx:394"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 87,
+    "ink_h": 26,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم العملاء",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s022",
+   "text": "فيه Deny صريح؟",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:210"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 230,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم فيه ‎Deny‏ صريح؟",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s023",
+   "text": "أيوه: مرفوض",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:211"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 176,
+    "ink_h": 39,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "أيوه: مرفوض",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s024",
+   "text": "لأ: فيه Allow؟",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:212"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 190,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.966,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم لأ: فيه ‎SAllow‏",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.966,
+     "92": 0.929
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s025",
+   "text": "أيوه: مسموح",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:213"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 174,
+    "ink_h": 41,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "أيوه: مسموح",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.9
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s026",
+   "text": "لأ: مرفوض ضمني",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:214"
+   ],
+   "problems": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.609 < 0.9 (pil-raqm-isolated); got 'ال مرفوض \\u200eGad\\u200f'"
+   ],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 236,
+    "ink_h": 46,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "لأ: مرفوض ضمني",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.609,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s027",
+   "text": "الجذر",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:247"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 70,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الجذر",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s028",
+   "text": "صفحة وسيطة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:248",
+    "studio/src/demos/struct-a.tsx:249"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 189,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.947,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "فحة وسيطة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.947,
+     "92": 0.947
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s029",
+   "text": "ملف الإيصالات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:285"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 195,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "ملف الإيصالات",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s030",
+   "text": "استخراج",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:287"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 105,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم استخراج",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s031",
+   "text": "تنقية",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:288"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 65,
+    "ink_h": 32,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "قسم تنقية .",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s032",
+   "text": "تحويل",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:289"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 84,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم تحويل",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s033",
+   "text": "تحميل",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:290"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 88,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 70,
+    "got": "قسم تحميل.",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s034",
+   "text": "Marts — لكل فريق",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:350"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 258,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 85,
+    "got": "قسم ‎Marts‏ - لكل فريق",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s035",
+   "text": "ADS — جاهز للتقارير",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:351"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 281,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "‎ADS‏ - جاهز للتقارير.",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s036",
+   "text": "DW — مخزن موحّد",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:352"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 260,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "‎DW‏ — مخزن موحد",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.909
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s037",
+   "text": "ODS — بيانات خام",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:353"
+   ],
+   "problems": [
+    "OCR score 0.833 < 0.9 (pil-raqm-isolated); got '5 - بيانات خام'"
+   ],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 252,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.833,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "5 - بيانات خام",
+    "join_junk": "",
+    "pass": false,
+    "bands": {
+     "34": 0.833,
+     "92": 0.833
+    }
+   },
+   "status": "fail"
+  },
+  {
+   "id": "s038",
+   "text": "التاريخ",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:387",
+    "studio/src/demos/struct-a.tsx:395"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 81,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم التاريخ",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s039",
+   "text": "المنتج",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:388"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 79,
+    "ink_h": 35,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم المنتج",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s040",
+   "text": "الحالة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:389"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 74,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الحالة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s041",
+   "text": "حالة الطلب",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:421"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 154,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "حالة الطلب",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s042",
+   "text": "الشريحة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/struct-a.tsx:422"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 105,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الشريحة",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

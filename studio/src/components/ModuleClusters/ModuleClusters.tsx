@@ -39,7 +39,7 @@ export const ModuleClustersView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // ---------- layout: clusters on a grid (RTL: column 0 on the right), pulled apart on decouple ----------
   const cols = nc <= 3 ? nc : Math.ceil(nc / 2);
   const rows = Math.ceil(nc / cols);
-  const gap = lerp(16, 56, apart);
+  const gap = lerp(44, 104, apart);
   const cw = (W - gap * (cols - 1)) / cols;
   const ch = (H - gap * (rows - 1)) / rows;
   const shrink = lerp(0.97, 0.84, apart);
@@ -97,7 +97,7 @@ export const ModuleClustersView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     .filter((d) => d.a >= 0 && d.b >= 0 && d.a !== d.b)
     .map((d) => ({...d, cross: clOf(d.a) !== clOf(d.b)}));
   const tDep = (k: number) => ctx.at + f24(12 + 1.5 * props.modules.length, fps) + stag(k, fps, 2);
-  const lw = Math.max(2, Math.round(SIZE.label * 0.08));
+  const lw = Math.max(3, Math.round(SIZE.label * 0.11));
   const ent = prog(ctx, ctx.at, 'label');
   const flashing = t >= tD && t < tCut + ff * 2;
   const flashK = t >= tD ? interpolate(t, [tD, tD + ff, tCut + ff * 2], [0, 1, 0.5], clamp) : 0;

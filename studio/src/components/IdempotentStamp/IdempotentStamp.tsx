@@ -13,7 +13,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Lbl, acrylic, acts, boxStyle, f24, mix, pf, prog, pulse, shell} from '../_dom-c/kit';
+import {Dot, Floor, Lbl, acrylic, acts, boxStyle, f24, mix, pf, prog, pulse, shell} from '../_dom-c/kit';
 
 export type Delivery = {send: number; first: boolean};
 export const deliveries = (attempts: number, ctx: DcProps<Props>['ctx']): Delivery[] => {
@@ -108,6 +108,7 @@ export const IdempotentStampView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ringK = lastRing === null ? 0 : prog(ctx, lastRing, f24(ctx, 10));
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`is-${ctx.id}`} w={W} h={H} y={H * 0.5} color={sealP > 0 ? C.ok : C.signal} pool={0.1 + 0.08 * flash} cx={pageX + pageW / 2} opacity={ent} />
       <div style={{position: 'absolute', left: pageX, top: pageY, width: pageW, height: pageH, borderRadius: 26, ...acrylic(C.ink3, ctx.fx, 0.2 + flash + ctx.mod.glow), opacity: ent}}>
         {[0.2, 0.34, 0.74, 0.86].map((yy) => (
           <div key={yy} style={{position: 'absolute', left: '12%', right: '12%', top: `${yy * 100}%`, height: 3, borderRadius: 2, background: C.grid}} />

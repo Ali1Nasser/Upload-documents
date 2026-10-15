@@ -14,12 +14,14 @@ export type Cell = {
   delay: number; // 0..1 share of the stagger window (0 = nearest to the impact)
 };
 
+const SPREAD = 0.16; // rest expansion about the impact point (share of the distance to it)
+const SPREAD_JITTER = 0.025;
 const rn = (...k: (string | number)[]) => random(k.join(':'));
 
 /**
  * `blocks` cells (exactly), brick layout: rows of near-equal cell counts, seeded jitter of every cut line (<= 18 % of a row height,
- * <= 22 % of a cell width), so the pieces differ but tile the rect without gaps or overlap. Rest offsets push each cell away from a
- * seeded impact point near the rect centre (gap expansion, 12 % of the mean side at most), with a seeded rest tilt (<= 7 deg).
+ * <= 22 % of a cell width), so the pieces differ but tile the rect without gaps or overlap. Rest offsets expand the cells radially about a
+ * seeded impact point near the rect centre (16 % of the distance to it), with a seeded rest tilt (<= 5 deg).
  */
 export const planShards = (rect: Rect, blocks: number, seed: number): Cell[] => {
   const aspect = rect.w / Math.max(1, rect.h);
@@ -58,8 +60,10 @@ export const planShards = (rect: Rect, blocks: number, seed: number): Cell[] => 
         dx /= d;
         dy /= d;
       }
-      const mag = (0.35 + 0.65 * rn(seed, 'm', k)) * 0.12 * side;
-      cells.push({i: k, r: {x: x0, y: y0, w: x1 - x0, h: y1 - y0}, cx, cy, rx: dx * mag, ry: dy * mag * 0.8, rot: (rn(seed, 'r', k) * 2 - 1) * 7, delay: d});
+      // radial expansion about the impact point (a uniform scale-up with a small seeded spread, so neighbours never slide over each
+      // other), at least a few px so the cell on the impact point still opens a visible seam
+      const mag = Math.max(0.03 * side, d * (SPREAD + (rn(seed, 'm', k) * 2 - 1) * SPREAD_JITTER));
+      cells.push({i: k, r: {x: x0, y: y0, w: x1 - x0, h: y1 - y0}, cx, cy, rx: dx * mag, ry: dy * mag, rot: (rn(seed, 'r', k) * 2 - 1) * 5, delay: d});
       k++;
     }
   }
@@ -81,7 +85,7 @@ export const shardAt = (c: Cell, t: number, n: number): ShardMotion => {
   return {dx: c.rx * p, dy: c.ry * p, rot: c.rot * p, edge: Math.max(0, 1 - Math.max(0, t) / n)};
 };
 
-/** Shift a cell's offset so its rect (moved by dx, dy) stays inside `safe`. Rotation is small (<= 7 deg) and ignored. */
+/** Shift a cell's offset so its rect (moved by dx, dy) stays inside `safe`. Rotation is small (<= 5 deg) and ignored. */
 export const clampCell = (c: Cell, dx: number, dy: number, safe: Rect): [number, number] => {
   const x0 = c.r.x + dx;
   const y0 = c.r.y + dy;

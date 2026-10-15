@@ -15,15 +15,15 @@ import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../.
 import {reportQa} from '../../type/qa';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Chip, Wire, acts, bornAt, dirOf, exitStyle, fitScale, hS, line, march, mix, overlaps, rectExit, separate, useMeasure, type Cubic, type Pt, type Sz} from '../_struct-a/kit';
-import {layered, type Lay} from '../_struct-a/layout';
+import {Chip, Wire, acts, bez, bornAt, dirOf, exitStyle, fitScale, hS, line, march, mix, overlaps, rectExit, separate, useMeasure, type Cubic, type Pt, type Sz} from '../_struct-a/kit';
+import {layeredFill, type Lay} from '../_struct-a/layout';
 
 /**
  * Seeded force-directed layout on UNITS: every ungrouped node is a unit, every group (>= 2 members) is one unit holding its
  * members packed in a column / grid inside the scope hull (with the hull padding and the group label row). Fruchterman-Reingold
  * on the units, then rect separation, so hulls never overlap each other or a foreign node.
  */
-const forceLayout = (p: Props, sz: Sz[], gap: number, aspect: number, fs: number, rtl: boolean): Lay => {
+export const forceLayout = (p: Props, sz: Sz[], gap: number, aspect: number, fs: number, rtl: boolean): Lay => {
   const n = p.nodes.length;
   const gm = new Map<string, number[]>();
   p.nodes.forEach((q, i) => q.group && gm.set(q.group, [...(gm.get(q.group) ?? []), i]));
@@ -119,7 +119,7 @@ const forceLayout = (p: Props, sz: Sz[], gap: number, aspect: number, fs: number
 };
 
 /** BFS rings around nodes[0] (unreached nodes go to the outer ring); ellipse rings wide enough for the chips. */
-const radialLayout = (p: Props, sz: Sz[], gap: number): Lay => {
+export const radialLayout = (p: Props, sz: Sz[], gap: number): Lay => {
   const n = p.nodes.length;
   const idx = new Map(p.nodes.map((q, i) => [q.id, i]));
   const adj: number[][] = p.nodes.map(() => []);
@@ -171,14 +171,14 @@ const radialLayout = (p: Props, sz: Sz[], gap: number): Lay => {
 };
 
 /** Longest-path layers along the flow (RTL when the copy is Arabic: the first layer on the right), barycentre row order. */
-const layeredLayout = (p: Props, sz: Sz[], gap: number, rtl: boolean): Lay => {
+export const layeredLayout = (p: Props, sz: Sz[], gap: number, rtl: boolean, box: Sz): Lay => {
   const idx = new Map(p.nodes.map((q, i) => [q.id, i]));
   const E = p.edges.map((e) => [idx.get(e.from), idx.get(e.to)]).filter((e): e is [number, number] => e[0] !== undefined && e[1] !== undefined && e[0] !== e[1]);
-  return layered(p.nodes.length, E, sz, Math.max(gap * 2.2, sz[0].h * 1.6), sz[0].h * 0.9, rtl);
+  return layeredFill(p.nodes.length, E, sz, Math.max(gap * 2.2, sz[0].h * 1.6), sz[0].h * 0.9, rtl, box, 1.25);
 };
 
 /** Evenly on an ellipse (box aspect), first node at the top, clockwise. */
-const circleLayout = (p: Props, sz: Sz[], gap: number, aspect: number): Lay => {
+export const circleLayout = (p: Props, sz: Sz[], gap: number, aspect: number): Lay => {
   const n = p.nodes.length;
   const need = sz.reduce((a, s) => a + s.w * 0.7 + s.h * 0.6 + gap, 0);
   const r = Math.max(need / (2 * Math.PI), sz[0].h * 1.5);
@@ -212,7 +212,7 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const gap = fs0 * 1.1;
     const aspect = ctx.box.w / ctx.box.h;
     const lay =
-      props.layout === 'radial' ? radialLayout(props, sz, gap) : props.layout === 'layered' ? layeredLayout(props, sz, gap, rtl) : props.layout === 'circle' ? circleLayout(props, sz, gap, aspect) : forceLayout(props, sz, gap, aspect, fs0, rtl);
+      props.layout === 'radial' ? radialLayout(props, sz, gap) : props.layout === 'layered' ? layeredLayout(props, sz, gap, rtl, {w: ctx.box.w, h: ctx.box.h}) : props.layout === 'circle' ? circleLayout(props, sz, gap, aspect) : forceLayout(props, sz, gap, aspect, fs0, rtl);
     // scope hulls (force / radial with groups) need a margin: hull padding on every side + the group label row on top
     const grouped = props.layout === 'radial' && props.nodes.some((q) => q.group); // force: hull + label row live inside the group unit
     const mx = grouped ? fs0 * 0.8 : 0;
@@ -240,6 +240,27 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const lab = presetFrames('label', fps);
   const arr = presetFrames('arrive', fps);
   const born = props.nodes.map((_, i) => bornAt(ctx, i, n));
+  // A wire is a straight line unless it would cross a third node: it then bows to the first side (1, -1, 2, -2, ...) that is clear.
+  const hits = (c: Cubic, a: number, b: number): boolean => {
+    for (let u = 0.08; u < 0.93; u += 0.05) {
+      const q = bez(c, u);
+      for (let i = 0; i < n; i++) if (i !== a && i !== b && Math.abs(q.x - geo.pos[i].x) < geo.sz[i].w / 2 + 8 && Math.abs(q.y - geo.pos[i].y) < geo.sz[i].h / 2 + 8) return true;
+    }
+    return false;
+  };
+  const bowed = (a: number, b: number, bend: number): Cubic => {
+    const A = geo.pos[a];
+    const B = geo.pos[b];
+    const s0 = rectExit(A, geo.sz[a], B);
+    const e0 = rectExit(B, geo.sz[b], A, 8);
+    const c = line(s0, e0);
+    if (!bend) return c;
+    const nx = -(e0.y - s0.y);
+    const ny = e0.x - s0.x;
+    const Ln = Math.max(1, Math.hypot(nx, ny));
+    const o = bend * Math.min(90, Math.max(22, Ln * 0.14));
+    return [c[0], {x: c[1].x + (nx / Ln) * o, y: c[1].y + (ny / Ln) * o}, {x: c[2].x + (nx / Ln) * o, y: c[2].y + (ny / Ln) * o}, c[3]];
+  };
   const edgeCubic = (a: number, b: number, bend = 0): Cubic => {
     const A = geo.pos[a];
     const B = geo.pos[b];
@@ -247,15 +268,12 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const sgn = B.x > A.x ? 1 : -1;
       return hS({x: A.x + (sgn * geo.sz[a].w) / 2 + sgn * 4, y: A.y}, {x: B.x - (sgn * geo.sz[b].w) / 2 - sgn * 6, y: B.y});
     }
-    const s = rectExit(A, geo.sz[a], B);
-    const e = rectExit(B, geo.sz[b], A, 8);
-    if (!bend) return line(s, e);
-    const nx = -(e.y - s.y);
-    const ny = e.x - s.x;
-    const L = Math.max(1, Math.hypot(nx, ny));
-    const c = line(s, e);
-    const o = bend * Math.min(60, L * 0.12);
-    return [c[0], {x: c[1].x + (nx / L) * o, y: c[1].y + (ny / L) * o}, {x: c[2].x + (nx / L) * o, y: c[2].y + (ny / L) * o}, c[3]];
+    const cand = bend ? [bend, -bend, 2 * bend, -2 * bend, 3 * bend, -3 * bend] : [0, 1, -1, 2, -2, 3, -3, 4, -4];
+    for (const k of cand) {
+      const c = bowed(a, b, k);
+      if (!hits(c, a, b)) return c;
+    }
+    return bowed(a, b, cand[0]);
   };
   const pairKey = (a: number, b: number) => `${Math.min(a, b)}-${Math.max(a, b)}`;
   const pairs = new Map<string, number>();
@@ -265,6 +283,7 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     if (a !== undefined && b !== undefined) pairs.set(pairKey(a, b), (pairs.get(pairKey(a, b)) ?? 0) + 1);
   });
 
+  const bendOf = (a: number, b: number) => ((pairs.get(pairKey(a, b)) ?? 0) > 0 && (pairs.get(pairKey(a, b)) ?? 0) > 1 ? 1 : 0);
   // ---- action state ----
   const paths = acts(ctx, 'highlightPath');
   const lit = new Array(n).fill(0); // 0..1 signal level per node
@@ -280,7 +299,7 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       lit[i] = Math.max(lit[i], q * fade);
       if (k + 1 < ids.length) {
         const pq = revealProgress(t - (a.at + k * arr), arr, ease.camera);
-        if (pq > 0) pathWires.push({c: edgeCubic(i, ids[k + 1]), p: pq, op: fade, pulse: pq < 1 ? pq : null});
+        if (pq > 0) pathWires.push({c: edgeCubic(i, ids[k + 1], bendOf(i, ids[k + 1])), p: pq, op: fade, pulse: pq < 1 ? pq : null});
       }
     });
   });
@@ -353,7 +372,7 @@ export const GraphNetworkView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           );
         })}
         {added.map(({a, f, to}, k) => (
-          <Wire key={`add${k}`} c={edgeCubic(f, to, 1)} p={revealProgress(t - a.at, arr, ease.camera)} color={C.signal} width={3} glowPx={ctx.fx.glowInner} arrow pulses={march(t, period, 2)} pulseR={4} />
+          <Wire key={`add${k}`} c={edgeCubic(f, to, (pairs.get(pairKey(f, to)) ?? 0) > 0 ? 1 : 0)} p={revealProgress(t - a.at, arr, ease.camera)} color={C.signal} width={3} glowPx={ctx.fx.glowInner} arrow pulses={march(t, period, 2)} pulseR={4} />
         ))}
         {pathWires.map((w, k) => (
           <Wire key={`hp${k}`} c={w.c} p={w.p} color={C.signal} width={3.5} glowPx={ctx.fx.glowInner} opacity={w.op} arrow pulses={w.pulse !== null ? [w.pulse] : march(t, period, 2)} pulseR={5} />

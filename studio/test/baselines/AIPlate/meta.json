@@ -3,7 +3,7 @@
   "p0": "7f03fe9189c0a78672b99ad82c8e6a46784c8964bacca0112241c275e68ca172",
   "a1": "cbcae51858f1073b6ea7a2e2d68123b72dae0060fa2d509edf043f558417b515",
   "p50": "42f1cf5fc7197acb9b048732e58fe1e24d4c5a7d4e52f9e385aed844229a14b5",
-  "p100": "a08d368566b09e66cbea7e26642948c956eac40c0280baee4d00e14a55aa5249"
+  "p100": "ab56a90a92b680c99ca632047915651e16dc0eb94d5fc6507c7917389c24da19"
  },
  "v": 2,
  "name": "AIPlate",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:15:41Z",
+ "written_at": "2026-10-14T08:23:33Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

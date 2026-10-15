@@ -77,7 +77,6 @@ export const BlockReplicationView: React.FC<DcProps<Props>> = ({props, ctx}) => 
   // ---- file bar ----
   const fileW = Math.min(w * 0.82, B * 150);
   const fileX = (w - fileW) / 2;
-  const fileY = h * 0.04;
   const fileH = Math.round(SIZE.label * 2.2);
   const split = prog(t, tl.splitAt, morph, ease.camera);
   const segGap = 16 * split;
@@ -89,14 +88,18 @@ export const BlockReplicationView: React.FC<DcProps<Props>> = ({props, ctx}) => 
   const rowW = N * nodeW + gapX * (N - 1);
   const nodeX = (n: number) => (rtl ? (w + rowW) / 2 - (n + 1) * nodeW - n * gapX : (w - rowW) / 2 + n * (nodeW + gapX));
   const labelH = Math.round(SIZE.label * 1.8);
-  const nodeTop = h * 0.36;
-  const nodeH = h - nodeTop - labelH - 8;
   const perNode = Math.max(...Array.from({length: N}, (_, n) => tl.copies.filter((c) => c.node === n).length), 1);
   const gcols = nodeW >= 190 ? 3 : 2;
   const grows = Math.ceil(perNode / gcols);
   const pad = 14;
   const chipW = (nodeW - 2 * pad - (gcols - 1) * 8) / gcols;
-  const chipH = Math.min(chipW * 0.62, (nodeH - 2 * pad - 30 - (grows - 1) * 8) / grows);
+  const chipH = Math.min(chipW * 0.7, 72);
+  // the whole composition (file bar, gap, racks, node labels) is sized from its content and centred in the box
+  const nodeH = pad * 2 + 30 + grows * (chipH + 8);
+  const gapFR = Math.max(110, h * 0.16);
+  const total = fileH + gapFR + nodeH + labelH + 8;
+  const fileY = Math.max(0, (h - total) / 2);
+  const nodeTop = fileY + fileH + gapFR;
   const slotOf = (c: Copy) => tl.copies.filter((x) => x.node === c.node && (x.born < c.born || (x.born === c.born && tl.copies.indexOf(x) < tl.copies.indexOf(c)))).length;
   const slotXY = (c: Copy) => {
     const s = slotOf(c);

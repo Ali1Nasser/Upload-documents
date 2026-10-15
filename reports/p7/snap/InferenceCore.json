@@ -1,0 +1,62 @@
+{
+ "v": 2,
+ "name": "InferenceCore",
+ "composition": "Demo-InferenceCore",
+ "at": "2026-10-14T08:35:51Z",
+ "frames": [
+  0,
+  11,
+  71,
+  143
+ ],
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "results": [
+  {
+   "tag": "p0",
+   "frame": 0,
+   "why": "0 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1358 px"
+  },
+  {
+   "tag": "a1",
+   "frame": 11,
+   "why": "first anchor settled (anchor + 6 + 1 f)",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1358 px"
+  },
+  {
+   "tag": "p50",
+   "frame": 71,
+   "why": "50 %",
+   "determinism_diff_px": 1358,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1358 px"
+  },
+  {
+   "tag": "p100",
+   "frame": 143,
+   "why": "100 %",
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1358 px"
+  }
+ ],
+ "qa_findings": [],
+ "registry_problems": [],
+ "approve": true,
+ "approve_refused": [
+  "determinism 1358 px"
+ ],
+ "pass": false
+}

@@ -11,7 +11,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Lbl, Wire, acrylic, acts, born, boxStyle, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
+import {Dot, Floor, Lbl, Wire, acrylic, acts, born, boxStyle, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
 
 const STEP_F24 = 8; // forward rhythm: one step every 8 film frames (333 ms)
 const COMP_F24 = 8; // compensation rhythm
@@ -46,8 +46,8 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const tl = sagaTimeline(props, ctx);
   const cellW = ctx.box.w / n;
   const nodeW = Math.round(Math.min(cellW * 0.8, 330));
-  const nodeH = Math.round(Math.min(ctx.box.h * 0.2, n <= 5 ? 170 : 190));
-  const yNode = Math.round(ctx.box.h * 0.36);
+  const nodeH = Math.round(Math.min(ctx.box.h * 0.22, n <= 5 ? 190 : 200));
+  const yNode = Math.round(ctx.box.h * 0.38);
   const yComp = Math.round(ctx.box.h * 0.74);
   const compH = Math.round(Math.min(ctx.box.h * 0.1, 96));
   const stepSize = n <= 4 ? SIZE.body : SIZE.label;
@@ -155,20 +155,25 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // status marks on top of the nodes: done = check (ok), failed = cross (crit), compensated = return arc (warn)
   const marks: React.ReactNode[] = [];
   const mk = (k: number) => {
-    const x = cx(k) + nodeW / 2 - 26;
-    const y = yNode - nodeH / 2 + 26;
-    const st = {fill: 'none', strokeWidth: 4, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
+    const x = cx(k) + nodeW / 2 - 6;
+    const y = yNode - nodeH / 2 - 4;
+    const st = {fill: 'none', strokeWidth: 5, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const};
     const ca = tl.compAt[k];
     const fAt = failedAt(k);
+    // status badge: a round token on the node corner (ok check / crit cross / warn return arrow)
+    const badge = (col: string, q: number, glyph: React.ReactNode) => (
+      <g key={`m${k}`} opacity={q} transform={`translate(${x} ${y}) scale(${(0.7 + 0.3 * q).toFixed(3)})`}>
+        <circle r={36} fill={`${C.void}`} fillOpacity={0.9} />
+        <circle r={32} fill={col} fillOpacity={0.18} stroke={col} strokeWidth={4} />
+        {glyph}
+      </g>
+    );
     if (fAt !== null) {
-      const q = prog(ctx, fAt, P.impact);
-      marks.push(<path key={`m${k}`} d={`M ${x - 9} ${y - 9} L ${x + 9} ${y + 9} M ${x + 9} ${y - 9} L ${x - 9} ${y + 9}`} stroke={C.crit} opacity={q} {...st} />);
+      marks.push(badge(C.crit, prog(ctx, fAt, P.impact), <path d="M -12 -12 L 12 12 M 12 -12 L -12 12" stroke={C.crit} {...st} />));
     } else if (ca !== null && t >= ca) {
-      const q = prog(ctx, ca, P.label);
-      marks.push(<path key={`m${k}`} d={`M ${x + 9} ${y + 4} A 10 10 0 1 0 ${x - 2} ${y + 11} M ${x - 11} ${y - 8} L ${x - 9} ${y + 3} L ${x - 1} ${y - 2}`} stroke={C.warn} opacity={q} {...st} />);
+      marks.push(badge(C.warn, prog(ctx, ca, P.label), <path d="M 14 -2 A 14 14 0 1 0 6 13 M -14 -16 L -14 -3 L -1 -6" stroke={C.warn} {...st} />));
     } else if (t >= tl.doneAt[k]) {
-      const q = prog(ctx, tl.doneAt[k], P.label);
-      marks.push(<path key={`m${k}`} d={`M ${x - 10} ${y} L ${x - 3} ${y + 8} L ${x + 11} ${y - 9}`} stroke={C.ok} opacity={q} {...st} />);
+      marks.push(badge(C.ok, prog(ctx, tl.doneAt[k], P.label), <path d="M -13 1 L -4 11 L 14 -11" stroke={C.ok} {...st} />));
     }
   };
   for (let k = 0; k < n; k++) mk(k);
@@ -188,6 +193,7 @@ export const SagaChainView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   }
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`sg-${ctx.id}`} w={ctx.box.w} h={ctx.box.h} y={ctx.box.h * 0.5} color={tl.failIdx !== null && tl.failAt !== null && t >= tl.failAt ? C.crit : C.signal} pool={0.09} />
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         {wires}
       </svg>

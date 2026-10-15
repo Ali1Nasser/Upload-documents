@@ -74,7 +74,8 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // stack slots: alive frames bottom-up; a frame keeps its slot (pushes / pops only touch the top)
   const alive = (f: SFrame) => f.born <= t && t < f.died + exitN;
   const slotY = new Map<string, number>();
-  let yb = h - 4;
+  const floorY = Math.round((h + headTop + dm.total) / 2); // the whole stack (every frame that ever exists) is centred in the box
+  let yb = floorY;
   tl.frames.forEach((f, i) => {
     if (t < f.born) return;
     if (t >= f.died + exitN) return;
@@ -95,24 +96,47 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       if (!ports.has(ident(v))) ports.set(ident(v), p);
     });
   });
-  // ---- heap geometry: a loose grid with seeded jitter on the far side ----
-  const heapX0 = rtl ? 0 : stackW + w * 0.12;
-  const heapW = w - stackW - w * 0.12;
-  const n = Math.max(1, tl.heap.length);
-  const hcols = Math.max(1, Math.min(n, Math.round(Math.sqrt(n * 1.6))));
-  const hrows = Math.ceil(n / hcols);
-  const cellW = heapW / hcols;
-  const cellH = (h - headTop) / hrows;
-  const objW = Math.min(300, cellW - 36);
+  // ---- heap geometry: objects sit beside the variables that point at them (no reference crosses another object) ----
+  const staticPort = new Map<string, number>(); // variable name -> y in the full (conservative) stack
+  {
+    let ys = floorY;
+    tl.frames.forEach((f, i) => {
+      const y0 = ys - dm.hs[i];
+      ys = y0 - gap;
+      if (i < fold) return;
+      f.vars.forEach((v, j) => {
+        const y = y0 + dm.hdr + j * dm.rowH + dm.rowH / 2;
+        if (!staticPort.has(v)) staticPort.set(v, y);
+        if (!staticPort.has(ident(v))) staticPort.set(ident(v), y);
+      });
+    });
+  }
+  const objW = Math.min(300, Math.max(180, w * 0.2));
   const objH = Math.round(s * 2.3);
-  const objPos = new Map<string, {x: number; y: number}>();
-  tl.heap.forEach((o, j) => {
-    const c = rtl ? hcols - 1 - (j % hcols) : j % hcols; // first object nearest the stack in reading order
-    const r = Math.floor(j / hcols);
-    const jx = (random(`shx${o.id}`) - 0.5) * Math.max(0, cellW - objW - 24) * 0.6;
-    const jy = (random(`shy${o.id}`) - 0.5) * Math.max(0, cellH - objH - 24) * 0.6;
-    objPos.set(o.id, {x: heapX0 + (c + 0.5) * cellW + jx, y: headTop + (r + 0.5) * cellH + jy});
+  const heapGap = Math.max(60, w * 0.1);
+  const minGap = objH + 26;
+  const want = tl.heap.map((o) => {
+    const ys = props.refs.filter((r) => r.to === o.id).map((r) => staticPort.get(r.from)).filter((y): y is number => y !== undefined);
+    return {o, y: ys.length ? ys.reduce((a, b) => a + b, 0) / ys.length : floorY - dm.total / 2};
   });
+  want.sort((a, b) => a.y - b.y);
+  const hcols = want.length * minGap > h - headTop - 24 ? 2 : 1;
+  const objPos = new Map<string, {x: number; y: number}>();
+  for (let c = 0; c < hcols; c++) {
+    const col = want.filter((_, i) => i % hcols === c);
+    let prev = -1e9;
+    const ys = col.map((q) => (prev = Math.max(q.y, prev + minGap)));
+    const over = ys.length ? ys[ys.length - 1] + objH / 2 - (h - 8) : 0;
+    const under = ys.length ? headTop + 8 - (ys[0] - objH / 2) : 0;
+    const shift = over > 0 ? -over : Math.max(0, under);
+    const cx = rtl ? stackX - heapGap - objW / 2 - c * (objW + 50) : stackX + stackW + heapGap + objW / 2 + c * (objW + 50);
+    col.forEach((q, i) => objPos.set(q.o.id, {x: cx, y: ys[i] + shift}));
+  }
+  const heapYs = [...objPos.values()].map((p) => p.y);
+  const heapTop = heapYs.length ? Math.min(...heapYs) - objH / 2 : floorY;
+  const heapXs = [...objPos.values()].map((p) => p.x);
+  const heapCx = heapXs.length ? (Math.min(...heapXs) + Math.max(...heapXs)) / 2 : stackX;
+  const capY = Math.max(0, Math.min(floorY - dm.total, heapTop) - Math.round(SIZE.labelMin * 2));
   const objState = (o: HObj) => {
     const ent = prog(t, o.born, presetFrames('impact', ctx.fps, true), ease.impact);
     const gc = t >= o.died ? clamp01((t - o.died + 1) / exitN) : 0;
@@ -154,8 +178,8 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: w, height: h, ...layerStyle(ctx, rtl)}}>
       {/* column captions (Latin chrome) */}
-      <Lbl id={`${ctx.id}:cs`} text="stack" x={stackX + stackW / 2} y={0} valign="top" maxW={stackW} size={SIZE.labelMin} color={C.ink3} opacity={prog(t, ctx.at, lblN)} role="code" />
-      {tl.heap.length ? <Lbl id={`${ctx.id}:ch`} text="heap" x={heapX0 + heapW / 2} y={0} valign="top" maxW={heapW} size={SIZE.labelMin} color={C.ink3} opacity={prog(t, tl.heap[0].born, lblN)} role="code" /> : null}
+      <Lbl id={`${ctx.id}:cs`} text="stack" x={stackX + stackW / 2} y={capY} valign="top" maxW={stackW} size={SIZE.labelMin} color={C.ink3} opacity={prog(t, ctx.at, lblN)} role="code" />
+      {tl.heap.length ? <Lbl id={`${ctx.id}:ch`} text="heap" x={heapCx} y={capY} valign="top" maxW={objW * 2} size={SIZE.labelMin} color={C.ink3} opacity={prog(t, tl.heap[0].born, lblN)} role="code" /> : null}
       {/* aliasing pools behind objects that two names point at */}
       {tl.heap.map((o) => {
         const p = objPos.get(o.id)!;

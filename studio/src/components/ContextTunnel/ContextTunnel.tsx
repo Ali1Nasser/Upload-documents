@@ -7,23 +7,26 @@
 // Timeline (a pure simulation, RV1): the initial items arrive from the layer anchor (one per 3 film frames); push {label, kind} adds an
 //   item on ITS word; evict {count} removes the oldest `count` on its word; when more than CAP (5) items are alive, the oldest are
 //   evicted automatically (overflow: a window is finite). Positions animate over the move length from each event (camera ease).
-// Window: `window` is a Num {value, ref, unit}: the figure is printed at the gate (Western digits, mono, unit after the number).
+// Eviction is by slot count (CR-015 asks for per-item token sizes). Window: `window` is a Num {value, ref, unit}: the figure is printed at the gate (Western digits, mono, unit after the number).
 // Text size: chip text scales with depth from 32 px to 28 px (SIZE.labelMin) so the far items stay legible; a label too wide for its
 // slot shrinks to the floor, below it an overflow is reported. Tiers: lite flat frames; standard + ember glow at the gate; hero + bloom.
 import React from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import {halo} from '../../fx/look';
 import {westernDigits} from '../../type/words';
+import {lineHeightFor} from '../../type/arabic';
+import {MixedText} from '../../type/Text';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
 import {
-  Chip, Measure, MLabel, SpaceCanvas, blit, bloomOf, chipH, chipW, enterK, exitK, ff, fmtNum, labelStyle, lerp, mix, moveK, rgba, sprite, useMeasure, useOverflow,
+  Measure, MLabel, SpaceCanvas, blit, bloomOf, enterK, exitK, ff, fmtNum, labelStyle, lerp, mix, moveK, rgba, sprite, useMeasure, useOverflow,
 } from '../_space3d/kit';
 import {clamp} from '../_space3d/kit';
 import {interpolate} from 'remotion';
 
 const BASE = SIZE.label;
 export const CAP = 5; // slots in the window (illustration constant; the figure on the gate is the author's `window`)
+const CARD_PAD = 14; // horizontal padding inside a card (layout constant)
 const GATE_W = 150; // room behind the gate for the evicted item to dissolve inside the slot
 type Kind = Props['items'][number]['kind'];
 export type Item = {i: number; label: string; kind: Kind; born: number; died: number | null; auto: boolean};
@@ -79,17 +82,18 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const pitch = (box.w - GATE_W) / CAP;
   const xR = box.x + box.w;
   const cy = box.y + box.h * 0.56;
-  const H0 = Math.min(box.h * 0.4, 180);
-  const H1 = H0 * 0.6;
+  const H0 = Math.min(box.h * 0.44, 270);
+  const H1 = H0 * 0.42;
   const halfAt = (u: number) => lerp(H0, H1, u); // u: 0 near end .. 1 gate
   const xOf = (r: number) => xR - (r + 0.5) * pitch;
   // text size shared by every chip: widest label must fit the slot at the depth-scaled size
   const widest = m ? Math.max(...m.w) : 0;
-  const availChip = pitch - 16;
+  const cardW = pitch * 0.84;
+  const availText = cardW - 2 * CARD_PAD; // a card is tall, so a label may wrap onto a second line (whole words only)
   let size = BASE;
   let overflow = false;
   if (m) {
-    for (; size >= SIZE.labelMin; size -= 2) if (chipW(widest, BASE, size) <= availChip) break;
+    for (; size >= SIZE.labelMin; size -= 2) if ((widest * size) / BASE <= availText * 1.7) break;
     if (size < SIZE.labelMin) {
       size = SIZE.labelMin;
       overflow = true;
@@ -114,7 +118,7 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const q = moveK(ctx, it.died, 10);
       if (ctx.frame - it.died > ff(14, ctx.fps)) continue;
       const rb = rankAt(items, it, it.died - 1) ?? 0;
-      const w = m ? chipW(m.w[labels.indexOf(it.label)], BASE, depthSize(rb)) : 0;
+      const w = cardW;
       const xEnd = Math.max(gateX - 0.55 * pitch, box.x + w / 2);
       draws.push({it, x: lerp(xOf(rb), xEnd, q), r: rb, a: 1 - q * q, dying: Math.max(q, 0.01)});
     } else {
@@ -161,10 +165,46 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.stroke();
     }
   };
+  // each item is a glass card whose height follows the corridor (a trapezoid: the near edge is taller than the far edge)
+  const drawCards = (g: CanvasRenderingContext2D) => {
+    if (k <= 0) return;
+    g.lineJoin = 'round';
+    for (const {it, x, a, dying} of [...draws].sort((p, q) => q.r - p.r)) {
+      const w = pitch * 0.84;
+      const hOf = (xx: number) => 0.8 * halfAt(Math.min(1, Math.max(0, (xR - xx) / (CAP * pitch))));
+      const hr = hOf(x + w / 2);
+      const hl = hOf(x - w / 2);
+      const col = dying ? C.crit : kindColor(it.kind);
+      const quad = () => {
+        g.beginPath();
+        g.moveTo(x + w / 2, cy - hr);
+        g.lineTo(x - w / 2, cy - hl);
+        g.lineTo(x - w / 2, cy + hl);
+        g.lineTo(x + w / 2, cy + hr);
+        g.closePath();
+      };
+      g.globalAlpha = 1;
+      quad();
+      g.fillStyle = rgba(mix(C.panel, col, 0.1), 0.9 * a * k);
+      g.fill();
+      g.strokeStyle = rgba(col, 0.9 * a * k);
+      g.lineWidth = 3;
+      g.stroke();
+      // rim light on the near edge (04 section 1.2: key light from the upper right)
+      g.strokeStyle = rgba(C.ink, 0.35 * a * k);
+      g.lineWidth = 2;
+      g.beginPath();
+      g.moveTo(x + w / 2, cy - hr);
+      g.lineTo(x + w / 2, cy + hr);
+      g.stroke();
+    }
+  };
   const drawGlow = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
     g.globalCompositeOperation = 'lighter';
     blit(g, sprite(C.ember, 'glow'), xR - CAP * pitch, cy, H1 * 2.2, (0.45 + 0.5 * flash) * k * (0.5 + 0.5 * bloom));
+    const newest = draws.filter((d) => !d.dying).sort((p, q) => p.r - q.r)[0];
+    if (newest) blit(g, sprite(kindColor(newest.it.kind), 'glow'), newest.x, cy, pitch * 0.9, 0.3 * newest.a * k * (0.5 + 0.5 * bloom));
     if (flash > 0) blit(g, sprite(C.crit, 'glow'), xR - CAP * pitch, cy, H1 * 2.6, 0.5 * flash * k);
   };
 
@@ -175,6 +215,7 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   return (
     <>
       <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawFrames} deps={[ctx.frame, k, flash, ctx.fx.id, pitch]} rect={rect} />
+      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawCards} deps={[ctx.frame, k, flash, ctx.fx.id, pitch, draws.length]} rect={rect} />
       {ctx.fx.id !== 'lite' ? <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawGlow} deps={[ctx.frame, k, flash, ctx.fx.id]} rect={rect} textSafe /> : null}
       <Measure mref={mref} size={BASE}>
         {labels.map((t, i) => <MLabel key={i} text={t} size={BASE} />)}
@@ -188,10 +229,33 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {m
         ? draws.map(({it, x, r, a, dying}) => {
             const sz = depthSize(r);
-            const w = chipW(m.w[labels.indexOf(it.label)], BASE, sz);
-            const h = chipH(it.label, sz);
+            const st = labelStyle(ctx, it.born);
             return (
-              <Chip key={it.i} ctx={ctx} id={`${ctx.id}:i${it.i}`} text={it.label} size={sz} x={x - w / 2} y={cy - h / 2} t0={it.born} accent={dying ? C.crit : kindColor(it.kind)} color={dying ? C.crit : C.ink} alpha={a * k} overflow={overflow} />
+              <div
+                key={it.i}
+                style={{
+                  position: 'absolute',
+                  left: x - cardW / 2,
+                  top: cy - H0,
+                  width: cardW,
+                  height: 2 * H0,
+                  padding: `0 ${CARD_PAD}px`,
+                  boxSizing: 'border-box',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  textAlign: 'center',
+                  fontSize: sz,
+                  lineHeight: lineHeightFor(it.label),
+                  color: dying ? C.crit : C.ink,
+                  textShadow: halo,
+                  ...st,
+                  opacity: (typeof st.opacity === 'number' ? st.opacity : 1) * a * k,
+                  outline: overflow ? `2px dashed ${C.crit}` : undefined,
+                }}
+              >
+                <MixedText id={`${ctx.id}:i${it.i}`} text={it.label} size={sz} weight={FONT.label.weight} />
+              </div>
             );
           })
         : null}

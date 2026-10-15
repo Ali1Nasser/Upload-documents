@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
+  "a1": "1a1bbd2ce5064b81b19c8b4c92a06b5e203af5f5312d1d8f7d35522ec05bbd9d",
+  "p50": "084871409ae981dc789f723bd9bc4b487d24c0ea2af849254ee8662547ba75f1",
+  "p100": "91c2b48ae48bd8d77005b462fd74f7249adcd71a8d191053a17ee842ba292537"
+ },
+ "v": 2,
+ "name": "HoloGrid",
+ "frames": {
+  "p0": 0,
+  "a1": 13,
+  "p50": 35,
+  "p100": 71
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-14T08:35:23Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

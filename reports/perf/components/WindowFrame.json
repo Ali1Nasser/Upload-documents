@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "WindowFrame",
+ "composition": "Demo-WindowFrame",
+ "at": "2026-10-14T08:40:09Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 160,
+   "wall_s": 12.82,
+   "box_s_per_frame": 0.0801,
+   "slot_s_per_frame": 0.2403,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.57,
+    4.02
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 160,
+   "wall_s": 16.89,
+   "box_s_per_frame": 0.1056,
+   "slot_s_per_frame": 0.3168,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.26,
+    4.73
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 160,
+   "wall_s": 16.88,
+   "box_s_per_frame": 0.1055,
+   "slot_s_per_frame": 0.3165,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.73,
+    5.24
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

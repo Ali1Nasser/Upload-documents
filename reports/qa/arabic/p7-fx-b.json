@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-11T07:15:22Z",
+ "created": "2026-10-14T08:29:57Z",
  "label": "p7-fx-b",
  "thresholds": {
   "ocr_min": 0.9,
@@ -16,14 +16,14 @@
  },
  "verdict": "pass",
  "metrics": {
-  "strings": 8,
+  "strings": 4,
   "failed": 0,
   "negative_fixtures": 0,
   "negative_caught": 0,
-  "ocr_scored": 8,
-  "ocr_pass": 8,
-  "ocr_min": 0.947,
-  "ocr_exact": 7,
+  "ocr_scored": 4,
+  "ocr_pass": 4,
+  "ocr_min": 1.0,
+  "ocr_exact": 4,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
@@ -37,7 +37,7 @@
   "join_script_ambiguous": [],
   "per_letter_hits": 0,
   "evidence": {
-   "pil-raqm-isolated": 8
+   "pil-raqm-isolated": 4
   }
  },
  "join_policy": {
@@ -79,144 +79,6 @@
  "items": [
   {
    "id": "s000",
-   "text": "الإيصال",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/fx-b.tsx:11"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 95,
-    "ink_h": 34,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم الإيصال",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 1.0,
-     "92": 1.0
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s001",
-   "text": "المشغل",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/fx-b.tsx:12"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 104,
-    "ink_h": 33,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 0.947,
-    "exact": false,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم | لمشغل",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 0.947,
-     "92": 0.9
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s002",
-   "text": "الحالة",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/fx-b.tsx:14"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 74,
-    "ink_h": 25,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم الحالة",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 1.0,
-     "92": 1.0
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s003",
    "text": "الإيصالات",
    "size": null,
    "render_size": [
@@ -225,7 +87,7 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/fx-b.tsx:42"
+    "studio/src/demos/fx-b.tsx:28"
    ],
    "problems": [],
    "warnings": [],
@@ -261,7 +123,7 @@
    "status": "pass"
   },
   {
-   "id": "s004",
+   "id": "s001",
    "text": "نسبة النجاح",
    "size": null,
    "render_size": [
@@ -270,7 +132,7 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/fx-b.tsx:43"
+    "studio/src/demos/fx-b.tsx:29"
    ],
    "problems": [],
    "warnings": [],
@@ -306,54 +168,7 @@
    "status": "pass"
   },
   {
-   "id": "s005",
-   "text": "إيصالات NilePay",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/fx-b.tsx:61"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text",
-     "lat"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 223,
-    "ink_h": 34,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 13,
-    "scale": 100,
-    "got": "قسم إيصالات ‎NilePay‏",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 1.0,
-     "92": 0.944
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s006",
+   "id": "s002",
    "text": "الإجمالي الناجح",
    "size": null,
    "render_size": [
@@ -362,8 +177,8 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/fx-b.tsx:62",
-    "studio/src/demos/fx-b.tsx:96"
+    "studio/src/demos/fx-b.tsx:61",
+    "studio/src/demos/fx-b.tsx:101"
    ],
    "problems": [],
    "warnings": [],
@@ -399,7 +214,7 @@
    "status": "pass"
   },
   {
-   "id": "s007",
+   "id": "s003",
    "text": "إيصال T3",
    "size": null,
    "render_size": [
@@ -408,7 +223,7 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/fx-b.tsx:78"
+    "studio/src/demos/fx-b.tsx:80"
    ],
    "problems": [],
    "warnings": [],

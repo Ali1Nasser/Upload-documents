@@ -11,14 +11,14 @@ import os
 import sys
 
 DEMO_FRAMES = {"CameraRig": 96, "DepthLayers": 96, "FXTier": 72, "AudioReactive": 72}
-TRF = [46, 49, 52, 54, 55, 57, 60, 63]  # whip / streak: shot 1 ends at 55, 12 f transition (6 out, 6 in); match: 7 f tail
+TRF = [46, 49, 52, 54, 55, 57, 60, 63, 80]  # whip / streak: shot 1 ends at 55, 12 f transition (6 out, 6 in); match: 7 f tail; 80 = incoming counter settled
 
 
 def jobs():
     J = [
-        {"tag": "cam_std", "demo": "CameraRig", "tier": "standard", "frames": [0, 30, 60, 61, 62, 95]},
-        {"tag": "dl_std", "demo": "DepthLayers", "tier": "standard", "frames": [0, 47, 95]},
-        {"tag": "dl_lite", "demo": "DepthLayers", "tier": "lite", "frames": [47]},
+        {"tag": "cam_std", "demo": "CameraRig", "tier": "standard", "frames": [8, 30, 60, 61, 62, 95]},
+        {"tag": "dl_std", "demo": "DepthLayers", "tier": "standard", "frames": [0, 70, 95]},
+        {"tag": "dl_lite", "demo": "DepthLayers", "tier": "lite", "frames": [70]},
     ]
     for t in ["lite", "standard", "hero"]:
         J.append({"tag": f"fx_{t}", "demo": "FXTier", "tier": t, "frames": [33, 50]})
@@ -102,19 +102,19 @@ def strips(src, out):
             y += i.height
         o.save(path, quality=86)
 
-    c = {f: im("cam_std", f) for f in [0, 30, 60, 61, 62, 95]}
+    c = {f: im("cam_std", f) for f in [8, 30, 60, 61, 62, 95]}
     rows([
-        ([(c[0], "f0 (anchor of word 1: RTL wipe in progress)"), (c[30], "f30"), (c[95], "f95 (end)"), (onion(c[0], c[95]), "onion: f0 cyan / f95 coral")],
+        ([(c[8], "f8 (word 1 settled)"), (c[30], "f30 (counter rolling to its word end)"), (c[95], "f95 (end)"), (onion(c[8], c[95]), "onion: f8 cyan / f95 coral")],
          "CameraRig dolly_zoom, intensity 1, standard tier: subject +12 %, backdrop counter-scales"),
         ([(c[61], "f61"), (c[62], "f62 = nudge word anchor (RV1)"), (amp(c[60], c[61], 6), "|f61 - f60| x6 (camera drift only)"), (amp(c[61], c[62], 6), "|f62 - f61| x6 (drift + 4 px nudge)")],
          "CameraRig impact nudge: one frame, 4 px (IMPACT.nudgePxMax) on the anchor frame"),
     ], os.path.join(out, "CameraRig_motion.jpg"))
 
-    d0, d47, d95, l47 = im("dl_std", 0), im("dl_std", 47), im("dl_std", 95), im("dl_lite", 47)
+    d0, d47, d95, l47 = im("dl_std", 0), im("dl_std", 70), im("dl_std", 95), im("dl_lite", 70)
     rows([
-        ([(d0, "f0 truck start"), (d47, "f47"), (d95, "f95 truck end"), (onion(d0, d95), "onion f0 / f95: far 0.4 < mid 1 < near 1.3 < fg 1.6")],
+        ([(d0, "f0 truck start"), (d47, "f70"), (d95, "f95 truck end"), (onion(d0, d95), "onion f0 / f95: far 0.4 < mid 1 < near 1.3 < fg 1.6")],
          "DepthLayers, standard: grid far (DOF 0.6), 400 EGP mid, NilePay near, dust fg (DOF 1); truck 0.7"),
-        ([(l47, "f47 lite (dofBlurPx 0)"), (d47, "f47 standard (dofBlurPx 4)"), (amp(l47, d47, 4), "|standard - lite| x4: DOF + tier FX; copy never blurred")],
+        ([(l47, "f70 lite (dofBlurPx 0)"), (d47, "f70 standard (dofBlurPx 4)"), (amp(l47, d47, 4), "|standard - lite| x4: DOF + tier FX; copy never blurred")],
          "DepthLayers DOF by tier"),
     ], os.path.join(out, "DepthLayers_parallax.jpg"))
 
@@ -132,7 +132,7 @@ def strips(src, out):
         os.path.join(out, "AudioReactive_quiet_loud.jpg"))
 
     def trrow(tag, title):
-        return ([(im(tag, f), f"f{f}" + (" cut" if f == 55 else "")) for f in TRF], title)
+        return ([(im(tag, f), f"f{f}" + (" cut" if f == 55 else " (counters roll to their word end)" if f == 60 else " settled" if f == 80 else "")) for f in TRF], title)
 
     rows([
         trrow("tr_whip_std", "WhipPan (direction rtl, motion_blur true) at standard - CURRENT ENGINE: whole-frame 24 px CSS blur, props ignored (CR-003 open)"),

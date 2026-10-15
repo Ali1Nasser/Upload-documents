@@ -171,7 +171,7 @@ export const Chip: React.FC<ChipProps> = (p) => {
         borderRadius: p.radius ?? Math.round(p.h * 0.28),
         background: `linear-gradient(180deg, ${C.panel}F0 0%, ${C.ground}E6 100%)`,
         border: `${p.dashed ? 1.5 : 2}px ${p.dashed ? 'dashed' : 'solid'} ${p.color}`,
-        boxShadow: `inset 0 1px 0 ${C.ink}1F, inset 0 0 0 999px ${p.color}${hex(p.fill ?? 0)}${k > 0 ? `, ${glow(p.color, p.fx, k)}` : ''}`,
+        boxShadow: `inset 0 1px 0 ${C.ink}1F, inset 0 0 0 999px ${p.color}${hex(p.fill ?? 0)}, 0 ${Math.round(p.h * 0.22)}px ${Math.round(p.h * 0.5)}px ${C.void}8C${k > 0 ? `, ${glow(p.color, p.fx, k)}` : ''}`,
         display: 'flex',
         flexDirection: rtl ? 'row-reverse' : 'row',
         alignItems: 'center',
@@ -335,7 +335,7 @@ export const overlaps = (pts: Pt[], sz: Sz[], gap = 0): number => {
 };
 
 // ---------- status glyphs (no copy: shape + colour, so state never relies on colour alone) ----------
-export type Glyph = 'dot' | 'ring' | 'check' | 'cross' | 'retry' | 'skip' | 'spin' | 'db' | 'folder' | 'file' | 'clock' | 'diamond' | 'layers';
+export type Glyph = 'dot' | 'ring' | 'check' | 'cross' | 'retry' | 'skip' | 'spin' | 'db' | 'folder' | 'file' | 'clock' | 'diamond' | 'layers' | 'table' | 'bars';
 /** A 24 x 24 viewBox glyph. `spin` rotates with `turn` (0..1). */
 export const GlyphIcon: React.FC<{g: Glyph; color: string; turn?: number}> = ({g, color, turn = 0}) => (
   <svg viewBox="0 0 24 24" width="100%" height="100%" style={{overflow: 'visible', display: 'block'}}>
@@ -385,6 +385,19 @@ export const GlyphIcon: React.FC<{g: Glyph; color: string; turn?: number}> = ({g
       <>
         <path d="M12 4 L21 8.5 L12 13 L3 8.5 Z" fill={`${color}2E`} stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
         <path d="M3 12.5 L12 17 L21 12.5 M3 16.5 L12 21 L21 16.5" fill="none" stroke={color} strokeWidth={1.8} strokeLinejoin="round" />
+      </>
+    ) : null}
+    {g === 'table' ? (
+      <>
+        <rect x={3} y={4} width={18} height={16} rx={2} fill={`${color}1F`} stroke={color} strokeWidth={2} />
+        <path d="M3 9.5 H21 M9.5 9.5 V20" stroke={color} strokeWidth={1.8} />
+      </>
+    ) : null}
+    {g === 'bars' ? (
+      <>
+        <rect x={3.5} y={12} width={4.5} height={8} rx={1} fill={color} fillOpacity={0.55} stroke={color} strokeWidth={1.6} />
+        <rect x={9.8} y={7} width={4.5} height={13} rx={1} fill={color} fillOpacity={0.55} stroke={color} strokeWidth={1.6} />
+        <rect x={16} y={3} width={4.5} height={17} rx={1} fill={color} fillOpacity={0.55} stroke={color} strokeWidth={1.6} />
       </>
     ) : null}
     {g === 'file' ? <path d="M6 3 H14 L19 8 V21 H6 Z M14 3 V8 H19" fill={`${color}1F`} stroke={color} strokeWidth={2} strokeLinejoin="round" /> : null}

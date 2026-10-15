@@ -68,10 +68,10 @@ export const HashBucketsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {/* hash panel */}
       <div style={{position: 'absolute', left: 0, top: H / 2 - H * 0.2, width: panelW, height: H * 0.4, borderRadius: 22, border: `2px solid ${C.violet}${hex(0.8)}`, background: `linear-gradient(160deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.2)}, ${glowBox(C.violet, fx, 0.35 + ctx.mod.glow)}`, opacity: ent, transform: `translateY(${((1 - ent) * 6).toFixed(2)}px)`}}>
         <At x={panelW / 2} y={H * 0.09}>
-          <FitLabel id={`${ctx.id}:hash`} text={props.hash ?? 'hash(key)'} maxW={panelW - 36} color={C.violet} weight={FONT.label.strong} />
+          <FitLabel id={`${ctx.id}:hash`} text={props.hash ?? 'hash(key)'} maxW={panelW - 36} size={SIZE.body} color={C.violet} weight={FONT.label.strong} />
         </At>
         <At x={panelW / 2} y={H * 0.26}>
-          {cur ? <Chip id={`${ctx.id}:cur`} text={`${cur.key} → ${cur.bucket}`} color={C.signal} size={SIZE.labelMin} /> : <div style={{height: SIZE.labelMin * 1.6}} />}
+          {cur ? <Chip id={`${ctx.id}:cur`} text={/^\d{1,15}$/.test(cur.key) ? `${cur.key} mod ${b} = ${cur.bucket}` : `${cur.key} → ${cur.bucket}`} color={C.signal} size={SIZE.label} /> : <div style={{height: SIZE.labelMin * 1.6}} />}
         </At>
       </div>
       {/* bucket trays: glass troughs with the index tile at the right end; chains grow leftwards */}

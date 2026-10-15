@@ -83,6 +83,35 @@ export const project = (c: Cam3, p: V3): P2 => {
   return {x: c.cx + x1 * s, y: c.cy - y2 * s, s, d, ok: d > 0.1};
 };
 
+/**
+ * Pull the camera back / in until the projected bounding box of `pts` fills (at most) `fit` (w x h, centred on cam.cx / cam.cy).
+ * Pure and deterministic (a few fixed-point steps; screen size is ~ 1 / dist). Keeps a 3D set at a constant apparent size while it orbits.
+ */
+export const fitCam = (c: Cam3, pts: V3[], fit: {w: number; h: number; cx: number; cy: number}): Cam3 => {
+  let cam = {...c, cx: fit.cx, cy: fit.cy};
+  const bbox = (k: Cam3) => {
+    let x0 = Infinity;
+    let x1 = -Infinity;
+    let y0 = Infinity;
+    let y1 = -Infinity;
+    for (const p of pts) {
+      const q = project(k, p);
+      x0 = Math.min(x0, q.x);
+      x1 = Math.max(x1, q.x);
+      y0 = Math.min(y0, q.y);
+      y1 = Math.max(y1, q.y);
+    }
+    return {x0, x1, y0, y1};
+  };
+  for (let i = 0; i < 4; i++) {
+    const b = bbox(cam);
+    const f = Math.min(fit.w / Math.max(1, b.x1 - b.x0), fit.h / Math.max(1, b.y1 - b.y0));
+    cam = {...cam, dist: Math.max(2.5, cam.dist / f)};
+  }
+  const b = bbox(cam); // centre the box on (cx, cy)
+  return {...cam, cx: cam.cx + fit.cx - (b.x0 + b.x1) / 2, cy: cam.cy + fit.cy - (b.y0 + b.y1) / 2};
+};
+
 // ---------- sprites ----------
 const SPRITES = new Map<string, HTMLCanvasElement>();
 export type SpriteKind = 'glow' | 'core' | 'bokeh' | 'dot';

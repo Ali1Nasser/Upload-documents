@@ -49,12 +49,60 @@ export const mix = (a: string, b: string, q: number): string => {
   return `#${ch(0)}${ch(1)}${ch(2)}`;
 };
 
-/** Acrylic node material (04 section 1.2: glowing acrylic edge, glass body, key light from the upper right). */
+/** Acrylic node material (04 section 1.2: glowing acrylic edge, glass body, key light from the upper right). ADR-003 LK-F depth:
+ * a specular top edge, a lit right edge, an extruded side (the plate has thickness) and a contact shadow on the floor. */
 export const acrylic = (col: string, fx: Fx, k = 0.4, dim = false): React.CSSProperties => ({
-  background: `linear-gradient(200deg, ${C.panel}F2 0%, ${C.ground}E0 100%)`,
+  background: `linear-gradient(205deg, ${C.panel}F5 0%, ${C.ground}E8 100%)`,
   border: `2px solid ${col}${dim ? hex(0.45) : ''}`,
-  boxShadow: `inset 0 1px 0 ${C.ink}1A, 0 0 ${(fx.glowInner + fx.glowPx * 0.6 * k).toFixed(1)}px ${col}${hex(dim ? 0.1 : 0.2 + 0.45 * Math.min(1, k))}`,
+  boxShadow: [
+    `inset 0 2px 0 ${C.ink}${hex(dim ? 0.08 : 0.2)}`,
+    `inset -2px 0 0 ${C.ink}${hex(dim ? 0.03 : 0.09)}`,
+    `0 9px 0 -3px ${mix(col, C.void, dim ? 0.82 : 0.68)}`,
+    `0 0 ${(fx.glowInner + fx.glowPx * 0.6 * k).toFixed(1)}px ${col}${hex(dim ? 0.1 : 0.2 + 0.45 * Math.min(1, k))}`,
+    `0 30px 34px -16px ${C.void}`,
+  ].join(', '),
 });
+
+/** Perspective floor under a composition (ADR-003 LK-F depth): receding grid lines that fade with distance and a coloured light
+ * pool under the subject. Static strokes and one gradient (no filter). `y` = top edge of the floor inside the box. */
+export const Floor: React.FC<{gid: string; w: number; h: number; y: number; color?: string; pool?: number; cx?: number; opacity?: number}> = ({gid, w, h, y, color = C.signal, pool = 0.12, cx, opacity = 1}) => {
+  const depth = h - y;
+  const mid = cx ?? w / 2;
+  const rows = 7;
+  const cols = 15;
+  const vpY = y - depth * 0.85;
+  const lines: React.ReactNode[] = [];
+  for (let i = 1; i <= rows; i++) {
+    const yy = y + depth * Math.pow(i / rows, 1.7);
+    const a = 0.1 + 0.9 * (i / rows);
+    lines.push(<path key={`h${i}`} d={`M ${w * 0.04} ${yy.toFixed(1)} L ${w * 0.96} ${yy.toFixed(1)}`} stroke={`url(#${gid}-hl)`} strokeWidth={2} strokeOpacity={0.9 * a} />);
+  }
+  for (let j = 0; j <= cols; j++) {
+    const u = (j / cols - 0.5) * 2;
+    const x1 = mid + u * w * 0.95;
+    const x0 = mid + u * w * 0.2;
+    lines.push(<path key={`v${j}`} d={`M ${x0.toFixed(1)} ${y} L ${x1.toFixed(1)} ${h}`} stroke={C.grid} strokeWidth={2} strokeOpacity={0.6 * (1 - Math.abs(u) * 0.7)} />);
+  }
+  void vpY;
+  return (
+    <svg width={w} height={h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity, pointerEvents: 'none'}}>
+      <defs>
+        <linearGradient id={`${gid}-hl`} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor={C.grid} stopOpacity={0} />
+          <stop offset="30%" stopColor={C.grid} stopOpacity={1} />
+          <stop offset="70%" stopColor={C.grid} stopOpacity={1} />
+          <stop offset="100%" stopColor={C.grid} stopOpacity={0} />
+        </linearGradient>
+        <radialGradient id={`${gid}-pool`} cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor={color} stopOpacity={pool} />
+          <stop offset="100%" stopColor={color} stopOpacity={0} />
+        </radialGradient>
+      </defs>
+      <ellipse cx={mid} cy={y + depth * 0.5} rx={w * 0.42} ry={depth * 0.55} fill={`url(#${gid}-pool)`} />
+      {lines}
+    </svg>
+  );
+};
 
 export type LblProps = {
   id: string;

@@ -1,7 +1,7 @@
 // ShatterToBlocks (catalog: State & FX). A target layer (`to`) shatters into `blocks` seeded pieces (04 §6: "a document shatters into
 // chunks"; the chunks stay on screen as the pieces the narrator counts).
 //  - Pure plan: _fx-a/shards.ts (brick layout of exactly `blocks` cells, seeded jitter, rest offset away from a seeded impact point,
-//    seeded rest tilt <= 7 deg, outBack burst of one morph beat staggered from the impact; the nearest cell moves ON the anchor frame
+//    seeded rest tilt <= 5 deg, outBack burst of one morph beat staggered from the impact; the nearest cell moves ON the anchor frame
 //    (RV1)). Cells are kept inside title-safe.
 //  - Rendering: on the anchor frame the target is hidden (visibility on its layer root) and each cell shows a clipped DEEP CLONE of the
 //    target's own DOM (same fonts, same shaping: nothing is redrawn or re-typeset), so the pieces carry exactly the target's pixels.

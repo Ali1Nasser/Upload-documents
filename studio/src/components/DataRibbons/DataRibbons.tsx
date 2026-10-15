@@ -18,7 +18,7 @@ import {ease} from '../../type/reveal';
 
 const BASE = SIZE.label;
 const N_SEG = 72;
-const TIGHT = 9; // spacing of the bundled end (px)
+const TIGHT = 14; // spacing of the bundled end (px)
 
 export const DataRibbonsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const n = props.ribbons.length;
@@ -40,7 +40,7 @@ export const DataRibbonsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const x1 = rightSpread ? box.x : box.x + gutter; // flow end (left)
   const cy = box.y + box.h / 2;
   const chH = hasLabels ? Math.max(...labels.map((l) => (l ? chipH(l, size) : 0))) : 0;
-  const spacing = Math.min(86, Math.max(hasLabels ? chH + 14 : 0, 48), (box.h * 0.82) / Math.max(1, n));
+  const spacing = Math.min(150, Math.max(hasLabels ? chH + 14 : 0, 96), (box.h * 0.82) / Math.max(1, n));
   const spread = (i: number) => cy + (i - (n - 1) / 2) * spacing;
   const tight = (i: number) => cy + (i - (n - 1) / 2) * TIGHT;
   const seedS = `dr${props.seed}`;
@@ -54,12 +54,12 @@ export const DataRibbonsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     off: random(`${seedS}o${i}`),
   }));
   const order = [...rib].sort((a, b) => a.z - b.z);
-  const w0 = Math.min(34, spacing * 0.55);
+  const w0 = Math.min(64, spacing * 0.56);
 
   const yAt = (r: (typeof rib)[number], u: number): number => {
     const sp = props.flow === 'converge' ? 1 - ease.camera(u) : props.flow === 'diverge' ? ease.camera(u) : 1;
     const base = lerp(tight(r.i), spread(r.i), sp);
-    const wob = (14 + 16 * r.z) * Math.sin(Math.PI * 2 * (u * r.fr + r.ph) + t * 0.5) * (props.flow === 'parallel' ? 0.6 : 0.25 + 0.75 * Math.sin(Math.PI * Math.min(1, Math.max(0, u))));
+    const wob = (24 + 26 * r.z) * Math.sin(Math.PI * 2 * (u * r.fr + r.ph) + t * 0.5) * (props.flow === 'parallel' ? 0.6 : 0.25 + 0.75 * Math.sin(Math.PI * Math.min(1, Math.max(0, u))));
     return base + wob * (props.flow === 'parallel' ? 1 : 1);
   };
   const widthAt = (r: (typeof rib)[number], u: number): number => w0 * (0.3 + 0.7 * Math.abs(Math.cos(Math.PI * 2 * (u * r.tw + r.ph) + t * 0.6))) * (0.75 + 0.25 * r.z);

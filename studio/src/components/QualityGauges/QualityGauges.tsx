@@ -36,7 +36,7 @@ export const QualityGaugesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const H = ctx.box.h;
   const cellW = W / cols;
   const cellH = H / rows;
-  const r = Math.min(cellW * 0.36, cellH * 0.37, 270);
+  const r = Math.min(cellW * 0.33, cellH * 0.33, 270);
   const sweep = f24(ctx, 14);
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
@@ -45,7 +45,7 @@ export const QualityGaugesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const row = Math.floor(i / cols);
         const inRow = row === rows - 1 && n % cols !== 0 ? n % cols : cols;
         const cx = W / 2 + ((inRow - 1) / 2 - col) * cellW; // RTL: gauge 1 on the right, a short last row is centred
-        const cy = row * cellH + cellH * 0.44;
+        const cy = row * cellH + cellH * 0.46;
         const t0 = ctx.at + Math.round((3 * i * ctx.fps) / 24);
         const t1 = t0 + sweep;
         const st = gaugeStatus(g);
@@ -62,6 +62,11 @@ export const QualityGaugesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         return (
           <div key={i} style={{position: 'absolute', left: cx - cellW / 2 + dx, top: row * cellH, width: cellW, height: cellH, opacity: e, visibility: t < t0 ? 'hidden' : undefined}}>
             <svg width={cellW} height={cellH} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+              {/* dial housing: contact shadow, extruded side, glass face with a lit rim (key light upper right) */}
+              <ellipse cx={cellW / 2} cy={cy - row * cellH + r + 58} rx={r * 1.02} ry={r * 0.13} fill={C.void} fillOpacity={0.6} />
+              <circle cx={cellW / 2} cy={cy - row * cellH + 10} r={r + 36} fill={mix(live, C.void, 0.8)} />
+              <circle cx={cellW / 2} cy={cy - row * cellH} r={r + 36} fill={`${C.panel}F2`} stroke={`${C.ink}${hex(0.16)}`} strokeWidth={2} />
+              <path d={arcPath(cellW / 2, cy - row * cellH, r + 35, 20, 100)} fill="none" stroke={C.ink} strokeOpacity={0.18} strokeWidth={3} strokeLinecap="round" />
               <path d={arcPath(cellW / 2, cy - row * cellH, r, A0, A1)} fill="none" stroke={C.grid} strokeWidth={26} strokeLinecap="round" />
               <path d={arcPath(cellW / 2, cy - row * cellH, r, A0, A1)} fill="none" stroke={C.ink3} strokeOpacity={0.22} strokeWidth={26} strokeLinecap="round" />
               {frac > 0.004 ? (
@@ -83,8 +88,8 @@ export const QualityGaugesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <div style={{position: 'absolute', left: 0, right: 0, top: cy - row * cellH - SIZE.numberBig * 0.42, display: 'flex', justifyContent: 'center'}}>
               <NumText id={`${ctx.id}:v${i}`} value={v} target={g.value.value} decimals={dec} unit={g.value.unit} maxW={r * 1.5} size={n > 3 ? SIZE.sub : SIZE.numberBig * 0.6} color={t >= t1 ? C.ink : C.ink2} glow={land > 0 ? `0 0 ${(ctx.fx.glowPx * land).toFixed(1)}px ${live}${hex(0.6)}` : undefined} />
             </div>
-            <div style={{position: 'absolute', left: (cellW - cellW * 0.92) / 2, width: cellW * 0.92, top: cy - row * cellH + r * 0.62, display: 'flex', justifyContent: 'center'}}>
-              <Lbl id={`${ctx.id}:l${i}`} text={g.label} maxW={cellW * 0.9} maxH={SIZE.body * 2.4} size={n > 3 ? SIZE.label : SIZE.body} wrap fps={ctx.fps} color={C.ink} weight={FONT.label.strong} />
+            <div style={{position: 'absolute', left: (cellW - cellW * 0.92) / 2, width: cellW * 0.92, top: cy - row * cellH + r * 0.7, display: 'flex', justifyContent: 'center'}}>
+              <Lbl id={`${ctx.id}:l${i}`} text={g.label} maxW={Math.min(cellW * 0.9, r * 2.3)} maxH={SIZE.body * 2.4} size={n > 3 ? SIZE.label : SIZE.body} wrap fps={ctx.fps} color={C.ink} weight={FONT.label.strong} />
             </div>
           </div>
         );

@@ -1,8 +1,8 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "16bd7544881b729e58909da68d76df25bbfc5a484a4f5363baa6c0783316b2c5",
-  "p50": "46cc5fe340b59d6cc4a73d3f74dbce8f13b8671e61e4c94a8ba2239e2830176f",
+  "a1": "29a7a8b9ecf3c0385eabce0af43ff956c4edcadb20027c397630fb853ca761f0",
+  "p50": "615ae77e844da569d8e529966ab777e287f87681bce49b0d308a2d652d86c15c",
   "p100": "3c6ac15b67fea43e3366eda24b60554baa961cab7f40ca37cea6754bb83a8db7"
  },
  "v": 2,
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:00:19Z",
+ "written_at": "2026-10-14T08:24:55Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

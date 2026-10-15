@@ -5,6 +5,8 @@ import {DagRun} from '../DagRun/DagRun';
 import {TreeView} from '../TreeView/TreeView';
 import {PipelineStations} from '../PipelineStations/PipelineStations';
 import {LayerStack} from '../LayerStack/LayerStack';
+import {StarSchema3D} from '../StarSchema3D/StarSchema3D';
+import {OlapCube} from '../OlapCube/OlapCube';
 
-const family: FamilyModule = {family: 'Structure & flow', components: [GraphNetwork, DagRun, TreeView, PipelineStations, LayerStack]};
+const family: FamilyModule = {family: 'Structure & flow', components: [GraphNetwork, DagRun, TreeView, PipelineStations, LayerStack, StarSchema3D, OlapCube]};
 export default family;

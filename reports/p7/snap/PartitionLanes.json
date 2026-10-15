@@ -2,7 +2,7 @@
  "v": 2,
  "name": "PartitionLanes",
  "composition": "Demo-PartitionLanes",
- "at": "2026-10-11T17:02:35Z",
+ "at": "2026-10-14T08:29:39Z",
  "frames": [
   0,
   11,
@@ -27,49 +27,36 @@
    "frame": 0,
    "why": "0 %",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 913 px; 1 QA finding(s): overflow:topic:prod"
+   "error": "not approved (baseline untouched): determinism 884 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 913 px; 1 QA finding(s): overflow:topic:prod"
+   "error": "not approved (baseline untouched): determinism 884 px"
   },
   {
    "tag": "p50",
    "frame": 131,
    "why": "50 %",
-   "determinism_diff_px": 913,
+   "determinism_diff_px": 884,
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 913 px; 1 QA finding(s): overflow:topic:prod"
+   "error": "not approved (baseline untouched): determinism 884 px"
   },
   {
    "tag": "p100",
    "frame": 263,
    "why": "100 %",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 913 px; 1 QA finding(s): overflow:topic:prod"
+   "error": "not approved (baseline untouched): determinism 884 px"
   }
  ],
- "qa_findings": [
-  {
-   "kind": "overflow",
-   "id": "topic:prod",
-   "detail": {
-    "natural_w": 134,
-    "natural_h": 36,
-    "max_w": 106,
-    "max_h": null,
-    "min": 28
-   }
-  }
- ],
+ "qa_findings": [],
  "registry_problems": [],
  "approve": true,
  "approve_refused": [
-  "determinism 913 px",
-  "1 QA finding(s): overflow:topic:prod"
+  "determinism 884 px"
  ],
  "pass": false
 }

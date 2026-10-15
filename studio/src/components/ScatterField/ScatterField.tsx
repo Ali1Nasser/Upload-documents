@@ -23,7 +23,7 @@ const gauss = (seed: string): number => {
 };
 
 /** Deterministic points of the whole field, capped to `cap` (clusters scaled proportionally, outliers kept first). */
-export const makePoints = (p: Props, cap: number): Pt[] => {
+export const makePoints = (p: Props, cap: number, avoid?: (x: number, y: number) => boolean): Pt[] => {
   const out = Math.min(p.outliers, Math.floor(cap * 0.1));
   const budget = Math.max(1, cap - out);
   const total = p.clusters.reduce((a, c) => a + c.n, 0);
@@ -40,11 +40,11 @@ export const makePoints = (p: Props, cap: number): Pt[] => {
   });
   for (let i = 0; i < out; i++) {
     let best = {x: 0.5, y: 0.5};
-    for (let tries = 0; tries < 24; tries++) {
+    for (let tries = 0; tries < 48; tries++) {
       const x = 0.04 + 0.92 * random(`${p.seed}:o:${i}:${tries}:x`);
       const y = 0.06 + 0.88 * random(`${p.seed}:o:${i}:${tries}:y`);
       best = {x, y};
-      if (p.clusters.every((c) => Math.hypot(x - c.center[0], y - c.center[1]) > c.spread * 3.2 + 0.05)) break;
+      if (p.clusters.every((c) => Math.hypot(x - c.center[0], y - c.center[1]) > c.spread * 3.2 + 0.05) && !avoid?.(x, y)) break;
     }
     pts.push({...best, k: -1, o: 1, d: i / Math.max(1, out)});
   }
@@ -55,8 +55,6 @@ export const ScatterFieldView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
   const {w: W, h: H} = ctx.box;
   const cap = ctx.fx.particles;
-  const pkey = JSON.stringify([props.clusters, props.outliers, props.seed]);
-  const pts = useMemo(() => makePoints(props, cap), [pkey, cap]); // eslint-disable-line react-hooks/exhaustive-deps
   const cvs = useRef<HTMLCanvasElement>(null);
   const pad = 28;
   const pw = W - 2 * pad;
@@ -73,6 +71,29 @@ export const ScatterFieldView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const fLab = useFitProbe(`${ctx.id}:labels`, SIZE.label, W * 0.3, (fs) => probeLabels(props.clusters.map((c) => c.label), fs), props.clusters.map((c) => c.label).join('|'));
   const r0 = ctx.fx.id === 'lite' ? 4.5 : 5;
   const spreadF = presetFrames('arrive', ctx.fps) * 2; // a cluster's points settle over 2 x arrive
+
+  // labels above their cluster (below when there is no room), pushed apart so two never overlap
+  const lh = Math.round(fLab.size * 1.7);
+  const lw = (s: string) => s.length * fLab.size * 0.62 + 36;
+  const labs = props.clusters.map((c, k) => {
+    const top = Y(c.center[1] + c.spread * 2.7) - lh;
+    const below = top < pad;
+    return {k, x: X(c.center[0]), y: below ? Y(c.center[1] - c.spread * 2.7) + 6 : top, w: lw(c.label)};
+  });
+  const sorted = [...labs].sort((a, b) => a.x - b.x);
+  for (let i = 1; i < sorted.length; i++)
+    for (let j = 0; j < i; j++) if (Math.abs(sorted[i].x - sorted[j].x) < (sorted[i].w + sorted[j].w) / 2 + GAP * 0.5 && Math.abs(sorted[i].y - sorted[j].y) < lh) sorted[i].y = sorted[j].y + lh + 6;
+  // outliers never sit behind a label plate: candidates inside a label rect (+ margin) are re-drawn from the same seeded stream
+  const pkey = JSON.stringify([props.clusters, props.outliers, props.seed, sorted.map((l) => [Math.round(l.x), Math.round(l.y), Math.round(l.w)]), Math.round(lh), W, H]);
+  const pts = useMemo(
+    () =>
+      makePoints(props, cap, (fx, fy) => {
+        const x = X(fx);
+        const y = Y(fy);
+        return sorted.some((l) => x > l.x - l.w / 2 - 24 && x < l.x + l.w / 2 + 24 && y > l.y - 24 && y < l.y + lh + 24);
+      }),
+    [pkey, cap], // eslint-disable-line react-hooks/exhaustive-deps
+  );
 
   useLayoutEffect(() => {
     const cv = cvs.current;
@@ -121,17 +142,6 @@ export const ScatterFieldView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     g.globalAlpha = 1;
   });
 
-  // labels above their cluster (below when there is no room), pushed apart so two never overlap
-  const lh = Math.round(fLab.size * 1.7);
-  const lw = (s: string) => s.length * fLab.size * 0.62 + 36;
-  const labs = props.clusters.map((c, k) => {
-    const top = Y(c.center[1] + c.spread * 2.7) - lh;
-    const below = top < pad;
-    return {k, x: X(c.center[0]), y: below ? Y(c.center[1] - c.spread * 2.7) + 6 : top, w: lw(c.label)};
-  });
-  const sorted = [...labs].sort((a, b) => a.x - b.x);
-  for (let i = 1; i < sorted.length; i++)
-    for (let j = 0; j < i; j++) if (Math.abs(sorted[i].x - sorted[j].x) < (sorted[i].w + sorted[j].w) / 2 + GAP * 0.5 && Math.abs(sorted[i].y - sorted[j].y) < lh) sorted[i].y = sorted[j].y + lh + 6;
   const head = prog(ctx, ctx.at, 'label');
 
   return (

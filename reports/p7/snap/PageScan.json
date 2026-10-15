@@ -2,7 +2,7 @@
  "v": 2,
  "name": "PageScan",
  "composition": "Demo-PageScan",
- "at": "2026-10-11T17:17:46Z",
+ "at": "2026-10-14T08:34:50Z",
  "frames": [
   0,
   11,
@@ -27,33 +27,36 @@
    "frame": 0,
    "why": "0 %",
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 759 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 759 px"
   },
   {
    "tag": "p50",
    "frame": 83,
    "why": "50 %",
-   "determinism_diff_px": 0,
+   "determinism_diff_px": 759,
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 759 px"
   },
   {
    "tag": "p100",
    "frame": 167,
    "why": "100 %",
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 759 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
+ "approve": true,
+ "approve_refused": [
+  "determinism 759 px"
+ ],
  "pass": false
 }

@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TimelineTrack",
  "composition": "Demo-TimelineTrack",
- "at": "2026-10-10T23:03:32Z",
+ "at": "2026-10-14T08:27:59Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1036 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1036 px"
   },
   {
    "tag": "p50",
    "frame": 59,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "baseline": "written"
+   "determinism_diff_px": 1036,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1036 px"
   },
   {
    "tag": "p100",
    "frame": 119,
    "why": "100 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1036 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "pass": true
+ "approve_refused": [
+  "determinism 1036 px"
+ ],
+ "pass": false
 }

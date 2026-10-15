@@ -6,7 +6,8 @@
 // Timing (RV1): step {n} walks n more steps over ITS word (from the word onset to the word end, camera ease); overshoot raises the
 // learning rate to 1.35 x the stability limit on ITS word: the next steps bounce outward, the trail turns `crit` and leaves the bowl.
 // With no step action the whole `steps` path plays from the layer anchor (2 film frames per step). `lr` {value, ref}: printed as
-// "lr = value" in a mono chip (Western digits); the dynamics use that value (default 0.12, an illustration, not printed).
+// "lr = value" in a mono chip (Western digits); the base walk runs at min(lr, 0.6 x the stability limit) (default 0.12), so a value
+// AT the limit (0.35, d:6.16:2) is shown but never walked: the overshoot action is what crosses it (1.35 x the limit).
 // Tiers: lite = coarse mesh (18 x 18) at half resolution; standard = full mesh (28 x 28) + ball halo; hero = + bloom. 3D is
 // projected on a 2D canvas (no WebGL), so the standard tier is the full fallback and the ADR-002 RT5 hero share is not consumed.
 import React, {useMemo} from 'react';
@@ -14,7 +15,7 @@ import {random} from 'remotion';
 import {C, CAMERA, H, SIZE} from '../../tokens';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {Chip, SpaceCanvas, actionsOf, blit, bloomOf, chipW, enterK, exitK, ff, fmtNum, lerp, mix, project, rgba, secs, sprite, type Cam3, type V3} from '../_space3d/kit';
+import {Chip, SpaceCanvas, fitCam, actionsOf, blit, bloomOf, chipW, enterK, exitK, ff, fmtNum, lerp, mix, project, rgba, secs, sprite, type Cam3, type V3} from '../_space3d/kit';
 import {ease, revealProgress} from '../../type/reveal';
 import {useMeasure, Measure, MLabel, useOverflow, fitTo} from '../_space3d/kit';
 
@@ -23,7 +24,7 @@ const HMAX = 2.1; // world height of the highest point
 const LR_CRIT = 0.35; // stability limit of the convex bowl (d:6.16:2)
 const L_CONVEX = 2 / LR_CRIT;
 const OVER_MULT = 1.35;
-const OVER_STEPS = 6;
+const OVER_STEPS = 7;
 const BASE = SIZE.labelMin;
 
 type Fn = (x: number, y: number) => number;
@@ -38,16 +39,26 @@ const grad = (f: Fn, x: number, y: number): [number, number] => {
   const e = 1e-3;
   return [(f(x + e, y) - f(x - e, y)) / (2 * e), (f(x, y + e) - f(x, y - e)) / (2 * e)];
 };
-const clampD = (v: number) => Math.max(-DOM * 1.02, Math.min(DOM * 1.02, v));
+/** Half-width of the surface along x: the convex bowl is stretched in x (curvature 2 / 0.35 vs 1 in y), so its x extent is the
+ * circle of equal height, which keeps the bowl round on screen (the world x is rescaled by DOM / domX). */
+const domX = (kind: Props['kind']): number => (kind === 'convex' ? DOM / Math.sqrt(L_CONVEX) : DOM);
+const clampTo = (v: number, d: number) => Math.max(-d * 1.02, Math.min(d * 1.02, v));
+const LR_SAFE = 0.6 * LR_CRIT; // the base walk never runs AT the stability limit: a larger `lr` is drawn as this safe rate (overshoot is the action that crosses it)
 
 type Seg = {t0: number; t1: number; from: number; to: number};
 type Plan = {pts: [number, number][]; over: boolean[]; segs: Seg[]};
 /** The optimiser plan: every visited point (real gradient descent) and the time segments that walk them. */
 export const planOf = (props: Props, ctx: Pick<LayerCtx, 'at' | 'fps' | 'actions'>, f: Fn): Plan => {
-  const lr = props.lr?.value ?? 0.12;
+  const lr = Math.min(props.lr?.value ?? 0.12, LR_SAFE);
+  const dx = domX(props.kind);
+  const sgn = (k: string) => (random(`ll${props.seed}${k}`) < 0.5 ? -1 : 1);
   const a0 = random(`ll${props.seed}start`) * Math.PI * 2;
   let p: [number, number] =
-    props.kind === 'saddle' ? [0.95 * (random(`ll${props.seed}sx`) < 0.5 ? -1 : 1), 0.04 + 0.04 * random(`ll${props.seed}sy`)] : [1.15 * Math.cos(a0), 1.15 * Math.sin(a0)];
+    props.kind === 'saddle'
+      ? [0.95 * sgn('sx'), 0.04 + 0.04 * random(`ll${props.seed}sy`)]
+      : props.kind === 'convex'
+        ? [0.8 * dx * sgn('cx'), (0.95 + 0.2 * random(`ll${props.seed}cy`)) * sgn('cy')]
+        : [1.15 * Math.cos(a0), 1.15 * Math.sin(a0)];
   const pts: [number, number][] = [p];
   const over: boolean[] = [false];
   const segs: Seg[] = [];
@@ -55,7 +66,7 @@ export const planOf = (props: Props, ctx: Pick<LayerCtx, 'at' | 'fps' | 'actions
   const walk = (n: number) => {
     for (let i = 0; i < n; i++) {
       const [gx, gy] = grad(f, p[0], p[1]);
-      p = [clampD(p[0] - lr * mult * gx), clampD(p[1] - lr * mult * gy)];
+      p = [clampTo(p[0] - lr * mult * gx, dx), clampTo(p[1] - lr * mult * gy, DOM)];
       pts.push(p);
       over.push(mult > 1);
     }
@@ -71,7 +82,11 @@ export const planOf = (props: Props, ctx: Pick<LayerCtx, 'at' | 'fps' | 'actions
     const t1 = Math.max(a.at + ff(6, ctx.fps), a.end);
     const from = pts.length - 1;
     if (a.name === 'overshoot') {
-      mult = (OVER_MULT * 2) / (L_CONVEX * lr);
+      mult = (OVER_MULT * LR_CRIT) / lr; // lr * mult = 1.35 x the stability limit
+      // an unstable step amplifies whatever error is left (here ~0 after convergence): a small seeded kick starts the blow-up
+      p = [clampTo(p[0] + 0.12 * dx * sgn('kx'), dx), clampTo(p[1] + 0.1 * sgn('ky'), DOM)];
+      pts.push(p);
+      over.push(true);
       walk(OVER_STEPS);
     } else {
       const n = Math.min((a.props as {n: number}).n, Math.max(0, props.steps - taken));
@@ -95,14 +110,14 @@ export const headAt = (plan: Plan, t: number): number => {
 };
 
 type Grid = {n: number; h: number[]; hn: Fn; fmin: number; fmax: number; min: [number, number]};
-const gridOf = (f: Fn, n: number): Grid => {
+const gridOf = (f: Fn, n: number, dx: number): Grid => {
   const h: number[] = [];
   let fmin = Infinity;
   let fmax = -Infinity;
   let min: [number, number] = [0, 0];
   for (let j = 0; j <= n; j++)
     for (let i = 0; i <= n; i++) {
-      const x = -DOM + (2 * DOM * i) / n;
+      const x = -dx + (2 * dx * i) / n;
       const y = -DOM + (2 * DOM * j) / n;
       const v = f(x, y);
       h.push(v);
@@ -120,7 +135,9 @@ const gridOf = (f: Fn, n: number): Grid => {
 export const LossLandscapeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const f = useMemo(() => surfaceOf(props.kind, props.seed), [props.kind, props.seed]);
   const N = ctx.fx.id === 'lite' ? 18 : 28;
-  const grid = useMemo(() => gridOf(f, N), [f, N]);
+  const dx = domX(props.kind);
+  const wk = DOM / dx; // world x per surface x
+  const grid = useMemo(() => gridOf(f, N, dx), [f, N, dx]);
   const plan = planOf(props, ctx, f);
   const head = headAt(plan, ctx.frame);
   const k = enterK(ctx, 'morph') * exitK(ctx);
@@ -130,9 +147,13 @@ export const LossLandscapeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const box = ctx.box;
   const fit = m && lrText ? fitTo(BASE, m.w[0], box.w * 0.5, 18) : {size: BASE, overflow: false};
   useOverflow(ctx.id, fit.overflow, {lr: lrText});
-  const cam: Cam3 = {yaw: 0.62 + ((CAMERA.orbitDegPerS * Math.PI) / 180) * secs(ctx) * 5, pitch: 0.5, dist: 10.5, fovDeg: 40, cx: box.x + box.w / 2, cy: box.y + box.h * 0.56, viewH: H * 0.95, target: [0, 0.7, 0]};
-  const world = (x: number, y: number): V3 => [x, grid.hn(x, y) * HMAX, y];
-  const lift = 0.07;
+  const hull: V3[] = [-DOM, DOM].flatMap((x) => [0, HMAX].flatMap((y) => [-DOM, DOM].map((z): V3 => [x, y, z])));
+  const cam: Cam3 = fitCam(
+    {yaw: 0.62 + ((CAMERA.orbitDegPerS * Math.PI) / 180) * secs(ctx) * 5, pitch: 0.5, dist: 10.5, fovDeg: 40, cx: 0, cy: 0, viewH: H, target: [0, 0.7, 0]},
+    hull,
+    {w: box.w * 0.8, h: box.h * 0.86, cx: box.x + box.w / 2, cy: box.y + box.h * 0.54},
+  );
+    const lift = 0.07;
 
   const draw = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
@@ -142,7 +163,7 @@ export const LossLandscapeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     for (let j = 0; j <= n; j++)
       for (let i = 0; i <= n; i++) {
         const hn = Math.min(1, Math.max(0, (grid.h[j * (n + 1) + i] - grid.fmin) / (grid.fmax - grid.fmin)));
-        const x = -DOM + (2 * DOM * i) / n;
+        const x = -DOM + (2 * DOM * i) / n; // world x (already rescaled)
         const y = -DOM + (2 * DOM * j) / n;
         P.push(project(cam, [x, hn * HMAX, y]));
         Y.push(hn);
@@ -161,7 +182,7 @@ export const LossLandscapeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const hn = (Y[c.j * (n + 1) + c.i] + Y[(c.j + 1) * (n + 1) + c.i + 1]) / 2;
       const slope = (Y[c.j * (n + 1) + c.i] - Y[c.j * (n + 1) + c.i + 1]) * 0.9 + (Y[(c.j + 1) * (n + 1) + c.i] - Y[c.j * (n + 1) + c.i]) * -0.35; // key light from the upper right
       const shade = Math.max(0, Math.min(1, 0.42 + 1.2 * slope + 0.25 * hn));
-      const tint = ctx.fx.id === 'lite' ? 0 : 0.14 * (1 - hn);
+      const tint = ctx.fx.id === 'lite' ? 0 : 0.3 * (1 - hn);
       g.globalAlpha = reveal;
       g.fillStyle = mix(mix(C.void, C.panel, shade), C.signal, tint);
       g.beginPath();
@@ -176,7 +197,7 @@ export const LossLandscapeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.stroke();
     }
     g.globalAlpha = 1;
-    const to2 = (x: number, y: number) => project(cam, [x, grid.hn(x, y) * HMAX + lift, y]);
+    const to2 = (x: number, y: number) => project(cam, [x * wk, grid.hn(x, y) * HMAX + lift, y]);
     // the minimum (ok ring)
     const mn = to2(grid.min[0], grid.min[1]);
     if (mn.ok) {

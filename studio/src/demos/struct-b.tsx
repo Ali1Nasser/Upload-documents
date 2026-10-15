@@ -228,7 +228,7 @@ const journey: DemoDef = {
           slot: 'full',
           hops: [
             {id: 'client', label: 'الموبايل', kind: 'client'},
-            {id: 'lb', label: 'الـload balancer', kind: 'lb'},
+            {id: 'lb', label: 'الـ⟦load balancer⟧', kind: 'lb'},
             {id: 'api', label: 'الـAPI', kind: 'service'},
             {id: 'cache', label: 'الـcache', kind: 'cache'},
             {id: 'db', label: 'الـdatabase', kind: 'db', latency: {value: 1160, unit: 'ms', ref: 'd:6.6:4'}},
@@ -245,5 +245,68 @@ const journey: DemoDef = {
   },
 };
 
-const demos: DemoModule = {family: 'Structure & flow', demos: [timeline, git, stack, lanes, repl, journey]};
+// 04 section 6 "Mobile Money": the six NilePay receipts T1..T6 (d:5.2:1..6, d:6.19:5) ride the belt through the pipeline stations;
+// T3 (200 EGP, FAILED) jams, the belt stops, the jam clears. Statuses are the data-contract receipt statuses. No numbers on screen.
+const conveyor: DemoDef = {
+  name: 'Conveyor',
+  frames: 240,
+  words: words('Conveyor', [
+    [6, 20],
+    [64, 78],
+    [104, 118],
+    [148, 162],
+    [196, 210],
+  ]),
+  shot: {
+    fx_tier: 'standard',
+    camera: {move: 'push_in', intensity: 0.3},
+    layers: [
+      {
+        component: 'Conveyor',
+        props: {
+          id: 'belt',
+          slot: 'full',
+          speed: 'normal',
+          stations: ['الموبايل', 'الـcore', 'Kafka'],
+          items: [
+            {label: 'T1', status: 'ok'},
+            {label: 'T2', status: 'ok'},
+            {label: 'T3', status: 'fail'},
+            {label: 'T4', status: 'ok'},
+            {label: 'T5', status: 'ok'},
+            {label: 'T6', status: 'fail'},
+          ],
+        },
+        at: A('Conveyor', 1),
+      },
+      {component: 'Conveyor.jam', props: {target: 'belt', index: 2}, at: A('Conveyor', 3)},
+      {component: 'Conveyor.stop', props: {target: 'belt'}, at: A('Conveyor', 4)},
+      {component: 'Conveyor.resume', props: {target: 'belt'}, at: A('Conveyor', 5)},
+    ],
+  },
+};
+
+// 04 section 7 / CH-01 "The map": the A-01 Holo-City of the seven movements. machine + data are learned, systems ignites, a route
+// draws data -> systems; then the camera flies to the platform district (04 section 6 "The film map": fly-over, district ignites,
+// route draws). No numbers on screen (tags are the movement order 1..7 of CH-01).
+const worldmap: DemoDef = {
+  name: 'WorldMapA01',
+  frames: 264,
+  words: words('WorldMapA01', [
+    [6, 20],
+    [100, 114],
+    [148, 162],
+    [200, 214],
+  ]),
+  shot: {
+    fx_tier: 'standard',
+    camera: {move: 'push_in', intensity: 0.3},
+    layers: [
+      {component: 'WorldMapA01', props: {id: 'a01', slot: 'full', district: 'systems', highlights: ['machine', 'data'], route: ['data', 'systems']}, at: A('WorldMapA01', 1)},
+      {component: 'WorldMapA01.flyTo', props: {target: 'a01', district: 'platform'}, at: A('WorldMapA01', 3)},
+    ],
+  },
+};
+
+const demos: DemoModule = {family: 'Structure & flow', demos: [timeline, git, stack, lanes, repl, journey, conveyor, worldmap]};
 export default demos;

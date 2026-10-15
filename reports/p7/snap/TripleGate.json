@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TripleGate",
  "composition": "Demo-TripleGate",
- "at": "2026-10-11T17:05:37Z",
+ "at": "2026-10-14T08:18:52Z",
  "frames": [
   0,
   11,
@@ -26,34 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1285 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "mismatch_px": 6820,
-   "pass": false
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1285 px"
   },
   {
    "tag": "p50",
    "frame": 59,
    "why": "50 %",
-   "determinism_diff_px": 1193,
-   "mismatch_px": 31855,
-   "pass": false
+   "determinism_diff_px": 1285,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1285 px"
   },
   {
    "tag": "p100",
    "frame": 119,
    "why": "100 %",
-   "mismatch_px": 27462,
-   "pass": false
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1285 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
+ "approve": true,
+ "approve_refused": [
+  "determinism 1285 px"
+ ],
  "pass": false
 }

@@ -14,7 +14,7 @@ import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../.
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {Chip, GlyphIcon, Wire, acts, alpha, bornAt, dirOf, exitStyle, fitScale, hS, march, mix, shake, useMeasure, type Cubic, type Glyph} from '../_struct-a/kit';
-import {layered} from '../_struct-a/layout';
+import {layeredFill} from '../_struct-a/layout';
 
 type State = 'queued' | 'running' | 'success' | 'failed' | 'retry' | 'skipped';
 const LOOK: Record<State, {c: string; g: Glyph}> = {
@@ -60,8 +60,8 @@ export const DagRunView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const icon = Math.round(h * 0.62);
     const padX = fs0 * 0.75;
     const sz = props.tasks.map((_, i) => ({w: (m.w as number[])[i] + 2 * padX + icon + Math.round(h * 0.18), h}));
-    const lay = layered(n, E, sz, Math.max(fs0 * 2.4, 96), fs0 * 1.0, rtl);
     const schedH = props.schedule ? h * 1.5 : 0;
+    const lay = layeredFill(n, E, sz, Math.max(fs0 * 2.4, 96), fs0 * 1.0, rtl, {w: ctx.box.w, h: ctx.box.h}, 1.3, {w: 0, h: schedH});
     const nat = {w: Math.max(lay.nat.w, props.schedule ? (m.w as number[])[n] + h * 2 : 0), h: lay.nat.h + schedH};
     const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.3);
     const s = fit.s;

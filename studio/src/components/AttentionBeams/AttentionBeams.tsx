@@ -62,7 +62,7 @@ export const layoutTokens = (widths: number[], size: number, box: {x: number; y:
   const pos = ws.map((w, i): Pos => {
     const cx = rtl ? box.x + box.w - pitch * (i + 0.5) : box.x + pitch * (i + 0.5);
     const lower = rows === 2 && i % 2 === 1;
-    return {x: cx - w / 2, y: box.y + box.h * 0.8 - rowH * rows - (rows === 2 ? 10 : 0) + (lower ? rowH + 10 : 0), w, h: hs[i]};
+    return {x: cx - w / 2, y: box.y + box.h * 0.72 - rowH * rows - (rows === 2 ? 10 : 0) + (lower ? rowH + 10 : 0), w, h: hs[i]};
   });
   return {pos, rows, ok};
 };

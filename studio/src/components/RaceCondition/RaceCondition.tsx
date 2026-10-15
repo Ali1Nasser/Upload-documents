@@ -12,7 +12,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Lbl, Wire, acrylic, acts, born, boxStyle, clamp01, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
+import {Dot, Floor, Lbl, Wire, acrylic, acts, born, boxStyle, clamp01, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
 
 export const raceTimeline = (n: number, ctx: DcProps<Props>['ctx']) => {
   const travel = f24(ctx, 8);
@@ -74,7 +74,7 @@ export const RaceConditionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   props.threads.forEach((_, i) => {
     const e = prog(ctx, born(ctx, i, 3), P.arrive);
     const x0 = xs[i];
-    const y0 = capY + capH / 2;
+    const y0 = capY + capH;
     wires.push(<Wire key={`w${i}`} d={`M ${x0} ${y0} L ${ax[i]} ${topY}`} color={C.ink3} w={2.5} opacity={e * 0.8} dash="3 12" />);
     // token position
     let q = 0; // 0 at the thread, 1 at the cell
@@ -184,9 +184,10 @@ export const RaceConditionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ringPad = 22;
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <Floor gid={`rc-${ctx.id}`} w={W} h={H} y={H * 0.5} color={crashed ? C.crit : lockK > 0 ? C.ok : C.signal} pool={0.1 + 0.08 * impactK} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         {wires}
-        {lockK > 0 ? <rect x={cx - cw / 2 - ringPad} y={topY - ringPad} width={cw + 2 * ringPad} height={ch + 2 * ringPad} rx={36} fill="none" stroke={C.ok} strokeWidth={4} strokeOpacity={lockK} strokeDasharray={`${(0.4 + 0.6 * lockK) * 2400} 2400`} /> : null}
+        {lockK > 0 ? <rect x={cx - cw / 2 - ringPad} y={topY - ringPad} width={cw + 2 * ringPad} height={ch + 2 * ringPad} rx={36} fill="none" stroke={C.ok} strokeWidth={4} pathLength={1} strokeDasharray={`${lockK.toFixed(4)} 1`} /> : null}
       </svg>
       <div
         style={{

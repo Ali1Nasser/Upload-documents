@@ -101,11 +101,11 @@ export const PartitionLanesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const hdr = Math.round(SIZE.body * 2.1);
   const consW = props.consumers.length ? Math.min(300, w * 0.17) : 0;
   const nameW = 92;
-  const prodW = 150;
+  const prodW = 210;
   const x0 = consW + (consW ? 60 : 0) + nameW;
   const x1 = w - prodW - 24;
   const gapY = P > 6 ? 10 : 18;
-  const laneH = Math.min(120, (h - hdr - gapY * (P - 1)) / P);
+  const laneH = Math.min(P <= 3 ? 150 : 120, (h - hdr - gapY * (P - 1)) / P);
   const yTop = hdr + Math.max(0, (h - hdr - P * laneH - gapY * (P - 1)) / 2);
   const yOf = (l: number) => yTop + l * (laneH + gapY);
   const maxLen = Math.max(4, ...tl.count);
@@ -231,16 +231,20 @@ export const PartitionLanesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const a = cellX(read[l]);
         const b = cellX(tl.count[l]);
         const y = yOf(l) - 10;
-        const above = y > hdr * 0.6 + 40;
+        // the value lands in the empty lane right of the unread tail (never over the neighbouring lane's cells)
+        const lx = cellX(tl.count[l]) + 22;
+        const room = x1 - lx - 12;
+        const inLane = room >= 150;
         return (
           <Lbl
             key={`gv${l}`}
             id={`${ctx.id}:lag${l}`}
             text={g.text}
-            x={Math.min(w - 100, Math.max(100, (a + b) / 2))}
-            y={above ? y : yOf(l) + laneH + 10}
-            valign={above ? 'bottom' : 'top'}
-            maxW={Math.max(160, b - a + 120)}
+            x={inLane ? lx : Math.min(w - 100, Math.max(100, (a + b) / 2))}
+            y={inLane ? yOf(l) + laneH / 2 : y}
+            align={inLane ? 'left' : 'center'}
+            valign={inLane ? 'center' : 'bottom'}
+            maxW={inLane ? room : Math.max(160, b - a + 120)}
             size={SIZE.label}
             color={C.warn}
             plate

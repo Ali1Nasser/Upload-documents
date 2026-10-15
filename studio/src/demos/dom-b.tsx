@@ -97,7 +97,7 @@ const applied: DemoDef = {
 
 // SampleScoop: "population of 5000 orders ... repeated samples" (s:S4:P11:0068..0073). Fact-check D2: the population label
 // 5 000 is allowed (s:S4:P11:0070); the sample size n is NOT shown and not sourced. `sample` is a required prop that the
-// component deliberately ignores (CR-007); the demo fills it with the sourced population value so no unsourced number exists.
+// component deliberately ignores (CR-009); the demo fills it with the sourced population value so no unsourced number exists.
 const POP = {value: 5000, ref: 's:S4:P11:0070', unit: 'طلب', decimals: 0};
 const scoop: DemoDef = {
   name: 'SampleScoop',
@@ -112,7 +112,7 @@ const scoop: DemoDef = {
 
 // ABSplit: A/B = one stream, random assignment, two lanes (s:S1:ar-natural:0249). Fact-check D1: no digits today. The rate
 // and user props are required numbers; they are ordinal placeholders here (rank only, never drawn as a value) and carry the
-// sentence that names the test, not a d: fact, so the component stays in ordinal mode (CR-006).
+// sentence that names the test, not a d: fact, so the component stays in ordinal mode (CR-010).
 const ab: DemoDef = {
   name: 'ABSplit',
   frames: 168,

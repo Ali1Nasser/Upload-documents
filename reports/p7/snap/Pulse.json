@@ -2,7 +2,7 @@
  "v": 2,
  "name": "Pulse",
  "composition": "Demo-Pulse",
- "at": "2026-10-11T17:08:32Z",
+ "at": "2026-10-14T08:28:18Z",
  "frames": [
   0,
   13,
@@ -27,33 +27,36 @@
    "frame": 0,
    "why": "0 %",
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 1054 px"
   },
   {
    "tag": "a1",
    "frame": 13,
    "why": "first anchor settled (anchor + 6 + 1 f)",
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 1054 px"
   },
   {
    "tag": "p50",
    "frame": 47,
    "why": "50 %",
-   "determinism_diff_px": 0,
+   "determinism_diff_px": 1054,
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 1054 px"
   },
   {
    "tag": "p100",
    "frame": 95,
    "why": "100 %",
    "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "error": "not approved (baseline untouched): determinism 1054 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
+ "approve": true,
+ "approve_refused": [
+  "determinism 1054 px"
+ ],
  "pass": false
 }

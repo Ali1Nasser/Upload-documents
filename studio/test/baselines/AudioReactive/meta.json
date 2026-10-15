@@ -1,15 +1,15 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "39af4aeb3c70d7a72a00d462cfd0e52f402174044909d627a77cc73c6f0c05d6",
+  "p0": "365c956d0a27a3e967ed519adb11d4a207af879f7832f3fa9a30fc8348903ad2",
+  "a1": "0c2ac3bc14e5f501ccc3a2d7a6d2a36fa7deb8eaafa8c46c492d1193a05d1641",
   "p50": "0f353d8b85b8498919575573ec318688c9ef779bd961dd0ea4940934a2ba0b2e",
-  "p100": "be35a607b07e1483a67dcde9ea3430a080835e82651cc35d5bb336e4b8ad4d9b"
+  "p100": "dc2e9c2f73cac05f688080c0a4e70a66812f3ba4399452c5c402b18b66056d7e"
  },
  "v": 2,
  "name": "AudioReactive",
  "frames": {
   "p0": 0,
-  "a1": 11,
+  "a1": 7,
   "p50": 35,
   "p100": 71
  },
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-10T23:02:28Z",
+ "written_at": "2026-10-14T08:26:34Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

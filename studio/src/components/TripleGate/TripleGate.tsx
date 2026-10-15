@@ -180,4 +180,4 @@ export const TripleGateView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   );
 };
 
-export const TripleGate: DcComponent<Props> = {name: 'TripleGate', Component: TripleGateView, text: true, slot: 'full'};
+export const TripleGate: DcComponent<Props> = {name: 'TripleGate', Component: TripleGateView, text: false, slot: 'full'};

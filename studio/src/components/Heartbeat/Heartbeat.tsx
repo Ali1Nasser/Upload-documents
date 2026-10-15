@@ -92,7 +92,8 @@ export const HeartbeatView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                   <stop offset="1" stopColor={tone} stopOpacity={0.05} />
                 </linearGradient>
               </defs>
-              <polyline points={pts.join(' ')} fill="none" stroke={`url(#${ctx.id}-hb${i})`} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" style={{filter: `drop-shadow(0 0 ${(ctx.fx.glowInner * 0.5).toFixed(1)}px ${tone})`}} />
+              <polyline points={pts.join(' ')} fill="none" stroke={tone} strokeOpacity={0.22} strokeWidth={3 + ctx.fx.glowInner} strokeLinejoin="round" strokeLinecap="round" />
+              <polyline points={pts.join(' ')} fill="none" stroke={`url(#${ctx.id}-hb${i})`} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" />
             </svg>
           </React.Fragment>
         );

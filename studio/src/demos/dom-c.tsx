@@ -279,7 +279,7 @@ const branchPaths: DemoDef = {
           question: 'إيه اللي يحصل لما الـjob يتكرر؟',
           branches: [
             {label: 'من غير key', outcome: 'صفوف مكررة', status: 'fail'},
-            {label: 'بـidempotency key', outcome: 'تأثير واحد بس', status: 'ok'},
+            {label: 'مع ⟦idempotency key⟧', outcome: 'تأثير واحد بس', status: 'ok'},
             {label: 'بـtimeout', outcome: 'تحميل ناقص', status: 'warn'},
           ],
         },

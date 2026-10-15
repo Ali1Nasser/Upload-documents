@@ -47,7 +47,7 @@ export const InferenceCoreView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = secs(ctx);
   const col = mix(A.col, B.col, p);
   const labelH = props.label ? chipH(props.label, SIZE.label) + 24 : 0;
-  const R = Math.min(150, (Math.min(box.w, box.h - labelH) / 2) * 0.46);
+  const R = Math.min(230, Math.min(box.w / 1.6, box.h - labelH) / 2 / 1.62);
   const cx = box.x + box.w / 2;
   const cy = box.y + (box.h - labelH) / 2;
   const mod = ctx.mod;

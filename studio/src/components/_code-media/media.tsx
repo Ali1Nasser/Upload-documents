@@ -59,9 +59,11 @@ export const missingMedia = (what: string, preview: boolean): React.ReactElement
   );
 };
 
-/** One frame of a clip (index `idx` at the clip's own fps), pinned through <Freeze> at the mid-point of that frame. */
+/** One frame of a clip (index `idx` at the clip's own fps), pinned through <Freeze> a quarter frame after that frame's pts.
+ * (idx + 0.5) / clipFps is exactly half-way between two pts values: the decoder's nearest-frame pick is then a tie and
+ * can differ between renders of the same frame (LoopPlate determinism failure, 1443 px). A quarter frame is unambiguous. */
 export const ClipFrame: React.FC<{src: string; idx: number; clipFps: number; fps: number; transparent?: boolean; style?: React.CSSProperties}> = ({src, idx, clipFps, fps, transparent, style}) => (
-  <Freeze frame={((idx + 0.5) / clipFps) * fps}>
+  <Freeze frame={((idx + 0.25) / clipFps) * fps}>
     <OffthreadVideo src={src} muted transparent={transparent} style={style} />
   </Freeze>
 );

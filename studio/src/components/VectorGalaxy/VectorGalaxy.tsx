@@ -7,7 +7,7 @@
 //   highlightNeighbors {k}      the k nearest points to the probe ignite in rank order, beams draw from the probe (cosine = angle,
 //                               drawn as proximity); `query` on the action also places the probe;
 //   zoomCluster {cluster}       the camera dollies to that cluster's centre (camera ease, the morph preset length).
-// Scores are not drawn here: the action carries `scores_ref` but no values (CR filed); a NumberCounter / CalloutArrow shows them.
+// Scores are not drawn here: the action carries `scores_ref` but no values (CR-014); a NumberCounter / CalloutArrow shows them.
 // Tiers: lite = flat dots at half resolution; standard = + cluster nebulae and halos; hero = + bloom sprites (no WebGL needed, so
 // the ADR-002 RT5 hero share is not consumed; standard is the full fallback). Text-safe: every copy box is cut out of the field.
 import React, {useMemo} from 'react';
@@ -25,10 +25,10 @@ type Field = {centres: V3[]; pts: {p: V3; cl: number; tint: boolean; br: number}
 
 const buildField = (nClusters: number, n: number, seed: number): Field => {
   const s = `vg${seed}`;
-  const a0 = random(`${s}a0`) * Math.PI * 2;
+  const a0 = 0.35 + random(`${s}a0`) * 0.3; // ~20 deg off the view axis: no two cluster centres share a screen column
   const centres: V3[] = Array.from({length: nClusters}, (_, c) => {
-    const a = a0 + (c / nClusters) * Math.PI * 2 + (random(`${s}ca${c}`) - 0.5) * 0.5;
-    const r = nClusters === 1 ? 0 : 2.7 + random(`${s}cr${c}`) * 0.9;
+    const a = a0 + (c / nClusters) * Math.PI * 2;
+    const r = nClusters === 1 ? 0 : 3.0 + random(`${s}cr${c}`) * 0.5;
     return [Math.cos(a) * r, (random(`${s}cy${c}`) - 0.5) * 2.0, Math.sin(a) * r * 0.85];
   });
   const pts = Array.from({length: n}, (_, i) => {
@@ -53,7 +53,7 @@ const buildField = (nClusters: number, n: number, seed: number): Field => {
 
 /** Camera: slow orbit; zoomCluster dollies the target to a cluster centre. */
 const cameraAt = (ctx: LayerCtx, props: Props, f: Field): Cam3 => {
-  const yaw0 = random(`vg${props.seed}yaw`) * Math.PI * 2;
+  const yaw0 = 0;
   let target: V3 = [0, 0, 0];
   let dist = 9.5;
   for (const a of actionsOf(ctx, 'zoomCluster')) {
@@ -163,13 +163,13 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       });
     if (p0 !== null && fly > 0 && q.ok) {
       const pulse = 0.5 + 0.5 * Math.sin(secs(ctx) * Math.PI * 1.5);
-      blit(g, sprite(C.signal, 'glow'), q.x, q.y, 70 + 20 * pulse, 0.55 * fly * k * (glow || 0.5));
-      blit(g, sprite(C.signal, 'core'), q.x, q.y, 24, fly * k);
+      blit(g, sprite(C.signal, 'glow'), q.x, q.y, 120 + 30 * pulse, 0.7 * fly * k * (glow || 0.6));
+      blit(g, sprite(C.signal, 'core'), q.x, q.y, 40, fly * k);
       g.globalAlpha = 0.7 * fly * k;
       g.strokeStyle = C.signal;
-      g.lineWidth = 2;
+      g.lineWidth = 3;
       g.beginPath();
-      g.arc(q.x, q.y, 26 + 10 * pulse, 0, Math.PI * 2);
+      g.arc(q.x, q.y, 46 + 14 * pulse, 0, Math.PI * 2);
       g.stroke();
     }
   };

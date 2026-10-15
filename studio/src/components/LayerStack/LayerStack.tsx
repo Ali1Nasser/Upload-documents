@@ -107,95 +107,104 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   const anyHl = Math.max(0, ...hl);
 
-  // painter's order: top slab first is BEHIND? No: oblique depth goes up-right, so lower slabs overlap the top face of nothing;
-  // draw bottom -> top so each slab's top face is covered by the slab above's front face.
-  const order = props.layers.map((_, i) => i);
+  // Faces: ONE svg holds every slab's top and side face (they sit in the gap above / beside their slab, never under another slab's
+  // front plate); the front plates are separate DOM boxes drawn after it. No wrapper group carries an opacity and no plate clips its
+  // children (an offscreen group or a rounded overflow clip splits into raster tiles whose seams differ between renders, struct-a L1).
+  const slabs = props.layers.map((L, i) => {
+    const c = cas[i];
+    const q = revealProgress(t - born[i], lab);
+    const cached = !!L.cached && !c.built && c.inv <= 0;
+    const fresh = c.built ? c.build : 0;
+    let col: string = cached ? C.ok : C.ink3;
+    col = mix(col, C.signal, Math.max(hl[i], fresh));
+    col = mix(col, C.crit, c.inv);
+    // dimming goes through colour, never an opacity < 1
+    const dim = anyHl > 0 && hl[i] < 0.5 ? 1 - 0.35 * anyHl : 1;
+    const dm = (x: string) => (dim < 1 ? mix(x, C.ground, 1 - dim) : x);
+    return {i, L, c, q, cached, fresh, col: dm(col), dm, y: geo.ys[i] - hl[i] * geo.lift - (1 - q) * 18 * geo.s};
+  });
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
       {m.node}
-      {order.map((i) => {
-        const L = props.layers[i];
-        const c = cas[i];
-        const q = revealProgress(t - born[i], lab);
+      <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        {slabs.map(({i, q, col, y}) => {
+          if (q <= 0) return null;
+          const x = geo.ox;
+          const top = `${x},${y} ${x + geo.dx},${y - geo.dy} ${x + geo.W + geo.dx},${y - geo.dy} ${x + geo.W},${y}`;
+          const side = `${x + geo.W},${y} ${x + geo.W + geo.dx},${y - geo.dy} ${x + geo.W + geo.dx},${y - geo.dy + geo.hF} ${x + geo.W},${y + geo.hF}`;
+          return (
+            <g key={i}>
+              <polygon points={top} fill={mix(C.panel, col, 0.22)} fillOpacity={0.95 * q} stroke={col} strokeOpacity={0.7 * q} strokeWidth={1.5 * geo.s} strokeLinejoin="round" />
+              <polygon points={side} fill={mix(C.void, col, 0.12)} fillOpacity={0.95 * q} stroke={col} strokeOpacity={0.45 * q} strokeWidth={1.5 * geo.s} strokeLinejoin="round" />
+            </g>
+          );
+        })}
+      </svg>
+      {slabs.map(({i, L, c, q, cached, fresh, col, dm, y}) => {
         if (q <= 0) return null;
-        const cached = !!L.cached && !c.built && c.inv <= 0;
-        const fresh = c.built ? c.build : 0;
-        let col: string = cached ? C.ok : C.ink3;
-        col = mix(col, C.signal, Math.max(hl[i], fresh));
-        col = mix(col, C.crit, c.inv);
         const flash = c.invSince >= 0 && c.invSince < ff * 4 ? (c.invSince < ff ? 1 : 1 - (c.invSince - ff) / (3 * ff)) : 0;
-        const drop = (1 - q) * 18 * geo.s;
-        const y = geo.ys[i] - hl[i] * geo.lift - drop;
         const x = geo.ox;
-        // dimming goes through colour, never a group opacity < 1 (an offscreen layer across raster tiles breaks snapshot determinism)
-        const dim = anyHl > 0 && hl[i] < 0.5 ? 1 - 0.35 * anyHl : 1;
-        const dm = (x: string) => (dim < 1 ? mix(x, C.ground, 1 - dim) : x);
-        col = dm(col);
         const k = (cached ? 0.45 : 0) + hl[i] * 0.8 + c.hit * 0.6 + flash * 1.2 + fresh * 0.5;
         const g: Glyph = c.inv > 0.5 ? 'cross' : c.built && c.build < 1 ? 'spin' : cached ? 'check' : c.built ? 'dot' : docker ? 'dot' : 'layers';
-        const top = `${x},${y} ${x + geo.dx},${y - geo.dy} ${x + geo.W + geo.dx},${y - geo.dy} ${x + geo.W},${y}`;
-        const side = `${x + geo.W},${y} ${x + geo.W + geo.dx},${y - geo.dy} ${x + geo.W + geo.dx},${y - geo.dy + geo.hF} ${x + geo.W},${y + geo.hF}`;
         const ar = isArabic(L.label);
         const sz = sizes[i];
+        const rv = revealStyle(t - born[i], fps, 'label', ar ? 'rtl' : 'ltr').style;
+        const pad = 0.8 * geo.fs;
         return (
-          <div key={i} style={{position: 'absolute', left: 0, top: 0, ...(q < 1 ? {opacity: q} : {})}}>
-            <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
-              <polygon points={top} fill={mix(C.panel, col, 0.22)} fillOpacity={0.95} stroke={col} strokeOpacity={0.7} strokeWidth={1.5 * geo.s} strokeLinejoin="round" />
-              <polygon points={side} fill={mix(C.void, col, 0.12)} fillOpacity={0.95} stroke={col} strokeOpacity={0.45} strokeWidth={1.5 * geo.s} strokeLinejoin="round" />
-            </svg>
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              left: x,
+              top: y,
+              width: geo.W,
+              height: geo.hF,
+              boxSizing: 'border-box',
+              borderRadius: 4 * geo.s,
+              background: `linear-gradient(180deg, ${alpha(C.panel, 0.94)} 0%, ${alpha(C.ground, 0.9)} 100%)`,
+              border: `${2 * geo.s}px solid ${col}`,
+              boxShadow: `inset 0 1px 0 ${alpha(C.ink, 0.12)}, inset 0 0 0 999px ${alpha(col, 0.06 + 0.1 * Math.max(hl[i], c.inv, cached ? 0.5 : 0))}${k > 0 ? `, ${glow(col, ctx.fx, k)}` : ''}`,
+              display: 'flex',
+              flexDirection: rtl ? 'row-reverse' : 'row',
+              alignItems: 'center',
+              padding: `0 ${pad}px`,
+              gap: 0.6 * geo.fs,
+              outline: geo.overflow ? `2px dashed ${C.crit}` : undefined,
+              opacity: q < 1 ? q : undefined,
+            }}
+          >
+            {c.built && c.build < 1 ? (
+              // rebuild progress across the face (reading direction), inside the border, no clipping needed
+              <div style={{position: 'absolute', top: 0, bottom: 0, [rtl ? 'right' : 'left']: 0, width: `${(c.build * 100).toFixed(2)}%`, background: alpha(C.warn, 0.16), [rtl ? 'borderLeft' : 'borderRight']: `2px solid ${C.warn}`}} />
+            ) : null}
+            <div style={{width: geo.icon, height: geo.icon, flex: 'none', position: 'relative'}}>
+              <GlyphIcon g={g} color={col} turn={c.built ? c.build : 0} />
+            </div>
             <div
               style={{
-                position: 'absolute',
-                left: x,
-                top: y,
-                width: geo.W,
-                height: geo.hF,
-                boxSizing: 'border-box',
-                borderRadius: 4 * geo.s,
-                background: `linear-gradient(180deg, ${alpha(C.panel, 0.94)} 0%, ${alpha(C.ground, 0.9)} 100%)`,
-                border: `${2 * geo.s}px solid ${col}`,
-                boxShadow: `inset 0 1px 0 ${alpha(C.ink, 0.12)}, inset 0 0 0 999px ${alpha(col, 0.06 + 0.1 * Math.max(hl[i], c.inv, cached ? 0.5 : 0))}${k > 0 ? `, ${glow(col, ctx.fx, k)}` : ''}`,
+                flex: 1,
                 display: 'flex',
-                flexDirection: rtl ? 'row-reverse' : 'row',
-                alignItems: 'center',
-                padding: `0 ${0.8 * geo.fs}px`,
-                gap: 0.6 * geo.fs,
-                overflow: 'hidden',
-                outline: geo.overflow ? `2px dashed ${C.crit}` : undefined,
+                justifyContent: rtl ? 'flex-end' : 'flex-start',
+                position: 'relative',
+                whiteSpace: 'nowrap',
+                fontSize: geo.fs,
+                color: dm(C.ink),
+                textShadow: halo,
+                lineHeight: 1.3,
+                ...rv,
+                transform: undefined,
+                opacity: undefined,
               }}
             >
-              {c.built && c.build < 1 ? (
-                // rebuild progress across the face (reading direction)
-                <div style={{position: 'absolute', top: 0, bottom: 0, [rtl ? 'right' : 'left']: 0, width: `${(c.build * 100).toFixed(2)}%`, background: alpha(C.warn, 0.16), borderInlineEnd: `2px solid ${C.warn}`}} />
-              ) : null}
-              <div style={{width: geo.icon, height: geo.icon, flex: 'none', position: 'relative'}}>
-                <GlyphIcon g={g} color={col} turn={c.built ? c.build : 0} />
-              </div>
-              <div
-                style={{
-                  flex: 1,
-                  display: 'flex',
-                  justifyContent: rtl ? 'flex-end' : 'flex-start',
-                  position: 'relative',
-                  whiteSpace: 'nowrap',
-                  fontSize: geo.fs,
-                  color: dm(C.ink),
-                  textShadow: halo,
-                  lineHeight: 1.3,
-                  ...revealStyle(t - born[i], fps, 'label', ar ? 'rtl' : 'ltr').style,
-                  transform: undefined,
-                }}
-              >
-                <MixedText id={`${ctx.id}:l${i}`} text={L.label} size={geo.fs} weight={ar ? FONT.label.strong : FONT.mono.weight} role={ar ? 'sentence' : 'code'} />
-              </div>
-              {sz ? (
-                <div style={{flex: 'none', width: geo.sizeW, display: 'flex', justifyContent: rtl ? 'flex-start' : 'flex-end', fontSize: geo.fs * 0.9, color: dm(C.ink2), textShadow: halo, position: 'relative'}}>
-                  <bdi dir="ltr" data-dc-text={`${ctx.id}:s${i}`} style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1'}}>
-                    {sz}
-                  </bdi>
-                </div>
-              ) : null}
+              <MixedText id={`${ctx.id}:l${i}`} text={L.label} size={geo.fs} weight={ar ? FONT.label.strong : FONT.mono.weight} role={ar ? 'sentence' : 'code'} />
             </div>
+            {sz ? (
+              <div style={{flex: 'none', width: geo.sizeW, display: 'flex', justifyContent: rtl ? 'flex-start' : 'flex-end', fontSize: geo.fs * 0.9, color: dm(C.ink2), textShadow: halo, position: 'relative'}}>
+                <bdi dir="ltr" data-dc-text={`${ctx.id}:s${i}`} style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1'}}>
+                  {sz}
+                </bdi>
+              </div>
+            ) : null}
           </div>
         );
       })}

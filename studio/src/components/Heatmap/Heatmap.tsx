@@ -3,8 +3,8 @@
 // colours are mixes of two tokens only. Column labels along the top, row labels at the reading start (right in Arabic, and then
 // the first column is on the right too). Missing cells (a short row) are hollow dashed ghosts, never zeros. The matrix sweeps in
 // along its diagonal (label preset per cell, <= 16 film frames in total) from the layer anchor. Values are printed in the cells
-// (mono tabular, source decimals) when they fit at the 28 px floor, else only on the highlighted cell. `highlightCell` (state
-// change on its word) outlines one cell (ember), lights its row and column bands and the two labels, and shows a value chip.
+// (mono tabular, source decimals) when they fit at the 28 px floor, else only on the highlighted cell (a value chip above it). `highlightCell` (state
+// change on its word) outlines one cell (ember), lights its row and column bands and the two labels, and, when cell values are not printed, shows a value chip.
 // The single `ref` of the frozen schema covers every value; no derived number is shown.
 import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
@@ -95,7 +95,7 @@ export const HeatmapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           );
         }),
       )}
-      {hl && hv !== undefined ? (
+      {hl && hv !== undefined && !showVals ? (
         <div style={{position: 'absolute', left: Math.max(pad, Math.min(W - pad - 140, colX(hx) + cellW / 2 - 70)), top: Math.max(4, gy + hy * cellH - Math.round(SIZE.body * 1.7)), opacity: hq, zIndex: 3, padding: '2px 16px', borderRadius: 12, background: tint(C.void, 0.92), border: `2px solid ${C.ember}`}}>
           <NumText id={`${ctx.id}:hv`} text={fmt(hv, dec)} size={SIZE.body} color={C.ink} fx={ctx.fx} glowK={0.4 + fl} ca />
         </div>

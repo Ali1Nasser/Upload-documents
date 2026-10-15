@@ -5,7 +5,7 @@
 // `method` sets the draw: random (seeded indices), stratified (violet strata bands, the same share from each band),
 // systematic (every k-th unit of the frame from a seeded start), cluster (violet cluster hulls; whole clusters taken).
 // Numbers: only the population label (`population`, with its ref) is shown. The dots are decorative (D2 ruling 2): the dot
-// count stands for no quantity, `sample` is never displayed and does not set the dot count (CR filed: sample optional),
+// count stands for no quantity, `sample` is never displayed and does not set the dot count (CR-009: sample optional),
 // the histogram has no axis and no digits. Determinism: random(seed) only.
 import React from 'react';
 import {random} from 'remotion';
@@ -83,19 +83,19 @@ export const SampleScoopView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
   const W = box.w;
   const H = box.h;
-  const labelH = SIZE.body * 2;
+  const labelH = SIZE.sub * 1.9;
   const pc = {x: W * 0.68, y: labelH + (H - labelH) * 0.46};
   const rx = W * 0.27;
   const ry = (H - labelH) * 0.36;
   const {dots, centres} = buildPop(props.seed, props.method, pc, rx, ry);
   // cup + histogram (left)
   const cupC = {x: W * 0.2, y: labelH + (H - labelH) * 0.3};
-  const cupW = Math.min(W * 0.21, 380);
+  const cupW = Math.min(W * 0.26, 470);
   const cupH = cupW * 0.8;
   const histY = labelH + (H - labelH) * 0.92;
-  const histW = Math.min(W * 0.32, 560);
+  const histW = Math.min(W * 0.36, 640);
   const binW = histW / BINS;
-  const blockH = Math.max(12, binW * 0.5);
+  const blockH = Math.max(14, binW * 0.62);
   // draws
   const first = ctx.at + f24(14, fps);
   const every = f24(40, fps);
@@ -116,7 +116,7 @@ export const SampleScoopView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const u = (j + 0.5) / m;
     return {x: cupC.x + (u - 0.5) * cupW * 0.7 + (r('x') - 0.5) * cupW * 0.08, y: cupC.y + cupH * 0.12 + r('y') * cupH * 0.26};
   };
-  const dotR = Math.max(3, Math.min(W, H) * 0.0065);
+  const dotR = Math.max(4, Math.min(W, H) * 0.0085);
   // histogram stacks
   const stacks: {bin: number; level: number; t: number}[] = [];
   const level = new Array(BINS).fill(0);
@@ -200,7 +200,7 @@ export const SampleScoopView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       </Svg>
       {popText ? (
         <At x={pc.x} y={labelH / 2} style={{opacity: ent}}>
-          <FitLabel id={`${ctx.id}:pop`} text={popText} maxW={rx * 2} size={SIZE.body} color={C.ink} weight={FONT.label.strong} style={{fontFeatureSettings: '"tnum" 1'}} />
+          <FitLabel id={`${ctx.id}:pop`} text={popText} maxW={rx * 2} size={SIZE.sub} color={C.ink} weight={FONT.label.strong} style={{fontFeatureSettings: '"tnum" 1'}} />
         </At>
       ) : null}
       <At x={cupC.x} y={cupC.y - cupH * 0.2 - SIZE.labelMin * 1.4} style={{opacity: ent}}>
@@ -212,6 +212,6 @@ export const SampleScoopView: React.FC<DcProps<Props>> = ({props, ctx}) => {
 };
 
 /** Text-safe rect: the population label band and the method chip. */
-const textRect = (_p: Props, b: {x: number; y: number; w: number; h: number}) => ({x: b.x, y: b.y, w: b.w, h: SIZE.body * 2});
+const textRect = (_p: Props, b: {x: number; y: number; w: number; h: number}) => ({x: b.x, y: b.y, w: b.w, h: SIZE.sub * 1.9});
 
 export const SampleScoop: DcComponent<Props> = {name: 'SampleScoop', Component: SampleScoopView, text: true, slot: 'full', textRect};

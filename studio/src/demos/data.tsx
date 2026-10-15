@@ -204,7 +204,7 @@ const demos: DemoModule = {
       },
     },
     {
-      // NilePay receipts T1..T6 (d:5.2:1..6; the six rows: d:6.19:5): amount in EGP by receipt and operator x status.
+      // NilePay receipts T1..T6 (d:5.2:1..6; the six rows: d:6.19:5): amount in EGP by receipt (columns) and status (rows); T3 failed = 200.
       name: 'Heatmap',
       frames: 130,
       words: [
@@ -219,22 +219,18 @@ const demos: DemoModule = {
             component: 'Heatmap',
             props: {
               id: 'heat',
-              x: ['A ناجح', 'A فاشل', 'B ناجح', 'B فاشل'],
-              y: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+              x: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6'],
+              y: ['ناجح', 'فاشل'],
               values: [
-                [120, 0, 0, 0],
-                [80, 0, 0, 0],
-                [0, 0, 0, 200],
-                [50, 0, 0, 0],
-                [0, 0, 150, 0],
-                [0, 0, 0, 100],
+                [120, 80, 0, 50, 150, 0],
+                [0, 0, 200, 0, 0, 100],
               ],
               ref: 'd:6.19:5',
               scale: 'sequential',
             },
             at: {word: HM(1), lead_frames: 2},
           },
-          {component: 'Heatmap.highlightCell', props: {target: 'heat', x: 3, y: 2}, at: {word: HM(2), lead_frames: 2}},
+          {component: 'Heatmap.highlightCell', props: {target: 'heat', x: 2, y: 1}, at: {word: HM(2), lead_frames: 2}},
         ],
       },
     },

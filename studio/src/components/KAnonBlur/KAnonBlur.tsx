@@ -13,7 +13,7 @@ import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Lbl, acts, apportion, boxStyle, f24, mix, pf, prog, shell, shuffle} from '../_dom-c/kit';
+import {Lbl, acrylic, acts, apportion, boxStyle, f24, mix, pf, prog, shell, shuffle} from '../_dom-c/kit';
 
 /** Group of every row (k-anonymous: each group >= k members), and the final row order. */
 export const groupRows = (rows: number, k: number, seed: string): {group: number[]; order: number[]; groups: number} => {
@@ -42,7 +42,7 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const headH = Math.round(H * 0.13);
   const regionY = headH + 10;
   const regionH = H - regionH0(H, headH);
-  const rowH = Math.min(70, regionH / (props.rows + 0.45 * (gr.groups - 1)));
+  const rowH = Math.min(78, regionH / (props.rows + 0.45 * (gr.groups - 1)));
   const gap = rowH * 0.45;
   const cx = (c: number) => tableX + tableW - (c + 0.5) * colW; // RTL: column 0 (identifier) on the right
   // generalisation time of quasi column c (0-based among the quasi columns)
@@ -120,6 +120,7 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     }
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
+      <div style={{position: 'absolute', left: tableX - 12, top: regionY - 10, width: tableW + 24, height: props.rows * rowH + (gr.groups - 1) * gap + 20, borderRadius: 26, ...acrylic(bracketP > 0 ? C.ok : C.ink3, ctx.fx, 0.2 + 0.5 * bracketP + ctx.mod.glow, bracketP === 0), opacity: ent}} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: ent}}>
         {rowEls}
         {brackets}

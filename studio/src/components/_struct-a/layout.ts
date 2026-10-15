@@ -24,7 +24,10 @@ export const layersOf = (n: number, E: [number, number][]): number[] => {
 
 /** Layered flow layout: columns along the flow, rows by barycentre of the predecessors. */
 export const layered = (n: number, E: [number, number][], sz: Sz[], colGap: number, rowGap: number, rtl: boolean): Lay & {layer: number[]; cols: number[][]} => {
-  const layer = layersOf(n, E);
+  const raw = layersOf(n, E);
+  // a cycle can leave a layer index without any node: renumber to consecutive layers
+  const used = [...new Set(raw)].sort((x, y) => x - y);
+  const layer = raw.map((v) => used.indexOf(v));
   const L = Math.max(...layer) + 1;
   const cols: number[][] = Array.from({length: L}, () => []);
   for (let i = 0; i < n; i++) cols[layer[i]].push(i);
@@ -53,6 +56,22 @@ export const layered = (n: number, E: [number, number][], sz: Sz[], colGap: numb
     x += colW[l] + colGap;
   }
   return {pos, nat: {w: W0, h: H0}, layer, cols};
+};
+
+/**
+ * Layered layout that uses the slot: after a first pass at the base gaps, the column and row gaps open up (never beyond
+ * `spread` x the base gap) so the diagram fills `box` instead of huddling in the middle. `maxUp` = the largest zoom the caller allows.
+ */
+export const layeredFill = (n: number, E: [number, number][], sz: Sz[], colGap: number, rowGap: number, rtl: boolean, box: Sz, maxUp: number, extra: Sz = {w: 0, h: 0}, spread = 2.2) => {
+  const a = layered(n, E, sz, colGap, rowGap, rtl);
+  const s0 = Math.min(maxUp, box.w / (a.nat.w + extra.w), box.h / (a.nat.h + extra.h));
+  const L = Math.max(...a.layer) + 1;
+  const rows = Math.max(...a.cols.map((c) => c.length));
+  const dw = Math.max(0, box.w / s0 - (a.nat.w + extra.w)) * 0.9;
+  const dh = Math.max(0, box.h / s0 - (a.nat.h + extra.h)) * 0.9;
+  const cg = L > 1 ? Math.min(colGap * spread, colGap + dw / (L - 1)) : colGap;
+  const rg = rows > 1 ? Math.min(rowGap * spread, rowGap + dh / (rows - 1)) : rowGap;
+  return cg === colGap && rg === rowGap ? a : layered(n, E, sz, cg, rg, rtl);
 };
 
 /** Parent index per node (-1 = root); unknown or self parents become roots. Children in declaration order. */

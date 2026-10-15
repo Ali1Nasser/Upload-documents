@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
+  "a1": "e851728b31ac55d7e02f76e54319bc969ad4dcd11524d7926368f3dd08f24415",
+  "p50": "81fc54a8f42e2454927d57eee9a8e88f532ee2bb5669975174977a473006e4fd",
+  "p100": "36b9981cbdab3abaf63f3f42ecff44d5206398220da8620b9ada850bda05c739"
+ },
+ "v": 2,
+ "name": "DataRibbons",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 47,
+  "p100": 95
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-14T08:38:28Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

@@ -102,12 +102,12 @@ export const ConveyorView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const stations = props.stations ?? [];
   const rtl = rtlOf([...items.map((i) => i.label), ...stations]);
   const maxLen = Math.max(...items.map((i) => i.label.length));
-  const itemW = Math.round(Math.min(300, Math.max(150, maxLen * 17 + 56)));
-  const itemH = Math.round(SIZE.label * 2.5);
+  const itemW = Math.round(Math.min(340, Math.max(190, maxLen * 19 + 80)));
+  const itemH = Math.round(SIZE.label * 2.9);
   const pitch = Math.round(itemW / 0.78);
   const lp = w / pitch;
   const beltY = Math.round(h * 0.68);
-  const slabH = 40;
+  const slabH = 52;
   const xAt = (s: number) => (rtl ? w - s * pitch : s * pitch);
   const stationS = stations.map((_, k) => lp * ((k + 1) / (stations.length + 1)));
   const sim = conveyorSim(props, ctx, t, lp, stationS);
@@ -129,8 +129,12 @@ export const ConveyorView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     return st ? STATUS_COLOR[st] : C.ink2;
   };
   const jamI = sim.jam?.idx ?? -1;
-  const visible = items.map((_, i) => i).filter((i) => sim.s[i] > -0.55 && sim.s[i] < lp + 0.55);
-  const edgeFade = (s: number) => Math.max(0, Math.min(1, Math.min(s + 0.5, lp + 0.5 - s) / 0.7));
+  const visible = items.map((_, i) => i).filter((i) => sim.s[i] > -0.6 && sim.s[i] < lp + 0.6);
+  // an item (card and label) is only visible inside the box, fading in/out over 0.35 of its width at the edges (title-safe)
+  const edgeFade = (s: number) => {
+    const x = xAt(s);
+    return Math.max(0, Math.min(1, Math.min(x - itemW / 2, w - x - itemW / 2) / (0.35 * itemW)));
+  };
   const flash = (kk: number) => {
     let f = 0;
     for (let i = 0; i < items.length; i++) {
@@ -158,6 +162,10 @@ export const ConveyorView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 return <line key={q} x1={x} y1={beltY + 6} x2={x - (rtl ? 10 : -10)} y2={beltY + slabH - 6} />;
               })}
             </g>
+            <circle cx={rtl ? w : 0} cy={beltY + slabH / 2} r={slabH * 0.72} fill={C.ground} stroke={C.grid} strokeWidth={2.5} />
+            <circle cx={rtl ? w : 0} cy={beltY + slabH / 2} r={slabH * 0.28} fill={C.panel} stroke={C.ink3} strokeWidth={2} />
+            <circle cx={rtl ? w * (1 - beltDraw) : w * beltDraw} cy={beltY + slabH / 2} r={slabH * 0.72} fill={C.ground} stroke={C.grid} strokeWidth={2.5} />
+            <circle cx={rtl ? w * (1 - beltDraw) : w * beltDraw} cy={beltY + slabH / 2} r={slabH * 0.28} fill={C.panel} stroke={C.ink3} strokeWidth={2} />
             <line x1={rtl ? w * (1 - beltDraw) : 0} y1={beltY + 1} x2={rtl ? w : w * beltDraw} y2={beltY + 1} stroke={C.ink} strokeOpacity={0.22} strokeWidth={2} />
             <GlowPath d={`M ${beltX0.toFixed(1)} ${beltY + slabH + 6} L ${(rtl ? w * (1 - beltDraw) : w * beltDraw).toFixed(1)} ${beltY + slabH + 6}`} color={sim.jam ? C.crit : C.signal} width={3} fx={ctx.fx} k={0.5 * k} opacity={0.8} />
           </g>
@@ -210,7 +218,7 @@ export const ConveyorView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 boxShadow: `inset 0 2px 0 ${C.ink}${hex(0.12)}, 0 10px 22px ${C.void}${hex(0.55)}, 0 0 ${(ctx.fx.glowInner * (jammed ? 1.8 : 0.8)).toFixed(1)}px ${col}${hex(jammed ? 0.6 : 0.3)}`,
               }}
             />
-            <Lbl id={`${ctx.id}:i${i}`} text={items[i].label} x={x + dx} y={beltY - itemH / 2 + 2} maxW={itemW - 30} color={jammed ? C.crit : C.ink} opacity={op} />
+            <Lbl id={`${ctx.id}:i${i}`} text={items[i].label} x={x + dx} y={beltY - itemH / 2 + 2} maxW={itemW - 30} size={SIZE.body} color={jammed ? C.crit : C.ink} opacity={op} />
             {status && STAMP[status] ? (
               <svg width={28} height={28} viewBox="-14 -14 28 28" style={{position: 'absolute', left: x + (rtl ? -itemW / 2 + 6 : itemW / 2 - 34) + dx, top: beltY - itemH - 12, opacity: op * stampQ, overflow: 'visible'}}>
                 <circle r={13} fill={C.ground} stroke={col} strokeWidth={2.5} />
