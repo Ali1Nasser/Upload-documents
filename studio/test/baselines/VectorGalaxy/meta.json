@@ -30,5 +30,12 @@
  "written_at": "2026-10-15T17:21:42Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "status": "changes-requested",
+  "score": 7.0,
+  "date": "2026-10-15",
+  "by": "critic",
+  "notes": "Blocking: p50 query chip covers probe core/ring (clamp pushes chip left over probe); non-blocking: roadmap leader passes behind keyword chip, ring markers faint, dimmed chip contrast, no standard-tier evidence. See reports/p7/review_space3d.md."
+ }
 }
