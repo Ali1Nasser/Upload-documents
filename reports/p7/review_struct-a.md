@@ -29,3 +29,16 @@ Non-blocking issues (fix before pilot use, in priority order):
 4. All frames, wires (x 440-510 / y 255-345): 1 px hairlines for queued wires and 6 px arrowheads; raise inactive stroke to about 1.5 px and arrowhead x1.4 so they survive 1080p H.264 (same as GraphNetwork item 1).
 5. p0 is a pure empty backdrop (nothing for the first 6 frames), and a1 (x 695-705 / y 295-303) shows a tiny wire stub before the cards settle; start the wire after both endpoints are born.
 6. @daily chip (x 795-900 / y 180-215): floats unattached above the first task with no wire or alignment line; connect it with a short drop line to the first task so it reads as the trigger.
+
+## TreeView — round 1 (2026-10-15, critic, fresh read; baselines p0/a1/p50/p100 at 960x540 lite scale 0.5, snap/TreeView.jpg, plus critic-rendered lite frames 90 (plan after highlightPath), 330 (fs), 385 (fs exit), 460 (btree search), deleted after review)
+
+Verdict: APPROVED (score 7.2, no blocking issue). meta.json set to approved-critic.
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8, mechanism visible 8 (plan: cyan beads flow up LIMIT<-SORT<-GROUP BY<-JOIN, f90; decision: lit route plus allow/deny glyph chips, p50; btree: 3-hop descent ending in a green hit, sibling chain dashed, p100/f460; fs: folder/file glyphs and nested elbows, f330), look parity 6.5, typography 8 (Arabic shaped, "فيه Deny صريح؟" and "تصفية delivered" mixed-script order correct; whole-word only), camera and depth 6 (SVG only, no motes or parallax; gloss comes from the rig), legibility 7.5 (labels >= 28 px at 1080), accuracy 9 (leaf ranges 1001-1014 are demo data, no claimed figures), tokens 9 (cyan/violet/ok/crit/warn only via C.*), polish 7, no bullet-list look 8 (it is a graph, not a list; fs outline is the closest, but glyph chips and glowing elbows keep it diagrammatic), no legacy frames 10.
+
+Non-blocking (priority order, fix before pilot use):
+1. a1 (x 455-470 / y 95-120 and 195-205): plan wires are 1 px stubs between chips, and the SORT-GROUP BY wire is a 4 px dash that is nearly invisible during entrance; f90 (x 400-460 / y 345-360): the SCAN(customers) wire is a thin detached hairline that stops short of the chip. Start wires after both endpoints are born and raise inactive stroke to about 1.5 px with arrowheads x1.4 (same as GraphNetwork item 1).
+2. All stills: plan funnel (a1/f90) and the fs outline (f330) are ~380-450 px wide in a 960 frame (about 45 % of width) with large empty margins; with only 4 to 7 nodes this is a small diagram on a void. Allow ctx.box fit to scale up when node count is low, or add idle-node soft shadow and a faint back-plane grid.
+3. p50 (x 360-370 / y 215-230) and f460 (x 435-445 / y 148-158): pulse beads sit on the node corner rather than the wire; verify pulse positions are sampled on the same cubic as the drawn wire.
+4. f330 vs expand: the fs frame already shows tests/test_clean.py before the expand action is visible; supply a 12 fps strip for frames 300-345 (expand grow-out and re-flow) and 440-470 (search probe descent) at round 2, since stills cannot show motion intent. f385 exit blur is heavy (whole tree below ~25 % brightness); confirm it is one beat only.
+5. No particles/parallax/depth falloff on idle nodes (04 section 5 standard); rely on DepthLayers at scene level but add a light idle-node depth scale.
