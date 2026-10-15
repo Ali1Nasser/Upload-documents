@@ -72,26 +72,33 @@ def strips(src, out):
     def amp(a, b, k):
         return ImageChops.difference(a, b).point(lambda v: min(255, v * k))
 
-    def onion(a, b):  # frame a in cyan, frame b in coral: displacement reads as colour fringes
+    def onion(a, b):  # frame a shows cyan (G+B), frame b yellow (R+G), overlap grey: displacement reads as colour fringes
         ga, gb = a.convert("L"), b.convert("L")
         z = Image.new("L", a.size, 0)
         return Image.merge("RGB", (gb, ImageChops.lighter(ga, gb), ga)).point(lambda v: min(255, int(v * 1.6)))
 
-    def row(panels, title, path):
+    def row(panels, title, path, pw=PW, cols=None):
+        # pw: panel width (height keeps 16:9); cols: panels per line (wraps to a grid; the critic asked for 960 px panels)
+        ph = pw * 9 // 16
         n = len(panels)
-        o = Image.new("RGB", (PW * n, PH + 44), (8, 10, 14))
+        cols = cols or n
+        lines = (n + cols - 1) // cols
+        o = Image.new("RGB", (pw * cols, 44 + lines * (ph + 24)), (8, 10, 14))
         d = ImageDraw.Draw(o)
         d.text((8, 4), title, font=big, fill=(230, 236, 242))
         for i, (img, cap) in enumerate(panels):
-            o.paste(img.resize((PW, PH)), (i * PW, 44))
-            d.text((i * PW + 6, 25), cap, font=fnt, fill=(150, 200, 220))
-        o.save(path, quality=86)
+            x, y = (i % cols) * pw, 44 + (i // cols) * (ph + 24)
+            d.text((x + 6, y), cap, font=fnt, fill=(150, 200, 220))
+            o.paste(img.resize((pw, ph)), (x, y + 22))
+        o.save(path, quality=88)
 
     def rows(blocks, path):
         ims = []
-        for panels, title in blocks:
+        for blk in blocks:
+            panels, title = blk[0], blk[1]
+            opt = blk[2] if len(blk) > 2 else {}
             tmp = path + ".part.jpg"
-            row(panels, title, tmp)
+            row(panels, title, tmp, **opt)
             ims.append(Image.open(tmp).copy())
             os.remove(tmp)
         w = max(i.width for i in ims)
@@ -104,11 +111,13 @@ def strips(src, out):
 
     c = {f: im("cam_std", f) for f in [8, 30, 60, 61, 62, 95]}
     rows([
-        ([(c[8], "f8 (word 1 settled)"), (c[30], "f30 (counter rolling to its word end)"), (c[95], "f95 (end)"), (onion(c[8], c[95]), "onion: f8 cyan / f95 coral")],
-         "CameraRig dolly_zoom, intensity 1, standard tier: subject +12 %, backdrop counter-scales"),
+        ([(c[8], "f8 (word 1 settled)"), (c[30], "f30 (counter rolling to its word end)"), (c[95], "f95 (end)"), (onion(c[30], c[95]), "onion: f30 cyan / f95 yellow (title + counter)")],
+         "CameraRig dolly_zoom, intensity 1, standard tier: subject +12 %, backdrop counter-scales", {"pw": 960, "cols": 2}),
         ([(c[61], "f61"), (c[62], "f62 = nudge word anchor (RV1)"), (amp(c[60], c[61], 6), "|f61 - f60| x6 (camera drift only)"), (amp(c[61], c[62], 6), "|f62 - f61| x6 (drift + 4 px nudge)")],
-         "CameraRig impact nudge: one frame, 4 px (IMPACT.nudgePxMax) on the anchor frame"),
+         "CameraRig impact nudge: one frame, 4 px (IMPACT.nudgePxMax) on the anchor frame", {"pw": 960, "cols": 2}),
     ], os.path.join(out, "CameraRig_motion.jpg"))
+    if os.environ.get("FXB_ONLY") == "CameraRig":  # re-render only this strip (the other stills are not rendered)
+        return
 
     d0, d47, d95, l47 = im("dl_std", 0), im("dl_std", 70), im("dl_std", 95), im("dl_lite", 70)
     rows([
