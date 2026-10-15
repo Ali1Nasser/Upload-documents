@@ -119,7 +119,7 @@ const demos: DemoModule = {
             component: 'DagRun',
             props: {
               id: 'nightly',
-              schedule: '@daily 02:00',
+              schedule: '@daily',
               tasks: [
                 {id: 'extract', label: 'استخراج الإيصالات'},
                 {id: 'clean', label: 'تنقية البيانات'},
