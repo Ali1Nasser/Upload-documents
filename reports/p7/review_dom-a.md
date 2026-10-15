@@ -86,3 +86,35 @@ Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 2e4eba0. V
 
 ## Next review
 No resubmission is needed for approval. Re-review only if fixes 1 to 3 change the baselines.
+
+---
+
+# LegendOrbs — round 1
+
+Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 1529318. Verdict: APPROVED, score 8/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1, p50, p100 (lite, 960x540) at full size, and reports/p7/snap/LegendOrbs.jpg.
+- Extra dev stills at frames 56 and 60 (standard tier, 960x540) through the queue (job 177), because no baseline holds the focus impact. Scratch only, nothing committed.
+- Source LegendOrbs.tsx and the demo in studio/src/demos/dom-a.tsx.
+
+## Scores (docs/plan/06 §3.2 and component acceptance)
+- Legibility at 1080p: 8. Labels about 40 px, whole phrases, 3 + 3 layout with wide gaps. Unfocused labels dim to ink3 but stay readable.
+- Token and palette discipline: 9. signal, ok, warn, crit, violet, ember tokens only; ink greys for labels.
+- Depth and light: 8. Rim-lit spheres, back glows, floor pools, shallow-ellipse placement, grid floor, orbit ellipses with front/back satellites.
+- Visual verb without narration: 8. Frames 56 and 60 show two pulse rings, a swell, a brighter floor pool, an ink label with a tone bar, and the other five orbs dimmed. p50 (green) and p100 (red) show the hold and handoff.
+- Arabic: 9. RTL order correct (item 0 cyan on the right), no letter splitting, no clipping.
+- Bullet-list or slide look: 9, none. No legacy frames. No numbers, so none unsourced.
+- Motion intent: 7. Stills at focus+4f show it clearly, but the committed baselines (frames 74, 149) are 22 and 51 frames after the focus words and miss it.
+- Mean about 8.3.
+
+## Non-blocking fixes, in order of impact
+1. Baselines p50 and p100: no impact in any committed still. Move p50/p100 or add a frame at the focus word + 4f (frames 56 and 102) so rings and flash are regression-tested.
+2. p100 and f56, satellites: 3 to 8 px dots with tails at 12 to 38 percent alpha are barely visible at 960 px (for example next to the cyan orb at x 700-840 y 125-145). Raise to 10-14 px head and make the tail 5 dots.
+3. p50 and p100, bottom row labels (x 100-550, y 458-495): about 90 percent of frame height, on the safe-margin edge. Reduce the box height a little or shift the grid up 20 px.
+4. Orbit ellipses on unfocused orbs are 16 percent alpha and almost vanish; raise to 24 percent.
+5. No strip of the focus handoff (green releasing, red taking over); the swell-back of the old orb was not judged.
+6. a1 (frame 11): bottom row is empty during the stagger; fine, but the scene should not cut here.
+
+## Next review
+No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
