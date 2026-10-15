@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "e844272070aa579fdc4b8d939be4eb12ee9df6ff37e3b5a0ae46d7f52e9bc89c",
-  "p50": "39abe71c6b62e25d99182ae4487fbf7f03052d990d8885714834da0a1e40ccf8",
-  "p100": "0a5fa2c97af7549018733f3a124bf94724d5b07e0c11d77f4dd50ccc185d83b6"
+  "a1": "88fd0d91a3619cdf7cee23affcb6be9f79788ddd61999e3861518898a9d23fa1",
+  "p50": "7c576e8fd931e00d55e32c5fc2ec284a44b894a58aa9051060e195e1dfe22374",
+  "p100": "01e6fc4fb37d075c3cbad45daee9c6898d8c7c5308e6a40639268c867203a93d"
  },
  "v": 2,
  "name": "TimelineTrack",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 59,
-  "p100": 119
+  "p50": 83,
+  "p100": 167
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-10T23:03:32Z",
+ "written_at": "2026-10-15T17:51:22Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

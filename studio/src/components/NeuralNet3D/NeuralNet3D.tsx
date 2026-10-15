@@ -9,16 +9,20 @@
 //   highlightLayer {index}   that layer takes a signal ring and its label; the other layers dim (latest highlight wins).
 // Labels (optional, one per layer) sit on one baseline under the set, >= 40 px apart (AT-4), auto-fit to the layer pitch with the
 // SIZE.labelMin floor (an overflow is reported). Tiers: lite flat; standard + halos; hero + bloom sprites (no WebGL needed).
+// Depth and light (ADR-003 LK-F, 04 section 1.2): each layer is a glass pane in its plane with a rim-lit upper-right edge; neurons are
+// rim-lit discs painted far to near with distance falloff; a signal pool on the floor and a back glow sit under the set; the wave
+// lights the pane and its neurons. Text-safe (ADR-002): the field is cut out of every copy box inside the canvas (_space3d/knockout).
 import React, {useMemo} from 'react';
 import {random} from 'remotion';
-import {C, CAMERA, H, SIZE, W} from '../../tokens';
+import {C, CAMERA, H, SIZE} from '../../tokens';
 import {LABEL_GAP_MIN_PX} from '../../type/safe';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
 import {
-  CHIP_PAD, Chip, Measure, MLabel, SpaceCanvas, actionsOf, blit, bloomOf, chipH, chipW, clampInto, enterK, exitK, ff, fitTo, lerp, mix,
+  CHIP_PAD, Chip, Measure, MLabel, SpaceCanvas, actionsOf, blit, bloomOf, chipH, chipW, clampInto, exitK, ff, fitTo, lerp, mix,
   moveK, fitCam, project, rgba, secs, sprite, useMeasure, useOverflow, type Cam3, type V3,
 } from '../_space3d/kit';
+import {Origin, knockOut, useForeignText} from '../_space3d/knockout';
 
 const BASE = SIZE.label;
 const MAX_LINKS = 160; // per gap
@@ -27,7 +31,7 @@ const GAP_F24 = 5; // film frames for the wave to cross one gap
 type Net = {pos: V3[][]; links: {g: number; a: number; b: number; w: number}[][]};
 const buildNet = (layers: number[]): Net => {
   const L = layers.length;
-  const span = Math.min(10, 3.4 * (L - 1));
+  const span = Math.min(12, 4.6 * (L - 1));
   const pos = layers.map((n, l) => {
     const x = span / 2 - (span * l) / Math.max(1, L - 1);
     const cols = Math.ceil(n / 8);
@@ -83,15 +87,25 @@ const gapK = (ctx: LayerCtx, t0: number, g: number, L: number, back: boolean): n
   return u <= 0 || u > 1.6 ? -1 : Math.min(1, u);
 };
 
+type Pane = {y0: number; y1: number; z0: number; z1: number; x: number};
+const panesOf = (net: Net): Pane[] =>
+  net.pos.map((ly) => {
+    const ys = ly.map((p) => p[1]);
+    const zs = ly.map((p) => p[2]);
+    return {x: ly[0][0], y0: Math.min(...ys) - 0.3, y1: Math.max(...ys) + 0.3, z0: Math.min(...zs) - 0.4, z1: Math.max(...zs) + 0.4};
+  });
+
 export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const L = props.layers.length;
   const net = useMemo(() => buildNet(props.layers), [props.layers]);
+  const panes = useMemo(() => panesOf(net), [net]);
   const labels = (props.labels ?? []).slice(0, L);
   const [mref, m] = useMeasure(ctx.id, labels.join('|'));
+  const [oref, foreign] = useForeignText(`${ctx.id}:`, ctx.fx, ctx.frame);
   const k = exitK(ctx);
   const cam = camOf(ctx, hullOf(net));
   const glow = bloomOf(ctx.fx);
-  const enterL = (l: number) => enterK(ctx, 'arrive', ctx.at <= 0 ? 0 : 0) * (ctx.at <= 0 ? 1 : moveK(ctx, ctx.at + l * ff(2, ctx.fps), 6));
+  const enterL = (l: number) => (ctx.at <= 0 ? 1 : moveK(ctx, ctx.at + l * ff(2, ctx.fps), 6));
   const fw = actionsOf(ctx, 'forward').filter((a) => a.at <= ctx.frame);
   const bp = actionsOf(ctx, 'backprop').filter((a) => a.at <= ctx.frame);
   const hl = actionsOf(ctx, 'highlightLayer').filter((a) => a.at <= ctx.frame).pop();
@@ -104,14 +118,104 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   const boost = 1 + 0.5 * ctx.mod.glow;
 
+  // ---------- layout shared by the canvas and the labels ----------
+  const box = ctx.box;
+  const P = net.pos.map((ly) => ly.map((p) => project(cam, p)));
+  const xs = net.pos.map((ly) => project(cam, ly[0]).x);
+  const bottoms = P.map((ly) => Math.max(...ly.map((q) => q.y + Math.max(5, 0.16 * q.s))));
+  const pitch = L > 1 ? Math.min(...xs.slice(1).map((x, i) => Math.abs(xs[i] - x))) : box.w;
+  const avail = pitch - LABEL_GAP_MIN_PX - 2 * CHIP_PAD.x;
+  const fits = labels.map((_, i) => (m ? fitTo(BASE, m.w[i], avail, SIZE.labelMin) : {size: BASE, overflow: false}));
+  const size = fits.length ? Math.min(...fits.map((f) => f.size)) : BASE;
+  const overflow = fits.some((f) => f.overflow);
+  useOverflow(ctx.id, overflow, {pitch: Math.round(pitch), labels});
+  const baseY = Math.max(...bottoms) + 28;
+  const chips = m
+    ? labels.map((t, i) => {
+        const w = chipW(m.w[i], BASE, size);
+        const h = chipH(t, size);
+        return {text: t, w, h, ...clampInto(box, xs[i] - w / 2, baseY, w, h), t0: ctx.at + ff(2 + 2 * i, ctx.fps)};
+      })
+    : [];
+
   const draw = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
-    const P = net.pos.map((ly) => ly.map((p) => project(cam, p)));
+    // depth: 0 near .. 1 far, over the layer centres
+    const dl = P.map((ly) => ly.reduce((a, q) => a + q.d, 0) / ly.length);
+    const [d0, d1] = [Math.min(...dl), Math.max(...dl)];
+    const far = (d: number) => (d1 - d0 < 1e-6 ? 0 : (d - d0) / (d1 - d0));
+    const fall = (d: number) => 1 - 0.38 * far(d); // distance falloff of light
+    const allPts = P.flat().filter((q) => q.ok);
+    const cxs = allPts.reduce((a, q) => a + q.x, 0) / Math.max(1, allPts.length);
+    const cys = allPts.reduce((a, q) => a + q.y, 0) / Math.max(1, allPts.length);
+    const rx = (Math.max(...allPts.map((q) => q.x)) - Math.min(...allPts.map((q) => q.x))) / 2;
+    const e0 = enterL(0) * k;
+    // back glow + floor pool (the emissive set lights the floor under it)
+    g.globalCompositeOperation = 'lighter';
+    blit(g, sprite(C.signal, 'glow'), cxs, cys, rx * 0.95, (0.1 + 0.1 * glow) * e0 * boost);
+    const floorY = Math.max(...bottoms) + 6;
+    g.save();
+    g.translate(cxs, floorY);
+    g.scale(1, 0.2);
+    blit(g, sprite(C.signal, 'glow'), 0, 0, rx * 1.05, (0.34 + 0.26 * glow) * e0 * boost);
+    g.restore();
+    // glass panes, one per layer plane
+    const vis: Record<number, number> = {};
+    panes.forEach((pn, l) => {
+      const e = enterL(l) * k * dimOf(l);
+      vis[l] = e;
+      if (e <= 0) return;
+      const q = ([[pn.y0, pn.z0], [pn.y0, pn.z1], [pn.y1, pn.z1], [pn.y1, pn.z0]] as [number, number][]).map(([y, z]) => project(cam, [pn.x, y, z]));
+      if (q.some((c) => !c.ok)) return;
+      const {f, b} = act(l);
+      const heat = Math.max(f, b);
+      const hc = b > f ? C.warn : C.signal;
+      const isHl = l === hlIdx;
+      const fa = fall(dl[l]);
+      g.globalCompositeOperation = 'source-over';
+      g.globalAlpha = 1;
+      g.beginPath();
+      q.forEach((c, i) => (i ? g.lineTo(c.x, c.y) : g.moveTo(c.x, c.y)));
+      g.closePath();
+      g.fillStyle = rgba(C.panel, 0.34 * e * fa);
+      g.fill();
+      if (heat > 0 || isHl) {
+        g.globalCompositeOperation = 'lighter';
+        g.fillStyle = rgba(isHl && heat <= 0 ? C.signal : hc, (0.16 * heat + (isHl ? 0.08 * hlK : 0)) * e);
+        g.fill();
+        g.globalCompositeOperation = 'source-over';
+      }
+      g.lineWidth = 1.5;
+      g.strokeStyle = rgba(C.ink3, 0.5 * e * fa);
+      g.stroke();
+      // rim light (04 section 1.2): the top edge and the right-most vertical edge of the pane catch the key light
+      const edges = q.map((c, i) => [c, q[(i + 1) % 4]] as const);
+      const top = edges.reduce((a, c) => ((a[0].y + a[1].y) / 2 < (c[0].y + c[1].y) / 2 ? a : c));
+      const right = edges.filter((c) => c !== top).reduce((a, c) => ((a[0].x + a[1].x) / 2 > (c[0].x + c[1].x) / 2 ? a : c));
+      g.lineWidth = 2.5;
+      g.lineCap = 'round';
+      g.strokeStyle = rgba(isHl ? C.signal : C.ink2, (isHl ? 0.9 * hlK + 0.2 : 0.55) * e * fa);
+      for (const ed of [top, right]) {
+        g.beginPath();
+        g.moveTo(ed[0].x, ed[0].y);
+        g.lineTo(ed[1].x, ed[1].y);
+        g.stroke();
+      }
+      if (isHl) {
+        g.lineWidth = 3;
+        g.strokeStyle = rgba(C.signal, 0.75 * hlK * e);
+        g.beginPath();
+        q.forEach((c, i) => (i ? g.lineTo(c.x, c.y) : g.moveTo(c.x, c.y)));
+        g.closePath();
+        g.stroke();
+      }
+    });
     // links (weights glow by magnitude)
     g.lineCap = 'round';
     net.links.forEach((gap, gi) => {
       const e = Math.min(enterL(gi), enterL(gi + 1)) * k * Math.min(dimOf(gi), dimOf(gi + 1));
       if (e <= 0) return;
+      const fa = fall((dl[gi] + dl[gi + 1]) / 2);
       const fK = fw.map((a) => gapK(ctx, a.at, gi, L, false)).filter((u) => u >= 0);
       const bK = bp.map((a) => gapK(ctx, a.at, gi, L, true)).filter((u) => u >= 0);
       const hot = fK.length ? C.signal : bK.length ? C.warn : null;
@@ -121,7 +225,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const b = P[gi + 1][ln.b];
         if (!a.ok || !b.ok) continue;
         g.globalAlpha = 1;
-        g.strokeStyle = rgba(hot ? mix(C.ink3, hot, 0.6) : mix(C.ink3, C.signal, ln.w * 0.5), (0.05 + 0.22 * ln.w) * e * (hot ? 1.8 : 1) * boost);
+        g.strokeStyle = rgba(hot ? mix(C.ink3, hot, 0.6) : mix(C.ink3, C.signal, ln.w * 0.5), (0.05 + 0.22 * ln.w) * e * fa * (hot ? 1.8 : 1) * boost);
         g.lineWidth = 0.8 + 1.4 * ln.w;
         g.beginPath();
         g.moveTo(a.x, a.y);
@@ -144,60 +248,51 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         }
       }
     });
-    // neurons
-    P.forEach((ly, l) => {
+    // neurons, painted far to near; rim-lit discs (upper-right key light)
+    const order = P.flatMap((ly, l) => ly.map((p, i) => ({l, i, p}))).sort((a, b) => b.p.d - a.p.d || a.l - b.l || a.i - b.i);
+    for (const {l, p} of order) {
       const e = enterL(l) * k * dimOf(l);
-      if (e <= 0) return;
+      if (e <= 0 || !p.ok) continue;
       const {f, b} = act(l);
       const c = b > f ? C.warn : C.signal;
       const heat = Math.max(f, b);
       const isHl = l === hlIdx;
-      for (const p of ly) {
-        if (!p.ok) continue;
-        const r = Math.max(5, 0.16 * p.s);
-        g.globalCompositeOperation = 'source-over';
-        g.globalAlpha = e;
-        g.fillStyle = C.panel;
-        g.beginPath();
-        g.arc(p.x, p.y, r, 0, Math.PI * 2);
-        g.fill();
-        g.strokeStyle = isHl ? rgba(C.signal, hlK * 0.95 + 0.05) : rgba(mix(C.ink3, c, heat), 0.9);
-        g.lineWidth = isHl ? 3 : 2;
-        g.stroke();
-        g.globalCompositeOperation = 'lighter';
-        blit(g, sprite(heat > 0 ? c : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * (0.25 + 0.75 * heat));
-        if (glow && (heat > 0 || isHl)) blit(g, sprite(heat > 0 ? c : C.signal, 'glow'), p.x, p.y, r * 4, e * glow * Math.max(heat, isHl ? 0.5 * hlK : 0));
-      }
-    });
+      const fa = fall(p.d);
+      const r = Math.max(5, 0.16 * p.s);
+      g.globalCompositeOperation = 'source-over';
+      g.globalAlpha = e;
+      g.fillStyle = C.panel;
+      g.beginPath();
+      g.arc(p.x, p.y, r, 0, Math.PI * 2);
+      g.fill();
+      g.lineWidth = isHl ? 3 : 2;
+      g.strokeStyle = isHl ? rgba(C.signal, hlK * 0.95 + 0.05) : rgba(mix(C.ink3, c, heat), 0.9 * fa);
+      g.stroke();
+      g.lineWidth = 2.5;
+      g.lineCap = 'round';
+      g.strokeStyle = rgba(heat > 0 || isHl ? mix(C.ink, c, 0.45) : C.ink2, (0.85 * fa) * e);
+      g.globalAlpha = 1;
+      g.beginPath();
+      g.arc(p.x, p.y, r, -1.35, -0.15); // the rim on the upper-right
+      g.stroke();
+      g.globalCompositeOperation = 'lighter';
+      blit(g, sprite(heat > 0 ? c : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * (0.25 * fa + 0.75 * heat));
+      if (glow && (heat > 0 || isHl)) blit(g, sprite(heat > 0 ? c : C.signal, 'glow'), p.x, p.y, r * 4, e * glow * Math.max(heat, isHl ? 0.5 * hlK : 0));
+    }
+    // text-safe (ADR-002): the set is cut out of every copy box, ours (analytic) and other layers' (settled)
+    knockOut(g, [...chips.filter((c) => ctx.frame >= c.t0).map((c) => ({x: c.x, y: c.y, w: c.w, h: c.h})), ...foreign], ctx.fx);
   };
 
-  // ---------- labels: one baseline under the set, >= 40 px apart (AT-4) ----------
-  const box = ctx.box;
-  const xs = net.pos.map((ly) => project(cam, ly[0]).x);
-  const bottoms = net.pos.map((ly) => Math.max(...ly.map((p) => project(cam, p)).map((q) => q.y + Math.max(5, 0.16 * q.s))));
-  const pitch = L > 1 ? Math.min(...xs.slice(1).map((x, i) => Math.abs(xs[i] - x))) : box.w;
-  const avail = pitch - LABEL_GAP_MIN_PX - 2 * CHIP_PAD.x;
-  const fits = labels.map((_, i) => (m ? fitTo(BASE, m.w[i], avail, SIZE.labelMin) : {size: BASE, overflow: false}));
-  const size = fits.length ? Math.min(...fits.map((f) => f.size)) : BASE;
-  const overflow = fits.some((f) => f.overflow);
-  useOverflow(ctx.id, overflow, {pitch: Math.round(pitch), labels});
-  const baseY = Math.max(...bottoms) + 28;
   return (
     <>
-      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, props.layers.join(','), ctx.fx.id, boost]} />
+      <Origin oref={oref} />
+      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, props.layers.join(','), ctx.fx.id, boost, !!m, foreign]} />
       <Measure mref={mref} size={BASE}>
         {labels.map((t, i) => <MLabel key={i} text={t} size={BASE} />)}
       </Measure>
-      {m
-        ? labels.map((t, i) => {
-            const w = chipW(m.w[i], BASE, size);
-            const h = chipH(t, size);
-            const pos = clampInto(box, xs[i] - w / 2, baseY, w, h);
-            return (
-              <Chip key={i} ctx={ctx} id={`${ctx.id}:l${i}`} text={t} size={size} x={pos.x} y={pos.y} t0={ctx.at + ff(2 + 2 * i, ctx.fps)} accent={i === hlIdx ? C.signal : undefined} color={i === hlIdx || hlIdx < 0 ? C.ink : C.ink2} overflow={fits[i].overflow} alpha={k} />
-            );
-          })
-        : null}
+      {chips.map((c, i) => (
+        <Chip key={i} ctx={ctx} id={`${ctx.id}:l${i}`} text={c.text} size={size} x={c.x} y={c.y} t0={c.t0} accent={i === hlIdx ? C.signal : undefined} color={i === hlIdx || hlIdx < 0 ? C.ink : C.ink2} overflow={fits[i].overflow} alpha={k} />
+      ))}
     </>
   );
 };

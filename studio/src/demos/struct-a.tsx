@@ -188,7 +188,7 @@ const demos: DemoModule = {
               variant: 'plan',
               until: A('TreeView', 3),
               nodes: [
-                {id: 'lim', label: 'أول صف', kind: 'LIMIT'},
+                {id: 'lim', label: 'أول صف واحد', kind: 'LIMIT'},
                 {id: 'srt', parent: 'lim', label: 'ترتيب', kind: 'SORT'},
                 {id: 'grp', parent: 'srt', label: 'تجميع بالشريحة', kind: 'GROUP BY'},
                 {id: 'jn', parent: 'grp', label: 'ربط', kind: 'JOIN'},
@@ -211,7 +211,7 @@ const demos: DemoModule = {
                 {id: 'deny', parent: 'q1', label: 'أيوه: مرفوض', kind: 'deny'},
                 {id: 'q2', parent: 'q1', label: 'لأ: فيه Allow؟'},
                 {id: 'allow', parent: 'q2', label: 'أيوه: مسموح', kind: 'allow'},
-                {id: 'imp', parent: 'q2', label: 'لأ: مرفوض ضمني', kind: 'deny'},
+                {id: 'imp', parent: 'q2', label: 'لأ: مرفوض ضمنًا', kind: 'deny'},
               ],
             },
             at: A('TreeView', 4),

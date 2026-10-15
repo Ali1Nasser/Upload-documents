@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "PageScan",
+ "composition": "Demo-PageScan",
+ "at": "2026-10-15T17:54:09Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 204,
+   "wall_s": 25.46,
+   "box_s_per_frame": 0.1248,
+   "slot_s_per_frame": 0.3744,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.98,
+    5.84
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 204,
+   "wall_s": 30.47,
+   "box_s_per_frame": 0.1494,
+   "slot_s_per_frame": 0.4482,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.45,
+    5.84
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 7
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 204,
+   "wall_s": 33.38,
+   "box_s_per_frame": 0.1637,
+   "slot_s_per_frame": 0.4911,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    5.61,
+    5.96
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 7
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

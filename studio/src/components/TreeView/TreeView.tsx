@@ -247,7 +247,7 @@ export const TreeViewView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const xb = pos[b].x;
           const c: Cubic = [{x: xa, y: y - 4}, {x: xa, y: y + 8}, {x: xb, y: y + 8}, {x: xb, y: y - 4}];
           const p = revealProgress(t - Math.max(born[a], born[b]) - lab, arr, ease.camera);
-          return <Wire key={`l${b}`} c={c} p={p} color={C.violet} width={1.6 * geo.s} opacity={0.7 * Math.min(aVis[a], aVis[b])} dash arrow />;
+          return <Wire key={`l${b}`} c={c} p={p} color={C.violet} width={2.2 * geo.s} opacity={0.95 * Math.min(aVis[a], aVis[b])} dash arrow />;
         })}
         {routes.map((r, j) => {
           const parentFirst = tr.parent[r.b] === r.a;

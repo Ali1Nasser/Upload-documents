@@ -37,15 +37,17 @@ const deadlock: DemoDef = {
 };
 
 
-// PageScan: "full scan vs index" side by side (04 section 6 Indexes; d:6.5:1..3 give the counts, spoken by NumberCounter
-// in the film: 12 500 pages vs 3 page reads). PageScan itself shows no digits: tiles stand for pages, never a count.
+// PageScan (04 section 6 Indexes: "the full scan reads 12 500 pages" d:6.5:3; "a three-level B-tree reaches one row in 3 page
+// reads" d:6.5:2). The tiles are a picture of the count (60 tiles stand for 12 500 pages); the spoken numbers are shown by
+// NumberCounter layers on the lane below the grids, one after the other: 12 500 rolls up over the full scan, then 3.
 const pagescan: DemoDef = {
   name: 'PageScan',
-  frames: 168,
+  frames: 204,
   words: words('PageScan', [
     [6, 18],
-    [34, 46],
-    [60, 72],
+    [30, 44],
+    [112, 126],
+    [136, 150],
   ]),
   shot: {
     fx_tier: 'standard',
@@ -54,7 +56,13 @@ const pagescan: DemoDef = {
       {component: 'PageScan', props: {id: 'pf', slot: 'start', pages: 60, scan: 'full', hits: [41]}, at: A('PageScan', 1)},
       {component: 'PageScan', props: {id: 'pi', slot: 'end', pages: 60, scan: 'index', hits: [41]}, at: A('PageScan', 1)},
       {component: 'PageScan.scan', props: {target: 'pf'}, at: A('PageScan', 2)},
-      {component: 'PageScan.scan', props: {target: 'pi'}, at: A('PageScan', 2)},
+      {component: 'PageScan.scan', props: {target: 'pi'}, at: A('PageScan', 4)},
+      {
+        component: 'NumberCounter',
+        props: {id: 'cnt_full', to: {value: 12500, ref: 'd:6.5:3'}, label: 'صفحة اتقرت', slot: 'lower-third', land: A('PageScan', 3, 0), until: A('PageScan', 4, 0)},
+        at: A('PageScan', 2),
+      },
+      {component: 'NumberCounter', props: {id: 'cnt_idx', to: {value: 3, ref: 'd:6.5:2'}, label: 'صفحات اتقرت', slot: 'lower-third'}, at: A('PageScan', 4)},
     ],
   },
 };

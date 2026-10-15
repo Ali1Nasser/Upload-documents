@@ -5,6 +5,8 @@
 //  - cursor events = every `highlights[]` entry (`lines` [a, b] at its anchor, optional `note_ar`) plus every `step` action (one
 //    line, anchored to the word that names it). The band travels from the previous lines to the new ones in morph timing; the lines
 //    inside the band are bright, the rest dim (state change, never decoration); a signal edge bar + chevron mark the cursor;
+//  - light (ADR-003 LK-F): key rim light from the upper right, an emissive pool under the plate, and a light head on the band edge
+//    that leads the travel; a row of progress pips (one per cursor event) in the window chrome shows how far the trace has run;
 //  - `note_ar` is one whole Arabic phrase in a reserved footer of the plate (label preset, RTL wipe), replaced on the next event;
 //  - Arabic inside code (comments, strings) is set as whole-word RTL isolates by the type engine (kit.tsx); Latin is mono.
 // All motion uses revealProgress: the first visible step lands ON the anchor frame (ADR-011 RV1).
@@ -102,25 +104,52 @@ export const CodeTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const note = noteEv?.note;
   const nrev = noteEv ? revealStyle(t - noteEv.t, ctx.fps, 'label', 'rtl') : null;
   const pw = L.panelW;
+  // light: the rim and the pool follow the plate's own arrive (the rim leads the wipe)
+  const rim = revealProgress(t - ctx.at, presetFrames('label', ctx.fps));
+  const gk = 0.5 + 0.5 * rim + ctx.mod.glow;
+  const rimLight = `linear-gradient(to bottom left, ${C.signal}${hex(0.7 * rim)} 0%, ${C.signal}${hex(0.18 * rim)} 36%, ${C.grid}${hex(0.9)} 100%)`;
+  const stock = `linear-gradient(180deg, ${C.panel}E6 0%, ${C.ground}D9 100%)`;
+  const pips = Math.min(evs.length, 12);
+  const pipD = Math.max(8, Math.round(fs * 0.26));
+  // the light head leads the band edge in its direction of travel and fades as it lands
+  const goingDown = bc && bp ? bc[0] >= bp[0] : true;
+  const headY = (goingDown ? bot : top) * rowH;
+  const headA = cur && prev ? (1 - q) * 0.9 + 0.1 : 0;
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center', ...panel.style}}>
-      <Glass style={{width: pw, overflow: 'hidden'}}>
+      <div style={{position: 'relative', width: pw}}>
+        <div aria-hidden style={{position: 'absolute', left: '-14%', right: '-14%', bottom: -Math.round(fs * 2.2), height: Math.round(fs * 4.6), background: `radial-gradient(ellipse at 50% 38%, ${C.signal}${hex(0.17 * rim * gk)} 0%, ${C.signal}${hex(0.05 * rim)} 46%, transparent 72%)`, pointerEvents: 'none'}} />
+      <Glass style={{width: pw, overflow: 'hidden', position: 'relative', border: '1px solid transparent', background: `${stock} padding-box, ${rimLight} border-box`}}>
         <Chrome label={props.lang} size={fs} h={L.chromeH} />
+        {pips > 1 ? (
+          <div aria-hidden style={{position: 'absolute', left: 0, right: 0, top: 0, height: L.chromeH, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: Math.round(pipD * 0.9)}}>
+            {Array.from({length: pips}, (_, i) => {
+              const on = i <= k;
+              const born = on ? revealProgress(t - evs[i].t, presetFrames('label', ctx.fps)) : 0;
+              return <div key={i} style={{width: pipD, height: pipD, borderRadius: '50%', background: on ? `${C.signal}${hex(0.35 + 0.65 * born)}` : `${C.ink3}${hex(0.35)}`, boxShadow: on && i === k ? `0 0 ${Math.round(ctx.fx.glowInner * 0.8)}px ${C.signal}${hex(0.8)}` : undefined}} />;
+            })}
+          </div>
+        ) : null}
         <div style={{height: vis * rowH, margin: `${L.pad}px 0`, overflow: 'hidden', position: 'relative'}}>
           <div style={{position: 'absolute', left: 0, right: 0, top: 0, transform: `translateY(${(-scroll * rowH).toFixed(2)}px)`}}>
             {bc ? (
-              <div
-                style={{
-                  position: 'absolute',
-                  left: 0,
-                  right: 0,
-                  top: top * rowH,
-                  height: Math.max(0, (bot - top) * rowH),
-                  background: `linear-gradient(90deg, ${C.signal}${hex(0.2)}, ${C.signal}${hex(0.06)})`,
-                  boxShadow: `inset 4px 0 0 ${C.signal}, 0 0 ${ctx.fx.glowInner}px ${C.signal}55`,
-                  opacity: Math.min(1, 0.4 + 0.6 * revealProgress(t - cur!.t, presetFrames('label', ctx.fps))),
-                }}
-              />
+              <>
+                {/* the band: a wash, a 4 px edge bar and two hairlines as background layers (never an inset shadow: it flakes the
+                    determinism of the 50 % still) + an outer light spill */}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: top * rowH,
+                    height: Math.max(0, (bot - top) * rowH),
+                    backgroundImage: `linear-gradient(90deg, ${C.signal} 0 4px, transparent 4px), linear-gradient(180deg, ${C.signal}${hex(0.55)} 0 1px, transparent 1px), linear-gradient(0deg, ${C.signal}${hex(0.35)} 0 1px, transparent 1px), linear-gradient(90deg, ${C.signal}${hex(0.28)}, ${C.signal}${hex(0.08)})`,
+                    boxShadow: `0 0 ${Math.round(ctx.fx.glowInner * 1.6)}px ${C.signal}${hex(0.3 * gk)}`,
+                    opacity: Math.min(1, 0.4 + 0.6 * revealProgress(t - cur!.t, presetFrames('label', ctx.fps))),
+                  }}
+                />
+                {headA > 0.02 ? <div aria-hidden style={{position: 'absolute', left: 0, right: 0, top: headY - 2, height: 4, background: `linear-gradient(90deg, ${C.signal}, ${C.signal}${hex(0.1)})`, boxShadow: `0 0 ${ctx.fx.glowInner}px ${C.signal}, 0 0 ${Math.round(ctx.fx.glowPx * 0.5)}px ${C.signal}80`, opacity: headA}} /> : null}
+              </>
             ) : null}
             <div style={{position: 'relative', display: 'flex'}}>
               <div dir="ltr" style={{width: gutterW, paddingRight: Math.round(fs * 0.6), textAlign: 'right', flex: 'none', color: C.ink3, fontSize: fs, lineHeight: `${rowH}px`, fontFamily: `'${FONT.mono.family}'`, fontFeatureSettings: '"tnum" 1'}}>
@@ -157,6 +186,7 @@ export const CodeTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           </div>
         ) : null}
       </Glass>
+      </div>
     </div>
   );
 };

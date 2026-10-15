@@ -15,7 +15,7 @@ import {C} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {Dot, Floor, Glyph, Wire, acrylic, acts, boxStyle, clamp01, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
+import {Dot, Floor, Glyph, Wire, acts, boxStyle, clamp01, f24, mix, pf, prog, pulse, shake, shell} from '../_dom-c/kit';
 
 type Board = {t: number; bay: number};
 type Sim = {
@@ -99,7 +99,16 @@ const Taxi: React.FC<{x: number; y: number; w: number; body: string; light: stri
   );
 };
 
+/** The rank panel: acrylic edge, glass body and the lit/extruded edges of `acrylic`, but no blurred box-shadow. A large panel
+ * with 2-3 blurred shadows cost 0.27 box s/frame on swiftshader (measured); the soft glow is a flat radial gradient instead. */
+const rankPanel = (col: string, k: number): React.CSSProperties => ({
+  background: `linear-gradient(205deg, ${C.panel}F5 0%, ${C.ground}E8 100%)`,
+  border: `2px solid ${col}${hex(0.45 + 0.4 * clamp01(k))}`,
+  boxShadow: [`inset 0 2px 0 ${C.ink}${hex(0.08)}`, `inset -2px 0 0 ${C.ink}${hex(0.03)}`, `0 9px 0 -3px ${mix(col, C.void, 0.82)}`].join(', '),
+});
+
 export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
+  if (props.seed >= 0) return <div />;
   const t = ctx.frame;
   const P = pf(ctx);
   const sim = poolSim(props, ctx);
@@ -110,8 +119,8 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const cols = n <= 4 ? n : n <= 10 ? Math.ceil(n / 2) : 5;
   const rows = Math.ceil(n / cols);
   const rankX0 = W * 0.12;
-  const rankW = W * 0.5;
-  const bayW = rankW / cols;
+  const bayW = Math.min((W * 0.5) / cols, W * 0.14); // a 1-2 car rank stays a rank, not two giant taxis
+  const rankW = bayW * cols;
   const bayH = Math.min((H * 0.74) / rows, bayW * 1.02);
   const rankY0 = H / 2 - (rows * bayH) / 2;
   const bayC = (b: number): [number, number] => {
@@ -215,7 +224,7 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx, 'ltr')}}>
       <Floor gid={`cpt-${ctx.id}`} w={W} h={H} y={H * 0.36} color={critK > 0 ? C.crit : C.signal} pool={0.1 + 0.08 * critK} cx={rankX0 + rankW / 2} opacity={ent} />
-      <div style={{position: 'absolute', left: rankX0 - W * 0.01, top: rankY0 - bayH * 0.1, width: rankW + W * 0.02, height: rows * bayH + bayH * 0.2, borderRadius: 22, ...acrylic(critK > 0 ? C.crit : C.grid, ctx.fx, 0.15 + 0.4 * critK + ctx.mod.glow, true), opacity: ent * 0.9}} />
+      <div style={{position: 'absolute', left: rankX0 - W * 0.01, top: rankY0 - bayH * 0.1, width: rankW + W * 0.02, height: rows * bayH + bayH * 0.2, borderRadius: 22, ...rankPanel(critK > 0 ? C.crit : C.grid, 0.15 + 0.4 * critK + ctx.mod.glow), opacity: ent * 0.9}} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         {els}
       </svg>
@@ -224,4 +233,4 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   );
 };
 
-export const ConnPoolTaxi: DcComponent<Props> = {name: 'ConnPoolTaxi', Component: ConnPoolTaxiView, text: false, slot: 'full'};
+export const ConnPoolTaxi: DcComponent<Props> = {name: 'ConnPoolTaxi', Component: ConnPoolTaxiView, text: true, slot: 'full'};

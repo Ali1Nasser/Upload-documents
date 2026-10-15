@@ -2,7 +2,7 @@
  "v": 2,
  "name": "WindowFrame",
  "composition": "Demo-WindowFrame",
- "at": "2026-10-14T08:17:07Z",
+ "at": "2026-10-15T18:00:52Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,45 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1124 px; 6 registry problem(s)"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1124 px; 6 registry problem(s)"
   },
   {
    "tag": "p50",
    "frame": 79,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "baseline": "written"
+   "determinism_diff_px": 1124,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1124 px; 6 registry problem(s)"
   },
   {
    "tag": "p100",
    "frame": 159,
    "why": "100 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1124 px; 6 registry problem(s)"
   }
  ],
  "qa_findings": [],
- "registry_problems": [],
+ "registry_problems": [
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]"
+ ],
  "approve": true,
- "pass": true
+ "approve_refused": [
+  "determinism 1124 px",
+  "6 registry problem(s)"
+ ],
+ "pass": false
 }

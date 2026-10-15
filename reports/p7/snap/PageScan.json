@@ -2,12 +2,12 @@
  "v": 2,
  "name": "PageScan",
  "composition": "Demo-PageScan",
- "at": "2026-10-14T08:34:50Z",
+ "at": "2026-10-15T18:04:07Z",
  "frames": [
   0,
   11,
-  83,
-  167
+  101,
+  203
  ],
  "thresholds": {
   "scale": 0.5,
@@ -27,36 +27,43 @@
    "frame": 0,
    "why": "0 %",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 759 px"
+   "error": "not approved (baseline untouched): 6 registry problem(s)"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 759 px"
+   "error": "not approved (baseline untouched): 6 registry problem(s)"
   },
   {
    "tag": "p50",
-   "frame": 83,
+   "frame": 101,
    "why": "50 %",
-   "determinism_diff_px": 759,
+   "determinism_diff_px": 0,
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 759 px"
+   "error": "not approved (baseline untouched): 6 registry problem(s)"
   },
   {
    "tag": "p100",
-   "frame": 167,
+   "frame": 203,
    "why": "100 %",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 759 px"
+   "error": "not approved (baseline untouched): 6 registry problem(s)"
   }
  ],
  "qa_findings": [],
- "registry_problems": [],
+ "registry_problems": [
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]",
+  "[\"./fx-b.tsx: demo DepthLayersX1 is not a catalog component\",\"./fx-b.tsx: demo DepthLayersX2 is not a catalog component\"]"
+ ],
  "approve": true,
  "approve_refused": [
-  "determinism 759 px"
+  "6 registry problem(s)"
  ],
  "pass": false
 }

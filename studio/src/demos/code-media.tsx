@@ -49,8 +49,8 @@ const demos: DemoModule = {
       },
     },
     {
-      // CH-27 receipts (data contract 5.2: 4 of 6 receipts OK = 66.67 %, d:5.2:7). The cursor steps on the spoken lines; the Arabic comment
-      // is a whole-word run inside the code; the footer note is one whole Arabic phrase per step.
+      // CH-27 receipts (data contract 5.2: the OK receipts T1 120 + T2 80 + T4 50 + T5 150 = 400 EGP, d:5.2:8). The cursor steps on the
+      // spoken lines; the Arabic comment is a whole-word run inside the code; the footer note is one whole Arabic phrase per step.
       name: 'CodeTrace',
       frames: 150,
       words: [
@@ -69,11 +69,11 @@ const demos: DemoModule = {
             props: {
               id: 'trace',
               lang: 'python',
-              code: 'def success_rate(receipts):\n    ok = 0\n    for r in receipts:\n        if r["status"] == "OK":\n            ok += 1\n    # النسبة المئوية للنجاح\n    return round(100 * ok / len(receipts), 2)',
+              code: 'total = 0\nfor r in receipts:\n    if r["status"] == "OK":\n        total += r["amount_egp"]\n# المجموع الناجح\nprint(total)  # 400',
               highlights: [
-                {lines: [2, 2], at: {word: CT(2), lead_frames: 2}, note_ar: 'نبدأ العداد من صفر'},
-                {lines: [3, 5], at: {word: CT(3), lead_frames: 2}, note_ar: 'نمر على كل إيصال'},
-                {lines: [7, 7], at: {word: CT(5), lead_frames: 2}, note_ar: 'نحسب النسبة المئوية'},
+                {lines: [1, 1], at: {word: CT(2), lead_frames: 2}, note_ar: 'نبدأ المجموع من صفر'},
+                {lines: [2, 3], at: {word: CT(3), lead_frames: 2}, note_ar: 'نمر على كل إيصال ناجح'},
+                {lines: [6, 6], at: {word: CT(5), lead_frames: 2}, note_ar: 'المجموع الناجح أربعمية جنيه'},
               ],
             },
             at: {word: CT(1), lead_frames: 2},

@@ -63,8 +63,8 @@ const legendOrbs: DemoDef = {
   },
 };
 
-// LatencyLadder: the p95 latencies of the pool and test-gate labs, one rung each (d:6.6:6 150 ms, d:6.11:2 355 ms,
-// d:6.11:3 675 ms, d:6.6:4 1 160 ms). The ladder climbs when the narrator names the next step.
+// LatencyLadder: the waits of the labs on one log scale, each rung ~10x the last (d:6.6:6 150 ms twin p95, d:6.6:4 1 160 ms
+// pool p95 wait, d:6.7:1 5 s documented-layer-order edit, d:6.7:2 57 s edit after pip install). The ladder climbs on the named step.
 const latencyLadder: DemoDef = {
   name: 'LatencyLadder',
   frames: 160,
@@ -83,9 +83,9 @@ const latencyLadder: DemoDef = {
           id: 'ladder',
           rungs: [
             {label: 'التوأم الرقمي', latency: {value: 150, ref: 'd:6.6:6', unit: 'ms'}},
-            {label: 'الاختبار ناجح', latency: {value: 355, ref: 'd:6.11:2', unit: 'ms'}},
-            {label: 'الاختبار فاشل', latency: {value: 675, ref: 'd:6.11:3', unit: 'ms'}},
             {label: 'الـpool مزحوم', latency: {value: 1160, ref: 'd:6.6:4', unit: 'ms'}},
+            {label: 'تعديل بترتيب الطبقات', latency: {value: 5, ref: 'd:6.7:1', unit: 's'}},
+            {label: 'تعديل بعد pip install', latency: {value: 57, ref: 'd:6.7:2', unit: 's'}},
           ],
         },
         at: A('LatencyLadder', 1),

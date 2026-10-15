@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "EquationLine",
+ "composition": "Demo-EquationLine",
+ "at": "2026-10-15T18:18:29Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 80,
+   "wall_s": 17.33,
+   "box_s_per_frame": 0.2166,
+   "slot_s_per_frame": 0.6498,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": false,
+   "loadavg1": [
+    6,
+    7.05
+   ],
+   "queue": {
+    "running": 3,
+    "queued": 4
+   },
+   "other_jobs_running": 2
+  },
+  "standard": {
+   "frames": 80,
+   "wall_s": 27.84,
+   "box_s_per_frame": 0.3479,
+   "slot_s_per_frame": 1.0437,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": false,
+   "loadavg1": [
+    6.89,
+    10.03
+   ],
+   "queue": {
+    "running": 3,
+    "queued": 2
+   },
+   "other_jobs_running": 2
+  },
+  "hero": {
+   "frames": 80,
+   "wall_s": 21.66,
+   "box_s_per_frame": 0.2707,
+   "slot_s_per_frame": 0.8121,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    10.02,
+    11.77
+   ],
+   "queue": {
+    "running": 2,
+    "queued": 2
+   },
+   "other_jobs_running": 1
+  }
+ },
+ "within_budget": false,
+ "qa_findings": []
+}

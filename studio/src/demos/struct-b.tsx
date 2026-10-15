@@ -7,17 +7,19 @@ const W = (name: string, n: number) => `w:DEMO:${name}:${String(n).padStart(6, '
 const A = (name: string, n: number, lead = 2) => ({word: W(name, n), lead_frames: lead});
 const words = (name: string, spans: [number, number][]): DemoDef['words'] => spans.map(([s, e], i) => [W(name, i + 1), s, e]);
 
-// CH-28 DR: the RPO / RTO timeline (04 §6 Domain row; s:S4:P20:0082 names the RTO). No numbers on screen. The cursor walks
-// last backup -> crash -> failover -> service back.
+// CH-34-style release timeline on the p95 gate (data contract d:6.11:1..3: a p95 gate at 500 ms passes at 355 ms and fails at
+// 675 ms under regression; the rollback beat carries no number). Numbers on screen: 355 ms (d:6.11:2), 500 ms (d:6.11:1),
+// 675 ms (d:6.11:3). The cursor walks event by event over the words that name them.
 const timeline: DemoDef = {
   name: 'TimelineTrack',
-  frames: 120,
+  frames: 168,
   words: words('TimelineTrack', [
     [6, 18],
-    [40, 52],
-    [62, 74],
-    [82, 92],
+    [34, 46],
+    [54, 66],
+    [76, 88],
     [98, 110],
+    [120, 132],
   ]),
   shot: {
     fx_tier: 'standard',
@@ -26,21 +28,23 @@ const timeline: DemoDef = {
       {
         component: 'TimelineTrack',
         props: {
-          id: 'dr',
-          slot: 'center',
+          id: 'rel',
+          slot: 'full',
           events: [
-            {label: 'آخر backup', when: 'RPO', kind: 'milestone'},
-            {label: 'السيرفر وقع', kind: 'incident'},
-            {label: 'الـfailover', kind: 'event'},
-            {label: 'الخدمة رجعت', when: 'RTO', kind: 'release'},
+            {label: 'نسخة سليمة · ⟦355 ms⟧', when: 'p95', kind: 'release'},
+            {label: 'الـgate · ⟦500 ms⟧', when: 'CI', kind: 'milestone'},
+            {label: 'الـregression · ⟦675 ms⟧', when: 'p95', kind: 'incident'},
+            {label: 'الـgate رفض النسخة', kind: 'event'},
+            {label: 'رجوع للنسخة القديمة', when: 'rollback', kind: 'release'},
           ],
         },
         at: A('TimelineTrack', 1),
       },
-      {component: 'TimelineTrack.cursorTo', props: {target: 'dr', index: 0}, at: A('TimelineTrack', 2)},
-      {component: 'TimelineTrack.cursorTo', props: {target: 'dr', index: 1}, at: A('TimelineTrack', 3)},
-      {component: 'TimelineTrack.cursorTo', props: {target: 'dr', index: 2}, at: A('TimelineTrack', 4)},
-      {component: 'TimelineTrack.cursorTo', props: {target: 'dr', index: 3}, at: A('TimelineTrack', 5)},
+      {component: 'TimelineTrack.cursorTo', props: {target: 'rel', index: 0}, at: A('TimelineTrack', 2)},
+      {component: 'TimelineTrack.cursorTo', props: {target: 'rel', index: 1}, at: A('TimelineTrack', 3)},
+      {component: 'TimelineTrack.cursorTo', props: {target: 'rel', index: 2}, at: A('TimelineTrack', 4)},
+      {component: 'TimelineTrack.cursorTo', props: {target: 'rel', index: 3}, at: A('TimelineTrack', 5)},
+      {component: 'TimelineTrack.cursorTo', props: {target: 'rel', index: 4}, at: A('TimelineTrack', 6)},
     ],
   },
 };
