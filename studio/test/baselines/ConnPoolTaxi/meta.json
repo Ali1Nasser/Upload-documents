@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "81070fc4d43fe70a8087d70777f2094853741ca67b1db729b48842e96bbfb109",
-  "p50": "08a199e9b8b6b221ebcae81cb5ec94eab64c97dbae44f809d052905d251b4b05",
-  "p100": "fa499b8ea32ada4bbcb8a9e54b174599e5b6366cb4bf327c0fbfeaf1f62af30e"
+  "a1": "497afe6b107b959add984e97734e455a380a14b9a747408bed5589525c16df13",
+  "p50": "2e53bb758a3f50022554de6595319d97405c7216fd61cad9fc500e58b5c3ac1d",
+  "p100": "ec3cf5a6b091e5f79ee78bd3b70a0389479c037b5f54154fb4989d276ba6e7af"
  },
  "v": 2,
  "name": "ConnPoolTaxi",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:02:38Z",
+ "written_at": "2026-10-15T22:04:57Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

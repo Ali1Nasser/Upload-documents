@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ConnPoolTaxi",
  "composition": "Demo-ConnPoolTaxi",
- "at": "2026-10-15T18:21:56Z",
+ "at": "2026-10-15T22:06:57Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -19,20 +19,54 @@
  },
  "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
  "tiers": {
-  "standard": {
-   "frames": 60,
-   "wall_s": 8.95,
-   "box_s_per_frame": 0.1492,
-   "slot_s_per_frame": 0.4476,
+  "lite": {
+   "frames": 168,
+   "wall_s": 11.87,
+   "box_s_per_frame": 0.0707,
+   "slot_s_per_frame": 0.2121,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.66,
-    5.64
+    6.12,
+    6.34
    ],
    "queue": {
     "running": 1,
-    "queued": 1
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 168,
+   "wall_s": 14.46,
+   "box_s_per_frame": 0.0861,
+   "slot_s_per_frame": 0.2583,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.34,
+    6.34
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 168,
+   "wall_s": 17.09,
+   "box_s_per_frame": 0.1018,
+   "slot_s_per_frame": 0.3054,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    6.47,
+    7.11
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
    },
    "other_jobs_running": 0
   }

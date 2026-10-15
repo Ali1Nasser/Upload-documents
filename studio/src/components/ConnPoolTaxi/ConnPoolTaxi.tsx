@@ -11,6 +11,7 @@
 //     closes up (morph timing).
 // DOM-free SVG (standard tier; no WebGL, no per-frame filter).
 import React from 'react';
+import {random} from 'remotion';
 import {C} from '../../tokens';
 import {hex} from '../../fx/look';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
@@ -108,7 +109,6 @@ const rankPanel = (col: string, k: number): React.CSSProperties => ({
 });
 
 export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
-  if (props.seed >= 0) return <div />;
   const t = ctx.frame;
   const P = pf(ctx);
   const sim = poolSim(props, ctx);
@@ -205,7 +205,7 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const from = sim.born[i] >= tb - travel ? [laneR, qY] : [qx, qY];
       const q = clamp01(prog(ctx, tb - travel, travel));
       const x = from[0] + (bx - from[0]) * q;
-      const y = from[1] + (by - from[1]) * q - Math.sin(q * Math.PI) * bayH * 0.25;
+      const y = from[1] + (by - from[1]) * q - Math.sin(q * Math.PI) * bayH * (0.18 + 0.14 * random(`cpt-arc-${props.seed}-${i}`));
       els.push(<Dot key={`r${i}`} x={x} y={y} r={dotR} color={C.signal} k={1} />);
       continue;
     }
@@ -213,7 +213,7 @@ export const ConnPoolTaxiView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const e = prog(ctx, sim.born[i], P.arrive);
     const x = laneR + (qx - laneR) * e + (critK > 0 ? qShake : 0);
     const col = mix(C.warn, C.crit, critK);
-    els.push(<Dot key={`r${i}`} x={x} y={qY} r={dotR} color={col} k={0.6 + 0.6 * critK} />);
+    els.push(<Dot key={`r${i}`} x={x} y={qY + (random(`cpt-lane-${props.seed}-${i}`) - 0.5) * dotR * 0.7} r={dotR} color={col} k={0.6 + 0.6 * critK} />);
   }
   // exhausted halo over the queue
   if (critK > 0) {
