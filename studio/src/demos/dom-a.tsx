@@ -85,7 +85,7 @@ const latencyLadder: DemoDef = {
             {label: 'التوأم الرقمي', latency: {value: 150, ref: 'd:6.6:6', unit: 'ms'}},
             {label: 'الـpool مزحوم', latency: {value: 1160, ref: 'd:6.6:4', unit: 'ms'}},
             {label: 'تعديل بترتيب الطبقات', latency: {value: 5, ref: 'd:6.7:1', unit: 's'}},
-            {label: 'تعديل بعد pip install', latency: {value: 57, ref: 'd:6.7:2', unit: 's'}},
+            {label: 'تعديل بعد ⟦pip install⟧', latency: {value: 57, ref: 'd:6.7:2', unit: 's'}},
           ],
         },
         at: A('LatencyLadder', 1),

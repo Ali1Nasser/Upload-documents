@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "04cba53675cdac89db1b5ede797b6c76db9a21c48c21b9f10e1d58a4e42355d3",
+  "p50": "f4ad693d6194e5eca56bd59f204f459daf0a5d240664df427aaa737ae7139a5f",
+  "p100": "9066893fa4d9a8e8c700478378011b62d5533b2a638c4d6fd2079dbba705ee4a"
+ },
+ "v": 2,
+ "name": "LatencyLadder",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 79,
+  "p100": 159
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-15T22:01:27Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

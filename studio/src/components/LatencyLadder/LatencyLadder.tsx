@@ -37,7 +37,7 @@ export const LatencyLadderView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const n = props.rungs.length;
   const box = ctx.box;
   const t = ctx.frame;
-  const secs = props.rungs.map(seconds);
+  const secs = props.rungs.map((r) => seconds(r.latency));
   const lo = Math.min(...secs);
   const hi = Math.max(...secs);
   const rowH = Math.min(150, box.h / n);
@@ -78,8 +78,7 @@ export const LatencyLadderView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const floorY = top + H + 6;
   return (
     <div style={{position: 'absolute', inset: 0, ...layerStyle(ctx, rtl)}}>
-      {/* back glow behind the current top rung, floor grid under the ladder */}
-      {curTop >= 0 ? <div style={{position: 'absolute', left: barX1 - trackW * 0.85, top: topY - rowH * 1.2, width: trackW * 0.95, height: rowH * 2.4, borderRadius: '50%', background: `radial-gradient(ellipse, ${topTone}${hex(0.16 * glowK)} 0%, ${topTone}${hex(0.05)} 50%, transparent 72%)`}} /> : null}
+      {/* floor grid under the ladder (no full-height back glow: large translucent gradients rasterise differently per page at tile seams, see kit.Floor; the top bar's emitter, rim and floor pool carry the light) */}
       {box.y + box.h - floorY > 70 ? <Floor x={box.x} y={floorY} w={box.w} h={Math.min(box.y + box.h - floorY, 240)} opacity={0.5} /> : null}
       {/* decade ticks and the decade grid: equal steps = 10x each */}
       <svg width={1} height={1} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
