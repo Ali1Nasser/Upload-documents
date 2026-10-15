@@ -21,6 +21,7 @@ import {
 } from '../_space3d/kit';
 import {Origin, knockOut, useForeignText} from '../_space3d/knockout';
 
+const PROBE_R = 60; // probe core + ring radius (px at 960 scale reference): a declutter obstacle for every chip
 const BASE = SIZE.label; // chip copy (32 px), floor SIZE.labelMin
 type Field = {centres: V3[]; pts: {p: V3; cl: number; tint: boolean; br: number}[]; q: V3; order: number[]};
 
@@ -118,6 +119,7 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const box = ctx.box;
   const sizeOf = (i: number) => (m ? fitTo(BASE, m.w[i], box.w * 0.4, SIZE.labelMin) : {size: BASE, overflow: false});
   const chips: {id: string; text: string; size: number; x: number; y: number; w: number; h: number; t0: number; accent: string; overflow: boolean; alpha: number; cx?: number; cy?: number}[] = [];
+  let probeDisc: {x: number; y: number; w: number; h: number} | null = null;
   if (m) {
     props.clusters.forEach((text, i) => {
       const p = project(cam, f.centres[i]);
@@ -139,10 +141,18 @@ export const VectorGalaxyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const fit = sizeOf(qi);
       const w = chipW(m.w[qi], BASE, fit.size);
       const h = chipH(pr.label, fit.size);
-      chips.push({id: `${ctx.id}:q${qi}`, text: pr.label, size: fit.size, x: q.x + 56, y: q.y - h / 2, w, h, t0: pr.labelAt, accent: C.signal, overflow: fit.overflow, alpha: 1});
+      // the probe core + ring (r about 60 px) is an obstacle: the chip sits beside it (right if it fits in the slot, else left), above it as a last resort
+      const gap = PROBE_R + 16;
+      const right = q.x + gap;
+      const left = q.x - gap - w;
+      let qx = right + w <= box.x + box.w ? right : left >= box.x ? left : q.x - w / 2;
+      let qy = q.y - h / 2;
+      if (qx !== right && qx !== left) qy = q.y - PROBE_R - 12 - h;
+      probeDisc = q.ok ? {x: q.x - PROBE_R, y: q.y - PROBE_R, w: 2 * PROBE_R, h: 2 * PROBE_R} : null;
+      chips.push({id: `${ctx.id}:q${qi}`, text: pr.label, size: fit.size, x: qx, y: qy, w, h, t0: pr.labelAt, accent: C.signal, overflow: fit.overflow, alpha: 1});
     }
     // declutter: later chips step down past earlier ones (12 px gap), then clamp into the slot (title-safe at the camera peak)
-    const placed: {x: number; y: number; w: number; h: number}[] = [];
+    const placed: {x: number; y: number; w: number; h: number}[] = probeDisc ? [probeDisc] : [];
     for (const c of chips) {
       let pos = clampInto(box, c.x, c.y, c.w, c.h);
       for (let guard = 0; guard < 12; guard++) {
