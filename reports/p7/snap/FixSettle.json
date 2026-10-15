@@ -2,7 +2,7 @@
  "v": 2,
  "name": "FixSettle",
  "composition": "Demo-FixSettle",
- "at": "2026-10-14T08:34:32Z",
+ "at": "2026-10-15T17:16:07Z",
  "frames": [
   0,
   11,
@@ -26,37 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 753 px"
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 753 px"
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 47,
    "why": "50 %",
-   "determinism_diff_px": 753,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 753 px"
+   "determinism_diff_px": 0,
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 95,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 753 px"
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "approve_refused": [
-  "determinism 753 px"
- ],
- "pass": false
+ "pass": true
 }

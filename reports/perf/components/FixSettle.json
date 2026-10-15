@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "FixSettle",
+ "composition": "Demo-FixSettle",
+ "at": "2026-10-15T17:27:07Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 96,
+   "wall_s": 11.33,
+   "box_s_per_frame": 0.118,
+   "slot_s_per_frame": 0.354,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.55,
+    4.01
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 8
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 96,
+   "wall_s": 14.2,
+   "box_s_per_frame": 0.1479,
+   "slot_s_per_frame": 0.4437,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.09,
+    4.23
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 8
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 96,
+   "wall_s": 16.22,
+   "box_s_per_frame": 0.169,
+   "slot_s_per_frame": 0.507,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.05,
+    4.77
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 8
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
