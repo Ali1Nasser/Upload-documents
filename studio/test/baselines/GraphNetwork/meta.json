@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "ffb5a56af8e3b4bae0de321067554216deabb39bfe79b34602c3a469f00742ac",
-  "p50": "3cf79407569e92315afb311454e1bd1095f7ccdd3466777661b19264bf88e81d",
-  "p100": "2bea1a973d2b598112fdf123a2d32553124433496039ee8d6197e76bbbe19ca9"
+  "a1": "be05962d09b787e2decfb4534c5036e6ef5eacaa60cca8c6f6c3aa035a02fcaf",
+  "p50": "3b72df7440a320eeed58373d9acb8c957c6fb214636a0cab7c5cd2ac3b364bcb",
+  "p100": "968c9333fe53258487ff47b67ad0ccde95953bc97d9b0231ccb5c68412ab5d86"
  },
  "v": 2,
  "name": "GraphNetwork",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 59,
-  "p100": 119
+  "p50": 145,
+  "p100": 291
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:09:06Z",
+ "written_at": "2026-10-15T16:52:11Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
