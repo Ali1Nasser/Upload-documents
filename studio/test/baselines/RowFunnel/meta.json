@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "4654511adef91a4571eae050ffb2ca6afcdfe3b61cced663d3e4405698c118cc",
-  "p50": "383f3a2fd331ef432e9d513fbb786bc169eb7641d9b45e87e0b071d004f823a3",
-  "p100": "bdd07e25713ce413b7456985ce51bda1f9233eea9ad9ec38cdb3f9884d325280"
+  "a1": "e6ff5d3406f68ad07be4e3763803067d10795b73c33027e49293df921ee30bec",
+  "p50": "c96173c874ac81c40e1f7bfe27bbe4819e149e9a741472dc652de225a5fe6bed",
+  "p100": "d07fc308884d9a6deda6822252d12b8f45edc29233b493ec84099b7bb6b89334"
  },
  "v": 2,
  "name": "RowFunnel",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:18:56Z",
+ "written_at": "2026-10-15T17:15:21Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

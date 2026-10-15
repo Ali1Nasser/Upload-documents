@@ -91,7 +91,7 @@ const demos: DemoModule = {
                 {label: 'HAVING', rows: {value: 2, ref: 'd:6.3:2'}},
                 {label: 'SELECT', rows: {value: 2, ref: 'd:6.3:2'}},
                 {label: 'ORDER BY', rows: {value: 2, ref: 'd:6.3:2'}},
-                {label: 'LIMIT', rows: {value: 1, ref: 'd:6.3:2'}},
+                {label: 'LIMIT', rows: {value: 1, ref: 'd:6.3:14'}},
               ],
             },
             at: {word: RF(1), lead_frames: 2},

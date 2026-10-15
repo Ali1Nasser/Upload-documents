@@ -38,6 +38,7 @@ export const RowFunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const rtl = rtlOf(...st.map((s) => s.label));
   const {w: W, h: H} = ctx.box;
   const reach = reachTimes(props, ctx);
+  const gid = `rf-${ctx.id}`;
   let active = 0;
   for (let k = 0; k < n; k++) if (reach[k].t <= t) active = k;
   const vals = st.map((s) => s.rows.value);
@@ -93,6 +94,10 @@ export const RowFunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const smallFs = Math.round(bigFs * 0.42);
   const unitFs = Math.max(SIZE.labelMin, Math.round(bigFs * 0.36));
 
+  const bandY = (k: number, q: number) => {
+    const h0 = hOf(k);
+    return {h0, h1: h0 + (hOf(k + 1) - h0) * q};
+  };
   const band = (k: number) => {
     // funnel band from column k to k+1, drawn in reading direction as stage k+1 is reached
     const q = litQ(k + 1);
@@ -100,13 +105,19 @@ export const RowFunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const x0 = colX(k) + (rtl ? -colW / 2 : colW / 2);
     const x1full = colX(k + 1) + (rtl ? colW / 2 : -colW / 2);
     const x1 = x0 + (x1full - x0) * q;
-    const h0 = hOf(k);
-    const h1 = h0 + (hOf(k + 1) - h0) * q;
+    const {h0, h1} = bandY(k, q);
     const pts = `${x0},${cy - h0 / 2} ${x1},${cy - h1 / 2} ${x1},${cy + h1 / 2} ${x0},${cy + h0 / 2}`;
     const isCur = k + 1 === active;
+    // light falls from the lit (current) end: the band is a gradient in the reading direction, brighter toward the stage just reached
     return (
       <g key={`b${k}`}>
-        <polygon points={pts} fill={tint(C.signal, isCur ? 0.16 : 0.07)} />
+        <defs>
+          <linearGradient id={`${gid}-bg${k}`} gradientUnits="userSpaceOnUse" x1={x0} x2={x1full} y1={0} y2={0}>
+            <stop offset="0" stopColor={C.signal} stopOpacity={isCur ? 0.05 : 0.03} />
+            <stop offset="1" stopColor={C.signal} stopOpacity={isCur ? 0.28 : 0.1} />
+          </linearGradient>
+        </defs>
+        <polygon points={pts} fill={`url(#${gid}-bg${k})`} />
         <polyline points={`${x0},${cy - h0 / 2} ${x1},${cy - h1 / 2}`} stroke={tint(C.signal, isCur ? 0.8 : 0.35)} strokeWidth={2} fill="none" />
         <polyline points={`${x0},${cy + h0 / 2} ${x1},${cy + h1 / 2}`} stroke={tint(C.signal, isCur ? 0.8 : 0.35)} strokeWidth={2} fill="none" />
       </g>
@@ -123,26 +134,52 @@ export const RowFunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const dropQ = k < active ? litQ(k + 1) : 0;
     if (!dots) {
       const h = hOf(k) * q;
-      return <rect key={`c${k}`} x={x - colW / 2} y={cy - h / 2} width={colW} height={h} rx={6} fill={tint(col, isAct ? 0.85 : 0.45)} />;
+      const hk = k < active ? Math.min(h, hOf(k + 1) * q) : h; // kept share (the next stage's rows); the rest was dropped here
+      const hd = (h - hk) / 2;
+      return (
+        <g key={`c${k}`}>
+          <rect x={x - colW / 2} y={cy - hk / 2} width={colW} height={hk} rx={6} fill={tint(col, isAct ? 0.85 : 0.45)} />
+          {hd > 0.5 ? <rect x={x - colW / 2} y={cy - h / 2} width={colW} height={hd} rx={4} fill={tint(C.crit, 0.55)} /> : null}
+          {hd > 0.5 ? <rect x={x - colW / 2} y={cy + hk / 2} width={colW} height={hd} rx={4} fill={tint(C.crit, 0.55)} /> : null}
+        </g>
+      );
     }
     const v = vals[k];
     const top = cy - (v * d * 1.45) / 2;
     // the stage squeezes the dropped rows out at BOTH edges (outermost dots first), so survivors stay centred on the band
     const outer = Array.from({length: v}, (_, i) => i).sort((a, b) => Math.abs(b - (v - 1) / 2) - Math.abs(a - (v - 1) / 2) || a - b);
     const droppedSet = new Set(next !== null && next < v ? outer.slice(0, v - next) : []);
-    return (
-      <g key={`c${k}`}>
-        {Array.from({length: v}, (_, i) => {
-          const dq = Math.min(1, Math.max(0, q * 1.6 - (i / Math.max(1, v)) * 0.6));
-          const dropped = droppedSet.has(i);
-          const c = dropped ? C.crit : col;
-          const op = dropped ? 1 - 0.5 * dropQ : 1;
-          const r = (d / 2) * (0.4 + 0.6 * dq);
-          const yy = top + (i + 0.5) * d * 1.45 + (dropped ? Math.sign(i - (v - 1) / 2) * dropQ * d * 0.5 : 0);
-          return <circle key={i} cx={x} cy={yy} r={r} fill={dropped && dropQ > 0 ? tint(C.crit, 0.25 + 0.55 * dropQ) : c} opacity={dq * op} stroke={dropped && dropQ > 0 ? c : 'none'} strokeWidth={dropped ? 1.5 : 0} />;
-        })}
-      </g>
-    );
+    // dropped rows tumble out of the funnel wall (ballistic arc outward, spin, 3-sample trail), then rest as faint crit marks
+    const u = k < active ? revealProgress(t - reach[k + 1].t, 2 * morph, ease.camera) : 0;
+    const dir = rtl ? -1 : 1;
+    const marks: React.ReactNode[] = [];
+    for (let i = 0; i < v; i++) {
+      const dq = Math.min(1, Math.max(0, q * 1.6 - (i / Math.max(1, v)) * 0.6));
+      const dropped = droppedSet.has(i);
+      const sgn = i - (v - 1) / 2 >= 0 ? 1 : -1;
+      const by = top + (i + 0.5) * d * 1.45;
+      const r = (d / 2) * (0.4 + 0.6 * dq);
+      if (!dropped || u <= 0) {
+        marks.push(<circle key={i} cx={x} cy={by} r={r} fill={dropped ? tint(C.crit, 0.25) : col} opacity={dq} stroke={dropped ? C.crit : 'none'} strokeWidth={dropped ? 1.5 : 0} />);
+        continue;
+      }
+      const at = (w: number) => ({px: x + dir * w * pitch * 0.14, py: by + sgn * (Math.sin(w * Math.PI * 0.5) * d * 1.3 + w * w * d * 0.5)});
+      for (let j = 3; j >= 1; j--) {
+        const w = u * (1 - j * 0.16);
+        if (w <= 0 || u >= 1) continue;
+        const {px, py} = at(w);
+        marks.push(<circle key={`t${i}${j}`} cx={px} cy={py} r={r * (0.9 - j * 0.18)} fill={C.crit} opacity={(0.42 - j * 0.1) * (1 - u)} />);
+      }
+      const {px, py} = at(u);
+      const m = r * 0.55;
+      marks.push(
+        <g key={i} transform={`translate(${px} ${py}) rotate(${u * 200 * dir})`} opacity={dq * (1 - 0.6 * u)}>
+          <circle cx={0} cy={0} r={r} fill={tint(C.crit, 0.25 + 0.4 * u)} stroke={C.crit} strokeWidth={1.5} />
+          <path d={`M${-m} ${-m}L${m} ${m}M${m} ${-m}L${-m} ${m}`} stroke={C.crit} strokeWidth={1.5} opacity={u} fill="none" />
+        </g>,
+      );
+    }
+    return <g key={`c${k}`}>{marks}</g>;
   };
 
   return (
@@ -161,6 +198,21 @@ export const RowFunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         {Array.from({length: n - 1}, (_, k) => band(k))}
         {/* active column halo (cheap: one translucent wide rect, no filter) */}
         {litQ(active) > 0 ? <rect x={colX(active) - colW} y={cy - hOf(active) / 2 - d} width={colW * 2} height={hOf(active) + 2 * d} rx={colW} fill={tint(C.signal, 0.08 * litQ(active))} /> : null}
+        {/* under-light pool (LK-F): the lit column lights the floor beneath it */}
+        {litQ(active) > 0 ? (
+          <>
+            <defs>
+              <radialGradient id={`${gid}-pool`}>
+                <stop offset="0" stopColor={C.signal} stopOpacity={0.3} />
+                <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+              </radialGradient>
+            </defs>
+            <ellipse cx={colX(active)} cy={headH + chartH + 2} rx={Math.min(pitch * 0.8, colW * 2.6)} ry={Math.max(8, chartH * 0.035)} fill={`url(#${gid}-pool)`} opacity={litQ(active)} />
+          </>
+        ) : null}
+        {/* stage rail: ghost track for the stages to come (no values), signal fill up to the stage reached */}
+        <line x1={colX(0)} x2={colX(n - 1)} y1={headH + chartH + 2} y2={headH + chartH + 2} stroke={tint(C.ink3, 0.5)} strokeWidth={2} strokeDasharray="3 7" opacity={head.p} />
+        {active > 0 ? <line x1={colX(0)} x2={colX(active - 1) + (colX(active) - colX(active - 1)) * litQ(active)} y1={headH + chartH + 2} y2={headH + chartH + 2} stroke={C.signal} strokeWidth={3} strokeLinecap="round" /> : null}
         {Array.from({length: n}, (_, k) => column(k))}
       </svg>
       {/* footer: stage chips + counts, one per column (AT-4: pitch - chip >= 40 px) */}

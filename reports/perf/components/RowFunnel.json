@@ -2,7 +2,7 @@
  "v": 2,
  "name": "RowFunnel",
  "composition": "Demo-RowFunnel",
- "at": "2026-10-14T08:32:09Z",
+ "at": "2026-10-15T17:20:46Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 150,
-   "wall_s": 11.24,
-   "box_s_per_frame": 0.0749,
-   "slot_s_per_frame": 0.2247,
+   "wall_s": 15.88,
+   "box_s_per_frame": 0.1058,
+   "slot_s_per_frame": 0.3174,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.7,
-    6.44
+    4.69,
+    4.6
    ],
    "queue": {
     "running": 1,
-    "queued": 4
+    "queued": 8
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 150,
-   "wall_s": 16.61,
-   "box_s_per_frame": 0.1107,
-   "slot_s_per_frame": 0.3321,
+   "wall_s": 20.39,
+   "box_s_per_frame": 0.1359,
+   "slot_s_per_frame": 0.4077,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.01,
-    5.71
+    4.6,
+    4.97
    ],
    "queue": {
     "running": 1,
-    "queued": 4
+    "queued": 8
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 150,
-   "wall_s": 16.03,
-   "box_s_per_frame": 0.1069,
-   "slot_s_per_frame": 0.3207,
+   "wall_s": 20.36,
+   "box_s_per_frame": 0.1358,
+   "slot_s_per_frame": 0.4074,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.34,
-    5.48
+    4.65,
+    4.6
    ],
    "queue": {
     "running": 1,
-    "queued": 4
+    "queued": 8
    },
    "other_jobs_running": 0
   }
