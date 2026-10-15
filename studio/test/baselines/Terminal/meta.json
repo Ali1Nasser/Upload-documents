@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-15T21:51:54Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.8,
+  "date": "2026-10-15",
+  "round": "1 re-review after polish r2",
+  "notes": "Stills p0/a1/p50/p100 re-read at full size. CACHED now signal-coloured so reused-vs-rebuilt contrast reads without narration; 5 s and 57 s one ink step brighter and legible. Palette clean, Arabic comment whole and bidi-correct, crit band on miss row, numbers sourced d:6.7:1/d:6.7:2. Non-blocking: quiet depth/light, bottom of plate empty at p50, 57 s inside red row gets little extra emphasis, no motion strip, synthetic miss message needs illustration flag in spec."
+ }
 }

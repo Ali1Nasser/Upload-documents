@@ -25,3 +25,29 @@ Non-blocking issues, ordered by impact (for the CH-34 spec and a later polish pa
 5. Request: a motion strip (frames 0-149 every 6 f) under reports/p7/ so scroll and cascade can be judged by eye rather than from code.
 
 What worked: the caret fix is verified (a1: caret sits on the text baseline, height matches the glyphs); the error band is distinct without a new colour; frame 0 is correctly empty until the first anchor.
+
+## Terminal — round 1 (re-review of polish r2)
+
+Reviewed: studio/test/baselines/Terminal/{p0,a1,p50,p100}.png at full size (960x540 lite), after the author applied r1 #1 and #2 (CACHED in signal; spoken figures one ink step brighter via the additive `Tok.c` field in _code-media/kit.tsx). Author: motion-engineer (not the critic).
+
+Score: 7.8 / 10. Verdict: approved-critic. Blocking issues: none.
+
+| Criterion | Score | Note |
+|---|---|---|
+| Legibility at 1080p | 8 | Mono about 30 px at 1080p, ink2 on dark glass; "5 s" and "57 s" now read as the brightest tokens on their rows. |
+| Token / palette discipline | 8.5 | ink / ink2 / ink3 / signal / crit only. The new `c` field is additive and uses palette tokens. |
+| Depth and light | 6.5 | Glass plate, faint rim glow, haze behind, 7 % active-row band. Still quiet; nothing is lit by the action. |
+| Visual verb without narration | 8 | p50: two cyan CACHED rows then an uncoloured rebuilt row reads as "reused layers vs rebuilt". p100: red miss row closes the contrast. Improved from 7. |
+| Arabic | 8.5 | p50/p100 comment is whole, joined, "#" on the left in the LTR run; no per-letter animation. |
+| No bullet-list look | 8 | Reads as a terminal. |
+| No legacy frames / unsourced numbers | 9 | 5 s -> d:6.7:1, 57 s -> d:6.7:2 (CH-34). |
+| Motion intent | 7 | a1 shows per-char typing with a baseline-aligned caret; cascade and scroll still inferred from code (no strip). |
+
+Blocking: none.
+
+Non-blocking, by impact:
+1. p100, row 8 ("cache miss at pip install: build finished in 57 s", region x 205-660, y 340-362): "57 s" is only one step brighter inside a red row, so the headline figure gains little emphasis. Pair it with NumberCounter beside the plate, or make it ink-bright and bold on the crit band.
+2. p50, plate bottom (y 320-395): about 20 % empty glass; p100 fills it. Acceptable for a short hold; in the CH-34 spec keep the cut to p50 under about 1.5 s or size the plate to the rows born.
+3. Depth and light: add a soft signal glow that follows the active row, or a camera drift (spec-level `camera` push of 2-3 %), so the shot is not static glass.
+4. The miss message is synthetic (real docker build does not print it). Mark the row as an illustration in the spec and tie the figure to d:6.7:2 only.
+5. Still wanted: a motion strip (frames 0-149 every 6 f) under reports/p7/ for the row cascade and scroll.
