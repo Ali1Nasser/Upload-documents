@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "ABSplit",
+ "composition": "Demo-ABSplit",
+ "at": "2026-10-16T18:10:37Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 168,
+   "wall_s": 13.35,
+   "box_s_per_frame": 0.0794,
+   "slot_s_per_frame": 0.2382,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.93,
+    4.18
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 168,
+   "wall_s": 17.46,
+   "box_s_per_frame": 0.1039,
+   "slot_s_per_frame": 0.3117,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.08,
+    4.75
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 168,
+   "wall_s": 15.91,
+   "box_s_per_frame": 0.0947,
+   "slot_s_per_frame": 0.2841,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.61,
+    4.86
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

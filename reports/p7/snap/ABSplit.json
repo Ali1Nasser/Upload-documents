@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ABSplit",
  "composition": "Demo-ABSplit",
- "at": "2026-10-16T11:02:57Z",
+ "at": "2026-10-16T18:03:43Z",
  "frames": [
   0,
   11,
@@ -26,37 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 986 px"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 986 px"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p50",
    "frame": 83,
    "why": "50 %",
-   "determinism_diff_px": 986,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 986 px"
+   "determinism_diff_px": 0,
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p100",
    "frame": 167,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 986 px"
+   "mismatch_px": 0,
+   "pass": true
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
- "approve_refused": [
-  "determinism 986 px"
- ],
- "pass": false
+ "approve": false,
+ "pass": true
 }

@@ -19,7 +19,6 @@ import type {Props} from './schema';
 import {formatValue} from '../NumberCounter/NumberCounter';
 import {At, Chip, FitLabel, GlowLine, Stage, Svg, actsOf, bez, dPath, f24, fmtCount, glowBox, lerp, prog, progN, ranks, rim, stag, type Pt} from '../_dom-b/kit';
 
-const DBG: number = 8;
 const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
 /** Digits only for contract facts (D1 ruling 1-2). */
 export const showsValues = (p: Props) => p.variants.every((v) => /^d:/.test(v.rate.ref));
@@ -48,7 +47,7 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const qWin = progN(ctx, tWin, presetFrames('label', fps));
   const ent = prog(ctx, ctx.at, 'label');
   // ---------- decorative stream dots (never a user count) ----------
-  const DOTS = DBG & 1 ? 0 : Math.min(fx.particles, 20 * n + 20);
+  const DOTS = Math.min(fx.particles, 20 * n + 20);
   const cycle = f24(96, fps); // frames for a dot to run tank -> through the lane
   const dotR = Math.max(6, SIZE.label * 0.22);
   const trunkH = L.tankH * 0.3;
@@ -57,16 +56,17 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const phase = random(`ab:${ctx.id}:${k}`);
     const age = ((((t - ctx.at) / cycle + phase) % 1) + 1) % 1; // linear: marching flow (04 section 2)
     let p: Pt;
-    if (age < 0.22) p = {x: lerp(src.x - L.tankW / 2, split.x, age / 0.22), y: src.y + (random(`aby:${ctx.id}:${k}`) - 0.5) * trunkH * (1 - (age / 0.22) * 0.8)};
-    else if (age < 0.5) {
+    if (age < 0.25) p = {x: lerp(src.x - L.tankW / 2, split.x, age / 0.25), y: src.y + (random(`aby:${ctx.id}:${k}`) - 0.5) * trunkH * (1 - (age / 0.25) * 0.8)};
+    else if (age < 0.8) {
       const lp = lanePath(lane);
-      const f = ((age - 0.22) / 0.28) * (lp.length - 1);
+      const f = ((age - 0.25) / 0.55) * (lp.length - 1);
       const j = Math.floor(f);
       const a = lp[j];
       const b = lp[Math.min(j + 1, lp.length - 1)];
       p = {x: lerp(a.x, b.x, f - j), y: lerp(a.y, b.y, f - j) + (random(`abj:${ctx.id}:${k}`) - 0.5) * dotR};
-    } else p = {x: lerp(cardX + cardW, cardX + cardW * 0.4, (age - 0.5) / 0.5), y: laneY(lane)};
-    const fade = age > 0.85 ? (1 - age) / 0.15 : age < 0.05 ? age / 0.05 : 1;
+    } else p = {x: lerp(cardX + cardW, cardX + cardW - dotR * 5, (age - 0.8) / 0.2), y: laneY(lane)};
+    // the users sink into the lane card at its rim (nothing runs across the label text)
+    const fade = age > 0.8 ? 1 - (age - 0.8) / 0.2 : age < 0.05 ? age / 0.05 : 1;
     return {p, lane, a: fade};
   });
   const lw = Math.max(3, Math.round(SIZE.label * 0.12));
@@ -113,7 +113,7 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {/* the source: a glass tank of users (decorative dots, seeded; no count) */}
       <At x={src.x} y={src.y} style={{opacity: ent}}>
         <div style={{position: 'relative', width: L.tankW, height: L.tankH, borderRadius: L.tankW * 0.28, border: `1.5px solid ${C.signal}${hex(0.5)}`, background: `linear-gradient(160deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.22)}, ${glowBox(C.signal, fx, 0.35 + ctx.mod.glow)}`}}>
-          {Array.from({length: DBG & 2 ? 0 : Math.min(fx.particles, 22)}, (_, k) => {
+          {Array.from({length: Math.min(fx.particles, 22)}, (_, k) => {
             const x = 0.16 + 0.68 * random(`abt:${ctx.id}:${k}x`);
             const y = 0.1 + 0.8 * random(`abt:${ctx.id}:${k}y`);
             const bob = Math.sin(((t - ctx.at) / fps) * 2 + random(`abt:${ctx.id}:${k}p`) * 6.28) * 5;
@@ -121,18 +121,20 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           })}
         </div>
       </At>
-      {/* the splitter: a random-assignment die on a glass plate */}
+      {/* the splitter: a random-assignment die on a glass plate (glow on the static plate; only the face turns, so the raster stays deterministic) */}
       <At x={split.x} y={split.y} style={{opacity: ent}}>
-        <div style={{width: dieS, height: dieS, borderRadius: dieS * 0.22, border: `2px solid ${C.violet}`, background: `linear-gradient(135deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.26)}, ${glowBox(C.violet, fx, 0.6 + ctx.mod.glow)}`, transform: DBG & 8 ? undefined : `rotate(${rot.toFixed(2)}deg)`}}>
-          {[
-            [0.28, 0.28],
-            [0.72, 0.72],
-            [0.5, 0.5],
-            [0.72, 0.28],
-            [0.28, 0.72],
-          ].map(([x, y], k) => (
-            <div key={k} style={{position: 'absolute', left: `${x * 100}%`, top: `${y * 100}%`, width: dieS * 0.12, height: dieS * 0.12, marginLeft: -dieS * 0.06, marginTop: -dieS * 0.06, borderRadius: '50%', background: C.ink2}} />
-          ))}
+        <div style={{position: 'relative', width: dieS, height: dieS, borderRadius: dieS * 0.22, border: `2px solid ${C.violet}`, background: `${C.void}${hex(0.7)}`, boxShadow: `${rim(0.26)}, ${glowBox(C.violet, fx, 0.6 + ctx.mod.glow)}`}}>
+          <div style={{position: 'absolute', left: 0, top: 0, right: 0, bottom: 0, transform: `rotate(${rot.toFixed(2)}deg)`}}>
+            {[
+              [0.28, 0.28],
+              [0.72, 0.72],
+              [0.5, 0.5],
+              [0.72, 0.28],
+              [0.28, 0.72],
+            ].map(([x, y], k) => (
+              <div key={k} style={{position: 'absolute', left: `${x * 100}%`, top: `${y * 100}%`, width: dieS * 0.12, height: dieS * 0.12, marginLeft: -dieS * 0.06, marginTop: -dieS * 0.06, borderRadius: '50%', background: C.ink2}} />
+            ))}
+          </div>
         </div>
       </At>
       {/* lane cards */}
@@ -149,7 +151,7 @@ export const ABSplitView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const edge = win ? C.ok : C.violet;
         return (
           <React.Fragment key={i}>
-            <div style={{position: 'absolute', left: cardX, top: y - cardH / 2, width: cardW, height: cardH, borderRadius: cardH * 0.14, border: `1.5px solid ${edge}${hex(win ? 0.9 : 0.5)}`, background: `linear-gradient(135deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.2)}, 0 ${(cardH * 0.1).toFixed(0)}px ${(cardH * 0.25).toFixed(0)}px -${(cardH * 0.1).toFixed(0)}px ${C.void}${win ? `, ${glowBox(C.ok, fx, 0.5 * qWin + ctx.mod.glow)}` : ''}`, opacity: DBG & 16 ? 1 : e * (1 - 0.18 * qWin * (win ? 0 : 1)), transform: DBG & 16 ? undefined : `translateY(${((1 - e) * 6).toFixed(2)}px)`}}>
+            <div style={{position: 'absolute', left: cardX, top: y - cardH / 2, width: cardW, height: cardH, borderRadius: cardH * 0.14, border: `1.5px solid ${edge}${hex(win ? 0.9 : 0.5)}`, background: `linear-gradient(135deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.2)}, 0 ${(cardH * 0.1).toFixed(0)}px ${(cardH * 0.25).toFixed(0)}px -${(cardH * 0.1).toFixed(0)}px ${C.void}${win ? `, ${glowBox(C.ok, fx, 0.5 * qWin + ctx.mod.glow)}` : ''}`, opacity: e * (1 - 0.18 * qWin * (win ? 0 : 1)), transform: `translateY(${((1 - e) * 6).toFixed(2)}px)`}}>
               {/* label: top right (RTL start) */}
               <At x={cardW - pad} y={pad * 0.7} ax={1} ay={0}>
                 <FitLabel id={`${ctx.id}:lane${i}`} text={v.label} maxW={cardW * (values ? 0.42 : 0.6)} size={labelSize} color={win ? C.ok : C.ink} weight={FONT.label.strong} shadow={win ? `${halo}, ${glow(C.ok, fx, 0.5 * qWin)}` : undefined} />
