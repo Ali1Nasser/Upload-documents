@@ -255,3 +255,16 @@ Non-blocking (ordered by impact)
 5. Not covered: missing target (DC_TARGET warning path), a target under a moving camera at strength above 0.3, and `until` exit lift.
 
 Scores: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7.
+
+## DeepDiveCard — round 1, third read (critic, 2026-10-16)
+
+Reproduces **7/10, approved-critic, no blocking issue**. Viewed p0, a1, p50, p100 at 960x540 and reports/p7/snap/DeepDiveCard.jpg; stored snap (pass, det 0) not re-run (RAM guard); no diff to engine, spec, tokens, _typeui or component since c6acbde. Read: lit trunk node, violet branch merging into a rim-lit glass slab, dashed return arc to the rail. Reads without narration; not a slide; violet-only accent; no legacy frames; "P23" and "CH-33" are demo labels, not claimed figures. Arabic title is correct RTL with isolated Latin runs.
+
+Blocking: none.
+
+Non-blocking additions to rounds above
+1. p100, "CH-33" label (x 700-750 / y 128-146) sits on the rail ticks; give it a ground-coloured halo or lift it 6 px so ticks do not run through the glyphs.
+2. a1, slab bottom-left (x 135-205 / y 393-400): a soft, blurred shelf mid-rim-sweep; confirm on the G8 strip that it is not a stuck artefact.
+3. Still open from rounds above: ghost "P23" under the title's left end (x 140-360 / y 255-355), faint haze and floor pool (depth/light 6), motion intent unverified from stills (strip required at G8), 48-char worst-case baseline.
+
+Scores: legibility 8, palette 9, depth/light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Overall 7.
