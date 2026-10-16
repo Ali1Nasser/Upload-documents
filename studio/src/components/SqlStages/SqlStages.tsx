@@ -202,8 +202,11 @@ export const SqlStagesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                     paddingLeft: L.pad,
                     position: 'relative',
                     opacity: dim,
-                    background: ls.cur > 0 ? `linear-gradient(90deg, ${C.signal}${hex(0.24 * ls.cur)}, ${C.signal}${hex(0.05 * ls.cur)} 70%, transparent)` : undefined,
-                    boxShadow: ls.cur > 0 ? `inset 4px 0 0 ${C.signal}${hex(ls.cur)}` : ls.done > 0 ? `inset 3px 0 0 ${C.ink3}${hex(0.6 * ls.done)}` : undefined,
+                    // the edge bar is a background layer, never `box-shadow: inset` (non-deterministic over the masked backdrop; see catalog note)
+                    background: [
+                      ls.cur > 0 ? `linear-gradient(${C.signal}${hex(ls.cur)}, ${C.signal}${hex(ls.cur)}) left / 4px 100% no-repeat` : ls.done > 0 ? `linear-gradient(${C.ink3}${hex(0.6 * ls.done)}, ${C.ink3}${hex(0.6 * ls.done)}) left / 3px 100% no-repeat` : '',
+                      ls.cur > 0 ? `linear-gradient(90deg, ${C.signal}${hex(0.24 * ls.cur)}, ${C.signal}${hex(0.05 * ls.cur)} 70%, transparent)` : '',
+                    ].filter(Boolean).join(', ') || undefined,
                   }}
                 >
                   <CodeRow id={`${ctx.id}:r${i}`} toks={toks[r.line]} s={r.s} e={r.e} size={fs} />
