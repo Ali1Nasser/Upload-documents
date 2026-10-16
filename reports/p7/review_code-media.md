@@ -108,3 +108,29 @@ Non-blocking, by impact:
 5. Depth and light: plate is small and centred on an empty field. Specs should add a camera push of 4-6 % or a data plate (a result row) beside it.
 6. Snap determinism: the author reports det 0 on 3 of 4 runs; the fourth failed. The baseline is approved on the 3 stable runs, but the residual flake needs a root cause (likely another Glass / backdrop layer, for example the rim `border-box` gradient or the chip `boxShadow`). Log it in corpus/specs/_component_requests.jsonl if it is not resolved in the next pass.
 7. Still wanted: a motion strip (frames 0-229 every 12 f) under reports/p7/ for the badge landing and rail fill.
+
+## LoopPlate — round 1
+
+Reviewed: studio/test/baselines/LoopPlate/{p0,a1,p50,p100}.png at full size (960x540 lite), LoopPlate.tsx, media.tsx (missingMedia), the demo spec and the snap/Arabic QA reports. Author: motion-engineer (not the critic). No motion strip exists; motion read from p50 vs p100 (glow lobes and particle field differ, so the loop advances) plus the pure-function index in code.
+
+Score: 7.1 / 10. Verdict: approved-critic. Blocking issues: none.
+
+| Criterion | Score | Note |
+|---|---|---|
+| Legibility at 1080p | 7.5 | Plate stays dark enough that the term (about 34 px at 960, kinetic) and the counter read cleanly; screen blend does not wash text. |
+| Token / palette discipline | 7.5 | Teal / indigo aurora on void stays inside the palette family; no stray hues. |
+| Depth and light | 6.5 | Soft glow pools and a sparse particle field give atmosphere, but peak luminance is low and the field is nearly uniform at p50/p100; little parallax cue between plate and text. |
+| Visual verb without narration | 6.5 | A plate is atmosphere by design; the demo meaning is carried by KineticWord and NumberCounter (50 s to 57 s count-up is clear). |
+| Arabic | 8 | زمن البناء and الـcache render joined and correct; QA pass 2/2. |
+| No bullet-list look | 8.5 | Full-bleed atmosphere, no list. |
+| No legacy frames / unsourced numbers | 9 | Procedural fixture, 57 s sourced d:6.7:2. |
+| Motion intent | 7 | Plate drift is visible between p50 and p100; fade-in from p0 (near black) to a1 (about half) matches the morph preset. A strip would confirm seamless wrap. |
+
+Blocking: none.
+
+Non-blocking, by impact:
+1. a1 / p50 / p100 whole frame: plate luminance is low (brightest lobe about 25 % grey-blue at x 300-450, y 200-330). The real P10 plates should carry a clear key light and a second rim colour so the text layer separates in depth; do not ship plates this flat.
+2. p50 (x 345-615, y 285-320 and x 372-585, y 350-440): faint darker rectangles behind the KineticWord and NumberCounter. They belong to those components (shadow or glass plate), not to LoopPlate; check against the plate under screen blend and soften or remove.
+3. p0: near black by design (fade-in begins at the anchor); keep the first anchor within 0.5 s in specs so the plate is already present when the first word lands.
+4. Still wanted: a motion strip (frames 0-119 every 12 f) demonstrating the loop wrap at the 10 s seam on a real plate, once a P10 plate exists.
+5. Spec guidance: use `blend: screen` with opacity 0.6-0.8 on dark plates; avoid `add` over bright diagrams.
