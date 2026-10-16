@@ -331,6 +331,32 @@ None. Status set to approved-critic (lite tier). Motion (5.5) is below 6 and is 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
 
+## TokenStream — round 1 (re-review of round 2, commit 0ccead3)
+Reviewed at full size: studio/test/baselines/TokenStream/{a1,p50,p100}.png (960x540 lite, sha256 match meta.json), reports/p7/evidence/space3d/TokenStream_standard_emit_strip.jpg (6 frames), TokenStream_hero_p100.jpg. Snap PASS (det 0, qa 0) taken from the author's report, not re-run.
+
+### Carry-forwards verdict
+- Tile over settled tile (strip frames 1-6, tile row y 285-345): no overprint in any frame; "key" no longer lands on "potency" and tile pitch is intact. Fixed, with the caveat below that the strip samples settled states, not in-flight frames.
+- Tokenizer label (a1/p50/p100, x 706-814, y 208-234): a 2 px signal leader now runs from the chip down to the gate (x 788, y 260-285). Bound; fixed.
+- Depth and light: standard/hero show a cyan floor pool under the channel, bokeh, floor dashes and a bright head bar; the lite p100 is still flat (tiles about the channel value).
+
+### Scores (1-10)
+Legible at 1080p 7.5 | Token/palette 9 | Depth and light 7 (standard/hero), 6 (lite) | Verb reads 8 | Arabic 9 | Not slide/bullet 7.5 | No legacy frames 10 | No unsourced numbers 10 | Motion intent 6.5 | Polish 7.5.
+Mean 7.9, min 6 (lite depth). Overall 7.4.
+
+### Blocking
+None. Status approved-critic (7.4).
+
+### Non-blocking
+1. Motion (strip, all frames): the 6 frames are spaced about one tile apart and each shows a settled head tile; none shows a tile mid-ease. With a 70 px run and a 34 px drop, a tile at k about 0.3 (about 49 px, 24 px up, alpha about 0.5) can still cross the upper half of the previous tile's box (pitch about 95 px, gap about 20 px) for 1-2 frames. Provide a consecutive-frame strip (anchor-1 to anchor+6) for one emit and confirm no text-on-text overprint, or start the fade at k 0.4.
+2. Lite p100 (x 143-815, y 283-345): tile body and channel nearly equal in value; add a 1 px top highlight on every tile.
+3. Composition (p50/p100, y 0-210 and 360-540): the stream is a thin band (about 12 percent of height); confirm slot use in the pack.
+4. Latin sub-words (p100, x 195-430): "key potency idem" still reads backwards for a Latin viewer; add a continuation mark or assembled caption.
+5. Bars (p100, y 250-285) are unlabelled; a words-anchored "vector" term is advisable.
+6. Dim tile text (ink2 on tile, about 4:1) is acceptable; do not lower it.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, restrained lighting (this component). 5 = labels over the key mark.
+
 ## AttentionBeams — round 1 (re-review of round 2 baselines, commit 2c7aa43)
 Reviewed: studio/test/baselines/AttentionBeams/{p0,a1,p50,p100}.png at full size (960x540, lite; sha256 match meta.json). No strip or standard/hero stills exist, so motion is not evidenced beyond a1 (arcs mid-draw) vs p50/p100.
 
