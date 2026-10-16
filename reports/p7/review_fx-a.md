@@ -229,3 +229,20 @@ Blocking: none. Non-blocking, ordered by impact (unchanged from the re-check, st
 6. Baselines: add a burst frame (f39-41, standard); p50/p100 near duplicates.
 
 Scores (1-10): Legibility 8, token discipline 9, depth and light 6.5, verb reads 7, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent 8 (strip). Mean 8.4, min 6.5; overall 7.0.
+
+### Pulse — round 1, independent re-read
+
+Date: 2026-10-16. Reviewer: critic (did not author; did not rely on the earlier approval). Scope: baselines p0/a1/p50/p100 (PNG sha256 equal to meta.json) at 960x540 and reports/p7/snap/Pulse_beat.jpg (6 tiles, standard). Snap, perf and Arabic QA not re-run.
+
+Verdict: APPROVED, 7.0/10, no blocking issue. meta.json stays approved-critic.
+
+Seen: the beat strip shows a key-lit cyan rim, a second ring trailing it, an outer swell, a floor glow pool and sparks, all around a crisp "66.67 %" and "نسبة النجاح". Palette is cyan on near-black only. No bullets, no legacy frames, demo counter values only. The verb "this matters now" reads without narration. Lite p50 shows only the thin rim, which is the intended minimum.
+
+Blocking: none. Non-blocking, ordered by impact:
+1. p50, rim x 355-603, y 211-327: the "6" at x ~357 and "%" at x ~603 touch the outline (RIM_PAD 10 is measured to leaf bounds, not glyph ink). Pad to at least 14 px at 1080p. The same collision shows in strip tiles 1, 4 and 6 at the right edge of "%".
+2. Baselines: a1 (f13) is before any pulse and p100 duplicates it, so no baseline covers the anchor frame (f38) or standard tier. Add anchor+1 and anchor+9 at standard so rings and sparks are regression-protected.
+3. a1 and p100, x 318-640, y 255-335: faint dark plate sits low and off-centre behind the label at idle. Align it to the copy or fade it with the pulse.
+4. Strip tile 6: sparks cluster at the top-left and bottom edges. Spread them around the perimeter.
+5. Look: a rectangle outline reads slightly as a UI highlight box. At hero tier let the swell bloom wider than the rim, with a wider falloff.
+
+Scores (1-10): legibility 7.5, token discipline 9, depth and light 7.5, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 9, motion intent 7.5. Mean 8.4, min 7.5; overall 7.0.

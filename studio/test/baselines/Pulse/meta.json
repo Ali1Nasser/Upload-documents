@@ -37,6 +37,11 @@
   "date": "2026-10-16",
   "reviewer": "critic",
   "round": 1,
-  "notes": "Standard-tier beat strip reads well (key-lit rim, camera-eased rings, floor pool, sparks, Arabic correct). Non-blocking: rim hugs glyphs (66.67 and % touch the outline), lite baselines do not cover the anchor frame (f38) or standard tier, idle dark plate (x318-640,y255-335) sits off the number. See reports/p7/review_fx-a.md."
+  "notes": "Standard-tier beat strip reads well (key-lit rim, camera-eased rings, floor pool, sparks, Arabic correct). Non-blocking: rim hugs glyphs (66.67 and % touch the outline), lite baselines do not cover the anchor frame (f38) or standard tier, idle dark plate (x318-640,y255-335) sits off the number. See reports/p7/review_fx-a.md.",
+  "reread": {
+   "date": "2026-10-16",
+   "score": 7.0,
+   "result": "approved-critic confirmed"
+  }
  }
 }
