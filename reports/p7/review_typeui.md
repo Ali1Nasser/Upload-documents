@@ -298,3 +298,11 @@ Verdict: **approved-critic** stands, **7/10**, no blocking issue. Re-read p0, a1
 Blocking issues: none. Still open for G8: strip (anchor-2, 0, +2, +4, +8, +16), baselines near f4 and f20, long-label and RTL-flip baselines.
 
 Scores: legibility 8, palette 9, depth/light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Overall 7.
+
+## Spotlight — round 1, independent re-read (critic, 2026-10-16)
+
+Reproduces **7/10, approved-critic stands, no blocking issue**. Re-viewed p0, a1, p50, p100 at 960x540; stored snap not re-run, no component change since ba578dc. meta.json already carries status approved-critic (7, 2026-10-16), so it is left untouched.
+
+- p0 is a blank ground (no Spotlight pixels); a1 is the undimmed host table. Only p50 and p100 carry the verb. p50: surround dims to about a third, rounded-rect cyan rim plus glow on T3 "FAILED" (x 341-432 / y 262-317), cone from upper right (x 480-760 / y 20-250). p100: ellipse on T6 "FAILED" (x 326-444 / y 350-417). Reads without narration; Arabic header and title are correct RTL, Latin and digits isolated; cyan and void only; no legacy frames; no new figures (demo values).
+- Confirmed non-blocking defects: (1) p100 ellipse rim strikes the T5 "OK" (y 345-360) and the leading "1" of "100" (x 438-446), which undermines "isolate this one cell"; (2) host table is only about 290 px wide in a 960 frame (about 30 %), so the dim surround is mostly empty ground and the stage feels small; (3) cone and rim are faint at lite; (4) no onset frame, so RV1 iris-in is unproven.
+- Required before G8 lock: strip at anchor-1, 0, 2, 6, 12, a standard-tier still, and p0 replaced by a frame with the aperture settled. Scores: legibility 8, palette 9, depth and light 6, verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7.
