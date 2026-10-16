@@ -22,7 +22,7 @@ import {
   Measure, MLabel, SpaceCanvas, blit, bloomOf, enterK, exitK, ff, fmtNum, labelStyle, lerp, mix, moveK, rgba, sprite, useMeasure, useOverflow,
 } from '../_space3d/kit';
 import {clamp} from '../_space3d/kit';
-import {interpolate} from 'remotion';
+import {interpolate, random} from 'remotion';
 
 const BASE = SIZE.label;
 export const CAP = 5; // slots in the window (illustration constant; the figure on the gate is the author's `window`)
@@ -81,8 +81,8 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const bloom = bloomOf(ctx.fx);
   const pitch = (box.w - GATE_W) / CAP;
   const xR = box.x + box.w;
-  const cy = box.y + box.h * 0.56;
-  const H0 = Math.min(box.h * 0.44, 270);
+  const cy = box.y + box.h * 0.5;
+  const H0 = Math.min(box.h * 0.4, 250);
   const H1 = H0 * 0.42;
   const halfAt = (u: number) => lerp(H0, H1, u); // u: 0 near end .. 1 gate
   const xOf = (r: number) => xR - (r + 0.5) * pitch;
@@ -106,7 +106,7 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const deaths = items.filter((x) => x.died !== null && x.died <= ctx.frame);
   const flash = deaths.length ? Math.max(...deaths.map((x) => interpolate(ctx.frame - (x.died as number), [0, 3, ff(14, ctx.fps)], [1, 1, 0], clamp))) : 0;
 
-  type Draw = {it: Item; x: number; r: number; a: number; dying: number};
+  type Draw = {it: Item; x: number; r: number; a: number; dying: number; q: number};
   const draws: Draw[] = [];
   const gateX = xR - CAP * pitch;
   for (const it of items) {
@@ -120,48 +120,81 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const rb = rankAt(items, it, it.died - 1) ?? 0;
       const w = cardW;
       const xEnd = Math.max(gateX - 0.55 * pitch, box.x + w / 2);
-      draws.push({it, x: lerp(xOf(rb), xEnd, q), r: rb, a: 1 - q * q, dying: Math.max(q, 0.01)});
+      draws.push({it, x: lerp(xOf(rb), xEnd, q), r: rb, a: 1 - q * q, dying: Math.max(q, 0.01), q});
     } else {
       const before = rankAt(items, it, e - 1);
       const p = moveK(ctx, e, 8);
       const born = it.born === e || before === null;
       const r = born ? cur : lerp(before, cur, p);
-      draws.push({it, x: xOf(r), r, a: born ? p * p : 1, dying: 0});
+      draws.push({it, x: xOf(r), r, a: born ? p * p : 1, dying: 0, q: 0});
     }
   }
 
+  const rich = ctx.fx.id !== 'lite';
   const drawFrames = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
     g.lineCap = 'round';
-    // rails
-    const rail = (sign: number) => {
+    const xG = xR - CAP * pitch;
+    // glass floor: a ledge under the bottom rail that narrows with the corridor (04 section 1.2: contact light on a surface)
+    if (rich) {
+      const ledge = g.createLinearGradient(0, cy + H1, 0, cy + H0 + 0.22 * H0);
+      ledge.addColorStop(0, rgba(C.grid, 0.0));
+      ledge.addColorStop(1, rgba(C.grid, 0.34 * k));
+      g.fillStyle = ledge;
+      g.beginPath();
+      g.moveTo(xR, cy + H0);
+      g.lineTo(xG, cy + H1);
+      g.lineTo(xG, cy + H1 + 0.09 * H0);
+      g.lineTo(xR, cy + H0 + 0.22 * H0);
+      g.closePath();
+      g.fill();
+    }
+    // rails: cool grid at the near end, warming toward the gate
+    // (gradient fills are standard / hero only: the lite tier stays flat, which also keeps its raster bit-exact)
+    if (rich) {
+      const railG = g.createLinearGradient(xR, 0, xG, 0);
+      railG.addColorStop(0, rgba(C.grid, 0.55 * k));
+      railG.addColorStop(0.7, rgba(C.ink3, 0.7 * k));
+      railG.addColorStop(1, rgba(C.ember, 0.9 * k));
+      g.strokeStyle = railG;
+    } else g.strokeStyle = rgba(C.grid, 0.9 * k);
+    g.lineWidth = 3;
+    for (const sign of [-1, 1]) {
       g.beginPath();
       g.moveTo(xR, cy + sign * H0);
-      g.lineTo(xR - CAP * pitch, cy + sign * H1);
+      g.lineTo(xG, cy + sign * H1);
       g.stroke();
-    };
-    g.strokeStyle = rgba(C.grid, k);
-    g.lineWidth = 3;
-    rail(-1);
-    rail(1);
+    }
     // depth frames (slot boundaries)
-    for (let j = 0; j <= CAP; j++) {
+    for (let j = 0; j < CAP; j++) {
       const x = xR - j * pitch;
       const h = halfAt(j / CAP);
-      g.strokeStyle = rgba(j === CAP ? C.ember : C.grid, (j === CAP ? 0.95 : 0.4 + 0.5 * (1 - j / CAP)) * k);
-      g.lineWidth = j === CAP ? 5 : 2;
+      g.strokeStyle = rgba(C.grid, (0.3 + 0.5 * (1 - j / CAP)) * k);
+      g.lineWidth = 2;
       g.beginPath();
       g.moveTo(x, cy - h);
       g.lineTo(x, cy + h);
       g.stroke();
     }
-    // the gate: ember frame, flashes crit when something is evicted
+    // the gate: an ember frame, hot on the inside edge; flashes crit when something is evicted
+    g.strokeStyle = rgba(C.ember, 0.95 * k);
+    g.lineWidth = 5;
+    g.beginPath();
+    g.moveTo(xG, cy - H1);
+    g.lineTo(xG, cy + H1);
+    g.stroke();
+    g.strokeStyle = rgba(C.white, 0.5 * k);
+    g.lineWidth = 1.5;
+    g.beginPath();
+    g.moveTo(xG + 3, cy - H1 + 6);
+    g.lineTo(xG + 3, cy + H1 - 6);
+    g.stroke();
     if (flash > 0) {
       g.strokeStyle = rgba(mix(C.ember, C.crit, 0.7), flash * k);
       g.lineWidth = 8;
       g.beginPath();
-      g.moveTo(xR - CAP * pitch, cy - H1);
-      g.lineTo(xR - CAP * pitch, cy + H1);
+      g.moveTo(xG, cy - H1);
+      g.lineTo(xG, cy + H1);
       g.stroke();
     }
   };
@@ -169,12 +202,13 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const drawCards = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
     g.lineJoin = 'round';
-    for (const {it, x, a, dying} of [...draws].sort((p, q) => q.r - p.r)) {
-      const w = pitch * 0.84;
+    for (const {it, x, r, a, dying, q} of [...draws].sort((p, o) => o.r - p.r)) {
+      const w = cardW;
       const hOf = (xx: number) => 0.8 * halfAt(Math.min(1, Math.max(0, (xR - xx) / (CAP * pitch))));
       const hr = hOf(x + w / 2);
       const hl = hOf(x - w / 2);
       const col = dying ? C.crit : kindColor(it.kind);
+      const fog = 1 - 0.22 * Math.min(1, Math.max(0, r) / (CAP - 1)); // far cards recede a little (text stays full strength)
       const quad = () => {
         g.beginPath();
         g.moveTo(x + w / 2, cy - hr);
@@ -183,29 +217,74 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         g.lineTo(x + w / 2, cy + hr);
         g.closePath();
       };
+      const al = a * k * fog;
       g.globalAlpha = 1;
+      if (rich) {
+        // contact shadow on the floor ledge, then a short reflection of the card (glass floor)
+        const yb = cy + Math.max(hr, hl);
+        const sh = g.createLinearGradient(0, cy + Math.min(hr, hl), 0, cy + Math.max(hr, hl) + 0.2 * H0);
+        sh.addColorStop(0, rgba(col, 0.26 * al));
+        sh.addColorStop(1, rgba(col, 0));
+        g.fillStyle = sh;
+        g.beginPath();
+        g.moveTo(x + w / 2, cy + hr);
+        g.lineTo(x - w / 2, cy + hl);
+        g.lineTo(x - w / 2 + 6, cy + hl + 0.2 * H0);
+        g.lineTo(x + w / 2 - 6, cy + hr + 0.2 * H0);
+        g.closePath();
+        g.fill();
+      }
       quad();
-      g.fillStyle = rgba(mix(C.panel, col, 0.1), 0.9 * a * k);
+      if (rich) {
+        const body = g.createLinearGradient(0, cy - hr, 0, cy + hr);
+        body.addColorStop(0, rgba(mix(C.panel, col, 0.2), 0.94 * al));
+        body.addColorStop(0.5, rgba(mix(C.panel, col, 0.09), 0.9 * al));
+        body.addColorStop(1, rgba(mix(C.panel, col, 0.05), 0.92 * al));
+        g.fillStyle = body;
+      } else g.fillStyle = rgba(mix(C.panel, col, 0.1), 0.9 * al);
       g.fill();
-      g.strokeStyle = rgba(col, 0.9 * a * k);
+      g.strokeStyle = rgba(col, 0.92 * al);
       g.lineWidth = 3;
       g.stroke();
-      // rim light on the near edge (04 section 1.2: key light from the upper right)
-      g.strokeStyle = rgba(C.ink, 0.35 * a * k);
+      // rim light: key from the upper right (04 section 1.2), a bright top edge and near edge
+      g.strokeStyle = rgba(C.ink, 0.42 * al);
       g.lineWidth = 2;
       g.beginPath();
-      g.moveTo(x + w / 2, cy - hr);
+      g.moveTo(x - w / 2 + 4, cy - hl);
+      g.lineTo(x + w / 2, cy - hr);
       g.lineTo(x + w / 2, cy + hr);
       g.stroke();
+      if (dying && rich) {
+        // the evicted card breaks into seeded shards that drift beyond the gate and fade (a card, never the letters)
+        for (let j = 0; j < 14; j++) {
+          const rx = random(`${ctx.id}:sh${it.i}:${j}:x`);
+          const ry = random(`${ctx.id}:sh${it.i}:${j}:y`);
+          const rs = random(`${ctx.id}:sh${it.i}:${j}:s`);
+          const sx = x - w / 2 + rx * w * 0.55 - q * (30 + 120 * rs);
+          const sy = cy + (ry - 0.5) * 2 * hl * 0.9 + (ry - 0.5) * q * 70;
+          const sz = 8 + 16 * rs;
+          g.fillStyle = rgba(C.crit, 0.7 * (1 - q) * k);
+          g.fillRect(sx - sz / 2, sy - sz / 4, sz, sz / 2);
+        }
+      }
     }
   };
   const drawGlow = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
     g.globalCompositeOperation = 'lighter';
-    blit(g, sprite(C.ember, 'glow'), xR - CAP * pitch, cy, H1 * 2.2, (0.45 + 0.5 * flash) * k * (0.5 + 0.5 * bloom));
+    blit(g, sprite(C.ember, 'glow'), xR - CAP * pitch, cy, H1 * 1.7, (0.45 + 0.5 * flash) * k * (0.5 + 0.5 * bloom));
     const newest = draws.filter((d) => !d.dying).sort((p, q) => p.r - q.r)[0];
     if (newest) blit(g, sprite(kindColor(newest.it.kind), 'glow'), newest.x, cy, pitch * 0.9, 0.3 * newest.a * k * (0.5 + 0.5 * bloom));
-    if (flash > 0) blit(g, sprite(C.crit, 'glow'), xR - CAP * pitch, cy, H1 * 2.6, 0.5 * flash * k);
+    if (flash > 0) blit(g, sprite(C.crit, 'glow'), xR - CAP * pitch, cy, H1 * 2, 0.5 * flash * k);
+    g.globalAlpha = 1;
+    g.globalCompositeOperation = 'source-over';
+  };
+  // one canvas for the whole set (a canvas per layer cost 0.02 s/frame at 1080p): light behind the glass first, then frames, then cards.
+  // The glow lies BEHIND the cards and the figure, so it never veils copy (no text-safe cut needed).
+  const drawAll = (g: CanvasRenderingContext2D) => {
+    if (rich) drawGlow(g);
+    drawFrames(g);
+    drawCards(g);
   };
 
   const rect = {x: box.x - 60, y: box.y - 40, w: box.w + 120, h: box.h + 80};
@@ -214,9 +293,7 @@ export const ContextTunnelView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const figPx = SIZE.sub;
   return (
     <>
-      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawFrames} deps={[ctx.frame, k, flash, ctx.fx.id, pitch]} rect={rect} />
-      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawCards} deps={[ctx.frame, k, flash, ctx.fx.id, pitch, draws.length]} rect={rect} />
-      {ctx.fx.id !== 'lite' ? <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawGlow} deps={[ctx.frame, k, flash, ctx.fx.id]} rect={rect} textSafe /> : null}
+      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={drawAll} deps={[ctx.frame, k, flash, ctx.fx.id, pitch, draws.length]} rect={rect} />
       <Measure mref={mref} size={BASE}>
         {labels.map((t, i) => <MLabel key={i} text={t} size={BASE} />)}
       </Measure>

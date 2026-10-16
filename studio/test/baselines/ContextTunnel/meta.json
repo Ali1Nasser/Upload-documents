@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
-  "a1": "5ce53ff19de6ac9c3120dd7394c3a63468b16846916fbc654d57703db3bcada2",
-  "p50": "77be2c6931ed8022be9df4f97be820a23421889e7de175633b5dcbb7b5f73b5a",
-  "p100": "36abbc9fb1a9528e1d49be4e91ff9c2c2029e84ea2cdc976d3cc2cecc9688eb0"
+  "a1": "2769872aac6044e8d949a7ffac2e67ebf309eb7db5b525252b7f11be3429e46d",
+  "p50": "964068a88a7f8d16f8d9e32f7e22cf5f72e969f55f0a3048f0908d8f988516fc",
+  "p100": "5ae9b1cafbac129f1f6d521f93fbb34f9221946dad1145278e2de5cc64b63953"
  },
  "v": 2,
  "name": "ContextTunnel",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:38:57Z",
+ "written_at": "2026-10-16T18:45:14Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
