@@ -194,3 +194,35 @@ Overall 7.0 (mean 7.4, held down for unseen motion and flat composition). Approv
 5. p100, brackets (x 170-182, y 95-210, 230-300, 322-398, 418-490): the brackets touch the table rim and read as stray edge lines; offset them 10-14 px outside the panel and add a subtle ok glow.
 6. p50 and p100, band pills (x 200-690): the pills have a halo but no visible feather; at 540p they look like glowing pills, not blurred bands. Widen the halo falloff so the generalisation reads as blur.
 7. Depth (all): no motes or reflection on the glass face; add a few drifting motes under LK-F so the table is lit space, not a flat card.
+
+## SplitDeck — round 1 (critic, 2026-10-16)
+
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, full size), reports/p7/snap/SplitDeck.jpg and the source. No motion strip exists; the deal motion was judged from p50 (mid-deal), which does show cards in flight.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition | 6 |
+| Palette and token discipline (signal / violet / ink / ember piles, void ground, no stray hues) | 8 |
+| Light and depth (extruded stacks, contact shadows, tinted floor pools, perspective floor grid; no motes) | 7 |
+| Legibility at 1080p (labels about 40 px, share numerals about 44 px, % glyph about 16 px) | 7 |
+| Visual verb without narration (deck dealt into piles, pile height = share; p50 shows turn in flight) | 8 |
+| Arabic (RTL label shaped correctly, qa arabic PASS, ocr 1.0, no tofu) | 9 |
+| Not a bullet slide, no legacy frames | 9 |
+| Numbers (35/25/20/10 refs to CH-30 s:S4:P25:0052/0053; nothing invented) | 9 |
+| Motion intent (p50 only; edge-on cyan card sliver is a readable turn) | 6 |
+| AI-Unpacked parity | 7 |
+Overall 7.4 (mean 7.6, held down for composition and unseen motion). Approved-critic, no blocking issue.
+
+### What works
+- A seeded shuffled deal: p50 shows colours interleaved (Python and SQL land mixed), cards turn from grey hatched back to pile colour in flight, so it reads as dealing, not sorting.
+- Pile height carries share (SQL stack about 5x Java at p100); the undealt 10 percent stays as a thin deck at top.
+- Tokens only, whole-word labels, DOM only; hero equals standard.
+
+### Non-blocking issues, ordered by impact
+1. Composition (p100, whole frame, x 130-830, y 60-450): cards are about 85 px wide at 540p (9 percent of the frame); top-left, top-right and bottom band are empty. Raise the card width cap (190 to about 250) and pile spacing, or move the piles lower.
+2. Motion (all): add a strip (deal launch, 3 in-flight frames, last landing) to reports/p7/ so the turn and landing impact are seen, not inferred.
+3. p0 and a1 (whole frame): p0 is blank and a1 shows only the deck and dashed slots; neither protects piles or labels. Rewrite baselines at about f6 and f30 when next regenerated.
+4. p100, share unit (x 195-210, y 436-446 and the other three): the % glyph is about 8 px at 540p (16 px at 1080p), below the 18 px floor. Raise the unit to about 0.7x of the numeral.
+5. p100, ink pile (x 340-420, y 230-375): the grey AI pile reads as the "dim" pile against the coloured ones; use a token with a hue (for example ok or amber) so the 20 percent share is not visually demoted.
+6. p100, piles (x 140-820, y 330-380): stack edge lines have no count; consider a ref-bound count only if the narration speaks it.
