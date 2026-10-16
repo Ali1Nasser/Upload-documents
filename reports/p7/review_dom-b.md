@@ -210,3 +210,15 @@ Looked at: baselines p0, a1, p50, p100 (960x540, lite, scale 0.5), reports/p7/sn
 4. a1, beaker: liquid is a thin sliver at 11 frames and the 'random' chip floats over the rim; nudge the chip up ~8 px and give the empty beaker a faint inner back-wall tint.
 5. p0 baseline is an empty frame; move to a frame after the first entrance, add a motion strip (frames 11, 30, 50, 75, 107, 150, 215) under reports/p7/, and write 1080p baselines before the pilot.
 6. The mean-drop dashed line (stroke 2 px, 0.8 opacity) is not visible in any still; confirm in a strip and thicken to ~3 px if lost at 1080p.
+
+### PageScan — round 1 re-verification (2026-10-16, critic, not the author)
+
+Independent read of p0, a1, p50, p100 at full size (960x540 lite). Verdict: APPROVED, 7.3/10, no blocking issue; it agrees with the 2026-10-15 round 1 section above. meta.json critic block updated.
+Stills confirm: p100 reads as "3 versus all" without narration (green page lit by a cyan root-branch-leaf path and arc, against an all-cyan slab); p50 shows the read head at the lit frontier with the hit page green; Arabic "صفحة اتقرت" / "صفحات اتقرت" is correct and connected; counter values are NumberCounter refs; palette is tokenised; not a bullet slide.
+Non-blocking, by impact:
+1. p100, right slab: 60 identical tiles read as a flat wall, no scale for 12 500. Add edge-stack plates or an ellipsis fade.
+2. p50, read head (bottom-right of slab): wedge faint and about one tile wide. Widen it and lift its opacity.
+3. p100, tree (centre): nodes ~28 px at 1080p. Scale the glyph by about 1.3.
+4. a1 vs p50, left slab: column count changes 11 to 10 as the slot eases in, so the tiles reflow. Compute layout from the final box.
+5. p50/p100, counter (bottom centre): a faint dark plate is visible behind the number. Soften its edge or drop it.
+6. Process: demo strip (frames 0, 11, 40, 101, 150, 203) and 1080p baselines are still needed before the pilot. Motion judged from stills and code only.

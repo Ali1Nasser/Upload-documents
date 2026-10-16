@@ -33,9 +33,9 @@
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "status": "approved-critic",
  "critic": {
-  "score": 7.5,
-  "date": "2026-10-15",
+  "score": 7.3,
+  "date": "2026-10-16",
   "by": "critic",
-  "notes": "Approved, no blocking issue. Looked at p0,a1,p50,p100 (960x540 lite) + PageScan.tsx; no motion strip, motion judged from code. Non-blocking: wall of identical cyan tiles gives no sense of scale (60 tiles stand for 12 500); read-head wedge faint at p50; tree nodes small (~28 px at 1080p); no strip. See reports/p7/review_dom-b.md."
+  "notes": "Independent re-review of p0,a1,p50,p100 (960x540 lite). Approved, no blocking issue. Non-blocking: 60 identical cyan tiles give no scale for 12 500; read-head wedge faint at p50; tree nodes small (~28 px at 1080p); tiles reflow between a1 and p50 (left 11 to 10 cols); counter sits on a faint dark plate; light/depth and parity ~6; no motion strip, motion judged from stills and code. See reports/p7/review_dom-b.md."
  }
 }
