@@ -134,14 +134,16 @@ const permissionLocks: DemoDef = {
   },
 };
 
-// Heartbeat: services as heartbeats; one flatlines and restarts (04 §6 "Linux ops").
+// Heartbeat: HDFS DataNodes report to the NameNode by heartbeat (s:S4:P18:0035 "one DataNode died, its heartbeat stopped";
+// s:S4:P18:0036 "after exactly 10 minutes and 30 seconds the cluster notices": 630 s). The dead node later re-registers
+// (recover). 04 section 6 "Linux ops" (heartbeat flatlines and restarts). The only number is the spoken 10:30.
 const heartbeat: DemoDef = {
   name: 'Heartbeat',
-  frames: 170,
+  frames: 200,
   words: [
     [W('Heartbeat', 1), 6, 20],
-    [W('Heartbeat', 2), 58, 74],
-    [W('Heartbeat', 3), 112, 128],
+    [W('Heartbeat', 2), 62, 76],
+    [W('Heartbeat', 3), 140, 156],
   ],
   shot: {
     fx_tier: 'standard',
@@ -152,15 +154,16 @@ const heartbeat: DemoDef = {
         props: {
           id: 'hb',
           nodes: [
-            {id: 'pay', label: 'خدمة التحويل'},
-            {id: 'db', label: 'قاعدة البيانات'},
-            {id: 'queue', label: 'طابور الإشعارات'},
+            {id: 'dn1', label: 'الـDataNode 1'},
+            {id: 'dn2', label: 'الـDataNode 2'},
+            {id: 'dn3', label: 'الـDataNode 3'},
           ],
+          interval: {value: 630, ref: 's:S4:P18:0036', unit: 's'},
         },
         at: A('Heartbeat', 1),
       },
-      {component: 'Heartbeat.miss', props: {target: 'hb', node: 'db'}, at: A('Heartbeat', 2)},
-      {component: 'Heartbeat.recover', props: {target: 'hb', node: 'db'}, at: A('Heartbeat', 3)},
+      {component: 'Heartbeat.miss', props: {target: 'hb', node: 'dn2'}, at: A('Heartbeat', 2)},
+      {component: 'Heartbeat.recover', props: {target: 'hb', node: 'dn2'}, at: A('Heartbeat', 3)},
     ],
   },
 };

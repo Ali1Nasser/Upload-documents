@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ABSplit",
  "composition": "Demo-ABSplit",
- "at": "2026-10-11T17:18:23Z",
+ "at": "2026-10-15T22:19:00Z",
  "frames": [
   0,
   11,
@@ -40,7 +40,7 @@
    "tag": "p50",
    "frame": 83,
    "why": "50 %",
-   "determinism_diff_px": 0,
+   "determinism_diff_px": 986,
    "pass": false,
    "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
   },

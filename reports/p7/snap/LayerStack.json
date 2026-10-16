@@ -2,12 +2,12 @@
  "v": 2,
  "name": "LayerStack",
  "composition": "Demo-LayerStack",
- "at": "2026-10-11T17:18:22Z",
+ "at": "2026-10-15T22:19:00Z",
  "frames": [
   0,
   11,
-  83,
-  167
+  155,
+  311
  ],
  "thresholds": {
   "scale": 0.5,
@@ -26,37 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 774 px"
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 774 px"
+   "baseline": "written"
   },
   {
    "tag": "p50",
-   "frame": 83,
+   "frame": 155,
    "why": "50 %",
-   "determinism_diff_px": 774,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 774 px"
+   "determinism_diff_px": 0,
+   "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 167,
+   "frame": 311,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 774 px"
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "approve_refused": [
-  "determinism 774 px"
- ],
- "pass": false
+ "pass": true
 }

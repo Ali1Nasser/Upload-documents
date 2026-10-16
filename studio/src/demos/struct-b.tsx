@@ -106,7 +106,7 @@ const stack: DemoDef = {
         component: 'StackHeap',
         props: {
           id: 'mem',
-          slot: 'center',
+          slot: 'full',
           frames: [
             {label: 'main', vars: ['orders', 'backup']},
             {label: 'clean()', vars: ['rows']},

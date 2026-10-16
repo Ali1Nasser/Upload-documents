@@ -14,7 +14,8 @@ import type {ColorToken} from '../../tokens';
 import type {Props} from './schema';
 import {C, Chip, Lbl, NumText, Plate, SIZE, Shell, acts, ease, flashAt, fmtNum, landOf, lastAct, probeLabels, prog, revealProgress, presetFrames, roll, stag, tint, useFitProbe} from '../_data/kit';
 
-const KEYC: ColorToken[] = ['signal', 'violet', 'ok', 'ember', 'warn', 'paper'];
+// key swatches are decorative: warn / crit / ok keep their semantic meaning (fan-out edge, dropped rows, seam)
+const KEYC: ColorToken[] = ['signal', 'violet', 'ok', 'ink2', 'paper', 'paperShade'];
 const LEFT = [0, 1, 2, 3, 4]; // key index of each left row
 const RIGHT = [1, 2, 2, 4, 5]; // key index of each right row
 
@@ -80,9 +81,11 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const nameH = Math.round(fName.size * 1.6);
   const headH = nameH + kLines * Math.round(chipFs * 1.9) + 12;
   const rowsTop = pad + headH + 16;
-  const rowsH = H - rowsTop - pad - (props.result_rows ? Math.round(SIZE.body * 1.9) : 0);
+  const cntFs = Math.round(SIZE.body * 1.4);
+  const rowsH = H - rowsTop - pad - (props.result_rows ? Math.round(cntFs * 1.7) : 0);
   const pre = rowsH / 5;
-  const post = rowsH / Math.max(5, nRes);
+  const useH = props.result_rows ? rowsH * 0.84 : rowsH; // the rest holds the 'more rows' stack under the result
+  const post = useH / Math.max(5, nRes);
   const cw = Math.min(Math.round(tableW * 0.8), Math.round(W * 0.2));
   const xLpre = pad + tableW / 2;
   const xRpre = W - pad - tableW / 2;
@@ -99,7 +102,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ghost = (key: string, x: number, y: number, a: number) => (
     <div key={key} style={{position: 'absolute', left: x - cw / 2, top: y - cellH(1) / 2, width: cw, height: cellH(1), borderRadius: 10, border: `2px dashed ${tint(C.ink3, 0.7)}`, opacity: a}} />
   );
-  const cell = (key: string, keyIdx: number, x: number, y: number, a: number, hlOutline: string | null, fanEdge: boolean, rnd: 'l' | 'r') => {
+  const cell = (key: string, keyIdx: number, x: number, y: number, a: number, hlOutline: string | null, fanEdge: boolean, rnd: 'l' | 'r', preFan = 0) => {
     const col = C[KEYC[keyIdx % KEYC.length]];
     const h = cellH(e);
     return (
@@ -114,7 +117,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           opacity: a,
           borderRadius: rnd === 'l' ? '10px 4px 4px 10px' : '4px 10px 10px 4px',
           background: `linear-gradient(90deg, ${tint(C.panel, 0.96)}, ${tint(C.grid, 0.9)})`,
-          border: `2px solid ${hlOutline ?? (fanEdge ? tint(C.warn, 0.85) : tint(C.ink3, 0.55))}`,
+          border: `2px solid ${hlOutline ?? (fanEdge ? tint(C.warn, 0.85) : preFan > 0.02 ? tint(C.warn, 0.35 + 0.6 * preFan) : tint(C.ink3, 0.55))}`,
           boxShadow: hlOutline ? `0 0 ${ctx.fx.glowInner}px ${tint(C.crit, 0.6)}` : undefined,
           display: 'flex',
           alignItems: 'center',
@@ -131,6 +134,12 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     );
   };
 
+  // fan-out key (before the fuse): the rows of a key that matches more than once pulse warn with the spark of the second beam
+  const cntR = (k: number) => RIGHT.filter((x) => x === k).length;
+  const pulseK = 0.5 + 0.5 * Math.cos((2 * Math.PI * (t - ctx.at)) / (1.6 * ctx.fps));
+  const preFanQ = prog(ctx, ctx.at + stag(ctx, 5, 2), 'morph') * Math.max(0, 1 - e * 3) * pulseK;
+  const fanL = (l: number) => (cntR(LEFT[l]) > 1 ? preFanQ : 0);
+  const fanR = (r: number) => (cntR(RIGHT[r]) > 1 && LEFT.includes(RIGHT[r]) ? preFanQ : 0);
   // ---- cell instances ----
   const used: Record<string, number> = {};
   const lCells: React.ReactNode[] = [];
@@ -149,7 +158,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const x = lerp(xLpre, xLpost, e);
       const y = lerp(yPre(rw.l), yPost(j), e);
       const a = c === 0 ? inA(rw.l) : inA(rw.l) * Math.min(1, e / 0.45);
-      lCells.push(cell(`L${rw.l}.${c}`, LEFT[rw.l], x, y, a, showL && unL(rw.l) ? tint(C.crit, 0.55 + 0.45 * unQ) : null, e > 0.5 && rw.fan, 'l'));
+      lCells.push(cell(`L${rw.l}.${c}`, LEFT[rw.l], x, y, a, showL && unL(rw.l) ? tint(C.crit, 0.55 + 0.45 * unQ) : null, e > 0.5 && rw.fan, 'l', fanL(rw.l)));
     }
     if (rw.r !== null) {
       const c = used[`r${rw.r}`] ?? 0;
@@ -157,7 +166,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const x = lerp(xRpre, xRpost, e);
       const y = lerp(yPre(rw.r), yPost(j), e);
       const a = c === 0 ? inA(rw.r) : inA(rw.r) * Math.min(1, e / 0.45);
-      rCells.push(cell(`R${rw.r}.${c}`, RIGHT[rw.r], x, y, a, showR && unR(rw.r) ? tint(C.crit, 0.55 + 0.45 * unQ) : null, e > 0.5 && rw.fan, 'r'));
+      rCells.push(cell(`R${rw.r}.${c}`, RIGHT[rw.r], x, y, a, showR && unR(rw.r) ? tint(C.crit, 0.55 + 0.45 * unQ) : null, e > 0.5 && rw.fan, 'r', fanR(rw.r)));
     }
     if (rw.l === null) ghosts.push(ghost(`gl${j}`, xLpost, yPost(j), Math.max(0, (e - 0.6) / 0.4)));
     if (rw.r === null && !(props.kind === 'semi' || props.kind === 'anti')) ghosts.push(ghost(`gr${j}`, xRpost, yPost(j), Math.max(0, (e - 0.6) / 0.4)));
@@ -179,7 +188,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // (PK -> FK) with a travelling spark (deterministic phase), and the fused result is lit by a seam shaft and a floor pool.
   const slabIn = Math.max(0, 1 - Math.min(1, e * 1.4));
   const slabTop = pad + headH + 4;
-  const slabH = H - slabTop - pad - (props.result_rows ? Math.round(SIZE.body * 1.9) : 0) + 8;
+  const slabH = H - slabTop - pad - (props.result_rows ? Math.round(cntFs * 1.7) : 0) + 8;
   const slab = (side: 'l' | 'r') => {
     const x0 = side === 'l' ? pad - 10 : W - pad - tableW - 10;
     return (
@@ -202,17 +211,49 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const u = 1 - ph;
         const bx = u * u * u * x0 + 3 * u * u * ph * mx + 3 * u * ph * ph * mx + ph * ph * ph * x1;
         const by = u * u * u * y0 + 3 * u * u * ph * y0 + 3 * u * ph * ph * y1 + ph * ph * ph * y1;
+        const fan = cntR(lk) > 1;
+        const bc = fan ? C.warn : col;
+        const d = `M${x0} ${y0} C${mx} ${y0} ${mx} ${y1} ${x1} ${y1}`;
+        const trail = [1, 2, 3, 4].map((k) => {
+          const pk = Math.max(0, ph - k * 0.025);
+          const uk = 1 - pk;
+          return {
+            x: uk * uk * uk * x0 + 3 * uk * uk * pk * mx + 3 * uk * pk * pk * mx + pk * pk * pk * x1,
+            y: uk * uk * uk * y0 + 3 * uk * uk * pk * y0 + 3 * uk * pk * pk * y1 + pk * pk * pk * y1,
+            k,
+          };
+        });
         beams.push(
           <g key={`bm${l}.${r}`} opacity={beamsQ}>
-            <path d={`M${x0} ${y0} C${mx} ${y0} ${mx} ${y1} ${x1} ${y1}`} stroke={tint(col, 0.55)} strokeWidth={3} fill="none" strokeLinecap="round" />
-            <circle cx={bx} cy={by} r={6} fill={col} opacity={0.9} />
-            <circle cx={bx} cy={by} r={13} fill={tint(col, 0.22)} />
+            <path d={d} stroke={tint(bc, 0.16)} strokeWidth={12} fill="none" strokeLinecap="round" />
+            <path d={d} stroke={tint(bc, 0.7)} strokeWidth={4} fill="none" strokeLinecap="round" />
+            {trail.map((p) => (
+              <circle key={p.k} cx={p.x} cy={p.y} r={11 - p.k * 1.8} fill={tint(bc, 0.5 - p.k * 0.1)} />
+            ))}
+            <circle cx={bx} cy={by} r={22} fill={tint(bc, 0.18)} />
+            <circle cx={bx} cy={by} r={11} fill={bc} opacity={0.95} />
           </g>,
         );
       }),
     );
   }
   const shaftQ = Math.min(1, e * 1.6);
+  const stackQ = Math.max(0, (e - 0.55) / 0.45);
+  const stack = [0, 1, 2].map((k) => (
+    <div key={`st${k}`} style={{position: 'absolute', left: W / 2 - cw + 8 + k * 6, width: 2 * cw - 16 - k * 12, top: rowsTop + useH + 4 + k * Math.round(cellH(1) * 0.42), height: Math.round(cellH(1) * 0.36), opacity: stackQ * (0.75 - k * 0.2), borderRadius: 8, border: `2px solid ${tint(C.warn, 0.75)}`, background: tint(C.panel, 0.8)}} />
+  ));
+  // second plane (depth): a faint perspective floor grid that fills the margins and sells the slabs standing on it
+  const gy = slabTop + slabH;
+  const floor = (
+    <svg key="floor" width={W} height={H} style={{position: 'absolute', left: 0, top: 0, opacity: head * 0.5}}>
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <line key={`fh${i}`} x1={0} x2={W} y1={gy + 2 + i * i * 4} y2={gy + 2 + i * i * 4} stroke={tint(C.signal, 0.1 - i * 0.012)} strokeWidth={1.5} />
+      ))}
+      {[-6, -4, -2, 0, 2, 4, 6].map((i) => (
+        <line key={`fv${i}`} x1={W / 2 + i * W * 0.04} x2={W / 2 + i * W * 0.11} y1={gy} y2={H} stroke={tint(C.signal, 0.08)} strokeWidth={1.5} />
+      ))}
+    </svg>
+  );
   const rr = props.result_rows;
   const fl = flashAt(ctx, fu && t >= landOf(ctx, fu) ? landOf(ctx, fu) : null);
   const tableHead = (side: 'l' | 'r') => {
@@ -220,7 +261,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const xs = side === 'l' ? pad : W - pad - tableW;
     const ons = onKeys(tb.keys);
     return (
-      <div key={side} style={{position: 'absolute', left: xs, top: pad, width: tableW, opacity: head * (1 - 0.65 * Math.min(1, e * 1.6)), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
+      <div key={side} style={{position: 'absolute', left: xs, top: pad, width: tableW, opacity: head * (1 - 0.45 * Math.min(1, e * 1.6)), display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10}}>
         <Lbl id={`${ctx.id}:n${side}`} text={tb.name} size={fName.size} color={C.ink} weight={600} overflow={fName.overflow} />
         <div style={{display: 'flex', flexWrap: 'wrap', gap: 12, justifyContent: 'center', maxHeight: kLines * Math.round(chipFs * 1.9), overflow: 'hidden'}}>
           {tb.keys.map((k, i) => (
@@ -241,10 +282,13 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           {beams}
         </svg>
       ) : null}
+      {floor}
       {shaftQ > 0 ? (
         <>
-          <div style={{position: 'absolute', left: W / 2 - cw * 0.9, width: cw * 1.8, top: rowsTop - 10, height: rowsH + 20, opacity: shaftQ * (0.6 + 0.4 * fl), background: `radial-gradient(ellipse at 50% 50%, ${tint(C.ok, 0.16)} 0%, ${tint(C.ok, 0)} 70%)`}} />
-          <div style={{position: 'absolute', left: W / 2 - cw * 1.1, width: cw * 2.2, top: rowsTop + rowsH - 6, height: Math.max(14, rowsH * 0.06), opacity: shaftQ, background: `radial-gradient(ellipse at 50% 50%, ${tint(C.ok, 0.3)} 0%, ${tint(C.ok, 0)} 70%)`}} />
+          <div style={{position: 'absolute', left: W / 2 - cw * 0.9, width: cw * 1.8, top: rowsTop - 10, height: rowsH + 20, opacity: shaftQ * (0.7 + 0.3 * fl), background: `radial-gradient(ellipse at 50% 50%, ${tint(C.ok, 0.26)} 0%, ${tint(C.ok, 0)} 70%)`}} />
+          <div style={{position: 'absolute', left: W / 2 - cw * 1.4, width: cw * 2.8, top: rowsTop + rowsH - 8, height: Math.max(24, rowsH * 0.1), opacity: shaftQ, background: `radial-gradient(ellipse at 50% 40%, ${tint(C.ok, 0.5)} 0%, ${tint(C.ok, 0)} 70%)`}} />
+          {/* fan-out / extra rows behind the result: more rows than the front stack shows */}
+          {rr ? stack : null}
         </>
       ) : null}
       {tableHead('l')}
@@ -261,8 +305,13 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {ghosts}
       {seams}
       {rr ? (
-        <div style={{position: 'absolute', left: 0, width: W, bottom: pad, display: 'flex', justifyContent: 'center', opacity: e > 0 ? 1 : 0}}>
-          <NumText id={`${ctx.id}:rows`} text={fmtNum(rr, roll(t, fu ? fu.at : ctx.at, fu ? landOf(ctx, fu) : ctx.at, 0, rr.value))} unit={rr.unit} size={SIZE.body} color={C.ok} fx={ctx.fx} glowK={0.4 + fl} ca />
+        <div style={{position: 'absolute', left: 0, width: W, bottom: pad, display: 'flex', justifyContent: 'center', alignItems: 'baseline', opacity: e > 0 ? 1 : 0}}>
+          <NumText id={`${ctx.id}:rows`} text={fmtNum(rr, roll(t, fu ? fu.at : ctx.at, fu ? landOf(ctx, fu) : ctx.at, 0, rr.value))} size={cntFs} color={C.ok} fx={ctx.fx} glowK={0.4 + fl} ca />
+          {rr.unit ? (
+            <div style={{marginLeft: 14, alignSelf: 'flex-end'}}>
+              <Lbl id={`${ctx.id}:unit`} text={rr.unit} size={Math.max(SIZE.labelMin, Math.round(cntFs * 0.55))} color={C.ink2} />
+            </div>
+          ) : null}
         </div>
       ) : null}
     </Shell>

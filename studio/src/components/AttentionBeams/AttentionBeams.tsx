@@ -9,7 +9,7 @@
 //   `to` tokens (weights[to] when given, else an equal share); the latest attend wins.
 // Layout: tokens sit at equal pitch. If the widest chip fits the pitch they share one baseline; if not (>= 12 tokens) they alternate
 // between two baselines so labels stay >= 28 px without colliding; below the floor an overflow is reported.
-// Tiers: lite flat lines; standard + glow underlay and spark sprites; hero + bloom on the landing points. Beam bloom is masked out of copy.
+// Tiers: lite flat lines; standard + glow underlay, focus light pool, sparks running along settled beams and landing ripples; hero adds a stronger bloom on the landing points (bloomOf). Beam bloom is masked out of copy.
 import React from 'react';
 import {random} from 'remotion';
 import {C, SIZE} from '../../tokens';
@@ -107,6 +107,16 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const drawBeams = (g: CanvasRenderingContext2D) => {
     if (!lay || k <= 0) return;
     g.lineCap = 'round';
+    if (bloom) {
+      // light pool: the focus chip sits on a soft floor of signal light (flattened glow, LK-F depth and light); under the chips
+      const fp = lay.pos[cur.from];
+      g.save();
+      g.globalCompositeOperation = 'lighter';
+      g.translate(fp.x + fp.w / 2, fp.y + fp.h + 22);
+      g.scale(3.4, 0.4);
+      blit(g, sprite(C.signal, 'glow'), 0, 0, 90, 0.5 * k * moveK(ctx, cur.t0, 8));
+      g.restore();
+    }
     const paint = (s: Set_, vis: number, retract: number) => {
       const wm = wMax(s);
       for (const b of s.beams) {
@@ -143,10 +153,28 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const f = anchorOf(cur.from, false)!;
     blit(g, sprite(C.signal, 'glow'), f.x, f.y, 90, 0.7 * k);
     const wm = wMax(cur);
+    const period = ff(30, ctx.fps);
     for (const b of cur.beams) {
+      const a = f;
       const e = anchorOf(b.to, true)!;
-      const u = moveK(ctx, cur.t0 + b.rank * ff(2, ctx.fps), 8);
-      blit(g, sprite(C.signal, 'core'), e.x, e.y, 14 + 26 * (b.w / wm), 0.9 * u * k);
+      const c = curve(a, e);
+      const t1 = cur.t0 + b.rank * ff(2, ctx.fps);
+      const u = moveK(ctx, t1, 8);
+      const rel = Math.max(0.12, b.w / wm);
+      blit(g, sprite(C.signal, 'core'), e.x, e.y, 14 + 26 * rel, 0.9 * u * k);
+      // a spark runs focus -> target along the settled beam (seeded phase, frame-driven: deterministic); brighter beams run more sparks
+      if (u < 1) continue;
+      const nSp = rel > 0.6 ? 2 : 1;
+      for (let q = 0; q < nSp; q++) {
+        const ph = random(`abs:${ctx.id}:${b.to}:${q}`);
+        const tt = ((ctx.frame - t1 + ph * period + (q * period) / nSp) % period) / period;
+        const sp = pt(a, c, e, Math.max(0, tt));
+        const fade = Math.sin(Math.PI * tt);
+        blit(g, sprite(C.signal, 'core'), sp.x, sp.y, 12 + 12 * rel, (0.5 + 0.5 * rel) * fade * k);
+      }
+      // landing ring: a short ripple when the beam arrives (impact length)
+      const ring = moveK(ctx, t1 + ff(8, ctx.fps), 10);
+      if (ring > 0 && ring < 1) blit(g, sprite(C.signal, 'glow'), e.x, e.y, 20 + 70 * ring * rel, 0.5 * (1 - ring) * k);
     }
   };
 

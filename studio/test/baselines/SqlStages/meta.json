@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "f789fcc5dfb8f216750bf10f8311e75d19e058b5b4182c7eb712edba30451b9c",
-  "p50": "e114b0c50c77e2b554676d37a3d54a9622a094f0af769c311f7680625cefdf67",
-  "p100": "5974cedaaacaefa0d3946edca9f1d91796f7121a274ca0269acc3ae09a6a9897"
+  "p0": "ff4a6057b2e456f8540f138cd4a3519bc7b5ef4e951288c64ccf4e0957c184e4",
+  "a1": "3c3568d094c531edb6948b5f948ffff3c1dea08a990861560d5cdb7d0c04b822",
+  "p50": "340454b8b162e4f2fc6a6b3b574f1ce201dacf71ecf448bbe7bb6e1cad8cf5e0",
+  "p100": "730d2d7422b31ab37a43140dd2c3b94524e0dc8796e492fd7feadd7767a8c50f"
  },
  "v": 2,
  "name": "SqlStages",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:18:10Z",
+ "written_at": "2026-10-15T22:14:25Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

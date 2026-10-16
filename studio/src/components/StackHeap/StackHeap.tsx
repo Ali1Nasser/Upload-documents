@@ -55,9 +55,7 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const k = 1 + ctx.mod.glow;
   // ---- stack geometry (conservative: every frame that ever exists, so nothing jumps when frames come and go) ----
   const headTop = Math.round(SIZE.label * 1.6); // column captions
-  const stackW = Math.min(620, w * 0.4);
-  const stackX = rtl ? w - stackW : 0;
-  const innerX = rtl ? stackX : stackX + stackW; // the edge that faces the heap (ref ports)
+  const stackW = Math.min(560, w * 0.36);
   const avail = h - headTop - 12;
   const gap = 14;
   const dims = (s: number, fold: number) => {
@@ -66,15 +64,25 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const hs = tl.frames.map((f, i) => hdr + (i < fold ? 0 : f.vars.length * rowH) + (f.vars.length && i >= fold ? 10 : 0));
     return {rowH, hdr, hs, total: hs.reduce((a, b) => a + b, 0) + gap * Math.max(0, tl.frames.length - 1)};
   };
-  let s = SIZE.label;
+  let s: number = SIZE.body;
   let fold = 0;
   let dm = dims(s, fold);
   while (dm.total > avail && s > SIZE.labelMin) dm = dims((s -= 2), fold);
   while (dm.total > avail && fold < tl.frames.length - 1) dm = dims(s, ++fold);
+  // heap columns first (the stack + heap group is centred horizontally in the box)
+  const objW = Math.min(340, Math.max(200, w * 0.2));
+  const objH = Math.round(s * 2.2);
+  const heapGap = Math.max(80, w * 0.1);
+  const minGap = objH + 26;
+  const hcols = tl.heap.length * minGap > h - headTop - 24 ? 2 : 1;
+  const groupW = stackW + (tl.heap.length ? heapGap + objW + (hcols - 1) * (objW + 50) : 0);
+  const gx = Math.round((w - groupW) / 2); // group left edge
+  const stackX = rtl ? gx + groupW - stackW : gx;
+  const innerX = rtl ? stackX : stackX + stackW; // the edge that faces the heap (ref ports)
   // stack slots: alive frames bottom-up; a frame keeps its slot (pushes / pops only touch the top)
   const alive = (f: SFrame) => f.born <= t && t < f.died + exitN;
   const slotY = new Map<string, number>();
-  const floorY = Math.round((h + headTop + dm.total) / 2); // the whole stack (every frame that ever exists) is centred in the box
+  const floorY = Math.round((h + dm.total) / 2 - SIZE.labelMin); // the whole stack (every frame that ever exists) is centred in the box
   let yb = floorY;
   tl.frames.forEach((f, i) => {
     if (t < f.born) return;
@@ -111,16 +119,11 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       });
     });
   }
-  const objW = Math.min(300, Math.max(180, w * 0.2));
-  const objH = Math.round(s * 2.3);
-  const heapGap = Math.max(60, w * 0.1);
-  const minGap = objH + 26;
   const want = tl.heap.map((o) => {
     const ys = props.refs.filter((r) => r.to === o.id).map((r) => staticPort.get(r.from)).filter((y): y is number => y !== undefined);
     return {o, y: ys.length ? ys.reduce((a, b) => a + b, 0) / ys.length : floorY - dm.total / 2};
   });
   want.sort((a, b) => a.y - b.y);
-  const hcols = want.length * minGap > h - headTop - 24 ? 2 : 1;
   const objPos = new Map<string, {x: number; y: number}>();
   for (let c = 0; c < hcols; c++) {
     const col = want.filter((_, i) => i % hcols === c);
@@ -133,14 +136,28 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     col.forEach((q, i) => objPos.set(q.o.id, {x: cx, y: ys[i] + shift}));
   }
   const heapYs = [...objPos.values()].map((p) => p.y);
-  const heapTop = heapYs.length ? Math.min(...heapYs) - objH / 2 : floorY;
   const heapXs = [...objPos.values()].map((p) => p.x);
   const heapCx = heapXs.length ? (Math.min(...heapXs) + Math.max(...heapXs)) / 2 : stackX;
-  const capY = Math.max(0, Math.min(floorY - dm.total, heapTop) - Math.round(SIZE.labelMin * 2));
+  const heapBottom = heapYs.length ? Math.max(...heapYs) + objH / 2 : floorY;
+  const capY = Math.min(h - SIZE.labelMin * 1.6, Math.max(floorY, heapBottom) + Math.round(SIZE.labelMin * 0.9)); // captions sit under the floor line
+  // an object whose every referrer (stack variable or frame) has been popped is unreachable: amber until it is collected
+  const orphanAt = (o: HObj) => {
+    const srcs = props.refs.filter((r) => r.to === o.id).map((r) => r.from);
+    if (!srcs.length) return Infinity;
+    let last = -Infinity;
+    for (const from of srcs) {
+      const f = tl.frames.find((x) => x.vars.some((v) => v === from || ident(v) === from) || x.label === from);
+      if (!f || f.died === Infinity) return Infinity;
+      last = Math.max(last, f.died);
+    }
+    return last;
+  };
   const objState = (o: HObj) => {
     const ent = prog(t, o.born, presetFrames('impact', ctx.fps, true), ease.impact);
     const gc = t >= o.died ? clamp01((t - o.died + 1) / exitN) : 0;
-    return {ent, gc, on: t >= o.born && gc < 1};
+    const oa = orphanAt(o);
+    const orphan = oa === Infinity ? 0 : prog(t, oa, lblN);
+    return {ent, gc, orphan, on: t >= o.born && gc < 1};
   };
   // ---- references ----
   type R = {d: string; head: string; on: number; to: string};
@@ -172,7 +189,7 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const tx = tp.x + ((a.x < tp.x ? -1 : 1) * objW) / 2;
     const b = {x: tx, y: tp.y};
     const dx = (b.x - a.x) * 0.5;
-    refs.push({d: cPath(a, {x: a.x + dx, y: a.y}, {x: b.x - dx, y: b.y}, b), head: draw >= 1 ? arrowHead(b, {x: b.x - a.x >= 0 ? 1 : -1, y: 0}, 6) : '', on: on * Math.min(1, draw * 2), to: r.to});
+    refs.push({d: cPath(a, {x: a.x + dx, y: a.y}, {x: b.x - dx, y: b.y}, b), head: draw >= 1 ? arrowHead(b, {x: b.x - a.x >= 0 ? 1 : -1, y: 0}, 9) : '', on: on * Math.min(1, draw * 2), to: r.to});
     if (draw >= 1) incoming.set(r.to, (incoming.get(r.to) ?? 0) + 1);
   });
   return (
@@ -186,6 +203,9 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const m = incoming.get(o.id) ?? 0;
         return m >= 2 ? <Pool key={o.id} x={p.x} y={p.y} r={objW * 0.9} color={C.signal} a={0.24} squash={0.6} /> : null;
       })}
+      {/* stack floor: a lit base line the frames stand on */}
+      <Pool x={stackX + stackW / 2} y={floorY + 8} r={stackW * 0.7} color={C.signal} a={0.16 * k} squash={0.14} />
+      <div style={{position: 'absolute', left: stackX, top: floorY + 6, width: stackW, height: 3, borderRadius: 2, background: `linear-gradient(90deg, transparent, ${C.signal}${hex(0.7)}, transparent)`, opacity: prog(t, ctx.at, lblN)}} />
       {/* stack frames */}
       {tl.frames.map((f, i) => {
         const y0 = slotY.get(f.key);
@@ -193,10 +213,14 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const ent = prog(t, f.born, presetFrames('arrive', ctx.fps));
         const out = t >= f.died ? prog(t, f.died, exitN, ease.camera) : 0;
         const top = f === topFrame;
-        const dy = -(1 - ent) * 40 - out * 60;
+        const pushed = f.key.startsWith('p');
+        const entI = prog(t, f.born, presetFrames('impact', ctx.fps, true), ease.impact);
+        const dy = pushed ? -(1 - entI) * 120 - out * 60 : -(1 - ent) * 40 - out * 60;
+        const land = pushed ? prog(t, f.born + presetFrames('impact', ctx.fps, true) - 1, presetFrames('arrive', ctx.fps), ease.arrive) : 0;
         const vars = i < fold ? [] : f.vars;
         return (
           <div key={f.key} style={{position: 'absolute', left: stackX, top: y0, width: stackW, height: dm.hs[i], transform: `translateY(${dy.toFixed(1)}px)`, opacity: ent * (1 - out), ...cardStyle(top ? C.signal : undefined, top ? 0.92 : 0.82)}}>
+            {pushed && land > 0 && land < 1 ? <div style={{position: 'absolute', inset: 0, borderRadius: 14, border: `2px solid ${C.signal}`, opacity: (1 - land) * 0.8, transform: `scale(${(1 + land * 0.08).toFixed(3)})`}} /> : null}
             <Lbl id={`${ctx.id}:f${f.key}`} text={f.label} x={rtl ? stackW - 20 : 20} y={dm.hdr / 2} align={rtl ? 'right' : 'left'} maxW={stackW - 40} size={s} color={top ? C.signal : C.ink} />
             {vars.length ? <div style={{position: 'absolute', left: 14, right: 14, top: dm.hdr - 2, height: 1, background: `${C.ink}${hex(0.1)}`}} /> : null}
             {vars.map((v, j) => (
@@ -212,7 +236,7 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       <svg width={w} height={h} style={{position: 'absolute', inset: 0, overflow: 'visible'}}>
         {refs.map((r, i) => (
           <g key={i} opacity={r.on}>
-            <GlowPath d={r.d} color={C.signal} width={3} fx={ctx.fx} k={0.8 * k} />
+            <GlowPath d={r.d} color={C.signal} width={4} fx={ctx.fx} k={0.8 * k} />
             {r.head ? <path d={r.head} fill={C.signal} /> : null}
           </g>
         ))}
@@ -223,12 +247,12 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         if (!st.on) return null;
         const p = objPos.get(o.id)!;
         const alias = (incoming.get(o.id) ?? 0) >= 2;
-        const accent = st.gc > 0 ? C.crit : alias ? C.signal : C.violet;
+        const accent = st.gc > 0 ? C.crit : st.orphan > 0 ? C.warn : alias ? C.signal : C.violet;
         const sc = (0.6 + 0.4 * st.ent) * (1 - 0.18 * st.gc);
         return (
           <React.Fragment key={o.id}>
-            <div style={{position: 'absolute', left: p.x - objW / 2, top: p.y - objH / 2, width: objW, height: objH, transform: `scale(${sc.toFixed(3)})`, opacity: Math.min(1, st.ent * 1.4) * (1 - st.gc), ...cardStyle(accent, 0.9), borderRadius: objH / 2}}>
-              <Lbl id={`${ctx.id}:o${o.id}`} text={o.label} x={objW / 2} y={objH / 2} maxW={objW - 36} size={s} color={st.gc > 0 ? C.crit : C.ink} />
+            <div style={{position: 'absolute', left: p.x - objW / 2, top: p.y - objH / 2, width: objW, height: objH, transform: `scale(${sc.toFixed(3)})`, opacity: Math.min(1, st.ent * 1.4) * (1 - st.gc), ...cardStyle(accent, 0.9), borderRadius: objH / 2, borderStyle: st.orphan > 0 ? 'dashed' : 'solid'}}>
+              <Lbl id={`${ctx.id}:o${o.id}`} text={o.label} x={objW / 2} y={objH / 2} maxW={objW - 36} size={s} color={st.gc > 0 ? C.crit : st.orphan > 0 ? C.warn : C.ink} />
             </div>
             {st.gc > 0 ? (
               <svg width={w} height={h} style={{position: 'absolute', inset: 0, overflow: 'visible', pointerEvents: 'none'}}>

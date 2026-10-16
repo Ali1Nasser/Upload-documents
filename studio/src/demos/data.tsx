@@ -124,7 +124,7 @@ const demos: DemoModule = {
               right: {name: 'الطلبات', keys: ['customer_id', 'total', 'status']},
               on: 'c.id = o.customer_id',
               kind: 'left',
-              result_rows: {value: 15, ref: 'd:6.4:1', unit: 'rows'},
+              result_rows: {value: 15, ref: 'd:6.4:1', unit: 'صف'},
             },
             at: {word: JF(1), lead_frames: 2},
           },

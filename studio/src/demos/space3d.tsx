@@ -88,7 +88,7 @@ const demos: DemoModule = {
         layers: [
           {
             component: 'AttentionBeams',
-            props: {id: 'beams', tokens: ['الـKafka', 'بيبعت', 'الرسالة', 'ثم', 'بتتخزن', 'في', 'الـpartition'], focus: 4, weights: [0.05, 0.1, 0.52, 0.04, 0, 0.06, 0.38]},
+            props: {id: 'beams', tokens: ['الـproducer', 'بيبعت', 'الرسالة', 'ثم', 'بتتخزن', 'في', 'الـpartition'], focus: 4, weights: [0.05, 0.1, 0.52, 0.04, 0, 0.06, 0.38]},
             at: at('AttentionBeams', 1),
           },
           {component: 'AttentionBeams.attend', props: {target: 'beams', from: 6, to: [0, 4, 5]}, at: at('AttentionBeams', 3)},

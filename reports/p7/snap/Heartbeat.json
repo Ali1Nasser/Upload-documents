@@ -2,12 +2,12 @@
  "v": 2,
  "name": "Heartbeat",
  "composition": "Demo-Heartbeat",
- "at": "2026-10-14T08:19:29Z",
+ "at": "2026-10-15T22:18:50Z",
  "frames": [
   0,
   11,
-  84,
-  169
+  99,
+  199
  ],
  "thresholds": {
   "scale": 0.5,
@@ -36,14 +36,14 @@
   },
   {
    "tag": "p50",
-   "frame": 84,
+   "frame": 99,
    "why": "50 %",
    "determinism_diff_px": 0,
    "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 169,
+   "frame": 199,
    "why": "100 %",
    "baseline": "written"
   }

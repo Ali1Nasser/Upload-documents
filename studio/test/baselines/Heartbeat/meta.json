@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "3eec3f8d75c8e46b66b279acead5e15d336493f23a73b6004b70582b34562053",
-  "p50": "10959f1ad100d426c2880eba522ae063ba12f6be44e221a04d6aac69f6837df3",
-  "p100": "0377cf9f5de27325a022e86e25eada6a870264eef167327deac91910954b4c85"
+  "a1": "8ac68b5f30b28c87e82bd22f31ba7586514a384ad0fa431ce04494b57930eab1",
+  "p50": "dcf6bc6b18cca6e3efdd4de28ff21d8e40b2599ce9b6f6ef92770c863792f664",
+  "p100": "583bab989e594d462d73b70529d769a1bf2e64b67d2b004911b78a505980b254"
  },
  "v": 2,
  "name": "Heartbeat",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 84,
-  "p100": 169
+  "p50": 99,
+  "p100": 199
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:19:29Z",
+ "written_at": "2026-10-15T22:18:50Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

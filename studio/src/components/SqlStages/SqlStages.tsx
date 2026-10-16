@@ -101,7 +101,8 @@ export const linesOf = (clauses: Clause[], stage: Stage): number[] => {
 const CHIP_FS = SIZE.labelMin;
 const chipW = (s: string) => Math.ceil((s.length + 3) * CHIP_FS * MONO_ADV) + 2 * Math.round(CHIP_FS * 0.6);
 const CHIP_H = Math.round(CHIP_FS * 2);
-const CHIP_GAP = 14;
+const ROW_GAP = 14;
+const CHIP_GAP = 34; // the pipe between two chips (a line that fills with light when the rows travel through)
 
 export const sqlLayout = (p: Props, box: Rect) => {
   const clauses = splitClauses(p.query);
@@ -120,7 +121,14 @@ export const sqlLayout = (p: Props, box: Rect) => {
     rows[rows.length - 1].push(i);
     used += (used ? CHIP_GAP : 0) + w;
   });
-  const railH = rows.length * CHIP_H + (rows.length - 1) * CHIP_GAP + 2 * Math.round(CHIP_FS * 0.7);
+  if (rows.length > 1) {
+    // balance the rail (equal chip counts per row) when that still fits the panel width
+    const per = Math.ceil(widths.length / rows.length);
+    const even = rows.map((_, r) => widths.map((_, i) => i).slice(r * per, (r + 1) * per)).filter((r) => r.length);
+    const fits = even.every((r) => r.reduce((a, i) => a + widths[i], 0) + (r.length - 1) * CHIP_GAP <= inner);
+    if (fits) rows.splice(0, rows.length, ...even);
+  }
+  const railH = rows.length * CHIP_H + (rows.length - 1) * ROW_GAP + 2 * Math.round(CHIP_FS * 0.7);
   return {clauses, L, rows, widths, railH, panelW, panelH: L.panelH + railH};
 };
 
@@ -161,10 +169,23 @@ export const SqlStagesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   });
   const panel = revealStyle(t - ctx.at, ctx.fps, 'label', 'ltr', ctx.until !== undefined ? t - ctx.until : undefined);
   const pw = panelW;
+  // light: the rim leads the plate's arrive and warms with each stage; a pool of signal under the plate follows the active stage
+  const rim = revealProgress(t - ctx.at, nLab);
+  const prog = props.stages.length ? Math.min(1, (k + 1) / props.stages.length) : 0;
+  const gk = 0.5 + 0.5 * rim + ctx.mod.glow;
+  const rimLight = `linear-gradient(to bottom left, ${C.signal}${hex((0.45 + 0.35 * prog) * rim)} 0%, ${C.signal}${hex(0.14 * rim)} 36%, ${C.grid}${hex(0.9)} 100%)`;
+  const stock = `linear-gradient(180deg, ${C.panel}E6 0%, ${C.ground}D9 100%)`;
+  const actT = (s: Stage): number | null => {
+    let a: number | null = null;
+    for (let j = 0; j <= k; j++) if (evs[j].stage === s) a = evs[j].t;
+    return a;
+  };
   const half = Math.round(CHIP_FS * 0.35);
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center', ...panel.style}}>
-      <Glass style={{width: pw, overflow: 'hidden'}}>
+      <div style={{position: 'relative', width: pw}}>
+      <div aria-hidden style={{position: 'absolute', left: '-14%', right: '-14%', bottom: -Math.round(fs * 2.4), height: Math.round(fs * 5), background: `radial-gradient(ellipse at 50% 38%, ${C.signal}${hex(0.16 * rim * gk * (0.4 + 0.6 * prog))} 0%, ${C.signal}${hex(0.05 * rim)} 46%, transparent 72%)`, pointerEvents: 'none'}} />
+      <Glass style={{width: pw, overflow: 'hidden', position: 'relative', border: '1px solid transparent', background: `${stock} padding-box, ${rimLight} border-box`}}>
         <Chrome label="sql" size={fs} h={L.chromeH} />
         <div style={{margin: `${L.pad}px 0`, position: 'relative'}}>
           <div ref={ref} dir="ltr" data-overflow={fit.overflow ? 1 : undefined} style={{width: 'max-content', minWidth: '100%', fontSize: fs, lineHeight: `${rowH}px`, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined}}>
@@ -181,7 +202,7 @@ export const SqlStagesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                     paddingLeft: L.pad,
                     position: 'relative',
                     opacity: dim,
-                    background: ls.cur > 0 ? `linear-gradient(90deg, ${C.signal}${hex(0.2 * ls.cur)}, ${C.signal}${hex(0.05 * ls.cur)})` : undefined,
+                    background: ls.cur > 0 ? `linear-gradient(90deg, ${C.signal}${hex(0.24 * ls.cur)}, ${C.signal}${hex(0.05 * ls.cur)} 70%, transparent)` : undefined,
                     boxShadow: ls.cur > 0 ? `inset 4px 0 0 ${C.signal}${hex(ls.cur)}` : ls.done > 0 ? `inset 3px 0 0 ${C.ink3}${hex(0.6 * ls.done)}` : undefined,
                   }}
                 >
@@ -218,42 +239,52 @@ export const SqlStagesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             })}
           </div>
         </div>
-        <div dir="ltr" style={{borderTop: `1px solid ${C.grid}`, padding: `${half * 2}px ${L.pad}px`, display: 'flex', flexDirection: 'column', gap: CHIP_GAP, alignItems: 'flex-start', height: railH}}>
+        <div dir="ltr" style={{borderTop: `1px solid ${C.grid}`, padding: `${half * 2}px ${L.pad}px`, display: 'flex', flexDirection: 'column', gap: ROW_GAP, alignItems: 'flex-start', height: railH}}>
           {rows.map((row, ri) => (
-            <div key={ri} style={{display: 'flex', gap: CHIP_GAP}}>
-              {row.map((si) => {
+            <div key={ri} style={{display: 'flex', alignItems: 'center'}}>
+              {row.map((si, ci) => {
                 const s = props.stages[si];
                 const present = linesOf(clauses, s).length > 0;
                 const st = stageState(s);
                 const lit = st.cur;
                 const doneP = st.done;
+                const at = actT(s);
+                const fill = ci > 0 && at !== null ? revealProgress(t - at, nMorph, ease.camera) : 0; // the pipe into this chip fills as the rows arrive
                 return (
-                  <div
-                    key={si}
-                    style={{
-                      width: widths[si],
-                      height: CHIP_H,
-                      borderRadius: Math.round(CHIP_H / 2.4),
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: `${present ? 1 : 2}px ${present ? 'solid' : 'dashed'} ${lit > 0 ? C.signal : C.grid}`,
-                      background: lit > 0 ? `${C.signal}${hex(0.9 * lit)}` : doneP > 0 ? `${C.signal}${hex(0.12 * doneP)}` : `${C.panel}`,
-                      boxShadow: lit > 0 ? `0 0 ${ctx.fx.glowInner * lit}px ${C.signal}` : undefined,
-                      color: lit > 0.5 ? C.void : doneP > 0 ? C.ink : C.ink2,
-                      opacity: present ? 1 : 0.7,
-                    }}
-                  >
-                    <bdi dir="ltr" data-dc-text={`${ctx.id}:c${si}`} style={{whiteSpace: 'nowrap', fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontSize: CHIP_FS, fontFeatureSettings: '"tnum" 1, "calt" 0'}}>
-                      {`${si + 1} ${s}`}
-                    </bdi>
-                  </div>
+                  <React.Fragment key={si}>
+                    {ci > 0 ? (
+                      <div aria-hidden style={{position: 'relative', width: CHIP_GAP, height: 2, background: `${C.grid}`}}>
+                        <div style={{position: 'absolute', left: 0, top: 0, height: 2, width: `${(fill * 100).toFixed(1)}%`, background: C.signal, opacity: 0.55 + 0.45 * lit}} />
+                        {fill > 0 && fill < 1 ? <div style={{position: 'absolute', left: `${(fill * 100).toFixed(1)}%`, top: -3, width: 8, height: 8, marginLeft: -4, borderRadius: '50%', background: C.signal, boxShadow: `0 0 ${ctx.fx.glowInner}px ${C.signal}`}} /> : null}
+                      </div>
+                    ) : null}
+                    <div
+                      style={{
+                        width: widths[si],
+                        height: CHIP_H,
+                        borderRadius: Math.round(CHIP_H / 2.4),
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        border: `${present ? 1 : 2}px ${present ? 'solid' : 'dashed'} ${lit > 0 ? C.signal : C.grid}`,
+                        background: lit > 0 ? `${C.signal}${hex(0.9 * lit)}` : doneP > 0 ? `${C.signal}${hex(0.12 * doneP)}` : `${C.panel}`,
+                        boxShadow: lit > 0 ? `0 0 ${ctx.fx.glowInner * lit}px ${C.signal}, 0 0 ${ctx.fx.glowPx * 0.6 * lit}px ${C.signal}55` : undefined,
+                        color: lit > 0.5 ? C.void : doneP > 0 ? C.ink : C.ink2,
+                        opacity: present ? 1 : 0.7,
+                      }}
+                    >
+                      <bdi dir="ltr" data-dc-text={`${ctx.id}:c${si}`} style={{whiteSpace: 'nowrap', fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontSize: CHIP_FS, fontFeatureSettings: '"tnum" 1, "calt" 0'}}>
+                        {`${si + 1} ${s}`}
+                      </bdi>
+                    </div>
+                  </React.Fragment>
                 );
               })}
             </div>
           ))}
         </div>
       </Glass>
+      </div>
     </div>
   );
 };

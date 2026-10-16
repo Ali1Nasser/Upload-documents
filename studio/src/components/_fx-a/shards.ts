@@ -17,36 +17,75 @@ export type Cell = {
 const SPREAD = 0.16; // rest expansion about the impact point (share of the distance to it)
 const SPREAD_JITTER = 0.025;
 const rn = (...k: (string | number)[]) => random(k.join(':'));
+const SNAP_REACH = 0.4; // a cut line may move at most this share of its row height / cell width to find a gap between the target's words
+const SNAP_MARGIN = 3; // px of air between a snapped cut and the nearest word box
+
+/** Seeded impact point (layer px) of a shatter on `rect`: near the centre, the origin of the radial burst and of the flash. */
+export const impactOf = (rect: Rect, seed: number): {x: number; y: number} => ({
+  x: rect.x + rect.w * (0.5 + (rn(seed, 'ix') * 2 - 1) * 0.12),
+  y: rect.y + rect.h * (0.5 + (rn(seed, 'iy') * 2 - 1) * 0.12),
+});
+
+/**
+ * Move the cut `v` (within [lo, hi]) to the nearest position that no span [a, b] crosses (a cut through the middle of a word would
+ * leave half a word on two pieces). A cut that cannot find a gap keeps its seeded position.
+ */
+export const snapCut = (v: number, lo: number, hi: number, spans: [number, number][]): number => {
+  const inside = (x: number) => spans.some(([a, b]) => x > a && x < b);
+  if (!inside(v)) return v;
+  let best = v;
+  let bd = Infinity;
+  for (const [a, b] of spans)
+    for (const x of [a - SNAP_MARGIN, b + SNAP_MARGIN]) {
+      if (x < lo || x > hi || inside(x)) continue;
+      const d = Math.abs(x - v);
+      if (d < bd) {
+        bd = d;
+        best = x;
+      }
+    }
+  return best;
+};
 
 /**
  * `blocks` cells (exactly), brick layout: rows of near-equal cell counts, seeded jitter of every cut line (<= 18 % of a row height,
  * <= 22 % of a cell width), so the pieces differ but tile the rect without gaps or overlap. Rest offsets expand the cells radially about a
  * seeded impact point near the rect centre (16 % of the distance to it), with a seeded rest tilt (<= 5 deg).
  */
-export const planShards = (rect: Rect, blocks: number, seed: number): Cell[] => {
+export const planShards = (rect: Rect, blocks: number, seed: number, avoid: Rect[] = []): Cell[] => {
   const aspect = rect.w / Math.max(1, rect.h);
   const cols0 = Math.max(1, Math.min(blocks, Math.round(Math.sqrt(blocks * aspect))));
   const rows = Math.max(1, Math.ceil(blocks / cols0));
   const base = Math.floor(blocks / rows);
   const extra = blocks - base * rows;
-  const ys = [0];
-  for (let r = 1; r < rows; r++) ys.push(r / rows + (rn(seed, 'y', r) * 2 - 1) * 0.18 * (1 / rows));
-  ys.push(1);
-  const ix = rect.x + rect.w * (0.5 + (rn(seed, 'ix') * 2 - 1) * 0.12);
-  const iy = rect.y + rect.h * (0.5 + (rn(seed, 'iy') * 2 - 1) * 0.12);
+  // absolute cut lines: seeded jitter, then snapped into the gaps between the target's word boxes (`avoid`)
+  const rowH = rect.h / rows;
+  const ys = [rect.y];
+  for (let r = 1; r < rows; r++) {
+    const v = rect.y + rect.h * (r / rows) + (rn(seed, 'y', r) * 2 - 1) * 0.18 * rowH;
+    const lo = Math.max(ys[r - 1] + 0.3 * rowH, v - SNAP_REACH * rowH);
+    ys.push(snapCut(v, lo, Math.min(rect.y + rect.h - 0.3 * rowH, v + SNAP_REACH * rowH), avoid.map((a): [number, number] => [a.y, a.y + a.h])));
+  }
+  ys.push(rect.y + rect.h);
+  const {x: ix, y: iy} = impactOf(rect, seed);
   const side = (rect.w + rect.h) / 2;
   const cells: Cell[] = [];
   let k = 0;
   for (let r = 0; r < rows; r++) {
     const m = base + (r < extra ? 1 : 0);
-    const xs = [0];
-    for (let c = 1; c < m; c++) xs.push(c / m + (rn(seed, 'x', r, c) * 2 - 1) * 0.22 * (1 / m));
-    xs.push(1);
+    const y0 = ys[r];
+    const y1 = ys[r + 1];
+    const band = avoid.filter((a) => a.y < y1 && a.y + a.h > y0).map((a): [number, number] => [a.x, a.x + a.w]);
+    const cw = rect.w / m;
+    const xs = [rect.x];
+    for (let c = 1; c < m; c++) {
+      const v = rect.x + rect.w * (c / m) + (rn(seed, 'x', r, c) * 2 - 1) * 0.22 * cw;
+      xs.push(snapCut(v, Math.max(xs[c - 1] + 0.3 * cw, v - SNAP_REACH * cw), Math.min(rect.x + rect.w - 0.3 * cw, v + SNAP_REACH * cw), band));
+    }
+    xs.push(rect.x + rect.w);
     for (let c = 0; c < m; c++) {
-      const x0 = rect.x + xs[c] * rect.w;
-      const x1 = rect.x + xs[c + 1] * rect.w;
-      const y0 = rect.y + ys[r] * rect.h;
-      const y1 = rect.y + ys[r + 1] * rect.h;
+      const x0 = xs[c];
+      const x1 = xs[c + 1];
       const cx = (x0 + x1) / 2;
       const cy = (y0 + y1) / 2;
       let dx = cx - ix;
@@ -73,7 +112,7 @@ export const planShards = (rect: Rect, blocks: number, seed: number): Cell[] => 
   return cells;
 };
 
-export type ShardMotion = {dx: number; dy: number; rot: number; edge: number};
+export type ShardMotion = {dx: number; dy: number; rot: number; edge: number; p: number};
 /**
  * Motion of one cell `t` frames after the anchor. The burst runs `n` frames (the morph upper bound) on the impact curve (outBack:
  * overshoots the rest position, then settles), staggered up to 30 % of n from the nearest cell (delay 0 starts ON the anchor frame,
@@ -82,7 +121,7 @@ export type ShardMotion = {dx: number; dy: number; rot: number; edge: number};
 export const shardAt = (c: Cell, t: number, n: number): ShardMotion => {
   const d = Math.round(c.delay * 0.3 * n);
   const p = revealProgress(t - d, Math.max(1, n - d), ease.impact);
-  return {dx: c.rx * p, dy: c.ry * p, rot: c.rot * p, edge: Math.max(0, 1 - Math.max(0, t) / n)};
+  return {dx: c.rx * p, dy: c.ry * p, rot: c.rot * p, p, edge: Math.max(0, 1 - Math.max(0, t) / n)};
 };
 
 /** Shift a cell's offset so its rect (moved by dx, dy) stays inside `safe`. Rotation is small (<= 5 deg) and ignored. */

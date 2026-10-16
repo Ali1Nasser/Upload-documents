@@ -2,7 +2,7 @@
  "v": 2,
  "name": "RaceCondition",
  "composition": "Demo-RaceCondition",
- "at": "2026-10-14T08:38:42Z",
+ "at": "2026-10-15T22:17:38Z",
  "frames": [
   0,
   11,
@@ -26,37 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1010 px"
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1010 px"
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 99,
    "why": "50 %",
-   "determinism_diff_px": 1010,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1010 px"
+   "determinism_diff_px": 0,
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 199,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 1010 px"
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "approve_refused": [
-  "determinism 1010 px"
- ],
- "pass": false
+ "pass": true
 }
