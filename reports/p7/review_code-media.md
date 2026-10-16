@@ -203,3 +203,16 @@ Third read by the critic, stills only (p0, a1, p50, p100 at 960x540 lite); no mo
 - p0 (full frame): haze only, plate not yet in. The p0 baseline guards nothing; specs must anchor the first stage within 0.5 s.
 
 Non-blocking, by impact: (1) p50, SELECT row y 145-165: add a "written 1" ghost tag so the mismatch shows before the late stages. (2) p100, rail wrap between chips 4 and 5 (x 630-220, y 380-405) breaks the pipe: add an elbow connector or one row at hero tier. (3) Plate is about 550 x 335 on a near-flat field: the spec should add a 4-6 % camera push or a result-row plate. (4) Still wanted: a motion strip of frames 0-149 every 6 f.
+
+## AIPlate — round 1 re-check (2026-10-16)
+
+Independent second read of studio/test/baselines/AIPlate/{p0,a1,p50,p100}.png at full size (960x540 lite). No code change since a248b35. The 22f1cc7 verdict stands: 7.2 / 10, approved-critic, blocking issues: none. meta.json left unchanged (already status approved-critic, score 7.2).
+
+Confirmed from the stills: no text in the plate; palette is teal grid and bars plus indigo edge panels on void; perspective grid, horizon glow and sparse particles give three readable depth layers; the lateral drift is visible (left panel edge x 55 at a1, x 45 at p50, x 30 at p100; bars shift 5-8 px); the overlaid term depth and the joined Arabic ال (KineticWord, p50/p100, x 395-560, y 90-130) read cleanly; no bullet look, no legacy frame, no number.
+
+Residual non-blocking items (open for the CH spec pass and P10):
+1. a1 bars (x 430-497, y 230-510 and x 738-838, y 215-515) and p100 left panel (x 15-40, y 30-80): doubled slice-edge outlines. Feather the slice threshold 1-2 px or start the drift from zero offset at the anchor.
+2. Whole frame: low peak luminance and no rim light; the bars are dim glass on a dark field. P10 plates need a key and a rim colour.
+3. Work canvas is upscaled (hero 1280 px over about 2150 px); measure a P10 plate at final before P12.
+4. p0 is haze only: the first anchor must sit within 0.5 s of shot start.
+5. Motion strip (frames 0-119 every 12 f) still not supplied; the drift through the pivot is inferred from the pure function.
