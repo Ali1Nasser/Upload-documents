@@ -128,7 +128,10 @@ const permissionLocks: DemoDef = {
         },
         at: A('PermissionLocks', 1),
       },
+      // 777 = owner, group and other all rwx: two grants on the same word, and the fix (back to 700) closes both
+      {component: 'PermissionLocks.grant', props: {target: 'locks', role: 'الجروب', resource: 'deploy.key', level: 'admin'}, at: A('PermissionLocks', 2)},
       {component: 'PermissionLocks.grant', props: {target: 'locks', role: 'الباقي', resource: 'deploy.key', level: 'admin'}, at: A('PermissionLocks', 2)},
+      {component: 'PermissionLocks.deny', props: {target: 'locks', role: 'الجروب', resource: 'deploy.key'}, at: A('PermissionLocks', 3)},
       {component: 'PermissionLocks.deny', props: {target: 'locks', role: 'الباقي', resource: 'deploy.key'}, at: A('PermissionLocks', 3)},
     ],
   },

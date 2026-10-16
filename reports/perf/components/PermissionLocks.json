@@ -2,7 +2,7 @@
  "v": 2,
  "name": "PermissionLocks",
  "composition": "Demo-PermissionLocks",
- "at": "2026-10-15T22:12:43Z",
+ "at": "2026-10-16T11:27:33Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 170,
-   "wall_s": 14.84,
-   "box_s_per_frame": 0.0873,
-   "slot_s_per_frame": 0.2619,
+   "wall_s": 14.76,
+   "box_s_per_frame": 0.0868,
+   "slot_s_per_frame": 0.2604,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.11,
-    6.15
+    3.9,
+    4.2
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 4
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 170,
-   "wall_s": 18.04,
-   "box_s_per_frame": 0.1061,
-   "slot_s_per_frame": 0.3183,
+   "wall_s": 18.32,
+   "box_s_per_frame": 0.1078,
+   "slot_s_per_frame": 0.3234,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.15,
-    6.03
+    4.2,
+    4.46
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 4
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 170,
-   "wall_s": 18.82,
-   "box_s_per_frame": 0.1107,
-   "slot_s_per_frame": 0.3321,
+   "wall_s": 18.38,
+   "box_s_per_frame": 0.1081,
+   "slot_s_per_frame": 0.3243,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    6.03,
-    6.18
+    4.83,
+    5
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 4
    },
    "other_jobs_running": 0
   }

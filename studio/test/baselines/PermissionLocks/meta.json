@@ -2,8 +2,8 @@
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
   "a1": "9ad15896c37629c8a6d93f77a096c10f96344af0e836c174d758caf095c79f32",
-  "p50": "d6118ebf52dbbf290ba4373e6949012bccb7e8886bb8eedcd0b2a18dc7acd3ba",
-  "p100": "206c75f7eef251c9664d84778d56a8c61dcc2eef47709435efbbb938cf565501"
+  "p50": "10453c2bf9f1fa3ccd42c6f81a01e08fac716fca4d68345816ea0d9d20e742bb",
+  "p100": "b03a1921d251f3e0d8220bb8f0c50284d86be458a8c363f8b75494e87c92600a"
  },
  "v": 2,
  "name": "PermissionLocks",
@@ -27,13 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T22:09:07Z",
+ "written_at": "2026-10-16T11:24:57Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "score": 7,
- "date": "2026-10-15",
- "approved_by": "critic",
- "notes": "Round 1: no blocking issue. Padlock + rim-lit tile + color-by-level reads as permissions without narration (open shackle = granted, steel closed = denied; p50 grant and p100 deny visible). Weak: no baseline of the grant/deny impact (flash, pulse ring, shake); tiles flat in one plane (depth only from floor grid); matrix/table look; role labels far from rows (tiny tick); locked tags '---' low contrast; padlock small in tile; p0 empty."
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
