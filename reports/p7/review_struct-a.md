@@ -60,3 +60,20 @@ Non-blocking issues (fix before pilot use, in priority order):
 6. Baselines p0/a1/p50/p100 never capture fail or fix (p50 = f179 is already past ETL fix, p100 = all ok). Add frames about 112 and 322 to the snap list so regressions on the crit state are caught.
 7. White flash and shake are not judgeable from stills; supply a 12 fps strip of frames 104-120 and 308-322 at round 2 to confirm the flash is 2-3 frames and the shake decays within 10 frames.
 8. p0 is a pure empty backdrop for the first frames, and the motes at p0 (x 760-800 / y 245-250) pop in ahead of the gates; fade motes in with the first gate.
+
+## DagRun — round 2 (2026-10-16, critic, fresh read; baselines p0/a1/p50/p100 at 960x540 lite scale 0.5, snap/DagRun.jpg, plus critic-rendered lite frames 84-96 and 124, deleted after review)
+
+Verdict: APPROVED (score 7.5, no blocking issue). meta.json set to approved-critic (previously 7.3 in round 1; baselines were re-pending after the round-2 look changes).
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8.5 (task cards, state glyphs, @daily trigger), mechanism visible 8.5 (green wire from done task, cyan spinner while running f84-96, crit card with X and red dashed outgoing wires p50, dimmed skipped card with dashed wire into the report p100), look parity 7, typography 8.5 (Arabic shaped, "تجهيز الـ Warehouse" mixed-script order correct, labels about 36 px at 1080), camera and depth 6.5 (back-plane grid fading from the centre, glass pool, motes now give depth; still no parallax), legibility 8 (cards about 86 px tall, 3 px wires, larger arrowheads survive 1080p), accuracy 9 (no numerals, schedule chip is a token), tokens 9 (cyan/violet/ok/crit via C.* only), polish 7.5, no bullet-list look 8 (a branching DAG, not a list), no legacy frames 10.
+
+Round-1 items: 1 (scale and depth) fixed in substance; 2 (hard failure) fixed in the settled still, flash itself unverified; 3 (snap frames) NOT done, snap list is still 0/11/124/249 with p50 = the settled failure; 4 (wire weight) fixed; 5 (stub at a1) fixed, no stray stub; 6 (@daily drop line) fixed.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. Frames 100-124 (flash and shake, x 508-663 / y 280-325 at 960): not judged. Frames 84-96 are still running; the 2-frame white-hot flash and the shake were not captured by the stills, and the RAM guard refused a second render batch. Supply a 12 fps strip of the failed beat (about f104-f124) at the next pass and add one failure-beat frame (about f110) to the snap list so the crit flash is regression-guarded.
+2. p50 snap determinism: `dc render snap DagRun` reports determinism 1100 px (threshold 0) at p50 in three runs (committed json and two critic runs) under load 10, although the baseline compare is 0-1 px. The author's "det 0" did not reproduce. 15 other components show the same pattern, so it is a shared toolchain/load issue (blur or glow filter raster), not DagRun-specific; the harness owner must resolve before any --approve rewrite, because --approve refuses non-deterministic runs.
+3. p100 (x 248-465 / y 333-378): the skipped card is nearly the same grey as the backdrop and its label is low contrast at 960. Raise label ink one step.
+4. All stills: the diagram is about 85 % of width but about 40-45 % of height with empty bands above and below; the grid and motes help but it is still a compact flowchart. Allow fit scale-up when n <= 5.
+5. a1 (x 258-440 / y 232-375): three cards are scattered with no wires yet, which reads as unordered boxes for the first beat; stagger so the root and its wire appear together.
