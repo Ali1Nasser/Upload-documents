@@ -267,3 +267,18 @@ Non-blocking (fix before pilot use):
 4. p100 (x 650-700 / y 405-420): "gold" tick sits on the front-right edge and touches the Amara slab corner; add a 10 px gap or a leader.
 5. All frames: no camera drift or parallax, no glow or bloom on the lit slab; add a slight orbit and a soft cyan floor spill for pilot use.
 6. Motion unjudged: slice, dice, rollup and drill transitions are in no baseline; supply a 12 fps strip over one slice and one drill (two snaps each: mid-move and settled).
+
+## TreeView — round 1 (2026-10-16, critic, independent full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; snap det 0 and perf taken from author note, not re-run; no strip exists)
+
+Verdict: APPROVED (score 7.0, no blocking issue). meta.json set to approved-critic.
+
+Scores: subject clarity 8 (p50 decision tree and p100 B-tree read without narration), mechanism visible 7.5 (p50: lit cyan route with pulse beads, red X / green check outcome chips; p100: three-hop descent to a green hit leaf, dashed leaf sibling chain), look parity 6.5, typography 8 (Arabic shaped and RTL; "فيه Deny صريح؟" and "لأ: فيه Allow؟" keep Latin terms in order; labels about 26 px at 960 = 52 px at 1080), camera and depth 6 (flat plane, no parallax or motes), legibility 7.5, accuracy 9 (1001-1014 are demo leaf ranges, no claimed figures), tokens 9, polish 7, no bullet-list look 8, no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. a1 (x 398-526 / y 45-340): plan funnel is a narrow centred column; wire stubs between SORT/GROUP BY/JOIN are 1-2 px long, and JOIN has no wire to GROUP BY, so the pipeline direction is only implied. Lengthen vertical gaps or widen the node row, and wire JOIN.
+2. p0 (whole frame): empty backdrop guards nothing; move the first snap to about f6 to catch the build-in.
+3. p50 (x 100-860 / y 60-480) and p100 (x 50-910 / y 95-445): diagrams float on a void with no floor sheen, back plane or drift; add a soft cyan route spill and a slight camera drift for pilot use.
+4. p100 (y 448-455): dashed violet leaf chain is faint at 960 px; raise alpha about 1.5x and add arrowheads showing scan direction.
+5. Motion unjudged: fs expand and search descent are in no baseline; supply 12 fps strips for frames 300-345 and 440-470 before pilot use.
