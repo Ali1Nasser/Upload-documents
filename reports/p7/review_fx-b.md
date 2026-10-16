@@ -175,3 +175,22 @@ Non-blocking, fix at the next re-baseline:
 3. p50, p100 (y 150-385): large dead gap between the amount and FAILED. Close it (slot 'center' for the amount or move FAILED up) so the idea reads as one object at thumbnail size.
 4. Triptych: add a |hero - standard| panel (or a hero-only bokeh and CA close-up), since hero and standard look identical at this size. The yellow, cyan, near-black difference panels are evidence only and need a caption saying so.
 5. p0 is an empty gradient, a wasted baseline slot (same note as CameraRig).
+
+## AudioReactive — round 1
+
+Date: 2026-10-16. Reviewer: critic (not the author). Read at full size: baselines p0, a1, p50, p100 (960x540, lite), reports/p7/snap/AudioReactive.jpg and reports/p7/evidence/fx-b/AudioReactive_quiet_loud.jpg (real locked P5 features from CH-29: quiet f60 rms -120 dBFS onset 0.00, loud f60 rms -15.1 dBFS onset 0.69, |loud-quiet| x3, both feature curves).
+Verdict: APPROVED, score 7.0/10 (earlier round: 4). meta.json set to approved-critic. No blocking issue.
+
+Earlier blocker B1 (no modulation shown): FIXED IN EVIDENCE, NOT IN BASELINES. The strip is now the proof: in the loud frame the 400 EGP counter carries a clear cyan halo and the haze lifts; the quiet frame is plain. The difference panel shows the halo on 400 and a thin outline on NilePay. The real curves (cyan rms, coral onset) match the frames and the pause window is flat at the floor, so the link from sound to picture is honest. Condition: the strip alone proves the verb, because the lite baselines p0/a1/p50/p100 still use features null (CR-005 open) and show no modulation.
+
+Rubric (1-10): legibility 7, token/palette 8 (cyan, coral curve, ink2), depth and light 6 on lite stills (7 on the strip: halo and bokeh), visual verb without narration 6 on stills and 7 on the strip (a viewer sees a number lighting up on a loud word, not the sound itself), Arabic 8 (الإجمالي الناجح joined, correct), no bullet look 9, legacy frames 10, sourced numbers 9 (400 EGP, d:5.2:8; 364 is the counter in flight), motion intent 7 (strip only). Mean about 7.7, capped at 7.0 for the stills.
+
+Blocking: none.
+
+Non-blocking, fix at the next re-baseline (CR-005 landing):
+1. Baselines p50, p100: re-baseline with the real or labelled features so the stills show the modulation (x 380-580, y 220-290 halo).
+2. p50, p100 (x 360-600, y 235-335): hard-edged darker scrim rectangle behind the counter. Feather it. In the strip it shows as a dark box (x 235-430, y 215-295).
+3. p50, p100 (x 430-525, y 303-320): Arabic label about 16 px at 960 wide, low contrast. Raise to the secondary token.
+4. Strip, NilePay (x 285-355, y 128-150): the onset scale pulse is barely visible in the two frames (the diff shows an outline only). Raise the scale gain or show a third frame at the onset peak.
+5. p0 is an empty gradient with a half-typed NilePay (same sha as other fx-b baselines). Use the slot for the loud frame.
+6. Strip diff panel is evidence-only and off-palette (black background, cyan): add a caption saying so.

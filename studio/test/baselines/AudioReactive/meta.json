@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-16T05:57:25Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "round": 1,
+  "notes": "Verb proven by evidence strip reports/p7/evidence/fx-b/AudioReactive_quiet_loud.jpg (real CH-29 P5 features: quiet -120 dBFS/onset 0 vs loud -15.1 dBFS/onset 0.69; glow+haze on 400 EGP, |loud-quiet|x3 shows halo). Lite baselines remain unmodulated (CR-005 open): condition, strip is the proof. Non-blocking: hard-edged scrim, small Arabic label, p0 empty slot, NilePay scale pulse barely visible, dead gap."
+ }
 }
