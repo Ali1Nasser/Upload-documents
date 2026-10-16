@@ -192,3 +192,11 @@ Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 705ee15. V
 
 ## Next review
 No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
+
+## Re-confirmation (2026-10-16, independent re-read)
+
+Reviewer: critic. Baselines p0, a1, p50, p100 re-read at full size and reports/p7/snap/PermissionLocks.jpg; component unchanged since 705ee15. Verdict unchanged: APPROVED, 7/10, no blocking issue. meta.json already holds status approved-critic (score 7, 2026-10-15); not rewritten.
+- Confirmed in stills: open shackle on a hued body (green write, cyan read, violet admin) versus closed steel padlock reads as grant versus deny with no narration; whole-word Arabic role labels (المالك / الجروب / الباقي) right-aligned, LTR mono file names, no clipping; no legacy frames; no bullet-list look, though the 3x3 equal-tile matrix is still close to a table.
+- Octal cross-check at p100: index.html = rw- r-- r-- = 644, backup.sql = rw- --- --- = 600, deploy.key = rwx --- --- = 700. All three are the sourced modes (s:S4:P03:0026-0027); no invented numbers.
+- New non-blocking observation, p50 (deploy.key column, bottom-right tile x 515-695, y 345-462): the demo's grant opens only the "الباقي" cell, so the column reads rwx --- rwx (707), which is not 777 and not a real mode, while the demo comment promises the 777 disaster. Either grant group too (two grant actions) or have the caller show the octal on screen. The component renders only rwx tags, never 700/600/644/777, so the spoken numbers need a NumberCounter or label from the shot spec to meet "every spoken number on screen".
+- Still open from round 1: no grant+3f / deny+3f baseline (flash, ring, shake untested); flat single plane; role ticks (x 705-720) weak and about 80 px from the tiles; "---" tags low contrast; a1 shows only 2 of 3 rows (stagger), p0 empty.
