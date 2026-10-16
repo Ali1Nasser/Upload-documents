@@ -179,3 +179,19 @@ Read p0, a1, p50, p100 at full size plus snap/PartitionLanes.jpg. Score 7.0 / 10
 5. a1, region x 285-700 / y 105-440: slabs at three different widths read as a bar chart for one frame; stagger or fix the width.
 6. Floor grid ~3-4% luminance, T3 tag sits on it; add horizon glow.
 7. Motion strip (produce drop, lag bracket bloom, re-wire) still owed in round 2; p0 baseline is an empty frame and carries no regression signal.
+
+### BlockReplication — round 1, third read (2026-10-16)
+
+Read a1, p50, p100 at full size (960x540, lite) plus reports/p7/snap/BlockReplication.jpg. SHA-256 of the four PNGs matches meta.json (baselines current; source unchanged since 07bd9d2; snap PASS det 0 px, Arabic QA PASS recorded, not re-run here). Score 7.0, APPROVED, no blocking issue; meta.json stays approved-critic.
+
+Rubric: legibility at 1080p 7 (chip ids about 10 px at 960, readable at 1080p, tight on teal glass); palette/token discipline 8 (cyan carrier, red dead node, green re-created copies); depth and light 6.5 (tile key-pool glow is good, racks read as flat window cards); visual verb 8 (bar, tiles, 3x landing, rack C red and hollow, green copies elsewhere); Arabic 9 (RTL, A at right, Latin letter isolated); no bullet look 7 (uniform card row, near dashboard); legacy frames none; unsourced numbers none; motion intent 6.5 (no strip, inferred).
+
+Blocking: none.
+
+Non-blocking, ordered by impact
+1. p50 and p100, region x 175-780 / y 250-362: racks are square window cards (titlebar, dots, 3x3 grid); make them taller cabinets with lit top face and drive-bay rows.
+2. all states, region x 0-960 / y 0-140 and 400-540: about 55% of the frame is empty; scale the arrangement about 1.25x.
+3. all states, region x 0-960 / y 362-420: floor grid about 3% luminance and racks do not touch it; raise to 8-10% with a horizon glow and contact shadow.
+4. p100, region x 670-780 / y 275-350: green copies differ only by a thin outline; add a soft green glow.
+5. a1 is a lopsided transitional frame and p0 is empty; baseline a frame after all five racks land for stronger regression signal.
+6. Round 2 owes a motion strip (split morph, flight arcs with light trail, failNode sparks and shake, rereplicate flights) to judge easing and impacts.
