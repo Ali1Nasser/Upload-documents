@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "3f5b8814eed4dabb2f352cf66561f2ed2db9977c733e75b139476fa044e84120",
+  "p50": "d5da53aade0f91ecb7111d328607beeeb0b35faea7fb77c7f76019b32525d092",
+  "p100": "e8abc30b0b8797df9a1b2c2bbeae604ab1071dcafe919acfd6470800b48f4839"
+ },
+ "v": 2,
+ "name": "OlapCube",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 131,
+  "p100": 263
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-16T18:17:24Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}
