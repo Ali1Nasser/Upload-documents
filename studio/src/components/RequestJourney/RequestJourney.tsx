@@ -22,12 +22,31 @@ import {hex} from '../../fx/look';
 import {ease, presetFrames} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {GlowPath, Lbl, Pool, actionsOf, f24, layerStyle, lerp, numText, placeLabel, prog, rtlOf, shake} from '../_struct-b/kit';
+import {Lbl, actionsOf, f24, layerStyle, lerp, numText, placeLabel, prog, rtlOf, shake} from '../_struct-b/kit';
 import {HopDisc} from '../_struct-b/glyphs';
 
 type Ctx = DcProps<Props>['ctx'];
 /** group opacity only while it is really < 1 (an opacity group at 1 still costs a layer and made tile seams non-deterministic) */
 const o1 = (x: number) => (x >= 0.999 ? undefined : Math.max(0, x));
+/** Emissive line with alpha folded into each stroke (never a `<g opacity>`: an offscreen group spans raster tiles and its seams differ run to run, struct-a L1). */
+const GlowLine: React.FC<{d: string; color: string; width: number; fx: Ctx['fx']; k?: number; opacity?: number}> = ({d, color, width, fx, k = 1, opacity = 1}) => (
+  <>
+    {k > 0 ? <path d={d} fill="none" stroke={color} strokeOpacity={0.14 * Math.min(1.6, k) * opacity} strokeWidth={width + fx.glowInner * 1.6 * k} strokeLinecap="round" /> : null}
+    {k > 0 ? <path d={d} fill="none" stroke={color} strokeOpacity={0.26 * Math.min(1.6, k) * opacity} strokeWidth={width + fx.glowInner * 0.6 * k} strokeLinecap="round" /> : null}
+    <path d={d} fill="none" stroke={color} strokeOpacity={opacity} strokeWidth={width} strokeLinecap="round" />
+  </>
+);
+/** Soft light pool drawn inside the SVG (a gradient div made tile seams non-deterministic in lite); fades to nothing at 72 % of the radius. */
+const SvgPool: React.FC<{id: string; x: number; y: number; r: number; color: string; a: number; squash: number}> = ({id, x, y, r, color, a, squash}) =>
+  a <= 0.003 ? null : (
+    <>
+      <radialGradient id={id} cx="50%" cy="50%" r="50%">
+        <stop offset="0" stopColor={color} stopOpacity={Math.min(1, a)} />
+        <stop offset="0.72" stopColor={color} stopOpacity={0} />
+      </radialGradient>
+      <ellipse cx={x} cy={y} rx={r} ry={r * squash} fill={`url(#${id})`} />
+    </>
+  );
 type Move = {t0: number; dur: number; from: number; to: number; retry: boolean};
 type Mark = {t: number; hop: number; kind: 'lit' | 'fail' | 'retry'};
 
@@ -141,11 +160,6 @@ export const RequestJourneyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const capS = (0.78 + 0.22 * lift) * (0.7 + 0.3 * formQ);
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: w, height: h, ...layerStyle(ctx, rtl)}}>
-      {/* light: signal pool under the capsule on the floor (key light), crit pool at a failure, a faint violet-free ground haze */}
-      {draw > 0 && !broken ? <Pool x={cx} y={floorY} r={Math.max(190, step * 0.7)} color={C.signal} a={0.24 * k} squash={0.2} /> : null}
-      {draw > 0 && !broken ? <Pool x={cx} y={railY} r={Math.max(150, step * 0.6)} color={C.signal} a={0.12 * k} squash={0.55} /> : null}
-      {broken ? <Pool x={xOf(broken.hop)} y={floorY} r={Math.max(200, step * 0.75)} color={C.crit} a={0.28 * (1 - 0.45 * fp)} squash={0.2} /> : null}
-      {broken ? <Pool x={xOf(broken.hop)} y={railY} r={Math.max(150, step * 0.6)} color={C.crit} a={0.14 * (1 - 0.45 * fp)} squash={0.55} /> : null}
       <svg width={w} height={svgH} viewBox={`0 ${svgY} ${w} ${svgH}`} style={{position: 'absolute', left: 0, top: svgY, overflow: 'visible'}}>
         <defs>
           <linearGradient id={`${ctx.id}-fl`} gradientUnits="userSpaceOnUse" x1="0" y1={floorY} x2="0" y2={floorY + 230}>
@@ -165,6 +179,11 @@ export const RequestJourneyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <stop offset="1" stopColor={broken ? C.ink3 : C.signal} />
           </linearGradient>
         </defs>
+        {/* light: signal pool under the capsule on the floor (key light), crit pool at a failure */}
+        {draw > 0 && !broken ? <SvgPool id={`${ctx.id}-p1`} x={cx} y={floorY} r={Math.max(190, step * 0.7)} color={C.signal} a={0.24 * k} squash={0.2} /> : null}
+        {draw > 0 && !broken ? <SvgPool id={`${ctx.id}-p2`} x={cx} y={railY} r={Math.max(150, step * 0.6)} color={C.signal} a={0.12 * k} squash={0.55} /> : null}
+        {broken ? <SvgPool id={`${ctx.id}-p3`} x={xOf(broken.hop)} y={floorY} r={Math.max(200, step * 0.75)} color={C.crit} a={0.28 * (1 - 0.45 * fp)} squash={0.2} /> : null}
+        {broken ? <SvgPool id={`${ctx.id}-p4`} x={xOf(broken.hop)} y={railY} r={Math.max(150, step * 0.6)} color={C.crit} a={0.14 * (1 - 0.45 * fp)} squash={0.55} /> : null}
         {/* perspective floor: converging depth lines and receding rows, fading away from the lit hops */}
         <g>
           {Array.from({length: 5}, (_, i) => {
@@ -180,9 +199,9 @@ export const RequestJourneyView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         {/* the rail: a light tube through the hops, with a floor reflection */}
         <line x1={x0} y1={floorY} x2={railEnd} y2={floorY} stroke={C.signal} strokeWidth={2} opacity={0.18 * Math.min(1, draw * 20)} />
         <line x1={x0} y1={railY} x2={x1} y2={railY} stroke={C.grid} strokeWidth={5} opacity={draw > 0 ? 0.9 : 0} strokeLinecap="round" />
-        <GlowPath d={`M ${x0.toFixed(1)} ${railY} L ${railEnd.toFixed(1)} ${railY}`} color={C.ink3} width={3} fx={ctx.fx} k={0.3} opacity={draw > 0 ? 0.85 : 0} />
-        {draw > 0 && Math.abs(cx - x0) > 0.5 ? <GlowPath d={`M ${x0.toFixed(1)} ${railY} L ${cx.toFixed(1)} ${railY}`} color={C.signal} width={5.5} fx={ctx.fx} k={k * 1.1 * (broken ? 0.6 : 1)} opacity={broken ? 0.7 : 1} /> : null}
-        {broken && Math.abs(cx - x0) > 0.5 ? <GlowPath d={`M ${(cx - dir * step * 0.45).toFixed(1)} ${railY} L ${cx.toFixed(1)} ${railY}`} color={C.crit} width={5.5} fx={ctx.fx} k={k * 1.1} opacity={fp} /> : null}
+        {draw > 0 ? <GlowLine d={`M ${x0.toFixed(1)} ${railY} L ${railEnd.toFixed(1)} ${railY}`} color={C.ink3} width={3} fx={ctx.fx} k={0.3} opacity={0.85} /> : null}
+        {draw > 0 && Math.abs(cx - x0) > 0.5 ? <GlowLine d={`M ${x0.toFixed(1)} ${railY} L ${cx.toFixed(1)} ${railY}`} color={C.signal} width={5.5} fx={ctx.fx} k={k * 1.1 * (broken ? 0.6 : 1)} opacity={broken ? 0.7 : 1} /> : null}
+        {broken && Math.abs(cx - x0) > 0.5 ? <GlowLine d={`M ${(cx - dir * step * 0.45).toFixed(1)} ${railY} L ${cx.toFixed(1)} ${railY}`} color={C.crit} width={5.5} fx={ctx.fx} k={k * 1.1} opacity={fp} /> : null}
         {/* pedestals + hops */}
         {hops.map((hop, i) => {
           const born = bornAt(i);

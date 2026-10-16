@@ -71,7 +71,7 @@ const Glyph: React.FC<{kind: HopKind; s: number; color: string}> = ({kind, s, co
 
 /** A glass disc with a glyph inside; `k` scales the emissive halo (0 = none), `scale` is the pop-in / emphasis scale. */
 export const HopDisc: React.FC<{kind: HopKind; x: number; y: number; r: number; color: string; fx: Fx; k?: number; scale?: number; opacity?: number; ring?: number}> = ({kind, x, y, r, color, fx, k = 1, scale = 1, opacity = 1, ring = 3}) => (
-  <g transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${scale.toFixed(3)})`} opacity={opacity}>
+  <g transform={`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${scale.toFixed(3)})`} opacity={opacity >= 0.999 ? undefined : opacity}>
     {k > 0 ? <circle r={r + fx.glowInner * 1.5 * k} fill={color} fillOpacity={0.09 * Math.min(1.6, k)} /> : null}
     {k > 0 ? <circle r={r + fx.glowInner * 0.55 * k} fill={color} fillOpacity={0.17 * Math.min(1.6, k)} /> : null}
     <circle r={r} fill={C.panel} stroke={color} strokeWidth={ring} />
