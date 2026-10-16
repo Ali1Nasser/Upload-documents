@@ -14,7 +14,7 @@ The fx-b files never edit the shared engine. Where the engine drops a frozen pro
 | FXTier | implemented | `ResolvedShot.tier` (priority: preview = lite > forced perf tier > FXTier > shot.fx_tier > standard); the frozen `FX[tier]` object; text-safe masks at every tier | PASS, det 0 px, qa 0 | 0.0629 / **0.0802** / 0.0832 (re-measured 2026-10-16, other_jobs_running 0) |
 | AudioReactive | implemented | `resolve.ts` builds one curve per feature × smoothing from the locked P5 features (24 fps; coefficient re-derived per fps); `modAt` feeds `ctx.mod[param]`; haze drives the backdrop | PASS, det 0 px, qa 0 | 0.0589 / **0.0755** / 0.0773 (re-measured 2026-10-16, other_jobs_running 0) |
 | WhipPan | mapped → compiler transition `whip` | `TRANSITION_ALIAS` WhipPan → whip (12 f @ 24); `rig.ts transitionState` | n/a (see below) | n/a |
-| LightStreakTransition | mapped → compiler transition `streak` | streak → `streakAt` overlay in SpecPlayer | n/a | n/a |
+| LightStreakTransition | **mapped** → compiler transition `streak` (same verb as WhipPan's streak, 04 §2); props-aware drop-in ready in `_fx-b/transitions.ts`, blocked on CR-003 | streak → `streakAt` overlay in SpecPlayer | n/a (cannot be mounted) | n/a |
 | MatchCut | mapped → compiler transition `match` | match → backdrop fade-in with a 1.04 → 1 scale; copy is never faded in (M5) | n/a | n/a |
 
 Evidence:
@@ -71,3 +71,12 @@ All demo copy comes from NilePay receipts T1–T6 (`d:5.2:1`–`d:5.2:6`):
 There are no invented numbers. The Arabic labels are الإيصالات / نسبة النجاح / الإجمالي الناجح / إيصال T3 / إيصالات NilePay.
 
 Arabic QA for DepthLayers (label الإجمالي الناجح, the only Arabic string): `reports/qa/arabic/p7-DepthLayers.json`, PASS (OCR 1.0).
+
+## LightStreakTransition decision (2026-10-16, motion-engineer fx-b)
+
+Status: **mapped** (not implemented, not approved). Reasons, with numbers:
+- It cannot be mounted. `resolve.ts:230-233` finds the layer, reads `{type, frames}` only, and returns before any layer is pushed (`resolve.ts:276`). A `LightStreakTransition.tsx`, a `Demo-LightStreakTransition` or a snapshot would never draw anything. `DemoDef` is one shot and its transition is 0 frames, so there is no honest still to baseline. Registering a component that the compiler never mounts would only make `isImplemented` lie.
+- It is the same visual verb as WhipPan: 04 section 2 has one phrase, "whip-pan with a light streak = scene transition". The compiler already has one `streak` kind (`rig.ts streakAt`, `SpecPlayer.tsx:151`). The only difference is that the streak transition travels a quarter frame with a bright band and the whip travels half a frame. Both are drawn by the same engine path.
+- The frozen props `direction` (4 values) and `color` (a colour token) are validated and then dropped: the band is always RTL and always `C.signal`. Critic B5 (reports/p7/review_fx-b.md) lists the same gaps: whole-frame CSS blur 12 px at every tier (04 section 1.3 allows no motion blur at lite and standard), and the band ends at its peak on the cut because it is drawn in the outgoing shot only.
+- The fix is engine work outside the fx-b paths and needs the Council ADR for CR-003 (still `open`). The drop-in `fxbTransitionOf / fxbTransitionState / fxbStreakP / streakBand` in `studio/src/components/_fx-b/transitions.ts` is complete: 4 directions, `color` token, no blur below hero, a band continuous across the cut, text-safe. Its unit checks pass (69 ok; the 2 failures in `shot_level.check.ts` are stale DepthLayers expectations for blur 0.6 / 1 that CR-017 turned into 0, not transitions).
+- When CR-003 lands: wire the drop-in, add a two-shot demo path (a `_demo` spec with a second shot, or `DemoDef.next`), take the critic's out / mid / in strip at standard (one RTL, one LTR with `color: coral`), re-run snap, perf and Arabic QA, then move this row to implemented. The streak carries no copy, so Arabic QA is n/a for the transition itself.
