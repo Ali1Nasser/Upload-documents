@@ -111,10 +111,10 @@ const qualityGauges: DemoDef = {
 // IdempotentStamp: the same payment retried (receipt T5, d:5.2:5) carries one idempotency key; the stamp lands once.
 const idempotentStamp: DemoDef = {
   name: 'IdempotentStamp',
-  frames: 170,
+  frames: 150,
   words: [
     [W('IdempotentStamp', 1), 6, 24],
-    [W('IdempotentStamp', 2), 70, 90],
+    [W('IdempotentStamp', 2), 64, 84],
   ],
   shot: {
     fx_tier: 'standard',

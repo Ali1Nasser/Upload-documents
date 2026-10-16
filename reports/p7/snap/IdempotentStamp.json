@@ -2,12 +2,12 @@
  "v": 2,
  "name": "IdempotentStamp",
  "composition": "Demo-IdempotentStamp",
- "at": "2026-10-11T17:17:34Z",
+ "at": "2026-10-16T11:15:57Z",
  "frames": [
   0,
   11,
-  84,
-  169
+  74,
+  149
  ],
  "thresholds": {
   "scale": 0.5,
@@ -36,14 +36,14 @@
   },
   {
    "tag": "p50",
-   "frame": 84,
+   "frame": 74,
    "why": "50 %",
    "determinism_diff_px": 0,
    "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 169,
+   "frame": 149,
    "why": "100 %",
    "baseline": "written"
   }

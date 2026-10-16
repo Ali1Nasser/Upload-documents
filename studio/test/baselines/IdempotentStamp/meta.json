@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "82b8e80971f65098abbe8ef61d32b96164ebaf2b92b6c23319df200325422bac",
-  "p50": "d45aa1d5ff29e5075ec0de3c4299022d903a13ebd38e41a18da6d79505456b11",
-  "p100": "1b9e6d8a54e9e1dd8ec09bf7ed703bf4b7b4884e5ee568dca8aec0a52f4dc2de"
+  "a1": "470f0670ed55a3c638a3eaa953ecc817fe4c8edc88f6d8f3ba407303c5a5b0cd",
+  "p50": "a78eb8d737e52e3a4fa27015907c4b48c5ffa881a81f5ee4fc4c7875397fe840",
+  "p100": "d124e312ddd234daf274be362d5d9aadae5d157b469aeac6c326935982b39186"
  },
  "v": 2,
  "name": "IdempotentStamp",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 84,
-  "p100": 169
+  "p50": 74,
+  "p100": 149
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:17:34Z",
+ "written_at": "2026-10-16T11:15:57Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
