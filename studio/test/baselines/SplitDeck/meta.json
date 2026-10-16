@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T23:09:18Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.7,
+  "date": "2026-10-16",
+  "round": 2,
+  "note": "Cards larger (about 100 px at 540p), share unit 0.7x numeral readable, AI pile now ok green: round 1 items 1, 4, 5 resolved. Non-blocking: no motion strip; p0 still blank and a1 shows only deck and slots; upper corners and bottom band still empty; no motes."
+ }
 }

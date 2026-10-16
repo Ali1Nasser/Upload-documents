@@ -256,3 +256,32 @@ Overall 7.6 (mean 7.8, held down for unseen motion). Approved-critic, no blockin
 1. Motion (all): add a strip (reticle hops, mid-generalise about f60, bracket land) to reports/p7/. Items 1 and 2 of the earlier round remain open; no baseline shows the warn reticle or the mid-feather state.
 2. p100, id chips (x 755-822, y 105-480): the chip is dim grey against green; lift its stroke to ink-high so it holds against the green rim.
 3. p50 vs p100 (x 185-880, y 90-500): the rim glow is the only light on the plate; add a few drifting motes under LK-F (carried from round 1 item 7).
+
+## SplitDeck — round 1 (critic re-review after author fixes, 2026-10-16)
+
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, full size) and reports/p7/snap/SplitDeck.jpg. No motion strip was supplied; motion judged from p50 (cards in flight, edge-on cyan card at x 617, y 82-215) and the snap sheet.
+
+### Scores
+| Criterion | Score |
+|---|---|
+| Composition (cards about 100 px wide at 540p, piles larger; corners and bottom band still empty) | 7 |
+| Palette and token discipline (signal / violet / ok green / ember; no stray hue, void ground) | 9 |
+| Light and depth (extruded stacks, tinted floor pools, perspective grid; no motes) | 7 |
+| Legibility at 1080p (labels about 40 px, numerals about 44 px, % unit now about 28 px) | 8 |
+| Visual verb without narration (deal into piles, pile height = share, turn in flight) | 8 |
+| Arabic (RTL label shaped, no tofu, qa arabic 0) | 9 |
+| Not a bullet slide, no legacy frames | 9 |
+| Numbers (35/25/20/10 sourced; nothing invented) | 9 |
+| Motion intent (p50 and snap sheet only) | 6 |
+| AI-Unpacked parity | 7 |
+Overall 7.7 (mean 7.9, held down for unseen motion and empty margins). Approved-critic, no blocking issue.
+
+### Round 1 items verified
+- Item 1: cards and spacing larger; the four piles now span x 130-830 with readable stacks. Margins still loose.
+- Item 4: % unit at x 195-210 now reads clearly at 960 px.
+- Item 5: AI pile is ok green, no longer reads as the dim pile; palette is balanced across the four shares.
+
+### Non-blocking, ordered by impact
+1. Motion (all): add a strip (deal launch, 3 in-flight frames, last landing) to reports/p7/; items 2 of round 1 still open.
+2. p0 (whole frame) and a1 (x 130-830, y 240-390): p0 is fully blank, a1 shows only deck and dashed slots; neither protects piles or labels. Re-baseline at about f6 and f30 next regeneration.
+3. p100 (x 0-130, x 830-960, y 0-190): empty top corners and a dead band under the numerals; push piles up to scale 1.2 or add a faint floor reflection or motes under LK-F for depth.
