@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "c3182717802ee829810d19f1881dedd0fb2b61193bab727bfb4834af112c776e",
-  "p50": "4567d1b18cdc77e0f04dbfd9faeb699ea80747500525d5ab626be56c648380d3",
-  "p100": "25e448344906c8e192839b2d7340935e290b4dbbbe42ff957645094bfea683b6"
+  "a1": "0e34e5cdae58255f7796ffbf421ae3c29d1dbbeb08a0480e3962056d71016c15",
+  "p50": "ceb072dcb5c78583484efbf0d5a2a3f80dda830303838c391e0053847dce9e39",
+  "p100": "0894bc913662d5bd194a01b43391836bd40d0ccd048215c5ab614da908491f48"
  },
  "v": 2,
  "name": "VenvDome",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:20:01Z",
+ "written_at": "2026-10-16T23:25:13Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

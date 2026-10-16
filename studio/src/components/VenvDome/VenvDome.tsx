@@ -37,7 +37,6 @@ export const VenvDomeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // pollution: rises on a conflict while unsealed, drains on isolate
   const pol = conf && (isoAt === null || conf.at < isoAt || t < isoAt) ? prog(ctx, conf.at, 'morph', undefined, true) * (isoAt !== null && t >= isoAt ? 1 - prog(ctx, isoAt, 'morph', undefined, true) : 1) : 0;
   const confAfterIso = conf && isoAt !== null && conf.at >= isoAt;
-  const fs = SIZE.label;
   return (
     <div style={{position: 'absolute', inset: 0, ...layerStyle(ctx, rtl)}}>
       <Floor x={box.x} y={floorY} w={box.w} h={Math.round(box.h * 0.3)} opacity={0.5} />
@@ -59,8 +58,8 @@ export const VenvDomeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const chipCols = e.packages.length > 4 ? 2 : 1;
         const chipW = (dw * 0.66) / chipCols - 12;
         const rows = Math.ceil(e.packages.length / chipCols);
-        const chipH = Math.min(56, (dh * 0.5) / Math.max(1, rows));
-        const chipTop = floorY - 24 - rows * (chipH + 10);
+        const chipH = Math.min(68, (dh * 0.5) / Math.max(1, rows));
+        const chipTop = y0 + dh * 0.62 - (rows * (chipH + 10)) / 2; // the chip block sits low-centre in the dome
         return (
           <React.Fragment key={i}>
             {/* dome body */}
@@ -85,7 +84,7 @@ export const VenvDomeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               const py = chipTop + row * (chipH + 10) + chipH / 2;
               return (
                 <Place key={j} x={px + sh} y={py} w={chipW} h={chipH} style={{opacity: ce * ent}}>
-                  <Tag id={`${ctx.id}:p${i}-${j}`} text={pkg} color={mix(C.ink, C.crit, hq)} size={Math.max(SIZE.secondaryMin, Math.min(fs, Math.floor((chipW - 24) / (0.62 * (pkg.length + 1)))))} fx={ctx.fx} on={0.3 + 0.7 * hq} />
+                  <Tag id={`${ctx.id}:p${i}-${j}`} text={pkg} color={mix(C.ink, C.crit, hq)} size={Math.max(SIZE.secondaryMin, Math.min(SIZE.body, Math.floor((chipW - 24) / (0.62 * (pkg.length + 1)))))} fx={ctx.fx} on={0.3 + 0.7 * hq} />
                 </Place>
               );
             })}

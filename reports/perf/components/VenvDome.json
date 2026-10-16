@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "VenvDome",
+ "composition": "Demo-VenvDome",
+ "at": "2026-10-16T23:29:05Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 170,
+   "wall_s": 16.16,
+   "box_s_per_frame": 0.095,
+   "slot_s_per_frame": 0.285,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.17,
+    4.89
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 170,
+   "wall_s": 20.21,
+   "box_s_per_frame": 0.1189,
+   "slot_s_per_frame": 0.3567,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.57,
+    4.83
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 170,
+   "wall_s": 19.79,
+   "box_s_per_frame": 0.1164,
+   "slot_s_per_frame": 0.3492,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.83,
+    5.27
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
