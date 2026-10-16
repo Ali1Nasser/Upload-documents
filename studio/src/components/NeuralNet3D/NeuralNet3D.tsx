@@ -62,7 +62,7 @@ const hullOf = (net: Net): V3[] =>
     const [y0, y1, z0, z1] = [Math.min(...ys) - 0.2, Math.max(...ys) + 0.2, Math.min(...zs) - 0.2, Math.max(...zs) + 0.2];
     return [y0, y1].flatMap((y) => [z0, z1].map((z): V3 => [xs, y, z]));
   });
-const LABEL_BAND = 0.2; // share of the slot height kept for the layer labels
+const LABEL_BAND = 0.15; // share of the slot height kept for the layer labels
 
 const camOf = (ctx: LayerCtx, hull: V3[]): Cam3 =>
   fitCam(
@@ -130,7 +130,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const size = fits.length ? Math.min(...fits.map((f) => f.size)) : BASE;
   const overflow = fits.some((f) => f.overflow);
   useOverflow(ctx.id, overflow, {pitch: Math.round(pitch), labels});
-  const baseY = Math.max(...bottoms) + 28;
+  const baseY = Math.max(...bottoms) + 16;
   const chips = m
     ? labels.map((t, i) => {
         const w = chipW(m.w[i], BASE, size);
@@ -178,7 +178,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.beginPath();
       q.forEach((c, i) => (i ? g.lineTo(c.x, c.y) : g.moveTo(c.x, c.y)));
       g.closePath();
-      g.fillStyle = rgba(C.panel, 0.34 * e * fa);
+      g.fillStyle = rgba(C.panel, 0.52 * e * fa);
       g.fill();
       if (heat > 0 || isHl) {
         g.globalCompositeOperation = 'lighter';
@@ -187,7 +187,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         g.globalCompositeOperation = 'source-over';
       }
       g.lineWidth = 1.5;
-      g.strokeStyle = rgba(C.ink3, 0.5 * e * fa);
+      g.strokeStyle = rgba(C.ink3, 0.75 * e * fa);
       g.stroke();
       // rim light (04 section 1.2): the top edge and the right-most vertical edge of the pane catch the key light
       const edges = q.map((c, i) => [c, q[(i + 1) % 4]] as const);
@@ -195,7 +195,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const right = edges.filter((c) => c !== top).reduce((a, c) => ((a[0].x + a[1].x) / 2 > (c[0].x + c[1].x) / 2 ? a : c));
       g.lineWidth = 2.5;
       g.lineCap = 'round';
-      g.strokeStyle = rgba(isHl ? C.signal : C.ink2, (isHl ? 0.9 * hlK + 0.2 : 0.55) * e * fa);
+      g.strokeStyle = rgba(isHl ? C.signal : C.ink2, (isHl ? 0.9 * hlK + 0.2 : 0.85) * e * fa);
       for (const ed of [top, right]) {
         g.beginPath();
         g.moveTo(ed[0].x, ed[0].y);
@@ -226,8 +226,8 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const b = P[gi + 1][ln.b];
         if (!a.ok || !b.ok) continue;
         g.globalAlpha = 1;
-        g.strokeStyle = rgba(hot ? mix(C.ink3, hot, 0.7) : mix(C.ink3, C.signal, ln.w * 0.85), (0.07 + 0.3 * ln.w * ln.w) * e * fa * (hot ? 2 : 1) * boost);
-        g.lineWidth = 0.8 + 1.8 * ln.w * ln.w;
+        g.strokeStyle = rgba(hot ? mix(C.ink3, hot, 0.7) : mix(C.ink3, C.signal, ln.w * 0.85), (0.025 + 0.3 * ln.w * ln.w * ln.w) * e * fa * (hot ? (ln.w > 0.5 ? 2.4 : 1.4) : 1) * boost);
+        g.lineWidth = 0.8 + 1.8 * ln.w * ln.w * ln.w;
         g.beginPath();
         g.moveTo(a.x, a.y);
         g.lineTo(b.x, b.y);
@@ -244,7 +244,8 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const u = s.back ? 1 - s.u : s.u;
           const x = lerp(a.x, b.x, u);
           const y = lerp(a.y, b.y, u);
-          blit(g, sprite(s.c, 'core'), x, y, 7 + 5 * ln.w, 0.9 * e);
+          blit(g, sprite(C.ink, 'core'), x, y, 5 + 3 * ln.w, 0.95 * e);
+          blit(g, sprite(s.c, 'core'), x, y, 9 + 6 * ln.w, 0.95 * e);
           if (glow) blit(g, sprite(s.c, 'glow'), x, y, 26, 0.35 * e * glow);
         }
       }
@@ -278,7 +279,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.arc(p.x, p.y, r, -1.35, -0.15); // the rim on the upper-right
       g.stroke();
       g.globalCompositeOperation = 'lighter';
-      blit(g, sprite(heat > 0 ? c : av > 0.5 ? C.signal : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * ((0.2 + 0.5 * av) * fa + 0.75 * heat));
+      blit(g, sprite(heat > 0 ? c : av > 0.5 ? C.signal : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * ((0.2 + 0.5 * av) * fa + 0.5 * heat));
       if (glow && heat <= 0 && av > 0.7) blit(g, sprite(C.signal, 'glow'), p.x, p.y, r * 2.6, e * fa * glow * 0.35 * av);
       if (glow && (heat > 0 || isHl)) blit(g, sprite(heat > 0 ? c : C.signal, 'glow'), p.x, p.y, r * 4, e * glow * Math.max(heat, isHl ? 0.5 * hlK : 0));
     }

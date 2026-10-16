@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
-  "a1": "4b324ae080d58c1a5fc8b340ae56a1d0ec6be146b482f26f25f8813b4e3d774b",
-  "p50": "ecfb923bf3de1b02b0183edef92f9766656b2c3bf72d1e90cf02ea6274a3d5da",
-  "p100": "8952897cad8c38b4efa09116b56dca0844f440277474362a135ad0c2a6504456"
+  "a1": "25e2e5b465cff9ce0c5a7f4146db2a7323fa355c13ebfa985002f8659ea3704e",
+  "p50": "7e74bbfeaa4da8ae30232999726ef74afb5715ff3fef971020b013bbc8696e77",
+  "p100": "084a8603a23889e09d1208d691a5aa35eca7f0589fd8683f662e786e18c1ccf4"
  },
  "v": 2,
  "name": "NeuralNet3D",
@@ -27,16 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T21:57:26Z",
+ "written_at": "2026-10-16T05:50:50Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7.2,
-  "date": "2026-10-15",
-  "by": "critic",
-  "round": 1,
-  "notes": "Lite-tier stills only. Forward wave, hidden-layer highlight, seeded glow and Arabic labels read. Backprop warn wave, standard/hero tiers and a motion strip are not evidenced; required before final lock. Panes are faint outside highlight; link field dense."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

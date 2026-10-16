@@ -184,10 +184,11 @@ const demos: DemoModule = {
       },
     },
     {
-      // CH-32 (d:6.17:1): the feed-forward block d_model 8 -> d_ff 16 -> 8. forward on the first beat, gradients back on the second.
+      // CH-32 (d:6.17:1): the feed-forward block d_model 8 -> d_ff 16 -> 8. the net stands on the first word, the forward pass runs on the second, gradients flow back on the third
+      // (p50 lands mid-backprop), and the hidden layer is ringed on the fourth.
       name: 'NeuralNet3D',
       frames: 144,
-      words: words('NeuralNet3D', [6, 16], [62, 74], [100, 112], [124, 134]),
+      words: words('NeuralNet3D', [6, 16], [30, 42], [62, 74], [100, 112]),
       shot: {
         fx_tier: 'standard',
         camera: {move: 'push_in', intensity: 0.2},
