@@ -134,7 +134,8 @@ const demos: DemoModule = {
       },
     },
     {
-      // CH-12 windows over the NilePay receipts (d:5.2:1..6, amounts in EGP, ordered by receipt id): frame = 1 PRECEDING .. CURRENT ROW.
+      // CH-12 windows over the NilePay receipts (d:5.2:1..6, amounts in EGP, ordered by receipt id): frame = 2 PRECEDING .. CURRENT ROW
+      // (frame sums 120, 200, 330, 300: none equals the film's 400 / 250 / 150 totals, so no sum can be misread as one of them).
       name: 'WindowFrame',
       frames: 160,
       words: [
@@ -149,10 +150,10 @@ const demos: DemoModule = {
         layers: [
           {
             component: 'WindowFrame',
-            props: {id: 'win', order_by: 'receipt_id', frame_kind: 'rows', bounds: ['1 PRECEDING', 'CURRENT ROW'], values: [120, 80, 200, 50, 150, 100], ref: 'd:6.19:5'},
+            props: {id: 'win', order_by: 'receipt_id', frame_kind: 'rows', bounds: ['2 PRECEDING', 'CURRENT ROW'], values: [120, 80, 200, 50, 150, 100], ref: 'd:6.19:5'},
             at: {word: WF(1), lead_frames: 2},
           },
-          {component: 'WindowFrame.slide', props: {target: 'win', to: 2}, at: {word: WF(2), lead_frames: 2}},
+          {component: 'WindowFrame.slide', props: {target: 'win', to: 1}, at: {word: WF(2), lead_frames: 2}},
           {component: 'WindowFrame.slide', props: {target: 'win', to: 3}, at: {word: WF(3), lead_frames: 2}},
           {component: 'WindowFrame.slide', props: {target: 'win', to: 5}, at: {word: WF(4), lead_frames: 2}},
         ],
