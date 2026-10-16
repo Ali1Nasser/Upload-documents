@@ -174,3 +174,25 @@ Non-blocking (ordered by impact)
 6. Baselines cover a single 2-line question with 3 options; add a 3-line worst case (auto-fit shrink) and a 2-option, short-question baseline.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Mean of the main axes lands at 7.
+
+## CalloutArrow — round 1 (critic, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540, scale 0.5) and reports/p7/snap/CalloutArrow.jpg. Labels and "4 / 6 = 66.67 %" are demo props (4/6 = 66.67 is arithmetically correct; no invented figures).
+
+Checks
+- Legible at 1080p: pill labels are about 20 px at half scale (about 40 px at 1080p, SIZE.body), bright ink on a dark glass pill; readable.
+- Visual verb: pill, ribbon with origin node, notched head and four corner brackets around the target read as "look here" without narration. Two colours (signal green, cyan) tie each callout to its target.
+- Arabic: "العمليات الناجحة" and "نسبة النجاح" shaped and ordered correctly, whole-string, no per-letter animation. Dc qa arabic reported pass by the author.
+- Not a bullet slide; no legacy frames; palette is signal/cyan/ink/panel/ground only. 2D only, so hero equals standard (accepted).
+
+Blocking issues: none.
+
+Non-blocking (ordered by impact)
+1. All stills, motion intent: the bracket close-in then breathe, ribbon draw with comet, and landing ring cannot be shown by stills. Strip at anchor-2, 0, +2, +4, +8, +16 requested at G8; add baselines near f4 and f20 so the draw and bracket close-in are regression-guarded.
+2. a1, landing ring and arrowhead (x 265-305 / y 215-265): the ring, arrowhead and the top-left bracket of the "4" pile up at the same spot and the ring reads as a stray circle. Either let the ring replace the arrowhead tip or hold the brackets back until the ring fades.
+3. p100, bracket bottoms under 66.67 (x 435-695 / y 305-318): the lower corners sit on the underline and merge with it. Inset the bracket frame about 6 px (half-scale 3 px) at the bottom or put the box outside the underline.
+4. p50/p100, depth and light (pill rims x 245-405 / y 140-178 and x 465-585 / y 375-410): rim and glow are faint at normal gain; the pill looks only slightly raised from the ground. Lift the rim gradient one step and add a small contact glow under the pill; score 6-7.
+5. p100, green brackets on "4" (x 262-305 / y 235-312): thin and lower contrast than the cyan set; raise the signal stroke one step.
+6. Baselines cover two short labels in LTR host layout; add a long-label (wrap or auto-fit) baseline and one with the label to the right of the target, to prove side placement.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Mean of the main axes lands at 7.
