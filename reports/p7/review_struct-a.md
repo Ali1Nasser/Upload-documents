@@ -251,3 +251,19 @@ Non-blocking (fix before pilot use):
 4. p0 (whole frame): empty backdrop, guards nothing; move the first snap to about f6 to catch the build-in.
 5. a1 vs p50 (ring x 140-810 / y 95-415): floor ring and rings are very faint; raise ring stroke or add floor sheen under the plates for more depth.
 6. Motion unjudged: the focusDim orbit turn and plate size/dim transition appear in no baseline; supply a 12 fps strip over the turn. No camera drift or parallax.
+
+## OlapCube — round 1 (2026-10-16, critic, independent full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5 and reports/p7/snap/OlapCube.jpg; no strip supplied, no new renders)
+
+Verdict: APPROVED (score 7.0, no blocking issue). meta.json set to approved-critic.
+
+Scores: subject clarity 7.5 (a 3-axis cube with a lit slab reads as OLAP without narration; the a1 build-in is an unlabelled lilac staircase and is only decoded by p50), mechanism visible 7 (p50: one cyan delivered slice across four customers, Sigma on the collapsed axis; p100: two cyan columns picked out by Lena/Amara/gold ticks), look parity 6.5, typography 7.5 (Arabic titles shaped and upright, Latin members mono, about 32 px at 1080), camera and depth 6.5 (perspective faces, lit tops; no parallax or drift), legibility 7.5 (dim cells about 3:1, still visible), accuracy 9 (no numerals, demo names only), tokens 8.5 (cyan focus plus lilac build; lilac is the only off-key tone), polish 7, no bullet-list look 9, no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. p50 (x 315-580 / y 360-465): axis-0 member ticks (Yuki, Lena, Ravi, Amara) drift in a diagonal about 60 px below the cube floor edge and are not tied to a column; pull them to 12 px under the front-bottom edge, or add a hairline tick to each column.
+2. p50 and p100 (whole cube): non-focused cells are near-invisible (about 3:1 to the backdrop), so the seeded heat never reads; raise the dim fill and edge alpha about 1.5x so the cube survives under the slice.
+3. a1 (x 285-655 / y 82-445): staircase of lilac cells with no axis titles; start titles at the first anchor, otherwise the first settled frame carries no meaning. p0 is an empty backdrop; move the first snap to about f6.
+4. p100 (x 650-700 / y 405-420): "gold" tick sits on the front-right edge and touches the Amara slab corner; add a 10 px gap or a leader.
+5. All frames: no camera drift or parallax, no glow or bloom on the lit slab; add a slight orbit and a soft cyan floor spill for pilot use.
+6. Motion unjudged: slice, dice, rollup and drill transitions are in no baseline; supply a 12 fps strip over one slice and one drill (two snaps each: mid-move and settled).

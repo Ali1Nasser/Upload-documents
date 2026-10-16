@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T18:17:24Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "round": 1,
+  "notes": "Independent full-size read of p0/a1/p50/p100 (960x540 lite), no strip. Projected acrylic cube with lit faces, cyan focus slab over dim cells, upright shaped Arabic axis titles, Latin members in mono, Sigma on the rolled-up axis, no numerals, tokens only. Non-blocking: p0 empty, a1 has no labels, axis-0 member ticks drift ~60 px below the cube floor edge (p50), unfocused cells very faint so seeded heat is not visible, no camera drift/parallax, slice/dice/rollup/drill motion unjudged (no strip)."
+ }
 }
