@@ -171,3 +171,20 @@ Non-blocking (by impact):
 7. p0 is a blank field and guards nothing; rebake at frame 6 to 8 with --approve and a fresh critic pass. No motion strip exists: render 8 frames from 0 to 18 before a scene relies on the sweep timing.
 
 Not seen: standard and hero tiers, the sweep wave front, ghost cells, the diverging scale, the value chip path (showVals false).
+
+## Heatmap — round 1 (re-check after author fixes 2-6)
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.4/10 (was 7.2). Verdict: approved-critic, no blocking issue.
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite). Rewritten baselines are dated 23:09Z, after the edits; no motion strip exists.
+
+Verified in p100 and p50: ناجح now sits about 10 px at 960 (20 at 1080) clear of the slab rim (x 717 vs label from 727), no crowding. The dimmed ناجح label stays readable at the 0.65 floor while tiles drop to 0.5, so the hot tile 200 at T3 still leads. The ember column shaft now rises through the T3 header (x 452-538, y 138-175, header lit in ember) and the فاشل row wash is visible under the slab at y 365-375. The legend numerals (0, 200) match the label size and sit about 14 px below the rim. Slab is still about 62 percent of the frame width; the 2-row cells are about 84x90, so the new 1.5x cap is not binding at these data, which is fine. Palette, Arabic shaping and RTL order (T1 on the right), no legacy frames and the single `ref` number are unchanged and pass.
+
+Blocking issues: none.
+
+Non-blocking (carry forward):
+1. Ghost cells and the `diverging` scale are still in no still. Bake one short-row, signed-value demo before a scene depends on either (a1, x 197-455, y 175-365 is a flat teal field: confirm it is sweep stagger and not a missing ghost).
+2. p0 is a blank field and guards nothing; rebake at frame 6 to 8 with --approve. Render an 8-frame strip (frames 0 to 18) to evidence the diagonal sweep timing.
+3. Depth and light remain the weakest axis (about 6.5): hot-tile glow and floor pool are faint at lite; confirm bloom and particles at the standard tier before the pilot.
+4. Still table-like at rest (2x6 grid with labels); lean on the highlight lens and push_in in the scene spec.
+
+Not seen: standard and hero tiers, sweep wave front, ghost cells, diverging scale, showVals false path.

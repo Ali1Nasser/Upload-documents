@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T23:09:19Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.4,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1 re-check after author applied non-blocking 2-6: approved 7.4, no blocking. Rim gap, 0.65 label floor, 0.26 ember shafts into T3 header, legend size/gap verified in p100. Still open: p0 blank, ghost cells and diverging scale never baked, no motion strip, a1 left field flat teal. See reports/p7/review_data.md."
 }
