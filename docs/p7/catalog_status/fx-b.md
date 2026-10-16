@@ -11,7 +11,7 @@ The fx-b files never edit the shared engine. Where the engine drops a frozen pro
 |---|---|---|---|---|
 | CameraRig | implemented | `resolve.ts` builds `ResolvedShot.camera` (move, ease, intensity, nudges resolved with one rounding); `rig.ts` provides `cameraAt`, `cameraSafeBox` and `planeStyle` | PASS, det 0 px, qa 0 | 0.1645 (queue load 6.7) / **0.0792** / 0.0769 (re-measured 2026-10-15 21:42) |
 | DepthLayers | implemented | `resolve.ts` maps each layer to its depth plane, parallax and blur; SpecPlayer draws the planes far→fg with `planeStyle`; DOF = blur × `FX[tier].dofBlurPx`, never on copy | PASS, det 0 px, qa 0 | 0.1289 / **0.1872** / 0.2033 (2026-10-15, 4 planes: HoloGrid far, KineticWord, NumberCounter, ParticleField fg; blur 0, see CR-017) |
-| FXTier | implemented | `ResolvedShot.tier` (priority: preview = lite > forced perf tier > FXTier > shot.fx_tier > standard); the frozen `FX[tier]` object; text-safe masks at every tier | PASS, det 0 px, qa 0 | 0.0779 / **0.1051** / 0.1064 |
+| FXTier | implemented | `ResolvedShot.tier` (priority: preview = lite > forced perf tier > FXTier > shot.fx_tier > standard); the frozen `FX[tier]` object; text-safe masks at every tier | PASS, det 0 px, qa 0 | 0.0629 / **0.0802** / 0.0832 (re-measured 2026-10-16, other_jobs_running 0) |
 | AudioReactive | implemented | `resolve.ts` builds one curve per feature × smoothing from the locked P5 features (24 fps; coefficient re-derived per fps); `modAt` feeds `ctx.mod[param]`; haze drives the backdrop | PASS, det 0 px, qa 0 | 0.0749 / **0.0991** / 0.1038 |
 | WhipPan | mapped → compiler transition `whip` | `TRANSITION_ALIAS` WhipPan → whip (12 f @ 24); `rig.ts transitionState` | n/a (see below) | n/a |
 | LightStreakTransition | mapped → compiler transition `streak` | streak → `streakAt` overlay in SpecPlayer | n/a | n/a |
@@ -40,6 +40,8 @@ The hero figures match standard because none of these demos uses WebGL. The hero
    - `studio/src/components/_fx-b/transitions.ts` provides `fxbTransitionOf`, `fxbTransitionState`, `fxbStreakP`, `streakBand` and `matchWrap`, with the same return shape as `TransitionState` plus `motionBlur`.
    - It is unit-tested in `shot_level.check.ts`: 4 directions; no whole-frame blur below hero; a streak continuous across the cut; match shape / position / colour.
    - The engine owner wires it once CR-003 is decided. The three components then become *implemented*, and they get two-shot snapshots (which also needs CR-005-style DemoDef support for a second shot, or a `_demo` spec).
+
+- **FXTier re-verification 2026-10-16.** Critic B2 (tier look not visible in lite stills) is addressed by `reports/p7/evidence/fx-b/FXTier_tiers.jpg` (same frame at lite / standard / hero with a difference panel, plus the impact flash and bloom on FAILED); the snap harness fixes the baseline tier at lite (CR-016), as accepted for DepthLayers round 2. The review note on two unconnected objects is fixed (FAILED lands under the failed 200 EGP, one idea). Snap re-run PASS (0 px on p0/a1/p50/p100, det 0, qa 0); Arabic QA `reports/qa/arabic/p7-FXTier.json` PASS (OCR 1.0). Baselines stay pending-critic; hero equals standard because FXTier itself draws no WebGL.
 
 ## Known limitations of the implemented four (closest correct behaviour)
 

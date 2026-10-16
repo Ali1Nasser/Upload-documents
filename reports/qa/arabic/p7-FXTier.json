@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T22:17:36Z",
+ "created": "2026-10-16T05:53:00Z",
  "label": "p7-FXTier",
  "thresholds": {
   "ocr_min": 0.9,
@@ -80,9 +80,9 @@
   {
    "id": "s000",
    "text": "إيصال T3",
-   "size": 34,
-   "render_size": 34,
-   "kind": "number",
+   "size": 28,
+   "render_size": 28,
+   "kind": "label",
    "sources": [],
    "problems": [],
    "warnings": [],
@@ -96,8 +96,8 @@
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 132,
-    "ink_h": 34,
+    "ink_w": 107,
+    "ink_h": 28,
     "container_w": 1784,
     "lines": 1
    },
