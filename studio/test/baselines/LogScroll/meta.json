@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T06:16:39Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "notes": "No blocking issue. Non-blocking: scroll path (9 rows full) not covered by any baseline (demo has 7 lines, vis=7); flat single plane; DEBUG tag and dimmed rows low contrast; no Arabic line in demo. See reports/p7/review_dom-a.md \"LogScroll - round 1\"."
+ }
 }

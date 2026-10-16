@@ -231,3 +231,33 @@ None.
 4. p50 row 2 (x 805-885, y 295-318): SUSPECT tag is about 22 px at 1080p; raise to about 28 px and add an Arabic equivalent or glyph in the shot spec, since English-only tags clash with the Egyptian-Arabic captions.
 5. p50 row 2, dashed flatline (x 390-605): thin and low-contrast against the dark row; thicken about 1.5x and raise the alpha so the failure survives 720p compression.
 6. p0: empty (nothing before the first word); acceptable for the entrance.
+
+---
+
+# LogScroll — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Commits reviewed: 10d48cb, 1844c39. Verdict: APPROVED, score 7/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1 (frame 11), p50 (74), p100 (149) at full size (lite, 960x540) and reports/p7/snap/LogScroll.jpg (4-frame strip). Source read: studio/src/components/LogScroll/LogScroll.tsx and the demo in studio/src/demos/dom-a.tsx.
+- Demo numbers 67, 260, 289, 1160, 25, 100 %, 150 are lab figures; 1160 ms is DataFact d:6.6:4 in the graph. No unsourced numbers seen.
+
+## Scores
+- Legibility at 1080p: 7. Line text is about 36 px mono, level tags about 30 px, header tag about 22 px. The spotlighted row is crisp. The 30 % dimmed rows and the DEBUG tag (ink3 at 0.35 gutter) are faint but intentional.
+- Token and palette discipline: 8. signal, warn and crit tones only, ink ramp for text, nothing stray.
+- Depth and light: 6. The rim takes the hit tone (teal to red), with a back glow and a floor pool over a faint grid. Rows share one flat plane, and the p0 to p100 push-in is the only parallax.
+- Visual verb without narration: 8. The feed plus the red rail tick and chevron, `tail -f` becoming `grep ERROR`, and everything else dimming read as "find the one line".
+- Arabic: 7. The demo has no Arabic line, so the MixedText path is not on a baseline. qa_arabic_LogScroll passes (7 strings, 0 failed). Latin lines are correctly isolated LTR.
+- Bullet-list or slide look: 7. A framed terminal with level colors; not a list, but a stack of equal rows.
+- Motion intent: 6. The strip shows the wipe (a1: "against the p") and the spotlight. The scroll, the new-line bloom and the sweep are not isolated in any baseline.
+- Legacy frames: none.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. Demo and baselines (whole component): the demo has 7 lines, so vis = 7 and the window never scrolls; the headline behaviour ("scrolls once 9 rows are full, upper rows dim") is untested. Add a demo with 11 or more lines and baselines at about 60 % of the feed (before the spotlight), showing the newest row rising and the top rows receding.
+2. p50 and p100, panel (x 48-910, y 103-398): add depth. Tilt or stagger the plate, or let the top rows recede in scale or blur. The panel is a flat rectangle and fills only the middle 55 % of the frame, so the floor grid and the empty bands above and below read as unused.
+3. p50 and p100, DEBUG row (x 88-145, y 224-240) and the dimmed INFO and WARN rows: ink3 tag on the dark plate is close to the legibility floor. Raise the debug tag to ink2 and the dim floor from 30 % to about 40 %, so the context rows survive 720p compression.
+4. a1, header tag (x 93-156, y 112-131): `tail -f` is about 22 px at 1080p; raise to about 28 px. Also add an Arabic-bearing line to the demo (for example "queue: 289 طلب") so MixedText inside a ledger row is baselined.
+5. p50 against p100: nearly identical (only the camera push-in). Replace p100 with a frame at the hit plus 6 f, mid-sweep (about frame 80), so the light sweep and chevron arrival are on a baseline.
