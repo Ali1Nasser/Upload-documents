@@ -2,7 +2,7 @@
  "v": 2,
  "name": "FixSettle",
  "composition": "Demo-FixSettle",
- "at": "2026-10-15T18:15:46Z",
+ "at": "2026-10-16T05:50:28Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,54 +21,54 @@
  "tiers": {
   "lite": {
    "frames": 96,
-   "wall_s": 10.88,
-   "box_s_per_frame": 0.1133,
-   "slot_s_per_frame": 0.3399,
+   "wall_s": 12.33,
+   "box_s_per_frame": 0.1284,
+   "slot_s_per_frame": 0.3852,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.7,
-    6.13
+    9.07,
+    10.52
    ],
    "queue": {
-    "running": 1,
-    "queued": 7
+    "running": 3,
+    "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 2
   },
   "standard": {
    "frames": 96,
-   "wall_s": 16.19,
-   "box_s_per_frame": 0.1687,
-   "slot_s_per_frame": 0.5061,
+   "wall_s": 15.11,
+   "box_s_per_frame": 0.1574,
+   "slot_s_per_frame": 0.4722,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.88,
-    6.11
+    10.52,
+    10.46
    ],
    "queue": {
-    "running": 1,
-    "queued": 7
+    "running": 3,
+    "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 2
   },
   "hero": {
    "frames": 96,
-   "wall_s": 14.8,
-   "box_s_per_frame": 0.1542,
-   "slot_s_per_frame": 0.4626,
+   "wall_s": 16.03,
+   "box_s_per_frame": 0.167,
+   "slot_s_per_frame": 0.501,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    6.5,
-    6.55
+    10.46,
+    9.92
    ],
    "queue": {
-    "running": 1,
-    "queued": 8
+    "running": 2,
+    "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 1
   }
  },
  "within_budget": true,

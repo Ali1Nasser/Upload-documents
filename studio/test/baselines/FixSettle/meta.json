@@ -2,8 +2,8 @@
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
   "a1": "974cc57a0a9373b6238b4cdd3140091dfcbc9efcc1df3ee040d563fb45ce5f70",
-  "p50": "990683e092069b3b436a2b5f78d55fafc4f8a9c17556d9cd0f22501ba7140445",
-  "p100": "bfe0fcd5b56b567b882b9676a07397abac27b8047d1cff3c53fe1f37d5966c94"
+  "p50": "dbd45c3863d15f41fee0505aca8f98f8aa342d518efa5d30886fc54c9e1c7b88",
+  "p100": "35b71a78e99fa385c331e7bf6007b9fd7979fb88e17129a1c11b90cea351c1ad"
  },
  "v": 2,
  "name": "FixSettle",
@@ -27,15 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:52:15Z",
+ "written_at": "2026-10-16T05:48:28Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7,
-  "date": "2026-10-15",
-  "round": 2,
-  "notes": "Round 1 blockers resolved (held state now OK rows + OK chip; beat strip at standard/hero shows drop, converging ring, brackets, sweep, motes). Non-blocking: table-rect bracket/frame line touches the alef of the title at x 605-613, y 185-200 in p50/p100/strip; lite baselines show no ring/glow/motes; depth modest."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
