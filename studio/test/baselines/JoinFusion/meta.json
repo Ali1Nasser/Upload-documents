@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T06:03:52Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.6,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1 re-review of 049866d: no blocking issue. Fan-out ghost stack, 4 px beams with comet spark, warn pulse, Arabic unit on reading-start side, 1.4x counter verified in stills and code. Weak: fused rows have no column header (originals dimmed far at the sides), shaft/floor grid faint at 960, wide empty margins at p100 (needs scene camera/second plane), no motion strip (slide-together judged from code only: ease.camera roll, beams fade e*2.2)."
 }

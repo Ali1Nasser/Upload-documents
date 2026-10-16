@@ -37,3 +37,21 @@ Required fixes (ordered by impact):
 6. Wide empty margins at p100 (x 60-300 and 660-900) and a1 (x 345-615). Acceptable as progressive reveal, but the scene needs a camera drift (push_in is in the demo) or a second plane to fill them.
 
 Not seen: standard and hero tiers, grain/bokeh/particles, the slide-together motion between p50 and p100 (request a strip before the first scene relies on its timing).
+
+## JoinFusion — round 1 (re-review of 049866d, after the critic fixes)
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.6/10. Verdict: approved-critic (no blocking issue).
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite) and the component code for motion timing. No motion strip was rendered (slide-together judged from code: fuse act rolled with ease.camera, beams fade over e*2.2, counter rolls to its value on the fuse word).
+
+Scores: legibility 1080p 7.5 (headers and key chips 20-26 px; counter about 64 px; Arabic unit about 36 px; row content is abstract bars by design) · token/palette discipline 8 · depth and light 7 (rim-lit slabs, 4 px beams with comet spark and warn pulse, visible green floor pool and 3-row ghost stack; seam shaft still faint) · verb reads without narration 8.5 · Arabic correct 8.5 (العملاء / الطلبات shaped right; "15 صف" now reads number-then-unit for an RTL reader) · no bullet-list look 8.5 · no legacy frames 10 · no unsourced numbers 8.5 (15 is a spec-supplied d: ref; the 3-row stack implies "more", it does not state a count) · motion intent visible 6.5 (stills show beam sparks and trails; slide-together not seen).
+
+Blocking issues: none.
+
+Remaining non-blocking fixes (ordered by impact):
+1. Fused rows have no column header (p100, region x 305-655, y 60-118). The combined header is only the ON chip plus the LEFT JOIN chip; the original table names and key chips stay dimmed at 45 percent far at the sides (x 125-270 and 640-885), so the result loses its schema. Move or duplicate the key chips above the fused columns, or hold the originals at about 70 percent.
+2. Empty margins at p100 (x 55-300 and 660-900, y 110-450) and the floor grid is invisible at 960 (y 455-505 reads as a flat band). The scene must pair with push_in or a second plane; raise floor-grid line alpha about 2x.
+3. Seam shaft is still faint (p100 x 450-510, y 150-420). Lift its alpha about 1.5x and let the lit rows reflect into the floor pool.
+4. No motion strip: before the first scene relies on timing, render a 8-frame strip of the fuse (e 0 to 1) and check that the dropped rows fade rather than snap and that beams are gone before the rows meet.
+5. The ghost stack (p100 x 310-650, y 400-445) is three amber outlines against a counter of 15; scene-directors should pair it with a "such as" cue or the count-up on the fuse word so the 6-versus-15 mismatch stays explained.
+
+Not seen: standard and hero tiers; grain, bokeh and particles.
