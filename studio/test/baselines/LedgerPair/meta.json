@@ -33,9 +33,9 @@
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "status": "approved-critic",
  "critic": {
-  "score": 7.4,
+  "score": 7.3,
   "date": "2026-10-16",
   "reviewer": "critic",
-  "notes": "Round 1, lite stills only (hashes match meta). Verb reads: two glass ledgers pair by label, dashed ghosts, green checks vs red crosses, totals 400 vs 700 with unequal sign (sums check against d:5.2 receipts). Arabic titles correct. Weak: verdict shaft and floor faint, no particles/grain, EGP unit about 20 px at 1080, p0 blank, no motion strip (sweep and bridge unproven), no standard/hero stills."
+  "notes": "Round 1 independent re-review of lite stills (agrees with 7.4). Verb reads without narration: pair by label, dashed ghosts, check/cross bridges, 400 vs 700 and unequal sign. Palette disciplined; Arabic titles correct. Weak: floor and verdict glow faint, no particles, ghost rows unlabeled, EGP unit small, p0 blank, no motion strip (sweep, bridge draw and roll unproven). No blocking issue."
  }
 }

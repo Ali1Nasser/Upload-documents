@@ -132,3 +132,22 @@ Non-blocking (by impact):
 5. p0 is a blank field and guards nothing; rebake at frame 6 to 8 (needs --approve and a fresh critic pass).
 
 Not seen: standard and hero tiers; groups and range frame kinds.
+
+## LedgerPair — round 1 (independent re-review, fresh critic invocation)
+
+Critic: critic (not the author, fresh read of the four stills). Date 2026-10-16. Score 7.3/10. Verdict: approved-critic (no blocking issue). Agrees with the earlier round-1 section above (7.4) within 0.1.
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite). No motion strip exists, so motion intent is judged from stills only.
+
+Scores: legibility 7.5 · palette discipline 8.5 (green = agree, red = mismatch, cyan rim only on glass) · depth and light 6 (a1 L/R panels x 62-440 and 517-895 read as two flat dark cards; the perspective floor lines at y 440-500 and the red verdict glow at y 430-455 are nearly invisible; no particles) · verb without narration 8.5 (the pair, dashed ghost, check/cross bridge, 400 vs 700 and unequal sign read silent) · Arabic 8 (the titles shape and join, and sit on the reading-start side for the source) · no bullet-list look 7.5 (the stacked rows with label-right and amount-left come close to a table card; the bridge column and ghosts save it) · no legacy 10 · no unsourced numbers 8.5 (400 = 120+80+50+150, 700 = adds 200+100, both derived) · motion intent 6.5 (a1 to p50 shows sweep dots at p50 x 467 and x 508 and the panels widening; the draw timing and roll-up are unproven) · camera life 6.5 (about 8 px push_in from p50 to p100 only).
+
+Blocking issues: none.
+
+Non-blocking fixes (ordered by impact):
+1. Depth and light: the floor and verdict glow are the weakest layer. In p50/p100 (y 430-458) raise the glow alpha about 1.5x and carry it up through the link column (x 440-520, y 360-430). Add dust or a bokeh layer behind the panels. Check standard and hero tiers.
+2. Strip required before a scene relies on timing: render 8 frames a1 to p100 (frames 11 to 169) and confirm the sweep, bridge draw and total roll land on the intended beats (LP(2), LP(3)).
+3. Ghost rows are unlabeled (a1 left x 77-427, y 222-256; p100 y 220-258 and y 344-380). Echo T3 and T6 in dim ink.
+4. a1 left panel is about 35 percent empty glass (x 62-440, y 300-430) before the totals appear; size the panel to its rows or reveal the totals slot early.
+5. EGP unit is the smallest text (about 10 px at 960, about 20 px at 1080); enlarge it or use an Arabic unit carrier (جنيه).
+6. p0 is a blank field and guards nothing; rebake at frame 6 to 8 with --approve and a fresh critic pass.
+
+Not seen: standard and hero tiers, grain and particles, the bridge draw animation.
