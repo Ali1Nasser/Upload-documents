@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "0e15a06f5cd57b05d45b5261135e593fe2661a87bc3307dc39c0e82031abc68f",
-  "p50": "6eefb9c9a5e48c577abe564117b124cff4b3dd02177e54a0837e19d127adc2fa",
-  "p100": "c219f06c402c78341b61a19928521d80ba3888b721ee3e9cf986f6eca0dd66c7"
+  "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
+  "a1": "6ae8c04bfb00fc5e2157d59b3e13ef94bbb8cfa34141f9b99b3cc4f8329eb89f",
+  "p50": "e77c144722a0ec2417a2daea00743b973972017dc5083be7a69358c3df5b7873",
+  "p100": "e7325f96a50c0b6320635fccaec22935dfc1cc0b96dc8af50847eda0410d7eff"
  },
  "v": 2,
  "name": "ShatterToBlocks",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-16T06:12:20Z",
+ "written_at": "2026-10-16T11:01:51Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

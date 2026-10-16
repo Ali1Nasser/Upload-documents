@@ -117,11 +117,24 @@ const buildClones = (i: SettledInfo, props: Props, t: number, n: number, fxId: s
     const sheen = doc.createElement('div');
     sheen.style.cssText = `position:absolute;${box};background:linear-gradient(to bottom left, ${C.ink}${hex(0.09)} 0%, ${C.ink}00 55%)`;
     blk.appendChild(sheen);
-    const edge = doc.createElement('div');
+    // chunk edge: real borders (top / right = key-light rim, left / bottom = ink3) and gradient strips for the glow. No `inset`
+    // box-shadow: it made the 50 % frame flaky (tile seams, see docs/p7/catalog_status/code-media.md Terminal note).
     const flash = m.edge;
-    const line = `inset -1px 1px 0 ${C.ink}${hex(0.3)}, inset 0 0 0 1px ${C.ink3}${hex(0.6)}, inset 0 0 0 ${(1 + flash * 2).toFixed(2)}px ${C.signal}${hex(0.85 * flash)}`;
-    edge.style.cssText = `position:absolute;${box};box-shadow:${lite ? line : `${line}, inset 0 0 14px ${C.signal}${hex(0.12 + 0.3 * flash)}`}`;
+    const edge = doc.createElement('div');
+    const rim = `${C.ink}${hex(0.5)}`;
+    const dim = `${C.ink3}${hex(0.6)}`;
+    const glowA = lite ? 0 : 0.12 + 0.3 * flash;
+    const strip = (dir: string) => `linear-gradient(${dir}, ${C.signal}${hex(glowA)} 0, ${C.signal}00 14px)`;
+    edge.style.cssText = `position:absolute;${box};box-sizing:border-box;border-style:solid;border-width:1px;border-color:${rim} ${rim} ${dim} ${dim}${
+      lite ? '' : `;background:${['to bottom', 'to top', 'to right', 'to left'].map(strip).join(',')}`
+    }`;
     blk.appendChild(edge);
+    if (flash > 0.02) {
+      // fracture-line flash: a signal frame that is thickest on the anchor frame and decays over the burst
+      const fl = doc.createElement('div');
+      fl.style.cssText = `position:absolute;${box};box-sizing:border-box;border:${(1 + flash * 2).toFixed(2)}px solid ${C.signal}${hex(0.85 * flash)}`;
+      blk.appendChild(fl);
+    }
     under.appendChild(sh);
     shadows.appendChild(under);
     host.appendChild(blk);
