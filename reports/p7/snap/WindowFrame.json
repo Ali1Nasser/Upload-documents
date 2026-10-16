@@ -2,7 +2,7 @@
  "v": 2,
  "name": "WindowFrame",
  "composition": "Demo-WindowFrame",
- "at": "2026-10-16T06:12:06Z",
+ "at": "2026-10-16T11:15:52Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1097 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1097 px"
   },
   {
    "tag": "p50",
    "frame": 79,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "baseline": "written"
+   "determinism_diff_px": 1097,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1097 px"
   },
   {
    "tag": "p100",
    "frame": 159,
    "why": "100 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1097 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "pass": true
+ "approve_refused": [
+  "determinism 1097 px"
+ ],
+ "pass": false
 }

@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-16T06:12:20Z",
+ "created": "2026-10-16T11:21:18Z",
  "label": "WindowFrame",
  "thresholds": {
   "ocr_min": 0.9,
@@ -16,14 +16,14 @@
  },
  "verdict": "pass",
  "metrics": {
-  "strings": 4,
+  "strings": 1,
   "failed": 0,
   "negative_fixtures": 0,
   "negative_caught": 0,
-  "ocr_scored": 0,
-  "ocr_pass": 0,
-  "ocr_min": null,
-  "ocr_exact": 0,
+  "ocr_scored": 1,
+  "ocr_pass": 1,
+  "ocr_min": 1.0,
+  "ocr_exact": 1,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
@@ -37,7 +37,7 @@
   "join_script_ambiguous": [],
   "per_letter_hits": 0,
   "evidence": {
-   "pil-raqm-isolated": 4
+   "pil-raqm-isolated": 1
   }
  },
  "join_policy": {
@@ -78,8 +78,8 @@
  "per_letter": [],
  "items": [
   {
-   "id": "wf:order",
-   "text": "ORDER BY receipt_id",
+   "id": "s000",
+   "text": "الإيصال",
    "size": null,
    "render_size": [
     34,
@@ -93,119 +93,31 @@
    "tofu": {
     "missing": [],
     "faces": [
-     "mono"
+     "ar-display",
+     "ar-text"
     ]
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 364,
-    "ink_h": 33,
+    "ink_w": 95,
+    "ink_h": 34,
     "container_w": 1784,
     "lines": 1
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
-   },
-   "status": "pass"
-  },
-  {
-   "id": "wf:kind",
-   "text": "ROWS BETWEEN 2 PRECEDING AND CURRENT ROW",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "chip",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "mono"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 753,
-    "ink_h": 25,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
-   },
-   "status": "pass"
-  },
-  {
-   "id": "wf:sum",
-   "text": "SUM",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "chip",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "mono"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 57,
-    "ink_h": 25,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
-   },
-   "status": "pass"
-  },
-  {
-   "id": "wf:n",
-   "text": "330",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "number",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "mono"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 57,
-    "ink_h": 25,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "skipped": "no Arabic letters (Latin/numeric string; OCR gate is for Arabic shaping)"
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الإيصال",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   }

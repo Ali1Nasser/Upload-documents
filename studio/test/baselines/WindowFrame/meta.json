@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "309762124e5a0f38eab35ef04807056c3191b8f8b761d388953d2f7ee94bfb9a",
-  "p50": "811a599be2b4626d15394e5e1ee48e4988cbdbaabc12ce22a127954900acfa3f",
-  "p100": "dedd4f4f1c008447432d696babd41a930f9ed94b5c400eee24957d34332a97f3"
+  "a1": "da065eacaf0cef39dd3ede7998c1d126a25804f4075dcfbaf4fc4515171dd173",
+  "p50": "ec16976e2d9c97a0f9e7ab5ded2d47461de2f37f9ca6de12fb51aeed5ecd519d",
+  "p100": "9e0a4013ea4477af5047985539ee836c780fa2b773889cf37cd2b77f115c53d4"
  },
  "v": 2,
  "name": "WindowFrame",
@@ -27,13 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T06:12:06Z",
+ "written_at": "2026-10-16T11:15:23Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "score": 7.2,
- "date": "2026-10-16",
- "approved_by": "critic",
- "notes": "Round 1 of 1ce1e81: no blocking issue. Verb reads (ember lens slides across ordered value cells, SUM 120/200/300 matches cell values, signal marker under current row, violet slab = partition). Weak: ghost trail and slide motion not visible in any still (no strip, judged from code), light shaft faint at 960, English-only labels (SUM, ORDER BY, kind chip) with no Arabic carrier on screen, empty margins around a small panel, p0 baseline is an empty field."
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

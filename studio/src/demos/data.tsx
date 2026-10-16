@@ -150,7 +150,7 @@ const demos: DemoModule = {
         layers: [
           {
             component: 'WindowFrame',
-            props: {id: 'win', order_by: 'receipt_id', frame_kind: 'rows', bounds: ['2 PRECEDING', 'CURRENT ROW'], values: [120, 80, 200, 50, 150, 100], ref: 'd:6.19:5'},
+            props: {id: 'win', order_by: 'الإيصال', frame_kind: 'rows', bounds: ['2 PRECEDING', 'CURRENT ROW'], values: [120, 80, 200, 50, 150, 100], ref: 'd:6.19:5'},
             at: {word: WF(1), lead_frames: 2},
           },
           {component: 'WindowFrame.slide', props: {target: 'win', to: 1}, at: {word: WF(2), lead_frames: 2}},

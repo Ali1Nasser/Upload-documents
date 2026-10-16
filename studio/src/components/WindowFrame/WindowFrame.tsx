@@ -14,6 +14,7 @@
 import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
+import {isArabic} from '../../type/arabic';
 import {C, Chip, Lbl, NumText, Plate, SIZE, Shell, acts, ease, flashAt, fmt, landOf, mix, probeNums, prog, roll, srcDecimals, tint, useFitProbe} from '../_data/kit';
 
 type Bound = {unb: boolean; off: number};
@@ -93,6 +94,16 @@ export const WindowFrameView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const sumTxt = numeric ? fmt(sumOf(fb0), dec) : '';
   const sumFs = Math.min(SIZE.title, Math.floor(H * 0.15));
   const fSum = useFitProbe(`${ctx.id}:sum`, sumFs, W * 0.3, (fs) => probeNums([sumTxt || '0'], fs), sumTxt);
+  // SQL keyword stays LTR code; an Arabic column name is its own chip beside it (never mixed into one bidi run)
+  const clause = (id: string, kw: string, val: string, color: string, fill: number) =>
+    isArabic(val) ? (
+      <div style={{display: 'flex', gap: 8, direction: 'ltr'}}>
+        <Chip id={`${id}:kw`} text={kw} size={chipFs} color={color} fill={fill} fx={ctx.fx} />
+        <Chip id={id} text={val} size={chipFs} color={color} fill={fill} fx={ctx.fx} />
+      </div>
+    ) : (
+      <Chip id={id} text={`${kw} ${val}`} size={chipFs} color={color} fill={fill} fx={ctx.fx} />
+    );
   const head = prog(ctx, ctx.at, 'label');
   const fq = prog(ctx, ctx.at, 'arrive');
   const frameX = x0 + fa * cw;
@@ -113,20 +124,23 @@ export const WindowFrameView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {fKind.probe}
       <Plate style={{position: 'absolute', inset: 0, opacity: head}} />
       <div style={{position: 'absolute', left: pad, top: pad, display: 'flex', gap: 24, direction: 'ltr', opacity: head}}>
-        {props.partition_by ? <Chip id={`${ctx.id}:part`} text={`PARTITION BY ${props.partition_by}`} size={chipFs} color={C.violet} fill={0.35} fx={ctx.fx} /> : null}
-        <Chip id={`${ctx.id}:order`} text={`ORDER BY ${props.order_by}`} size={chipFs} color={C.ink2} fx={ctx.fx} />
+        {props.partition_by ? clause(`${ctx.id}:part`, 'PARTITION BY', props.partition_by, C.violet, 0.35) : null}
+        {clause(`${ctx.id}:order`, 'ORDER BY', props.order_by, C.ink2, 0)}
       </div>
       {/* light on the floor: violet reflection of the partition slab, ember pool and shaft under the frame */}
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         <defs>
           <linearGradient id={`${gid}s`} x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor={C.ember} stopOpacity={0.34} />
+            <stop offset="0" stopColor={C.ember} stopOpacity={0.46} />
             <stop offset="1" stopColor={C.ember} stopOpacity={0} />
           </linearGradient>
           <radialGradient id={`${gid}p`} cx="50%" cy="50%" r="50%">
-            <stop offset="0" stopColor={C.ember} stopOpacity={0.5} />
+            <stop offset="0" stopColor={C.ember} stopOpacity={0.62} />
             <stop offset="1" stopColor={C.ember} stopOpacity={0} />
           </radialGradient>
+          <clipPath id={`${gid}c`}>
+            <rect x={x0 - 14} y={0} width={stripW + 28} height={H} />
+          </clipPath>
           <linearGradient id={`${gid}re`} x1="1" y1="0" x2="0" y2="1">
             <stop offset="0" stopColor={C.ember} stopOpacity={1} />
             <stop offset="0.4" stopColor={C.ember} stopOpacity={0.4} />
@@ -153,9 +167,9 @@ export const WindowFrameView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           </radialGradient>
         </defs>
         <ellipse cx={W / 2} cy={stripY + cellH + 22} rx={stripW * 0.56} ry={26} fill={`url(#${gid}v)`} opacity={head} />
-        <g opacity={fq * (0.75 + 0.25 * fl)}>
+        <g opacity={fq * (0.75 + 0.25 * fl)} clipPath={`url(#${gid}c)`}>
           <polygon points={`${frameX},${stripY + cellH + 6} ${frameX + frameW},${stripY + cellH + 6} ${frameCx + frameW * 0.75},${floorY} ${frameCx - frameW * 0.75},${floorY}`} fill={`url(#${gid}s)`} />
-          <ellipse cx={frameCx} cy={floorY} rx={frameW * 0.8 + 30} ry={22} fill={`url(#${gid}p)`} />
+          <ellipse cx={frameCx} cy={floorY} rx={frameW * 0.8 + 30} ry={34} fill={`url(#${gid}p)`} />
         </g>
         {/* partition: violet slab, rim-lit from the upper right, halo of two translucent strokes (no blur filter) */}
         <g opacity={head}>
@@ -170,7 +184,7 @@ export const WindowFrameView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const q = prog(ctx, ctx.at + Math.round((i * 2 * ctx.fps) / 24), 'label');
         const colH = numeric ? Math.max(4, Math.round((Math.abs(nums[i]) / maxAbs) * (cellH - 22))) : 0;
         return (
-          <div key={i} style={{position: 'absolute', left: x0 + i * cw + 4, top: stripY + (1 - q) * 6, width: cw - 8, height: cellH, borderRadius: 10, overflow: 'hidden', opacity: q * (0.62 + 0.38 * Math.max(o, i === Math.round(cf) ? 1 : 0)), background: `linear-gradient(180deg, ${tint(C.panel, 0.95)} 0%, ${tint(C.grid, 0.8)} 100%)`, borderTop: `2px solid ${tint(mix(C.ink3, C.ember, o), 0.5 + 0.4 * o)}`, borderRight: `1.5px solid ${tint(C.ink3, 0.35)}`, borderBottom: `1.5px solid ${tint(C.ink3, 0.25)}`, borderLeft: `1.5px solid ${tint(C.ink3, 0.2)}`}}>
+          <div key={i} style={{position: 'absolute', left: x0 + i * cw + 4, top: stripY + (1 - q) * 6, width: cw - 8, height: cellH, borderRadius: 10, overflow: 'hidden', opacity: q * (0.76 + 0.24 * Math.max(o, i === Math.round(cf) ? 1 : 0)), background: `linear-gradient(180deg, ${tint(C.panel, 0.95)} 0%, ${tint(C.grid, 0.8)} 100%)`, borderTop: `2px solid ${tint(mix(C.ink3, C.ember, o), 0.5 + 0.4 * o)}`, borderRight: `1.5px solid ${tint(C.ink3, 0.35)}`, borderBottom: `1.5px solid ${tint(C.ink3, 0.25)}`, borderLeft: `1.5px solid ${tint(C.ink3, 0.2)}`}}>
             {numeric ? <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, height: colH, background: `linear-gradient(180deg, ${tint(mix(C.ink3, C.ember, o), 0.22 + 0.16 * o)} 0%, ${tint(mix(C.ink3, C.ember, o), 0.1)} 100%)`}} /> : null}
           </div>
         );
@@ -189,7 +203,7 @@ export const WindowFrameView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const o = overlap(i);
         const q = prog(ctx, ctx.at + Math.round((i * 2 * ctx.fps) / 24), 'label');
         return (
-          <div key={i} style={{position: 'absolute', left: x0 + i * cw + 4, top: stripY + (1 - q) * 6, width: cw - 8, height: cellH, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: q * (0.62 + 0.38 * Math.max(o, i === Math.round(cf) ? 1 : 0))}}>
+          <div key={i} style={{position: 'absolute', left: x0 + i * cw + 4, top: stripY + (1 - q) * 6, width: cw - 8, height: cellH, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: q * (0.76 + 0.24 * Math.max(o, i === Math.round(cf) ? 1 : 0))}}>
             {typeof v === 'number' ? <NumText id={`${ctx.id}:v${i}`} text={fmt(v, dec)} size={fCell.size} color={o > 0.5 ? C.ink : C.ink2} fx={ctx.fx} glowK={0.35 * o} /> : <Lbl id={`${ctx.id}:v${i}`} text={v} size={fCell.size} color={o > 0.5 ? C.ink : C.ink2} overflow={fCell.overflow} />}
           </div>
         );
