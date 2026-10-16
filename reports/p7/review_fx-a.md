@@ -137,3 +137,24 @@ Non-blocking (next re-baseline):
 - p0 is the empty gradient.
 
 Scores (1-10): Legibility 8, token discipline 9, depth and light 7, verb reads 8 (text becomes thing), Arabic 9, no bullet look 9, no legacy 10, no unsourced numbers 10, motion intent visible 8 (strip). Mean 8.6, min 7; overall 7.5.
+
+## PathDraw — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 at full size (960x540 lite), reports/p7/snap/PathDraw.jpg (4-tile strip), commit 30e7a5b.
+
+Verdict: APPROVED, 7.0/10, no blocking issue. meta.json set to approved-critic.
+
+Seen: p0 empty gradient. a1 (f11) shows only the Arabic title "مسار الدفع" (about 155 px wide, crisp, muted blue-grey); no conduit or source node is visible yet. p50 (f47) shows a lit cyan route with white core, a ring source node at the right (x 748-762, y 210-224) and a cyan arrowhead riding the pen tip, with the unfilled dark conduit remaining beyond it (x 200-250, y 315-327). p100 holds the finished route, arrowhead at the left end. The strip reads as "a route is traced from source to destination" without narration. No bullets, no legacy frames, no numbers. Palette is cyan on near-black only. Arabic QA pass (OCR exact 1/1).
+
+Blocking: none.
+
+Non-blocking (next re-baseline):
+- p50/p100, route stroke (x 200-760, y 220-325): about 3 px wide at 960 (about 6 px at 1080p); thicken about 1.3x at lite/standard so the line carries at thumbnail size and the white core stays visible.
+- p50/p100, arrowhead (x 200-272, y 298-335): oversized and flat-shaded against the thin line; scale it to about 70% and give it the same white core/halo as the stroke. In p50 it sits slightly off the line direction.
+- p100, destination (x 195-215, y 315-330): there is no arrival marker; the route just ends at an arrow. A lit ring at arrival (the code mentions it) should be visible at hold; the source ring alone makes the route feel one-sided.
+- Whole frame: route occupies about 58% of width and the lower 40% (y 330-540) is empty; fine as a component (it is placed by the spec) but the demo shows little depth. Add a faint trail/glow floor under the route for depth.
+- a1 (f11): the conduit and source node are not yet visible, so the baseline does not cover "anchor frame" behaviour as the author note claims; add a baseline at anchor+1..2 frames. p50 and p100 are near duplicates; add a baseline at about 25% draw, standard tier, to cover sparks and comet.
+- Title colour is dim grey (about 55% luminance) on the near-black; raise to the ink token for legibility at 960 px.
+- Strip has only 4 tiles, one of them mid-draw; request an 8-tile strip at standard for the next round to judge the comet and sparks.
+
+Scores (1-10): Legibility 7, token discipline 9, depth and light 6.5, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 6.5 (strip is thin). Mean 8.1, min 6.5; overall 7.0.
