@@ -312,3 +312,24 @@ Non-blocking (fix before pilot use):
 3. p100 (x 230-685 / y 45-495): three of four slabs are near-neutral grey at about 3:1 to the backdrop; raise dim edge alpha about 1.3x so the stack survives under the highlight.
 4. Motion unjudged: layer push, cache-hit flash and crit break are in no baseline; supply a 12 fps strip over one build cascade (about f60-f200) before pilot use.
 5. All frames: no camera drift or parallax; add a slight orbit for pilot use.
+
+## OlapCube — round 1 (re-review after non-blocking fixes 1-5) (2026-10-16, critic, fresh full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders)
+
+Verdict: APPROVED (score 7.3, no blocking issue). meta.json set to approved-critic (round 2 block).
+
+Fix check against the earlier review:
+1. Axis-0 ticks (p50, x 315-555 / y 350-470): now under the floor edge with short leaders to each column; Yuki/Lena/Ravi/Amara read as tied to their columns. Fixed.
+2. Ghost cells (p50, p100, whole cube): dim cells now visible as a violet wireframe under the cyan slice (about 4-5:1); the back wall and the empty rows read. Fixed.
+3. a1 (x 230-770 / y 85-495): Arabic titles (حالة الطلب, الشريحة, العميل) now present on the build-in, so the staircase is labelled. Fixed. p0 is still an empty backdrop with eight stray tick dashes; move the first snap to about f6.
+4. p100 (x 655-705 / y 405-428): "gold" tick clears the Amara slab corner with a visible gap; "silver" tick clean. Fixed.
+5. Camera drift and floor spill: floor spill present (concentric cyan rings, p50/p100); parallax and orbit not visible in stills.
+
+Scores: subject clarity 8 (cube with a lit slice reads as OLAP without narration), mechanism visible 7.5 (p50 one cyan delivered slice across four customers with Sigma on the collapsed axis; p100 two cyan columns picked by Lena/Amara/gold), look parity 6.5, typography 8 (Arabic shaped and upright; Latin members mono, about 30 px at 1080), camera and depth 6.5 (perspective faces, lit tops, floor spill; no drift), legibility 8, accuracy 9 (no numerals, demo member names only), tokens 8.5 (cyan plus lilac build tone), polish 7.5, no bullet-list look 9, no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (before pilot use):
+1. p0 (whole frame): near-empty backdrop; move the first snap to about f6.
+2. p100 (x 320-720 / y 75-130): back-wall grid and top ghost layer still at the faint end; lift back-plane alpha slightly so the cube volume survives behind the columns.
+3. All frames: no orbit or parallax; add a slight camera drift for pilot use.
+4. Motion unjudged: slice, dice, rollup and drill transitions are in no baseline; supply a 12 fps strip over one slice and one drill (mid-move and settled) before pilot use. This item 6 from the earlier review remains open.

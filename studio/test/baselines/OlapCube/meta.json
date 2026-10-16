@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T23:19:13Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.3,
+  "date": "2026-10-16",
+  "round": 2,
+  "notes": "Re-read of rewritten baselines p0/a1/p50/p100 (960x540 lite) after r1 fixes 1-5. Confirmed: axis-0 ticks now hug the floor edge with hairline leaders; axis-2 ticks clear the slab and the gold tick; ghost cells readable under the cyan slice; a1 now carries Arabic axis titles. No blocking. Non-blocking: p0 still empty backdrop, no camera drift/parallax, no strip so slice/dice/rollup/drill motion remains unjudged (r1 item 6 open)."
+ }
 }
