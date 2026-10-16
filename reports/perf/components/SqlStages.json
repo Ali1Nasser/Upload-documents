@@ -2,7 +2,7 @@
  "v": 2,
  "name": "SqlStages",
  "composition": "Demo-SqlStages",
- "at": "2026-10-16T05:51:59Z",
+ "at": "2026-10-16T18:00:31Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,54 +21,54 @@
  "tiers": {
   "lite": {
    "frames": 230,
-   "wall_s": 18.71,
-   "box_s_per_frame": 0.0814,
-   "slot_s_per_frame": 0.2442,
+   "wall_s": 17.41,
+   "box_s_per_frame": 0.0757,
+   "slot_s_per_frame": 0.2271,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    9.92,
-    9.83
-   ],
-   "queue": {
-    "running": 2,
-    "queued": 3
-   },
-   "other_jobs_running": 1
-  },
-  "standard": {
-   "frames": 230,
-   "wall_s": 27.84,
-   "box_s_per_frame": 0.1211,
-   "slot_s_per_frame": 0.3633,
-   "budget_box_s_per_frame": 0.201,
-   "within_budget": true,
-   "loadavg1": [
-    9.36,
-    9.27
+    5.88,
+    5.48
    ],
    "queue": {
     "running": 1,
-    "queued": 3
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 230,
+   "wall_s": 20.84,
+   "box_s_per_frame": 0.0906,
+   "slot_s_per_frame": 0.2718,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.48,
+    5.86
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 230,
-   "wall_s": 37.16,
-   "box_s_per_frame": 0.1616,
-   "slot_s_per_frame": 0.4848,
+   "wall_s": 20.65,
+   "box_s_per_frame": 0.0898,
+   "slot_s_per_frame": 0.2694,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    8.77,
-    10.88
+    5.87,
+    6.31
    ],
    "queue": {
-    "running": 2,
-    "queued": 3
+    "running": 1,
+    "queued": 6
    },
-   "other_jobs_running": 1
+   "other_jobs_running": 0
   }
  },
  "within_budget": true,

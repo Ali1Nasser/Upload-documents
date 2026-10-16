@@ -174,7 +174,8 @@ export const SqlStagesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const prog = props.stages.length ? Math.min(1, (k + 1) / props.stages.length) : 0;
   const gk = 0.5 + 0.5 * rim + ctx.mod.glow;
   const rimLight = `linear-gradient(to bottom left, ${C.signal}${hex((0.45 + 0.35 * prog) * rim)} 0%, ${C.signal}${hex(0.14 * rim)} 36%, ${C.grid}${hex(0.9)} 100%)`;
-  const stock = `linear-gradient(180deg, ${C.panel}E6 0%, ${C.ground}D9 100%)`;
+  // the plate's top highlight is a background layer (Glass's `inset` shadow is overridden below: inset shadows flake the 50 % still over the masked backdrop)
+  const stock = `linear-gradient(${C.ink}1A, ${C.ink}1A) top / 100% 1px no-repeat, linear-gradient(180deg, ${C.panel}E6 0%, ${C.ground}D9 100%)`;
   const actT = (s: Stage): number | null => {
     let a: number | null = null;
     for (let j = 0; j <= k; j++) if (evs[j].stage === s) a = evs[j].t;
@@ -185,7 +186,7 @@ export const SqlStagesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, display: 'flex', alignItems: 'center', justifyContent: 'center', ...panel.style}}>
       <div style={{position: 'relative', width: pw}}>
       <div aria-hidden style={{position: 'absolute', left: '-14%', right: '-14%', bottom: -Math.round(fs * 2.4), height: Math.round(fs * 5), background: `radial-gradient(ellipse at 50% 38%, ${C.signal}${hex(0.16 * rim * gk * (0.4 + 0.6 * prog))} 0%, ${C.signal}${hex(0.05 * rim)} 46%, transparent 72%)`, pointerEvents: 'none'}} />
-      <Glass style={{width: pw, overflow: 'hidden', position: 'relative', border: '1px solid transparent', background: `${stock} padding-box, ${rimLight} border-box`}}>
+      <Glass style={{width: pw, overflow: 'hidden', position: 'relative', border: '1px solid transparent', boxShadow: `0 20px 60px ${C.void}73`, background: `${stock} padding-box, ${rimLight} border-box`}}>
         <Chrome label="sql" size={fs} h={L.chromeH} />
         <div style={{margin: `${L.pad}px 0`, position: 'relative'}}>
           <div ref={ref} dir="ltr" data-overflow={fit.overflow ? 1 : undefined} style={{width: 'max-content', minWidth: '100%', fontSize: fs, lineHeight: `${rowH}px`, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined}}>
