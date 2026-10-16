@@ -131,6 +131,8 @@ Non-blocking (ordered by impact)
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 5 (unverified), polish 8. Mean of the main axes lands at 7.
 
+Independent re-read (critic, 2026-10-16): p0, a1, p50, p100 and the 4-frame snap strip viewed again. Verdict unchanged, 7/10, approved-critic, no blocking issue. Additional note: a1 vs p50 shows the rail growing from 7 to 13 segments, so the growth verb is partly evidenced; the hairline draw and RTL wipe are still not. Detached "الـ" before the Latin run (x 440-490 / y 235-262) reads as spoken Egyptian code-switching; acceptable. Keep the ghost "10" dim where it crosses the rail (x 115-330 / y 315-325).
+
 ## DeepDiveCard — round 1 (critic, 2026-10-16)
 
 Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540), title strip crops at 2x, reports/p7/snap/DeepDiveCard.jpg. Violet is the 04 §33 Deep-Dive accent; no other hue, so palette is clean. Chips (kNN, chunk, embedding) and P23 are demo props, not numbers claimed as fact.
