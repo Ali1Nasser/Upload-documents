@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "a343d54b63fa9e37a7b8f32f7aaec471181b19c702fa665cc8182e2f89fe2783",
-  "p50": "ffbaf3eff051b33335e0d5e9f84a4f3fbc17fe8e3ada7c6e6b8010c4e9889fe7",
-  "p100": "70bd532b9d7a475d93951649e1a1606eca5465221fce64bf7e26559064c3f812"
+  "a1": "bcd94dab677e071ed6a6d6d43665fc18a961ee948081fe98ab13b6938d9c7a3d",
+  "p50": "e2d56da53accc034b74f519a25a31fc2eee4732234fa251bb0c23419639d27c5",
+  "p100": "71a8e7b299a6018182a9be62d3d5c7f7dcb91b4bd2f8f91c97195cca96efcd62"
  },
  "v": 2,
  "name": "TreeView",
@@ -27,14 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T21:47:38Z",
+ "written_at": "2026-10-16T11:01:31Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "critic": {
-  "score": 7.1,
-  "date": "2026-10-16",
-  "round": "1 (independent re-read, confirms 7.2 round 1)",
-  "notes": "Re-read p0/a1/p50/p100 at 960x540. Decision tree (p50) and B+ tree (p100) read without narration: lit cyan route with pulse beads, crit/ok glyph chips, green search hit, dashed leaf chain; Arabic and mixed AR+Latin correct, RTL branch order right (yes branch on the right). Tokens only (no raw hex/rgba in TreeView.tsx). No blocking issue. Non-blocking: a1 plan funnel small (~40% of frame) with 1 px wire stubs, flat depth (no motes/back-plane), pulse beads on node corners, p0 empty backdrop, no motion strip yet (request 12 fps strips 300-345 and 440-470 at round 2)."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
