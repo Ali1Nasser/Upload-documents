@@ -30,25 +30,50 @@ export const sliceMotion = (depth: number, u: number, parallax: number): {x: num
 });
 
 /** Slices are pasted once into offscreen canvases (one per slice) and composited per frame into ONE visible canvas: a single
- * compositor layer instead of N full-screen transformed layers (the N-layer DOM version cost 0.30-0.38 box s/frame at 1080p). */
-const toCanvases = (slices: {data: ImageData; depth: number}[]) =>
+ * compositor layer instead of N full-screen transformed layers (the N-layer DOM version cost 0.30-0.38 box s/frame at 1080p).
+ * `blur` (canvas px) is the far-plane DOF (04 section 1.2) baked ONCE into every slice: a CSS blur on the full-bleed layer host is
+ * re-rasterised every frame (+0.12 box s/frame at standard, measured), the baked one costs nothing per frame. */
+const toCanvases = (slices: {data: ImageData; depth: number}[], blur: number) =>
   slices.map((s) => {
+    const src = document.createElement('canvas');
+    src.width = s.data.width;
+    src.height = s.data.height;
+    src.getContext('2d')!.putImageData(s.data, 0, 0);
+    if (blur < 0.05) return {c: src, depth: s.depth};
     const c = document.createElement('canvas');
-    c.width = s.data.width;
-    c.height = s.data.height;
-    c.getContext('2d')!.putImageData(s.data, 0, 0);
+    c.width = src.width;
+    c.height = src.height;
+    const g = c.getContext('2d')!;
+    g.filter = `blur(${blur.toFixed(2)}px)`;
+    g.drawImage(src, 0, 0);
     return {c, depth: s.depth};
   });
+
+/** The plane's DOF blur (stage px) that SpecPlayer put on the layer host; it is taken over by the baked blur (host filter cleared). */
+const takeHostBlur = (el: HTMLElement | null): number => {
+  const host = el?.closest<HTMLElement>('[data-dc-layer]');
+  if (!host) return 0;
+  const m = /blur\(([\d.]+)px\)/.exec(host.style.filter);
+  if (m) host.dataset.dcBlur = m[1];
+  host.style.filter = '';
+  return host.dataset.dcBlur ? parseFloat(host.dataset.dcBlur) : 0;
+};
 
 export const AIPlateView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const n = SLICES[ctx.fx.id];
   const [w, h] = WORK[ctx.fx.id];
   const slices = useDepthSlices(mediaUrl('plates', `${props.plate}.png`), mediaUrl('plates', `${props.depth_map}.png`), n, w, h);
-  const layers = React.useMemo(() => (slices ? toCanvases(slices) : null), [slices]);
+  const ref = React.useRef<HTMLCanvasElement>(null);
+  const [blurStage, setBlurStage] = React.useState(0);
+  const k = w / (1920 * (1 + 2 * OVERSCAN));
+  const layers = React.useMemo(() => (slices ? toCanvases(slices, blurStage * k) : null), [slices, blurStage, k]);
   const t = ctx.frame;
   const end = ctx.until ?? ctx.shotDur;
   const u = ease.camera(Math.min(1, Math.max(0, (t - ctx.at) / Math.max(1, end - ctx.at))));
-  const ref = React.useRef<HTMLCanvasElement>(null);
+  React.useLayoutEffect(() => {
+    const b = Math.round(takeHostBlur(ref.current) * 10) / 10;
+    if (b !== blurStage) setBlurStage(b);
+  });
   React.useLayoutEffect(() => {
     const g = ref.current?.getContext('2d');
     if (!g || !layers) return;
@@ -56,7 +81,6 @@ export const AIPlateView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     g.clearRect(0, 0, w, h);
     g.imageSmoothingEnabled = true;
     // stage px -> canvas px: the canvas spans the overscanned box (1 + 2 x OVERSCAN of the 1920-wide stage)
-    const k = w / (1920 * (1 + 2 * OVERSCAN));
     for (const l of layers) {
       const m = sliceMotion(l.depth, u, props.parallax);
       g.setTransform(m.s, 0, 0, m.s, (w / 2) * (1 - m.s) + m.x * k, (h / 2) * (1 - m.s));

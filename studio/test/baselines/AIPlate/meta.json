@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-16T06:23:09Z",
+ "written_at": "2026-10-16T11:33:54Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
