@@ -117,3 +117,23 @@ Non-blocking (next re-baseline):
 - p0 is the empty gradient.
 
 Scores (1-10): Legibility 8, token discipline 9, depth and light 7, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 8 (strip). Mean 8.5, min 7; overall 7.5.
+
+## MorphTextToObject — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 at full size (960x540 lite), reports/p7/snap/MorphTextToObject.jpg and MorphTextToObject_beat.jpg (strip), commit 65f0331.
+
+Verdict: APPROVED, 7.5/10, no blocking issue. meta.json set to approved-critic.
+
+Seen: a1 is the Arabic word "البيانات" crisp and centred (about 160 px wide at 960). The strip shows the word dissolving right to left into cyan/white particles, a cloud in flight, the particles settling on the outline of a database cylinder, then the glass body filling in (gradient, brighter top face toward the upper right, cyan rim, floor glow). The reverse direction (last tile) reads as the object bursting back to particles. p50/p100 hold a lit glass cylinder with a levitation gap and floor glow; no bullets, no legacy frames, no numbers. Tokens only (cyan/violet on near-black). Arabic QA pass (OCR 1.0, no tofu).
+
+Blocking: none.
+
+Non-blocking (next re-baseline):
+- p50/p100, region x 345-610, y 255-320 (behind the lower body): the dark text-plate shadow from the word stays as a faint rectangle after the morph. Fade it out with the word so the object sits on clean background.
+- p50/p100, whole object (x 375-583, y 150-390): only about 22% of frame width at 960; at standard hold, scale the object up about 1.3x so the silhouette carries at thumbnail size.
+- p50/p100, outline: the particle dots stay visible as a beaded edge; a continuous thin rim stroke under the dots would look more premium (the strip tile 6 shows it better than the baselines).
+- Baselines cover pre-morph and settled only; add a standard-tier baseline at about 40% (particles in flight, as in strip tiles 3-4) so the morph is regression-covered. p50 and p100 are near duplicates.
+- Strip tile 2: the half-dissolved word shows a blurred ghost copy to the left of the sharp part; fine in motion, but keep it under 3 frames.
+- p0 is the empty gradient.
+
+Scores (1-10): Legibility 8, token discipline 9, depth and light 7, verb reads 8 (text becomes thing), Arabic 9, no bullet look 9, no legacy 10, no unsourced numbers 10, motion intent visible 8 (strip). Mean 8.6, min 7; overall 7.5.

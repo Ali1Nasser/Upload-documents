@@ -29,6 +29,10 @@
  },
  "written_at": "2026-10-16T11:22:21Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "approved_by": "critic",
+ "approved_at": "2026-10-16",
+ "score": 7.5,
+ "notes": "Round 1: lit glass cylinder (key light upper right, rim, floor glow), text-to-particles morph reads without narration. Non-blocking: text-plate shadow lingers behind object; object small (~22% frame width); lite baselines lack the particle-flight frame; dotted outline at hold."
 }
