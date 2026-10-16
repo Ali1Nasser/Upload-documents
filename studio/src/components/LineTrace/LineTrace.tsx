@@ -5,13 +5,22 @@
 // The leading point carries an emissive head. `markPoint` rings one point and shows its value (the series Num ref covers the
 // points) plus the optional label. x ticks show the data x values (<= 10 distinct, else first / last); there are no invented
 // y ticks: a y value appears only on a marked point. Series names sit at the line ends (stacked >= 1.5 em apart).
+// Depth + light (ADR-003 LK-F, 04 section 1.2): a rim-lit glass slab holds a faint plot plane; each line is a raised ribbon (dark
+// drop shadow, soft coloured under-glow, core, thin lit edge) with an area wash under it, the leading head carries an emissive
+// core and a light shaft that falls to the x axis and pools on it; a marked point drops a dashed line to its x tick. 2D SVG +
+// CSS only (no WebGL, no filter blur): the same render at every FX tier (tiers change glow radius, grain and CA only).
 import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {ColorToken} from '../../tokens';
 import type {Props} from './schema';
-import {C, GAP, LABEL_MIN, Lbl, NumText, Plate, SIZE, Shell, acts, flashAt, fmt, landOf, presetFrames, probeLabels, prog, revealProgress, roll, srcDecimals, tint, useFitProbe} from '../_data/kit';
+import {C, GAP, LABEL_MIN, Lbl, NumText, SIZE, Shell, acts, flashAt, fmt, landOf, monoW, presetFrames, probeLabels, prog, revealProgress, roll, srcDecimals, tint, useFitProbe} from '../_data/kit';
 
-const DEF_COL: ColorToken[] = ['signal', 'ink', 'ink2', 'ink3'];
+const DEF_COL: ColorToken[] = ['signal', 'warn', 'ok', 'violet'];
+
+/** Rim-lit glass slab: a plain gradient backing (no blurred drop shadow: it made first-render rasters flake, see WindowFrame). */
+const Slab: React.FC<{q: number}> = ({q}) => (
+  <div style={{position: 'absolute', inset: 0, opacity: q, borderRadius: 18, background: `linear-gradient(180deg, ${C.panel}E6 0%, ${C.ground}D9 100%)`, border: `1px solid ${C.grid}`, boxShadow: `inset 0 1px 0 ${C.ink}26, inset 0 0 0 1px ${C.signal}14`}} />
+);
 
 export const LineTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
@@ -44,7 +53,7 @@ export const LineTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const mB = Math.round(tfs * 1.8) + (props.x_label ? Math.round(afs * 1.7) : 0);
   const nameW = Math.max(...names.map((s) => s.length)) * nfs * 0.62 + GAP; // reserve: end labels never leave the plate
   const mL = 18;
-  const mR = Math.min(W * 0.28, nameW);
+  const mR = Math.min(W * 0.28, nameW + 16);
   const pw = W - 2 * pad - mL - mR;
   const ph = H - 2 * pad - mT - mB;
   const px = (x: number) => pad + mL + ((x - x0) / (x1 - x0)) * pw;
@@ -83,46 +92,101 @@ export const LineTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     return {d: out.join(' '), head};
   };
 
-  // x ticks: the data x values (<= 10 distinct), else first and last
+  // x ticks: the data x values (<= 10 distinct, else first and last), thinned so neighbours keep >= GAP of air
   const ux = [...new Set(allX)].sort((a, b) => a - b);
-  const ticks = ux.length <= 10 ? ux : [x0, x1];
+  const cand = ux.length <= 10 ? ux : [x0, x1];
+  const tw = (x: number) => monoW(fmt(x, xDec), tfs);
+  const ticks: number[] = [];
+  for (const x of cand) {
+    while (ticks.length > 1 && x === cand[cand.length - 1] && px(x) - px(ticks[ticks.length - 1]) < (tw(x) + tw(ticks[ticks.length - 1])) / 2 + GAP) ticks.pop();
+    if (!ticks.length || px(x) - px(ticks[ticks.length - 1]) >= (tw(x) + tw(ticks[ticks.length - 1])) / 2 + GAP) ticks.push(x);
+  }
   const colOf = (k: number) => C[ser[k].color ?? DEF_COL[k] ?? 'signal'];
+  const yAx = py(y0);
+  const yTop = pad + mT;
 
   // end labels: at each drawn head, pushed apart vertically by >= 1.5 em
   const heads = ser.map((s, k) => ({k, h: lineOf(s.points).head}));
   const ends = heads.filter((e) => e.h).map((e) => ({k: e.k, y: py((e.h as [number, number])[1]), x: px((e.h as [number, number])[0])}));
   ends.sort((a, b) => a.y - b.y);
   for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < nfs * 1.5) ends[i].y = ends[i - 1].y + nfs * 1.5;
+  const lead = heads.filter((e) => e.h).sort((a, b) => px((b.h as [number, number])[0]) - px((a.h as [number, number])[0]))[0];
+  const drawing = xd < x1 && !!lead;
+  const gk = ctx.fx.glowPx * 0.5 + ctx.fx.glowInner * ctx.mod.glow;
 
   return (
     <Shell ctx={ctx}>
       {fNames.probe}
       {fAxis.probe}
       {fMarks.probe}
-      <Plate style={{position: 'absolute', inset: 0}} />
+      <Slab q={axisIn} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}>
+        <defs>
+          {ser.map((_, k) => (
+            <linearGradient key={k} id={`${ctx.id}-lt-a${k}`} x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor={colOf(k)} stopOpacity={0.26} />
+              <stop offset="1" stopColor={colOf(k)} stopOpacity={0} />
+            </linearGradient>
+          ))}
+          <linearGradient id={`${ctx.id}-lt-plane`} x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor={C.grid} stopOpacity={0} />
+            <stop offset="1" stopColor={C.grid} stopOpacity={0.5} />
+          </linearGradient>
+          {lead ? (
+            <>
+              <linearGradient id={`${ctx.id}-lt-shaft`} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stopColor={colOf(lead.k)} stopOpacity={0.3} />
+                <stop offset="1" stopColor={colOf(lead.k)} stopOpacity={0} />
+              </linearGradient>
+              <radialGradient id={`${ctx.id}-lt-pool`}>
+                <stop offset="0" stopColor={colOf(lead.k)} stopOpacity={0.5} />
+                <stop offset="1" stopColor={colOf(lead.k)} stopOpacity={0} />
+              </radialGradient>
+            </>
+          ) : null}
+        </defs>
         <g opacity={axisIn}>
-          <line x1={px(x0)} x2={px(x1)} y1={py(y0)} y2={py(y0)} stroke={C.grid} strokeWidth={2} />
-          <line x1={px(x0)} x2={px(x0)} y1={py(y0)} y2={pad + mT} stroke={C.grid} strokeWidth={2} />
+          <rect x={px(x0)} y={yTop} width={px(x1) - px(x0)} height={yAx - yTop} fill={`url(#${ctx.id}-lt-plane)`} />
+          {[1, 2, 3].map((i) => (
+            <line key={`g${i}`} x1={px(x0)} x2={px(x1)} y1={yAx - ((yAx - yTop) * i) / 4} y2={yAx - ((yAx - yTop) * i) / 4} stroke={tint(C.grid, 0.5)} strokeWidth={1} />
+          ))}
+          <line x1={px(x0)} x2={px(x1)} y1={yAx} y2={yAx} stroke={C.ink3} strokeWidth={2} />
+          <line x1={px(x0)} x2={px(x0)} y1={yAx} y2={yTop} stroke={C.grid} strokeWidth={2} />
           {ticks.map((x, i) => (
-            <line key={i} x1={px(x)} x2={px(x)} y1={py(y0)} y2={pad + mT} stroke={tint(C.grid, 0.45)} strokeWidth={1} />
+            <g key={i}>
+              <line x1={px(x)} x2={px(x)} y1={yAx} y2={yTop} stroke={tint(C.grid, 0.45)} strokeWidth={1} />
+              <line x1={px(x)} x2={px(x)} y1={yAx} y2={yAx + 8} stroke={C.ink3} strokeWidth={2} />
+            </g>
           ))}
         </g>
+        {drawing && lead ? (
+          <g>
+            <rect x={px((lead.h as [number, number])[0]) - 22} y={py((lead.h as [number, number])[1])} width={44} height={Math.max(0, yAx - py((lead.h as [number, number])[1]))} fill={`url(#${ctx.id}-lt-shaft)`} />
+            <ellipse cx={px((lead.h as [number, number])[0])} cy={yAx} rx={46} ry={9} fill={`url(#${ctx.id}-lt-pool)`} />
+          </g>
+        ) : null}
         {ser.map((s, k) => {
           const {d, head} = lineOf(s.points);
           if (!head) return null;
           const col = colOf(k);
+          const first = d.split(' ')[0].split(',');
+          const area = `${d} ${px(head[0]).toFixed(1)},${yAx.toFixed(1)} ${first[0]},${yAx.toFixed(1)}`;
+          const shifted = d.split(' ').map((q) => { const [a, b] = q.split(','); return `${a},${(parseFloat(b) - 1.5).toFixed(1)}`; }).join(' ');
           return (
             <g key={k}>
-              <polyline points={d} fill="none" stroke={tint(col, 0.18)} strokeWidth={10} strokeLinejoin="round" strokeLinecap="round" />
-              <polyline points={d} fill="none" stroke={col} strokeWidth={3} strokeLinejoin="round" strokeLinecap="round" />
+              <polygon points={area} fill={`url(#${ctx.id}-lt-a${k})`} />
+              <polyline points={d.split(' ').map((q) => { const [a, b] = q.split(','); return `${a},${(parseFloat(b) + 9).toFixed(1)}`; }).join(' ')} fill="none" stroke={tint(C.void, 0.55)} strokeWidth={6} strokeLinejoin="round" strokeLinecap="round" />
+              <polyline points={d} fill="none" stroke={tint(col, 0.16 + 0.03 * gk)} strokeWidth={12 + gk * 0.4} strokeLinejoin="round" strokeLinecap="round" />
+              <polyline points={d} fill="none" stroke={col} strokeWidth={4} strokeLinejoin="round" strokeLinecap="round" />
+              <polyline points={shifted} fill="none" stroke={tint(C.white, 0.3)} strokeWidth={1.5} strokeLinejoin="round" strokeLinecap="round" />
               {s.points.length <= 40
-                ? s.points.filter((p) => p[0] <= xd).map((p, i) => <circle key={i} cx={px(p[0])} cy={py(p[1])} r={5} fill={C.ground} stroke={col} strokeWidth={2.5} />)
+                ? s.points.filter((p) => p[0] <= xd).map((p, i) => <circle key={i} cx={px(p[0])} cy={py(p[1])} r={6} fill={C.ground} stroke={col} strokeWidth={3} />)
                 : null}
               {xd < x1 ? (
                 <>
-                  <circle cx={px(head[0])} cy={py(head[1])} r={14} fill={tint(col, 0.22 + 0.2 * ctx.mod.glow)} />
-                  <circle cx={px(head[0])} cy={py(head[1])} r={6} fill={col} />
+                  <circle cx={px(head[0])} cy={py(head[1])} r={16 + 0.3 * gk} fill={tint(col, 0.22 + 0.2 * ctx.mod.glow)} />
+                  <circle cx={px(head[0])} cy={py(head[1])} r={7} fill={col} />
+                  <circle cx={px(head[0])} cy={py(head[1])} r={3} fill={tint(C.white, 0.85)} />
                 </>
               ) : null}
             </g>
@@ -137,20 +201,21 @@ export const LineTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const col = colOf(ser.indexOf(s));
           return (
             <g key={`m${j}`}>
-              <circle cx={px(p[0])} cy={py(p[1])} r={10 + 10 * q} fill="none" stroke={col} strokeWidth={3} opacity={q} />
-              <circle cx={px(p[0])} cy={py(p[1])} r={22 + 10 * fl} fill={tint(col, 0.12 + 0.2 * fl)} opacity={q} />
+              <line x1={px(p[0])} x2={px(p[0])} y1={py(p[1])} y2={yAx} stroke={tint(col, 0.55)} strokeWidth={2} strokeDasharray="6 6" opacity={q} />
+              <circle cx={px(p[0])} cy={py(p[1])} r={11 + 11 * q} fill="none" stroke={col} strokeWidth={3} opacity={q} />
+              <circle cx={px(p[0])} cy={py(p[1])} r={24 + 12 * fl} fill={tint(col, 0.12 + 0.2 * fl)} opacity={q} />
             </g>
           );
         })}
       </svg>
       {/* x ticks (data x values) */}
       {ticks.map((x, i) => (
-        <div key={`t${i}`} style={{position: 'absolute', top: py(y0) + 8, left: px(x), transform: 'translateX(-50%)', opacity: axisIn}}>
+        <div key={`t${i}`} style={{position: 'absolute', top: yAx + 10, left: px(x), transform: 'translateX(-50%)', opacity: axisIn}}>
           <NumText id={`${ctx.id}:x${i}`} text={fmt(x, xDec)} size={tfs} color={C.ink3} />
         </div>
       ))}
       {props.x_label ? (
-        <div style={{position: 'absolute', top: py(y0) + tfs * 1.6, right: pad + mR, opacity: axisIn}}>
+        <div style={{position: 'absolute', top: yAx + tfs * 1.7, right: pad + mR, opacity: axisIn}}>
           <Lbl id={`${ctx.id}:xl`} text={props.x_label} size={afs} color={C.ink2} overflow={fAxis.overflow} />
         </div>
       ) : null}
@@ -161,7 +226,7 @@ export const LineTraceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       ) : null}
       {/* series names at the line ends */}
       {ends.map((e) => (
-        <div key={`n${e.k}`} style={{position: 'absolute', left: Math.min(e.x + 18, W - pad - mR + 18), top: e.y, transform: 'translateY(-50%)'}}>
+        <div key={`n${e.k}`} style={{position: 'absolute', left: Math.min(e.x + 36, W - pad - mR + 36), top: e.y, transform: 'translateY(-50%)'}}>
           <Lbl id={`${ctx.id}:s${e.k}`} text={ser[e.k].label} size={nfs} color={colOf(e.k)} overflow={fNames.overflow} />
         </div>
       ))}
