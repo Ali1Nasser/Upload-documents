@@ -298,7 +298,17 @@ export const MorphTextToObjectView: React.FC<DcProps<Props>> = ({props, ctx}) =>
         continueRender(h);
       }
     };
-    whenSettled().then(() => {
+    // canvas text only sees a web face once it is loaded for that exact font string (a cold first frame would sample the fallback
+    // glyphs and cache them), so load it explicitly before the particles are sampled.
+    const ready = async () => {
+      await whenSettled();
+      const el0 = root.current?.querySelector<HTMLElement>(`[data-dc-text="${id}"]`);
+      if (el0 && document.fonts) {
+        const cs0 = getComputedStyle(el0);
+        await document.fonts.load(`${cs0.fontWeight} ${cs0.fontSize} ${cs0.fontFamily}`, props.text.replace(/[⟦⟧]/g, '')).catch(() => []);
+      }
+    };
+    ready().then(() => {
       if (done) return;
       try {
         const c = cv.current;

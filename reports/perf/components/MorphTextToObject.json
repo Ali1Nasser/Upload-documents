@@ -2,7 +2,7 @@
  "v": 2,
  "name": "MorphTextToObject",
  "composition": "Demo-MorphTextToObject",
- "at": "2026-10-16T11:24:05Z",
+ "at": "2026-10-16T18:01:28Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 96,
-   "wall_s": 7.34,
-   "box_s_per_frame": 0.0765,
-   "slot_s_per_frame": 0.2295,
+   "wall_s": 7.44,
+   "box_s_per_frame": 0.0775,
+   "slot_s_per_frame": 0.2325,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.28,
-    4.58
+    5.54,
+    5.57
    ],
    "queue": {
     "running": 1,
-    "queued": 4
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 96,
-   "wall_s": 11.46,
-   "box_s_per_frame": 0.1194,
-   "slot_s_per_frame": 0.3582,
+   "wall_s": 11.49,
+   "box_s_per_frame": 0.1197,
+   "slot_s_per_frame": 0.3591,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.37,
-    4.32
+    5.77,
+    5.8
    ],
    "queue": {
     "running": 1,
-    "queued": 4
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 96,
-   "wall_s": 10.8,
-   "box_s_per_frame": 0.1125,
-   "slot_s_per_frame": 0.3375,
+   "wall_s": 11.67,
+   "box_s_per_frame": 0.1216,
+   "slot_s_per_frame": 0.3648,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    4.54,
-    4.59
+    5.81,
+    6.02
    ],
    "queue": {
     "running": 1,
-    "queued": 4
+    "queued": 5
    },
    "other_jobs_running": 0
   }
