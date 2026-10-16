@@ -172,3 +172,11 @@ Residual non-blocking items (unchanged, still open for the CH-27 spec pass):
 2. p50/p100 whole plate (x 265-692, y 137-405): no running state (total counter, ghosted failed rows T3/T6); the verb reads as a highlighter, not a computation.
 3. Frame-level depth: plate is about 44 % of frame width on an empty field; spec needs a camera push 4-6 % or a data plate beside it.
 4. Motion strip (frames 0-149 every 6 f) still not supplied; scroll and band travel remain inferred from code.
+
+## SqlStages — round 1 re-check after r3 (2026-10-16)
+
+Independent second read of studio/test/baselines/SqlStages/{p0,a1,p50,p100}.png at full size (960x540 lite) plus reports/p7/snap/SqlStages.jpg. Baseline SHA-256 values match meta.json; snap results are 0 px on all four stills (reports/p7/snap/SqlStages.json). Code read: Glass boxShadow is overridden to the drop shadow only (SqlStages.tsx:189) and the 1 px top highlight is a background layer, so the pixels are unchanged and the round 1 verdict stands: 7.2 / 10, approved-critic, blocking issues: none. Critic item 6 (determinism flake) is resolved by the author (snap det 0 x3 per commit 37921ba).
+
+Confirmed from the stills: plate width grows a1 (about 530 px) to p50 (about 540) to p100 (about 552), so a slow push is visible; whole-row code, band, edge bar and pips agree (p50 GROUP BY row, p100 LIMIT row); p100 shows SELECT carrying badge 6 above 1-5 (written-vs-execution mismatch); palette is ink/signal only; the query traces to d:6.3:1. No Arabic in the plate, so no shaping risk. No bullet-list look, no legacy frame, no unsourced number.
+
+Residual non-blocking items (open for the CH spec pass): 1) p50 does not yet show the mismatch (hold stage 6 longer or ghost a "written 1" tag on SELECT); 2) p100 rail (x 218-670, y 366-432) wrap breaks the pipe between chips 4 and 5; 3) p50 badges 1-3 (x 713-735, y 170-238) low contrast; 4) plate is about 55 % of frame width on an empty field, so specs need a camera push or a data plate beside it; 5) motion strip (frames 0-229 every 12 f) still not supplied.
