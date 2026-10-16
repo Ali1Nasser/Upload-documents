@@ -109,3 +109,30 @@ Re-read p0, a1, p50, p100 at full size. Confirms the earlier approval: score 7.1
 - p50 and p100, region x 485-600 / y 95-460: the offset markers are thin cyan lines whose arrowheads sit in the gaps between slabs; they read as lane dividers. Thicken the marker to about 3 px and anchor its head on the tile edge.
 - p0 is an intentionally empty frame (pre-entrance); fine, but the baseline carries no signal, so regressions there are not detectable.
 - Still no motion strip; motion intent stays inferred (6.5).
+
+## BlockReplication — round 1
+
+Date 2026-10-16. Critic did not author it. Reviewed at full size: baselines p0, a1, p50, p100 (960x540, lite, scale 0.5) and reports/p7/snap/BlockReplication.jpg. Arabic QA (qa_arabic_BlockReplication.json): pass, OCR 3/3 exact, 0 tofu, 0 bidi. Snap determinism 0 px. No motion strip exists; motion is judged from the four-state progression only.
+
+Score: 7.0 / 10. Verdict: APPROVED (no blocking issue). Baseline meta set to approved-critic.
+
+Rubric read
+- Legibility at 1080p: 7 (rack labels "سيرفر A..E" are bold white and clear; chip ids b1..b8 are about 10 px at 960, i.e. ~20 px at 1080p, light on teal glass; the file tiles are clear).
+- Token/palette discipline: 8 (teal glass for ok, red for the dead rack, green for re-created copies; colour carries state).
+- Depth and light: 6 (file tiles and chips are raised with a soft key pool; but the racks read as flat window-frame cards, a titlebar with three dots over a 3x3 grid, not tall cabinets with a lit top face and drive bays; the floor grid is about 3-4% luminance).
+- Visual verb without narration: 8 (bar -> tiles -> chips landing 3x across five racks -> one rack turns red and hollow -> green copies appear elsewhere reads as "replicate, node dies, data survives").
+- Arabic: 9 (RTL placement, A on the right, Latin ids isolated, no per-letter animation).
+- No bullet-list look / no legacy frames: 7 (the rack row is a uniform card grid; it is close to a dashboard of cards).
+- Unsourced numbers: none (block ids and node letters are labels, not claims).
+- Motion intent: 6.5 (flight arcs, light trails, sparks and warn bars are not visible in any of the four stills; inferred only).
+
+Blocking issues: none.
+
+Non-blocking issues (ordered by impact)
+1. p50 and p100, region x 175-780 / y 250-362: racks are 105 px square cards with a titlebar; the brief asks for glass cabinets with a lit top face, LEDs and drive bays. Make each rack taller than wide, add a visible lit top face (a lighter parallelogram on the roof edge) and drive-bay rows instead of a 3x3 grid, so it stops reading as a window card.
+2. all states, region x 0-960 / y 362-420: the perspective floor is about 3-4% luminance, the racks stop at y ~360 and the grid starts at y ~362, so the racks do not sit on it and the labels float over it. Raise grid to ~8-10% luminance with a horizon glow, drop the racks onto the floor, and add a reflection or contact shadow.
+3. p50 and p100, region x 175-780 / y 285-345: chip ids are about 10 px at 960 on teal glass. Raise to ~13 px (26 px at 1080p) or brighten the text.
+4. p100, region x 424-534 / y 250-362: dead rack C is clear (red outline, red label, hollow chips), but the sparks and warn bars from failNode are not visible in the settled state; the surviving copies (e.g. in B and E) show no warn tint. Provide a strip across the failNode anchor so the impact can be judged.
+5. all states, region x 0-960 / y 0-140 and 400-540: about 55% of the frame is empty dark; the content band is 250-380 only. Enlarge the whole arrangement ~1.25x or lower the file bar into the frame centre.
+6. p100, region x 220-725 / y 143-190: the file tiles stay unchanged after the copies leave; dim them or add a faint link from tiles to their replicas so b-n to its three chips is traceable.
+7. Supply a motion strip (split morph, flight arcs with light trail, landing, failNode sparks/shake, rereplicate flights) in round 2 so easing and impacts can be judged rather than inferred.
