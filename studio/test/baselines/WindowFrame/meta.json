@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T06:12:06Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.2,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1 of 1ce1e81: no blocking issue. Verb reads (ember lens slides across ordered value cells, SUM 120/200/300 matches cell values, signal marker under current row, violet slab = partition). Weak: ghost trail and slide motion not visible in any still (no strip, judged from code), light shaft faint at 960, English-only labels (SUM, ORDER BY, kind chip) with no Arabic carrier on screen, empty margins around a small panel, p0 baseline is an empty field."
 }

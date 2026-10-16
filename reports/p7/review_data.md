@@ -55,3 +55,22 @@ Remaining non-blocking fixes (ordered by impact):
 5. The ghost stack (p100 x 310-650, y 400-445) is three amber outlines against a counter of 15; scene-directors should pair it with a "such as" cue or the count-up on the fuse word so the 6-versus-15 mismatch stays explained.
 
 Not seen: standard and hero tiers; grain, bokeh and particles.
+
+## WindowFrame — round 1 (1ce1e81)
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.2/10. Verdict: approved-critic (no blocking issue).
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite), reports/p7/snap/WindowFrame.jpg, arabic_WindowFrame.json (pass) and component code for the ghost and slide timing. No motion strip exists; the slide and the ghost trail are judged from code only.
+
+Scores: legibility 1080p 7.5 (cell values about 44 px at 1080, chips about 24 px, SUM about 80 px; dimmed out-of-frame cells are low-contrast but intentionally secondary) · token/palette discipline 8 (violet slab = partition, ember = frame, cyan marker; one accent family per role) · depth and light 6.5 (rim-lit glass frame and floor pool read; shaft is about 15 percent alpha and invisible at 960; no particles or grain visible) · verb reads without narration 8 (a lens sliding over ordered cells with a rolling SUM; sums check: 120, 80+120=200, 50+150+100=300) · Arabic correct 6.5 (the pass is vacuous: 4 strings, all Latin or numeric; no Arabic carrier is on screen) · no bullet-list look 8 · no legacy frames 10 · no unsourced numbers 8.5 (receipt values and sums are d: refs; 330 is the row-4 frame) · motion intent visible 6 (stills show frame position per state, but ghost trail and roll are not seen).
+
+Blocking issues: none.
+
+Non-blocking fixes (ordered by impact):
+1. Motion not evidenced. Render an 8-frame strip of the slide a1 to p50 (frames 11 to 79) and check the ghost (code: border alpha 0.5*(1-q)) is visible at 960 and that the SUM roll lands on the word. Region: ghost at p50 x 262-345, y 212-318, currently not visible in any still.
+2. Light is dashboard-level. p50 and p100 shaft (x 300-420, y 318-335) and floor pool (x 210-770, y 315-340) are 10-25 percent; raise the pool about 1.5x in height and let it tint the neighbouring cells. At p100 the pool runs past the panel right edge (x 700-770, y 315-335), so clip or fade it.
+3. English-only chrome on an Arabic film (a1/p50/p100: ORDER BY chip x 200-375, y 147-170; SUM chip x 630-675, y 358-380; frame kind chip x 200-555, y 358-382). Keep SQL tokens LTR as code, but the spec must pass an Arabic carrier (for example ترتيب, المجموع) for the SUM chip, same ruling as JoinFusion fix 3, and arabic-typographer should confirm the order.
+4. The panel fills only about 60 percent of the frame (x 180-780, y 125-415); margins are empty. Pair with push_in or a second plane in the scene, or allow a wider panel variant.
+5. Dimmed out-of-frame cells (p100 120, 80, 200, x 265-470, y 225-305) fall near 3.5:1; lift ink alpha about 1.2x so the whole partition stays readable.
+6. The p0 baseline is a blank field and guards nothing; replace it with frame 6 to 8 (partial reveal) at the next re-bake.
+
+Not seen: standard and hero tiers; grain, bokeh and particles; groups and range frame kinds (only rows demo).
