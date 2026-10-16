@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "9a8eaff00411138fa541cf19425c20d35dd7a2dbdbd61ef284052a06f637322f",
+  "p50": "b002f65d51ed5299e2854564e27e7ea10fd124d9399e7585f176f0d788f60578",
+  "p100": "63634c1379965a0b7c92acdfb7f0f0821b1b799d4476da9014fd4fcfb655e653"
+ },
+ "v": 2,
+ "name": "Conveyor",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 119,
+  "p100": 239
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-16T18:31:28Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

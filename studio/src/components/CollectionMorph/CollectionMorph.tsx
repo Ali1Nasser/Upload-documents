@@ -277,7 +277,7 @@ export const CollectionMorphView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const pb = LB.pos[B.slot[i]];
     const vA = A.first[i] ? 1 : 0;
     const vB = B.first[i] ? 1 : 0;
-    const vis = vA === vB ? vA : vA === 1 ? 1 - sm(q, 0.78, 1) : sm(q, 0.1, 0.3); // merge: fade into the first copy; split: appear out of it
+    const vis = vA === vB ? vA : vA === 1 ? 1 - sm(q, 0.62, 0.92) : sm(q, 0.1, 0.3); // merge: fade into the first copy; split: appear out of it
     const bobW = (props.from === 'set' ? 1 - q : 0) + (props.to === 'set' ? q : 0);
     const bob = bobW * 7 * Math.sin(((t + i * 7) / ff(40, ctx.fps)) * Math.PI * 2);
     const p = {x: lerp(pa.x, pb.x, q), y: lerp(pa.y, pb.y, q) + bob + (1 - ent) * 26, w: lerp(pa.w, pb.w, q), h: lerp(pa.h, pb.h, q)};

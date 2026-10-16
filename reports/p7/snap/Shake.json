@@ -2,10 +2,10 @@
  "v": 2,
  "name": "Shake",
  "composition": "Demo-Shake",
- "at": "2026-10-14T08:30:19Z",
+ "at": "2026-10-16T18:45:45Z",
  "frames": [
   0,
-  13,
+  11,
   47,
   95
  ],
@@ -30,7 +30,7 @@
   },
   {
    "tag": "a1",
-   "frame": 13,
+   "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
    "baseline": "written"
   },

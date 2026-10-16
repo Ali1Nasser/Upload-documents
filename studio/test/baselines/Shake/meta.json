@@ -1,15 +1,15 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "032d518e8a685fbf491ac8f5ce727801778571f45d0ad2ee2079378aa6f47f41",
-  "p50": "5396aa2203f5272000daf60a3a3533a2004db1570f020de9e0fd36881c1c0ebc",
-  "p100": "278c23b611116d59e7e9661e4c09ee651b80c91e97da13c115aa39364eaacdf2"
+  "a1": "0e15a06f5cd57b05d45b5261135e593fe2661a87bc3307dc39c0e82031abc68f",
+  "p50": "a04d69271eb5d32414aa93ac727bd462c622452f2d105241f9a7826f1b0aa249",
+  "p100": "d85d21fd04628cd4f49445a4b43cdef1fcc873e1cfb3a6265eb5a780d7b8375f"
  },
  "v": 2,
  "name": "Shake",
  "frames": {
   "p0": 0,
-  "a1": 13,
+  "a1": 11,
   "p50": 47,
   "p100": 95
  },
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:30:19Z",
+ "written_at": "2026-10-16T18:45:45Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

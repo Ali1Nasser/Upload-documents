@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "Conveyor",
+ "composition": "Demo-Conveyor",
+ "at": "2026-10-16T18:39:03Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 240,
+   "wall_s": 21.14,
+   "box_s_per_frame": 0.0881,
+   "slot_s_per_frame": 0.2643,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.08,
+    4.51
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 240,
+   "wall_s": 23.47,
+   "box_s_per_frame": 0.0978,
+   "slot_s_per_frame": 0.2934,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.51,
+    5.04
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 240,
+   "wall_s": 22.71,
+   "box_s_per_frame": 0.0946,
+   "slot_s_per_frame": 0.2838,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    5.04,
+    5.3
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

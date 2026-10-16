@@ -2,7 +2,7 @@
  "v": 2,
  "name": "WireTangle",
  "composition": "Demo-WireTangle",
- "at": "2026-10-11T17:18:35Z",
+ "at": "2026-10-16T18:17:09Z",
  "frames": [
   0,
   11,
@@ -26,34 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 71,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 143,
    "why": "100 %",
-   "pass": false,
-   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
- "pass": false
+ "approve": true,
+ "pass": true
 }

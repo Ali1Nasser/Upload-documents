@@ -154,7 +154,7 @@ const wire: DemoDef = {
   frames: 144,
   words: words('WireTangle', [
     [6, 18],
-    [52, 64],
+    [62, 74],
   ]),
   shot: {
     fx_tier: 'standard',

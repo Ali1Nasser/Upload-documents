@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "a404e718b3cb927b4bb794f8ca938e9b0f55d58f5bfecb2bf7b5358578c8bf06",
-  "p50": "687e799ed81b9673d6b3036f388a91b6288ece4b9c2ba815c2322ce16b47f1ee",
-  "p100": "3111e7f7bfe93ce7a4a2db888b0dd1509c1be427d14dcc75ac5fe2612bb103c7"
+  "a1": "9821d8b63269d3c04de3e54bc6e3e4685941721dfdbfd11a1cfdb5dcf2637a67",
+  "p50": "df323676431f4ec862074fb8260d4a78f63ab0c0c3b5b930adc33f57b6399d9a",
+  "p100": "ab975ec81aba416bd08f0ca66d502ae51c62b5d9658475e47fdf4423e9960ed2"
  },
  "v": 2,
  "name": "BarStack",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:18:31Z",
+ "written_at": "2026-10-16T18:46:27Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

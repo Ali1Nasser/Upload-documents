@@ -79,8 +79,8 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const W = ctx.box.w;
   const H = ctx.box.h;
   const {v, lastT, dec} = dialValues(props, ctx, t);
-  const cellW = Math.min(W / n, 560);
-  const r = Math.min(cellW * 0.3, H * 0.17);
+  const cellW = Math.min(W / n, 640);
+  const r = Math.min(cellW * 0.33, H * 0.2);
   const cy = H * 0.27;
   const ent = prog(ctx, ctx.at, P.arrive);
   const norm = (i: number) => {
@@ -92,10 +92,16 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ti = isP.findIndex((x) => !x);
   const pi = isP.findIndex((x) => x);
   const dist = distribution(ti >= 0 ? norm(ti) : 0.5, pi >= 0 ? norm(pi) : null);
+  // the distribution before the first turn stays as an outline (the "before" the bars reshape from)
+  const turns0 = acts(ctx, 'turn');
+  const normOf = (j: number) => clamp01((props.params[j].value.value - props.params[j].min) / Math.max(1e-9, props.params[j].max - props.params[j].min));
+  const ghost = turns0.length ? distribution(ti >= 0 ? normOf(ti) : 0.5, pi >= 0 ? normOf(pi) : null) : null;
+  const ghostE = turns0.length ? prog(ctx, turns0[0].at, P.label) : 0;
+  const maxP = Math.max(...dist.p);
   const panelY = H * 0.66;
   const panelH = H * 0.26;
-  const bw = Math.min(70, (W * 0.5) / LOGITS.length - 14);
-  const bgap = 16;
+  const bw = Math.min(88, (W * 0.56) / LOGITS.length - 18);
+  const bgap = 18;
   const totalBw = LOGITS.length * (bw + bgap) - bgap;
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
@@ -109,8 +115,6 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const a = A0 + (A1 - A0) * frac;
         const land = lastT[i] !== null ? pulse(t, lastT[i] as number, f24(ctx, 6)) : 0;
         const [kx, ky] = polar(cellW / 2, cy, r, a);
-        const [t0x, t0y] = polar(cellW / 2, cy, r + 34, A0);
-        const [t1x, t1y] = polar(cellW / 2, cy, r + 34, A1);
         const col = mix(C.signal, C.violet, 0);
         const widest = Math.max(pr.value.value, ...acts(ctx, 'turn').filter((x) => x.props.param === i).map((x) => (x.props.to as {value: number}).value));
         return (
@@ -128,8 +132,13 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                   <path d={arcPath(cellW / 2, cy, r, A0, a)} fill="none" stroke={col} strokeWidth={20} strokeLinecap="round" />
                 </>
               ) : null}
-              <circle cx={t0x} cy={t0y} r={5} fill={C.ink3} />
-              <circle cx={t1x} cy={t1y} r={5} fill={C.ink3} />
+              {Array.from({length: 21}, (_, k) => {
+                const ta = A0 + ((A1 - A0) * k) / 20;
+                const major = k % 5 === 0;
+                const [ax, ay] = polar(cellW / 2, cy, r + 17, ta);
+                const [bx, by] = polar(cellW / 2, cy, r + (major ? 31 : 25), ta);
+                return <path key={`tk${k}`} d={`M ${ax.toFixed(1)} ${ay.toFixed(1)} L ${bx.toFixed(1)} ${by.toFixed(1)}`} stroke={ta <= a + 0.01 ? col : C.ink3} strokeOpacity={ta <= a + 0.01 ? 0.9 : 0.7} strokeWidth={major ? 4 : 2.5} strokeLinecap="round" />;
+              })}
               <circle cx={kx} cy={ky} r={22} fill={col} fillOpacity={0.2 + 0.2 * land} />
               <circle cx={kx} cy={ky} r={13} fill={C.ink} stroke={col} strokeWidth={5} />
             </svg>
@@ -148,10 +157,12 @@ export const SamplingDialView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const be = prog(ctx, ctx.at + Math.round(((6 + i) * ctx.fps) / 24), P.label);
           const h = Math.max(4, pv * panelH);
           const x = W / 2 + totalBw / 2 - (i + 1) * bw - i * bgap; // most likely token on the right (reading start)
-          const col = dist.kept[i] ? C.signal : C.ink3;
+          const col = dist.kept[i] ? mix(C.violet, C.signal, Math.sqrt(pv / maxP)) : C.ink3;
+          const gh = ghost ? Math.max(4, ghost.p[i] * panelH) : 0;
           return (
             <g key={i} opacity={be}>
-              <rect x={x - 5} y={panelY + panelH - h - 5} width={bw + 10} height={h + 5} rx={10} fill={col} fillOpacity={dist.kept[i] ? 0.14 : 0.06} />
+              {ghost ? <rect x={x - 1} y={panelY + panelH - gh - 1} width={bw + 2} height={gh + 1} rx={9} fill="none" stroke={C.ink2} strokeOpacity={0.55 * ghostE} strokeWidth={2.5} strokeDasharray="10 8" /> : null}
+              <rect x={x - 5} y={panelY + panelH - h - 5} width={bw + 10} height={h + 5} rx={10} fill={col} fillOpacity={dist.kept[i] ? 0.16 + 0.1 * (pv / maxP) : 0.06} />
               <rect x={x} y={panelY + panelH - h} width={bw} height={h} rx={8} fill={col} fillOpacity={dist.kept[i] ? 0.95 : 0.35} />
             </g>
           );

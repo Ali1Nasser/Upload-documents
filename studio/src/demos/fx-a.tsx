@@ -147,20 +147,23 @@ const demos: DemoModule = {
       },
     },
     {
-      // the failure shake: the only hard motion; no `to`, so every layer of the shot jolts (<= 8 px, decaying), copy stays title-safe
+      // the failure shake: the only hard motion. The receipts table (6 receipts, T3 and T6 failed, d:5.2:1) is thrown on the word that
+      // names the failure (<= 10 px, decaying, copy kept inside title-safe) and leaves its rest outline lit; the label stays still.
+      // The anchor is late (f46) so the 50 % still (f47) is one frame into the jolt, at near full amplitude.
       name: 'Shake',
       frames: 96,
       words: [
         [W('Shake', 1), 6, 22],
-        [W('Shake', 2), 40, 58],
+        [W('Shake', 2), 48, 66],
       ],
       shot: {
         fx_tier: 'standard',
         camera: cam,
         layers: [
-          {component: 'NumberCounter', props: {id: 't3', to: {value: 200, ref: 'd:5.2:3', unit: 'EGP', decimals: 0}, format: 'currency', label: 'إيصال T3', slot: 'start', color: 'crit'}, at: {word: W('Shake', 1), lead_frames: 0}},
-          {component: 'KineticWord', props: {id: 'kw-failed', text: 'FAILED', slot: 'end', size: 'impact', preset: 'impact', color: 'crit', emphasis: 'term'}, at: {word: W('Shake', 2), lead_frames: 2}},
-          {component: 'Shake', props: {amplitude_px: 8}, at: {word: W('Shake', 2), lead_frames: 2}},
+          table('Shake'),
+          {component: 'TableGrid.highlightRows', props: {target: 'receipts', rows: [2, 5], color: 'crit'}, at: {word: W('Shake', 2), lead_frames: 2}},
+          {component: 'KineticWord', props: {id: 'kw-failed', text: 'العملية فشلت', slot: 'lower-third', size: 'sub', color: 'crit'}, at: {word: W('Shake', 2), lead_frames: 2}},
+          {component: 'Shake', props: {to: 'receipts', amplitude_px: 10}, at: {word: W('Shake', 2), lead_frames: 2}},
         ],
       },
     },
