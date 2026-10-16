@@ -192,3 +192,14 @@ Residual non-blocking items (open for the CH spec pass):
 2. p50 (x 345-615, y 285-320 and x 372-585, y 350-440): faint dark rectangles behind the term and counter, owned by KineticWord/NumberCounter, not LoopPlate.
 3. p0 near black: keep the first anchor within 0.5 s of shot start.
 4. Motion strip (frames 0-119 every 12 f) still not supplied; the wrap at the loop seam stays inferred from the pure-function loop index in code.
+
+## SqlStages — round 1 (independent confirmation, 2026-10-16)
+
+Third read by the critic, stills only (p0, a1, p50, p100 at 960x540 lite); no motion strip exists. Score 7.2 / 10, approved-critic, blocking issues: none. The earlier rounds hold.
+
+- p100 (rows y 140-340, rail y 366-432): the mismatch reads. SELECT carries badge 6 while 1-5 sit below it, LIMIT is lit, and the rail is complete.
+- p50 (rows y 145-340, x 210-750): band, edge bar and badges 1-4 agree. The GROUP BY edge bar has no artefacts. Rows 1-3 badges (x 713-735, y 170-238) are low-contrast at 1080p.
+- a1 (plate x 215-745, y 105-435): all rows ink, rail dim, no active stage yet. Legible, no bullet look.
+- p0 (full frame): haze only, plate not yet in. The p0 baseline guards nothing; specs must anchor the first stage within 0.5 s.
+
+Non-blocking, by impact: (1) p50, SELECT row y 145-165: add a "written 1" ghost tag so the mismatch shows before the late stages. (2) p100, rail wrap between chips 4 and 5 (x 630-220, y 380-405) breaks the pipe: add an elbow connector or one row at hero tier. (3) Plate is about 550 x 335 on a near-flat field: the spec should add a 4-6 % camera push or a result-row plate. (4) Still wanted: a motion strip of frames 0-149 every 6 f.
