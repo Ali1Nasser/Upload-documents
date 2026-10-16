@@ -64,3 +64,36 @@ Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, full size), RaceCond
 5. p100, padlock (x 758-790, y 425-465): the lock is ~35 px at 960, the weakest element of the "lock" verb. Enlarge to ~1.6x and centre it on the ring top edge so it reads as the lock before the segments fill.
 6. a1, hover shadows (x 235-340 and 620-725, y 315-330): the dark ellipses sit on the panel top edge and look like smudges while hands are idle; fade them until near > 0.3.
 7. p0 baseline is an empty dark frame and protects nothing; rewrite at frame ~6 when baselines are next regenerated.
+
+## SagaChain — round 1
+Date: 2026-10-16. Reviewer: critic (not the author). Verdict: APPROVED (7.0/10, no blocking issue). meta.json set to approved-critic.
+Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, full size), reports/p7/snap/SagaChain.jpg (4-frame strip of the same frames), SagaChain.tsx (210 lines), the dom-c demo, qa_arabic_SagaChain.json (pass, OCR 8/8, min 0.917). No true motion strip exists; the fail shake (4 f24 frames, 5 px, decaying) and the wire draw / saga token travel were judged from code and from the settled stills, not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition | 6 |
+| Palette and token discipline (signal in flight, ok done, crit fail, warn compensate, ink3 idle/undone; all C tokens) | 9 |
+| Light and depth | 6 |
+| Legibility at 1080p (node labels ~2x of the 960 still, about 40 px; chip labels about 30 px) | 8 |
+| Visual verb without narration | 8 |
+| Arabic (8 strings, tofu 0, overflow 0, RTL step 1 on the right) | 9 |
+| Not a bullet slide, no legacy frames | 8 |
+| Numbers (none drawn) | 10 |
+| Motion intent (code plus stills) | 6 |
+| AI-Unpacked parity | 6 |
+Mean 7.6 by criterion, held to 7.0 overall for the flat composition and unseen motion.
+
+### What works
+- a1 to p50: step 1 lights cyan, then 1 and 2 turn green with check badges, step 3 turns red with a cross and step 4 stays dim and unstarted. "Two succeed, third fails, fourth never runs" reads without narration.
+- p50 to p100: completed steps grey out with a warn return badge, chips drop under them newest first (رد الخصم before فك الحجز), and the warn wire runs left to right, opposite to the saga. "Undo, newest first" is visible and the failed step correctly gets no chip.
+- Colour is semantic only and the floor pool switches signal to crit on failure; no numbers, no bullets, no legacy frames.
+
+### Non-blocking issues, ordered by impact
+1. Composition (p50, p100, y 360-540): everything lives in a band y 165-410 and the lower third is empty floor. Lower the chain slightly, or make the nodes ~1.15x taller, so the 4-step row fills the safe area better. Push the compensation row down only if the floor lines are kept as its ground.
+2. Depth and light (a1, p50, p100): no motes, no bloom from the lit node onto its wires, and no reflection of the row on the floor. Add a few drifting motes and a soft node bloom on the crit flash (p50, node 3, x 290-455, y 165-260) so the failure hits as light, not only as a border colour.
+3. Motion (all): no strip. Add frames at fail, fail+2 (shake), fail+6, compensate, compensate+8 and compensate+16 to reports/p7/ so the shake and the backward travel are seen.
+4. p100, badges (x 868-902 and 652-686, y 145-178): the warn return-arc glyph is ~34 px at 960 and reads like a letter "C" or smiley, not "undone". Use a clearer undo arrow with a visible arrowhead.
+5. p100, undone nodes (x 500-672 and 717-888, y 165-262): labels drop to ink3 grey on a near-void node and lose contrast. Keep them ink2 so "undone" stays readable.
+6. p100, return wire (x 672-717, y 385): the warn arrow is ~45 px at 960 and thin; lengthen it by narrowing the chips (0.8 x node width) so the direction cue is clearer.
+7. p0 baseline is an empty dark frame and protects nothing; rewrite at frame ~6 when baselines are next regenerated.

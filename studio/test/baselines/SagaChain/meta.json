@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T05:48:33Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "approval_detail": {
+  "status": "approved-critic",
+  "score": 7.0,
+  "date": "2026-10-16",
+  "by": "critic",
+  "notes": "No blocking issue. Non-blocking: thin mid-band composition with empty lower third and no motes/bloom (depth 6); warn return-arc badge glyph ambiguous; no motion strip, shake judged from code; p0 baseline is an empty frame. See reports/p7/review_dom-c.md \"SagaChain - round 1\"."
+ }
 }
