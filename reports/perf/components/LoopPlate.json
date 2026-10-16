@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "LoopPlate",
+ "composition": "Demo-LoopPlate",
+ "at": "2026-10-16T06:07:26Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 120,
+   "wall_s": 16.23,
+   "box_s_per_frame": 0.1353,
+   "slot_s_per_frame": 0.4059,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.29,
+    6.36
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 120,
+   "wall_s": 20.17,
+   "box_s_per_frame": 0.1681,
+   "slot_s_per_frame": 0.5043,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    5.93,
+    5.56
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 5
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 120,
+   "wall_s": 20.44,
+   "box_s_per_frame": 0.1703,
+   "slot_s_per_frame": 0.5109,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    5.92,
+    6.56
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

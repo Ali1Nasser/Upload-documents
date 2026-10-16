@@ -119,16 +119,22 @@ const demos: DemoModule = {
       },
     },
     {
-      // seamless 10 s loop played behind a kinetic word (the plate never carries meaning): screen blend (CSS mix-blend-mode on the layer host) over the backdrop
+      // seamless 10 s loop played behind a term and a sourced number (the plate never carries meaning; d:6.7:2 = 57 s cache-miss build):
+      // screen blend (CSS mix-blend-mode on the layer host) over the backdrop
       name: 'LoopPlate',
       frames: 120,
-      words: [[LP(1), 12, 36]],
+      words: [[LP(1), 12, 36], [LP(2), 54, 78]],
       shot: {
         fx_tier: 'standard',
         camera: {move: 'push_in', intensity: 0.3},
         layers: [
           {component: 'LoopPlate', props: {id: 'plate', plate: 'demo-aurora-loop', blend: 'screen', opacity: 1, speed: 1, slot: 'full', depth: 'far'}, at: {word: LP(1), lead_frames: 12}},
-          {component: 'KineticWord', props: {id: 'kw', text: 'الـlatency', slot: 'center', size: 'kinetic'}, at: {word: LP(1), lead_frames: 2}},
+          {component: 'KineticWord', props: {id: 'kw', text: 'الـcache', slot: 'center', size: 'kinetic'}, at: {word: LP(1), lead_frames: 2}},
+          {
+            component: 'NumberCounter',
+            props: {id: 'cnt', to: {value: 57, ref: 'd:6.7:2', unit: 's'}, format: 'duration', label: 'زمن البناء', slot: 'lower-third'},
+            at: {word: LP(2), lead_frames: 2},
+          },
         ],
       },
     },
