@@ -80,3 +80,31 @@ Non-blocking, by impact:
 6. Still wanted: a motion strip (frames 0-149 every 6 f) under reports/p7/ for the band travel and the row fade.
 
 What worked: whole-row scroll with no half-cut rows at p50; band, edge bar and pips agree on the active rows; the Arabic footer is the brightest text in the plate, so it carries the sentence.
+
+## SqlStages — round 1
+
+Reviewed: studio/test/baselines/SqlStages/{p0,a1,p50,p100}.png at full size (960x540 lite) and SqlStages.tsx. No motion strip exists. Author: motion-engineer (not the critic). Demo query is verbatim from d:6.3:1 (300, LIMIT 1; confirmed in reports/graph/contradictions.md). Author's change (edge bar as a background layer, not inset box-shadow) is visible in code and in p50 (GROUP BY row: 4 px bar plus band, no artefacts).
+
+Score: 7.2 / 10. Verdict: approved-critic. Blocking issues: none.
+
+| Criterion | Score | Note |
+|---|---|---|
+| Legibility at 1080p | 7.5 | Code about 17 px on the 960 render (about 34 px at 1080p); chips about 15 px. Badges 1-3 on done rows (ink on grid, about 12 px) are the weakest text. |
+| Token / palette discipline | 8.5 | ink / ink2 / ink3 / grid / signal only; semantic colour used for state only. |
+| Depth and light | 6.5 | Glass plate, warming rim, signal pool under the plate, chip glow. Plate is about 550 x 335 of 960 x 540 on a near-flat black field. |
+| Visual verb without narration | 7.5 | p100 reads: SELECT carries 6 while 1-5 run below it, and the rail fills in order. p50 alone (1-4 in order) does not yet show the mismatch. |
+| Arabic | n/a | Latin LTR mono, correct. Arabic captions live in the spec. |
+| No bullet-list look | 7.5 | Reads as an editor plus a pipeline; the two-row chip rail is the nearest thing to a list. |
+| No legacy frames / unsourced numbers | 9 | 300, LIMIT 1 and the clause set trace to d:6.3:1. |
+| Motion intent | 6.5 | Cascade from a1 to p50 to p100 is consistent (previous stage settles, pipe fills). The 6-before-5 jump is inferred from code. |
+
+Blocking: none.
+
+Non-blocking, by impact:
+1. p50 (rows y 145-340, x 210-750): the mismatch is not visible until the late stages. In the spec, anchor stage 6 (SELECT) with a longer hold so the badge 6 lands on row 1 while the lit band jumps back to the top; or ghost a "written 1" tag on SELECT.
+2. p100, rail (x 218-670, y 366-432): the wrap to two rows breaks the pipe between chip 4 and chip 5, so the "flow" is cut. Add an elbow or a "4 > 5" connector, or fit 8 chips in one row at hero tier.
+3. p50, badges 1-3 (x 713-735, y 170-238): ink on grid at about 12 px is low contrast at 1080p. Raise to ink at full opacity or enlarge by 1.25.
+4. p0 is deliberately empty (haze only), as for earlier code-media plates; keep the first anchor within 0.5 s in specs.
+5. Depth and light: plate is small and centred on an empty field. Specs should add a camera push of 4-6 % or a data plate (a result row) beside it.
+6. Snap determinism: the author reports det 0 on 3 of 4 runs; the fourth failed. The baseline is approved on the 3 stable runs, but the residual flake needs a root cause (likely another Glass / backdrop layer, for example the rim `border-box` gradient or the chip `boxShadow`). Log it in corpus/specs/_component_requests.jsonl if it is not resolved in the next pass.
+7. Still wanted: a motion strip (frames 0-229 every 12 f) under reports/p7/ for the badge landing and rail fill.

@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T05:50:16Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.2,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1: no blocking issue. Written-vs-execution mismatch reads at p100 (badge 6 on SELECT, 1-5 below, rail filled). Weak: small plate on empty field, no motion strip, p0 empty, badge 1-3 low contrast, rail wrap breaks the pipe between chips 4 and 5, residual snap determinism flake (1 of 4 runs) unexplained."
 }
