@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-16T18:17:44Z",
+ "created": "2026-10-16T23:23:11Z",
  "label": "OlapCube",
  "thresholds": {
   "ocr_min": 0.9,
@@ -78,7 +78,7 @@
  "per_letter": [],
  "items": [
   {
-   "id": "olap:t0",
+   "id": "s000",
    "text": "العميل",
    "size": 40,
    "render_size": 40,
@@ -114,78 +114,7 @@
    "status": "pass"
   },
   {
-   "id": "olap:t1",
-   "text": "حالة الطلب",
-   "size": 40,
-   "render_size": 40,
-   "kind": "label",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "overflow": {
-    "ink_w": 182,
-    "ink_h": 38,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "حالة الطلب",
-    "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "olap:t2",
-   "text": "الشريحة",
-   "size": 40,
-   "render_size": 40,
-   "kind": "label",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 124,
-    "ink_h": 39,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم الشريحة",
-    "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "olap:t0b",
+   "id": "s001",
    "text": "العميل",
    "size": 64,
    "render_size": 64,
@@ -221,7 +150,42 @@
    "status": "pass"
   },
   {
-   "id": "olap:t1b",
+   "id": "s002",
+   "text": "حالة الطلب",
+   "size": 40,
+   "render_size": 40,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 182,
+    "ink_h": 38,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "حالة الطلب",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s003",
    "text": "حالة الطلب",
    "size": 64,
    "render_size": 64,
@@ -256,7 +220,43 @@
    "status": "pass"
   },
   {
-   "id": "olap:t2b",
+   "id": "s004",
+   "text": "الشريحة",
+   "size": 40,
+   "render_size": 40,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 124,
+    "ink_h": 39,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الشريحة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s005",
    "text": "الشريحة",
    "size": 64,
    "render_size": 64,

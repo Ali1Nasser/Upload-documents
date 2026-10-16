@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "3f5b8814eed4dabb2f352cf66561f2ed2db9977c733e75b139476fa044e84120",
-  "p50": "d5da53aade0f91ecb7111d328607beeeb0b35faea7fb77c7f76019b32525d092",
-  "p100": "e8abc30b0b8797df9a1b2c2bbeae604ab1071dcafe919acfd6470800b48f4839"
+  "p0": "fe5d6f8a492c99247d2ac7d8a247f8e69ce8b73c6f58dd5bed2cf7b1c25b76f7",
+  "a1": "65d1efb8097003173776c6ae67ec6239e5fc26670c234a2c0c46fdea2e1054c3",
+  "p50": "5ac0f87f0e959b1f091cf51d8a7078d47459c9824e63ce79ff5402d51916cfef",
+  "p100": "93771141faa0068b42c9c4887cc80f35249d4243d8b3cb538d57194fde30124f"
  },
  "v": 2,
  "name": "OlapCube",
@@ -27,14 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T18:17:24Z",
+ "written_at": "2026-10-16T23:19:13Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "critic": {
-  "score": 7.0,
-  "date": "2026-10-16",
-  "round": 1,
-  "notes": "Independent full-size read of p0/a1/p50/p100 (960x540 lite), no strip. Projected acrylic cube with lit faces, cyan focus slab over dim cells, upright shaped Arabic axis titles, Latin members in mono, Sigma on the rolled-up axis, no numerals, tokens only. Non-blocking: p0 empty, a1 has no labels, axis-0 member ticks drift ~60 px below the cube floor edge (p50), unfocused cells very faint so seeded heat is not visible, no camera drift/parallax, slice/dice/rollup/drill motion unjudged (no strip)."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

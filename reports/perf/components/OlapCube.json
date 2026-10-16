@@ -2,7 +2,7 @@
  "v": 2,
  "name": "OlapCube",
  "composition": "Demo-OlapCube",
- "at": "2026-10-16T18:40:37Z",
+ "at": "2026-10-16T23:23:01Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 264,
-   "wall_s": 19.23,
-   "box_s_per_frame": 0.0728,
-   "slot_s_per_frame": 0.2184,
+   "wall_s": 18.61,
+   "box_s_per_frame": 0.0705,
+   "slot_s_per_frame": 0.2115,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.26,
-    4.42
+    3.21,
+    3.85
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 3
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 264,
-   "wall_s": 24.62,
-   "box_s_per_frame": 0.0933,
-   "slot_s_per_frame": 0.2799,
+   "wall_s": 23.49,
+   "box_s_per_frame": 0.089,
+   "slot_s_per_frame": 0.267,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.42,
-    5.37
+    3.85,
+    4.37
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 4
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 264,
-   "wall_s": 24.71,
-   "box_s_per_frame": 0.0936,
-   "slot_s_per_frame": 0.2808,
+   "wall_s": 25.02,
+   "box_s_per_frame": 0.0948,
+   "slot_s_per_frame": 0.2844,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.18,
-    5.32
+    4.58,
+    5.15
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 4
    },
    "other_jobs_running": 0
   }
