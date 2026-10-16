@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "fe82c601c627a125be8d1f31dc4451387e365d0d2207ceb084983a638b25d065",
+  "p50": "64c685c9b2d45df48d196930a301aba79a3e3fb0566ca28f0b89d94c401be183",
+  "p100": "d85ccf3150e3af5480d1106e8049791d712035abe1e0909edcf30ec216ddbeeb"
+ },
+ "v": 2,
+ "name": "Spin",
+ "frames": {
+  "p0": 0,
+  "a1": 13,
+  "p50": 47,
+  "p100": 95
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-16T23:19:38Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}
