@@ -32,9 +32,9 @@
  "approval": "approved-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "critic": {
-  "score": 7.3,
+  "score": 7.2,
   "date": "2026-10-16",
   "by": "critic",
-  "notes": "No blocking issue. Non-blocking: lopsided empty-heap state a1, heap capsules float without contact shadow, faint floor labels/grid, no motion strip. See reports/p7/review_struct-b.md StackHeap round 1."
+  "notes": "Independent re-read confirms approval, no blocking issue. Non-blocking: lopsided a1, content fills ~45% of frame with the top 30% empty, heap capsule has no contact shadow, faint floor grid/labels, p50 g/f frames absent so stack push relies on a1/p100 only, no motion strip. See reports/p7/review_struct-b.md StackHeap round 1 re-read."
  }
 }

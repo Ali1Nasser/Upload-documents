@@ -136,3 +136,11 @@ Non-blocking issues (ordered by impact)
 5. all states, region x 0-960 / y 0-140 and 400-540: about 55% of the frame is empty dark; the content band is 250-380 only. Enlarge the whole arrangement ~1.25x or lower the file bar into the frame centre.
 6. p100, region x 220-725 / y 143-190: the file tiles stay unchanged after the copies leave; dim them or add a faint link from tiles to their replicas so b-n to its three chips is traceable.
 7. Supply a motion strip (split morph, flight arcs with light trail, landing, failNode sparks/shake, rereplicate flights) in round 2 so easing and impacts can be judged rather than inferred.
+
+### StackHeap — round 1, independent re-read (2026-10-16)
+
+Re-read p0, a1, p50, p100 at full size (960x540). Confirms the earlier approval: score 7.2, no blocking issue, meta.json stays approved-critic. Reference: Arabic QA pass (OCR 2/2), snap 0 px, no unsourced numbers, no legacy frames, no bullet-list look (rows live in glass slabs with ports and a light-cursor bar). Extra non-blocking observations:
+- p0 is a pre-entrance empty frame (soft vignette only); it carries no signal, so regressions at entrance are undetectable. Consider baselining a frame just after the first push instead.
+- p100, region x 110-460 / y 180-400: the heap capsule and its twin refs read clearly, but the whole scene fills about 45% of the width and the top 30% is empty; scale the arrangement about 1.25x.
+- p100, region x 395-410 / y 335-365: the ref pulse dots sit mid-curve and are the only motion cue in the stills; a strip (push g(y), ref draw, aliasing ring, collect sparks) is still owed to judge easing and impacts (motion 6.5).
+- p50 / p100, region x 60-900 / y 400-490: floor grid and "heap"/"stack" labels are faint, as in the first read (items 4-5).
