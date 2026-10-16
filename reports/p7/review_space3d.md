@@ -293,3 +293,40 @@ None. Status set to approved-critic (lite tier).
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
+
+## TokenStream — round 1
+Reviewed: studio/test/baselines/TokenStream/{p0,a1,p50,p100}.png (960x540, lite, full size, p100 also zoomed 3x) and reports/p7/snap/TokenStream.jpg. Source read (TokenStream.tsx). Arabic QA 4/4 (reports/p7/qa_arabic_TokenStream.json). Standard/hero tiers and a motion strip NOT evidenced. Palette in source is C.* tokens only; no figures except stream positions "#n".
+
+### What works
+- p50/p100: whole-word tiles (Arabic words, Latin sub-words idem / potency / key) sit on a rim-lit channel, right-to-left for Arabic, with the newest tile (مرتين in p50, key in p100) outlined in signal with its "#n" lit and its bars brightest. The "newest is signal" idea reads at a glance.
+- 8 seeded bars rising from each settled tile read as "each token becomes a vector" without narration; seeded heights, no invented numbers. Position ids are stream positions, not vocabulary ids (correct, CR-013 pending).
+- Tile text about 22 px at 960 (about 44 px at 1080p), tokenizer label 28 px floor, "#n" 18 px floor: legible. Gate line at x 790, y 278-350 gives an upstream origin. No bullet look, no legacy frames.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p | 7.5 |
+| Token / palette discipline | 9 |
+| Depth and light | 6 |
+| Visual verb reads without narration | 7.5 |
+| Arabic correct | 9 |
+| Not a slide / bullet look | 7.5 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (stills only) | 5.5 |
+| Polish | 7 |
+Mean 7.9, min 5.5. Overall 7.3 (lite tier only).
+
+### Blocking
+None. Status set to approved-critic (lite tier). Motion (5.5) is below 6 and is carried as a required follow-up, not a blocker, because the slide-out is frame-driven and deterministic in source and p0/a1/p50/p100 are consistent; it must be evidenced before G6b lock.
+
+### Non-blocking, carry forward (ordered by impact)
+1. Motion (a1 to p50, x 600-790, y 250-350): the gate slide-out (moveK 6 frames, up to 300 px travel) and the bar staggered rise are unproven. a1 (frame 11) shows an empty lane with the label only, so a1 does not exercise the first tile. Provide a 6-frame strip around one emit action (anchor-2 to anchor+14) and one across a row wrap.
+2. Depth and light (p100, x 143-815, y 283-345): lite is flat; tiles are darker than the channel (about rgb 23,28,35 vs 27,35,42 channel) so their slab edge is nearly invisible except on the head tile, and there is no visible lift. Raise the tile body value or add a 1 px top highlight on every tile. Standard (light pool, flow dashes) and hero (head bloom) stills are required before final lock.
+3. Composition (p50/p100, y 0-210 and y 360-540): the stream band is about 12 percent of the frame height and about 70 percent of the width; the top and bottom thirds are empty. Fine as a layer in a shot with a title or sibling objects, but alone it reads as a thin strip. Confirm slot use in the pack or scale the tile size up (SIZE.body 40 reached only when it fits one row).
+4. Latin sub-word order in an RTL stream (p100, x 195-430): the stream shows "key potency idem" left to right, which reads backwards for a Latin reader; chronology is correct but a viewer cannot read "idempotency key". Add a subtle continuation mark on sub-word tiles or an assembled-word caption on the last piece.
+5. Tokenizer label (p50, x 706-814, y 208-234) floats about 55 px above and left of the gate line (x 790, y 278-350); a short leader or aligning it to the gate top would bind the label to the gate.
+6. Bars (p100, y 250-285) are unlabelled; a words-anchored "vector" term on the bars (spoken once) would remove ambiguity for the first-time viewer.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.

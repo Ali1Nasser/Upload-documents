@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-16T11:35:59Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.3,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "scope": "lite tier stills only (960x540 p0,a1,p50,p100); standard/hero and motion strip not evidenced",
+  "notes": "Clear verb (tokens slide out of gate, newest is signal, seeded vector bars rise); on-token; Arabic OK. Carry-forward: flat lite depth, low tile/channel contrast, stream fills ~12% of height, unproven slide-out motion and standard/hero tiers, bars unlabelled. See reports/p7/review_space3d.md."
+ }
 }
