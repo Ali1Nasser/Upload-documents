@@ -217,3 +217,18 @@ Non-blocking (ordered by impact)
 4. p100, composition: a one-line label about 940 px wide; the host shot must supply camera, depth and a concrete object. EquationLine alone is not a scene.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 7, visual verb without narration 8, Arabic 9 (isolate only), not a slide 7, no legacy/unsourced 10, motion intent 6 (unverified), polish 6 (empty slab in a1/p50).
+
+## DeepDiveCard — round 1, independent re-read (critic, 2026-10-16)
+
+Reproduces **7/10, approved-critic, no blocking issue**. Re-viewed p0, a1, p50, p100 at full size and snap strip; stored results not re-run. Violet-only accent; no legacy frames; no digits other than demo "P23"/"CH-33" labels. Arabic title reads correctly RTL (Embeddings, والـ, RAG, والـ, Agents, colon, المعنى كموضع).
+
+Blocking: none.
+
+Non-blocking
+1. p100/p50, ghost "P23" (x 140-360 / y 255-355) sits under the title's left end ("كموضع"); dim it under text or shift it down.
+2. p100, dashed return arc (x 175-240 / y 138-212) is very dim and ends short of the rail node's ring; raise the dash opacity one step so "return" reads.
+3. p100, depth and light: haze and floor pool faint (x 250-700 / y 410-500); CH-33 and PREREQ labels small (about 12-14 px at 960).
+4. Motion intent unverified from stills; G8 strip at f0, 4, 8, 12, 24, 48 still required. In a1 the slab's bottom-left rim (x 135-205 / y 393-400) is brighter mid-sweep; confirm it is not a stuck shelf.
+5. Add a 48-character worst-case title baseline.
+
+Scores: legibility 8, palette 9, depth/light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6, polish 7.
