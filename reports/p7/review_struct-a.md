@@ -142,3 +142,18 @@ Non-blocking (fix before pilot use):
 3. p0: pure empty backdrop; the baseline guards nothing, move the first snap to about f6.
 4. Motion: still no 12 fps strip for f300-345 (fs expand) and f440-470 (search descent); needed before pilot use.
 5. p50 (x 360-372 / y 215-232) and p100 (x 480-495 / y 365-378): pulse beads sit at wire ends close to node corners; verify they are sampled on the drawn cubic.
+
+## PipelineStations — round 1 (2026-10-16, critic re-read, baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders)
+
+Verdict: APPROVED (score 7.4, no blocking issue). Independent read agrees with the 7.5 already recorded; meta.json already carries approved-critic (7.5, round 2) and is unchanged.
+
+Read: RTL order correct (first station rightmost; "استخرج/تنقية/تحويل/تحميل"), mixed-script labels "نشر Production", "بناء الـ Image" order correct, Arabic shaped, no numerals, palette cyan/ok/crit/ink only, no legacy frames, not a bullet slide. p50 carries the verb: green ticks behind the gate, crit X gate, 7 px glowing crit dashes ahead of it (x 262-340 / y 235-245), crit data chip with tether and reason chip; reads without narration. Gates about 100 px and labels about 40-48 px at 1080 survive.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. Motion not judged: no strip. Need 12 fps strip of the fail flash and shake (about f104-f124) and the fix ring (about f228-f240); neither is in the baselines.
+2. p50 (x 240-540 / y 100-175): the capsule chip is the largest text in frame and outweighs the crit gate; reduce about 15 %. Its tether (x 388 / y 175-215) is a hairline.
+3. p100 (x 48-235 / y 145-200): chip is 5 % from the left edge, tight to the title-safe margin; shift inward.
+4. p0 is an empty backdrop with two motes (x 736 / y 241); move the first snap frame to about f6.
+5. p0/a1/p50/p100: still a compact stepper with no parallax; add a depth cue (capsule glow trail, slight camera drift) for pilot use.
