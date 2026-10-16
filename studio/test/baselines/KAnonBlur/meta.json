@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T23:00:17Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.6,
+  "date": "2026-10-16",
+  "round": 2,
+  "note": "Chip with larger dots, brackets 48px outside with glow, plate grows with rows: items 3-6 of round 1 resolved. Non-blocking: no motion strip, no baseline at the feathered-band midpoint (about f60), no motes."
+ }
 }

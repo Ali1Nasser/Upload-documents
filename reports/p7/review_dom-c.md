@@ -226,3 +226,33 @@ Overall 7.4 (mean 7.6, held down for composition and unseen motion). Approved-cr
 4. p100, share unit (x 195-210, y 436-446 and the other three): the % glyph is about 8 px at 540p (16 px at 1080p), below the 18 px floor. Raise the unit to about 0.7x of the numeral.
 5. p100, ink pile (x 340-420, y 230-375): the grey AI pile reads as the "dim" pile against the coloured ones; use a token with a hue (for example ok or amber) so the 20 percent share is not visually demoted.
 6. p100, piles (x 140-820, y 330-380): stack edge lines have no count; consider a ref-bound count only if the narration speaks it.
+
+## KAnonBlur — round 1 (critic re-review after author fixes, 2026-10-16)
+
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, full size). No strip was supplied; motion judged from end states plus the grow-with-rows plate visible between p0 and a1.
+
+### Scores
+| Criterion | Score |
+|---|---|
+| Composition (plate now sized to rows: p0 one row, a1 five rows, p100 nine rows; no dead panel) | 7 |
+| Palette and token discipline (warn amber to ok green, ink chip; no stray hue) | 9 |
+| Light and depth (ok rim glow at p100, floor pool at p0/a1, band halos; no motes) | 7 |
+| Legibility at 1080p (headers about 32 px, pills about 24 px, id chip dots about 16 px) | 8 |
+| Visual verb without narration (unique amber marks to identical green bands, 3/2/2/2 groups, brackets) | 8 |
+| Arabic (3 headers, RTL, shaped, qa arabic 0) | 9 |
+| Not a bullet slide, no legacy frames | 8 |
+| Numbers (none; nothing invented) | 9 |
+| Motion intent (end states only) | 6 |
+| AI-Unpacked parity | 7 |
+Overall 7.6 (mean 7.8, held down for unseen motion). Approved-critic, no blocking issue.
+
+### Round 1 items 3-6 verified
+- Item 3: p0 now holds one real row (protects header, chip, pills); a1 fills the plate with five rows, no empty lower panel.
+- Item 4: masked-id chip with four larger dots at x 748-822 reads as "hidden name" at 960 px.
+- Item 5: p100 brackets (x 155-175, y 93-495) now sit clear of the rim with a green glow; they read as group closers.
+- Item 6: p50/p100 pills carry a wider halo; the bands read as soft blur, though the feather is still subtle at 540p.
+
+### Non-blocking, ordered by impact
+1. Motion (all): add a strip (reticle hops, mid-generalise about f60, bracket land) to reports/p7/. Items 1 and 2 of the earlier round remain open; no baseline shows the warn reticle or the mid-feather state.
+2. p100, id chips (x 755-822, y 105-480): the chip is dim grey against green; lift its stroke to ink-high so it holds against the green rim.
+3. p50 vs p100 (x 185-880, y 90-500): the rim glow is the only light on the plate; add a few drifting motes under LK-F (carried from round 1 item 7).
