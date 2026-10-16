@@ -45,7 +45,9 @@ export const beamSets = (props: Props, ctx: LayerCtx): Set_[] => {
   for (const a of actionsOf(ctx, 'attend')) {
     const p = a.props as {from: number; to: number[]};
     const from = Math.min(n - 1, p.from);
-    sets.push({from, beams: mk(from, p.to, (j) => (props.weights ? props.weights[j] ?? 0.1 : 1 / Math.max(1, p.to.length))), t0: a.at});
+    // props.weights is the row of the base focus only: another row has no contract values, so its widths are seeded (visual only, never printed)
+    const row = seededWeights(n, from);
+    sets.push({from, beams: mk(from, p.to, (j) => Math.max(0.1, row[j] ?? 0.1)), t0: a.at});
   }
   return sets;
 };
@@ -77,7 +79,8 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const live = sets.filter((s) => s.t0 <= ctx.frame);
   const cur = live.length ? live[live.length - 1] : sets[0];
   const prev = live.length > 1 ? live[live.length - 2] : null;
-  const showNums = !!props.ref && !!props.weights;
+  const refOn = !!props.ref && !!props.weights;
+  const showNums = refOn && cur === sets[0]; // figures belong to the contract row (the base focus), never to an `attend` row
   const k = enterK(ctx) * exitK(ctx);
   const hsAt = (s: number) => toks.map((t) => chipH(t, s));
   const fit = m
@@ -88,14 +91,14 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const bloom = bloomOf(ctx.fx);
   const arcTop = box.y + 20;
 
-  const anchorOf = (i: number, forNum: boolean): {x: number; y: number} | null => {
+  const anchorOf = (i: number, raise: boolean): {x: number; y: number} | null => {
     if (!lay) return null;
     const p = lay.pos[i];
-    return {x: p.x + p.w / 2, y: p.y - (forNum && showNums ? NUM_H + 6 : 6)};
+    return {x: p.x + p.w / 2, y: p.y - (raise ? NUM_H + 6 : 6)};
   };
   const curve = (a: {x: number; y: number}, b: {x: number; y: number}) => {
     const dx = Math.abs(b.x - a.x);
-    const lift = Math.min(a.y - arcTop, 50 + dx * 0.42);
+    const lift = Math.min(a.y - arcTop, 60 + dx * 0.5);
     return {cx: (a.x + b.x) / 2, cy: Math.min(a.y, b.y) - lift};
   };
   const pt = (a: {x: number; y: number}, c: {cx: number; cy: number}, b: {x: number; y: number}, u: number) => ({
@@ -107,21 +110,42 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const drawBeams = (g: CanvasRenderingContext2D) => {
     if (!lay || k <= 0) return;
     g.lineCap = 'round';
+    // floor (LK-F depth and light): a hairline under the chips that fades out at both ends; standard + hero put a flattened pool of
+    // signal light under the focus chip and under every landing chip (pool size and brightness = the weight), all under the chips
+    const lo = Math.min(...lay.pos.map((q) => q.x));
+    const hi = Math.max(...lay.pos.map((q) => q.x + q.w));
+    const floorY = Math.max(...lay.pos.map((q) => q.y + q.h)) + 16;
+    const fg = g.createLinearGradient(lo - 60, 0, hi + 60, 0);
+    fg.addColorStop(0, rgba(C.grid, 0));
+    fg.addColorStop(0.12, rgba(C.grid, 0.9 * k));
+    fg.addColorStop(0.88, rgba(C.grid, 0.9 * k));
+    fg.addColorStop(1, rgba(C.grid, 0));
+    g.fillStyle = fg;
+    g.fillRect(lo - 60, floorY, hi - lo + 120, 2);
     if (bloom) {
-      // light pool: the focus chip sits on a soft floor of signal light (flattened glow, LK-F depth and light); under the chips
-      const fp = lay.pos[cur.from];
       g.save();
       g.globalCompositeOperation = 'lighter';
-      g.translate(fp.x + fp.w / 2, fp.y + fp.h + 22);
-      g.scale(3.4, 0.4);
-      blit(g, sprite(C.signal, 'glow'), 0, 0, 90, 0.5 * k * moveK(ctx, cur.t0, 8));
+      const pool = (cx: number, r: number, al: number) => {
+        g.save();
+        g.translate(cx, floorY + 6);
+        g.scale(2.6, 0.32);
+        blit(g, sprite(C.signal, 'glow'), 0, 0, r, al);
+        g.restore();
+      };
+      const fp = lay.pos[cur.from];
+      pool(fp.x + fp.w / 2, 100, 0.55 * k * moveK(ctx, cur.t0, 8));
+      const wm0 = wMax(cur);
+      for (const b of cur.beams) {
+        const q = lay.pos[b.to];
+        pool(q.x + q.w / 2, 46 + 40 * (b.w / wm0), 0.5 * (b.w / wm0) * k * moveK(ctx, cur.t0 + b.rank * ff(2, ctx.fps) + ff(4, ctx.fps), 8));
+      }
       g.restore();
     }
     const paint = (s: Set_, vis: number, retract: number) => {
       const wm = wMax(s);
       for (const b of s.beams) {
         const a = anchorOf(s.from, false)!;
-        const e = anchorOf(b.to, true)!;
+        const e = anchorOf(b.to, refOn && s === sets[0])!;
         const c = curve(a, e);
         const u = moveK(ctx, s.t0 + b.rank * ff(2, ctx.fps), 8) * (1 - retract) * vis;
         if (u <= 0.001) continue;
@@ -129,7 +153,7 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const steps = 28;
         const draw = (lw: number, al: number, col: string) => {
           g.globalAlpha = 1;
-          g.strokeStyle = rgba(col, al);
+          g.strokeStyle = rgba(col, al * k);
           g.lineWidth = lw;
           g.beginPath();
           for (let i = 0; i <= steps * u; i++) {
@@ -142,6 +166,13 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         if (bloom) draw(ctx.fx.glowInner * (0.6 + rel), 0.12 * rel * bloom, C.signal);
         draw(2 + 9 * rel, 0.3 + 0.7 * rel, C.signal);
         if (ctx.fx.id !== 'lite') draw(1.2, 0.8 * rel, C.white);
+        // receiver node: a solid dot where the beam lands, sized by the weight (also in lite)
+        if (u >= 0.999) {
+          g.fillStyle = rgba(C.signal, (0.55 + 0.45 * rel) * k);
+          g.beginPath();
+          g.arc(e.x, e.y, 4 + 5 * rel, 0, Math.PI * 2);
+          g.fill();
+        }
       }
     };
     if (prev) paint(prev, 1, moveK(ctx, cur.t0, 6));
@@ -156,7 +187,7 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const period = ff(30, ctx.fps);
     for (const b of cur.beams) {
       const a = f;
-      const e = anchorOf(b.to, true)!;
+      const e = anchorOf(b.to, showNums)!;
       const c = curve(a, e);
       const t1 = cur.t0 + b.rank * ff(2, ctx.fps);
       const u = moveK(ctx, t1, 8);

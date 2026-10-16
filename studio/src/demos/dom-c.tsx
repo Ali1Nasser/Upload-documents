@@ -78,8 +78,8 @@ const raceCondition: DemoDef = {
   },
 };
 
-// QualityGauges: the p95 gate of CH-32 (d:6.11:1..3), the NilePay success rate (d:5.2:7) and the HAVING > 300 gate of the SQL funnel
-// (d:6.3:12, d:6.3:13). A latency gate is a limit that must stay UNDER the threshold, so its status is passed explicitly.
+// QualityGauges: the p95 gate of CH-34 (d:6.11:1..3), the NilePay success rate (d:5.2:7) and the row-count gate of the SQL funnel
+// (14 rows in, 13 survive the JOIN, order 1007 has no customer: d:6.3:2, d:6.3:3). A latency gate is a limit that must stay UNDER the threshold, so its status is passed explicitly.
 const qualityGauges: DemoDef = {
   name: 'QualityGauges',
   frames: 130,
@@ -99,7 +99,7 @@ const qualityGauges: DemoDef = {
             {label: 'p95 قبل التغيير', value: {value: 355, ref: 'd:6.11:2', unit: 'ms'}, threshold: 500, status: 'ok'},
             {label: 'p95 بعد التغيير', value: {value: 675, ref: 'd:6.11:3', unit: 'ms'}, threshold: 500, status: 'fail'},
             {label: 'نسبة نجاح التحويلات', value: {value: 66.67, ref: 'd:5.2:7', unit: '%', decimals: 2}},
-            {label: 'إيراد شريحة silver', value: {value: 850.2, ref: 'd:6.3:12', unit: 'EUR', decimals: 2}, threshold: 300},
+            {label: 'صفوف سليمة بعد JOIN', value: {value: 13, ref: 'd:6.3:2', unit: 'rows'}, threshold: 14},
           ],
         },
         at: A('QualityGauges', 1),

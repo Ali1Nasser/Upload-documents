@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "AIPlate",
+ "composition": "Demo-AIPlate",
+ "at": "2026-10-16T06:26:31Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 120,
+   "wall_s": 7.68,
+   "box_s_per_frame": 0.064,
+   "slot_s_per_frame": 0.192,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.82,
+    3.77
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 120,
+   "wall_s": 27.25,
+   "box_s_per_frame": 0.2271,
+   "slot_s_per_frame": 0.6813,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": false,
+   "loadavg1": [
+    3.55,
+    3.04
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 120,
+   "wall_s": 28.02,
+   "box_s_per_frame": 0.2335,
+   "slot_s_per_frame": 0.7005,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    3.03,
+    2.75
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": false,
+ "qa_findings": []
+}

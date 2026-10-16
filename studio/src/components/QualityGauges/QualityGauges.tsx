@@ -4,6 +4,7 @@
 //   scale  : unit % -> 0..100; otherwise 0..niceCeil(max(value, threshold) x 1.25). The scale ends carry no numerals.
 //   status : the given status, else derived from the threshold: value >= threshold -> ok, below -> fail (a quality score:
 //            higher is better; a limit that must stay UNDER a gate, like a p95, passes `status` explicitly). No threshold -> active.
+//   zones  : with a threshold, the failing side of the track (above a limit, below a floor) is tinted crit.
 //   fail   : the arc turns crit and the dial gives one seeded 5 px failure shake on landing (04 section 3.5).
 // The threshold has no ref in the contract, so it is drawn as an unlabelled tick (no unlabelled shown number).
 // DOM + SVG (standard tier). Number text is mono tabular (NumText); labels are whole elements.
@@ -25,6 +26,19 @@ export const niceCeil = (x: number): number => {
 };
 export const scaleMax = (g: Props['gauges'][number]): number => (g.value.unit === '%' ? 100 : niceCeil(Math.max(g.value.value, g.threshold ?? 0) * 1.25));
 export const gaugeStatus = (g: Props['gauges'][number]): StatusT => g.status ?? (g.threshold === undefined ? 'active' : g.value.value >= g.threshold ? 'ok' : 'fail');
+
+/** The bezel scale as ONE path per weight: 25 ticks over the arc, every 6th one major (static: no per-tick elements). */
+const scaleTicks = (cx: number, cy: number, r: number, major: boolean): string => {
+  let d = '';
+  for (let k = 0; k <= 24; k++) {
+    if ((k % 6 === 0) !== major) continue;
+    const ak = A0 + ((A1 - A0) * k) / 24;
+    const [x0, y0] = polar(cx, cy, r + 22, ak);
+    const [x1, y1] = polar(cx, cy, r + (major ? 10 : 15), ak);
+    d += `M ${x0.toFixed(1)} ${y0.toFixed(1)} L ${x1.toFixed(1)} ${y1.toFixed(1)} `;
+  }
+  return d;
+};
 
 export const QualityGaugesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
@@ -59,31 +73,41 @@ export const QualityGaugesView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const a = A0 + (A1 - A0) * frac;
         const tick = g.threshold === undefined ? null : A0 + (A1 - A0) * clamp01(g.threshold / smax);
         const dec = g.value.decimals;
+        const X = cellW / 2;
+        const Y = cy - row * cellH;
+        // which side fails: a lower-is-better limit (status says so against the value) fails above the tick, a floor below it
+        const lowerBetter = g.threshold !== undefined && ((st === 'ok' && g.value.value < g.threshold) || (st === 'fail' && g.value.value > g.threshold));
+        const failZone = !lowerBetter;
         return (
-          <div key={i} style={{position: 'absolute', left: cx - cellW / 2 + dx, top: row * cellH, width: cellW, height: cellH, opacity: e, visibility: t < t0 ? 'hidden' : undefined}}>
+          <div key={i} style={{position: 'absolute', left: cx - cellW / 2 + dx, top: row * cellH, width: cellW, height: cellH, opacity: e < 1 ? e : undefined, visibility: t < t0 ? 'hidden' : undefined}}>
             <svg width={cellW} height={cellH} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
               {/* dial housing: contact shadow, extruded side, glass face with a lit rim (key light upper right) */}
-              <ellipse cx={cellW / 2} cy={cy - row * cellH + r + 58} rx={r * 1.02} ry={r * 0.13} fill={C.void} fillOpacity={0.6} />
-              <circle cx={cellW / 2} cy={cy - row * cellH + 10} r={r + 36} fill={mix(live, C.void, 0.8)} />
-              <circle cx={cellW / 2} cy={cy - row * cellH} r={r + 36} fill={`${C.panel}F2`} stroke={`${C.ink}${hex(0.16)}`} strokeWidth={2} />
-              <path d={arcPath(cellW / 2, cy - row * cellH, r + 35, 20, 100)} fill="none" stroke={C.ink} strokeOpacity={0.18} strokeWidth={3} strokeLinecap="round" />
-              <path d={arcPath(cellW / 2, cy - row * cellH, r, A0, A1)} fill="none" stroke={C.grid} strokeWidth={26} strokeLinecap="round" />
-              <path d={arcPath(cellW / 2, cy - row * cellH, r, A0, A1)} fill="none" stroke={C.ink3} strokeOpacity={0.22} strokeWidth={26} strokeLinecap="round" />
+              <ellipse cx={X} cy={Y + r + 58} rx={r * 1.02} ry={r * 0.13} fill={C.void} fillOpacity={0.6} />
+              <circle cx={X} cy={Y + 10} r={r + 36} fill={mix(live, C.void, 0.8)} />
+              <circle cx={X} cy={Y} r={r + 36} fill={`${C.panel}F2`} stroke={`${C.ink}${hex(0.16)}`} strokeWidth={2} />
+              <path d={arcPath(X, Y, r + 35, 20, 100)} fill="none" stroke={C.ink} strokeOpacity={0.18} strokeWidth={3} strokeLinecap="round" />
+              {/* engraved scale: 25 minor ticks on the bezel, no numerals (the scale ends carry no numbers) */}
+              <path d={scaleTicks(X, Y, r, false)} fill="none" stroke={C.ink3} strokeOpacity={0.4} strokeWidth={2} strokeLinecap="round" />
+              <path d={scaleTicks(X, Y, r, true)} fill="none" stroke={C.ink3} strokeOpacity={0.7} strokeWidth={3} strokeLinecap="round" />
+              <path d={arcPath(X, Y, r, A0, A1)} fill="none" stroke={C.grid} strokeWidth={26} strokeLinecap="round" />
+              <path d={arcPath(X, Y, r, A0, A1)} fill="none" stroke={C.ink3} strokeOpacity={0.22} strokeWidth={26} strokeLinecap="round" />
+              {/* the side of the gate that fails, tinted on the track (a limit that must stay under it: above; a floor: below) */}
+              {tick !== null ? <path d={failZone ? arcPath(X, Y, r, A0 + 1.5, tick) : arcPath(X, Y, r, tick, A1 - 1.5)} fill="none" stroke={C.crit} strokeOpacity={0.2} strokeWidth={26} /> : null}
               {frac > 0.004 ? (
                 <>
-                  <path d={arcPath(cellW / 2, cy - row * cellH, r, A0, a)} fill="none" stroke={live} strokeOpacity={0.2 + 0.2 * land} strokeWidth={26 + 16 + 10 * land} strokeLinecap="round" />
-                  <path d={arcPath(cellW / 2, cy - row * cellH, r, A0, a)} fill="none" stroke={live} strokeWidth={22} strokeLinecap="round" />
+                  <path d={arcPath(X, Y, r, A0, a)} fill="none" stroke={live} strokeOpacity={0.2 + 0.2 * land} strokeWidth={26 + 16 + 10 * land} strokeLinecap="round" />
+                  <path d={arcPath(X, Y, r, A0, a)} fill="none" stroke={live} strokeWidth={22} strokeLinecap="round" />
+                  <circle cx={polar(X, Y, r, a)[0]} cy={polar(X, Y, r, a)[1]} r={7 + 3 * land} fill={C.ink} />
                 </>
               ) : null}
               {tick !== null ? (
-                <path
-                  d={`M ${polar(cellW / 2, cy - row * cellH, r - 14, tick)[0].toFixed(2)} ${polar(cellW / 2, cy - row * cellH, r - 14, tick)[1].toFixed(2)} L ${polar(cellW / 2, cy - row * cellH, r + 26, tick)[0].toFixed(2)} ${polar(cellW / 2, cy - row * cellH, r + 26, tick)[1].toFixed(2)}`}
-                  stroke={C.ink}
-                  strokeWidth={5}
-                  strokeLinecap="round"
-                />
+                <>
+                  <path d={`M ${polar(X, Y, r - 14, tick)[0].toFixed(2)} ${polar(X, Y, r - 14, tick)[1].toFixed(2)} L ${polar(X, Y, r + 26, tick)[0].toFixed(2)} ${polar(X, Y, r + 26, tick)[1].toFixed(2)}`} stroke={C.ink} strokeWidth={5} strokeLinecap="round" />
+                  {/* gate flag: a small pointer on the bezel, so the tick reads as a limit marker */}
+                  <path d={`M ${polar(X, Y, r + 31, tick - 3)[0].toFixed(2)} ${polar(X, Y, r + 31, tick - 3)[1].toFixed(2)} L ${polar(X, Y, r + 31, tick + 3)[0].toFixed(2)} ${polar(X, Y, r + 31, tick + 3)[1].toFixed(2)} L ${polar(X, Y, r + 44, tick)[0].toFixed(2)} ${polar(X, Y, r + 44, tick)[1].toFixed(2)} Z`} fill={C.ink} />
+                </>
               ) : null}
-              {land > 0 ? <circle cx={cellW / 2} cy={cy - row * cellH} r={r * 0.92} fill={live} fillOpacity={0.05 * land} /> : null}
+              {land > 0 ? <circle cx={X} cy={Y} r={r * 0.92} fill={live} fillOpacity={0.05 * land} /> : null}
             </svg>
             <div style={{position: 'absolute', left: 0, right: 0, top: cy - row * cellH - SIZE.numberBig * 0.42, display: 'flex', justifyContent: 'center'}}>
               <NumText id={`${ctx.id}:v${i}`} value={v} target={g.value.value} decimals={dec} unit={g.value.unit} maxW={r * 1.5} size={n > 3 ? SIZE.sub : SIZE.numberBig * 0.6} color={t >= t1 ? C.ink : C.ink2} glow={land > 0 ? `0 0 ${(ctx.fx.glowPx * land).toFixed(1)}px ${live}${hex(0.6)}` : undefined} />

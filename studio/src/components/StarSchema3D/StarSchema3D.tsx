@@ -27,7 +27,11 @@ const nfc = (s: string) => s.normalize('NFC').trim();
 /** Depth cue: the front of the ring is 1 + DEPTH times the nominal size, the back 1 - DEPTH. */
 const DEPTH = 0.11;
 const FOCUS_SCALE = 1.22;
-const GAP = 16;
+const GAP = 18;
+/** Fact-to-dimension clearance: the foreign-key wire must stay visible, also under the focused (enlarged) plate. */
+const GAP_FACT = 46;
+/** Slab thickness (lit top face and shaded side face, key light upper right) in units of the body size. */
+const THICK = 0.3;
 
 type Plate = {w: number; h: number};
 type Rect = {x: number; y: number; w: number; h: number};
@@ -80,6 +84,7 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const aw = d.attrs.map(() => w[k++]);
       return mk(nw, aw);
     });
+    const dpt = Math.round(fs0 * THICK);
     const wMax = Math.max(...dims.map((q) => q.w));
     const hMax = Math.max(...dims.map((q) => q.h));
     const rect = (rx: number, ry: number, i: number, phi: number, focus: number, rho = 1): Rect => {
@@ -89,13 +94,14 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const f = i === focus ? FOCUS_SCALE : 1;
       const ww = dims[i].w * kk * f;
       const hh = dims[i].h * kk * f;
-      return {x: rho * rx * Math.cos(th) - ww / 2, y: -rho * ry * sn - hh / 2, w: ww, h: hh};
+      const dp = dpt * kk * f; // the faces count as part of the slab: top face above, side face on the right
+      return {x: rho * rx * Math.cos(th) - ww / 2, y: -rho * ry * sn - hh / 2 - dp, w: ww + dp * 0.9, h: hh + dp};
     };
-    const frect = (): Rect => ({x: -fact.w / 2, y: -fact.h / 2, w: fact.w, h: fact.h});
-    const hit = (a: Rect, b: Rect) => a.x < b.x + b.w + GAP && b.x < a.x + a.w + GAP && a.y < b.y + b.h + GAP && b.y < a.y + a.h + GAP;
+    const frect = (): Rect => ({x: -fact.w / 2, y: -fact.h / 2 - dpt, w: fact.w + dpt * 0.9, h: fact.h + dpt});
+    const hit = (a: Rect, b: Rect, g = GAP) => a.x < b.x + b.w + g && b.x < a.x + a.w + g && a.y < b.y + b.h + g && b.y < a.y + a.h + g;
     const all = (rx: number, ry: number): Rect[][] => states.map((s) => [frect(), ...dims.map((_, i) => rect(rx, ry, i, s.phi, s.focus))]);
     const clash = (R: Rect[]) => {
-      for (let i = 0; i < R.length; i++) for (let j = i + 1; j < R.length; j++) if (hit(R[i], R[j])) return true;
+      for (let i = 0; i < R.length; i++) for (let j = i + 1; j < R.length; j++) if (hit(R[i], R[j], i === 0 ? GAP_FACT : GAP)) return true;
       return false;
     };
     const bbox = (S: Rect[][]) => {
@@ -127,7 +133,7 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const s = fit.s;
     const cx = ctx.box.w / 2 - ((b.x0 + b.x1) / 2) * s;
     const cy = ctx.box.h / 2 - ((b.y0 + b.y1) / 2) * s;
-    return {s, fit, rx, ry, cx, cy, fact, dims, hdr, row, padX, padY, iconW, overflow: fit.overflow || residual > 0, fs: fit.fs};
+    return {s, fit, rx, ry, cx, cy, fact, dims, dpt, hdr, row, padX, padY, iconW, overflow: fit.overflow || residual > 0, fs: fit.fs};
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [m.w, props.fact, props.dims, ctx.box.w, ctx.box.h, ctx.id, stKey]);
 
@@ -185,9 +191,18 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const k = (fact ? 0.55 : 0.2) + lit * 0.9;
     const ink = mix(C.ink, C.ground, dim);
     const ink2 = mix(C.ink2, C.ground, dim);
+    const dp = geo.dpt * s * kk;
+    const sw = Math.max(1, 1.5 * s * kk);
+    const top = `0,${dp} ${dp * 0.9},0 ${w + dp * 0.9},0 ${w},${dp}`;
+    const side = `${w},${dp} ${w + dp * 0.9},0 ${w + dp * 0.9},${h} ${w},${dp + h}`;
+    const dm = (c: string) => mix(c, C.ground, dim);
     return (
+      <React.Fragment key={key}>
+      <svg width={w + dp} height={h + dp} style={{position: 'absolute', left: x - w / 2, top: y - h / 2 - dp, overflow: 'visible', ...rv.style}}>
+        <polygon points={top} fill={dm(mix(C.panel, col, fact ? 0.32 : 0.24))} stroke={dm(col)} strokeOpacity={0.75} strokeWidth={sw} strokeLinejoin="round" />
+        <polygon points={side} fill={dm(mix(C.void, col, fact ? 0.16 : 0.1))} stroke={dm(col)} strokeOpacity={0.5} strokeWidth={sw} strokeLinejoin="round" />
+      </svg>
       <div
-        key={key}
         dir={dir}
         style={{
           position: 'absolute',
@@ -196,7 +211,7 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           width: w,
           height: h,
           boxSizing: 'border-box',
-          borderRadius: Math.round(fsT * 0.5),
+          borderRadius: Math.round(fsT * 0.14),
           background: `linear-gradient(180deg, ${alpha(C.panel, 0.96)} 0%, ${alpha(C.ground, 0.93)} 100%)`,
           border: `${Math.max(1.5, 2.2 * s * kk)}px solid ${col}`,
           boxShadow: `inset 0 1px 0 ${alpha(C.ink, 0.14)}, inset 0 0 0 999px ${alpha(col, 0.05 + 0.08 * lit + (fact ? 0.04 : 0))}, ${glow(col, ctx.fx, k)}, 0 ${Math.round(18 * s * kk)}px ${Math.round(40 * s * kk)}px ${alpha(C.void, 0.55)}`,
@@ -224,6 +239,7 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           </div>
         ))}
       </div>
+      </React.Fragment>
     );
   };
 
@@ -242,6 +258,16 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         <ellipse cx={fx0} cy={fy0} rx={geo.rx * s * 1.04 * ringA} ry={geo.ry * s * 1.04 * ringA} fill={`url(#${ctx.id}-disc)`} />
         <ellipse cx={fx0} cy={fy0} rx={geo.rx * s * ringA} ry={geo.ry * s * ringA} fill="none" stroke={C.violet} strokeOpacity={0.4} strokeWidth={2} strokeDasharray="14 10" />
         <ellipse cx={fx0} cy={fy0} rx={geo.rx * s * 0.55 * ringA} ry={geo.ry * s * 0.55 * ringA} fill="none" stroke={C.violet} strokeOpacity={0.16} strokeWidth={1.5} />
+        {/* floor grid in perspective: concentric ellipses + spokes (the plates float over it) */}
+        {[0.3, 0.7, 1.1].map((k) => (
+          <ellipse key={`g${k}`} cx={fx0} cy={fy0} rx={geo.rx * s * k * ringA} ry={geo.ry * s * k * ringA} fill="none" stroke={C.violet} strokeOpacity={0.1} strokeWidth={1.2} />
+        ))}
+        {Array.from({length: 16}, (_, k) => {
+          const a = (k / 16) * 2 * Math.PI;
+          const r0 = 0.3 * ringA;
+          const r1 = 1.1 * ringA;
+          return <line key={`sp${k}`} x1={fx0 + geo.rx * s * r0 * Math.cos(a)} y1={fy0 + geo.ry * s * r0 * Math.sin(a)} x2={fx0 + geo.rx * s * r1 * Math.cos(a)} y2={fy0 + geo.ry * s * r1 * Math.sin(a)} stroke={C.violet} strokeOpacity={0.07} strokeWidth={1.2} />;
+        })}
         {plates.map((p) => {
           const bornD = born[p.i + 1];
           const grow = revealProgress(t - bornD - 1, lab, ease.camera);
@@ -284,7 +310,7 @@ export const StarSchema3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             top: plates[cur.focus].y - plates[cur.focus].h / 2,
             width: plates[cur.focus].w,
             height: plates[cur.focus].h,
-            borderRadius: Math.round(fs0 * s * 0.5),
+            borderRadius: Math.round(fs0 * s * 0.14),
             boxShadow: glow(C.signal, ctx.fx, (1 - (t - cur.t) / (ff * 3)) * 1.1),
             pointerEvents: 'none',
           }}

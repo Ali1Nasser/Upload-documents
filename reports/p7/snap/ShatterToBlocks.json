@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ShatterToBlocks",
  "composition": "Demo-ShatterToBlocks",
- "at": "2026-10-15T22:17:38Z",
+ "at": "2026-10-16T06:21:04Z",
  "frames": [
   0,
   11,
@@ -26,37 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 833 px"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 833 px"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p50",
    "frame": 47,
    "why": "50 %",
-   "determinism_diff_px": 833,
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 833 px"
+   "determinism_diff_px": 828,
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p100",
    "frame": 95,
    "why": "100 %",
-   "pass": false,
-   "error": "not approved (baseline untouched): determinism 833 px"
+   "mismatch_px": 0,
+   "pass": true
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
- "approve_refused": [
-  "determinism 833 px"
- ],
+ "approve": false,
  "pass": false
 }

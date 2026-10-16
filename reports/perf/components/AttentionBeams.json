@@ -2,7 +2,7 @@
  "v": 2,
  "name": "AttentionBeams",
  "composition": "Demo-AttentionBeams",
- "at": "2026-10-15T22:21:46Z",
+ "at": "2026-10-16T06:24:33Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,14 +21,14 @@
  "tiers": {
   "lite": {
    "frames": 120,
-   "wall_s": 7.69,
-   "box_s_per_frame": 0.0641,
-   "slot_s_per_frame": 0.1923,
+   "wall_s": 8.39,
+   "box_s_per_frame": 0.0699,
+   "slot_s_per_frame": 0.2097,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.34,
-    6.58
+    4.73,
+    4.61
    ],
    "queue": {
     "running": 1,
@@ -38,35 +38,35 @@
   },
   "standard": {
    "frames": 120,
-   "wall_s": 19.87,
-   "box_s_per_frame": 0.1656,
-   "slot_s_per_frame": 0.4968,
+   "wall_s": 19,
+   "box_s_per_frame": 0.1583,
+   "slot_s_per_frame": 0.4749,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.13,
-    6.19
+    4.61,
+    3.98
    ],
    "queue": {
     "running": 1,
-    "queued": 2
+    "queued": 3
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 120,
-   "wall_s": 19.71,
-   "box_s_per_frame": 0.1642,
-   "slot_s_per_frame": 0.4926,
+   "wall_s": 20.69,
+   "box_s_per_frame": 0.1724,
+   "slot_s_per_frame": 0.5172,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.85,
-    5.11
+    3.9,
+    3.54
    ],
    "queue": {
     "running": 1,
-    "queued": 2
+    "queued": 4
    },
    "other_jobs_running": 0
   }

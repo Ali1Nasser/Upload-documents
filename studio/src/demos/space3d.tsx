@@ -77,8 +77,10 @@ const demos: DemoModule = {
       },
     },
     {
-      // CH-32: "who does this token look at?" Beams leave the focus token and land on the tokens it attends to; the weights only
-      // set beam width (no figures are printed without a ref), then `attend` re-focuses on the next spoken beat.
+      // CH-32 (04 section 6 "NLP, attention, Transformer": Q.K beams form the attention weights), the same sentence as the matrix demo
+      // below. "رفض" (rejected) looks mostly at "مرتين" (twice) and "الدفع" (the payment), then `attend` re-focuses on "الـAPI" at the next
+      // beat. The weights form one row that sums to exactly 1.000 (d:6.17:2); they set beam width only: no figure is printed (the demo
+      // carries no ref, and the contract holds no per-cell values), so nothing here can be mistaken for a measured number.
       name: 'AttentionBeams',
       frames: 120,
       words: words('AttentionBeams', [6, 16], [40, 52], [78, 92]),
@@ -88,10 +90,10 @@ const demos: DemoModule = {
         layers: [
           {
             component: 'AttentionBeams',
-            props: {id: 'beams', tokens: ['الـproducer', 'بيبعت', 'الرسالة', 'ثم', 'بتتخزن', 'في', 'الـpartition'], focus: 4, weights: [0.05, 0.1, 0.52, 0.04, 0, 0.06, 0.38]},
+            props: {id: 'beams', tokens: ['العميل', 'ضغط', 'الدفع', 'مرتين', 'الـAPI', 'رفض'], focus: 5, weights: [0.04, 0.06, 0.3, 0.38, 0.22, 0]},
             at: at('AttentionBeams', 1),
           },
-          {component: 'AttentionBeams.attend', props: {target: 'beams', from: 6, to: [0, 4, 5]}, at: at('AttentionBeams', 3)},
+          {component: 'AttentionBeams.attend', props: {target: 'beams', from: 4, to: [1, 2, 3]}, at: at('AttentionBeams', 3)},
         ],
       },
     },

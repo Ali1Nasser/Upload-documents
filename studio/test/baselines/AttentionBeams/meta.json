@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
-  "a1": "00850213b7f89c5b1838b2eb759ab5c7193a5c94ee8f21cdec2301594547dba5",
-  "p50": "5ca57d668e89be429d6e35be643a061096bd702215693674d2a838c17bdb1e32",
-  "p100": "c35ce7953e760301a04f6a5a323bd000fdcf2cb03cab9cff7469dcdf4920bb79"
+  "a1": "a87d487517b563a919f2b5ef5e617734007c8b1ae2c94006c8870c9216c9e352",
+  "p50": "c1ffa49870ddb2dcf21a0815e38ab940aecb0b2de4232a5ad2f4f4d52787889f",
+  "p100": "958a3ed57f2b8b03e3ca2d32dfeeedeafc40903905d37f4e0a55979de298a84d"
  },
  "v": 2,
  "name": "AttentionBeams",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-15T22:18:50Z",
+ "written_at": "2026-10-16T06:16:54Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

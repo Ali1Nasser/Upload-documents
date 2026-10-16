@@ -1,7 +1,7 @@
 // AIPlate (catalog: Media). A generated, text-free plate (04 section 10; usable only if ADR-006 enables generated plates) with 2.5D
 // parallax from its depth map: plate + depth_map are PNGs in data/derived/plates/<slug>.png (depth 0 = far, 255 = near).
-//  - DOM only, at every tier (no WebGL: the parallax is a handful of translated layers, so there is nothing to gate behind the hero
-//    tier). The plate is cut once into N slices by depth (lite 3, standard 5, hero 7; see media.tsx buildSlices): slice k keeps the
+//  - 2D canvas only, at every tier (no WebGL: the parallax is a handful of shifted slices composited into ONE canvas, so there is
+//    nothing to gate behind the hero tier and only one compositor layer to pay for). The plate is cut once into N slices by depth (lite 3, standard 5, hero 7; see media.tsx buildSlices): slice k keeps the
 //    pixels with depth >= k / N, so with no motion the stack composites back to the plate exactly, and the pixels a nearer slice hides
 //    are filled from the blurred farther colours (no ghosting when a slice shifts);
 //  - motion: one slow lateral drift over the layer's life (anchor -> `until`, or the shot end), eased with the camera curve; each
@@ -20,6 +20,7 @@ import type {Props} from './schema';
 export const SLICES = {lite: 3, standard: 5, hero: 7} as const;
 const DRIFT_PX = 72;
 const PIVOT = 0.45;
+const OVERSCAN = 0.06;
 const WORK = {lite: [640, 360], standard: [960, 540], hero: [1280, 720]} as const;
 
 /** Per-slice transform at shot frame t (pure; also used by the unit check). */
@@ -28,33 +29,49 @@ export const sliceMotion = (depth: number, u: number, parallax: number): {x: num
   s: 1 + 0.03 * parallax * depth * u,
 });
 
-const SliceCanvas: React.FC<{data: ImageData; style: React.CSSProperties}> = ({data, style}) => {
-  const ref = React.useRef<HTMLCanvasElement>(null);
-  React.useLayoutEffect(() => {
-    ref.current?.getContext('2d')?.putImageData(data, 0, 0);
-  }, [data]);
-  return <canvas ref={ref} width={data.width} height={data.height} style={style} />;
-};
+/** Slices are pasted once into offscreen canvases (one per slice) and composited per frame into ONE visible canvas: a single
+ * compositor layer instead of N full-screen transformed layers (the N-layer DOM version cost 0.30-0.38 box s/frame at 1080p). */
+const toCanvases = (slices: {data: ImageData; depth: number}[]) =>
+  slices.map((s) => {
+    const c = document.createElement('canvas');
+    c.width = s.data.width;
+    c.height = s.data.height;
+    c.getContext('2d')!.putImageData(s.data, 0, 0);
+    return {c, depth: s.depth};
+  });
 
 export const AIPlateView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const n = SLICES[ctx.fx.id];
   const [w, h] = WORK[ctx.fx.id];
   const slices = useDepthSlices(mediaUrl('plates', `${props.plate}.png`), mediaUrl('plates', `${props.depth_map}.png`), n, w, h);
-  if (slices === undefined) return null;
-  if (slices === null) return missingMedia(`plate ${props.plate} / depth ${props.depth_map}`, ctx.preview);
+  const layers = React.useMemo(() => (slices ? toCanvases(slices) : null), [slices]);
   const t = ctx.frame;
   const end = ctx.until ?? ctx.shotDur;
   const u = ease.camera(Math.min(1, Math.max(0, (t - ctx.at) / Math.max(1, end - ctx.at))));
+  const ref = React.useRef<HTMLCanvasElement>(null);
+  React.useLayoutEffect(() => {
+    const g = ref.current?.getContext('2d');
+    if (!g || !layers) return;
+    g.setTransform(1, 0, 0, 1, 0, 0);
+    g.clearRect(0, 0, w, h);
+    g.imageSmoothingEnabled = true;
+    // stage px -> canvas px: the canvas spans the overscanned box (1 + 2 x OVERSCAN of the 1920-wide stage)
+    const k = w / (1920 * (1 + 2 * OVERSCAN));
+    for (const l of layers) {
+      const m = sliceMotion(l.depth, u, props.parallax);
+      g.setTransform(m.s, 0, 0, m.s, (w / 2) * (1 - m.s) + m.x * k, (h / 2) * (1 - m.s));
+      g.drawImage(l.c, 0, 0);
+    }
+    g.setTransform(1, 0, 0, 1, 0, 0);
+  });
+  if (slices === undefined) return null;
+  if (slices === null) return missingMedia(`plate ${props.plate} / depth ${props.depth_map}`, ctx.preview);
   const fadeIn = revealProgress(t - ctx.at, presetFrames('morph', ctx.fps), ease.camera);
   const fadeOut = ctx.until !== undefined && t >= ctx.until ? 1 - revealProgress(t - ctx.until, presetFrames('exit', ctx.fps), ease.camera) : 1;
+  const big = `${(1 + 2 * OVERSCAN) * 100}%`;
   return (
     <div style={{position: 'absolute', inset: 0, overflow: 'hidden'}} data-dc-plate={props.plate}>
-      <div style={{position: 'absolute', inset: '-6%', opacity: fadeIn * fadeOut}}>
-        {slices.map((s, i) => {
-          const m = sliceMotion(s.depth, u, props.parallax);
-          return <SliceCanvas key={i} data={s.data} style={{position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', transform: `translate3d(${m.x.toFixed(2)}px, 0, 0) scale(${m.s.toFixed(5)})`}} />;
-        })}
-      </div>
+      <canvas ref={ref} width={w} height={h} style={{position: 'absolute', left: `-${OVERSCAN * 100}%`, top: `-${OVERSCAN * 100}%`, width: big, height: big, opacity: fadeIn * fadeOut}} />
     </div>
   );
 };

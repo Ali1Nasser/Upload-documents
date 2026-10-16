@@ -392,8 +392,9 @@ const demos: DemoModule = {
     },
     {
       // 04 section 6 "Semantic model & report": a 3D star schema, the fact table at the centre and the dimensions in orbit. The orders
-      // fact (order total and quantity are the shown measures of the data contract section 6.1 / 6.3) is joined to its customers (with
-      // tier), date, product and status dimensions; the orbit turns to the named dimension on its word.
+      // fact (measures total and quantity: columns named in the data contract section 6.2 / 6.3) is joined to customers (id, tier:
+      // d:6.3:1 joins orders to customers on the id and groups by tier), date (section 6.1 date column), product and status (d:6.3:1
+      // filters on the status) dimensions; the orbit turns to the named dimension on its word. Column names only, no printed numbers.
       name: 'StarSchema3D',
       frames: 168,
       words: words('StarSchema3D', [
@@ -411,9 +412,9 @@ const demos: DemoModule = {
               id: 'star',
               fact: {name: 'الطلبات', measures: ['total', 'quantity']},
               dims: [
-                {name: 'العملاء', attrs: ['name', 'tier']},
+                {name: 'العملاء', attrs: ['id', 'tier']},
                 {name: 'التاريخ', attrs: ['day', 'month']},
-                {name: 'المنتج', attrs: ['sku', 'category']},
+                {name: 'المنتج', attrs: ['product']},
                 {name: 'الحالة', attrs: ['status']},
               ],
             },

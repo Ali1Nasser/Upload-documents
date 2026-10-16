@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "7f03fe9189c0a78672b99ad82c8e6a46784c8964bacca0112241c275e68ca172",
-  "a1": "cbcae51858f1073b6ea7a2e2d68123b72dae0060fa2d509edf043f558417b515",
-  "p50": "42f1cf5fc7197acb9b048732e58fe1e24d4c5a7d4e52f9e385aed844229a14b5",
-  "p100": "ab56a90a92b680c99ca632047915651e16dc0eb94d5fc6507c7917389c24da19"
+  "p0": "128b73453d45c1d9165c8fab73d932d1e16422d2a0d5674b95257f34015209fd",
+  "a1": "d96cb6267b6de41ff085f724c2f038ec14952e86602b7bcc0f94aa74dcfe5e1a",
+  "p50": "1f1b7248a2578db8998b407b6846aaaf7f140a8f152ac0351e524a45c0ebbf86",
+  "p100": "c67aaa0511f20087e3e62818db2fc6d499b54837769d505816bb0ee584bed7df"
  },
  "v": 2,
  "name": "AIPlate",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:23:33Z",
+ "written_at": "2026-10-16T06:23:09Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

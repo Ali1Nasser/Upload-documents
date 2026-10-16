@@ -40,7 +40,7 @@ def layer(draw_fn, depth_fn):
     draw_fn(ImageDraw.Draw(lay))
     lay = lay.resize((W, H), Image.LANCZOS)
     col = Image.alpha_composite(col, lay)
-    m = lay.getchannel("A").point(lambda v: 255 if v > 24 else 0)
+    m = lay.getchannel("A").point(lambda v: 255 if v > 3 else 0)
     d = depth_fn(m)
     dep = Image.composite(d, dep, m)
 

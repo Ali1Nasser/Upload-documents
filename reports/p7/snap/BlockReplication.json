@@ -2,7 +2,7 @@
  "v": 2,
  "name": "BlockReplication",
  "composition": "Demo-BlockReplication",
- "at": "2026-10-11T17:12:31Z",
+ "at": "2026-10-16T06:27:00Z",
  "frames": [
   0,
   11,
@@ -40,7 +40,7 @@
    "tag": "p50",
    "frame": 131,
    "why": "50 %",
-   "determinism_diff_px": 668,
+   "determinism_diff_px": 0,
    "pass": false,
    "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
   },

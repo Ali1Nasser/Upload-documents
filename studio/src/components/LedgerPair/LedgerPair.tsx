@@ -6,6 +6,10 @@
 // of both ledgers (sum of the listed amounts: arithmetic over the entries, which carry the refs) roll up and the sign between them
 // is = (ok) or an unequal sign (crit). `mismatch` (state change on its word) marks row `index` (row slots: the source entries in
 // order, then the target-only entries) in crit on both sides. A mismatch never needs the reconcile sweep to show.
+// Depth + light (ADR-003 LK-F, 04 section 1.2): each ledger is a slab with a rim-lit top edge and a lit thickness strip standing on a
+// perspective floor; matched rows are joined by light bridges across the gap (ok beam, a spark travelling with a deterministic phase),
+// mismatched rows by a broken crit bridge with a gap. After the sweep a shaft of light and a floor pool fall on the verdict: ok when the
+// totals are equal, crit when they are not. Plain CSS + SVG (no filter blur, no WebGL): the same render at every tier.
 import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
@@ -35,7 +39,7 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const rows = pairRows(props);
   const rtl = rtlOf(props.left.label, props.right.label, ...props.left.entries.map((e) => e.label), ...props.right.entries.map((e) => e.label));
   const pad = 28;
-  const linkW = 120;
+  const linkW = 150;
   const plateW = Math.floor((W - linkW) / 2);
   const rec = acts(ctx, 'reconcile')[0];
   const mm = acts(ctx, 'mismatch');
@@ -48,7 +52,7 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const nRows = rows.length;
   const headH = Math.round(SIZE.body * 1.9);
   const totH = Math.round(SIZE.body * 2);
-  const rowH = Math.floor(Math.min(SIZE.body * 2, (H - 2 * pad - headH - totH - 20) / nRows));
+  const rowH = Math.floor(Math.min(SIZE.body * 2, (H - 2 * pad - headH - totH - 20 - 64) / nRows));
   const fs = Math.max(SIZE.labelMin, Math.min(SIZE.body, Math.floor(rowH * 0.58)));
   const labels = [...props.left.entries, ...props.right.entries].map((e) => e.label);
   const fLab = useFitProbe(`${ctx.id}:labels`, fs, plateW * 0.46, (s) => probeLabels(labels, s), labels.join('|'));
@@ -70,13 +74,19 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const plateX = (side: 'l' | 'r') => ((side === 'l') !== rtl ? 0 : plateW + linkW);
   const totY = pad + headH + nRows * rowH + 14;
   const plateH = pad + headH + nRows * rowH + totH + 14 + 6;
-  const plateTop = Math.max(0, Math.round((H - plateH) / 2));
+  const plateTop = Math.max(0, Math.round((H - plateH - 40) / 2));
+  const verdict = equal ? C.ok : C.crit;
+  
 
   const cells = (side: 'l' | 'r') => {
     const ledger = side === 'l' ? props.left : props.right;
     return (
       <div style={{position: 'absolute', left: plateX(side), top: plateTop, width: plateW, height: plateH}}>
-        <Plate style={{position: 'absolute', inset: 0, opacity: head, borderRadius: 18}} />
+        <div style={{position: 'absolute', inset: 0, opacity: head, borderRadius: 18, background: `linear-gradient(180deg, ${tint(C.signal, 0.1)} 0%, ${C.panel}F2 9%, ${C.ground}E6 100%)`, borderTop: `2px solid ${tint(C.signal, 0.6)}`, borderLeft: `1px solid ${C.grid}`, borderRight: `1px solid ${C.grid}`, boxShadow: `0 -${Math.round(ctx.fx.glowInner * 0.5)}px ${Math.round(ctx.fx.glowInner * 1.6)}px ${tint(C.signal, 0.14)}, inset 0 1px 0 ${tint(C.ink, 0.1)}`}} />
+        {/* thickness strip under the slab: a darker face with a lit lower edge */}
+        <div style={{position: 'absolute', left: 10, right: 10, top: plateH - 2, height: 12, opacity: head, borderRadius: '0 0 14px 14px', background: `linear-gradient(180deg, ${C.grid} 0%, ${C.void} 100%)`, borderBottom: `1px solid ${tint(C.signal, 0.25)}`}} />
+        {/* floor pool under the slab: signal at rest, the verdict colour once the totals land */}
+        <div style={{position: 'absolute', left: -pad, right: -pad, top: plateH + 6, height: 44, opacity: head * (0.55 + 0.45 * totQ), background: `radial-gradient(ellipse at 50% 0%, ${tint(totQ > 0 ? verdict : C.signal, totQ > 0 ? 0.3 + 0.2 * fl : 0.16)} 0%, ${tint(C.signal, 0)} 70%)`}} />
         <div style={{position: 'absolute', left: pad, right: pad, top: pad * 0.6, height: headH, display: 'flex', alignItems: 'center', opacity: head}}>
           <Lbl id={`${ctx.id}:n${side}`} text={ledger.label} size={fName.size} color={C.ink} weight={600} overflow={fName.overflow} />
         </div>
@@ -104,20 +114,35 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         {/* total row */}
         <div style={{position: 'absolute', left: pad, right: pad, top: totY, height: 2, background: tint(C.ink3, 0.6), opacity: totQ}} />
         <div dir="ltr" style={{position: 'absolute', left: pad, right: pad, top: totY + 8, height: totH - 12, display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: totQ}}>
-          <NumText id={`${ctx.id}:t${side}`} text={fmt(roll(t, afterSweep - per, afterSweep + per * 3, 0, side === 'l' ? sumL : sumR), dec)} unit={unit} size={sz} color={equal ? C.ok : C.ink} fx={ctx.fx} glowK={0.3 + fl} ca />
+          <NumText id={`${ctx.id}:t${side}`} text={fmt(roll(t, afterSweep - per, afterSweep + per * 3, 0, side === 'l' ? sumL : sumR), dec)} unit={unit} size={sz} color={equal ? C.ok : C.crit} fx={ctx.fx} glowK={0.3 + fl} ca />
         </div>
       </div>
     );
   };
   const midX = plateW + linkW / 2;
+  // second plane (depth): a faint perspective floor under the slabs; its band covers only the strip below them (bounded raster)
+  const gy = plateTop + plateH + 10;
+  const gh = Math.max(8, H - gy);
+  const floorGrid = (
+    <svg key="floor" width={W} height={gh} viewBox={`0 ${gy} ${W} ${gh}`} style={{position: 'absolute', left: 0, top: gy}}>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <line key={`fh${i}`} x1={0} x2={W} y1={gy + 4 + i * i * 3} y2={gy + 4 + i * i * 3} stroke={tint(C.signal, (0.1 - i * 0.015) * head)} strokeWidth={1.5} />
+      ))}
+      {[-6, -4, -2, 0, 2, 4, 6].map((i) => (
+        <line key={`fv${i}`} x1={W / 2 + i * W * 0.04} x2={W / 2 + i * W * 0.12} y1={gy} y2={H} stroke={tint(C.signal, 0.08 * head)} strokeWidth={1.5} />
+      ))}
+    </svg>
+  );
   return (
     <Shell ctx={ctx}>
       {fLab.probe}
       {fAmt.probe}
       {fName.probe}
+      {floorGrid}
+      {totQ > 0 ? <div style={{position: 'absolute', left: plateW * 0.35, width: 2 * plateW + linkW - plateW * 0.7, top: plateTop + totY - rowH * 2.2, height: rowH * 2.2 + totH, opacity: 0.4 * totQ * (0.7 + 0.3 * fl), background: `radial-gradient(ellipse at 50% 100%, ${tint(verdict, 0.3)} 0%, ${tint(verdict, 0)} 70%)`}} /> : null}
       {cells('l')}
       {cells('r')}
-      <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}>
+      <svg width={linkW} height={H} viewBox={`${plateW} 0 ${linkW} ${H}`} style={{position: 'absolute', left: plateW, top: 0}}>
         {rows.map((rw, i) => {
           const y = plateTop + rowY(i) + (rowH - 8) / 2;
           const k = rec ? revealProgress(t - markAt(i), presetFrames('label', ctx.fps), ease.arrive) : 0;
@@ -126,7 +151,20 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const col = ok ? C.ok : C.crit;
           return (
             <g key={i} opacity={k}>
-              <line x1={midX - 38} x2={midX + 38} y1={y} y2={y} stroke={tint(col, 0.5)} strokeWidth={3} strokeDasharray={ok ? undefined : '6 8'} />
+              {ok ? (
+                <>
+                  <line x1={plateW} x2={plateW + linkW} y1={y} y2={y} stroke={tint(col, 0.16)} strokeWidth={14} strokeLinecap="round" />
+                  <line x1={plateW} x2={plateW + linkW} y1={y} y2={y} stroke={tint(col, 0.75)} strokeWidth={4} />
+                  <circle cx={plateW + linkW * ((((t - ctx.at) / (1.4 * ctx.fps) + i * 0.17) % 1 + 1) % 1)} cy={y} r={7} fill={tint(C.white, 0.9 * k)} />
+                </>
+              ) : (
+                <>
+                  <line x1={plateW} x2={midX - 30} y1={y} y2={y} stroke={tint(col, 0.14)} strokeWidth={12} strokeLinecap="round" />
+                  <line x1={midX + 30} x2={plateW + linkW} y1={y} y2={y} stroke={tint(col, 0.14)} strokeWidth={12} strokeLinecap="round" />
+                  <line x1={plateW} x2={midX - 30} y1={y} y2={y} stroke={tint(col, 0.75)} strokeWidth={4} strokeDasharray="10 7" />
+                  <line x1={midX + 30} x2={plateW + linkW} y1={y} y2={y} stroke={tint(col, 0.75)} strokeWidth={4} strokeDasharray="10 7" />
+                </>
+              )}
               <circle cx={midX} cy={y} r={20} fill={C.ground} stroke={col} strokeWidth={3.5} />
               {ok ? <polyline points={`${midX - 9},${y} ${midX - 2},${y + 8} ${midX + 10},${y - 8}`} fill="none" stroke={col} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" /> : <path d={`M${midX - 8} ${y - 8} L${midX + 8} ${y + 8} M${midX + 8} ${y - 8} L${midX - 8} ${y + 8}`} stroke={col} strokeWidth={4} strokeLinecap="round" />}
             </g>

@@ -87,21 +87,22 @@ const buildClones = (i: SettledInfo, props: Props, t: number, n: number, fxId: s
   host.appendChild(shadows);
   for (const c of cells) {
     const m = shardAt(c, t, n);
+    const lift = Math.min(1.15, m.p);
     const [dx, dy] = clampCell(c, m.dx, m.dy, safe);
-    const place = `position:absolute;left:0;top:0;width:${W}px;height:${H}px;transform-origin:${px(c.cx)} ${px(c.cy)};transform:translate(${px(dx)},${px(dy)}) rotate(${m.rot.toFixed(3)}deg)`;
-    // the clip-path sits on the transformed element itself (a clip on a child of a transformed box made the raster tiles flaky)
+    // every piece is a CELL-sized box (not a frame-sized layer: 32 frame-sized rotated layers made the raster tiles flaky), rotated about
+    // its own centre; the clone sits inside it, shifted back so it lines up with the original pixels, and overflow clips it
+    const place = `position:absolute;left:${px(c.r.x)};top:${px(c.r.y)};width:${px(c.r.w)};height:${px(c.r.h)};transform-origin:50% 50%;transform:translate(${px(dx)},${px(dy)}) rotate(${m.rot.toFixed(3)}deg)`;
     const blk = doc.createElement('div');
-    blk.style.cssText = `${place};clip-path:inset(${px(c.r.y)} ${px(W - c.r.x - c.r.w)} ${px(H - c.r.y - c.r.h)} ${px(c.r.x)})`;
+    blk.style.cssText = `${place};overflow:hidden`;
     const under = doc.createElement('div');
     under.style.cssText = place;
-    const box = `left:${px(c.r.x)};top:${px(c.r.y)};width:${px(c.r.w)};height:${px(c.r.h)}`;
+    const box = `left:0;top:0;width:100%;height:100%`;
     // drop shadow (key light upper right: it falls to the lower left), growing with the lift of the burst
-    const lift = Math.min(1.15, m.p);
     const sh = doc.createElement('div');
     sh.style.cssText = `position:absolute;${box};box-shadow:${(-lift * 6).toFixed(1)}px ${(4 + lift * 10).toFixed(1)}px ${(8 + lift * 20).toFixed(1)}px ${C.void}${hex(0.5 + 0.3 * Math.min(1, lift))}`;
     for (const tg of i.targets) {
       const wrap = doc.createElement('div');
-      wrap.style.cssText = `position:absolute;left:0;top:0;width:${W}px;height:${H}px;transform-origin:${mineCs.transformOrigin};transform:${inv || 'none'}`;
+      wrap.style.cssText = `position:absolute;left:${px(-c.r.x)};top:${px(-c.r.y)};width:${W}px;height:${H}px;transform-origin:${mineCs.transformOrigin};transform:${inv || 'none'}`;
       const clone = tg.cloneNode(true) as HTMLElement;
       clone.removeAttribute('data-dc-layer');
       clone.querySelectorAll('[data-dc-text]').forEach((e) => e.removeAttribute('data-dc-text'));
@@ -138,7 +139,7 @@ export const ShatterToBlocksView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     (i) => buildClones(i, props, t, n, ctx.fx.id),
   );
   return (
-    <div ref={ref} style={{position: 'absolute', inset: 0, pointerEvents: 'none', opacity: exitK(ctx)}}>
+    <div ref={ref} style={{position: 'absolute', inset: 0, pointerEvents: 'none', opacity: exitK(ctx), willChange: 'transform'}}>
       <div data-shards style={{position: 'absolute', inset: 0}} />
     </div>
   );
