@@ -280,3 +280,15 @@ Non-blocking, by impact:
 Verdict: APPROVED, 7.3/10 unchanged, no blocking issue. meta.json already carries approved-critic (7.3); left unchanged. Re-read p0, a1, p50, p100 at full size (960x540 lite); no motion strip exists, so lift arc and mean-drop line are still judged from code plus stills. Snap re-run (diff 0/0/0/0) matches the stills.
 Confirmed: a1 shows the empty beaker, a sliver of liquid and two blocks on the base; p50 shows cyan lit dots in the dish and a filling beaker; p100 shows rings at the origin positions, dots in the beaker and a 2-high bin. The `5 000 طلب` label is correct RTL (digits LTR, unit to the left). The population value is a prop with a ref (CR-009 / D2 ruling 2: dots decorative). Palette is tokenised, no legacy frames, not a bullet slide.
 Non-blocking, unchanged and still open: (1) all stills, lower-left: dead band between beaker and histogram; (2) p50/p100, histogram: blocks and base slab are small and low-contrast; (3) all stills: no motes or parallax, depth is the weakest axis; (4) p0: empty vignette, move past entrance; (5) mean-drop line not visible in any still, so add a strip (11, 30, 50, 75, 107, 150, 215) and 1080p baselines before the pilot.
+
+### ABSplit — round 1 (2026-10-16, critic, independent re-read, not the author)
+
+Verdict: APPROVED, 7.0/10 unchanged, no blocking issue. Re-read p0, a1, p50, p100 at full size (960x540 lite) plus a code grep of ABSplit.tsx (no hex/rgb literals, no digits drawn, tank dots decorative with no count). No code changed; snap, perf and `dc qa arabic` not re-run (earlier results trusted). No motion strip exists, so stream drift, die roll and bar growth are judged from stills and code only.
+Confirmed: RTL flow reads right to left (tank, violet die, two lane cards); a1 both bars empty, p50/p100 A partial cyan vs B full ok-green with check ring and floor glow; Arabic "النسخة A / B" joined and BiDi-correct; not a bullet slide; no legacy frames; no unsourced numbers (D1 respected).
+Scores: composition 6.5, tokens 8, light and depth 7, Arabic 8.5, legibility 7.5, verb 7.5, no-bullet-look 8.5, numbers 10, motion intent 6.5, parity 6.5. Mean 7.0, min 6.5.
+Non-blocking, by impact (all unchanged and still open):
+1. p50/p100, bar region of both cards: no metric caption, so what is compared is unsaid; add a small Arabic caption chip at the bar start.
+2. a1/p50/p100, composition: tank about 85x185 px and the die about 55 px are small; cards have a dead band between label and bar. Scale the set about 1.2 at 1080p and rebalance margins.
+3. p50/p100, lanes: 2 px trails thin out before the cards; thicken and dim loser card A to about 70 %.
+4. a1/p50, tank region: cyan dots do not read as users; add tiny avatar motes.
+5. p0 is an empty vignette (move past entrance). Before the pilot: motion strip (0, 11, 40, 83, 125, 167) and 1080p baselines; CR-010 (optional rate/users) still needs a Council ADR before film use.
