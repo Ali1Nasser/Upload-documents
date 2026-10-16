@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T17:50:18Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "by": "critic",
+  "notes": "Approved, no blocking. Motion (reticle hops, feathered band mid-generalize, bracket close) not seen in stills; no strip exists. Table sits low-contrast on dead right id column; p0 baseline near-empty."
+ }
 }

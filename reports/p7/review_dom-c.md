@@ -162,3 +162,35 @@ Overall 7.0 (mean 7.3, held down for flat composition and unseen motion). Approv
 5. a1 to p100, outbox (x 750-885, y 270-415): the left arrow in an empty dashed box reads as "back", not "outbox". Use an envelope stack or tray icon, and show a pending count only if ref-bound.
 6. p100, ledger rows (x 150-515, y 160-235): two grey bars are blank and the pips (x 295-370, y 445-465) have no legend; the second pip is amber with nothing saying duplicate. Add a ref-bound callout via CalloutArrow when specs use it.
 7. p0 baseline is empty and protects nothing; rewrite at frame ~6 when baselines are regenerated.
+
+## KAnonBlur — round 1 (critic, 2026-10-16)
+
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, full size) and reports/p7/snap/KAnonBlur.jpg. No motion strip exists; the linkage reticle hops, the feathered-band widening and the bracket close were judged from end states, not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition | 6 |
+| Palette and token discipline (amber warn sharp marks, green ok groups and brackets, no stray hues) | 9 |
+| Light and depth (acrylic table, ok-tinted rim and floor glow at p100; no motes, no reticle light) | 7 |
+| Legibility at 1080p (header labels about 32 px, row pills about 24 px tall, id dots about 4 px) | 7 |
+| Visual verb without narration (unique amber marks to identical green rows in groups of 2-3, closed by brackets) | 8 |
+| Arabic (3 headers, RTL order, shaping correct, qa arabic PASS, ocr 1.0, no digits) | 9 |
+| Not a bullet slide, no legacy frames | 8 |
+| Numbers (none shown; nothing invented) | 9 |
+| Motion intent (end states only) | 5 |
+| AI-Unpacked parity | 6 |
+Overall 7.0 (mean 7.4, held down for unseen motion and flat composition). Approved-critic, no blocking issue.
+
+### What works
+- a1 to p50 to p100 tells k-anonymity without words: five distinct amber pills become matching green pills, rows slide into 3/2/2/2 groups, each closed by a green bracket and a green rim. Colour carries the state (warn to ok), headers recolour with their column.
+- Table of marks, not bullets; token-only palette; Arabic headers clean.
+
+### Non-blocking issues, ordered by impact
+1. Motion (all): no strip. Add frames at reticle hop 1 and 2 (about f14-f30), mid-generalize (about f50-f70, the feathered band) and bracket land to reports/p7/ so the verb is seen, not inferred. The warn reticle appears in none of the four baselines (a1 is f7, before the first hop).
+2. Intermediate state (baselines): no baseline between a1 (f7) and p50 (f94) shows the feathered band, which is the component's signature. Add a baseline at about f60 when baselines are next regenerated.
+3. a1 (x 190-870, y 100-490): rows fill only the top 190 px at 540p; the lower 60% of the table is an empty panel. Stagger rows in sooner or size the panel to the visible rows; p0 (a frame with one row) protects nothing, rewrite at about f6.
+4. p50 and p100, id column (x 700-880, y 100-480): the masked identifier is four 2 px dots in a 180 px dead column; it reads as an empty gutter. Enlarge the dots to about 3x or add a masked-bar chip so "hidden name" registers at 960 px.
+5. p100, brackets (x 170-182, y 95-210, 230-300, 322-398, 418-490): the brackets touch the table rim and read as stray edge lines; offset them 10-14 px outside the panel and add a subtle ok glow.
+6. p50 and p100, band pills (x 200-690): the pills have a halo but no visible feather; at 540p they look like glowing pills, not blurred bands. Widen the halo falloff so the generalisation reads as blur.
+7. Depth (all): no motes or reflection on the glass face; add a few drifting motes under LK-F so the table is lit space, not a flat card.
