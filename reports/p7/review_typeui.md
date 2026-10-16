@@ -130,3 +130,25 @@ Non-blocking (ordered by impact)
 5. Baselines cover a single title; add a short-title and a 48-character worst-case baseline to prove the auto-fit.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 5 (unverified), polish 8. Mean of the main axes lands at 7.
+
+## DeepDiveCard — round 1 (critic, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540), title strip crops at 2x, reports/p7/snap/DeepDiveCard.jpg. Violet is the 04 §33 Deep-Dive accent; no other hue, so palette is clean. Chips (kNN, chunk, embedding) and P23 are demo props, not numbers claimed as fact.
+
+Checks
+- Legible at 1080p: DEEP DIVE tag, bold Arabic title (~28 px at 960, 56 px at 1080), ink2 English subtitle and mono chips all readable. CH-33 and PREREQ labels are the smallest text (about 14 / 12 px at 960).
+- Visual verb: lit node on a ticked trunk rail, violet branch merging into the slab's top rim at x~705, dim dashed return arc rising from the slab at x~240 back to the rail node at x~175. It reads as "step off the trunk, dive, come back" without narration.
+- Arabic: the title is one whole string; visual order is correct RTL (Embeddings, والـ, RAG, والـ, Agents then the colon to its left, then المعنى كموضع). Latin runs isolated, tatweel joins intact, no per-letter animation, tight single-line fit.
+- Not a bullet slide: it is a rim-lit glass slab with a rail, branch and arc. No legacy frames. p0 is pure ground haze (correct, 0 %).
+
+Blocking issues: none.
+
+Non-blocking (ordered by impact)
+1. a1/p50/p100, motion intent: the branch draw, RTL title wipe, ripple rings, rim sweep and arc rise cannot be shown by stills. Ripple rings are not visible in any baseline. Strip at anchor-2, 0, +2, +4, +8, +16 requested at G8, plus a baseline at about f4 and one at about f20 so the wipe and arc are regression-guarded.
+2. p50/p100, haze and floor pool (haze x 560-900 / y 20-200; pool x 250-700 / y 410-500): both are faint at normal gain; depth and light score 6-7. Lift the pool one step or let the host shot supply light.
+3. p50/p100, ghost numeral P23 (x 140-360 / y 255-355): outline is very faint and collides with the Arabic title's left end ("كموضع", x 155-250). Dim it where it crosses text or shift it down-left.
+4. p100, CH-33 label (x 700-750 / y 128-146) and PREREQ (x 748-802 / y 358-370): small and low contrast against the slab; raise ink2 one step or scale 1.15x.
+5. a1, slab bottom rim (x 135-205 / y 393-400): a brighter partial segment shows while the rim is still sweeping; acceptable mid-motion but confirm on the strip that it is not a stuck shelf.
+6. Baselines cover a single title; add a 48-character worst-case baseline to prove auto-fit.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 8. Mean of the main axes lands at 7.
