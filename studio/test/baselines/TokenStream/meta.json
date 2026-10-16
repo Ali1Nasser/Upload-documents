@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
-  "a1": "b5d1e13019ad773ceffb3e7c7afea40ef0a0fcbf89d31e2d9d372445a717e6aa",
-  "p50": "26201def5f26b2cd5fbcdc066b28272540cf9c52895a94d47f9678debe4175da",
-  "p100": "f74c4a53c526fe76c63301f39678f598e729c1781451a4431d609541d7f4a728"
+  "a1": "2df6049f538df66bc2c102a4e0b4046a26b0161cd1e624d667d996670f5f642e",
+  "p50": "cd553ffe0150b9906bfed258289f3fcfa31af702d84ffcf1ed72b4f09e2f160a",
+  "p100": "cdc66a67985f6a180a32e86397eea9d116889027742e06630e9bba9c814e8b50"
  },
  "v": 2,
  "name": "TokenStream",
@@ -27,16 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T11:35:59Z",
+ "written_at": "2026-10-16T23:31:36Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7.3,
-  "date": "2026-10-16",
-  "reviewer": "critic",
-  "scope": "lite tier stills only (960x540 p0,a1,p50,p100); standard/hero and motion strip not evidenced",
-  "notes": "Clear verb (tokens slide out of gate, newest is signal, seeded vector bars rise); on-token; Arabic OK. Carry-forward: flat lite depth, low tile/channel contrast, stream fills ~12% of height, unproven slide-out motion and standard/hero tiers, bars unlabelled. See reports/p7/review_space3d.md."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

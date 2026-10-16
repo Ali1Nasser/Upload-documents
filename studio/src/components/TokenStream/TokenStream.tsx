@@ -102,7 +102,9 @@ export const TokenStreamView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const gateX = rtl ? box.x + box.w + 26 : box.x - 26; // the tokenizer gate: where tiles come out
   const tileH = ch(size);
   const rowTop = (r: number) => y0 + r * (rowH + ROW_GAP) + VEC_H; // top of the tile row r
-  const slide = (t: Tile) => Math.min(300, Math.abs(gateX - (t.x + t.w / 2)));
+  // a new tile never crosses a settled one (that would overprint text): it eases out of the gate over a short run, dropping onto the channel
+  const slide = (t: Tile) => Math.min(70, Math.abs(gateX - (t.x + t.w / 2)));
+  const DROP = 34; // px the tile falls onto the channel while it arrives
 
   const rect = {x: box.x - 120, y: box.y - 60, w: box.w + 240, h: box.h + 120};
   // channel: a rim-lit glass strip behind each row of tiles (contact shadow below, light pool in standard+), the gate, flow dashes, then
@@ -181,6 +183,12 @@ export const TokenStreamView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.fillStyle = rgba(C.white, 0.5 * gate);
       g.fillRect(gx - 0.5, by + 4, 1, bh - 8);
     }
+    // leader: binds the tokenizer label to the gate it names
+    if (props.tokenizer) {
+      const ly0 = rowTop(0) - VEC_H - 12 - 6 + chipH(props.tokenizer, SIZE.labelMin);
+      g.fillStyle = rgba(C.signal, 0.55 * gate);
+      g.fillRect(gateX - 1, ly0, 2, rowTop(0) - 22 - ly0);
+    }
     lay.tiles.forEach((t) => {
       const t0 = times[t.i];
       if (!Number.isFinite(t0)) return;
@@ -258,10 +266,11 @@ export const TokenStreamView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             if (!Number.isFinite(t0)) return null;
             const k = moveK(ctx, t0, 6, ease.arrive);
             const head = t.i === lastEmitted;
-            const dx = -dirK * (1 - k) * slide(t); // slides out of the gate (the right for Arabic, the left for Latin)
+            const dx = -dirK * (1 - k) * slide(t); // eases out of the gate (the right for Arabic, the left for Latin) and drops onto the channel
+            const dy = -(1 - k) * DROP;
             const ty = rowTop(Math.round(t.y / (rowH + ROW_GAP)));
             return (
-              <div key={t.i} style={{position: 'absolute', left: 0, top: 0, transform: `translateX(${dx.toFixed(2)}px)`}}>
+              <div key={t.i} style={{position: 'absolute', left: 0, top: 0, transform: `translate(${dx.toFixed(2)}px, ${dy.toFixed(2)}px)`, opacity: Math.min(1, k * 1.6)}}>
                 <Chip ctx={ctx} id={`${ctx.id}:t${t.i}`} text={toks[t.i]} size={size} x={t.x} y={ty} t0={t0} accent={head ? C.signal : undefined} color={head ? C.ink : C.ink2} overflow={fit.overflow} alpha={1} />
                 {props.show_ids ? (
                   <div
