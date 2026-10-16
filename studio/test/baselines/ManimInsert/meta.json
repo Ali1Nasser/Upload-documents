@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "1e79f2140f3f254d98e6af9073d153772cfa96a5a100368acc2c3cf8c91f4332",
-  "p50": "aba28338badb7ae93cef86a947336f17c4a7cece9b4151377b69a1c31fb1a0f3",
-  "p100": "f38215ccfc466e3b741ffa4764ff50562769eb37eb57feb27dd7ea55b89cb621"
+  "a1": "7079a1758250db655d71158152ebbb486fa5eec027ce9059f26bde95af9b9026",
+  "p50": "927b8686f98cbde8c057a8d8ecbcffa2ef33f447ffc09347b2eac9d6b5c08503",
+  "p100": "6d6729dd13c7f297c41bed3cad4214e47f1a42220b2ea6976d77e3cc8c028401"
  },
  "v": 2,
  "name": "ManimInsert",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:31:12Z",
+ "written_at": "2026-10-16T23:30:39Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

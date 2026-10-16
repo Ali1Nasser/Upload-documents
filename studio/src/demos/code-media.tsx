@@ -149,7 +149,7 @@ const demos: DemoModule = {
         layers: [
           {component: 'ManimInsert', props: {id: 'insert', clip: 'demo-normal-95', alpha: true, fit: 'contain', slot: 'center', depth: 'mid'}, at: {word: MI(1), lead_frames: 2}},
           {component: 'KineticWord', props: {id: 'kw', text: 'التوزيع الطبيعي', slot: 'upper-third', size: 'kinetic'}, at: {word: MI(2), lead_frames: 2}},
-          {component: 'NumberCounter', props: {id: 'cnt', to: {value: 0.975, ref: 'd:6.12:5', decimals: 3}, format: 'decimal', label: 'المساحة حتى 1.96', size: 'sub', slot: 'lower-third'}, at: {word: MI(3), lead_frames: 2}},
+          {component: 'NumberCounter', props: {id: 'cnt', to: {value: 0.975, ref: 'd:6.12:5', decimals: 3}, format: 'decimal', label: 'المساحة قبل 1.96', size: 'sub', slot: 'lower-third'}, at: {word: MI(3), lead_frames: 2}},
         ],
       },
     },

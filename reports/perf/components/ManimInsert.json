@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "ManimInsert",
+ "composition": "Demo-ManimInsert",
+ "at": "2026-10-16T23:27:43Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 130,
+   "wall_s": 10.65,
+   "box_s_per_frame": 0.0819,
+   "slot_s_per_frame": 0.2457,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    2.87,
+    4.11
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 130,
+   "wall_s": 17.74,
+   "box_s_per_frame": 0.1365,
+   "slot_s_per_frame": 0.4095,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.11,
+    4.51
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 130,
+   "wall_s": 17.81,
+   "box_s_per_frame": 0.137,
+   "slot_s_per_frame": 0.411,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.51,
+    4.67
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
