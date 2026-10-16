@@ -43,6 +43,22 @@ Non-blocking (priority order, fix before pilot use):
 4. f330 vs expand: the fs frame already shows tests/test_clean.py before the expand action is visible; supply a 12 fps strip for frames 300-345 (expand grow-out and re-flow) and 440-470 (search probe descent) at round 2, since stills cannot show motion intent. f385 exit blur is heavy (whole tree below ~25 % brightness); confirm it is one beat only.
 5. No particles/parallax/depth falloff on idle nodes (04 section 5 standard); rely on DepthLayers at scene level but add a light idle-node depth scale.
 
+## TreeView - round 1 (re-read) (2026-10-16, critic, independent fresh read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; confirms the 2026-10-15 round 1)
+
+Verdict: APPROVED (score 7.1, no blocking issue). meta.json stays approved-critic (critic block refreshed).
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8, mechanism visible 8 (p50: lit cyan route, pulse beads, red X / green check chips; p100: 3-hop descent to a green hit, dashed leaf sibling chain), look parity 6.5, typography 8 (Arabic shaped; "فيه Deny صريح؟" and "لأ: فيه Allow؟" order correct; yes branch sits on the right in RTL), camera and depth 6 (no motes or parallax in the component), legibility 7.5 (labels about 26 px at 960 = 52 px at 1080; mono leaf ranges clear), accuracy 9 (1001-1014 are demo leaf ranges, no claimed figures), tokens 9 (no raw hex/rgba in TreeView.tsx; cyan/violet/ok/crit via C.*), polish 7, no bullet-list look 8, no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (priority order):
+1. a1 (x 455-470 / y 98-120 and 195-203): plan wires are 1 px stubs and the SORT-GROUP BY wire is a 2 px dash; start wires after both endpoints exist and raise inactive stroke to about 1.5 px.
+2. a1, whole frame: the plan funnel occupies about x 398-526 / y 45-340, i.e. 13 % of width and 55 % of height, a narrow column on a void; p100 and p50 fill the frame well. Let ctx.box fit scale the plan variant up or lay it out wider.
+3. p100 (x 120-840 / y 448-456): the dashed leaf chain is a 1 px violet dash with arrowheads partly hidden under the leaf gaps; raise to 1.5 px so it survives 1080p H.264.
+4. p50 (x 360-372 / y 215-232) and p100 (x 480-490 / y 365-378): pulse beads sit at the node corner, not centred on the wire tip; sample on the same cubic as the wire.
+5. p0 is a pure empty backdrop; no idle-node depth (soft shadow, back-plane grid, motes). Standard of 04 section 5 is not met by the component alone; rely on DepthLayers or add light motes.
+6. No motion strip exists for TreeView: supply 12 fps strips for frames 300-345 (fs expand) and 440-470 (search descent) at round 2.
+
 ## PipelineStations — round 1 (2026-10-15, critic, fresh read; baselines p0/a1/p50/p100 at 960x540 lite scale 0.5, snap/PipelineStations.jpg, plus critic-rendered lite frames 108, 112, 118, 128, 140, 146 (ETL fail at transform, fix) and 314, 322, 330, 336, 342 (CI/CD fail at prod, fix), deleted after review)
 
 Verdict: APPROVED (score 7.2, no blocking issue). meta.json set to approved-critic.

@@ -32,9 +32,9 @@
  "approval": "approved-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "critic": {
-  "score": 7.2,
-  "date": "2026-10-15",
-  "round": 1,
-  "notes": "Four variants read without narration: plan funnel (rows flow up, cyan pulse beads), IAM decision trace (cyan route, red/green outcome chips with glyphs), fs outline (folder/file glyphs, violet), B+ tree (leaf sibling chain, green search hit). Palette via tokens, Arabic and mixed AR+Latin ('فيه Deny صريح؟') correct. Non-blocking: flat depth (no motes/parallax), inactive wires hairline, plan frame ~45% of frame height, detached wire stub at a1 and f90 SCAN wire, strip of motion requested for round 2. Critic also rendered frames 90/330/385/460 (deleted)."
+  "score": 7.1,
+  "date": "2026-10-16",
+  "round": "1 (independent re-read, confirms 7.2 round 1)",
+  "notes": "Re-read p0/a1/p50/p100 at 960x540. Decision tree (p50) and B+ tree (p100) read without narration: lit cyan route with pulse beads, crit/ok glyph chips, green search hit, dashed leaf chain; Arabic and mixed AR+Latin correct, RTL branch order right (yes branch on the right). Tokens only (no raw hex/rgba in TreeView.tsx). No blocking issue. Non-blocking: a1 plan funnel small (~40% of frame) with 1 px wire stubs, flat depth (no motes/back-plane), pulse beads on node corners, p0 empty backdrop, no motion strip yet (request 12 fps strips 300-345 and 440-470 at round 2)."
  }
 }
