@@ -79,16 +79,16 @@ export const BlockReplicationView: React.FC<DcProps<Props>> = ({props, ctx}) => 
     return d !== undefined && t >= d;
   };
   // ---- file slab ----
-  const fileW = Math.min(w * 0.82, B * 150);
+  const fileW = Math.min(w * 0.86, B * 170);
   const fileX = (w - fileW) / 2;
-  const fileH = Math.round(SIZE.label * 2.2);
+  const fileH = Math.round(SIZE.label * 2.7);
   const split = prog(t, tl.splitAt, morph, ease.camera);
   const segGap = 16 * split;
   const segW = (fileW - segGap * (B - 1)) / B;
   const segX = (b: number) => (rtl ? fileX + fileW - (b + 1) * segW - b * segGap : fileX + b * (segW + segGap));
   // ---- racks ----
   const gapX = 26;
-  const nodeW = Math.min(250, (w - gapX * (N - 1)) / N);
+  const nodeW = Math.min(300, (w - gapX * (N - 1)) / N);
   const rowW = N * nodeW + gapX * (N - 1);
   const nodeX = (n: number) => (rtl ? (w + rowW) / 2 - (n + 1) * nodeW - n * gapX : (w - rowW) / 2 + n * (nodeW + gapX));
   const labelH = Math.round(SIZE.label * 1.8);
@@ -98,11 +98,11 @@ export const BlockReplicationView: React.FC<DcProps<Props>> = ({props, ctx}) => 
   const pad = 14;
   const top = 38; // rack head: top face + LEDs
   const chipW = (nodeW - 2 * pad - (gcols - 1) * 8) / gcols;
-  const chipH = Math.min(chipW * 0.7, 72);
+  const chipH = Math.min(chipW * 0.7, 84);
   // the whole composition (file slab, gap, racks, node labels, floor) is sized from its content and centred in the box
-  const nodeH = Math.round(Math.max(pad * 2 + top + grows * (chipH + 8), Math.min(nodeW * 1.25, h * 0.42)));
+  const nodeH = Math.round(pad * 2 + top + Math.max(grows, 3) * (chipH + 8) + 6);
   const floorH = 46;
-  const gapFR = Math.max(110, h * 0.16);
+  const gapFR = Math.max(120, h * 0.17);
   const total = fileH + gapFR + nodeH + labelH + 8;
   const fileY = Math.max(0, (h - total) / 2);
   const nodeTop = fileY + fileH + gapFR;
