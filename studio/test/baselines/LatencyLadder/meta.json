@@ -36,6 +36,6 @@
   "score": 7,
   "date": "2026-10-16",
   "reviewer": "critic",
-  "notes": "Round 2 re-review. Rails now lean and converge, bars have an extruded front face, x10 decade axis ticks match the log-scale bar ends (checked: 150 ms tip on tick 1, 1160 ms/5 s/57 s bar lengths = 122*(1+log10(v/150)) px). RTL labels and LTR mono values correct, amber ramp reads. Still reads as a horizontal bar chart; no still holds the reach flash or puls; p50 and p100 nearly identical. Non-blocking fixes in reports/p7/review_dom-a.md."
+  "notes": "Round 1 fresh review (component unchanged since 861c43a). Mean ~7.5, min 6, no blocking. Log-scale bars, equal x10 ticks, converging rails and amber ramp read without narration; Arabic RTL correct; no legacy frames or unsourced numbers. Non-blocking: p50 and p100 identical settled states (no reach flash/puls baseline), bars still one plane, x10 chips small. See reports/p7/review_dom-a.md."
  }
 }

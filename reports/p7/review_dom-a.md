@@ -327,3 +327,33 @@ None.
 3. p50 and p100, role ticks (x 705-725, y 150-410): about 80 px from the tile edge and hairline; extend to the tile edge or tint with row color.
 4. p50 and p100, "---" tags (x 380-440 and 575-635): raise contrast to about 55 percent alpha.
 5. The spoken 700 / 777 are not rendered by the component; the shot spec should pair a NumberCounter or label with those words.
+
+---
+
+# LatencyLadder — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Commit reviewed: a00f3ea (component unchanged since 861c43a). Independent fresh read; verdict: APPROVED, score 7/10. No blocking issue. meta.json holds approved-critic (score 7, notes refreshed).
+
+## What was checked
+- Baselines p0, a1 (frame 11), p50 (79), p100 (159) at full size (lite, 960x540) and reports/p7/snap/LatencyLadder.jpg (4-frame strip). Snap PASS reported by the author (det 0 px, 0 QA findings); perf within budget at all tiers (lite 0.086, standard 0.117, hero 0.109 vs 0.201 / 0.201 / 1.038).
+
+## Scores
+- Legibility at 1080p: 8. Whole-phrase Arabic labels about 40 px, mono values about 36 px, the 57 s value (x 140-190) inside the safe margin. The x10 chips (x 320-580, y 425-440) are the weakest text.
+- Token and palette discipline: 8. Cyan rails and climber, grey-teal bars, amber only for the 57 s rung.
+- Depth and light: 7. Leaning converging rails, extruded bar faces, floor pools, amber glow, floor perspective grid; the bars still share one plane.
+- Visual verb without narration: 8. Bar length on a log scale with equal x10 ticks and the cyan-to-amber ramp reads 150 ms to 57 s.
+- Arabic: 9. RTL phrases, "الـ pool" and "pip install" isolates, LTR mono values; no clipping or letter splitting.
+- Bullet-list or slide look: 7. Not a list; a horizontal bar stack still leans dashboard.
+- Motion intent: 6-7. a1 shows the ring at the 150 ms tip and the climber head glow; p50 and p100 are the same settled state, so no still holds the reach flash or puls.
+- Legacy frames: none. Unsourced numbers: none (refs d:6.6:6, d:6.6:4, d:6.7:1, d:6.7:2).
+- Mean about 7.5, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. p100 (frame 159) duplicates p50: replace with a frame at reach+4f of rung 3 or 4 (about 108 or 135) so the flash and puls are baselined.
+2. p50 and p100, bars (x 200-645, y 120-390): put depth on the bars themselves (scale-down and blur on far rungs, longer floor reflection) so it reads as a ladder, not a flat bar chart.
+3. p100, axis (x 270-645, y 405-440): x10 chips about 14 px at 960 and low contrast; raise to ink2 and about 17 px, and label the first tick "150 ms" to anchor the scale.
+4. p50 and p100, composition: top 90 px empty and the bottom 100 px is only the floor grid; shift the ladder box down about 15 px.
+5. a1: lower rungs are empty during the stagger (x 200-640, y 120-200); fine, but do not cut here.
