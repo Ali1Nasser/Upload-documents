@@ -109,3 +109,24 @@ Non-blocking
 3. a1, region right of idempotency (x 860-910 / y 240-300): faint shelf visible at high gain only; feather if it shows on bright plates.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 8.
+
+## ChapterCard — round 1 (critic, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540) and reports/p7/snap/ChapterCard.jpg. Text is the CH-10 EDL title (corpus/edl/master_edl.v1.json), so nothing is invented.
+
+Checks
+- Legible at 1080p: Arabic title (~56 px bold ink), mono CH-10 tag, 40 px ink2 subtitle and SQL rail label are all readable at 960 px.
+- Palette: signal cyan, ink, ink2 and ground only; no legacy frames, no unsourced numbers (ghost "10" and CH-10 come from props.index/chapter).
+- Arabic: whole-word title, correct RTL order (ليه, Database, ؟, dash, الـ, Relational Model); Latin runs isolated; tatweel joins; no per-letter animation. The rail grows from the start (right) edge with 13 segments, matching the 13 trunk acts in the EDL; the lit one is the 4th from the start = SQL. Correct.
+- Not a bullet slide: tag over hairline, ghost outline numeral, act rail. It reads as a title card without narration.
+
+Blocking issues: none.
+
+Non-blocking (ordered by impact)
+1. a1/p50/p100, whole card: motion intent (hairline draw, RTL title wipe, rail growth, key haze drift) cannot be proven from stills; a1 (f12) already shows the title complete. Strip at f0, 4, 8, 12, 24, 48 requested for G8, plus a baseline at an earlier frame (about f6) so the wipe is regression-guarded.
+2. p50/p100, haze and floor pool (x 380-760 / y 300-420): both are faint at normal gain; depth and light score 6-7. Lift the floor pool a step or let the host shot supply light.
+3. p50/p100, ghost numeral "10" (x 85-435 / y 145-390): outline is very low contrast and collides with the title left end and rail segments (x 115-330 / y 230-320); clutter risk on bright plates. Dim it where it crosses text, or shift it up.
+4. p100, composition: block is flush right with a dead left third (x 0-110); acceptable for RTL, but only the ghost numeral balances it.
+5. Baselines cover a single title; add a short-title and a 48-character worst-case baseline to prove the auto-fit.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 5 (unverified), polish 8. Mean of the main axes lands at 7.
