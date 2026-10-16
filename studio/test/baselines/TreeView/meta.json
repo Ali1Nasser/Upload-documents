@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T11:01:31Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.1,
+  "date": "2026-10-16",
+  "by": "critic",
+  "notes": "Round 1 (3 px wire polish): approved, no blocking. Wires and dashed leaf chain now survive 1080p; Arabic shaped/RTL, tokens only, lit route plus allow/deny chips and 3-hop btree descent read without narration. Non-blocking: a1 plan funnel is a narrow column with 1 px stubs/unwired cards, p0 empty, no motion strip for fs expand/search, pulse bead placement."
+ }
 }

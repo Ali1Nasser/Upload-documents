@@ -127,3 +127,18 @@ Non-blocking (fix before pilot use):
 4. p0: a fully empty frame, the baseline guards nothing. Move the first snap frame to the first slab entry (about f4-6).
 5. p100 (x 296-662 / y 105-435): stack is about 38 % of width; allow scale-up when n <= 4, and add a soft floor reflection or shadow under the bottom slab for grounding.
 6. a1 (x 205-750 / y 150-480): the top slab (grey, dot) next to green cached slabs is clear, but its "5 s" sits in the same grey as the dot, so the number does not read as the payoff; give it ink at full strength.
+
+## TreeView — round 1 (3 px wire polish) (2026-10-16, critic, fresh read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5 after the stroke change; no new renders, no strip supplied)
+
+Verdict: APPROVED (score 7.1, no blocking issue). meta.json set to approved-critic (baselines had been re-pending after the 2.2 -> 3 px stroke change).
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8, mechanism visible 8 (p50 lit cyan route with beads and crit X / ok check chips; p100 3-hop descent to a green hit, dashed leaf chain), look parity 6.5, typography 8 (Arabic shaped, "فيه Deny صريح؟" and "لأ: فيه Allow؟" order correct, yes branch on the right in RTL, mono leaf ranges clear), camera and depth 6 (no parallax, depth only from glow), legibility 7.5 (inactive wires about 1.5 px at 960 = 3 px at 1080, visible in p50 x 365-440 / y 300-420 and p100 x 215-300 / y 285-390; dashed chain p100 y 448-456 is visible), accuracy 9 (1001-1014 are demo leaf ranges), tokens 9 (cyan/violet/ok/crit only), polish 7, no bullet-list look 8, no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. a1 (x 398-526 / y 45-340): the plan funnel is a narrow column of four chips with a 1-2 px stub at x 461 / y 100-120 and a near-invisible dash at y 198, and the JOIN chip has no wire yet; it reads as stacked labels. Birth the wire with its second endpoint and allow fit scale-up for n <= 4 (carried from the earlier round-1 item 1 and 2, not fixed by the stroke change).
+2. p100 (x 120-840 / y 448-456): the dashed leaf chain is still faint violet and its arrowheads sit under the leaf gaps; raise opacity one step.
+3. p0: pure empty backdrop; the baseline guards nothing, move the first snap to about f6.
+4. Motion: still no 12 fps strip for f300-345 (fs expand) and f440-470 (search descent); needed before pilot use.
+5. p50 (x 360-372 / y 215-232) and p100 (x 480-495 / y 365-378): pulse beads sit at wire ends close to node corners; verify they are sampled on the drawn cubic.
