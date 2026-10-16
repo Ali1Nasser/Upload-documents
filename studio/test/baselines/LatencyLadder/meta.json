@@ -36,6 +36,6 @@
   "score": 7,
   "date": "2026-10-16",
   "reviewer": "critic",
-  "notes": "Round 1 fresh review (component unchanged since 861c43a). Mean ~7.5, min 6, no blocking. Log-scale bars, equal x10 ticks, converging rails and amber ramp read without narration; Arabic RTL correct; no legacy frames or unsourced numbers. Non-blocking: p50 and p100 identical settled states (no reach flash/puls baseline), bars still one plane, x10 chips small. See reports/p7/review_dom-a.md."
+  "notes": "Round 1 fresh read (component unchanged since 861c43a). Mean ~7.5, min 6, no blocking. Log-scale bars, equal x10 ticks, converging rails, amber ramp read without narration; Arabic RTL correct; no legacy frames or unsourced numbers. Non-blocking: p50 and p100 identical settled states (no reach flash/puls baseline), rails thin and far from bars, x10 chips small. See reports/p7/review_dom-a.md."
  }
 }

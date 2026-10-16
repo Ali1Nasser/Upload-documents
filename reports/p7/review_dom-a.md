@@ -379,3 +379,29 @@ None.
 2. p50 and p100, tile matrix (x 120-700, y 88-466): one flat plane over a thin floor grid (y 470-540); add row z-stagger or perspective and let the active tile's pool spill onto the grid.
 3. p100, "---" tags (x 380-440, 575-635, y 297-460): contrast too low at 960 px; raise to about 55 percent alpha.
 4. p50 and p100, role ticks (x 705-725): hairline, 80 px from the tile edge; extend to the tile edge or tint with the row color.
+
+---
+
+# LatencyLadder — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Component unchanged since 861c43a. Fresh read of p0, a1, p50, p100 at full size (lite, 960x540) and reports/p7/snap/LatencyLadder.jpg. Verdict: APPROVED, score 7/10. No blocking issue.
+
+## Scores
+- Legibility at 1080p: 8. Whole-phrase Arabic labels about 40 px, mono values about 36 px, nothing clipped; the "57 s" value (x 140-190) is inside the margin. The x10 chips (x 320-580, y 425-440) are the weakest text.
+- Palette and token discipline: 8. Cyan rails and climber, grey-teal bars, amber only on the 57 s rung.
+- Depth and light: 7. Rim-lit extruded bars, floor pools, amber glow, floor perspective grid, converging rails. All bars share one plane.
+- Visual verb without narration: 8. Log-scale bar length, equal x10 ticks and the cyan-to-amber ramp read 150 ms to 57 s. The rails sit at the far right edge, so "ladder you climb" is weaker than "bar chart".
+- Arabic: 9. RTL order, "الـ pool" and "pip install" isolates correct; LTR mono values.
+- Bullet-list or slide look: 7. Not a list, but the horizontal stack leans dashboard.
+- Motion intent: 6-7. a1 shows the ring at the 150 ms tip and the climber head glow; p50 and p100 are identical settled states.
+- Legacy frames: none. Unsourced numbers: none (refs d:6.6:6, d:6.6:4, d:6.7:1, d:6.7:2).
+- Mean about 7.5, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. p100 (frame 159) duplicates p50: swap for a frame at reach+4f of rung 3 or 4 (about 108 or 135) so the flash and puls are regression-tested.
+2. p50 and p100, rails (x 640-680, y 100-410): thin 1-2 px lines far from the bars; thicken and add rung crossbars that reach into the bar rows so the climb reads as a ladder.
+3. p50 and p100, x10 chips (x 320-580, y 425-440): about 14 px at 960; raise size and contrast, and label the first tick "150 ms".
+4. p50 and p100, composition: top 90 px empty; shift the ladder box down about 15 px.
