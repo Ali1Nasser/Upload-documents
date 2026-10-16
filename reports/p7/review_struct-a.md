@@ -189,3 +189,18 @@ Non-blocking (fix before pilot use):
 3. Motion unjudged: rebuildFrom cascade (crit wave, warn bar, signal edge, ok pulse, highlight fade) is not in any baseline; supply a 12 fps strip and two snaps (mid-cascade, mid-rebuild).
 4. All frames: no camera drift or parallax between slabs; add slight orbit for pilot use.
 5. p0 (x 202-756 / y 320-490): the first snap frame holds only two slabs, which is acceptable but guards little of the build-up.
+
+## TreeView — round 1 (independent re-read of 7c316a5/fca15ae) (2026-10-16, critic, fresh full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; snap det 0 and perf taken from author note, not re-run; no strip exists)
+
+Verdict: APPROVED (score 7.0, no blocking issue). meta.json set to approved-critic (status, approval, score, date, notes).
+
+Scores: subject clarity 8, mechanism visible 7.5 (p50 decision route with beads and crit X / ok check chips; p100 three-hop descent to a green hit and dashed sibling chain), look parity 6.5, typography 8 (Arabic shaped and RTL, "فيه Deny صريح؟" order correct, mono leaf ranges clear), camera and depth 6 (glow only, no parallax), legibility 7.5 (chips about 26 px at 960 = 52 px at 1080), accuracy 9 (leaf ranges are demo data, no claimed figures), tokens 9, polish 7, no bullet-list look 7.5 (a1 is the weakest frame), no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. a1 (x 398-526 / y 45-340): the plan funnel is a narrow column; stubs at x 461 / y 100-120 and y 198 are 1-2 px, and the JOIN chip has no wire. It reads as stacked labels; scale up for n <= 4 and birth each wire with its second endpoint.
+2. p0 (whole frame): empty backdrop with no motes; move the first snap to about f6.
+3. p100 (x 120-840 / y 448-456): the dashed leaf chain is faint violet, arrowheads sit under the leaf gaps; raise opacity one step.
+4. Motion unjudged: supply 12 fps strips for fs expand (f300-345) and btree search descent (f440-470).
+5. All frames: no camera drift or parallax between levels; add a slight drift for pilot use.

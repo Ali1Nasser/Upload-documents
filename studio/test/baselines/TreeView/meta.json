@@ -32,9 +32,10 @@
  "approval": "approved-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "critic": {
-  "score": 7.1,
+  "score": 7.0,
   "date": "2026-10-16",
   "by": "critic",
-  "notes": "Round 1 (3 px wire polish): approved, no blocking. Wires and dashed leaf chain now survive 1080p; Arabic shaped/RTL, tokens only, lit route plus allow/deny chips and 3-hop btree descent read without narration. Non-blocking: a1 plan funnel is a narrow column with 1 px stubs/unwired cards, p0 empty, no motion strip for fs expand/search, pulse bead placement."
- }
+  "notes": "Round 1 (independent fresh read, p0/a1/p50/p100 at full size): approved, no blocking. Decision tree (p50) and btree descent (p100) read without narration: lit cyan route, pulse beads, crit X / ok check chips, green hit leaf, dashed sibling chain; Arabic shaped/RTL with Latin terms in order; tokens only. Non-blocking: a1 plan funnel is a narrow column with 1-2 px stubs and an unwired JOIN chip, p0 empty backdrop, no 12 fps strip for fs expand / search, no depth or parallax, dashed leaf chain faint."
+ },
+ "status": "approved-critic"
 }
