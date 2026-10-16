@@ -219,3 +219,19 @@ Non-blocking (fix before pilot use):
 3. p100 (x 48-235 / y 146-198): release chip sits about 48 px from the left edge at 960 (96 px at 1920), close to the 68 px safe margin of the 1080 spec; keep it clear when the last gate is leftmost with longer chips.
 4. Motion unjudged: fix ring and green gate flash, capsule hop and gate shake appear in no baseline; supply a 12 fps strip (fail and fix) and add a fix snap.
 5. All frames: no camera drift or parallax between gate planes; add a slight drift for pilot use.
+
+## LayerStack — round 1 (independent re-read, post-fix) (2026-10-16, critic, fresh full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders, snap re-run taken from author note)
+
+Verdict: APPROVED (score 7.2, no blocking issue). meta.json status approved-critic kept; critic block refreshed with this read.
+
+Scores: subject clarity 8 (build-up of Docker layers with a state per slab; Arabic data-tier stack reads as tiers), mechanism visible 7 (p50: ok / active / crit slabs with icon, edge and face tint; p100: one tier lit cyan over three dim ones), look parity 6.5, typography 8 (Arabic shaped and RTL, Latin term first on the right, "ADS - جاهز للتقارير" starts about 40 px inside the slab edge at 960 = 80 px at 1920, no touching), camera and depth 6.5 (3D top and side faces, no parallax or drift), legibility 8 (slab labels about 30 px at 960 = 60 px at 1080), accuracy 9 ("5 s" is demo data from the data contract, no claimed figures), tokens 9 (ok / crit / cyan / neutral only, active warn bar is the only off-key tone), polish 7.5, no bullet-list look 7 (a four-to-five slab column of equal-width bars is the closest this family gets to a list; the 3D faces and state glow save it), no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. p50 (x 195-728 / y 165-220): active COPY src slab fill is muddy olive (warn bar over cyan base); use a clean warn strip on a cool base.
+2. p50 (x 195-728 / y 75-128): crit CMD app slab has an X icon but no break cue on the slab edge; add a fault chip or crack.
+3. a1 and p0 (whole frame): upper 40 percent of the frame is empty and the stack sits low and left of centre (p0 x 202-756 / y 320-490); centre the stack vertically and add motes or a back plane so the first snaps guard more.
+4. Stack direction differs between demos (FROM at the bottom in p50, ODS at the top in p100); fine if spec-driven, but name the direction in the guide so storyboards do not mix them.
+5. Motion unjudged: rebuildFrom cascade (crit wave, warn bar, ok pulse) is in no baseline; supply a 12 fps strip and two snaps (mid-cascade, mid-rebuild).
+6. All frames: no camera drift or parallax between slabs; add a slight orbit for pilot use.

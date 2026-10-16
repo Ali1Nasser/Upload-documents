@@ -33,9 +33,9 @@
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "status": "approved-critic",
  "critic": {
-  "score": 7.3,
+  "score": 7.2,
   "date": "2026-10-16",
-  "round": 2,
-  "notes": "ADS overflow fixed (label ink starts ~x270 at 960 vs slab edge x230, about 40 px = 80 px at 1920, matches DW/Marts alignment); olive active slab and missing cascade strip remain non-blocking."
+  "round": 3,
+  "notes": "Independent post-fix read: approved, no blocking. ADS label ~40px inside slab edge at 960. Non-blocking: olive active slab, no crit break cue, empty upper frame in p0/a1, no motion strip, no parallax."
  }
 }
