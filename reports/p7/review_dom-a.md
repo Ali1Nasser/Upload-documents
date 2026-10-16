@@ -261,3 +261,34 @@ None.
 3. p50 and p100, DEBUG row (x 88-145, y 224-240) and the dimmed INFO and WARN rows: ink3 tag on the dark plate is close to the legibility floor. Raise the debug tag to ink2 and the dim floor from 30 % to about 40 %, so the context rows survive 720p compression.
 4. a1, header tag (x 93-156, y 112-131): `tail -f` is about 22 px at 1080p; raise to about 28 px. Also add an Arabic-bearing line to the demo (for example "queue: 289 طلب") so MixedText inside a ledger row is baselined.
 5. p50 against p100: nearly identical (only the camera push-in). Replace p100 with a frame at the hit plus 6 f, mid-sweep (about frame 80), so the light sweep and chevron arrival are on a baseline.
+
+---
+
+# LatencyLadder — round 2
+
+Date: 2026-10-16. Reviewer: critic (did not author). Commit reviewed: 861c43a. Verdict: APPROVED, score 7/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1 (frame 11), p50 (79), p100 (159) at full size (lite, 960x540) and reports/p7/snap/LatencyLadder.jpg (4-frame strip).
+- Axis geometry measured on p100: the baseline is at x 644 and the decade ticks are at x 520, 396, 272 (one decade is about 124 px). Bar tips: 150 ms at 520, 1160 ms at 411, 5 s at 332, 57 s at 201. Expected from 124*(1+log10(v/150)): 521, 411, 333, 201. The axis now matches the bars, so the round 1 mismatch is fixed. Values keep their refs (d:6.6:6, d:6.6:4, d:6.7:1, d:6.7:2); no unsourced numbers.
+
+## Scores
+- Legibility at 1080p: 8. Labels about 40 px, mono values about 36 px, whole phrases, margins respected (57 s value at x 140-190 is inside the safe area). The x10 chips (about 14 px at 960) are the weakest text.
+- Token and palette discipline: 8. Cyan climber and rails, grey-teal bars, amber for the slow rung; nothing stray.
+- Depth and light: 7 (was 6). Rails lean and converge, each rung up is thinner, bars have an extruded front face and a floor pool, the climber has a head glow. The bars themselves still sit in one plane, so the ladder is read as a perspective bar chart, not a ladder you climb.
+- Visual verb without narration: 8. Bar length on a log scale plus the climbing orb and the cyan-to-amber ramp read 150 ms to 57 s. Equal x10 steps are now explicit.
+- Arabic: 9. RTL order, "الـ pool" and "pip install" isolates correct; LTR values.
+- Bullet-list or slide look: 7. Not a list; the horizontal bar stack still leans dashboard.
+- Motion intent: 6-7. a1 shows the ring at the 150 ms tip and the comet tail is now visible under the climber (p100, x 655-665, y 145-180), but no still holds a reach flash or the puls; p50 and p100 are nearly the same image.
+- Legacy frames: none.
+- Mean about 7.6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. p50 and p100 (same state): replace p100 with a frame at reach+4f of rung 3 or 4 (about frame 108 or 135) so the flash and puls are regression-tested. Both baselines currently show only the settled state.
+2. p50 and p100, bars (x 200-645, y 120-390): make the depth read on the bars, not only the rails. Step each bar's y in z (small scale-down plus blur on the far rungs) and lengthen the floor reflection, so the ladder is not a flat bar chart.
+3. p100, decade axis (x 270-645, y 405-440): the x10 chips are about 14 px at 960 and low contrast; raise to ink2 and about 17 px. The ticks carry no absolute value (they are 150 ms times 10^k from the first tip); fine as relative steps, but name the first tick (for example "150 ms") so the scale is anchored.
+4. p50 and p100, bottom 20 percent (y 440-540): floor grid only, and the top 90 px is empty; shift the ladder box down about 15 px or enlarge the floor pool for a balanced composition.
+5. a1: the 5 s and 57 s rows are empty during the stagger; fine, but the scene should not cut here.

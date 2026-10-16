@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T11:15:02Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "notes": "Round 2 re-review. Rails now lean and converge, bars have an extruded front face, x10 decade axis ticks match the log-scale bar ends (checked: 150 ms tip on tick 1, 1160 ms/5 s/57 s bar lengths = 122*(1+log10(v/150)) px). RTL labels and LTR mono values correct, amber ramp reads. Still reads as a horizontal bar chart; no still holds the reach flash or puls; p50 and p100 nearly identical. Non-blocking fixes in reports/p7/review_dom-a.md."
+ }
 }
