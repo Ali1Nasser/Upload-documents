@@ -174,7 +174,7 @@ const logScroll: DemoDef = {
   frames: 150,
   words: [
     [W('LogScroll', 1), 6, 20],
-    [W('LogScroll', 2), 78, 94],
+    [W('LogScroll', 2), 74, 90], // grep spotlight word: the p50 still (frame 74) lands 2 f after the anchor, mid-sweep
   ],
   shot: {
     fx_tier: 'standard',
