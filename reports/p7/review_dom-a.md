@@ -357,3 +357,25 @@ None.
 3. p100, axis (x 270-645, y 405-440): x10 chips about 14 px at 960 and low contrast; raise to ink2 and about 17 px, and label the first tick "150 ms" to anchor the scale.
 4. p50 and p100, composition: top 90 px empty and the bottom 100 px is only the floor grid; shift the ladder box down about 15 px.
 5. a1: lower rungs are empty during the stagger (x 200-640, y 120-200); fine, but do not cut here.
+
+---
+
+# PermissionLocks — round 1 (independent re-read)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Component, demo and baselines unchanged since c8b41f3. Verdict: APPROVED, 7/10. No blocking issue. meta.json stays approved-critic (score 7, notes refreshed).
+
+## What was checked
+- p0, a1 (frame 11), p50 (84), p100 (169) at full size (lite, 960x540) and reports/p7/snap/PermissionLocks.jpg (4-frame strip). Arabic QA: reports/p7/qa_arabic_PermissionLocks.json pass.
+
+## Scores
+- Legibility at 1080p 8; token and palette discipline 8 (green write, cyan read, violet admin, steel none); Arabic 9 (whole-word RTL labels, no clipping); visual verb 8 (p50 all-open key column vs p100 closed, 777 to 700 reads without narration); bullet-list look 7 (3x3 tile matrix, lock objects carry it); depth and light 6; motion intent 6 (stills and strip show end states only); legacy frames none; unsourced numbers none (644, 600, 700, 777 sourced).
+- Mean about 7.5, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. Baselines: p50 and p100, whole grid (x 120-700, y 88-466): add frames at about grant+3f (67) and deny+3f (117) so the shackle spring, flash and snap-shut are regression-tested. Current stills are all settled states, and p0 is an empty vignette (frame 0).
+2. p50 and p100, tile matrix (x 120-700, y 88-466): one flat plane over a thin floor grid (y 470-540); add row z-stagger or perspective and let the active tile's pool spill onto the grid.
+3. p100, "---" tags (x 380-440, 575-635, y 297-460): contrast too low at 960 px; raise to about 55 percent alpha.
+4. p50 and p100, role ticks (x 705-725): hairline, 80 px from the tile edge; extend to the tile edge or tint with the row color.

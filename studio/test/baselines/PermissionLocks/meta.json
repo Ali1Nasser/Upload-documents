@@ -36,6 +36,6 @@
   "score": 7,
   "date": "2026-10-16",
   "reviewer": "critic",
-  "notes": "Round 1 re-approval after demo change: p50 now reads deploy.key rwx rwx rwx (777), p100 back to rwx --- --- (700). No blocking issue. Non-blocking: no grant+3f/deny+3f baseline, flat single plane, weak role ticks, low-contrast --- tags."
+  "notes": "Round 1 independent re-read, unchanged component: p50 deploy.key rwx x3 (777), p100 rwx --- --- (700), other columns 644/600. No blocking issue. Non-blocking: add grant+3f/deny+3f baselines, flat single plane, hairline role ticks, low-contrast --- tags."
  }
 }
