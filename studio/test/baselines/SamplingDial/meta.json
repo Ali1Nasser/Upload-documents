@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T23:30:38Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.0,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1: approved 7.0, no blocking. Non-blocking: no baseline shows top-p/nucleus warn cut line or 2-3 dials; plate top 40% empty and bars small; p0 blank; no motion strip; no motes. See reports/p7/review_dom-c.md."
 }

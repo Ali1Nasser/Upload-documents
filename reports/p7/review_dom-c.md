@@ -285,3 +285,30 @@ Overall 7.7 (mean 7.9, held down for unseen motion and empty margins). Approved-
 1. Motion (all): add a strip (deal launch, 3 in-flight frames, last landing) to reports/p7/; items 2 of round 1 still open.
 2. p0 (whole frame) and a1 (x 130-830, y 240-390): p0 is fully blank, a1 shows only deck and dashed slots; neither protects piles or labels. Re-baseline at about f6 and f30 next regeneration.
 3. p100 (x 0-130, x 830-960, y 0-190): empty top corners and a dead band under the numerals; push piles up to scale 1.2 or add a faint floor reflection or motes under LK-F for depth.
+
+## SamplingDial — round 1 (critic, 2026-10-16)
+
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, full size) and reports/p7/snap/SamplingDial.jpg. No motion strip supplied; motion judged from a1 (bars entering) vs p50/p100 (flat to spike) and the snap sheet. Baselines show only the temperature dial.
+
+### Scores
+| Criterion | Score |
+|---|---|
+| Composition (plate left, dial right, shadow pools; plate top ~40 % empty) | 7 |
+| Palette and token discipline (signal cyan, violet tail bars, void ground; no stray hue) | 8 |
+| Light and depth (glass rim lit teal, floor grid, plate shadow; no motes) | 7 |
+| Legibility at 1080p (mono value ~60 px at 540p, label ~24 px at 540p, ticks bare) | 8 |
+| Visual verb without narration (dial turn sharpens bars to one spike; ghost dashed bars show the old shape) | 8 |
+| Arabic (single Latin label; qa arabic 0 failures; Arabic labels not shown in any baseline) | 7 |
+| Not a bullet slide, no legacy frames | 9 |
+| Numbers (0.3 and 0 carry refs s:S4:P22:0085 / s:S4:P23:0062; bars unlabelled illustration) | 9 |
+| Motion intent (a1 and p50 only; no strip) | 6 |
+| Spec coverage (1 dial only; top-p cut line and 2-3 dials unseen) | 6 |
+Mean 7.5, held to 7.0 for unseen top-p behaviour and motion. Approved-critic, no blocking issue.
+
+### Non-blocking, ordered by impact
+1. Coverage (all): no baseline shows a top-p or nucleus dial, so the dashed warn cut line (code ~line 161) is unverified visually. Add a two-dial demo (temperature + top-p) and a still of the cut line at about 1080p.
+2. Motion (all): add a strip (dial sweep 0.3 to 0, bars reshape, ghost dashed bars fading) to reports/p7/.
+3. p50/p100 (x 95-495, y 100-160): the top of the plate is empty; raise the bar scale or shrink the plate height. Tail bars at x 125-410 are tiny violet blobs; give them a minimal visible height.
+4. p0 (whole frame): blank; re-baseline at about f6 to protect plate and dial.
+5. a1 (x 405-465, y 270-425): only two bars present, the other eight are absent; re-baseline at about f30 so the full distribution is protected.
+6. p50/p100 (x 0-960, y 0-100): no motes under LK-F; add a few to lift depth.
