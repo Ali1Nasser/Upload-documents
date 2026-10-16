@@ -94,3 +94,23 @@ Non-blocking (by impact):
 5. Arabic chip is small beside the ORDER BY chip (x 290-340); consider matching its cap height to the Latin chip.
 
 Not seen: standard and hero tiers; groups and range frame kinds.
+
+## LedgerPair — round 1 (03c9b63)
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.4/10. Verdict: approved-critic (no blocking issue).
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite), reports/p7/snap/LedgerPair.json, arabic_LedgerPair.json (pass, 2 strings, OCR exact), demo spec in studio/src/demos/data.tsx. No motion strip exists; the sweep and bridge animation are judged from stills only. Sums verified: successful 120+80+50+150 = 400 (d:5.2:8), all 120+80+200+50+150+100 = 700.
+
+Scores: legibility 1080p 7.5 (amounts about 44 px at 1080, T-labels about 40 px; the EGP unit is about 10 px at 960, about 20 px at 1080, borderline) · palette discipline 8.5 (green = agree, red = mismatch, cyan rim; one accent per role) · depth and light 6 (rim-lit glass and floor lines read; the verdict shaft and floor glow are faint red smudges at y 430-455; no particles or grain at lite) · verb reads without narration 8.5 (pair, ghost, check/cross, total, unequal) · Arabic correct 7.5 (titles shape and join correctly and sit on the right as the source; but only 2 strings are tested and all chrome, T1..T6 and EGP, is Latin) · no bullet look 8 · no legacy 10 · no unsourced numbers 8.5 (entries carry d: refs; 700 is a derived sum) · motion intent 6.5 (a1 to p50 shows layout changes and sweep dots, but bridge draw and roll-up timing are unproven).
+
+Blocking issues: none.
+
+Non-blocking fixes (ordered by impact):
+1. Light is dashboard-level. p50/p100 verdict shaft and floor glow (x 60-440 and 520-900, y 430-458) are 10-20 percent red and nearly invisible at 960; raise shaft alpha about 1.5x and extend it upward through the link column (x 440-520, y 360-430) so the verdict lights the scene. No particles or grain visible; check standard and hero tiers.
+2. No motion strip. Render an 8-frame strip a1 to p100 (frames 11 to 169) and confirm the sweep dot, bridge draw and the total roll land on LP(2) and LP(3). At p50 the sweep dots are at x 467 (T1 left) and x 508 (T4 right) while T3 is already crossed; confirm the order is intended.
+3. Ghost rows carry no label (a1 left panel x 77-427, y 222-256; p50/p100 y 220-258 and y 342-380). A missing partner should echo its label (T3, T6) in dim ink so the gap is readable without looking across; as is, the eye must trace the cross to the right row.
+4. English-only chrome: EGP unit (x 120-160, y 160-165 at a1) and T-labels. Keep T1..T6 as ids, but let the spec pass an Arabic unit carrier (جنيه) as in WindowFrame fix 3; EGP at 20 px (1080) is the smallest text in the scene.
+5. The panels leave empty glass: left panel at a1 (x 62-440, y 300-430) is about 35 percent blank before the reconcile; and the p100 totals sit at y 400-425, close to the panel edge. Either size the panel to its entries or reveal the totals row as a slot.
+6. The p0 baseline is a blank field and guards nothing; rebake at frame 6 to 8 at the next re-bake.
+7. The p50 to p100 panels shift about 8 px (push_in); this is fine, but the cyan rim on the left panel is clipped near x 48 at p100, so check the safe margin (68 px at 1080 is 34 px at 960).
+
+Not seen: standard and hero tiers; grain, bokeh and particles; the bridge draw animation.
