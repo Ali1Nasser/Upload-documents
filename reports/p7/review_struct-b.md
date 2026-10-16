@@ -101,3 +101,11 @@ Non-blocking issues (ordered by impact)
 5. p50 and p100, region x 140-900 / y 450-490: the floor grid is about 3-4% luminance and the "T3" tag sits on top of it. Add a horizon glow and place T3 under the tile it keys.
 6. p50, region x 70-190 / y 340-390: the idle c2 boat is nearly invisible (about 10% luminance); acceptable as "not yet joined", but raise slightly so it reads as a consumer.
 7. Supply a motion strip (produce drop, lag bracket bloom, rebalance re-wire) in round 2 so easing and impacts can be judged rather than inferred.
+
+### PartitionLanes — round 1, independent re-read (2026-10-16)
+
+Re-read p0, a1, p50, p100 at full size. Confirms the earlier approval: score 7.1, no blocking issue, meta.json status stays approved-critic. Extra non-blocking observations:
+- a1, region x 285-700 / y 105-440: the slabs are drawn at three different widths (grow-in), which looks like a bar chart for one frame. Stagger the width reveal or keep a common slab width.
+- p50 and p100, region x 485-600 / y 95-460: the offset markers are thin cyan lines whose arrowheads sit in the gaps between slabs; they read as lane dividers. Thicken the marker to about 3 px and anchor its head on the tile edge.
+- p0 is an intentionally empty frame (pre-entrance); fine, but the baseline carries no signal, so regressions there are not detectable.
+- Still no motion strip; motion intent stays inferred (6.5).
