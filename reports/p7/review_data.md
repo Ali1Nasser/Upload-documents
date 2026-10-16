@@ -206,3 +206,22 @@ Non-blocking (by impact):
 5. Stacked, vertical (orientation v), sort and overflow paths are in the code but in no still. Bake one stacked demo before a scene uses them.
 
 Not seen: standard and hero tiers, grain and particles, stacked and vertical variants, the grow strip.
+
+## LineTrace — round 1
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.0/10. Verdict: approved-critic, no blocking issue.
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite), an a1 crop at 4x, reports/p7/snap/LineTrace.jpg (same four frames, not a motion strip), demo spec and qa_arabic_LineTrace.json (verdict pass, 6/6 strings OCR exact, 0 tofu, 0 overflow). Demo numbers (linear 16, binary 4, points 2/4/8/16) are sourced to d:6.20:3 and d:6.20:4 and match the arithmetic of the constructed example.
+
+Scores: legibility 7 (series labels about 32 px and ticks about 24 px at 1080; value callouts about 44 px; grey tick numerals are low contrast) · palette discipline 8.5 (warn amber and ok green on ink greys, nothing stray) · depth and light 6.5 (raised ribbon, shadow, under-glow and area wash read; slab rim is faint; the shaft is hard-edged) · verb without narration 7.5 (two lines fan out, the amber one climbs, rings drop a dashed line to the 16 tick: the linear versus log gap reads silently) · Arabic correct 8.5 (بحث خطي and بحث ثنائي shaped and joined, labels at the reading start outside the head, numerals LTR) · no bullet-list look 6.5 (still a line chart in a card at rest) · no legacy 10 · no unsourced numbers 9 · motion intent 6 (see 3).
+
+Blocking issues: none.
+
+Non-blocking (by impact):
+1. Value callouts are detached from their rings. p50: خطي 16 floats at x 510-545, y 145-190, about 100 px left of the ring at (642,181) with no leader. p100: ثنائي 4 sits at x 510-540, y 245-290 inside the amber area wash, 105 px from its green ring at (645,305), so green text on amber wash reads as belonging to the amber series. Anchor the callout to the ring (offset by 14 px above-left, or add a short leader) and keep it out of another series' wash.
+2. Light shaft (a1, x 549-571, y 205-345; crop shows two stacked flat rectangles with hard vertical edges plus a thin elliptical pool at y 345): it reads as a flat bar, not light. Feather the horizontal edges (gradient mask, 40 percent width falloff) and widen the x-axis pool to about 80 px.
+3. Trace is front-loaded: at frame 11 (5 frames after the anchor, word end at 36) the head is at about x 13.4 of 16 (a1 head x 560 of axis 205-642), and p50 is complete. "Lands on the word end" is not visible; the ease-out spends about 85 percent of the path in about 15 percent of the span. Use a gentler ease (in-out or power 1.6) so the head is still travelling at the word midpoint. Render an 8-frame strip (frames 6 to 40) as evidence.
+4. Composition is small: slab about x 178-780 (63 percent) and y 125-415 (54 percent) at p100. Enlarge the plot height (about 1.3x for 2 series), or pair with push_in as the demo does.
+5. Dashed drop line and ring on the green series are faint (p100 x 645, y 305-345 is nearly invisible against the green wash); raise the dash alpha to the amber level.
+6. p0 is a blank field (not even the slab) and guards nothing; rebake at frame 6 to 8 with --approve. At 0.5 scale the Arabic labels are the only text in the qa carrier set under 0.9 OCR in the 34 px band (s001 0.889, s004 0.615): this passes via the 92 px band, but keep series labels at 32 px or more at 1080.
+
+Not seen: standard and hero tiers (bloom, particles, grain), series 3 and 4, a non-linear y range, x tick thinning with many points, the drawTo strip.
