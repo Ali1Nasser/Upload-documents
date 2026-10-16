@@ -2,7 +2,7 @@
  "v": 2,
  "name": "LayerStack",
  "composition": "Demo-LayerStack",
- "at": "2026-10-16T06:19:40Z",
+ "at": "2026-10-16T11:20:02Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,54 +21,54 @@
  "tiers": {
   "lite": {
    "frames": 312,
-   "wall_s": 19.09,
-   "box_s_per_frame": 0.0612,
-   "slot_s_per_frame": 0.1836,
+   "wall_s": 40.1,
+   "box_s_per_frame": 0.1285,
+   "slot_s_per_frame": 0.3855,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.56,
-    5.61
+    9.09,
+    11.31
    ],
    "queue": {
-    "running": 1,
+    "running": 3,
     "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 2
   },
   "standard": {
    "frames": 312,
-   "wall_s": 25.94,
-   "box_s_per_frame": 0.0831,
-   "slot_s_per_frame": 0.2493,
+   "wall_s": 48.46,
+   "box_s_per_frame": 0.1553,
+   "slot_s_per_frame": 0.4659,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.32,
-    5.4
+    11.37,
+    12.18
    ],
    "queue": {
-    "running": 1,
+    "running": 2,
     "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 1
   },
   "hero": {
    "frames": 312,
-   "wall_s": 25.57,
-   "box_s_per_frame": 0.082,
-   "slot_s_per_frame": 0.246,
+   "wall_s": 34.43,
+   "box_s_per_frame": 0.1104,
+   "slot_s_per_frame": 0.3312,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.4,
-    5.59
+    12.18,
+    10.87
    ],
    "queue": {
-    "running": 1,
+    "running": 2,
     "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 1
   }
  },
  "within_budget": true,

@@ -1,15 +1,15 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "8be26b522b13f9df59016450f1d0ddcde0bcfa7f2388ac2b183dc91577d74ee1",
-  "p50": "d0849f3d1f8de9d36c6f8d460efb391c2b063896c0bb6b23bb1dcb6eeea73893",
-  "p100": "d20f5b2d15d675e78f841aae449cf5a0ebedc15d134a525d6c0e188fdd30b582"
+  "p0": "4bb5400caa8c0dc2a79043693ec16d0aa4ec9494f04c3ef4fd16d6f2c6ce81c4",
+  "a1": "9b0b0a7c865805acbddbe5b506da1eea2d75a70fc5e729e4b124e81c577f933d",
+  "p50": "5f4fe2fb717422a25fe85d94af493f75c5b4b486cc97e3c2ed9daadd467d309b",
+  "p100": "8b480075ca15b3ab991346856536089ac3ddd97c773cf3c22e2573414b91a8a5"
  },
  "v": 2,
  "name": "LayerStack",
  "frames": {
   "p0": 0,
-  "a1": 11,
+  "a1": 5,
   "p50": 155,
   "p100": 311
  },
@@ -27,14 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T06:16:38Z",
+ "written_at": "2026-10-16T11:17:34Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "critic": {
-  "score": 7.0,
-  "date": "2026-10-16",
-  "by": "critic",
-  "notes": "Round 1: approved, no blocking. Lit-top/dark-side acrylic slabs, ok check+glow on cached, highlight lift+dim read well; Arabic correct (RTL labels, Latin terms LTR). Cascade crit wave and warn progress bar not captured in any baseline; request strip. Dimmed-slab ink low contrast; empty p0."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

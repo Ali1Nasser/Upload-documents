@@ -335,15 +335,16 @@ const demos: DemoModule = {
       name: 'LayerStack',
       frames: 312,
       words: words('LayerStack', [
-        [6, 20], // 1 docker entrance
-        [52, 66], // 2 highlight
-        [92, 106], // 3 rebuildFrom
-        [158, 168], // 4 docker exit
-        [172, 186], // 5 terraces entrance
-        [208, 220], // 6 ODS
-        [234, 246], // 7 DW
-        [260, 272], // 8 ADS
-        [286, 298], // 9 marts
+        [0, 14], // 1 docker entrance (first slab inks on frame 0, so the p0 baseline guards it)
+        [56, 70], // 2 highlight COPY src
+        [98, 112], // 3 highlight RUN pip install (cached)
+        [142, 156], // 4 rebuildFrom (the 50 % still lands mid-cascade: crit wave on CMD app, warn bar on COPY src)
+        [190, 200], // 5 docker exit
+        [202, 214], // 6 terraces entrance
+        [232, 244], // 7 ODS
+        [254, 266], // 8 DW
+        [274, 286], // 9 ADS
+        [294, 306], // 10 marts
       ]),
       shot: {
         fx_tier: 'standard',
@@ -355,7 +356,7 @@ const demos: DemoModule = {
               id: 'img',
               slot: 'full',
               variant: 'docker',
-              until: A('LayerStack', 4),
+              until: A('LayerStack', 5),
               layers: [
                 {label: 'FROM python', cached: true},
                 {label: 'COPY requirements.txt', cached: true},
@@ -367,7 +368,8 @@ const demos: DemoModule = {
             at: A('LayerStack', 1),
           },
           {component: 'LayerStack.highlight', props: {target: 'img', index: 3}, at: A('LayerStack', 2)},
-          {component: 'LayerStack.rebuildFrom', props: {target: 'img', index: 3}, at: A('LayerStack', 3)},
+          {component: 'LayerStack.highlight', props: {target: 'img', index: 2}, at: A('LayerStack', 3)},
+          {component: 'LayerStack.rebuildFrom', props: {target: 'img', index: 3}, at: A('LayerStack', 4)},
           {
             component: 'LayerStack',
             props: {
@@ -381,12 +383,12 @@ const demos: DemoModule = {
                 {label: 'ODS — بيانات خام'},
               ],
             },
-            at: A('LayerStack', 5),
+            at: A('LayerStack', 6),
           },
-          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 3}, at: A('LayerStack', 6)},
-          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 2}, at: A('LayerStack', 7)},
-          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 1}, at: A('LayerStack', 8)},
-          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 0}, at: A('LayerStack', 9)},
+          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 3}, at: A('LayerStack', 7)},
+          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 2}, at: A('LayerStack', 8)},
+          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 1}, at: A('LayerStack', 9)},
+          {component: 'LayerStack.highlight', props: {target: 'terraces', index: 0}, at: A('LayerStack', 10)},
         ],
       },
     },

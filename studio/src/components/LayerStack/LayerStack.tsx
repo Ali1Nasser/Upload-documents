@@ -71,15 +71,16 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const w = m.w as number[];
     const hF = Math.round(fs0 * 2.0);
     const depth = Math.round(hF * 0.7);
-    // the top face (dy) of a slab sits in the gap above it: the gap is dy + a margin, so no face ever crosses the copy of the slab above
-    const gap = Math.round(depth * 0.55 + fs0 * 0.3);
+    // the top face (dy) of a slab sits in the gap above it: the gap is dy + the highlight lift + a margin, so no face ever crosses the
+    // copy of the slab above, even when the slab is lifted (critic round 1 item 2)
+    const lift = Math.round(fs0 * 0.2);
+    const gap = Math.round(depth * 0.55 + lift + fs0 * 0.3);
     const icon = Math.round(hF * 0.55);
     const hasSize = sizes.some(Boolean);
     const sizeW = hasSize ? Math.max(...sizes.map((s, i) => (s ? w[n + i] : 0))) + fs0 * 1.2 : 0;
     const W0 = Math.max(...w.slice(0, n)) + fs0 * 1.6 + icon + fs0 * 0.6 + sizeW;
-    const lift = gap * 0.4;
     const nat = {w: W0 + depth * 0.9, h: n * hF + (n - 1) * gap + depth * 0.55 + lift};
-    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.35);
+    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, n <= 4 ? 1.7 : 1.35);
     const s = fit.s;
     const ox = (ctx.box.w - nat.w * s) / 2;
     const oy = (ctx.box.h - nat.h * s) / 2 + (depth * 0.55 + lift) * s;
@@ -101,8 +102,10 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   hls.forEach((a, k) => {
     const i = a.props.index as number;
     if (i >= n || t < a.at) return;
-    const next = hls[k + 1];
-    const fade = next && t >= next.at ? 1 - revealProgress(t - next.at, lab) : 1;
+    // a later highlight or a rebuildFrom replaces this highlight (the cascade is read on its own)
+    const nexts = [hls[k + 1]?.at, ...acts(ctx, 'rebuildFrom').map((r) => r.at).filter((x) => x > a.at)].filter((x): x is number => x !== undefined);
+    const nx = nexts.length ? Math.min(...nexts) : undefined;
+    const fade = nx !== undefined && t >= nx ? 1 - revealProgress(t - nx, lab) : 1;
     hl[i] = Math.max(hl[i], revealProgress(t - a.at, presetFrames('arrive', fps)) * fade);
   });
   const anyHl = Math.max(0, ...hl);
@@ -119,14 +122,25 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     col = mix(col, C.signal, Math.max(hl[i], fresh));
     col = mix(col, C.crit, c.inv);
     // dimming goes through colour, never an opacity < 1
-    const dim = anyHl > 0 && hl[i] < 0.5 ? 1 - 0.35 * anyHl : 1;
+    const dim = anyHl > 0 && hl[i] < 0.5 ? 1 - 0.3 * anyHl : 1;
     const dm = (x: string) => (dim < 1 ? mix(x, C.ground, 1 - dim) : x);
-    return {i, L, c, q, cached, fresh, col: dm(col), dm, y: geo.ys[i] - hl[i] * geo.lift - (1 - q) * 18 * geo.s};
+    // label ink dims only a little so dimmed slabs stay readable at 960 (critic round 1 item 3)
+    const dmInk = (x: string) => (dim < 1 ? mix(x, C.ground, (1 - dim) * 0.45) : x);
+    return {i, L, c, q, cached, fresh, col: dm(col), dm, dmInk, y: geo.ys[i] - hl[i] * geo.lift - (1 - q) * 18 * geo.s};
   });
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
       {m.node}
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        <defs>
+          <radialGradient id={`${ctx.id}-floor`}>
+            <stop offset="0" stopColor={C.void} stopOpacity={0.85} />
+            <stop offset="1" stopColor={C.void} stopOpacity={0} />
+          </radialGradient>
+        </defs>
+        {slabs[0].q > 0 ? (
+          <ellipse cx={geo.ox + (geo.W + geo.dx) / 2} cy={geo.ys[0] + geo.hF + geo.dy * 0.35} rx={(geo.W + geo.dx) * 0.6} ry={geo.dy * 1.25} fill={`url(#${ctx.id}-floor)`} opacity={slabs[0].q} />
+        ) : null}
         {slabs.map(({i, q, col, y}) => {
           if (q <= 0) return null;
           const x = geo.ox;
@@ -140,7 +154,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           );
         })}
       </svg>
-      {slabs.map(({i, L, c, q, cached, fresh, col, dm, y}) => {
+      {slabs.map(({i, L, c, q, cached, fresh, col, dm, dmInk, y}) => {
         if (q <= 0) return null;
         const flash = c.invSince >= 0 && c.invSince < ff * 4 ? (c.invSince < ff ? 1 : 1 - (c.invSince - ff) / (3 * ff)) : 0;
         const x = geo.ox;
@@ -188,7 +202,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 position: 'relative',
                 whiteSpace: 'nowrap',
                 fontSize: geo.fs,
-                color: dm(C.ink),
+                color: dmInk(C.ink),
                 textShadow: halo,
                 lineHeight: 1.3,
                 ...rv,
@@ -199,7 +213,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               <MixedText id={`${ctx.id}:l${i}`} text={L.label} size={geo.fs} weight={ar ? FONT.label.strong : FONT.mono.weight} role={ar ? 'sentence' : 'code'} />
             </div>
             {sz ? (
-              <div style={{flex: 'none', width: geo.sizeW, display: 'flex', justifyContent: rtl ? 'flex-start' : 'flex-end', fontSize: geo.fs * 0.9, color: dm(C.ink2), textShadow: halo, position: 'relative'}}>
+              <div style={{flex: 'none', width: geo.sizeW, display: 'flex', justifyContent: rtl ? 'flex-start' : 'flex-end', fontSize: geo.fs * 0.9, color: dmInk(sz && !L.cached ? C.ink : C.ink2), textShadow: halo, position: 'relative'}}>
                 <bdi dir="ltr" data-dc-text={`${ctx.id}:s${i}`} style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontFeatureSettings: '"tnum" 1'}}>
                   {sz}
                 </bdi>
