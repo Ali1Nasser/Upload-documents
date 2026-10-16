@@ -263,3 +263,14 @@ Non-blocking, by impact:
 4. p50/p100, stream into the cards: particles thin out and the trails are about 2 px at 960 px; thicken the lanes and make the loser lane visibly dimmer after reveal.
 5. p50/p100, loser card A: it stays fully lit, so the winner contrast comes from the green only; dim A to about 70 %.
 6. p0: empty vignette; move the baseline past first entrance. Process: no motion strip (frames 0, 11, 40, 83, 125, 167) and no 1080p baselines yet; both needed before the pilot. CR-010 (optional rate/users) is still open and needs a Council ADR before film use.
+
+### AppliedSteps — round 1 (2026-10-16, critic, third independent read, not the author)
+
+Verdict: APPROVED, 7.4/10, no blocking issue. Read p0, a1, p50, p100 at full size (960x540 lite). No code changed, no snap, perf or qa arabic re-run (RAM guard refused the snap). meta.json already carries approved-critic (7.5, round-2) and is left unchanged. No motion strip exists, so the select travel, ok sweep and motes are judged from code and earlier reports, not seen live.
+Stills confirm: a1 shows three red duplicate rows and three steps in; p50 lights DEDUPE with a cyan beam into the table, which is down to two red rows; p100 shows all six steps, a grey table, a green rim and a boxed folded GROUP column. Arabic labels are correct and joined, glyph per step reads without narration, palette is tokenised, no digits drawn, not a bullet slide.
+Non-blocking, by impact:
+1. All stills, composition: pair fills about 60 % of width and 45 % of height; dead margins. Scale about 1.25 at 1080p.
+2. p100, table region: the ok sweep is not visible; add a strip (0, 11, 40, 83, 120, 150, 167) before the pilot.
+3. All stills, background: motes and floor reflection near invisible; light and depth is the weakest axis (6.5).
+4. p0: empty vignette; move the baseline past the first entrance.
+5. Process: 1080p baselines before the pilot.
