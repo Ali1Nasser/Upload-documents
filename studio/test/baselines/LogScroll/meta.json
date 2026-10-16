@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "fdda2633543445a18a8022110a77455cf9aca32c3b34bce01aee924b22ca7e89",
-  "p50": "275d96a4ce926408fff7c57c970f6700290179d69f6c2b693d4ee8d7e1466d2b",
-  "p100": "a67b01db5967bc342a723eb5b9fb83f8911591a7bf8534db7a9466815532a064"
+  "a1": "a0ed0a03ea146f664f876952576e274a88585501315c92ac769d4c23d0cec475",
+  "p50": "453b6a006cc093188f1ff44abf92c83aeaa9009b38cf87a419e2f0d572c2d8b6",
+  "p100": "e2e1fdcb49be00454250d8d15842530ce84b9dda8029102de52e9b65df33b869"
  },
  "v": 2,
  "name": "LogScroll",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:19:37Z",
+ "written_at": "2026-10-16T06:16:39Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
