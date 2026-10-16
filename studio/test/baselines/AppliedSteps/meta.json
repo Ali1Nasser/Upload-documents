@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "7a7e6892aabb2c9a739b61cc47326c51e61c1ffc75a0b4172fb3edd130eca184",
-  "p50": "44e3478733dbfdf20caad37d175ae0916cb6a86e5fdbbef4ede154bbab1bc07d",
-  "p100": "bfd30a10b3700ac304db538a4ec3ec5527d8deababc1d30207acda0516716aca"
+  "a1": "a224ed98c2413cbd20ad70072d877b954b402a8e29ee45cd8a8b4f0ce324fc56",
+  "p50": "ab7a23ce10e4caaa5e2953c3c6e23b929f20420a51bc644de314a6a3dd368f0f",
+  "p100": "c7706f62784f103c593e76b2d40a2797c8feaf7748e1dd3835ad4eed14468f72"
  },
  "v": 2,
  "name": "AppliedSteps",
@@ -27,13 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T21:57:06Z",
+ "written_at": "2026-10-16T17:49:35Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "score": 7.2,
- "date": "2026-10-15",
- "approved_by": "critic",
- "notes": "Round 1: no blocking issue. Strip/table verb reads (dirty->clean per step, beam). Weak: depth/light, film-strip read (frames not separated), p0 baseline is empty, no motion strip, dim upcoming steps low contrast, lit bar starts over header at first select."
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

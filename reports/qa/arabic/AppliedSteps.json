@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T21:59:51Z",
+ "created": "2026-10-16T17:53:33Z",
  "label": "AppliedSteps",
  "thresholds": {
   "ocr_min": 0.9,
@@ -22,8 +22,8 @@
   "negative_caught": 0,
   "ocr_scored": 6,
   "ocr_pass": 6,
-  "ocr_min": 1.0,
-  "ocr_exact": 6,
+  "ocr_min": 0.938,
+  "ocr_exact": 5,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
@@ -78,10 +78,13 @@
  "per_letter": [],
  "items": [
   {
-   "id": "as0",
+   "id": "s000",
    "text": "شيل المسافات الزيادة",
-   "size": 40,
-   "render_size": 40,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -90,12 +93,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 349,
-    "ink_h": 43,
+    "ink_w": 297,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -108,15 +112,22 @@
     "scale": 100,
     "got": "شيل المسافات الزيادة",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "as1",
+   "id": "s001",
    "text": "وحّد شكل الحروف",
-   "size": 40,
-   "render_size": 40,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -125,12 +136,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 289,
-    "ink_h": 43,
+    "ink_w": 245,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -141,52 +153,69 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "وحد شكل الحروف",
+    "got": "وحّد شكل الحروف",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "as2",
+   "id": "s002",
    "text": "غيّر النوع للتاريخ",
-   "size": 40,
-   "render_size": 40,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
-   "warnings": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.812 < 0.9 (pil-raqm-isolated); got '\\u200epre\\u200f النوع للتاريخ'"
+   ],
    "join": false,
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 250,
-    "ink_h": 42,
+    "ink_w": 213,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 13,
-    "scale": 100,
-    "got": "غير النوع للتاريخ .",
+    "score": 0.938,
+    "exact": false,
+    "psm": 7,
+    "scale": 70,
+    "got": "غثر النوع للتاريخ",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 0.938,
+     "92": 0.812
+    }
    },
    "status": "pass"
   },
   {
-   "id": "as3",
+   "id": "s003",
    "text": "امسح الصف المكرر",
-   "size": 40,
-   "render_size": 40,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -195,12 +224,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 303,
-    "ink_h": 42,
+    "ink_w": 257,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -213,15 +243,22 @@
     "scale": 100,
     "got": "امسح الصف المكرر",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "as4",
+   "id": "s004",
    "text": "فلتر الحالات الغلط",
-   "size": 40,
-   "render_size": 40,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -230,12 +267,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 280,
-    "ink_h": 42,
+    "ink_w": 237,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -248,15 +286,22 @@
     "scale": 100,
     "got": "فلتر الحالات الغلط",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "as5",
+   "id": "s005",
    "text": "اجمع حسب العميل",
-   "size": 40,
-   "render_size": 40,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -265,12 +310,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 309,
-    "ink_h": 42,
+    "ink_w": 262,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -283,7 +329,11 @@
     "scale": 100,
     "got": "اجمع حسب العميل",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   }

@@ -96,7 +96,9 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const gap = wide ? Math.round(box.w * 0.1) : 0;
   const prevW = wide ? box.w - stripW - gap : 0;
   const size = n <= 5 ? SIZE.sub : n <= 8 ? SIZE.body : SIZE.label;
-  const k = n <= 7 ? 1.9 : n <= 9 ? 1.65 : 1.45; // row pitch / font size (proportional, so the fit is exact)
+  // row pitch / font size: the base pitch, grown to fill the slot height when the slot is taller (proportional, so the fit stays exact)
+  const k0 = n <= 7 ? 1.9 : n <= 9 ? 1.65 : 1.45;
+  const k = Math.max(k0, Math.min(2.7, (box.h - 2 * PAD_Y - HEAD_H - 8) / (n * size)));
   const rail = 52;
   const padX = 22;
   const key = props.steps.map((s) => `${s.kind ?? ''}:${s.label}`).join('|');
@@ -123,6 +125,7 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   }
   const started = sels.length > 0 && selQ > 0;
   const stepQ = (i: number) => (sels.length === 0 ? 1 : clamp01(selY - i + 1)); // how far step i has cleaned the table
+  const selB = Math.max(0, selY); // the lit bar and the beam never leave the first frame upward (they start on step 0)
   const near = (i: number) => clamp01(1 - Math.abs(selY - i));
   const nearest = Math.round(clamp01((selY + 0.0001) / Math.max(1, n - 1)) * (n - 1));
 
@@ -151,10 +154,12 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       ci++;
     }
   });
+  // a group step merges row pairs (their height folds) instead of only highlighting a column
+  const groupI = kinds.indexOf('group');
   const rowF: number[] = []; // height factor per row (collapses when its step is applied)
   for (let r = 0; r < R; r++) {
     const o = rowOwner.get(r);
-    rowF.push(o === undefined ? 1 : 1 - ease.camera(stepQ(o)));
+    rowF.push(o !== undefined ? 1 - ease.camera(stepQ(o)) : groupI >= 0 && r % 2 === 1 ? 1 - 0.5 * ease.camera(stepQ(groupI)) : 1);
   }
   const rowY: number[] = [];
   let acc = hdrH;
@@ -164,6 +169,9 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   }
   const allQ = sels.length === 0 ? 1 : Math.min(...props.steps.map((_, i) => stepQ(i)));
   const cleanTone = clamp01((allQ - 0.0) * 1) * (started || sels.length === 0 ? 1 : 0);
+  // the "clean" payoff: an ok-green sweep crosses the table once the last step has landed (RV1 from the select anchor)
+  const lastSel = sels.length ? sels[sels.length - 1] : undefined;
+  const sweepQ = lastSel && Math.min(n - 1, lastSel.props.index as number) >= n - 1 ? progN(ctx, lastSel.at + morph, Math.round(morph * 1.6), (x) => x) : 0;
   const pvKind = !started ? 'SOURCE' : props.steps[nearest].kind ?? 'STEP';
   const cell = (c: number, r: number, rowSrc: number) => {
     const w = 0.42 + 0.46 * random(`as:w:${c}:${rowSrc}`);
@@ -182,7 +190,7 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // ---------- geometry of the two plates (box-local) ----------
   const stripX = rtl ? box.w - stripW : 0;
   const prevX = rtl ? 0 : box.w - prevW;
-  const barTop = top + 1 + PAD_Y + HEAD_H + 4 + selY * rowH; // list container starts at +4 (the fit wrapper is nudged by 4)
+  const barTop = top + 1 + PAD_Y + HEAD_H + 4 + selB * rowH; // list container starts at +4 (the fit wrapper is nudged by 4)
   const edgeS = rtl ? stripX : stripX + stripW; // strip edge facing the table
   const edgeP = rtl ? prevX + prevW : prevX; // table edge facing the strip
   const dirSign = rtl ? -1 : 1;
@@ -190,6 +198,26 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
 
   return (
     <Stage ctx={ctx}>
+      {/* depth: a faint floor reflection under each plate and a few seeded dust motes drifting in the beam's air (behind the plates) */}
+      <Svg w={box.w} h={box.h}>
+        <defs>
+          <linearGradient id={`${ctx.id}-floor`} x1={0} y1={0} x2={0} y2={1}>
+            <stop offset="0" stopColor={C.signal} stopOpacity={0.06} />
+            <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        {[stripX, ...(wide ? [prevX] : [])].map((x, i) => (
+          <rect key={`fl${i}`} x={x + 16} y={top + plateH + 10} width={(i === 0 ? stripW : prevW) - 32} height={Math.min(46, box.h - top - plateH - 10)} rx={20} fill={`url(#${ctx.id}-floor)`} opacity={prog(ctx, ctx.at + stag(1, fps, 3), 'label')} />
+        ))}
+        {Array.from({length: fx.id === 'lite' ? 10 : 22}, (_, m) => {
+          const sp = 0.12 + 0.2 * random(`as:ms:${m}`);
+          const x = random(`as:mx:${m}`) * box.w + Math.sin(t * 0.02 * sp * 5 + m) * 10;
+          const y = box.h - ((random(`as:my:${m}`) * box.h + t * sp) % box.h);
+          const r = 1 + 2 * random(`as:mr:${m}`);
+          const inPlate = x > Math.min(stripX, prevX) && x < Math.max(stripX + stripW, prevX + prevW) && y > top && y < top + plateH;
+          return inPlate ? null : <circle key={m} cx={x} cy={y} r={r} fill={C.signal} opacity={(0.1 + 0.25 * random(`as:mo:${m}`)) * Math.sin((y / box.h) * Math.PI)} />;
+        })}
+      </Svg>
       {/* projector beam from the lit frame to the table (behind both plates) */}
       {wide && started ? (
         <Svg w={box.w} h={box.h}>
@@ -212,13 +240,19 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       <Glass style={{position: 'absolute', left: stripX, top, width: stripW, height: plateH, boxSizing: 'border-box', padding: `${PAD_Y}px ${padX + rail}px`, boxShadow: keyShadow}}>
         {[0, 1].map((side) => {
           const pitch = rowH / 2;
-          const holes = Math.ceil(plateH / pitch) + 2;
-          const off = (((selY + 1) * rowH) % pitch) + 0;
+          const holes = Math.ceil(plateH / pitch) + 3;
+          const listTop = PAD_Y + HEAD_H + 4;
+          const off = (selB * rowH) % pitch; // holes advance with the selection (two per frame cell)
+          const litC = listTop + (selB + 0.5) * rowH;
+          const hh = Math.min(22, pitch * 0.55);
           return (
             <div key={side} style={{position: 'absolute', top: 0, bottom: 0, [side ? 'right' : 'left']: 0, width: rail + padX * 0.5, overflow: 'hidden', background: `linear-gradient(${side ? 270 : 90}deg, ${C.void}${hex(0.55)}, ${C.void}${hex(0)})`, borderRight: side ? undefined : `1px solid ${C.grid}`, borderLeft: side ? `1px solid ${C.grid}` : undefined, borderRadius: side ? '0 18px 18px 0' : '18px 0 0 18px'}}>
-              {Array.from({length: holes}, (_, h) => (
-                <div key={h} style={{position: 'absolute', left: (rail * 0.5 + padX * 0.5) / 2 - 8, top: h * pitch - off - pitch, width: 16, height: Math.min(22, pitch * 0.55), borderRadius: 4, background: C.void, boxShadow: `inset 0 1px 2px ${C.void}, 0 1px 0 ${C.ink}${hex(0.1)}`, border: `1px solid ${C.grid}`}} />
-              ))}
+              {Array.from({length: holes}, (_, h) => {
+                const y = listTop + (h - 1 + 0.5) * pitch - off - hh / 2;
+                const lit = started ? clamp01(1 - Math.abs(y + hh / 2 - litC) / rowH) * selQ : 0;
+                if (y < 0 || y + hh > plateH) return null;
+                return <div key={h} style={{position: 'absolute', left: (rail * 0.5 + padX * 0.5) / 2 - 8, top: y, width: 16, height: hh, borderRadius: 4, background: lit > 0.01 ? mix(C.void, C.signal, 0.55 * lit) : C.void, boxShadow: lit > 0.01 ? `0 0 ${(fx.glowInner * lit).toFixed(1)}px ${C.signal}${hex(0.6 * lit)}` : `inset 0 1px 2px ${C.void}, 0 1px 0 ${C.ink}${hex(0.1)}`, border: `1px solid ${lit > 0.01 ? mix(C.grid, C.signal, lit) : C.grid}`}} />;
+              })}
             </div>
           );
         })}
@@ -232,9 +266,9 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 position: 'absolute',
                 left: -8,
                 right: -8,
-                top: selY * rowH,
-                height: rowH,
-                borderRadius: 12,
+                top: selB * rowH + 3,
+                height: rowH - 6,
+                borderRadius: 10,
                 opacity: selQ,
                 background: `linear-gradient(${rtl ? 270 : 90}deg, ${C.signal}${hex(0.28)}, ${C.signal}${hex(0.1)})`,
                 border: `1px solid ${C.signal}${hex(0.8)}`,
@@ -245,11 +279,12 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           <div ref={ref} data-overflow={fit.overflow ? 1 : undefined} dir={rtl ? 'rtl' : 'ltr'} style={{display: 'flex', flexDirection: 'column', width: 'max-content', fontSize: fs, outline: fit.overflow ? `2px dashed ${C.crit}` : undefined, position: 'relative'}}>
             {rows.map(({s, i, ent, q, w}) => {
               const glyphColor = !started ? C.ink2 : w > 0.5 ? C.signal : q >= 1 ? C.ok : mix(C.ink3, C.ok, q);
-              const txt = !started || q > 0.5 || w > 0.5 ? C.ink : C.ink3;
+              const txt = !started || q > 0.5 || w > 0.5 ? C.ink : C.ink2;
               return (
                 <div
                   key={i}
                   style={{
+                    position: 'relative',
                     height: rowH,
                     boxSizing: 'border-box',
                     alignSelf: 'stretch',
@@ -257,11 +292,12 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                     alignItems: 'center',
                     gap: fs * 0.5,
                     padding: `0 ${fs * 0.45}px`,
-                    opacity: ent * (started ? lerp(0.5, 1, Math.max(q, w)) : 1),
+                    opacity: ent * (started ? lerp(0.72, 1, Math.max(q, w)) : 1),
                     transform: `translateY(${((1 - ent) * 6).toFixed(2)}px)`,
-                    borderBottom: i < n - 1 ? `1px dashed ${C.grid}` : undefined,
                   }}
                 >
+                  {/* the film frame cell: rounded border with a 3 px frame gap above and below */}
+                  <div style={{position: 'absolute', left: 0, right: 0, top: 3, bottom: 3, borderRadius: 10, border: `1px solid ${mix(C.grid, C.signal, w * 0.8)}`, background: `${C.void}${hex(0.22 + 0.1 * (1 - w))}`, boxShadow: `inset 0 1px 0 ${C.ink}${hex(0.05)}`}} />
                   <div style={{flex: 'none', width: fs * 1.1, height: fs * 1.1, borderRadius: fs * 0.28, display: 'flex', alignItems: 'center', justifyContent: 'center', background: `${C.void}${hex(0.6)}`, border: `1px solid ${w > 0.5 ? `${C.signal}${hex(0.7)}` : C.grid}`, boxShadow: rim(0.12)}}>
                     <Glyph kind={kinds[i]} size={fs * 0.72} color={glyphColor} />
                   </div>
@@ -338,6 +374,9 @@ export const AppliedStepsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 </div>
               );
             })}
+            {sweepQ > 0 && sweepQ < 1 ? (
+              <div style={{position: 'absolute', top: 0, bottom: 0, width: tblW * 0.22, left: (rtl ? 1 - sweepQ * 1.22 : sweepQ * 1.22 - 0.22) * tblW, background: `linear-gradient(${rtl ? 270 : 90}deg, ${C.ok}${hex(0)}, ${C.ok}${hex(0.3)}, ${C.ok}${hex(0)})`, opacity: Math.sin(sweepQ * Math.PI), pointerEvents: 'none'}} />
+            ) : null}
           </div>
         </Glass>
       ) : null}
