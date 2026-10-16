@@ -161,7 +161,8 @@ const demos: DemoModule = {
       },
     },
     {
-      // DD-P23 as locked in the EDL (parent CH-33); prerequisites are graph concept ids (corpus/graph/concepts.jsonl)
+      // DD-P23 as locked in the EDL (parent CH-33; title_en shortened to the 48-char schema cap); prerequisites are the concepts the
+      // DD-P23 pack lists as needed (corpus/packs/DD-P23.json prereqs.table: embedding, chunk, knn), graph ids from corpus/graph/concepts.jsonl
       name: 'DeepDiveCard',
       frames: 84,
       words: [[W('DeepDiveCard', 1), 8, 40]],
@@ -177,7 +178,7 @@ const demos: DemoModule = {
               parent: 'CH-33',
               title_ar: 'Embeddings والـRAG والـAgents: المعنى كموضع',
               title_en: 'Embeddings, RAG and agents: meaning as position',
-              prerequisites: ['c:embedding', 'c:cosine-similarity', 'c:chunk'],
+              prerequisites: ['c:embedding', 'c:chunk', 'c:knn'],
             },
             at: {word: W('DeepDiveCard', 1), lead_frames: 3},
           },

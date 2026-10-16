@@ -1,0 +1,136 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-16T06:17:23Z",
+ "label": "DeepDiveCard-title-onscreen",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "fail",
+ "metrics": {
+  "strings": 1,
+  "failed": 1,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 1,
+  "ocr_pass": 0,
+  "ocr_min": 0.757,
+  "ocr_exact": 0,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 1,
+  "join_min": 0.757,
+  "join_below_min": [
+   "title"
+  ],
+  "rt_010_2": [
+   "title"
+  ],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "frame-crop": 1
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "title",
+   "text": "Embeddings والـRAG والـAgents: المعنى كموضع",
+   "size": 60,
+   "render_size": 60,
+   "kind": "label",
+   "sources": [],
+   "problems": [
+    "OCR score 0.757 < 0.9 (frame-crop); got '\\u200eEmbeddings\\u200f وال \\u200eRAG\\u200f وال \\u200e:Agents\\u200f المعنى كموضع'"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "box": [
+     290,
+     520,
+     1630,
+     625
+    ],
+    "safe": [
+     68,
+     38,
+     1852,
+     1042
+    ]
+   },
+   "evidence": "frame-crop",
+   "renderer": "delivered frame crop (glow composited)",
+   "ocr": {
+    "score": 0.757,
+    "exact": false,
+    "psm": 6,
+    "scale": 100,
+    "got": "‎Embeddings‏ وال ‎RAG‏ وال ‎:Agents‏ المعنى كموضع",
+    "join_junk": "",
+    "join_region_ok": false,
+    "pass": false
+   },
+   "status": "fail"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

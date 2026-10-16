@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "6f990df36216be20d765629ad26ba541afe7141ad153df2c12f07af4b09cc56a",
-  "a1": "b50a6333a78e8f4db54654290ec22b654b040053abe3c6d6d31c91255b702e1d",
-  "p50": "e14ff8bb4d3cf8d8b85ed1fd99dfad5500f5c93ec6297090a56bf322eae34340",
-  "p100": "6095d487714a4f37deb08bbfd993641e5f6ff1d4f5818da144216abb8eefe559"
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "e40f5ef650a0b576376eae7c89db547f1fe6a045c0b468d13d25b9eb0a0676af",
+  "p50": "965d1ec7b1e0776abcda037928064e626aa07c4a78de9cb3012ef24478851f6e",
+  "p100": "5470dbb2780c36fd11bdfaf9235b188cf9a6d464ba0ce0badbf14db7011f4d93"
  },
  "v": 2,
  "name": "DeepDiveCard",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:35:02Z",
+ "written_at": "2026-10-16T06:04:34Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

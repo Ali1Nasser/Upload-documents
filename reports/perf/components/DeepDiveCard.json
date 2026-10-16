@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "DeepDiveCard",
+ "composition": "Demo-DeepDiveCard",
+ "at": "2026-10-16T06:13:18Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 84,
+   "wall_s": 7.9,
+   "box_s_per_frame": 0.0941,
+   "slot_s_per_frame": 0.2823,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    7.17,
+    7
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 84,
+   "wall_s": 8.62,
+   "box_s_per_frame": 0.1026,
+   "slot_s_per_frame": 0.3078,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    7,
+    7.08
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 84,
+   "wall_s": 8.71,
+   "box_s_per_frame": 0.1037,
+   "slot_s_per_frame": 0.3111,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    7.08,
+    7.46
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
