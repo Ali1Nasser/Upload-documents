@@ -255,3 +255,41 @@ None. Status set to approved-critic (lite tier).
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
+
+## AttentionMatrix — round 1
+Reviewed: studio/test/baselines/AttentionMatrix/{p0,a1,p50,p100}.png (960x540, lite) and reports/p7/snap/AttentionMatrix.jpg. Arabic QA 6/6 (reports/p7/qa_arabic_AttentionMatrix.json). Standard/hero tiers and a motion strip not viewed (not evidenced). Palette in source is C.* tokens only (panel, signal, ink, void, grid, white).
+
+### What works
+- a1/p50: 6x6 grid in math orientation; the lower-triangular causal mask is immediately visible, brightest cell at (العميل, العميل) in a1 and the row of الـ API outlined in signal in p50/p100 with its row label lit and the others dimmed. Reads as "each word looks only backwards" without narration.
+- Row labels (about 14 px at 960, about 28 px at 1080p) are above the 18 px floor; the 45 degree column labels read, mixed script "الـ API" is correct.
+- Panel-to-signal ramp, bevelled cells, rim on the panel top edge; no numbers, no legacy frames, no bullet look.
+- Masked cell of the highlighted row (p50, x 622-688, y 370-432) is a clear recessed void, correct for future position.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p | 7.5 |
+| Token / palette discipline | 9 |
+| Depth and light | 6 |
+| Visual verb reads without narration | 8.5 |
+| Arabic correct | 9 |
+| Not a slide / bullet look | 7.5 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (stills only) | 6 |
+| Polish | 7 |
+Mean 8.05, min 6. Overall 7.3 (lite tier only).
+
+### Blocking
+None. Status set to approved-critic (lite tier).
+
+### Non-blocking, carry forward (ordered by impact)
+1. Depth and light (p50, whole frame): lite is flat; the glass panel edge (x 292-692, y 102-503) is barely distinct from ground and there is no visible contact shadow. Required before final lock: standard and hero stills with light pool, glow on strong cells and bloom.
+2. Motion (a1 to p100): the anti-diagonal arrival wave and the highlightRow move are not evidenced; a1 (frame 11) shows a very bright first cell and a different weight pattern than p50, so the settle is large but unproven. Provide a 6-frame strip frames 0-30 and one across a highlightRow change.
+3. Mask versus low weight (p50, x 360-690, y 105-300 and y 435-500): masked cells and near-zero weights are close in value (rows مرتين and رفض). Lower the void value or give masked cells a more visible edge so the triangle reads at 960 px.
+4. Scale (p50, x 0-290 and 690-960): the matrix uses about 41 percent of the width; at hero scale grow the cell size (CS_MAX 128 is not reached at 6 tokens) so the grid fills the safe area.
+5. Axes (p50, y 40-100 and x 220-290): there is no query/key cue or weight legend. A small signal-ramp key or a words-anchored "who looks / at whom" label would remove ambiguity for the first-time viewer. "Head 1" is Latin script; fine under the terms policy but confirm in the pack.
+6. p0 is empty by design; rely on a1 for the opening.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
