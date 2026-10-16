@@ -84,3 +84,17 @@ None.
 
 ### Scores (1-10)
 Legibility 8, token discipline 9, depth and light 7, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 8. Mean about 8.5, min 7; overall 7.5 given modest depth and lite-only baselines.
+
+## FixSettle — round 1 (r4 independent re-check)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 at full size (960x540 lite), reports/p7/snap/FixSettle_beat.jpg (standard f37-41,43; hero f39). No code changed since 7fddc26; snap/perf not re-run.
+
+Verdict: APPROVED, 7.5/10, no blocking issue. meta.json unchanged (approved-critic, 7.5).
+
+Seen: a1 is the pre-settle card (T3/T6 FAILED, no rim). p50/p100 hold: ok L-brackets and rim clear of the title (the "إ" of "إيصالات" ends x about 611, bracket line x about 616), T3/T6 flipped to OK with green rows, chip "اتصلحت والعملية نجحت" agrees with the table. The beat strip shows the drop, 3 px ring converging, brackets closing, sweep right to left and motes landing. Tokens only, no bullets, no legacy frames, no invented numbers.
+
+Blocking: none.
+
+Non-blocking (unchanged): lite baselines (whole card, x 330-630, y 158-450) have no ring/glow/motes, so add a standard a1 at f39; depth and light are modest in the held state; strip tiles crop the ring top and chip bottom; p0 is the empty gradient; chip sits about 3-4 px below the card in p100 (x 375-580, y 383-415 gap), so give it a little more air.
+
+Scores: Legibility 8, token discipline 9, depth/light 7, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent 8. Mean 8.5, min 7; overall 7.5.
