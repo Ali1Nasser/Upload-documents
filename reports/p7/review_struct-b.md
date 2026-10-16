@@ -74,3 +74,30 @@ Non-blocking issues (ordered by impact)
 5. p50 and p100, floor plane: grid lines are about 3-4% luminance and the grid extends past both ends of the content. Add a horizon glow and fade the grid at the edges.
 6. a1 and p50, region x 455-470 / y 205-370: the left-edge ref ports are hairline 6 px circles. Enlarge ~1.5x so the origin of each reference reads at 1080p.
 7. Supply a motion strip (push, ref path-draw with travelling pulse, aliasing pulse, collect sparks) in round 2 so easing and impacts can be judged rather than inferred.
+
+## PartitionLanes — round 1
+
+Date 2026-10-16. Reviewed at full size: baselines p0, a1, p50, p100 (960x540, lite, scale 0.5) and reports/p7/snap/PartitionLanes.jpg. Arabic QA (qa_arabic_PartitionLanes.json): pass, OCR 1/1 exact. Snap determinism 0 px. The lag value carries ref s:S4:P19:0090. No motion strip exists; motion is judged from the four-state progression only.
+
+Score: 7.2 / 10. Verdict: APPROVED (no blocking issue). Baseline meta set to approved-critic.
+
+Rubric read
+- Legibility at 1080p: 7 (topic pill, "5 min" and the consumer pills are clear; tile index digits, "fraud-check" and the P0-P2 tags are about 11-13 px at 960, grey or violet on near-black).
+- Token/palette discipline: 8 (violet lanes, cyan for consumers/offsets/producer, amber for lag only; colour carries meaning).
+- Depth and light: 7 (glass slabs with edge light, faint violet under-glow, perspective floor grid, raised tiles; the slabs and floor grid are subtle and the tiles read nearly flat).
+- Visual verb without narration: 8 (three lanes, keyed shape tiles, a cyan offset marker per lane, amber 5 min lag bracket and then c1/c2 re-wire read as "partitions, offsets, lag, rebalance").
+- Arabic: 9 (RTL topic pill with isolated Latin `NilePay`; no per-letter animation).
+- No bullet-list look / no legacy frames: 8.
+- Unsourced numbers: none (5 min carries a source ref).
+- Motion intent: 6.5 (produce, lag bloom and re-wire are inferred from state differences; no strip).
+
+Blocking issues: none.
+
+Non-blocking issues (ordered by impact)
+1. p50 and p100, region x 500-780 / y 100-450: the right 40% of each slab is empty while tiles are about 100 px wide. Enlarge tiles ~1.3x or narrow the slabs so the lanes feel filled and the tiles read at 1080p.
+2. p50 and p100, region x 280-490 / y 110-440: tile index digits and shape icons are grey at ~25% luminance. Raise to about 0.7 luminance; give the keyed shapes a faint tint.
+3. p50 and p100, region x 795-900 / y 225-325: the producer tile floats right of the lanes with no visible link. Add a short faint feed line or a trailing arrow into the lane it writes to.
+4. p100, region x 400-500 / y 335-460: the lag bracket and amber tiles are gone, but the "5 min" pill stays next to the offset marker with no anchor to the lag it measures. Keep a thin amber tick or tint on the pill.
+5. p50 and p100, region x 140-900 / y 450-490: the floor grid is about 3-4% luminance and the "T3" tag sits on top of it. Add a horizon glow and place T3 under the tile it keys.
+6. p50, region x 70-190 / y 340-390: the idle c2 boat is nearly invisible (about 10% luminance); acceptable as "not yet joined", but raise slightly so it reads as a consumer.
+7. Supply a motion strip (produce drop, lag bracket bloom, rebalance re-wire) in round 2 so easing and impacts can be judged rather than inferred.
