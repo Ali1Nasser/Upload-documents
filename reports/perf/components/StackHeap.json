@@ -2,7 +2,7 @@
  "v": 2,
  "name": "StackHeap",
  "composition": "Demo-StackHeap",
- "at": "2026-10-15T22:20:48Z",
+ "at": "2026-10-16T06:03:10Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,52 +21,52 @@
  "tiers": {
   "lite": {
    "frames": 216,
-   "wall_s": 12.02,
-   "box_s_per_frame": 0.0556,
-   "slot_s_per_frame": 0.1668,
+   "wall_s": 15.66,
+   "box_s_per_frame": 0.0725,
+   "slot_s_per_frame": 0.2175,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.13,
-    5.19
+    7.39,
+    7.19
    ],
    "queue": {
     "running": 1,
-    "queued": 2
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 216,
-   "wall_s": 15.84,
-   "box_s_per_frame": 0.0733,
-   "slot_s_per_frame": 0.2199,
+   "wall_s": 19.69,
+   "box_s_per_frame": 0.0911,
+   "slot_s_per_frame": 0.2733,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.66,
-    5.65
+    7.19,
+    7.59
    ],
    "queue": {
     "running": 1,
-    "queued": 3
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "hero": {
    "frames": 216,
-   "wall_s": 16.05,
-   "box_s_per_frame": 0.0743,
-   "slot_s_per_frame": 0.2229,
+   "wall_s": 19.57,
+   "box_s_per_frame": 0.0906,
+   "slot_s_per_frame": 0.2718,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    5.65,
-    6.29
+    7.3,
+    6.99
    ],
    "queue": {
     "running": 1,
-    "queued": 3
+    "queued": 5
    },
    "other_jobs_running": 0
   }

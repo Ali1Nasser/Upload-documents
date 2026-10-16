@@ -18,7 +18,7 @@ import {hex} from '../../fx/look';
 import {ease, presetFrames} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {GlowPath, Lbl, Pool, actionsOf, arrowHead, cPath, cardStyle, clamp01, f24, layerStyle, prog, rtlOf} from '../_struct-b/kit';
+import {GlowPath, Lbl, Pool, actionsOf, arrowHead, cAt, cPath, cardStyle, clamp01, f24, layerStyle, prog, rtlOf, type Pt} from '../_struct-b/kit';
 
 type Ctx = DcProps<Props>['ctx'];
 type SFrame = {key: string; label: string; vars: string[]; born: number; died: number};
@@ -55,24 +55,24 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const k = 1 + ctx.mod.glow;
   // ---- stack geometry (conservative: every frame that ever exists, so nothing jumps when frames come and go) ----
   const headTop = Math.round(SIZE.label * 1.6); // column captions
-  const stackW = Math.min(560, w * 0.36);
+  const stackW = Math.min(760, w * 0.42);
   const avail = h - headTop - 12;
   const gap = 14;
   const dims = (s: number, fold: number) => {
-    const rowH = Math.round(s * 1.55);
+    const rowH = Math.round(s * 1.6);
     const hdr = Math.round(s * 1.9);
     const hs = tl.frames.map((f, i) => hdr + (i < fold ? 0 : f.vars.length * rowH) + (f.vars.length && i >= fold ? 10 : 0));
     return {rowH, hdr, hs, total: hs.reduce((a, b) => a + b, 0) + gap * Math.max(0, tl.frames.length - 1)};
   };
-  let s: number = SIZE.body;
+  let s: number = SIZE.sub; // 56 px at the largest; shrinks to the 28 px floor as frames / variables grow
   let fold = 0;
   let dm = dims(s, fold);
   while (dm.total > avail && s > SIZE.labelMin) dm = dims((s -= 2), fold);
   while (dm.total > avail && fold < tl.frames.length - 1) dm = dims(s, ++fold);
   // heap columns first (the stack + heap group is centred horizontally in the box)
-  const objW = Math.min(340, Math.max(200, w * 0.2));
+  const objW = Math.min(460, Math.max(240, w * 0.26));
   const objH = Math.round(s * 2.2);
-  const heapGap = Math.max(80, w * 0.1);
+  const heapGap = Math.max(100, w * 0.12);
   const minGap = objH + 26;
   const hcols = tl.heap.length * minGap > h - headTop - 24 ? 2 : 1;
   const groupW = stackW + (tl.heap.length ? heapGap + objW + (hcols - 1) * (objW + 50) : 0);
@@ -82,7 +82,7 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // stack slots: alive frames bottom-up; a frame keeps its slot (pushes / pops only touch the top)
   const alive = (f: SFrame) => f.born <= t && t < f.died + exitN;
   const slotY = new Map<string, number>();
-  const floorY = Math.round((h + dm.total) / 2 - SIZE.labelMin); // the whole stack (every frame that ever exists) is centred in the box
+  const floorY = Math.round((h + dm.total) / 2 - SIZE.labelMin * 2.5); // the whole stack (every frame that ever exists) is centred in the box
   let yb = floorY;
   tl.frames.forEach((f, i) => {
     if (t < f.born) return;
@@ -159,19 +159,27 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const orphan = oa === Infinity ? 0 : prog(t, oa, lblN);
     return {ent, gc, orphan, on: t >= o.born && gc < 1};
   };
+  // heap objects float a few px above the floor (the heap is free memory, the stack stands on the floor); settles after entry
+  const bobOf = (o: HObj, j: number) => {
+    const u = clamp01((t - o.born) / Math.max(1, lblN * 3));
+    return Math.sin(((t - o.born) / (ctx.fps * 3.4)) * Math.PI * 2 + j * 1.7) * 3.2 * u;
+  };
+  const bobs = new Map(tl.heap.map((o, j) => [o.id, bobOf(o, j)]));
   // ---- references ----
-  type R = {d: string; head: string; on: number; to: string};
+  type R = {d: string; head: string; on: number; to: string; pts: [Pt, Pt, Pt, Pt]; drawn: number};
   const refs: R[] = [];
   const incoming = new Map<string, number>();
   props.refs.forEach((r, i) => {
     const to = tl.heap.find((o) => o.id === r.to);
-    const tp = objPos.get(r.to);
+    const tp0 = objPos.get(r.to);
+    const tp = tp0 && {x: tp0.x, y: tp0.y + (bobs.get(r.to) ?? 0)};
     if (!to || !tp) return;
     const ts = objState(to);
     let a: {x: number; y: number; on: number} | undefined = ports.get(r.from);
     if (!a) {
       const src = tl.heap.find((o) => o.id === r.from);
-      const sp = src && objPos.get(src.id);
+      const sp0 = src && objPos.get(src.id);
+      const sp = sp0 && {x: sp0.x, y: sp0.y + (bobs.get(src!.id) ?? 0)};
       if (src && sp) {
         const ss = objState(src);
         a = {x: sp.x + ((tp.x > sp.x ? 1 : -1) * objW) / 2, y: sp.y, on: ss.on ? ss.ent * (1 - ss.gc) : 0};
@@ -189,23 +197,40 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const tx = tp.x + ((a.x < tp.x ? -1 : 1) * objW) / 2;
     const b = {x: tx, y: tp.y};
     const dx = (b.x - a.x) * 0.5;
-    refs.push({d: cPath(a, {x: a.x + dx, y: a.y}, {x: b.x - dx, y: b.y}, b), head: draw >= 1 ? arrowHead(b, {x: b.x - a.x >= 0 ? 1 : -1, y: 0}, 9) : '', on: on * Math.min(1, draw * 2), to: r.to});
+    refs.push({d: cPath(a, {x: a.x + dx, y: a.y}, {x: b.x - dx, y: b.y}, b), head: draw >= 1 ? arrowHead(b, {x: b.x - a.x >= 0 ? 1 : -1, y: 0}, 11) : '', on: on * Math.min(1, draw * 2), to: r.to, pts: [a, {x: a.x + dx, y: a.y}, {x: b.x - dx, y: b.y}, b], drawn: Math.max(tl.refsStart + f24(2 * i, ctx.fps), to.born) + presetFrames('arrive', ctx.fps)});
     if (draw >= 1) incoming.set(r.to, (incoming.get(r.to) ?? 0) + 1);
   });
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: w, height: h, ...layerStyle(ctx, rtl)}}>
       {/* column captions (Latin chrome) */}
-      <Lbl id={`${ctx.id}:cs`} text="stack" x={stackX + stackW / 2} y={capY} valign="top" maxW={stackW} size={SIZE.labelMin} color={C.ink3} opacity={prog(t, ctx.at, lblN)} role="code" />
-      {tl.heap.length ? <Lbl id={`${ctx.id}:ch`} text="heap" x={heapCx} y={capY} valign="top" maxW={objW * 2} size={SIZE.labelMin} color={C.ink3} opacity={prog(t, tl.heap[0].born, lblN)} role="code" /> : null}
+      <Lbl id={`${ctx.id}:cs`} text="stack" x={stackX + stackW / 2} y={capY} valign="top" maxW={stackW} size={SIZE.labelMin} color={C.ink2} opacity={prog(t, ctx.at, lblN)} role="code" />
+      {tl.heap.length ? <Lbl id={`${ctx.id}:ch`} text="heap" x={heapCx} y={capY} valign="top" maxW={objW * 2} size={SIZE.labelMin} color={C.ink2} opacity={prog(t, tl.heap[0].born, lblN)} role="code" /> : null}
       {/* aliasing pools behind objects that two names point at */}
       {tl.heap.map((o) => {
         const p = objPos.get(o.id)!;
         const m = incoming.get(o.id) ?? 0;
         return m >= 2 ? <Pool key={o.id} x={p.x} y={p.y} r={objW * 0.9} color={C.signal} a={0.24} squash={0.6} /> : null;
       })}
-      {/* stack floor: a lit base line the frames stand on */}
-      <Pool x={stackX + stackW / 2} y={floorY + 8} r={stackW * 0.7} color={C.signal} a={0.16 * k} squash={0.14} />
-      <div style={{position: 'absolute', left: stackX, top: floorY + 6, width: stackW, height: 3, borderRadius: 2, background: `linear-gradient(90deg, transparent, ${C.signal}${hex(0.7)}, transparent)`, opacity: prog(t, ctx.at, lblN)}} />
+      {/* floor plane: a perspective grid fading away from the lit base line the frames stand on (depth + light, ADR-003 LK-F) */}
+      <svg width={w} height={h} style={{position: 'absolute', inset: 0, overflow: 'hidden', opacity: prog(t, ctx.at, lblN)}}>
+        <defs>
+          <linearGradient id={`${ctx.id}-fl`} gradientUnits="userSpaceOnUse" x1="0" y1={floorY + 8} x2="0" y2={h}>
+            <stop offset="0" stopColor={C.signal} stopOpacity={0.34} />
+            <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+          </linearGradient>
+        </defs>
+        {Array.from({length: 6}, (_, i) => {
+          const d = Math.pow((i + 1) / 6, 1.7) * Math.max(40, h - floorY - 8);
+          const half = groupW * (0.62 + 0.32 * ((i + 1) / 6));
+          return <line key={`h${i}`} x1={gx + groupW / 2 - half} x2={gx + groupW / 2 + half} y1={floorY + 8 + d} y2={floorY + 8 + d} stroke={`url(#${ctx.id}-fl)`} strokeWidth={1.5} />;
+        })}
+        {Array.from({length: 13}, (_, j) => {
+          const q = (j - 6) * groupW * 0.1;
+          return <line key={`v${j}`} x1={gx + groupW / 2 + q} y1={floorY + 8} x2={gx + groupW / 2 + q * 2.4} y2={h} stroke={`url(#${ctx.id}-fl)`} strokeWidth={1.5} />;
+        })}
+      </svg>
+      <Pool x={stackX + stackW / 2} y={floorY + 8} r={stackW * 0.78} color={C.signal} a={0.2 * k} squash={0.16} />
+      <div style={{position: 'absolute', left: stackX - 20, top: floorY + 6, width: stackW + 40, height: 3, borderRadius: 2, background: `linear-gradient(90deg, transparent, ${C.signal}${hex(0.8)}, transparent)`, opacity: prog(t, ctx.at, lblN)}} />
       {/* stack frames */}
       {tl.frames.map((f, i) => {
         const y0 = slotY.get(f.key);
@@ -219,13 +244,14 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const land = pushed ? prog(t, f.born + presetFrames('impact', ctx.fps, true) - 1, presetFrames('arrive', ctx.fps), ease.arrive) : 0;
         const vars = i < fold ? [] : f.vars;
         return (
-          <div key={f.key} style={{position: 'absolute', left: stackX, top: y0, width: stackW, height: dm.hs[i], transform: `translateY(${dy.toFixed(1)}px)`, opacity: ent * (1 - out), ...cardStyle(top ? C.signal : undefined, top ? 0.92 : 0.82)}}>
+          <div key={f.key} style={{position: 'absolute', left: stackX, top: y0, width: stackW, height: dm.hs[i], transform: `translateY(${dy.toFixed(1)}px)`, opacity: ent * (1 - out), ...cardStyle(top ? C.signal : undefined, top ? 0.92 : 0.82), boxShadow: `inset 0 1px 0 ${C.ink}${hex(0.12)}, 0 7px 0 ${C.void}, 0 8.5px 0 ${top ? C.signal + hex(0.55) : C.grid}, 0 22px 40px ${C.void}${hex(0.6)}${top ? `, 0 0 ${(ctx.fx.glowInner * 2.2 * k).toFixed(1)}px ${C.signal}${hex(0.3)}` : ''}`}}>
+            {top ? <div style={{position: 'absolute', top: 10, bottom: 10, [rtl ? 'right' : 'left']: 0, width: 6, borderRadius: 3, background: C.signal, boxShadow: `0 0 ${(ctx.fx.glowInner * 1.6 * k).toFixed(1)}px ${C.signal}`}} /> : null}
             {pushed && land > 0 && land < 1 ? <div style={{position: 'absolute', inset: 0, borderRadius: 14, border: `2px solid ${C.signal}`, opacity: (1 - land) * 0.8, transform: `scale(${(1 + land * 0.08).toFixed(3)})`}} /> : null}
             <Lbl id={`${ctx.id}:f${f.key}`} text={f.label} x={rtl ? stackW - 20 : 20} y={dm.hdr / 2} align={rtl ? 'right' : 'left'} maxW={stackW - 40} size={s} color={top ? C.signal : C.ink} />
             {vars.length ? <div style={{position: 'absolute', left: 14, right: 14, top: dm.hdr - 2, height: 1, background: `${C.ink}${hex(0.1)}`}} /> : null}
             {vars.map((v, j) => (
               <React.Fragment key={j}>
-                <Lbl id={`${ctx.id}:f${f.key}v${j}`} text={v} x={rtl ? stackW - 34 : 34} y={dm.hdr + j * dm.rowH + dm.rowH / 2} align={rtl ? 'right' : 'left'} maxW={stackW - 80} size={s} color={C.ink2} />
+                <Lbl id={`${ctx.id}:f${f.key}v${j}`} text={v} x={rtl ? stackW - 34 : 34} y={dm.hdr + j * dm.rowH + dm.rowH / 2} align={rtl ? 'right' : 'left'} maxW={stackW - 80} size={s} color={C.ink} />
                 <div style={{position: 'absolute', left: rtl ? -7 : stackW - 7, top: dm.hdr + j * dm.rowH + dm.rowH / 2 - 7, width: 14, height: 14, borderRadius: 7, background: C.ground, border: `2.5px solid ${C.signal}`}} />
               </React.Fragment>
             ))}
@@ -238,6 +264,18 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           <g key={i} opacity={r.on}>
             <GlowPath d={r.d} color={C.signal} width={4} fx={ctx.fx} k={0.8 * k} />
             {r.head ? <path d={r.head} fill={C.signal} /> : null}
+            {r.head ? (() => {
+              const per = Math.round(ctx.fps * 1.4);
+              const u = ((t - r.drawn) % per + per) % per / per;
+              const q = cAt(r.pts[0], r.pts[1], r.pts[2], r.pts[3], u);
+              const fade = Math.sin(u * Math.PI);
+              return (
+                <g opacity={fade}>
+                  <circle cx={q.x} cy={q.y} r={13} fill={C.signal} fillOpacity={0.22 * k} />
+                  <circle cx={q.x} cy={q.y} r={5.5} fill={C.white} />
+                </g>
+              );
+            })() : null}
           </g>
         ))}
       </svg>
@@ -245,12 +283,16 @@ export const StackHeapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {tl.heap.map((o) => {
         const st = objState(o);
         if (!st.on) return null;
-        const p = objPos.get(o.id)!;
+        const p0 = objPos.get(o.id)!;
+        const p = {x: p0.x, y: p0.y + (bobs.get(o.id) ?? 0)};
         const alias = (incoming.get(o.id) ?? 0) >= 2;
+        const ringU = alias ? ((t - o.born) % Math.round(ctx.fps * 1.8)) / Math.round(ctx.fps * 1.8) : 0;
         const accent = st.gc > 0 ? C.crit : st.orphan > 0 ? C.warn : alias ? C.signal : C.violet;
         const sc = (0.6 + 0.4 * st.ent) * (1 - 0.18 * st.gc);
         return (
           <React.Fragment key={o.id}>
+            <Pool x={p0.x} y={p0.y + objH / 2 + 16} r={objW * 0.42} color={C.void} a={0.6 * st.ent * (1 - st.gc)} squash={0.22} />
+            {alias && st.gc === 0 ? <div style={{position: 'absolute', left: p.x - objW / 2, top: p.y - objH / 2, width: objW, height: objH, borderRadius: objH / 2, border: `2px solid ${C.signal}`, opacity: (1 - ringU) * 0.6, transform: `scale(${(1 + ringU * 0.3).toFixed(3)})`}} /> : null}
             <div style={{position: 'absolute', left: p.x - objW / 2, top: p.y - objH / 2, width: objW, height: objH, transform: `scale(${sc.toFixed(3)})`, opacity: Math.min(1, st.ent * 1.4) * (1 - st.gc), ...cardStyle(accent, 0.9), borderRadius: objH / 2, borderStyle: st.orphan > 0 ? 'dashed' : 'solid'}}>
               <Lbl id={`${ctx.id}:o${o.id}`} text={o.label} x={objW / 2} y={objH / 2} maxW={objW - 36} size={s} color={st.gc > 0 ? C.crit : st.orphan > 0 ? C.warn : C.ink} />
             </div>

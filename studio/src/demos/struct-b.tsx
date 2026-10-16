@@ -87,7 +87,8 @@ const git: DemoDef = {
 };
 
 // 04 section 6 "State, memory": two names -> one heap object (aliasing); a call slides in a new frame; the dropped object is
-// collected. No numbers on screen.
+// collected. Content follows CH-08 (canon chapters.json: S01 two variables draw arrows to one heap list, label_ar 'نفس الـobject';
+// S03 `def f(x, acc=[])`). No numbers on screen, so nothing needs a ref.
 const stack: DemoDef = {
   name: 'StackHeap',
   frames: 216,
@@ -108,24 +109,24 @@ const stack: DemoDef = {
           id: 'mem',
           slot: 'full',
           frames: [
-            {label: 'main', vars: ['orders', 'backup']},
-            {label: 'clean()', vars: ['rows']},
+            {label: 'main', vars: ['a', 'b']},
+            {label: 'f(x)', vars: ['acc']},
           ],
           heap: [
-            {id: 'lst', label: 'قايمة الطلبات'},
-            {id: 'tmp', label: 'نسخة مؤقتة'},
+            {id: 'lst', label: 'نفس الـobject'},
+            {id: 'tmp', label: 'قايمة مؤقتة'},
           ],
           refs: [
-            {from: 'orders', to: 'lst'},
-            {from: 'backup', to: 'lst'},
-            {from: 'rows', to: 'tmp'},
+            {from: 'a', to: 'lst'},
+            {from: 'b', to: 'lst'},
+            {from: 'acc', to: 'tmp'},
           ],
         },
         at: A('StackHeap', 1),
       },
       {component: 'StackHeap.pop', props: {target: 'mem'}, at: A('StackHeap', 3)},
       {component: 'StackHeap.collect', props: {target: 'mem', node: 'tmp'}, at: A('StackHeap', 4)},
-      {component: 'StackHeap.push', props: {target: 'mem', label: 'copy()'}, at: A('StackHeap', 5)},
+      {component: 'StackHeap.push', props: {target: 'mem', label: 'g(y)'}, at: A('StackHeap', 5)},
     ],
   },
 };

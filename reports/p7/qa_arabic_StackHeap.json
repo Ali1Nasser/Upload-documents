@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T22:14:24Z",
+ "created": "2026-10-16T06:03:14Z",
  "label": "StackHeap",
  "thresholds": {
   "ocr_min": 0.9,
@@ -22,16 +22,16 @@
   "negative_caught": 0,
   "ocr_scored": 2,
   "ocr_pass": 2,
-  "ocr_min": 1.0,
-  "ocr_exact": 2,
+  "ocr_min": 0.909,
+  "ocr_exact": 1,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
   "digits": 0,
   "joins": 0,
   "copy": 0,
-  "join_strings": 0,
-  "join_min": null,
+  "join_strings": 1,
+  "join_min": 1.0,
   "join_below_min": [],
   "rt_010_2": [],
   "join_script_ambiguous": [],
@@ -78,26 +78,29 @@
  "per_letter": [],
  "items": [
   {
-   "id": "o1",
-   "text": "قايمة الطلبات",
-   "size": 40,
-   "render_size": 40,
+   "id": "s000",
+   "text": "نفس الـobject",
+   "size": 56,
+   "render_size": 56,
    "kind": "label",
    "sources": [],
    "problems": [],
    "warnings": [],
-   "join": false,
+   "join": true,
    "tofu": {
     "missing": [],
     "faces": [
-     "ar-text"
+     "ar-display",
+     "lat"
     ]
    },
+   "carrier": "قسم",
    "overflow": {
-    "ink_w": 217,
-    "ink_h": 41,
+    "ink_w": 374,
+    "ink_h": 62,
     "container_w": 1784,
-    "lines": 1
+    "lines": 1,
+    "ink_w_without_gap": 360
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
@@ -105,18 +108,19 @@
     "score": 1.0,
     "exact": true,
     "psm": 7,
-    "scale": 100,
-    "got": "قايمة الطلبات",
+    "scale": 140,
+    "got": "قسم نفس ال ‎object‏",
     "join_junk": "",
+    "join_region_ok": true,
     "pass": true
    },
    "status": "pass"
   },
   {
-   "id": "o2",
-   "text": "نسخة مؤقتة",
-   "size": 40,
-   "render_size": 40,
+   "id": "s001",
+   "text": "قايمة مؤقتة",
+   "size": 56,
+   "render_size": 56,
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -125,23 +129,23 @@
    "tofu": {
     "missing": [],
     "faces": [
-     "ar-text"
+     "ar-display"
     ]
    },
    "overflow": {
-    "ink_w": 195,
-    "ink_h": 42,
+    "ink_w": 358,
+    "ink_h": 67,
     "container_w": 1784,
     "lines": 1
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 13,
+    "score": 0.909,
+    "exact": false,
+    "psm": 7,
     "scale": 100,
-    "got": "نسخة مؤقتة .",
+    "got": "قايمة موّقتة",
     "join_junk": "",
     "pass": true
    },
