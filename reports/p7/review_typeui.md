@@ -152,3 +152,25 @@ Non-blocking (ordered by impact)
 6. Baselines cover a single title; add a 48-character worst-case baseline to prove auto-fit.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 8. Mean of the main axes lands at 7.
+
+## PredictionTimer — round 1 (critic, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540) and reports/p7/snap/PredictionTimer.jpg. Question and options are demo props (CH-11 grain question); no digits are drawn, so there are no unsourced numbers.
+
+Checks
+- Legible at 1080p: PREDICT mono tag (cyan), 56 px bold Arabic question and 40 px option text are readable at 960 px. Dial (R = 2.0 x 56 = 112 px, about 300 px with ticks at 1080p) now reads as a clock at a glance.
+- Visual verb: the 60-tick ring and cyan arc drain clockwise with a white comet head (p50: exactly half gone, head at the bottom, `?` hub). It reads "think before the answer" without narration. The recede at p100 hands the frame over cleanly.
+- Arabic: whole-line question with the colon at the left end, correct RTL order; option "لكل customer في اليوم" shows لكل at the right, Latin run isolated; no per-letter animation. dc qa arabic: pass (OCR 5/5).
+- Not a bullet slide: tag, glass dial and raised rim-lit cards on a floor hairline. No legacy frames; palette is signal, warn, ink, panel, ground only.
+
+Blocking issues: none.
+
+Non-blocking (ordered by impact)
+1. All stills, motion intent: scan pulse (one card lit at a time; only the middle card is lit at p50), warn warm-up (last quarter), burst plus shockwave and the 80 ms flash are not shown in any baseline. p100 (f119) is already 20 frames past the reveal and shows only the recede. Strip at anchor-2, 0, +2, +4, +8 plus f90 (warn) requested for G8, and add baselines at about f90 and f99 so warn and burst are regression-guarded.
+2. p50, dial interior (x 425-535 / y 245-350): the time-left sector (fillOpacity 0.07) is almost invisible, and the dashed far-plane orbit (x 400-560 / y 220-375) is barely visible; depth reads as flat. Raise the sector to about 0.12 and the orbit stroke one step.
+3. p50, floor pool and hairline (x 200-750 / y 380-440): faint at normal gain; depth and light 6-7. Lift the pool one step or let the host shot supply light.
+4. p50, composition: the block occupies y 125-430 and leaves a dead band below the cards (y 430-540); the gap between the tick ring and the cards (y 355-375) is the tightest spacing in the block. Add about 0.15 x sub to the dial-to-options margin, or let slot 'full' centre on the dial.
+5. p50, option cards (x 210-745 / y 375-420): at 40 px they are the smallest read in the frame; acceptable, but the lit card differs from the others only by a thin border. Raise the scan border a step.
+6. Baselines cover a single 2-line question with 3 options; add a 3-line worst case (auto-fit shrink) and a 2-option, short-question baseline.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Mean of the main axes lands at 7.
