@@ -330,3 +330,36 @@ None. Status set to approved-critic (lite tier). Motion (5.5) is below 6 and is 
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
+
+## AttentionBeams — round 1 (re-review of round 2 baselines, commit 2c7aa43)
+Reviewed: studio/test/baselines/AttentionBeams/{p0,a1,p50,p100}.png at full size (960x540, lite; sha256 match meta.json). No strip or standard/hero stills exist, so motion is not evidenced beyond a1 (arcs mid-draw) vs p50/p100.
+
+### Carry-forwards 2, 3, 4 verdict
+- 2 (composition): fixed. p50 arcs now rise to y 90 and the scene spans y 90-420; the arcs are the hero. p100 spans y 190-385 (fewer far targets), acceptable.
+- 3 (focus chip): fixed. رفض (p50 x 97-153, y 380-413) and الـ API (p100 x 230-298) have a tinted fill and a visible cyan edge; focus reads before the arcs do.
+- 4 (motion): only partly met. a1 shows arcs mid-draw, but the retract of old beams on `attend` is still not shown.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p (chip text about 28 px at 1080p) | 7.5 |
+| Token / palette discipline (signal on dark only) | 8.5 |
+| Depth and light | 6.5 |
+| Visual verb reads without narration | 8.5 |
+| Arabic correct (mixed-script الـ API fine) | 9 |
+| Not a slide / bullet look | 8 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (stills only) | 6.5 |
+| Polish | 7.5 |
+Mean 8.2, min 6.5. Overall 7.7 (lite tier only).
+
+### Blocking
+None. Status set to approved-critic (round 2).
+
+### Non-blocking, carry forward
+1. Depth and light (p50, p100, x 95-155, y 380-420): no light pool or rim under the focus chip; the baseline hairline (y 421) is nearly invisible. Standard/hero stills must show the glow underlay and landing ripples.
+2. Motion (a1 to p100): provide a 6-frame strip across `attend` (about frames 70-100) showing old beams retracting.
+3. p100 (x 300-360, y 290-340): the الدفع arc and the ضغط arc overlap near the shared origin; a 1-2 px spread of foot origins would separate them.
+4. p100 (x 90-150 and x 805-870): dimmed outside chips رفض and العميل are low contrast (about 3:1); fine as "outside" cue, but keep above the legibility floor at 1080p.
+5. p0 is empty by design; a1 is the opening reference.
