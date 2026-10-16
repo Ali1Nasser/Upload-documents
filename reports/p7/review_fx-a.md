@@ -263,3 +263,20 @@ Blocking: none. Non-blocking, ordered by impact:
 5. Whole-frame shake (no `to`) has no baseline; add a demo so its title-safe clamp is covered.
 
 Scores (1-10): legibility 7.5, token discipline 9, depth and light 7, verb reads 7, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 9, motion intent 6.5 (no strip). Mean 8.1, min 6.5; overall 7.0.
+
+### Spin — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 at 960x540 (lite) and reports/p7/snap/Spin.jpg (same 4 tiles). No strip exists. Snap, perf and Arabic QA not re-run (reports show pass).
+
+Verdict: APPROVED, 7.0/10, no blocking issue. meta.json: approved-critic, score 7.0.
+
+Seen: p50 (f47) shows the "400 EGP / الإجمالي الناجح" card turned about 75-80 degrees about y: a narrow glass slab (x 452-506, y 203-336) with a cyan-teal rim, a darker face, and the copy foreshortened but not mirrored, so the Arabic is not reversed. p100 shows the face restored and crisp (digits, EGP, Arabic label). Palette is cyan/teal on near-black only. No bullets, no legacy frames, the numbers are demo counter values (385 then 400) from NumberCounter, nothing invented. The verb "turn the card to reveal the new face" reads without narration.
+
+Blocking: none. Non-blocking, ordered by impact:
+1. Motion intent: one mid-turn still (p50) cannot show the sweep, the glint or the face darkening. Add a strip f46-f95 (about every 5 frames) as evidence and baseline.
+2. p50, region x 360-600, y 255-335: the target's dark backing plate stays at full width behind the narrow card, so it reads as a leftover ghost rectangle and the card seems to float in front of it. Turn or fade the plate with the face, or hide it during the sweep.
+3. p50, card x 452-506, y 203-336: at about 75 degrees the copy is about 50 px wide at 960 px (about 100 px at 1080p) and barely legible. Acceptable for a transit frame, but the lit edge slab at edge-on and the glint are not distinguishable. Capture f at the 0.5 turn midpoint (edge-on) to prove the slab.
+4. Baselines: a1 (f13) is the idle card before the turn and p100 duplicates it in layout, so the anchor frame is not regression-protected, and the floor pool and sparks (standard 10, hero 18) are not covered, since lite omits them. Replace a1 with anchor+1 and add standard-tier anchor+9.
+5. Depth: at lite the turn has no cast shadow or floor reflection, so the card looks pasted over the background. The standard pool should be shown in evidence before the next round.
+
+Scores (1-10): legibility 7, token discipline 9, depth and light 6.5, verb reads 7.5, Arabic 9, no bullet look 8.5, no legacy 10, no unsourced numbers 9, motion intent 6.5 (no strip). Mean 8.0, min 6.5; overall 7.0.

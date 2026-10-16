@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T23:19:38Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "notes": "Approved, no blocking. Non-blocking: ghost plate behind mid-turn card (p50), no strip/anchor/standard baseline, edge slab/glint/floor/sparks not covered by lite stills. See reports/p7/review_fx-a.md \"Spin - round 1\"."
+ }
 }
