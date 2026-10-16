@@ -68,6 +68,7 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     return Math.round(y0 + (y1 - y0) * slideP);
   };
   const gid = `ka-${ctx.id}`;
+  const nVis = Array.from({length: props.rows}, (_, i) => i).filter((i) => t >= ctx.at + Math.round((1.5 * i * ctx.fps) / 24)).length;
   const rowEls: React.ReactNode[] = [];
   for (let i = 0; i < props.rows; i++) {
     const b = ctx.at + Math.round((1.5 * i * ctx.fps) / 24);
@@ -76,7 +77,8 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const y = yAt(i);
     const cells: React.ReactNode[] = [];
     // masked identifier: four dots
-    for (let d = 0; d < 4; d++) cells.push(<circle key={`m${d}`} cx={cx(0) + (d - 1.5) * 22} cy={y + rowH / 2} r={5} fill={C.ink3} fillOpacity={0.7} />);
+    cells.push(<rect key="mchip" x={cx(0) - 62} y={y + rowH / 2 - 17} width={124} height={34} rx={17} fill={C.ink3} fillOpacity={0.14} stroke={C.ink3} strokeOpacity={0.35} strokeWidth={2} />);
+    for (let d = 0; d < 4; d++) cells.push(<circle key={`m${d}`} cx={cx(0) + (d - 1.5) * 24} cy={y + rowH / 2} r={8} fill={C.ink3} fillOpacity={0.85} />);
     for (let c = 0; c < q; c++) {
       const tg = gTime(c);
       const gp = tg === null ? 0 : prog(ctx, tg, P.morph);
@@ -96,6 +98,7 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           <rect x={mx - mw / 2} y={y + rowH / 2 - hh / 2} width={mw} height={hh} rx={hh / 2} fill={col} fillOpacity={1 - 0.45 * gp} />
           {gp > 0 ? (
             <>
+              <rect x={bandX - bandW / 2 - 30} y={y + rowH / 2 - R(hh * 1.3)} width={bandW + 60} height={2 * R(hh * 1.3)} rx={R(hh * 1.3)} fill={C.ok} fillOpacity={0.04 * gp} />
               <rect x={bandX - bandW / 2 - 16} y={y + rowH / 2 - R(hh * 1.05)} width={bandW + 32} height={2 * R(hh * 1.05)} rx={R(hh * 1.05)} fill={C.ok} fillOpacity={0.07 * gp} />
               <rect x={bandX - bandW / 2 - 8} y={y + rowH / 2 - R(hh * 0.8)} width={bandW + 16} height={2 * R(hh * 0.8)} rx={R(hh * 0.8)} fill={C.ok} fillOpacity={0.12 * gp} />
               <rect x={bandX - bandW / 2 + 6} y={y + rowH / 2 - R(hh * 0.2)} width={bandW - 12} height={2 * R(hh * 0.2)} rx={R(hh * 0.2)} fill={C.ink} fillOpacity={0.14 * gp} />
@@ -146,11 +149,11 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const members = finalIdx.filter((pos) => gr.group[gr.order[pos]] === g);
       const yA = regionY + members[0] * rowH + g * gap + 5;
       const yB = regionY + (members[members.length - 1] + 1) * rowH + g * gap - 5;
-      const bx = tableX - 26;
+      const bx = tableX - 48;
       brackets.push(
         <g key={`g${g}`} opacity={bracketP}>
-          <path d={`M ${bx + 14} ${yA} L ${bx} ${yA} L ${bx} ${yB} L ${bx + 14} ${yB}`} fill="none" stroke={C.ok} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
-          <path d={`M ${bx + 14} ${yA} L ${bx} ${yA} L ${bx} ${yB} L ${bx + 14} ${yB}`} fill="none" stroke={C.ok} strokeOpacity={0.2} strokeWidth={16} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={`M ${bx + 16} ${yA} L ${bx} ${yA} L ${bx} ${yB} L ${bx + 16} ${yB}`} fill="none" stroke={C.ok} strokeWidth={5} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={`M ${bx + 16} ${yA} L ${bx} ${yA} L ${bx} ${yB} L ${bx + 16} ${yB}`} fill="none" stroke={C.ok} strokeOpacity={0.28} strokeWidth={22} strokeLinecap="round" strokeLinejoin="round" />
         </g>,
       );
     }
@@ -172,7 +175,7 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: ent, pointerEvents: 'none'}}>{floor}</svg>
-      <div style={{position: 'absolute', left: tableX - 12, top: regionY - 10, width: tableW + 24, height: props.rows * rowH + (gr.groups - 1) * gap + 20, borderRadius: 26, ...acrylic(bracketP > 0 ? C.ok : C.ink3, ctx.fx, 0.2 + (bracketP > 0 ? 0.5 : 0) + ctx.mod.glow, bracketP === 0), opacity: ent}} />
+      <div style={{position: 'absolute', left: tableX - 12, top: regionY - 10, width: tableW + 24, height: Math.max(1, nVis) * rowH + Math.round((gr.groups - 1) * gap * slideP) + 20, borderRadius: 26, ...acrylic(bracketP > 0 ? C.ok : C.ink3, ctx.fx, 0.2 + (bracketP > 0 ? 0.5 : 0) + ctx.mod.glow, bracketP === 0), opacity: ent}} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: ent}}>
         {rowEls}
         {reticle}

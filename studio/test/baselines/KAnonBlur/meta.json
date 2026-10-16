@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "72bc0df3367a043957ca1eb572eb9a6e281e429fba3de78b87a2cfeccc6e6147",
-  "a1": "ff72a147cd4b2156c5cc8ae6039385aaef1bf3fb235581ce57802257108e915c",
-  "p50": "f30c1f55377ca3946e6664d8118600f6faa1fb69be53798741edef8123e5faaa",
-  "p100": "3e5116b4ebf121ad109e33ee2009550bce612461f9eeab6c02b217fea6006010"
+  "p0": "3f10ef7267b0fb46161cc531f24c4612c50433fbbdb37d8d767b15035072da2f",
+  "a1": "c11608aa8c69ef8e0f414850a3d1bfc0fea2a3d832cad1255aec0978051e6035",
+  "p50": "8a532ea1883b78de65d2d06200546ff4446203dd36ad3bd5b360a33c22cc67f8",
+  "p100": "17a412a70f01845a71b8a23fc07adb0d750d89d122a828fb3325473bc135e17c"
  },
  "v": 2,
  "name": "KAnonBlur",
@@ -27,15 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T17:50:18Z",
+ "written_at": "2026-10-16T23:00:17Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7.0,
-  "date": "2026-10-16",
-  "by": "critic",
-  "notes": "Approved, no blocking. Motion (reticle hops, feathered band mid-generalize, bracket close) not seen in stills; no strip exists. Table sits low-contrast on dead right id column; p0 baseline near-empty."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
