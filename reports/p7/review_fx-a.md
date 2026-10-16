@@ -98,3 +98,22 @@ Blocking: none.
 Non-blocking (unchanged): lite baselines (whole card, x 330-630, y 158-450) have no ring/glow/motes, so add a standard a1 at f39; depth and light are modest in the held state; strip tiles crop the ring top and chip bottom; p0 is the empty gradient; chip sits about 3-4 px below the card in p100 (x 375-580, y 383-415 gap), so give it a little more air.
 
 Scores: Legibility 8, token discipline 9, depth/light 7, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent 8. Mean 8.5, min 7; overall 7.5.
+
+## ShatterToBlocks — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 at full size (960x540 lite), reports/p7/snap/ShatterToBlocks.jpg and ShatterToBlocks_beat.jpg (strip), commit eb29cee.
+
+Verdict: APPROVED, 7.5/10, no blocking issue. meta.json set to approved-critic.
+
+Seen: a1 is the intact receipts card (4 rows still arriving); the strip shows it dropping to 6 rows, the 16 cells cut along column/row gaps with cyan key-light rims on top and right edges, an outBack burst staggered from the impact point, and shadows growing with lift. p50/p100 hold 16 tilted glass blocks carrying real pixels: "إيصالات" and "NilePay" are whole in their own cell, no word is split, header/body text stays crisp, all cells sit inside title-safe. Arabic QA pass (OCR min 0.947). Tokens only, no bullets, no legacy frames, no invented numbers (EGP values come from the demo table).
+
+Blocking: none.
+
+Non-blocking (next re-baseline):
+- p50/p100, whole group (x 312-660, y 105-437): rims have faded, so the settled state is flat dark glass; keep a faint rim and a slightly deeper shadow at hold for depth.
+- p50/p100, top-left two cells (x 315-490, y 105-168): empty chunks read as dead tiles; either drop them from the seed or merge them into the title cell.
+- Baselines cover pre-shatter and settled only. Add a burst-frame baseline at standard (about f39-41) so rims, shadows and rotation are regression-covered; p50 and p100 are near duplicates.
+- Piece displacement is small (gaps of about 6-14 px at 960): the verb reads as "chunking" rather than a shatter; a larger hero-tier spread would sell it. The group is about 36% of frame width, so text is about 12 px at 960 (about 24 px at 1080p), acceptable but not generous.
+- p0 is the empty gradient.
+
+Scores (1-10): Legibility 8, token discipline 9, depth and light 7, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 8 (strip). Mean 8.5, min 7; overall 7.5.

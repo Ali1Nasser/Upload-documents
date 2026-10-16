@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T11:01:51Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.5,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1 (commit eb29cee): no blocking issue. Table breaks into 16 DOM-clone blocks (real pixels, cuts in word gaps, no split word); cyan key-light rims and burst shadows read in the beat strip; Arabic header intact. Non-blocking: rims fade by p50/p100 so the held state is flat dark glass; two empty top-left chunks read as dead tiles; p50 and p100 nearly identical and no baseline covers the burst; piece offsets small."
 }
