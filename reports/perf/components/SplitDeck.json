@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "SplitDeck",
+ "composition": "Demo-SplitDeck",
+ "at": "2026-10-16T18:28:42Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 150,
+   "wall_s": 13.08,
+   "box_s_per_frame": 0.0872,
+   "slot_s_per_frame": 0.2616,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    2.29,
+    3.18
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 150,
+   "wall_s": 14.77,
+   "box_s_per_frame": 0.0985,
+   "slot_s_per_frame": 0.2955,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.18,
+    3.6
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 150,
+   "wall_s": 14.34,
+   "box_s_per_frame": 0.0956,
+   "slot_s_per_frame": 0.2868,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    3.4,
+    4.31
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

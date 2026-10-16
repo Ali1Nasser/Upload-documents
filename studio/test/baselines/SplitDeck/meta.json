@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "487b223a80ccffaa2874101594f6fdbb8974102b47005b4107224717aeab85e9",
+  "p50": "f9cb176388869e5b4a5966f73b4341cb44699173da006361f6363339300b1f86",
+  "p100": "b1e8fa2d8a72cab910c0d1b6966a414e50adf6e90640a64df914d7586b1a3205"
+ },
+ "v": 2,
+ "name": "SplitDeck",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 74,
+  "p100": 149
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-16T18:23:20Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}
