@@ -427,3 +427,26 @@ None.
 2. p50 and p100, tile matrix: one flat plane; add row z-stagger and let active pools spill onto the floor grid (y 470-540).
 3. p100, "---" tags (x 380-440, 575-635, y 297-460): raise contrast to about 55 percent alpha.
 4. p50 and p100, role ticks (x 705-725): hairline, about 80 px from tile edge; extend or tint.
+
+---
+
+# LogScroll — round 1 (independent re-read)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Component, demo and baselines unchanged since the first round-1 read. Verdict: APPROVED, 7/10. No blocking issue. meta.json already holds approved-critic (score 7, 2026-10-16); not rewritten.
+
+## What was checked
+- p0 (empty vignette), a1 (frame 11, line 2 mid-wipe "against the p"), p50 (74) and p100 (149) at full size (lite, 960x540). Arabic QA qa_arabic_LogScroll pass.
+- Re-confirmed: the ERROR row is the only bright row (red rim, chevron, rail tick), `tail -f` becomes `grep ERROR`, others dim. Numbers 67, 260, 289, 1160, 25, 100 %, 150 are lab figures; no invented values; no legacy frames.
+
+## Scores
+Legibility 7, palette 8, depth and light 6, visual verb 8, Arabic 7 (no Arabic line on a baseline), bullet-list look 7, motion intent 6, legacy none, unsourced numbers none. Mean about 7.0, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. Demo and baselines: 7 lines never reach the 9-row scroll; add an 11-line demo with a baseline at about 60 % of the feed (newest row rising, top rows receding).
+2. p50 and p100, panel (x 48-910, y 103-398): flat single plane; add tilt or recession (scale or blur) on upper rows.
+3. p50 and p100, DEBUG tag (x 88-145, y 224-240) and dimmed rows: raise to ink2 and the dim floor from 30 % to about 40 %.
+4. a1, header tag (x 93-156, y 112-131): about 22 px at 1080p; raise to about 28 px and add an Arabic-bearing line to the demo.
+5. p100 nearly duplicates p50: swap for about frame 80 (hit plus 6 f, mid-sweep).
