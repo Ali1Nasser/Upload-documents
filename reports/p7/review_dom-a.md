@@ -155,6 +155,12 @@ Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 58efe07. V
 ## Next review
 No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
 
+## Re-confirmation (2026-10-16, independent re-read)
+
+Reviewer: critic. Baselines p0, a1, p50, p100 re-read at full size; code unchanged since 58efe07. Verdict unchanged: APPROVED, 7/10, no blocking issue. meta.json already holds status approved-critic (score 7, 2026-10-15); not rewritten.
+- Confirmed: p100 shows 57 s amber bar and 150 ms / 1160 ms / 5 s grey-teal bars on one log scale with equal rail pegs; whole-phrase RTL labels with LTR mono values; the climber orb sits at the focused rung (p50 on 5 s, a1 on the pool rung); a1 shows the ring at the 150 ms tip; p0 is an intentionally empty atmosphere frame.
+- Still non-blocking, same as round 1: rails are near-parallel so the ladder reads as a horizontal bar chart (x 640-670, y 120-425); decade gridlines are barely visible (x 200-640, y 120-420); no baseline holds the reach flash or puls; bottom 20 percent (y 430-540) holds only the floor grid.
+
 ---
 
 # PermissionLocks — round 1
