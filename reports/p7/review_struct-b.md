@@ -211,3 +211,20 @@ Non-blocking, ordered by impact
 4. p50, region x 225-360 / y 240-330: the jam shockwave and shake are not visible in the settled frame; supply a strip across the jam anchor (a few frames either side) to judge the lock, tilt and queue behaviour (motion 6.5).
 5. p100, region x 128-150 / y 250-270: the check mark on T4 is about 16 px; enlarge x1.4 so pass status reads at 960.
 6. p0 carries no regression signal; baseline a frame after the first crate lands (a1 is mid-arrival and right-clustered, x 375-865).
+
+### WorldMapA01 — round 1 (2026-10-16)
+
+Read p0, a1, p50, p100 at full size (960x540, lite) plus reports/p7/snap/WorldMapA01.jpg and the component source. SHA-256 of the PNGs matches meta.json; snap and Arabic QA results as recorded (QA: 0 strings, pass), not re-run. Score 7.0 / 10, APPROVED, no blocking issue; meta.json set to approved-critic.
+
+Rubric: legibility at 1080p 7 (tag chips about 15 px at 960, about 30 px at 1080p; dim-district tags lose contrast); palette and token discipline 8 (signal cyan current, warm windows learned, grey dormant; no stray hues); depth and light 8 (true 3D towers with lit faces and windows, far skyline, floor grid, signal pool under the current district, key light upper right); visual verb 8 (city rises, learned districts light warm, current district ignites cyan, route draws with a head, camera orbits to face the new district: p50 to p100 reads without narration); Arabic 7 (no Arabic rendered; Latin chips only, which suits the Latin movement names, but Arabic movement names are deferred, see 5); no bullet-list look 9; legacy frames none; unsourced numbers none (chip numbers are the CH-01 order 1-7); motion intent 6.5 (inferred from four states, no strip).
+
+Blocking: none.
+
+Non-blocking, ordered by impact
+1. p50, region x 590-700 / y 305-335 and x 765-840 / y 320-345: the "1 machine" and "2 data" chips sit on top of their own towers (fallback slot clamp), cutting the window rows; push the tag above the roofline with a leader, or reserve a tag lane outside the district box. In p100 the "2 data" leader line crosses a tower face (x 685-700 / y 185-280).
+2. p50, region x 490-560 / y 95-440: the light shaft over 3 systems is a hard-edged flat rectangle that reads as a ghost slab over "7 evidence"; taper it to a cone with soft side falloff and fade it before the far row.
+3. p50 and p100, region x 300-420 / y 285-400 (5 domain, 4 platform in p50) and x 260-350 / y 175-360 (6 AI, 5 domain in p100): dormant tags are ink2 on near-void and drop below comfortable contrast at 1080p; lift to about ink at 0.8 or add a faint plate fill.
+4. p100, region x 560-740 / y 340-380: the 4-to-3 route is a thin grey/cyan line that disappears behind the 2 data towers at x 685-735; raise the route above the tower base or draw the head larger, so the journey reads at a glance. Hub "Orientation" is not visible in any state; confirm it lights for the intro anchor.
+5. Arabic names: the source comment cites CR-SB-001 (a `labels` prop for Arabic movement names), but no matching entry exists in corpus/specs/_component_requests.jsonl (grep for WorldMap returns nothing). File it so scene-directors can supply Arabic names; a Latin-only city in an Arabic film needs it.
+6. p0 is an empty vignette and carries no regression signal, and a1 is mid-rise and right-clustered (x 360-740); add a baseline after the last district rises (about 0.35).
+7. Round 2 owes a motion strip (district rise stagger, ignite sequence, route head, flyTo orbit with the previous district settling) to judge easing and impacts; with no strip, motion is scored 6.5 by inference.

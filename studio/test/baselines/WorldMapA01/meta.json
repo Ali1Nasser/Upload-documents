@@ -29,6 +29,18 @@
  },
  "written_at": "2026-10-16T23:00:47Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "by": "critic",
+  "notes": "Round 1: approved, no blocking issue. Non-blocking: tags overlap towers at p50 (1 machine, 2 data); light shaft is a hard-edged flat rectangle; dim-district tags low contrast; no Arabic district names (CR-SB-001 cited in code but not filed in _component_requests.jsonl); p0 empty frame; no motion strip (motion inferred). See reports/p7/review_struct-b.md.",
+  "reads": [
+   {
+    "score": 7.0,
+    "date": "2026-10-16"
+   }
+  ]
+ }
 }
