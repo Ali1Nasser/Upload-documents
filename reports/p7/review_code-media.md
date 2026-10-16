@@ -216,3 +216,16 @@ Residual non-blocking items (open for the CH spec pass and P10):
 3. Work canvas is upscaled (hero 1280 px over about 2150 px); measure a P10 plate at final before P12.
 4. p0 is haze only: the first anchor must sit within 0.5 s of shot start.
 5. Motion strip (frames 0-119 every 12 f) still not supplied; the drift through the pivot is inferred from the pure function.
+
+## ManimInsert — round 1 (2026-10-16)
+
+Read studio/test/baselines/ManimInsert/{p0,a1,p50,p100}.png at 960x540 lite, plus the 4-up strip reports/p7/snap/ManimInsert.jpg, and the component source. Score 7.0 / 10, approved-critic, blocking issues: none.
+
+What reads without narration: p50 / p100 (curve x 265-695, y 180-370) show a glowing normal curve with a teal-filled central area, two dashed -1.96 / 1.96 markers and brown tails, under a lit signal pool; the Arabic term (y 85-135, joined letters, whole-word) and the counter 0.931 to 0.975 (x 435-520, y 400-430) with the label المساحة قبل 1.96 are correct. 0.975 = normCdf(1.96), sourced d:6.12:5. No bullet look, no legacy frame, palette is signal teal on void. The pool visibly warms from a1 (thin axis line, pool dim) to p50 (full curve, brighter), so the lit-not-pasted intent shows. Clip is a pure function of ctx.frame by code (insertIndex).
+
+Non-blocking, by impact:
+1. p50 / p100 (curve block x 265-695, y 180-370): the drawing fills only about 45 % of frame width and 35 % of height, on a dark field. Specs should use fit cover or a larger slot, or add a 4-6 % camera push.
+2. p50 / p100 (tails x 265-360 and 600-695, y 345-370): tail fills are a dim brown that barely separates from the void; raise the tail tint toward C.alert at 0.5 alpha so the "outside 95 %" reads at a glance.
+3. p50 / p100 (tick labels -1.96 / 1.96, y 380-392): about 20 px at 1080p, at the size floor; ask the Manim authoring step for 28 px labels.
+4. p50 vs p100: near-identical, so motion is only visible between a1 and p50. Strip wanted: frames 10-70 every 6 f to confirm the draw-on order and the pool warm-up.
+5. p0 is haze only (anchor sits at frame 8); specs should anchor within 0.5 s of shot start.
