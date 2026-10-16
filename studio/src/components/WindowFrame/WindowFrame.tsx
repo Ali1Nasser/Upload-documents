@@ -15,7 +15,7 @@ import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {isArabic} from '../../type/arabic';
-import {C, Chip, Lbl, NumText, Plate, SIZE, Shell, acts, ease, flashAt, fmt, landOf, mix, probeNums, prog, roll, srcDecimals, tint, useFitProbe} from '../_data/kit';
+import {C, Chip, Lbl, NumText, SIZE, Shell, acts, ease, flashAt, fmt, landOf, mix, probeNums, prog, roll, srcDecimals, tint, useFitProbe} from '../_data/kit';
 
 type Bound = {unb: boolean; off: number};
 const parseBound = (s: string): Bound => {
@@ -122,7 +122,8 @@ export const WindowFrameView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {fCell.probe}
       {fSum.probe}
       {fKind.probe}
-      <Plate style={{position: 'absolute', inset: 0, opacity: head}} />
+      {/* glass plate without the blurred drop shadow of Glass (a full-frame 60 px blur raster is not bit-stable run to run, snap determinism) */}
+      <div style={{position: 'absolute', inset: 0, opacity: head, borderRadius: 18, border: `1px solid ${C.grid}`, background: `linear-gradient(180deg, ${C.ink}1A 0, ${C.ink}1A 1px, transparent 1px), linear-gradient(180deg, ${C.panel}E6 0%, ${C.ground}D9 100%)`}} />
       <div style={{position: 'absolute', left: pad, top: pad, display: 'flex', gap: 24, direction: 'ltr', opacity: head}}>
         {props.partition_by ? clause(`${ctx.id}:part`, 'PARTITION BY', props.partition_by, C.violet, 0.35) : null}
         {clause(`${ctx.id}:order`, 'ORDER BY', props.order_by, C.ink2, 0)}
