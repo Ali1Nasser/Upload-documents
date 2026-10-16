@@ -35,6 +35,22 @@
   "score": 7.2,
   "date": "2026-10-16",
   "by": "critic",
-  "notes": "Round 1: approved, no blocking issue. Non-blocking: right 40% of lane slabs empty and tiles small; tile index digits and icons grey low contrast; producer tile has no visible link to lanes in settled states; floor grid faint; no motion strip (motion inferred from 4 states). See reports/p7/review_struct-b.md."
+  "notes": "Round 1: approved, no blocking issue. Non-blocking: right 40% of lane slabs empty and tiles small; tile index digits and icons grey low contrast; producer tile has no visible link to lanes in settled states; floor grid faint; no motion strip (motion inferred from 4 states). See reports/p7/review_struct-b.md.",
+  "reads": [
+   {
+    "score": 7.2,
+    "date": "2026-10-16"
+   },
+   {
+    "score": 7.1,
+    "date": "2026-10-16"
+   },
+   {
+    "score": 7.0,
+    "date": "2026-10-16",
+    "by": "critic",
+    "note": "third independent read, same verdict"
+   }
+  ]
  }
 }

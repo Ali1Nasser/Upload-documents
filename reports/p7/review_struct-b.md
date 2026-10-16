@@ -168,3 +168,14 @@ Non-blocking, ordered by impact
 4. p100, region x 100-140 / y 312-335: the capsule is about 35 px wide and the pill at the db hop is the only carrier cue; enlarge x1.4 so the retry re-form reads. The author says retry re-forms at the previous hop; the settled frame shows it at db, so the intermediate state is not demonstrated.
 5. p50, region x 60-180 / y 225-360: shockwave and shards are not visible in the settled failure frame; supply a strip across the fail anchor (frames about 126-150) so shake and impact can be judged (motion 6.5).
 6. p0 is an empty vignette (no regression signal); baseline a frame after the first hop lands instead.
+
+### PartitionLanes — round 1, third independent read (2026-10-16)
+
+Read p0, a1, p50, p100 at full size plus snap/PartitionLanes.jpg. Score 7.0 / 10, APPROVED, no blocking issue; meta.json stays approved-critic (reads list added). Arabic QA pass (OCR 1/1), no unsourced numbers (5 min carries s:S4:P19:0090), no legacy frames, no bullet-list look. Rubric: legibility 7, palette 8, depth and light 7, verb 8, Arabic 9, motion intent 6.5 (inferred, no strip). Non-blocking, ordered by impact:
+1. p50 and p100, region x 500-780 / y 100-450: right 40% of the slabs is empty and tiles are ~100 px; enlarge tiles ~1.3x or narrow slabs.
+2. p100, region x 485-600 / y 95-460: offset markers are thin cyan lines that read as lane dividers; thicken to ~3 px and anchor the arrowhead on the tile edge. At P2 the marker runs straight into the "5 min" pill (x 490-505), crowding it.
+3. p50 and p100, region x 280-490 / y 110-440: tile digits and shape icons are low-contrast grey; raise luminance.
+4. p50 and p100, region x 795-900 / y 225-325: producer tile has no visible feed link to a lane.
+5. a1, region x 285-700 / y 105-440: slabs at three different widths read as a bar chart for one frame; stagger or fix the width.
+6. Floor grid ~3-4% luminance, T3 tag sits on it; add horizon glow.
+7. Motion strip (produce drop, lag bracket bloom, re-wire) still owed in round 2; p0 baseline is an empty frame and carries no regression signal.
