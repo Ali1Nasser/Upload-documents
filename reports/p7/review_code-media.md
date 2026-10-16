@@ -180,3 +180,15 @@ Independent second read of studio/test/baselines/SqlStages/{p0,a1,p50,p100}.png 
 Confirmed from the stills: plate width grows a1 (about 530 px) to p50 (about 540) to p100 (about 552), so a slow push is visible; whole-row code, band, edge bar and pips agree (p50 GROUP BY row, p100 LIMIT row); p100 shows SELECT carrying badge 6 above 1-5 (written-vs-execution mismatch); palette is ink/signal only; the query traces to d:6.3:1. No Arabic in the plate, so no shaping risk. No bullet-list look, no legacy frame, no unsourced number.
 
 Residual non-blocking items (open for the CH spec pass): 1) p50 does not yet show the mismatch (hold stage 6 longer or ghost a "written 1" tag on SELECT); 2) p100 rail (x 218-670, y 366-432) wrap breaks the pipe between chips 4 and 5; 3) p50 badges 1-3 (x 713-735, y 170-238) low contrast; 4) plate is about 55 % of frame width on an empty field, so specs need a camera push or a data plate beside it; 5) motion strip (frames 0-229 every 12 f) still not supplied.
+
+## LoopPlate — round 1 re-check (2026-10-16)
+
+Independent second read of studio/test/baselines/LoopPlate/{p0,a1,p50,p100}.png at full size (960x540 lite). Component unchanged since c96ef32; snap 0 px on all four stills, det 0 (reports/p7/snap/LoopPlate.json). The bf65e60 verdict stands: 7.1 / 10, approved-critic, blocking issues: none. meta.json left unchanged (already status approved-critic, score 7.1). No 3D, so the three tiers are identical by design.
+
+Confirmed from the stills: p0 is near black (fade-in); a1 shows a teal-to-indigo aurora with a sparse particle field and no text (plate alone); p50 and p100 show the particle field and glow lobes shifted (the loop advances), with the term and 50 s to 57 s counter (d:6.7:2) legible on top; Arabic زمن البناء and الـcache are joined and correct; palette stays teal/indigo on void; no bullet look, no legacy frame, no unsourced number.
+
+Residual non-blocking items (open for the CH spec pass):
+1. a1 / p50 / p100 whole frame: plate luminance is low (brightest lobe about x 280-450, y 180-330); P10 plates need a key light and rim colour so the type separates in depth.
+2. p50 (x 345-615, y 285-320 and x 372-585, y 350-440): faint dark rectangles behind the term and counter, owned by KineticWord/NumberCounter, not LoopPlate.
+3. p0 near black: keep the first anchor within 0.5 s of shot start.
+4. Motion strip (frames 0-119 every 12 f) still not supplied; the wrap at the loop seam stays inferred from the pure-function loop index in code.
