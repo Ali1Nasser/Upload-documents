@@ -363,3 +363,26 @@ None. Status set to approved-critic (round 2).
 3. p100 (x 300-360, y 290-340): the الدفع arc and the ضغط arc overlap near the shared origin; a 1-2 px spread of foot origins would separate them.
 4. p100 (x 90-150 and x 805-870): dimmed outside chips رفض and العميل are low contrast (about 3:1); fine as "outside" cue, but keep above the legibility floor at 1080p.
 5. p0 is empty by design; a1 is the opening reference.
+
+## AttentionMatrix — round 2 (carry-forward evidence, commit cf3fa73; no code or baseline change)
+Reviewed at full size: reports/p7/evidence/space3d/AttentionMatrix_{standard_p100,hero_p100}.jpg (960x540) and AttentionMatrix_standard_wave_strip.jpg (6 frames), plus lite baseline p100.png for comparison.
+
+### Carry-forwards
+- 1 (standard/hero depth): met. Standard/hero p100 show a rim-lit top edge on the panel, a cyan light pool under the grid (y 495-520), soft vignette, and brighter bevelled cells than lite. Hero and standard are near-identical at this scale, which is acceptable.
+- 2 (motion): met. The strip shows frame 1 with only the top-left cells arriving, frames 2-3 the wave sweeping to the diagonal and the last row, frame 4 the full lower triangle with the first cell brightest, frames 5-6 the highlightRow on الـ API (signal outline, bold lit label) with the other rows and labels dimmed and the masked cell a recessed void. The causal-mask verb reads without narration.
+
+### Scores (1-10)
+Legible at 1080p 8 | Token/palette 9 | Depth and light 7.5 | Verb reads 8.5 | Arabic 9 | Not slide/bullet 7.5 | No legacy frames 10 | No unsourced numbers 10 | Motion intent 7.5 | Polish 7.5.
+Mean 8.45, min 7.5. Overall 7.7.
+
+### Blocking
+None. Status approved-critic (score 7.7).
+
+### Non-blocking
+1. Composition (standard p100, x 700-960 and y 0-100): the grid fills about 70 percent of the height and sits left of centre; the right third is empty. Fine as a layer, but confirm slot use in the pack.
+2. Strip frames 5-6 (row labels العميل, ضغط, الدفع, مرتين, رفض, y 460-700 in strip px): dimmed labels are about 3:1 contrast; keep above the legibility floor at 1080p.
+3. Strip frame 1: the wave starts with a 2-cell sliver while column labels are mostly absent; a slightly earlier label fade-in would keep the frame from looking unfinished.
+4. Standard/hero stills are visually close to lite in cell texture; a subtle specular streak on the highlighted row outline would add a hero-tier cue.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, restrained lighting (this component). 5 = labels over the key mark.

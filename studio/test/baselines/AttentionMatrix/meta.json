@@ -33,9 +33,10 @@
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "status": "approved-critic",
  "critic": {
-  "score": 7.3,
+  "score": 7.7,
   "date": "2026-10-16",
-  "tier": "lite",
-  "notes": "Lower-triangular causal mask reads without narration; Arabic OK 6/6; on-token. Lite is flat; standard/hero stills and a wave/highlightRow motion strip not evidenced. Non-blocking items in reports/p7/review_space3d.md."
+  "tier": "lite+standard+hero+strip",
+  "round": 2,
+  "notes": "Carry-forwards 1-2 evidenced: standard/hero stills show rim-lit panel and light pool under the grid; 6-frame standard strip shows the anti-diagonal arrival wave then highlightRow on the الـ API row with other rows and labels dimmed. No blocking items. Non-blocking in reports/p7/review_space3d.md (AttentionMatrix round 2)."
  }
 }
