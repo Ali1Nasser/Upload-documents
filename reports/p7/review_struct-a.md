@@ -172,3 +172,20 @@ Non-blocking (fix before pilot use):
 2. Motion still unjudged: rebuildFrom cascade (crit wave, warn bar, signal edge, ok pulse, and the new highlight fade) is not in any baseline. Supply a 12 fps strip and add two snap frames (mid-cascade, mid-rebuild).
 3. p50 CMD app slab (x 198-760 / y 52-130): crit slab has no label beyond "CMD app" and no stage cue showing that it is invalidated; consider a faint "x" chip or crack on the edge for reading without narration.
 4. All frames: flat dark ground, no camera drift or parallax between slabs; add slight camera orbit for pilot use.
+
+## LayerStack — round 2 (2026-10-16, critic, fresh read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders)
+
+Verdict: APPROVED (score 7.3, no blocking issue). meta.json set to approved-critic (status and approval).
+
+Fix check: p100 ADS slab (x 230-683 / y 310-380): the label "ADS - جاهز للتقارير" now starts at x ~270, about 40 px inside the slab edge (80 px at 1920), consistent with DW (x ~285) and Marts (x ~290); no touching, border clear. Overflow lint on slab padding (24 px min) is present in LayerStack.tsx and the snapshot reported qa 0.
+
+Scores: subject clarity 8, mechanism visible 7, look parity 7, typography 8 (Arabic shaped, RTL, Latin terms keep order, ODS/DW/ADS/Marts order correct), camera and depth 6.5 (3D slab faces and floor shadow, no parallax), legibility 8, accuracy 9 ("5 s" from the data contract), tokens 9, polish 7.5, no bullet-list look 7.5, no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. p50 (x 195-728 / y 165-220): active COPY src slab fill is still muddy olive (warn progress over cyan base); use a clean warn bar on a cool base or a narrower progress strip.
+2. p50 CMD app (x 195-728 / y 75-128): the crit slab carries an X icon but no break cue on the edge; a crack or fault chip would read without narration.
+3. Motion unjudged: rebuildFrom cascade (crit wave, warn bar, signal edge, ok pulse, highlight fade) is not in any baseline; supply a 12 fps strip and two snaps (mid-cascade, mid-rebuild).
+4. All frames: no camera drift or parallax between slabs; add slight orbit for pilot use.
+5. p0 (x 202-756 / y 320-490): the first snap frame holds only two slabs, which is acceptable but guards little of the build-up.
