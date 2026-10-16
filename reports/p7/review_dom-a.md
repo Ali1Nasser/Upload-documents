@@ -450,3 +450,25 @@ None.
 3. p50 and p100, DEBUG tag (x 88-145, y 224-240) and dimmed rows: raise to ink2 and the dim floor from 30 % to about 40 %.
 4. a1, header tag (x 93-156, y 112-131): about 22 px at 1080p; raise to about 28 px and add an Arabic-bearing line to the demo.
 5. p100 nearly duplicates p50: swap for about frame 80 (hit plus 6 f, mid-sweep).
+
+---
+
+# CollectionMorph — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Verdict: APPROVED, 7/10. No blocking issue. meta.json set to approved-critic (score 7). Stills only; no strip existed, so motion intent is judged from the p50 mid-morph state.
+
+## What was checked
+- p0 (empty vignette), a1 (frame 15, four cars on the rail), p50 (74, mid-morph), p100 (149, settled set) at full size (lite, 960x540). Arabic QA qa_arabic_CollectionMorph pass (0 failures). Colours come from tokens (C, FONT, SIZE) via the shared kit; no raw hex in the component. Ids 1006-1010 are receipt ids from the corpus transcripts; no legacy frames.
+
+## Scores
+Legibility 8 (numbers about 40 px at 1080p, type pair about 36 px), palette 8, depth and light 7 (back glow, holographic floor, glass rim highlights), visual verb 8 (car on rail becomes glass bubble, brackets [ ] become { }, duplicate 1008 collapses), Arabic 8 (QA pass, no Arabic line on a baseline), bullet-list look 8 (spatial objects, not a list), motion intent 6, legacy none, unsourced numbers none. Mean about 7.4, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. p50, merge point (x 515-620, y 222-275): the duplicate 1008 car and bubble overprint, so "1008" reads as doubled, garbled text. Fade the label of the merging copy first (or offset it) while the warn glow runs.
+2. a1 and p50, duplicate 1008 (x 490-615, y 225-310): the amber warn glow is not visible in any still. Add a baseline at about frame 60 so the warn colour is regression-tested.
+3. p0 is an empty vignette and a1 shows only four of five cars (1009, 1010 not yet entered); swap p0 for a frame at about 45 that shows the first copy and the duplicate side by side.
+4. p100, bubbles (x 310-650, y 180-390): all five bubbles sit on one plane with equal size. Add a z-stagger and the floor spill so the set has depth.
+5. p50 and p100, "list" tag (x 398-458, y 122-148): dims to near-invisible once the morph ends; lift the dim floor to about 45 percent.
