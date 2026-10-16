@@ -182,3 +182,38 @@ None.
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, with a clear verb but flat lighting or unproven motion (this component). 5 = labels over the key mark.
+
+## NeuralNet3D — round 1 (round-2 polish: softer wave tint, core tint under highlight, spark trail)
+Reviewed: studio/test/baselines/NeuralNet3D/{p0,a1,p50,p100}.png (960x540, lite, sha256 match meta.json). Standard/hero tiers and a motion strip not viewed.
+
+### Verified non-blocking items from the previous review
+- Item 1 (p50, hidden pane x 495-560, y 30-385): the amber wash is lighter and neuron cores now read as individual amber discs with ring variation. Closed.
+- Item 2 (p100, hidden neurons x 500-560): cores now alternate cyan-lit and grey under the highlighted pane, so activation tint survives highlightLayer. Closed.
+- Item 3 (p50, packets x 680-720): sparks carry a short trail, so the wave reads more as a directional front. Still partly a dot cluster at y 100-260 (x 685-700); the trail is subtle at lite scale.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p (labels about 28 px) | 8 |
+| Token / palette discipline | 9 |
+| Depth and light | 7 |
+| Visual verb reads without narration | 8.5 |
+| Arabic correct | 9 |
+| Not a slide / bullet look | 8 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (stills only) | 7.5 |
+| Polish | 7.5 |
+Mean 8.45, min 7. Overall 7.8.
+
+### Blocking
+None. Status set to approved-critic (lite tier).
+
+### Non-blocking, carry forward
+1. p50, spark head (x 680-720, y 60-320): trail is short; lengthen about 1.5x or elongate the lead spark so one front reads at 960 px.
+2. Floor glow under the labels (y 400-440) is still a dim smear, not a reflection.
+3. Required before final lock: a 6-frame strip of one forward and one backprop pass, plus standard and hero stills.
+4. p0 is empty by design; rely on a1 for the opening.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.

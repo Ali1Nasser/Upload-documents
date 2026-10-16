@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T11:01:38Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.8,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "notes": "Round-2 polish verified on lite stills (hashes match). Hidden-pane tint softer, core tint survives under highlightLayer, spark trail present. No blocking items. Strip and standard/hero stills still required before final lock."
+ }
 }
