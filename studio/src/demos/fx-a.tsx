@@ -117,7 +117,7 @@ const demos: DemoModule = {
       frames: 96,
       words: [
         [W('PathDraw', 1), 6, 22],
-        [W('PathDraw', 2), 28, 56],
+        [W('PathDraw', 2), 36, 70],
       ],
       shot: {
         fx_tier: 'standard',
@@ -126,7 +126,7 @@ const demos: DemoModule = {
           {component: 'KineticWord', props: {id: 'kw-route', text: 'مسار الدفع', slot: 'upper-third', size: 'sub', color: 'ink2'}, at: {word: W('PathDraw', 1), lead_frames: 2}},
           {
             component: 'PathDraw',
-            props: {d: 'M 0 300 C 220 300 260 40 520 120 S 860 330 1100 90', color: 'signal', width: 5, arrowhead: true, slot: 'center'},
+            props: {d: 'M 0 300 C 220 300 260 40 520 120 S 860 330 1100 90', color: 'signal', width: 6, arrowhead: true, slot: 'center'},
             at: {word: W('PathDraw', 2), lead_frames: 2},
           },
         ],

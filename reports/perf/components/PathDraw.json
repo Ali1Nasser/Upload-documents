@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "PathDraw",
+ "composition": "Demo-PathDraw",
+ "at": "2026-10-16T11:34:47Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 96,
+   "wall_s": 5.9,
+   "box_s_per_frame": 0.0614,
+   "slot_s_per_frame": 0.1842,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    7.01,
+    6.85
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 96,
+   "wall_s": 7.93,
+   "box_s_per_frame": 0.0826,
+   "slot_s_per_frame": 0.2478,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    6.85,
+    6.72
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 96,
+   "wall_s": 7.8,
+   "box_s_per_frame": 0.0813,
+   "slot_s_per_frame": 0.2439,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    6.72,
+    6.39
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
