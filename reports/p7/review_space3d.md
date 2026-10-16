@@ -217,3 +217,41 @@ None. Status set to approved-critic (lite tier).
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
+
+## AttentionBeams — round 1
+Reviewed: studio/test/baselines/AttentionBeams/{p0,a1,p50,p100}.png (960x540, lite, sha256 match meta.json) and reports/p7/snap/AttentionBeams.jpg. Standard and hero tiers and an attend-transition strip not viewed (not evidenced).
+
+### What works
+- a1/p50: six whole-word chips on one baseline, RTL (العميل at right, رفض at left). Focus chip رفض carries a signal outline; arcs leave it and land on earlier tokens with a dot at the landing foot. Arc height rises with distance, so arcs do not collide at the landing feet.
+- p50: width and brightness fall off with weight (مرتين / الدفع thick and bright, ضغط / العميل hairline and dim). Reads as "who is attended" without narration.
+- p100: after `attend`, focus is الـ API; رفض and العميل are dimmed (outside the attended set), a new fan of beams stands. The focus move reads.
+- "الـ API" mixed script renders correctly; Arabic QA pass 6/6 (reports/p7/qa_arabic_AttentionBeams.json). No numbers, no legacy frames, palette is signal on dark only.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p (chip text about 28 px at 1080p, above the 18 px floor) | 7.5 |
+| Token / palette discipline | 8.5 |
+| Depth and light | 6 |
+| Visual verb reads without narration | 8.5 |
+| Arabic correct | 9 |
+| Not a slide / bullet look | 7.5 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (stills only) | 6.5 |
+| Polish | 7 |
+Mean 8.05, min 6. Overall 7.3 (lite tier only).
+
+### Blocking
+None. Status set to approved-critic (lite tier).
+
+### Non-blocking, carry forward (ordered by impact)
+1. Depth and light (p50, whole frame; CH-any lite): flat at lite. There is no pool or rim under the focus chip (x 95-155, y 340-385) and the baseline hairline (y 383) is nearly invisible. Required before final lock: standard and hero stills showing the glow underlay, focus light pool and landing ripples promised in the header comment.
+2. Composition (p50, p100, y 0-185): the top 35 percent of the frame is empty and the whole scene lives in a band y 190-385. Scale chip type and arc height about 1.3x, or move the baseline down to about y 400 and let arcs rise to about y 120, so the arcs become the hero rather than a thin strip.
+3. Focus chip (p50, x 95-155, y 342-376): the focus is only a 1 px cyan outline with the same white text as other chips. At 960 px it is easy to miss. Add a signal-tinted fill or a brighter outline so focus reads before the arcs draw.
+4. Motion (a1 to p100): the retract of old beams and the draw of new beams is not evidenced; only the end state is. Provide a 6-frame strip across the `attend` action (about frames 70-100) showing old beams retracting toward the old focus while new ones draw.
+5. p100 (x 330-550, y 250-345): the beam to الدفع is dimmer than the beam to مرتين, but its arc is partly occluded where it crosses the thick ضغط arc near x 330-360. Acceptable; a 1 to 2 px lateral spread of foot origins would keep them distinct.
+6. p0 is empty by design; rely on a1 for the opening.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, clear verb, flat lighting or unproven motion (this component). 5 = labels over the key mark.
