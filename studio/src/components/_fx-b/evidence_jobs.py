@@ -3,7 +3,8 @@
     python3 -I evidence_jobs.py jobs <jobs.json>              write the job list
     python3 -I evidence_jobs.py strips <stillsDir> <outDir>   compose labelled JPG strips from the rendered stills
 
-Stills are 960x540 (scale 0.5 of 1080p). Features in the AudioReactive jobs are SYNTHETIC and labelled so (CR-005 is open);
+Stills are 960x540 (scale 0.5 of 1080p). Features in the AudioReactive jobs are REAL locked P5 data (corpus/edl/features/CH-29.json slices; CR-005 is open, so
+Demo-AudioReactive itself carries none and this driver injects them);
 the transition rows show the CURRENT engine behaviour (CR-003 open), not the target. Evidence only: never a baseline.
 """
 import json
@@ -25,12 +26,16 @@ def jobs():
     for t in ["lite", "standard", "hero"]:
         J.append({"tag": f"fx_{t}", "demo": "FXTier", "tier": t, "frames": [33, 50]})
 
-    def feats(rms, onset, n=72):
-        return {"start_frame": 0, "rms_dbfs": [rms] * n, "onset_strength": [onset] * n, "centroid_hz": [0] * n,
-                "_label": "SYNTHETIC evidence features (not P5 data)"}
+    AR_QUIET, AR_LOUD = 366, 1230  # CH-29 record-frame indices: a 40-frame pause (< -50 dBFS) and a loud word onset (-15 dBFS, onset 0.69)
 
-    J.append({"tag": "ar_quiet", "demo": "AudioReactive", "tier": "standard", "frames": [60], "features": feats(-60, 0)})
-    J.append({"tag": "ar_loud", "demo": "AudioReactive", "tier": "standard", "frames": [60], "features": feats(-10, 1)})
+    def feats(i, n=72):  # real P5 slice whose frame 60 is record frame i of CH-29 (start_frame 0 = the demo's first frame)
+        d = json.load(open(os.path.join(os.environ.get("DC_ROOT", "."), "corpus/edl/features/CH-29.json")))
+        a = i - 60
+        return {"start_frame": 0, "rms_dbfs": d["rms_dbfs"][a:a + n], "onset_strength": d["onset_strength"][a:a + n],
+                "centroid_hz": d["centroid_hz"][a:a + n], "_label": f"REAL locked P5 features, CH-29 record frames {a}..{a + n - 1}"}
+
+    J.append({"tag": "ar_quiet", "demo": "AudioReactive", "tier": "standard", "frames": [60], "features": feats(AR_QUIET)})
+    J.append({"tag": "ar_loud", "demo": "AudioReactive", "tier": "standard", "frames": [60], "features": feats(AR_LOUD)})
     W = lambda n: f"w:DEMO:FXB-TR:{n:06d}"
     S1, S2 = "s:DEMO:FXB-TR:0001", "s:DEMO:FXB-TR:0002"
     words = [[W(1), 2, 20, S1], [W(2), 26, 44, S1], [W(3), 60, 78, S2], [W(4), 80, 90, S2]]
@@ -113,6 +118,36 @@ def strips(src, out):
             y += i.height
         o.save(path, quality=86)
 
+    def ar():
+        q, L = im("ar_quiet", 60), im("ar_loud", 60)
+        dd = json.load(open(os.path.join(os.environ.get("DC_ROOT", "."), "corpus/edl/features/CH-29.json")))
+
+        def plot(w=960, h=540):  # real feature curves of the two windows, marker at the rendered frame f60 (norm as resolve.ts)
+            pl = Image.new("RGB", (w, h), (12, 15, 20))
+            g = ImageDraw.Draw(pl)
+            for k, (i, lab) in enumerate([(366, "quiet window (CH-29 pause)"), (1230, "loud window (CH-29 word onset)")]):
+                x0, y0, pw_, ph_ = 40 + k * 460, 60, 400, 400
+                g.rectangle([x0, y0, x0 + pw_, y0 + ph_], outline=(60, 70, 80))
+                g.text((x0, y0 - 24), lab, font=fnt, fill=(150, 200, 220))
+                for ser, col in (("rms_dbfs", (0, 200, 255)), ("onset_strength", (255, 120, 90))):
+                    v = dd[ser][i - 60:i + 12]
+                    nv = [min(1, max(0, (x + 50) / 40)) if ser == "rms_dbfs" else min(1, max(0, x)) for x in v]
+                    g.line([(x0 + j * pw_ / 71, y0 + ph_ - nv[j] * ph_) for j in range(72)], fill=col, width=3)
+                g.line([(x0 + 60 * pw_ / 71, y0), (x0 + 60 * pw_ / 71, y0 + ph_)], fill=(230, 236, 242), width=1)
+                g.text((x0 + 60 * pw_ / 71 + 4, y0 + 4), "f60 (rendered)", font=fnt, fill=(230, 236, 242))
+            g.text((40, 480), "cyan: rms_dbfs normalised (-50..-10 dBFS -> 0..1) -> glow + haze    coral: onset_strength -> NilePay scale", font=fnt, fill=(150, 200, 220))
+            return pl
+
+        rows([([(q, "quiet f60: rms %.0f dBFS, onset %.2f" % (dd["rms_dbfs"][366], dd["onset_strength"][366])),
+                (L, "loud f60: rms %.1f dBFS, onset %.2f" % (dd["rms_dbfs"][1230], dd["onset_strength"][1230])),
+                (amp(q, L, 3), "|loud - quiet| x3"), (plot(), "the two real P5 windows that drive the frames")],
+               "AudioReactive f60, standard, REAL P5 features (CH-29; CR-005 open): glow 1 + haze 0.8 on 400 EGP, scale 1 on NilePay",
+               {"pw": 640, "cols": 2})], os.path.join(out, "AudioReactive_quiet_loud.jpg"))
+
+    if os.environ.get("FXB_ONLY") == "AudioReactive":
+        ar()
+        return
+
     if os.environ.get("FXB_ONLY") != "DepthLayers":
         c = {f: im("cam_std", f) for f in [8, 30, 60, 61, 62, 95]}
         rows([
@@ -147,10 +182,7 @@ def strips(src, out):
          "FXTier: FAILED lands on the impact preset (80 ms glow flash) under the failed amount"),
     ], os.path.join(out, "FXTier_tiers.jpg"))
 
-    q, L = im("ar_quiet", 60), im("ar_loud", 60)
-    row([(q, "quiet: rms -60 dBFS, onset 0"), (L, "loud: rms -10 dBFS, onset 1"), (amp(q, L, 3), "|loud - quiet| x3")],
-        "AudioReactive f60, standard, SYNTHETIC labelled features (CR-005 open): glow 1 on 400 EGP, scale 1 on NilePay (8 % cap), haze 0.8",
-        os.path.join(out, "AudioReactive_quiet_loud.jpg"))
+    ar()
 
     def trrow(tag, title):
         return ([(im(tag, f), f"f{f}" + (" cut" if f == 55 else " (counters roll to their word end)" if f == 60 else " settled" if f == 80 else "")) for f in TRF], title)

@@ -6,7 +6,8 @@
 // mod.scale) and opacity; NumberCounter reads glow; `haze` drives the shot backdrop haze; `particles` is read by particle
 // components when they land (each target component documents which params it honours). The modulation is deterministic
 // (locked data, no randomness). Demo-AudioReactive has no features (DemoDef carries none; CR-005), so its stills show the
-// unmodulated layer; _fx-b/shot_level.check.ts proves the curve and the per-layer modulation on synthetic features.
+// unmodulated layer. The modulation is shown by reports/p7/evidence/fx-b/AudioReactive_quiet_loud.jpg (REAL P5 features, CH-29, quiet vs loud
+// frame + difference + the feature curves) and proven by _fx-b/shot_level.check.ts (curve and per-layer modulation).
 import type {DcComponent} from '../../spec/types';
 import type {Props} from './schema';
 

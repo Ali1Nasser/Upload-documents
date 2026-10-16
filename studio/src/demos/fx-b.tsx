@@ -86,8 +86,8 @@ const demos: DemoModule = {
     },
     {
       // locked VO features modulate one parameter of one layer each (glow on the total, scale on the brand, backdrop haze). A DemoDef
-      // carries no features (CR-005), so these stills are the unmodulated state; the quiet | loud evidence pair
-      // (reports/p7/evidence/fx-b/AudioReactive_quiet_loud.jpg) renders this same shot with synthetic, labelled features.
+      // carries no features (CR-005), so these stills are the unmodulated state; the quiet | loud evidence strip
+      // (reports/p7/evidence/fx-b/AudioReactive_quiet_loud.jpg) renders this same shot with REAL locked P5 features (CH-29 slices).
       // Amounts are at the top of their range so the modulation reads in a demo (scale 1 = the 8 % cap of KineticWord).
       name: 'AudioReactive',
       frames: 72,
