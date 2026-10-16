@@ -32,3 +32,35 @@ Looked at: baselines p0, a1, p50, p100 (960x540, lite tier), reports/p7/snap/Con
 5. p100, gate region (x ~608, y 190-345): after release the gate is a 1 px grey hairline and the queue loses its boundary. Keep the gate at ~3 px ink3 so the rank edge stays legible.
 6. a1, rank centre (x 350-430, y 205-225): arriving dots pass behind the cars and are partly hidden by taxi bodies while crossing; raise passenger dots above the taxi layer or enlarge the arc so they read as boarding.
 7. Motion: add a strip (frames 0, 11, 40, 83, 120, 167) to reports/p7/ so the exhaust shake and the release close-up are seen, not inferred.
+
+## RaceCondition — round 1
+Date: 2026-10-16. Reviewer: critic (not the author). Verdict: APPROVED (7.1/10, no blocking issue). meta.json set to approved-critic.
+Looked at: baselines p0, a1, p50, p100 (960x540, lite tier, full size), RaceCondition.tsx (288 lines), qa_arabic_RaceCondition.json (pass, OCR 3/3). No motion strip exists; the collide travel, shock ring (impact + 12 frames) and the one-shot shake were judged from code and from the post-impact still p50, not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition | 7 |
+| Palette and token discipline (signal idle, crit crash, warn waiting, ok done; all C tokens) | 8 |
+| Light and depth | 6 |
+| Legibility at 1080p (capsule labels, counter label ~2x of the 960 still) | 8 |
+| Visual verb without narration | 8 |
+| Arabic (3 strings, tofu 0, overflow 0, OCR exact) | 9 |
+| Not a bullet slide, no legacy frames | 9 |
+| Numbers (none drawn, structural segments) | 10 |
+| Motion intent (code plus stills) | 6 |
+| AI-Unpacked parity | 6 |
+
+### What works
+- a1 to p50: two cyan hands over one bar turn crit red, one hand lands on a segment (fills red), the other rebounds as a ghost and a dashed segment with a cross marks the lost write. "Two writers, one counter, one update survives" reads in one second.
+- p50 to p100: lock ring + padlock, both hands wait/go in turn, two green segments land: serialised writes read as the fix, with the same bar so the before/after compare directly.
+- Hands are wired to the thread capsules (cause and effect, no floating props); crit/ok colour switch is consistent across capsule border, panel and floor pool.
+
+### Non-blocking issues, ordered by impact
+1. Motion (all): no strip. Add frames at collide start, impact, impact+6 (shake), impact+12 (ring end), lock+10, lock+40 to reports/p7/ so the clash and shake are seen, not inferred.
+2. Depth and light (a1, p50, p100): faint floor grid, flat panel, no motes or reflection. Add a few drifting motes, a bloom from the lit hands onto the bar, and a soft reflection under the counter panel.
+3. p50, bar region (x 280-410, y 325-395): the lost-update cross sits on the far-left segment while the loser hand hovers over it only by rebound; the hand never visibly hits it. Either rebound the loser toward the lost segment, or draw a short crit thread from the loser palm to its X so the lost write is tied to its thread.
+4. Hand art (a1, a1 left hand x 255-330, y 135-270): the thumb is a detached rotated pill and fingers are four equal rects; at 1080p the hand reads as a glove icon. Taper fingertips and attach the thumb to the palm edge.
+5. p100, padlock (x 758-790, y 425-465): the lock is ~35 px at 960, the weakest element of the "lock" verb. Enlarge to ~1.6x and centre it on the ring top edge so it reads as the lock before the segments fill.
+6. a1, hover shadows (x 235-340 and 620-725, y 315-330): the dark ellipses sit on the panel top edge and look like smudges while hands are idle; fade them until near > 0.3.
+7. p0 baseline is an empty dark frame and protects nothing; rewrite at frame ~6 when baselines are next regenerated.

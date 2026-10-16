@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-15T22:17:38Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.1,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1: no blocking issue. Hands over one shared level bar reads: lost update (crit, dashed X segment) then lock (ring + padlock, one segment per thread). Weak: depth/light (faint floor, no motes), p0 empty, no motion strip so collide shake/shock ring unseen, hand line-art crude, padlock small, lost-X segment is not where the hand struck."
 }
