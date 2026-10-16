@@ -472,3 +472,26 @@ None.
 3. p0 is an empty vignette and a1 shows only four of five cars (1009, 1010 not yet entered); swap p0 for a frame at about 45 that shows the first copy and the duplicate side by side.
 4. p100, bubbles (x 310-650, y 180-390): all five bubbles sit on one plane with equal size. Add a z-stagger and the floor spill so the set has depth.
 5. p50 and p100, "list" tag (x 398-458, y 122-148): dims to near-invisible once the morph ends; lift the dim floor to about 45 percent.
+
+---
+
+# VenvDome — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Verdict: APPROVED, 7/10. No blocking issue. meta.json set to approved-critic (score 7). Stills only (p0, a1 frame 11, p50 frame 84, p100 frame 169 at 960x540 lite) plus the 4-up snap; no strip, so the sweep, stagger and shake are judged from their end states.
+
+## What was checked
+- Arabic QA qa_arabic_VenvDome pass (0 failures, OCR 2/2 exact). Env names are whole-phrase Arabic in FitText, env 0 on the right, package chips mono LTR, no per-letter animation. Colours via C/FONT/SIZE tokens, no raw hex. Package names (pandas, matplotlib, requests) are generic, no invented numbers, no legacy frames.
+
+## Scores
+Legibility 7 (chips about 28 px and env names about 38 px at 1080p; python label dims), palette 8 (neutral glass, crit haze, ok rims only), depth and light 6 (rim, specular streak, haze, floor rays; but single plane, no particles or parallax), visual verb 8 (two domes open and polluted red, then sealed green: reads without narration), Arabic 8, bullet-list look 9, motion intent 6, legacy none, unsourced numbers none. Mean about 7.3, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. No baseline captures the seal sweep: p100 (frame 169) is the settled state. Add a frame at about isolate + 4 f (ring at 40 % of dome 0, dome 1 not yet started) so the 3 f stagger and ring glow are regression-tested.
+2. p50 (x 215-345, y 225-300 and 640-745, y 225-300): conflict is carried by colour only; the shake and the link between the two crit pandas are not visible. Add a thin crit link line between the two crit chips across the base, and a shake-frame baseline at conflict + 2 f.
+3. p0 is an empty vignette. Swap for frame about 30 (both domes with chips, before the conflict).
+4. p50 and p100, "python" label (x 440-520, y 376-398): ink2 on the panel is low contrast (about 3:1) and the plate is a flat bar. Raise to ink, add a top-edge highlight.
+5. All stills, domes (x 120-840, y 92-366): the upper third of each dome is empty and everything sits on one plane. Scale chips up about 1.2x, nudge dome 1 back (smaller, lower contrast) for depth, and add a few drifting dust motes inside the glass.
+6. p100, env labels (x 205-322, y 424-444 and 626-763): they jump to full ink at seal; fine, but a1 and p50 labels at ink2 are close to the ground colour; lift ink2 labels slightly.
