@@ -196,3 +196,24 @@ Non-blocking (ordered by impact)
 6. Baselines cover two short labels in LTR host layout; add a long-label (wrap or auto-fit) baseline and one with the label to the right of the target, to prove side placement.
 
 Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Mean of the main axes lands at 7.
+
+## EquationLine — round 1 (independent re-read, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540), reports/p7/snap/EquationLine.jpg and .json (pass, det 0), qa_arabic_EquationLine.json (pass, 5 strings, 0 failed). Stored results from commit 18e3c1f were not re-run. Reproduces the earlier 7/10; status unchanged.
+
+Checks
+- Legible at 1080p: operands about 40 px, result "66.67 %" about 56 px cyan mono with an emissive underline (p100, x 440-690 / y 240-315). Clearly dominant.
+- Palette: signal cyan, ink, ink2, glass slab, ground only. No legacy frames. 4 / 6 = 66.67 % is arithmetic (66.666... rounds to 66.67) and tagged to its source id.
+- Arabic: no Arabic strings; one LTR isolate; correct.
+- Depth and light: rim-lit top edge, emissive pool under the result (p100, x 340-620 / y 320-380), drop shadow. A lit object, not a flat card. Not a bullet slide.
+- Visual verb: terms land in order, then the result flares. Reads without narration.
+
+Blocking issues: none.
+
+Non-blocking (ordered by impact)
+1. a1 and p50, slab x 246-712 / y 216-324: slab is already near final width while holding "4" or "4 / 6", so the right half is an empty glass panel. Grow the slab with the landed terms or fade the unreached part.
+2. a1 to p100, whole line: motion intent (result impact flash, chromatic aberration, camera) is not in any still; baselines are settled frames. Strip at result anchor-2, 0, +1, +3, +6, +12 requested for G8, plus a baseline at anchor+2.
+3. p100, operator "=" (x 400-425 / y 262-290): ink2 grey is dim beside the operands; U+2212 minus is not baselined (add 6 - 2 = 4).
+4. p100, composition: a one-line label about 940 px wide; the host shot must supply camera, depth and a concrete object. EquationLine alone is not a scene.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 7, visual verb without narration 8, Arabic 9 (isolate only), not a slide 7, no legacy/unsourced 10, motion intent 6 (unverified), polish 6 (empty slab in a1/p50).

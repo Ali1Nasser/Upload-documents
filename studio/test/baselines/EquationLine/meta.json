@@ -34,8 +34,8 @@
  "approved_by": "critic",
  "critic": {
   "score": 7,
-  "date": "2026-10-15",
+  "date": "2026-10-16",
   "round": 1,
-  "notes": "No blocking issue. Non-blocking: slab pre-sized so a1/p50 show an empty panel; impact flash and chromatic aberration not in any still (strip needed at G8); U+2212 minus not baselined; operator contrast dim. See reports/p7/review_typeui.md EquationLine round 1."
+  "notes": "Independent re-read confirms 7/10, no blocking issue. Non-blocking: slab pre-sized so a1/p50 show an empty panel; impact flash and chromatic aberration not in any still (strip needed at G8); U+2212 minus not baselined; operator contrast dim. See reports/p7/review_typeui.md EquationLine round 1 (independent re-read)."
  }
 }
