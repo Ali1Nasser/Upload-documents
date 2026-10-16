@@ -94,3 +94,18 @@ Non-blocking issues (ordered by impact)
 5. p100, foot sweep, region x 580-840 / y 497-500: a 2 px line that is fully settled and barely perceptible at 960 px; optional.
 
 Score breakdown: legibility 8, palette/tokens 8, depth and light 7, visual verb without narration 7, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 5 (unverified), polish 8.
+
+## TermChip — round 1 (independent re-read, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540) and reports/p7/snap/TermChip.jpg. Supersedes the earlier 8/10 as the calibrated score; status unchanged.
+
+Checks: legible at 1080p (term mono and gloss readable at 960 px); palette limited to cyan/green/amber/cool-ink tokens; Arabic glosses whole words, correct RTL, no per-letter animation; no bullet-list look, no legacy frames, no numbers (p95 is a term, not a figure).
+
+Blocking issues: none.
+
+Non-blocking
+1. p50/p100, all chips (largest idempotency x 690-905 / y 242-298): chips are small and the pool is faint; depth and light score 6-7. The host shot must give camera and a concrete object.
+2. p0 to p50: motion intent (wipe, rim, 4 px settle) cannot be proven from stills. Strip at anchor-2, 0, +2, +4, +8, +16 requested at G8.
+3. a1, region right of idempotency (x 860-910 / y 240-300): faint shelf visible at high gain only; feather if it shows on bright plates.
+
+Score breakdown: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 8.
