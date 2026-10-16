@@ -49,3 +49,28 @@ Non-blocking issues (ordered by impact)
 4. p50 and p100, old-message labels (نظام الدفع, أول نسخة, إضافة الـ retry): grey on near-black, below the 0.6 contrast floor suggested in the TimelineTrack review. Raise to about 0.7 luminance.
 5. p100, region x 215-265 / y 175-220: HEAD glow is weak at the climax. Boost the tiered glow at the merge flash end state.
 6. Supply a motion strip (path-draw, HEAD travel, merge flash) in round 2 so easing and impacts can be judged rather than inferred.
+
+## StackHeap — round 1
+
+Date 2026-10-16. Reviewed at full size: baselines p0, a1, p50, p100 (960x540, lite, scale 0.5) and reports/p7/snap/StackHeap.jpg (4-state sheet). Arabic QA (qa_arabic_StackHeap.json): pass, OCR 2/2. No motion strip exists; motion is judged from the four-state progression only.
+
+Score: 7.3 / 10. Verdict: APPROVED (no blocking issue). Baseline meta set to approved-critic.
+
+Rubric read
+- Legibility at 1080p: 7 (frame names and heap capsule text are large and clear; the "stack" and "heap" floor labels are about 11 px at 960, roughly 22 px at 1080p, grey and faint).
+- Token/palette discipline: 8 (cyan for the live frame and refs, amber for the unreferenced temp capsule, grey for history; colour carries meaning).
+- Depth and light: 7 (glass slabs with an edge, a lit perspective floor, a halo around the aliased capsule and a visible light-cursor bar; the floor grid is faint and the heap objects do not touch the floor).
+- Visual verb without narration: 8 (frames stack up and the top frame is lit; two refs converge on one object, which gets a double ring; the amber orphan reads as "temporary").
+- Arabic: 9 (RTL correct; Latin `object` isolated inside a whole-phrase capsule; no per-letter animation).
+- No bullet-list look / no legacy frames: 8 (rows sit inside slabs with ports, not as a list).
+- Unsourced numbers: none shown (n/a).
+- Motion intent: 6.5 (push of g(y), ref path-draw, pulse and collect are inferred from state differences; no strip).
+
+Non-blocking issues (ordered by impact)
+1. a1, region x 0-460 / y 100-400: the left half is empty, and the stack alone is pushed right (x 462-815). Centre the stack when the heap is empty, or pre-draw a dim heap zone, so the first state is not lopsided.
+2. p50 and p100, region x 110-380 / y 300-400: heap capsules float 50-60 px above the floor with no visible contact shadow. The floor starts at y ~400, so the "slightly above the floor" claim does not read. Lower the capsules toward the floor plane or add an ellipse shadow on it.
+3. p50, region x 140-360 / y 180-240: the amber temp capsule floats high and alone with no stack ref and no floor link, so its heap membership is weak. Place it on the same floor band, or add a faint drop line.
+4. all states, floor labels "stack" and "heap" at y ~415-425: small grey text on a grid. Raise to about 0.7 luminance and about 1.3x size.
+5. p50 and p100, floor plane: grid lines are about 3-4% luminance and the grid extends past both ends of the content. Add a horizon glow and fade the grid at the edges.
+6. a1 and p50, region x 455-470 / y 205-370: the left-edge ref ports are hairline 6 px circles. Enlarge ~1.5x so the origin of each reference reads at 1080p.
+7. Supply a motion strip (push, ref path-draw with travelling pulse, aliasing pulse, collect sparks) in round 2 so easing and impacts can be judged rather than inferred.
