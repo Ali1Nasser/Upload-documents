@@ -34,5 +34,7 @@
  "approved_by": "critic",
  "approved_at": "2026-10-16",
  "score": 7.5,
- "notes": "Round 1: lit glass cylinder (key light upper right, rim, floor glow), text-to-particles morph reads without narration. Non-blocking: text-plate shadow lingers behind object; object small (~22% frame width); lite baselines lack the particle-flight frame; dotted outline at hold."
+ "notes": "Round 1: lit glass cylinder (key light upper right, rim, floor glow), text-to-particles morph reads without narration. Non-blocking: text-plate shadow lingers behind object; object small (~22% frame width); lite baselines lack the particle-flight frame; dotted outline at hold.",
+ "rechecked_at": "2026-10-16",
+ "recheck_note": "Independent re-check after determinism-flake fix: PNG sha256 unchanged, snap PASS det 0; score stands 7.5, no blocking."
 }

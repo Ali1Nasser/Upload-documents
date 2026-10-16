@@ -178,3 +178,17 @@ Non-blocking (next re-baseline, ordered by impact):
 6. Baselines: add a burst-frame baseline (f39-41, standard); p50/p100 are near duplicates; p0 is the empty gradient.
 
 Scores (1-10): Legibility 8, token discipline 9, depth and light 6.5, verb reads 7, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 8 (strip). Mean 8.4, min 6.5; overall 7.0. Score 6.5 items: p50/p100 whole group, fix per items 1-2 above.
+
+### MorphTextToObject — round 1, independent re-check (after determinism fix)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Re-read a1/p50/p100 at 960x540 and the 7-tile beat strip; baseline PNG sha256 equal to meta.json (no visual change from the fix).
+
+Verdict: APPROVED, 7.5/10, no blocking issue. Seen: whole Arabic word "البيانات" crisp (a1), dissolving right to left into cyan/white outline particles (strip tiles 2-3), settling into a lit glass cylinder (tile 4-6) with key-light top face, cyan rim and floor glow (p50/p100); tile 7 shows the reverse. No bullets, no legacy, no numbers; palette cyan/violet on near-black.
+
+Blocking: none. Non-blocking, unchanged from round 1, ordered by impact:
+1. p50/p100, x 345-610, y 255-320: faint dark text-plate rectangle persists behind the lower body; fade it with the word.
+2. p50/p100, x 375-583, y 150-390: object about 22% of frame width; scale about 1.3x at hold.
+3. p50/p100 outline: beaded dots only; add a continuous thin rim under them (the strip tile 6 rim is stronger).
+4. Baselines lack a particle-flight frame (about 40%); p50 and p100 are near duplicates.
+
+Scores: Legibility 8, token discipline 9, depth and light 7, verb reads 8, Arabic 9, no bullet look 9, no legacy 10, no unsourced numbers 10, motion intent 8. Mean 8.6, min 7; overall 7.5.
