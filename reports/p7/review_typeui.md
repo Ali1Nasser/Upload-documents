@@ -232,3 +232,24 @@ Non-blocking
 5. Add a 48-character worst-case title baseline.
 
 Scores: legibility 8, palette 9, depth/light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6, polish 7.
+
+## Spotlight — round 1 (critic, 2026-10-16)
+
+Verdict: **approved-critic**, score **7/10**, no blocking issue. Evidence: p0, a1, p50, p100 at full size (960x540) and reports/p7/snap/Spotlight.jpg (4-frame strip); the stored snap (pass, det 0) was not re-run. Code header read for intent only.
+
+Checks
+- Verb: p50 shows the surround dimmed to about 35 % legibility and a rounded-rect aperture, cyan rim and glow, on the T3 "FAILED" cell (x 341-432 / y 262-317). p100 moves to an ellipse on T6 "FAILED" while the T3 aperture has lifted. Reads without narration.
+- Palette: void dim, signal cyan rim only; no legacy frames; no new numbers (receipt values are demo data tagged d:5.2:1).
+- Arabic: dimmed title "إيصالات NilePay" and headers render RTL correctly; Latin and digits in LTR isolates.
+- Depth and light: the key cone from the upper right (p50, x 480-760 / y 20-250) is visible but faint. The aperture feels like a lit window, not a flat highlight. Not a slide.
+
+Blocking issues: none.
+
+Non-blocking (ordered by impact)
+1. p100, ellipse (x 326-444 / y 350-417): the circle shape circumscribes the cell by x sqrt 2, so its rim cuts through the "OK" in T5 above (y 345-360) and the leading "1" of "100" (x 438-446), and pokes past the slab's left edge (x 330). It undermines "isolate this one cell". Cap the circle at the row pitch, or exclude the rim from the neighbour rows.
+2. a1 to p50, onset: no baseline exists between spotlight anchor-1 and landed (frame 38 to 61), so the RV1 iris-in (dim above 0 on the anchor frame, aperture 1.6x tightening) is unverified. Add stills at anchor, +3, +6, +12 or a strip, and a landing-ping frame.
+3. p50 and p100, rim and cone at lite: cone opacity capped near 0.2 and rim about 2 px at 960; push the rim one step and confirm the standard tier lifts the cone. A standard-tier still is required before final lock.
+4. a1 is only the undimmed host table (p0 is blank), so two of four baselines carry no Spotlight pixels. Replace p0 with the settled frame at the anchor.
+5. Not covered: missing target (DC_TARGET warning path), a target under a moving camera at strength above 0.3, and `until` exit lift.
+
+Scores: legibility 8, palette/tokens 9, depth and light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7.
