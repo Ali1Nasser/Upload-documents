@@ -192,3 +192,22 @@ Blocking: none. Non-blocking, unchanged from round 1, ordered by impact:
 4. Baselines lack a particle-flight frame (about 40%); p50 and p100 are near duplicates.
 
 Scores: Legibility 8, token discipline 9, depth and light 7, verb reads 8, Arabic 9, no bullet look 9, no legacy 10, no unsourced numbers 10, motion intent 8. Mean 8.6, min 7; overall 7.5.
+
+### Pulse — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 (960x540, lite) and reports/p7/snap/Pulse_beat.jpg (6 tiles, standard/hero) plus Pulse.jpg (4 tiles).
+
+Verdict: APPROVED, 7.0/10, no blocking issue. meta.json: approved-critic.
+
+Seen: the beat strip shows the target lit as an object: key-lit cyan rim with brighter top edge, a second trailing ring, outer swell outside the outline only, floor glow pool under the box and short sparks; copy ("66.67 %", "نسبة النجاح") stays crisp and uncovered, Arabic correct, tokens only (cyan on near-black), no bullets, no legacy, no invented numbers (demo counter values 64.12 / 66.67 from the fixture). The pulse reads as "this number matters now" without narration. Lite p50 shows only the rim, which is the intended minimum.
+
+Blocking: none.
+
+Non-blocking, ordered by impact:
+1. p50 and strip tiles 1-6, rim at x 355-603, y 211-327 (p50): rim hugs the glyphs; the "6" and "%" touch the outline (x ~357 and ~603). Increase the rim pad around copy to at least 14 px at 1080p (RIM_PAD 10 is measured to leaf bounds, not glyph ink).
+2. Baselines: a1 (f13) is the counter before any pulse (anchor is f38 = word 2 minus 2 lead); no baseline covers the anchor frame or standard tier. Add anchor+1 and anchor+9 at standard so RV1 and the rings/sparks are regression-protected; p100 (after the last pulse) duplicates a1 and can be dropped.
+3. a1 and p100, x 318-640, y 255-335: a faint dark plate rectangle sits low and off-centre behind the label at idle; align it to the copy or fade it with the pulse.
+4. Group is about 26% of frame width at 960 px (digits about 60 px high at 1080p equivalent is fine, label about 11 px at 960); enlarge label 1.2x.
+5. Sparks in tile 6 cluster at the top-left corner of the rim only; spread around the perimeter.
+
+Scores (1-10): Legibility 7.5, token discipline 9, depth and light 8, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 9 (demo values), motion intent visible 7.5 (6-tile strip good; lite stills thin). Mean 8.4, min 7.5; overall 7.0.
