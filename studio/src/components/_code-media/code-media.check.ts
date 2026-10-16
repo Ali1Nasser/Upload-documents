@@ -6,7 +6,7 @@ import demos from '../../demos/code-media';
 import {codeRuns, codeLayout, tokenize, wrapLine} from './kit';
 import {linesOf, splitClauses} from '../SqlStages/SqlStages';
 import {loopIndex} from '../LoopPlate/LoopPlate';
-import {insertIndex} from '../ManimInsert/ManimInsert';
+import {fitRect, insertIndex} from '../ManimInsert/ManimInsert';
 import {sliceMotion} from '../AIPlate/AIPlate';
 import {cursorEvents, traceLines} from '../CodeTrace/CodeTrace';
 import {terminalTimeline} from '../Terminal/Terminal';
@@ -56,6 +56,7 @@ ok('loopIndex: wraps seamlessly (frame N -> 0)', loopIndex(10 + N, 10, 1, 24, 24
 ok('loopIndex: speed 2 doubles the rate; 12 fps comp halves the index step', loopIndex(20, 10, 2, 24, 24, N) === 20 && loopIndex(16, 10, 1, 24, 12, N) === 12);
 ok('loopIndex: before the anchor holds frame 0', loopIndex(0, 10, 1, 24, 24, N) === 0);
 ok('insertIndex: clamps on the last frame', insertIndex(10000, 10, 24, 24, 84) === 83 && insertIndex(10, 10, 24, 24, 84) === 0 && insertIndex(34, 10, 24, 24, 84) === 24);
+ok('fitRect: contain letterboxes, cover fills, both centred', (() => { const a = fitRect({w: 1000, h: 400}, 1280, 720, 'contain'); const b = fitRect({w: 1000, h: 400}, 1280, 720, 'cover'); return Math.abs(a.h - 400) < 1e-6 && Math.abs(a.x - (1000 - a.w) / 2) < 1e-6 && Math.abs(b.w - 1000) < 1e-6 && b.y < 0; })());
 const mid = sliceMotion(0.45, 0.5, 0.5);
 ok('sliceMotion: pivot plane does not move at mid-drift; near moves opposite to far', mid.x === 0 && sliceMotion(0.9, 1, 0.5).x * sliceMotion(0.1, 1, 0.5).x < 0);
 ok('sliceMotion: parallax 0 = no motion', sliceMotion(0.9, 1, 0).x === 0 && sliceMotion(0.9, 1, 0).s === 1);

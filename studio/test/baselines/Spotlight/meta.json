@@ -1,17 +1,17 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "813714ae74428b1649944b71db3489f41f8c067d17b9edf8ace8fb57bce99125",
-  "p50": "44f1d6ac8567527f914427c8841385c9bd24f89f4eb9f5f93b15361fb6b28914",
-  "p100": "170c848fdac2529bde8fcde41e9fb19e909e764d984eee1eceb104f80a3a40e8"
+  "a1": "1b52c23ca9617a28c509db00927a2903f1a52b310545713c6630184a5ab9883e",
+  "p50": "048400f8fb92e00a93df93612ef6f41d004c0cb540e8c3789a38b8994494f21c",
+  "p100": "c4db437951009e4c5b00aacf9e5b98aa0525a93c077e00b7fa65b057cc34c345"
  },
  "v": 2,
  "name": "Spotlight",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 41,
-  "p100": 83
+  "p50": 63,
+  "p100": 127
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:35:44Z",
+ "written_at": "2026-10-16T11:35:59Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

@@ -2,12 +2,12 @@
  "v": 2,
  "name": "Spotlight",
  "composition": "Demo-Spotlight",
- "at": "2026-10-14T08:35:44Z",
+ "at": "2026-10-16T11:35:59Z",
  "frames": [
   0,
   11,
-  41,
-  83
+  63,
+  127
  ],
  "thresholds": {
   "scale": 0.5,
@@ -36,14 +36,14 @@
   },
   {
    "tag": "p50",
-   "frame": 41,
+   "frame": 63,
    "why": "50 %",
    "determinism_diff_px": 0,
    "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 83,
+   "frame": 127,
    "why": "100 %",
    "baseline": "written"
   }

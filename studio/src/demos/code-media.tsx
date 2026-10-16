@@ -142,11 +142,15 @@ const demos: DemoModule = {
       // Manim alpha insert (d:6.12:5, normCdf(1.96) = 0.975): played once from its anchor, held on the last frame
       name: 'ManimInsert',
       frames: 130,
-      words: [[MI(1), 10, 30]],
+      words: [[MI(1), 10, 30], [MI(2), 34, 52], [MI(3), 54, 80]],
       shot: {
         fx_tier: 'standard',
         camera: {move: 'push_in', intensity: 0.3},
-        layers: [{component: 'ManimInsert', props: {id: 'insert', clip: 'demo-normal-95', alpha: true, fit: 'contain', slot: 'center'}, at: {word: MI(1), lead_frames: 2}}],
+        layers: [
+          {component: 'ManimInsert', props: {id: 'insert', clip: 'demo-normal-95', alpha: true, fit: 'contain', slot: 'full', depth: 'mid'}, at: {word: MI(1), lead_frames: 2}},
+          {component: 'KineticWord', props: {id: 'kw', text: 'التوزيع الطبيعي', slot: 'upper-third', size: 'kinetic'}, at: {word: MI(2), lead_frames: 2}},
+          {component: 'NumberCounter', props: {id: 'cnt', to: {value: 0.975, ref: 'd:6.12:5', decimals: 3}, format: 'decimal', label: 'المساحة حتى 1.96', slot: 'start'}, at: {word: MI(3), lead_frames: 2}},
+        ],
       },
     },
     {

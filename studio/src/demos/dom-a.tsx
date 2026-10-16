@@ -205,18 +205,19 @@ const logScroll: DemoDef = {
   },
 };
 
-// CollectionMorph: the duplicated order id 1008 (d:6.1:3) merges when the list becomes a set (04 §6 "set = bubbles merging duplicates").
+// CollectionMorph: the 15 receipt rows of the cleaning lab carry ids 1001-1014 with 1008 twice (d:6.1:1, d:6.1:3, s:S4:P11:0019);
+// six of them as a list (a train of cars), then `set(...)`: the duplicated 1008 merges into one bubble (04 §6 "set = bubbles merging duplicates").
 const collectionMorph: DemoDef = {
   name: 'CollectionMorph',
   frames: 150,
-  words: [[W('CollectionMorph', 1), 8, 56]],
+  words: [[W('CollectionMorph', 1), 10, 66]],
   shot: {
     fx_tier: 'standard',
     camera: {move: 'push_in', intensity: 0.3},
     layers: [
       {
         component: 'CollectionMorph',
-        props: {id: 'coll', from: 'list', to: 'set', items: ['1005', '1006', '1007', '1008', '1008', '1009']},
+        props: {id: 'coll', from: 'list', to: 'set', items: ['1006', '1007', '1008', '1008', '1009', '1010']},
         at: A('CollectionMorph', 1),
       },
     ],

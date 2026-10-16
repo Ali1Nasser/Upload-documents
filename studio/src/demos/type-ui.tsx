@@ -239,12 +239,13 @@ const demos: DemoModule = {
       },
     },
     {
-      // NilePay receipts (d:5.2:1..6); the spotlight isolates the T3 FAILED status cell
+      // NilePay receipts (d:5.2:1..6); a rect aperture isolates the T3 FAILED status cell, then a circle aperture takes the T6 one
       name: 'Spotlight',
-      frames: 84,
+      frames: 128,
       words: [
         [W('Spotlight', 1), 6, 20],
         [W('Spotlight', 2), 40, 56],
+        [W('Spotlight', 3), 84, 100],
       ],
       shot: {
         fx_tier: 'standard',
@@ -273,7 +274,12 @@ const demos: DemoModule = {
             },
             at: {word: W('Spotlight', 1), lead_frames: 2},
           },
-          {component: 'Spotlight', props: {id: 'spot', to: 'receipts.r2c3', shape: 'rect', dim: 0.65}, at: {word: W('Spotlight', 2), lead_frames: 2}},
+          {
+            component: 'Spotlight',
+            props: {id: 'spot', to: 'receipts.r2c3', shape: 'rect', dim: 0.65, until: {word: W('Spotlight', 3), lead_frames: 2}},
+            at: {word: W('Spotlight', 2), lead_frames: 2},
+          },
+          {component: 'Spotlight', props: {id: 'spot2', to: 'receipts.r5c3', shape: 'circle', dim: 0.65}, at: {word: W('Spotlight', 3), lead_frames: 2}},
         ],
       },
     },

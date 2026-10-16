@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T22:15:34Z",
+ "created": "2026-10-16T11:33:35Z",
  "label": "latest",
  "thresholds": {
   "ocr_min": 0.9,
@@ -79,7 +79,7 @@
  "items": [
   {
    "id": "s000",
-   "text": "الإجمالي الناجح",
+   "text": "ADS — جاهز للتقارير",
    "size": null,
    "render_size": [
     34,
@@ -94,12 +94,13 @@
     "missing": [],
     "faces": [
      "ar-display",
-     "ar-text"
+     "ar-text",
+     "lat"
     ]
    },
    "overflow": {
-    "ink_w": 194,
-    "ink_h": 41,
+    "ink_w": 281,
+    "ink_h": 33,
     "container_w": 1784,
     "lines": 1
    },
@@ -108,9 +109,9 @@
    "ocr": {
     "score": 1.0,
     "exact": true,
-    "psm": 7,
+    "psm": 13,
     "scale": 100,
-    "got": "الإجمالي الناجح",
+    "got": "‎ADS‏ - جاهز للتقارير.",
     "join_junk": "",
     "pass": true,
     "bands": {

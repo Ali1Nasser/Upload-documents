@@ -216,11 +216,11 @@ const journey: DemoDef = {
   frames: 288,
   words: words('RequestJourney', [
     [6, 20],
-    [48, 62],
-    [84, 98],
-    [118, 132],
-    [160, 176],
-    [210, 226],
+    [34, 48],
+    [58, 72],
+    [82, 96],
+    [126, 140],
+    [200, 214],
   ]),
   shot: {
     fx_tier: 'standard',

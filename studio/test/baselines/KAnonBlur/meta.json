@@ -1,15 +1,15 @@
 {
  "sha256": {
-  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "ef3d1db165156721a0a4b844d9aab7a8709e71992dd8edc4c1cb902f3d6ddba4",
-  "p50": "2319259a82464d6d6c7345f23a1bd0b2cde1a2d4dbbb006b3b1182a47a0c7729",
-  "p100": "ab034e8655eb48079333a4e1ff4d60bb0883927c1882818ff19ea9a7b2b2ed09"
+  "p0": "72bc0df3367a043957ca1eb572eb9a6e281e429fba3de78b87a2cfeccc6e6147",
+  "a1": "ff72a147cd4b2156c5cc8ae6039385aaef1bf3fb235581ce57802257108e915c",
+  "p50": "f30c1f55377ca3946e6664d8118600f6faa1fb69be53798741edef8123e5faaa",
+  "p100": "b68f1feff9fc5ffcc41c98e444b77514718e914f3f7dc0b43872963976726324"
  },
  "v": 2,
  "name": "KAnonBlur",
  "frames": {
   "p0": 0,
-  "a1": 11,
+  "a1": 7,
   "p50": 94,
   "p100": 189
  },
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-11T17:18:18Z",
+ "written_at": "2026-10-16T11:40:38Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

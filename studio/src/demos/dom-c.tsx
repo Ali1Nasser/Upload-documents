@@ -131,8 +131,8 @@ const kAnonBlur: DemoDef = {
   name: 'KAnonBlur',
   frames: 190,
   words: [
-    [W('KAnonBlur', 1), 6, 22],
-    [W('KAnonBlur', 2), 60, 80],
+    [W('KAnonBlur', 1), 2, 22],
+    [W('KAnonBlur', 2), 78, 98],
   ],
   shot: {
     fx_tier: 'standard',

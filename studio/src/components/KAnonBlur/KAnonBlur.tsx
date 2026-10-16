@@ -6,11 +6,13 @@
 // wide soft band, and when the last column is generalised the rows slide together into groups of at least k identical rows (floor
 // (rows / k) groups, sizes differ by at most one), each closed by an ok bracket on the end side. Cells carry no copy and no digits:
 // k and rows are structural props with no ref, so the narration's k is shown by a NumberCounter / TermChip layer.
-// DOM + SVG only (standard tier); no CSS blur or SVG filter (perf): the blur is a crossfade to a soft gradient band.
+// Before the first generalisation a warn linkage reticle hops from row to row (a lone row is a lone person: it can be re-identified
+// by joining the quasi-identifiers with an outside list). Light per ADR-003 LK-F: perspective floor + coloured pool, acrylic plate.
+// DOM + SVG only (standard tier; hero = standard); no CSS blur or SVG filter (perf): the blur is the SAME mark widening into a
+// feathered (gradient-edged) band shared by its whole group, so the unique value is no longer readable.
 import React from 'react';
 import {random} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
-import {hex} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {Lbl, acrylic, acts, apportion, boxStyle, f24, mix, pf, prog, shell, shuffle} from '../_dom-c/kit';
@@ -26,6 +28,7 @@ export const groupRows = (rows: number, k: number, seed: string): {group: number
   return {group, order, groups: g};
 };
 
+const R = Math.round;
 export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
   const P = pf(ctx);
@@ -35,16 +38,16 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const W = ctx.box.w;
   const H = ctx.box.h;
   const gens = acts(ctx, 'generalize');
-  const tableX = W * 0.16;
-  const tableW = W * 0.8;
+  const tableX = Math.round(W * 0.16);
+  const tableW = Math.round(W * 0.8);
   const cols = q + 1;
-  const colW = tableW / cols;
+  const colW = Math.round(tableW / cols);
   const headH = Math.round(H * 0.13);
   const regionY = headH + 10;
   const regionH = H - regionH0(H, headH);
-  const rowH = Math.min(78, regionH / (props.rows + 0.45 * (gr.groups - 1)));
-  const gap = rowH * 0.45;
-  const cx = (c: number) => tableX + tableW - (c + 0.5) * colW; // RTL: column 0 (identifier) on the right
+  const rowH = Math.floor(Math.min(78, regionH / (props.rows + 0.45 * (gr.groups - 1))) / 2) * 2;
+  const gap = Math.round(rowH * 0.45);
+  const cx = (c: number) => Math.round(tableX + tableW - (c + 0.5) * colW); // RTL: column 0 (identifier) on the right
   // generalisation time of quasi column c (0-based among the quasi columns)
   const gTime = (c: number): number | null => {
     if (gens.length === 0) return null;
@@ -62,8 +65,9 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const y0 = regionY + i * rowH;
     const pos = posOf(i);
     const y1 = regionY + pos * rowH + gr.group[i] * gap;
-    return y0 + (y1 - y0) * slideP;
+    return Math.round(y0 + (y1 - y0) * slideP);
   };
+  const gid = `ka-${ctx.id}`;
   const rowEls: React.ReactNode[] = [];
   for (let i = 0; i < props.rows; i++) {
     const b = ctx.at + Math.round((1.5 * i * ctx.fps) / 24);
@@ -77,20 +81,24 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       const tg = gTime(c);
       const gp = tg === null ? 0 : prog(ctx, tg, P.morph);
       const xc = cx(c + 1);
-      const sharpW = colW * (0.18 + 0.42 * random(`${seedKey}:w:${i}:${c}`));
-      const sharpX = xc + (random(`${seedKey}:x:${i}:${c}`) - 0.5) * colW * 0.34;
+      const sharpW = Math.round(colW * (0.18 + 0.42 * random(`${seedKey}:w:${i}:${c}`)));
+      const sharpX = Math.round(xc + (random(`${seedKey}:x:${i}:${c}`) - 0.5) * colW * 0.34);
       const g = gr.group[i];
-      const bandW = colW * (0.72 + 0.14 * random(`${seedKey}:bw:${g}:${c}`));
-      const bandX = xc + (random(`${seedKey}:bx:${g}:${c}`) - 0.5) * colW * 0.08;
-      const hh = Math.min(rowH * 0.46, 30);
+      const bandW = Math.round(colW * (0.72 + 0.14 * random(`${seedKey}:bw:${g}:${c}`)));
+      const bandX = Math.round(xc + (random(`${seedKey}:bx:${g}:${c}`) - 0.5) * colW * 0.08);
+      const hh = 2 * Math.round(Math.min(rowH * 0.46, 30) / 2);
       const col = mix(C.warn, C.ok, gp);
+      // the sharp mark widens toward the shared band (defocus) while the feathered band fades in over it
+      const mx = Math.round(sharpX + (bandX - sharpX) * gp);
+      const mw = 2 * Math.round((sharpW + (bandW - sharpW) * gp) / 2);
       cells.push(
         <g key={`c${c}`}>
-          {gp < 1 ? <rect x={sharpX - sharpW / 2} y={y + rowH / 2 - hh / 2} width={sharpW} height={hh} rx={hh / 2} fill={col} fillOpacity={1 - gp} /> : null}
+          <rect x={mx - mw / 2} y={y + rowH / 2 - hh / 2} width={mw} height={hh} rx={hh / 2} fill={col} fillOpacity={1 - 0.45 * gp} />
           {gp > 0 ? (
             <>
-              <rect x={bandX - bandW / 2 - 8} y={y + rowH / 2 - hh * 0.95} width={bandW + 16} height={hh * 1.9} rx={hh} fill={C.ok} fillOpacity={0.1 * gp} />
-              <rect x={bandX - bandW / 2} y={y + rowH / 2 - hh / 2} width={bandW} height={hh} rx={hh / 2} fill={C.ok} fillOpacity={0.55 * gp} />
+              <rect x={bandX - bandW / 2 - 16} y={y + rowH / 2 - R(hh * 1.05)} width={bandW + 32} height={2 * R(hh * 1.05)} rx={R(hh * 1.05)} fill={C.ok} fillOpacity={0.07 * gp} />
+              <rect x={bandX - bandW / 2 - 8} y={y + rowH / 2 - R(hh * 0.8)} width={bandW + 16} height={2 * R(hh * 0.8)} rx={R(hh * 0.8)} fill={C.ok} fillOpacity={0.12 * gp} />
+              <rect x={bandX - bandW / 2 + 6} y={y + rowH / 2 - R(hh * 0.2)} width={bandW - 12} height={2 * R(hh * 0.2)} rx={R(hh * 0.2)} fill={C.ink} fillOpacity={0.14 * gp} />
             </>
           ) : null}
         </g>,
@@ -102,6 +110,34 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         {cells}
       </g>,
     );
+  }
+  // linkage reticle: hops to a new row every 14 film frames until the first column is generalised
+  const hopN = f24(ctx, 14);
+  const born0 = (i: number) => ctx.at + Math.round((1.5 * i * ctx.fps) / 24);
+  const firstG = gens.length ? Math.min(...Array.from({length: q}, (_, c) => gTime(c) as number)) : null;
+  const retFade = 1 - (firstG === null ? 0 : prog(ctx, firstG, P.morph));
+  let reticle: React.ReactNode = null;
+  if (t >= ctx.at + hopN && retFade > 0) {
+    const hop = Math.floor((t - ctx.at - hopN) / hopN);
+    const live = Math.max(1, Math.min(props.rows, Math.floor(((t - ctx.at) * 24) / (ctx.fps * 1.5)) + 1));
+    const ri = Math.floor(random(`${seedKey}:ret:${hop}`) * live);
+    if (t >= born0(ri)) {
+      const ry = yAt(ri);
+      const x0 = tableX - 2;
+      const x1 = tableX + tableW + 2;
+      const y0 = ry + 1;
+      const y1 = ry + rowH - 1;
+      const L = 16;
+      const d = `M ${x0} ${y0 + L} L ${x0} ${y0} L ${x0 + L} ${y0} M ${x1 - L} ${y0} L ${x1} ${y0} L ${x1} ${y0 + L} M ${x1} ${y1 - L} L ${x1} ${y1} L ${x1 - L} ${y1} M ${x0 + L} ${y1} L ${x0} ${y1} L ${x0} ${y1 - L}`;
+      const rp = prog(ctx, ctx.at + hopN + hop * hopN, P.label);
+      reticle = (
+        <g opacity={retFade * rp}>
+          <rect x={x0} y={y0} width={x1 - x0} height={y1 - y0} rx={12} fill={C.warn} fillOpacity={0.07} />
+          <path d={d} fill="none" stroke={C.warn} strokeOpacity={0.25} strokeWidth={12} strokeLinecap="round" strokeLinejoin="round" />
+          <path d={d} fill="none" stroke={C.warn} strokeWidth={4} strokeLinecap="round" strokeLinejoin="round" />
+        </g>
+      );
+    }
   }
   // group brackets (end side = left of the table)
   const brackets: React.ReactNode[] = [];
@@ -118,11 +154,28 @@ export const KAnonBlurView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         </g>,
       );
     }
+  // ADR-003 LK-F floor: receding lines (solid strokes at whole pixels: gradient strokes and fractional coordinates are not
+  // bit-stable across raster tiles) plus a stacked-ellipse light pool under the plate in the state colour.
+  const fy = Math.round(H * 0.8);
+  const floorCol = mix(C.warn, C.ok, bracketP);
+  const floor: React.ReactNode[] = [];
+  for (let i = 1; i <= 6; i++) {
+    const yy = Math.round(fy + (H - fy) * Math.pow(i / 6, 1.6));
+    floor.push(<path key={`fh${i}`} d={`M ${Math.round(W * 0.02)} ${yy} L ${Math.round(W * 0.98)} ${yy}`} stroke={C.grid} strokeWidth={2} strokeOpacity={0.15 + 0.55 * (i / 6)} />);
+  }
+  for (let j = -7; j <= 7; j++) {
+    const mid = Math.round(tableX + tableW / 2);
+    floor.push(<path key={`fv${j}`} d={`M ${mid + Math.round(j * W * 0.03)} ${fy} L ${mid + Math.round(j * W * 0.11)} ${Math.round(H)}`} stroke={C.grid} strokeWidth={2} strokeOpacity={0.5 * (1 - Math.abs(j) / 9)} />);
+  }
+  for (let e = 0; e < 4; e++)
+    floor.push(<ellipse key={`fe${e}`} cx={Math.round(tableX + tableW / 2)} cy={Math.round(H * 0.9)} rx={Math.round(tableW * (0.5 - 0.09 * e))} ry={Math.round(H * (0.12 - 0.02 * e))} fill={floorCol} fillOpacity={(0.04 + 0.03 * bracketP) * (1 + e * 0.3)} />);
   return (
     <div style={{...boxStyle(ctx), ...shell(ctx)}}>
-      <div style={{position: 'absolute', left: tableX - 12, top: regionY - 10, width: tableW + 24, height: props.rows * rowH + (gr.groups - 1) * gap + 20, borderRadius: 26, ...acrylic(bracketP > 0 ? C.ok : C.ink3, ctx.fx, 0.2 + 0.5 * bracketP + ctx.mod.glow, bracketP === 0), opacity: ent}} />
+      <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: ent, pointerEvents: 'none'}}>{floor}</svg>
+      <div style={{position: 'absolute', left: tableX - 12, top: regionY - 10, width: tableW + 24, height: props.rows * rowH + (gr.groups - 1) * gap + 20, borderRadius: 26, ...acrylic(bracketP > 0 ? C.ok : C.ink3, ctx.fx, 0.2 + (bracketP > 0 ? 0.5 : 0) + ctx.mod.glow, bracketP === 0), opacity: ent}} />
       <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: ent}}>
         {rowEls}
+        {reticle}
         {brackets}
       </svg>
       {props.quasi_ids.map((lab, c) => (
