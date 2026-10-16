@@ -2,7 +2,7 @@
  "v": 2,
  "name": "PipelineStations",
  "composition": "Demo-PipelineStations",
- "at": "2026-10-15T22:11:38Z",
+ "at": "2026-10-16T06:10:19Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -20,53 +20,53 @@
  "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
  "tiers": {
   "lite": {
-   "frames": 360,
-   "wall_s": 23.62,
-   "box_s_per_frame": 0.0656,
-   "slot_s_per_frame": 0.1968,
+   "frames": 432,
+   "wall_s": 29.52,
+   "box_s_per_frame": 0.0683,
+   "slot_s_per_frame": 0.2049,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.54,
-    5.26
+    5.34,
+    5.93
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 6
    },
    "other_jobs_running": 0
   },
   "standard": {
-   "frames": 360,
-   "wall_s": 31.87,
-   "box_s_per_frame": 0.0885,
-   "slot_s_per_frame": 0.2655,
+   "frames": 432,
+   "wall_s": 37.4,
+   "box_s_per_frame": 0.0866,
+   "slot_s_per_frame": 0.2598,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.32,
-    6.23
+    5.54,
+    5.86
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 6
    },
    "other_jobs_running": 0
   },
   "hero": {
-   "frames": 360,
-   "wall_s": 30.19,
-   "box_s_per_frame": 0.0839,
-   "slot_s_per_frame": 0.2517,
+   "frames": 432,
+   "wall_s": 36.83,
+   "box_s_per_frame": 0.0852,
+   "slot_s_per_frame": 0.2556,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    6.23,
-    7.04
+    5.47,
+    5.56
    ],
    "queue": {
     "running": 1,
-    "queued": 5
+    "queued": 7
    },
    "other_jobs_running": 0
   }

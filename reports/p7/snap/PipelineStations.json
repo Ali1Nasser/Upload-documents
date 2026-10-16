@@ -2,12 +2,12 @@
  "v": 2,
  "name": "PipelineStations",
  "composition": "Demo-PipelineStations",
- "at": "2026-10-15T22:08:55Z",
+ "at": "2026-10-16T06:05:13Z",
  "frames": [
   0,
   11,
-  179,
-  359
+  215,
+  431
  ],
  "thresholds": {
   "scale": 0.5,
@@ -36,14 +36,14 @@
   },
   {
    "tag": "p50",
-   "frame": 179,
+   "frame": 215,
    "why": "50 %",
    "determinism_diff_px": 0,
    "baseline": "written"
   },
   {
    "tag": "p100",
-   "frame": 359,
+   "frame": 431,
    "why": "100 %",
    "baseline": "written"
   }

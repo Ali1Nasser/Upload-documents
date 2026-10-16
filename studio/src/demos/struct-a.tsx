@@ -267,20 +267,20 @@ const demos: DemoModule = {
       // bad date format (d:6.1:6, the ambiguous 03/02/2026), is fixed, and the payload moves on to the load. Then the 04 section 6
       // "CI/CD gated pipeline" (containers, CI/CD): a release crosses five gates, the production gate fails and is fixed.
       name: 'PipelineStations',
-      frames: 360,
+      frames: 432,
       words: words('PipelineStations', [
         [6, 20],
         [44, 58],
         [76, 90],
         [106, 120],
-        [138, 152],
-        [164, 178],
-        [188, 198], // 7 exit of the ETL pipeline
-        [206, 220], // 8 CI/CD entrance
-        [240, 254], // 9 advance to staging
-        [276, 290], // 10 advance to production
-        [308, 322], // 11 fail
-        [336, 348], // 12 fix
+        [232, 246],
+        [256, 268],
+        [278, 288], // 7 exit of the ETL pipeline
+        [290, 302], // 8 CI/CD entrance
+        [318, 330], // 9 advance to staging
+        [346, 358], // 10 advance to production
+        [376, 388], // 11 fail
+        [406, 418], // 12 fix
       ]),
       shot: {
         fx_tier: 'standard',

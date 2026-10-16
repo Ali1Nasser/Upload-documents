@@ -1,17 +1,17 @@
 {
  "sha256": {
-  "p0": "e7580fc5c4387498e11b17ef6eeff937ec5c46eb2fff72e3d8ea0ea0b03a90be",
-  "a1": "038ff1fab1e67ad00b22943b716fdd296aaaf2ada839418ca26c40151e5f6e1d",
-  "p50": "4c66d46a29bec565bcd97ee35fff39d7d8aabfc2b2a3e728b13d7ff8144cd2ba",
-  "p100": "88f266851cb9bea3c32b910a6e64f6b6b0a16e2e05a3dfde7439129941d96030"
+  "p0": "88b7e8fd4e47c7ded92377950cd9ede2c539c6bccde0870f80f6ca8708cb71a7",
+  "a1": "3f20a1f1c979a9e984240f4d3434041aa50fa8b84e64e11d100ba9101c0a618b",
+  "p50": "874c2794e7b1948c90e4e03caf248624654bbf82e304dcf58f4065aeb2b8ef7f",
+  "p100": "6c4ec88322fca7bcfc73ae3a8d12886c8a3c3b2952dedc308c6e32772648acf5"
  },
  "v": 2,
  "name": "PipelineStations",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 179,
-  "p100": 359
+  "p50": 215,
+  "p100": 431
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,14 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T22:08:55Z",
+ "written_at": "2026-10-16T06:05:13Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "critic": {
-  "score": 7.2,
-  "date": "2026-10-15",
-  "round": 1,
-  "notes": "Verb reads without narration (gates ring -> check, capsule hops, fail: crit X + crit capsule + reason chip, fix returns to ok; strip checked at f108-146 and f314-342). Palette via C.* only, Arabic and mixed-script order correct, no numerals. Non-blocking: ETL track-ahead crit dashes and the fix ring are faint at 960; pipeline fills ~45% of frame height; baselines never show fail/fix; flash and shake not judgeable from stills. See reports/p7/review_struct-a.md."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
