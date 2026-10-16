@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T18:31:28Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.5,
+  "date": "2026-10-16",
+  "by": "critic",
+  "notes": "Round 1: approved, no blocking issue. Non-blocking: station gate post crosses crate glyph at p100 (T6); left end drum clipped at box edge in p50/p100; scene fills only the middle 45% of frame height; no motion strip (jam shake/shockwave unseen); p0 empty baseline. See reports/p7/review_struct-b.md."
+ }
 }

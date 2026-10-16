@@ -195,3 +195,19 @@ Non-blocking, ordered by impact
 4. p100, region x 670-780 / y 275-350: green copies differ only by a thin outline; add a soft green glow.
 5. a1 is a lopsided transitional frame and p0 is empty; baseline a frame after all five racks land for stronger regression signal.
 6. Round 2 owes a motion strip (split morph, flight arcs with light trail, failNode sparks and shake, rereplicate flights) to judge easing and impacts.
+
+### Conveyor — round 1 (2026-10-16)
+
+Read a1, p50, p100 (p0 is an empty vignette) at full size (960x540, lite) plus reports/p7/snap/Conveyor.jpg. Snap PASS det 0 / qa 0 mismatched, Arabic QA PASS (OCR 2/2) as recorded; not re-run. Score 7.5 / 10, APPROVED, no blocking issue; meta.json set to approved-critic.
+
+Rubric: legibility at 1080p 7.5 (crate ids about 20 px at 960, station pills about 14 px; Kafka / core / الموبايل readable); palette and token discipline 8 (neutral glass, cyan active gate, red jam with warn pool, green pass with check; no stray hues); depth and light 8 (lit top and shaded side on crates, belt top with roller ticks, drums, legs, perspective floor, red signal pool under the jam at p50); visual verb 8.5 (items pass scanner gates in sequence, one crate tilts and locks red while followers queue, the next resumes green; reads without narration); Arabic 8.5 (الموبايل and الـcore are well shaped, Latin core isolated with ال attached correctly, pills render right-to-left); no bullet look 9; legacy frames none; unsourced numbers none (T1..T6 are receipt tags, no figures); motion intent 6.5 (inferred from four states, no strip).
+
+Blocking: none.
+
+Non-blocking, ordered by impact
+1. p100, region x 440-470 / y 255-330: the cyan light-curtain post for the core gate crosses the "6" of T6 and the crate face; draw the post behind the crate front face or shift the gate 20 px so it does not overlap the glyph. Same overlap on T1 and T2 in a1 (x 460-490 / y 220-325) and on T3 in p50 (x 270-290).
+2. p50 and p100, region x 55-95 / y 320-365: the left end drum is cut off by the box edge while the right drum is whole; widen the margin on the entry side or fade the belt tail.
+3. all states, region x 0-960 / y 0-150: the upper 28% of the frame is empty and the line occupies about 45% of the height; scale the line about 1.2x or lift the gate lamps and labels.
+4. p50, region x 225-360 / y 240-330: the jam shockwave and shake are not visible in the settled frame; supply a strip across the jam anchor (a few frames either side) to judge the lock, tilt and queue behaviour (motion 6.5).
+5. p100, region x 128-150 / y 250-270: the check mark on T4 is about 16 px; enlarge x1.4 so pass status reads at 960.
+6. p0 carries no regression signal; baseline a frame after the first crate lands (a1 is mid-arrival and right-clustered, x 375-865).
