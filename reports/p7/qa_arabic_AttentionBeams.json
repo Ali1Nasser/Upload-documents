@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-15T22:17:36Z",
+ "created": "2026-10-16T11:15:57Z",
  "label": "AttentionBeams",
  "thresholds": {
   "ocr_min": 0.9,
@@ -14,15 +14,15 @@
    38
   ]
  },
- "verdict": "fail",
+ "verdict": "pass",
  "metrics": {
-  "strings": 7,
-  "failed": 1,
+  "strings": 6,
+  "failed": 0,
   "negative_fixtures": 0,
   "negative_caught": 0,
-  "ocr_scored": 7,
+  "ocr_scored": 6,
   "ocr_pass": 6,
-  "ocr_min": 0.889,
+  "ocr_min": 1.0,
   "ocr_exact": 6,
   "tofu_codepoints": 0,
   "overflow": 0,
@@ -30,14 +30,14 @@
   "digits": 0,
   "joins": 0,
   "copy": 0,
-  "join_strings": 2,
+  "join_strings": 1,
   "join_min": 1.0,
   "join_below_min": [],
   "rt_010_2": [],
   "join_script_ambiguous": [],
   "per_letter_hits": 0,
   "evidence": {
-   "pil-raqm-isolated": 7
+   "pil-raqm-isolated": 6
   }
  },
  "join_policy": {
@@ -78,11 +78,192 @@
  "per_letter": [],
  "items": [
   {
-   "id": "ab:0",
-   "text": "الـproducer",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
+   "id": "s000",
+   "text": "العميل",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 87,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم العميل",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s001",
+   "text": "ضغط",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.571 < 0.9 (pil-raqm-isolated); got 'had \\u200fقسم\\u200e'"
+   ],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 72,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 85,
+    "got": "قسم ضغط.",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.571
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s002",
+   "text": "الدفع",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 71,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم الدفع",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s003",
+   "text": "مرتين",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 70,
+    "ink_h": 29,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم مرتين",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s004",
+   "text": "الـAPI",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
    "sources": [],
    "problems": [],
    "warnings": [],
@@ -90,17 +271,18 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text",
      "lat"
     ]
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 188,
-    "ink_h": 37,
+    "ink_w": 77,
+    "ink_h": 25,
     "container_w": 1784,
     "lines": 1,
-    "ink_w_without_gap": 176
+    "ink_w_without_gap": 68
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
@@ -109,57 +291,26 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "قسم ال ‎producer‏",
+    "got": "قسم ال ‎API‏",
     "join_junk": "",
     "join_region_ok": true,
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
-   "id": "ab:1",
-   "text": "بيبعت",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
-   "sources": [],
-   "problems": [
-    "OCR score 0.889 < 0.9 (pil-raqm-isolated); got 'قسم بييعت /'"
+   "id": "s005",
+   "text": "رفض",
+   "size": null,
+   "render_size": [
+    34,
+    92
    ],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 93,
-    "ink_h": 28,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 0.889,
-    "exact": false,
-    "psm": 13,
-    "scale": 100,
-    "got": "قسم بييعت /",
-    "join_junk": "",
-    "pass": false
-   },
-   "status": "fail"
-  },
-  {
-   "id": "ab:2",
-   "text": "الرسالة",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
+   "kind": "label",
    "sources": [],
    "problems": [],
    "warnings": [],
@@ -167,84 +318,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 105,
-    "ink_h": 39,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم الرسالة",
-    "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "ab:3",
-   "text": "ثم",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 38,
-    "ink_h": 43,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم ثم",
-    "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "ab:4",
-   "text": "بتتخزن",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 103,
+    "ink_w": 69,
     "ink_h": 35,
     "container_w": 1784,
     "lines": 1
@@ -254,86 +334,15 @@
    "ocr": {
     "score": 1.0,
     "exact": true,
-    "psm": 13,
-    "scale": 100,
-    "got": "قسم بتتخزن .",
-    "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "ab:5",
-   "text": "في",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 29,
-    "ink_h": 52,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "قسم في",
+    "got": "قسم رفض",
     "join_junk": "",
-    "pass": true
-   },
-   "status": "pass"
-  },
-  {
-   "id": "ab:6",
-   "text": "الـpartition",
-   "size": 40,
-   "render_size": 40,
-   "kind": "chip",
-   "sources": [],
-   "problems": [],
-   "warnings": [],
-   "join": true,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-text",
-     "lat"
-    ]
-   },
-   "carrier": "قسم",
-   "overflow": {
-    "ink_w": 177,
-    "ink_h": 37,
-    "container_w": 1784,
-    "lines": 1,
-    "ink_w_without_gap": 165
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 13,
-    "scale": 100,
-    "got": "قسم ال ‎partition‏",
-    "join_junk": "",
-    "join_region_ok": true,
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   }
