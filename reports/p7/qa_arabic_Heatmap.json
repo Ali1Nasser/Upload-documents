@@ -1,8 +1,8 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-16T18:14:44Z",
- "label": "latest",
+ "created": "2026-10-16T23:16:28Z",
+ "label": "Heatmap",
  "thresholds": {
   "ocr_min": 0.9,
   "kinetic_max_words": 6,
@@ -80,8 +80,8 @@
   {
    "id": "s000",
    "text": "ناجح",
-   "size": 28,
-   "render_size": 28,
+   "size": 32,
+   "render_size": 32,
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -95,8 +95,8 @@
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 51,
-    "ink_h": 30,
+    "ink_w": 58,
+    "ink_h": 34,
     "container_w": 1784,
     "lines": 1
    },
@@ -106,7 +106,7 @@
     "score": 1.0,
     "exact": true,
     "psm": 7,
-    "scale": 70,
+    "scale": 100,
     "got": "قسم ناجح",
     "join_junk": "",
     "pass": true
@@ -116,8 +116,8 @@
   {
    "id": "s001",
    "text": "فاشل",
-   "size": 28,
-   "render_size": 28,
+   "size": 32,
+   "render_size": 32,
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -131,8 +131,8 @@
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 61,
-    "ink_h": 29,
+    "ink_w": 69,
+    "ink_h": 33,
     "container_w": 1784,
     "lines": 1
    },
@@ -142,8 +142,8 @@
     "score": 1.0,
     "exact": true,
     "psm": 13,
-    "scale": 85,
-    "got": "قسم فاشل",
+    "scale": 70,
+    "got": "قسم فاشل/",
     "join_junk": "",
     "pass": true
    },
