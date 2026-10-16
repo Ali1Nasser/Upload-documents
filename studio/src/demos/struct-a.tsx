@@ -100,16 +100,17 @@ const demos: DemoModule = {
       // 04 section 6 "DAG lights in topological order; retry": the nightly NilePay receipts job. The DAG is drawn dark, then lit by
       // setState on the words that name each step; the cleaning task fails, retries and recovers; the report waits for both branches.
       name: 'DagRun',
-      frames: 216,
+      frames: 250,
+      // the failure lands on the 50 % still (f124: failed flash, shake settling) and the first anchor on f11
       words: words('DagRun', [
-        [6, 20],
-        [40, 52],
-        [62, 74],
-        [84, 96],
-        [108, 120],
-        [132, 144],
-        [156, 168],
-        [180, 192],
+        [6, 18],
+        [32, 42],
+        [60, 70],
+        [123, 133],
+        [152, 162],
+        [174, 184],
+        [196, 206],
+        [218, 228],
       ]),
       shot: {
         fx_tier: 'standard',

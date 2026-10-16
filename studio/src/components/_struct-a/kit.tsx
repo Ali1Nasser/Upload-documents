@@ -245,9 +245,10 @@ export type WireProps = {
   dash?: boolean;
   pulses?: number[]; // pulse positions u in 0..1 along the drawn part
   pulseR?: number;
+  arrowK?: number; // arrowhead scale (default 1)
 };
 /** One SVG group: halo stroke, core stroke, arrowhead and pulse dots. Render inside an <svg> sized to the component root. */
-export const Wire: React.FC<WireProps> = ({c, p, color, width = 2, opacity = 1, arrow, glowPx = 0, dash, pulses, pulseR = 5}) => {
+export const Wire: React.FC<WireProps> = ({c, p, color, width = 2, opacity = 1, arrow, glowPx = 0, dash, pulses, pulseR = 5, arrowK = 1}) => {
   if (p <= 0) return null;
   const L = bezLen(c);
   const d = cubicD(c);
@@ -255,7 +256,7 @@ export const Wire: React.FC<WireProps> = ({c, p, color, width = 2, opacity = 1, 
   const end = bez(c, Math.min(1, p));
   const prev = bez(c, Math.max(0, Math.min(1, p) - 0.04));
   const ang = Math.atan2(end.y - prev.y, end.x - prev.x);
-  const ah = 7 + width * 2.2;
+  const ah = (7 + width * 2.2) * arrowK;
   const tri = [0, 2.5, -2.5].map((da, i) => {
     const r = i === 0 ? 0 : ah;
     const a = ang + Math.PI + (i === 0 ? 0 : da * 0.16);

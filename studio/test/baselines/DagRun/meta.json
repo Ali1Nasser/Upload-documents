@@ -1,17 +1,17 @@
 {
  "sha256": {
-  "p0": "ff4a6057b2e456f8540f138cd4a3519bc7b5ef4e951288c64ccf4e0957c184e4",
-  "a1": "9768203d3e7bcf9d4171b0869365d4f03d101cb95d5d9711d354ff67eada8b2b",
-  "p50": "c3b276334423f3e026abfbe0a0a0fce834bb2eb9c92b3a5c5a009a191a96b054",
-  "p100": "ac2ba551e102d328af4bc69c221827e44f60641251f60c1171c7c46394179ad8"
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "29f4a4a12a46a2faf408c7dcb7d2f393bdf1ea6c37504b4d5ee7e59a645a626b",
+  "p50": "d5854b4b10c5103b4a9c93c8ba57c75bfb97d7f16239a8001d6d9ab2e2fbb401",
+  "p100": "64bb6344f93f2a28238cb8338e4e2eff4a2e0f502e678aca3eb3a1933cd8e883"
  },
  "v": 2,
  "name": "DagRun",
  "frames": {
   "p0": 0,
   "a1": 11,
-  "p50": 107,
-  "p100": 215
+  "p50": 124,
+  "p100": 249
  },
  "scale": 0.5,
  "tier": "lite",
@@ -27,14 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T17:02:39Z",
+ "written_at": "2026-10-16T05:48:32Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "critic": {
-  "score": 7.3,
-  "date": "2026-10-15",
-  "round": 1,
-  "notes": "Verb reads without narration (ring -> spinner -> check; cross + dashed crit wires; retry arrow; skipped dash). Palette via C.* only, Arabic and mixed-script order correct, no numerals. Non-blocking: diagram fills ~45% of frame height with no depth/particles; baselines never show failed/running (strip checked at f70/f88/f96); thin wires; schedule chip floats unattached. See reports/p7/review_struct-a.md."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

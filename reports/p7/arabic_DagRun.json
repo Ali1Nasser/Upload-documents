@@ -1,0 +1,263 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-16T05:55:42Z",
+ "label": "DagRun",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "pass",
+ "metrics": {
+  "strings": 5,
+  "failed": 0,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 5,
+  "ocr_pass": 5,
+  "ocr_min": 1.0,
+  "ocr_exact": 5,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 1,
+  "join_min": 1.0,
+  "join_below_min": [],
+  "rt_010_2": [],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 5
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "d1",
+   "text": "استخراج الإيصالات",
+   "size": 96,
+   "render_size": 96,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "ink_w": 848,
+    "ink_h": 120,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "استخراج الإيصالات",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "d2",
+   "text": "تنقية البيانات",
+   "size": 96,
+   "render_size": 96,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "ink_w": 630,
+    "ink_h": 112,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تنقية البيانات",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "d3",
+   "text": "فحص الجودة",
+   "size": 96,
+   "render_size": 96,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "ink_w": 626,
+    "ink_h": 112,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "فحص الجودة",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "d4",
+   "text": "تجهيز الـ⟦Warehouse⟧",
+   "size": 96,
+   "render_size": 96,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 859,
+    "ink_h": 112,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 835
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "تجهيز ال ‎Warehouse‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "d5",
+   "text": "تقرير الصباح",
+   "size": 96,
+   "render_size": 96,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display"
+    ]
+   },
+   "overflow": {
+    "ink_w": 572,
+    "ink_h": 120,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "تقرير الصباح",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

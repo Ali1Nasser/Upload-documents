@@ -9,11 +9,12 @@
 // A finished upstream task turns its outgoing wires ok. The optional `schedule` sits on a clock chip at the reading-start corner.
 // The diagram auto-fits ctx.box as one unit (labels >= 28 px, SIZE.labelMin), else DC_QA overflow (snapshot fails).
 import React, {useMemo} from 'react';
+import {random} from 'remotion';
 import {C, SIZE} from '../../tokens';
 import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Chip, GlyphIcon, Wire, acts, alpha, bornAt, dirOf, exitStyle, fitScale, hS, march, mix, shake, useMeasure, type Cubic, type Glyph} from '../_struct-a/kit';
+import {Chip, GlyphIcon, Wire, acts, line, alpha, bornAt, dirOf, exitStyle, fitScale, hS, march, mix, shake, useMeasure, type Cubic, type Glyph} from '../_struct-a/kit';
 import {layeredFill} from '../_struct-a/layout';
 
 type State = 'queued' | 'running' | 'success' | 'failed' | 'retry' | 'skipped';
@@ -56,22 +57,25 @@ export const DagRunView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   );
   const geo = useMemo(() => {
     if (!m.w) return null;
-    const h = Math.round(fs0 * 2.1);
+    const h = Math.round(fs0 * 2.45);
     const icon = Math.round(h * 0.62);
     const padX = fs0 * 0.75;
     const sz = props.tasks.map((_, i) => ({w: (m.w as number[])[i] + 2 * padX + icon + Math.round(h * 0.18), h}));
     const schedH = props.schedule ? h * 1.5 : 0;
-    const lay = layeredFill(n, E, sz, Math.max(fs0 * 2.4, 96), fs0 * 1.0, rtl, {w: ctx.box.w, h: ctx.box.h}, 1.3, {w: 0, h: schedH});
+    const lay = layeredFill(n, E, sz, Math.max(fs0 * 2.4, 96), fs0 * 1.0, rtl, {w: ctx.box.w, h: ctx.box.h}, 1.5, {w: 0, h: schedH}, 3);
     const nat = {w: Math.max(lay.nat.w, props.schedule ? (m.w as number[])[n] + h * 2 : 0), h: lay.nat.h + schedH};
-    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.3);
+    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, 1.5);
     const s = fit.s;
     const ox = (ctx.box.w - nat.w * s) / 2;
     const oy = (ctx.box.h - nat.h * s) / 2 + schedH * s;
     const lx = (nat.w - lay.nat.w) / 2;
     const pos = lay.pos.map((q) => ({x: ox + (q.x + lx) * s, y: oy + q.y * s}));
     const ssz = sz.map((q) => ({w: q.w * s, h: q.h * s}));
+    // the schedule chip sits centred above the topmost root task and drops a violet line into it (the trigger)
+    const root = lay.pos.map((_, i) => i).filter((i) => lay.layer[i] === 0).sort((a, b) => lay.pos[a].y - lay.pos[b].y || a - b)[0] ?? 0;
+    const sw = ((m.w as number[])[n] + 2 * padX + icon + Math.round(h * 0.18)) * s * 0.8;
     const sched = props.schedule
-      ? {w: ((m.w as number[])[n] + 2 * padX + icon + Math.round(h * 0.18)) * s * 0.8, h: h * 0.8 * s, y: oy - schedH * s + (h * 0.8 * s) / 2, x0: ox, x1: ox + nat.w * s}
+      ? {w: sw, h: h * 0.8 * s, y: oy - schedH * s + (h * 0.8 * s) / 2, root, x: Math.min(ctx.box.w - sw / 2, Math.max(sw / 2, pos[root].x))}
       : null;
     return {pos, sz: ssz, fs: fit.fs, s, overflow: fit.overflow, layer: lay.layer, sched};
   }, [m.w, props.tasks, props.schedule, E, ctx.box.w, ctx.box.h, ctx.id, rtl, fs0, n]);
@@ -97,34 +101,90 @@ export const DagRunView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const base = cur.s === 'queued' || cur.s === 'skipped' ? 0 : cur.s === 'running' ? 0.55 + 0.25 * Math.sin((since / fps) * Math.PI * 2) : 0.6;
     const pop = k > 0 ? 1 + 0.06 * (1 - revealProgress(since, presetFrames('impact', fps, true), ease.impact)) : 1;
     const dx = k > 0 && cur.s === 'failed' ? shake(since, fps, `${ctx.id}:${i}:${k}`) : 0;
-    return {s: cur.s, col, q, flash, glowK: (base + flash * 1.2) * q, pop, dx, since};
+    return {s: cur.s, col, q, flash, glowK: cur.s === 'failed' ? (0.95 + flash * 2.6) * q : (base + flash * 1.2) * q, pop, dx, since};
   });
   const period = Math.round(1.6 * fps);
+  // depth (ADR-003 LK-F): a back plane (faint grid that fades out from the middle), a glass pool under the diagram, seeded motes
+  const bx0 = Math.min(...geo.pos.map((q, i) => q.x - geo.sz[i].w / 2));
+  const bx1 = Math.max(...geo.pos.map((q, i) => q.x + geo.sz[i].w / 2));
+  const by0 = Math.min(...geo.pos.map((q, i) => q.y - geo.sz[i].h / 2));
+  const by1 = Math.max(...geo.pos.map((q, i) => q.y + geo.sz[i].h / 2));
+  const cx = (bx0 + bx1) / 2;
+  const cy = (by0 + by1) / 2;
+  const cell = Math.max(48, geo.sz[0].h * 1.15);
+  const planeP = revealProgress(t - ctx.at, arr);
+  const gridV = Array.from({length: 2 * Math.ceil(ctx.box.w / 2 / cell) + 1}, (_, k) => cx + (k - Math.ceil(ctx.box.w / 2 / cell)) * cell);
+  const gridH = Array.from({length: 2 * Math.ceil(ctx.box.h / 2 / cell) + 1}, (_, k) => cy + (k - Math.ceil(ctx.box.h / 2 / cell)) * cell);
+  const fade = (d: number, r: number) => Math.max(0, 1 - (d / r) * (d / r));
+  const moteN = ctx.fx.id === 'lite' ? 8 : 16;
+  const motes = Array.from({length: moteN}, (_, k) => ({
+    x: random(`${ctx.id}:mx${k}`),
+    y: random(`${ctx.id}:my${k}`),
+    v: (5 + random(`${ctx.id}:mv${k}`) * 9) / fps,
+    r: 1.5 + random(`${ctx.id}:mr${k}`) * 2,
+    a: 0.2 + random(`${ctx.id}:ma${k}`) * 0.3,
+    violet: random(`${ctx.id}:mc${k}`) > 0.7,
+  }));
+  const rootPos = geo.sched ? geo.pos[geo.sched.root] : null;
+  const gid = `dag${ctx.id.replace(/[^a-zA-Z0-9]/g, '')}`;
 
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
       {m.node}
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        <defs>
+          <radialGradient id={`${gid}-pool`} cx="50%" cy="50%" r="50%">
+            <stop offset="0" stopColor={C.signal} stopOpacity={0.17} />
+            <stop offset="0.6" stopColor={C.violet} stopOpacity={0.07} />
+            <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+          </radialGradient>
+        </defs>
+        <ellipse cx={cx} cy={cy + (by1 - by0) * 0.22} rx={(bx1 - bx0) * 0.62} ry={(by1 - by0) * 0.7 + cell} fill={`url(#${gid}-pool)`} opacity={planeP} />
+        {gridV.map((x, k) => (
+          <line key={`gv${k}`} x1={x} x2={x} y1={cy - ctx.box.h / 2} y2={cy + ctx.box.h / 2} stroke={C.grid} strokeWidth={1.5} strokeOpacity={0.85 * planeP * fade(x - cx, ctx.box.w * 0.6)} />
+        ))}
+        {gridH.map((y, k) => (
+          <line key={`gh${k}`} x1={cx - ctx.box.w / 2} x2={cx + ctx.box.w / 2} y1={y} y2={y} stroke={C.grid} strokeWidth={1.5} strokeOpacity={0.85 * planeP * fade(y - cy, ctx.box.h * 0.8)} />
+        ))}
+        {motes.map((q, i) => {
+          const y = (((q.y * ctx.box.h - t * q.v) % ctx.box.h) + ctx.box.h) % ctx.box.h;
+          return <circle key={`m${i}`} cx={q.x * ctx.box.w} cy={y} r={q.r * geo.s} fill={q.violet ? C.violet : C.signal} fillOpacity={q.a * planeP} />;
+        })}
+        {geo.sched && rootPos ? (
+          <Wire
+            c={line({x: geo.sched.x, y: geo.sched.y + geo.sched.h / 2 + 3}, {x: rootPos.x, y: rootPos.y - geo.sz[geo.sched.root].h / 2 - 6})}
+            p={revealProgress(t - (Math.max(ctx.at, born[geo.sched.root]) + lab + Math.round(arr * 0.3)), arr, ease.camera)}
+            color={look[geo.sched.root].s === 'queued' ? mix(C.ink3, C.violet, 0.55) : C.violet}
+            width={3 * geo.s}
+            arrow
+            arrowK={1.4}
+            glowPx={look[geo.sched.root].s === 'queued' ? 0 : ctx.fx.glowInner}
+            pulses={look[geo.sched.root].s === 'running' ? march(t, period, 1) : undefined}
+            pulseR={4 * geo.s}
+          />
+        ) : null}
         {E.map(([a, b], k) => {
           const A = geo.pos[a];
           const B = geo.pos[b];
           const sgn = B.x >= A.x ? 1 : -1;
           const c: Cubic = hS({x: A.x + (sgn * geo.sz[a].w) / 2 + sgn * 4, y: A.y}, {x: B.x - (sgn * geo.sz[b].w) / 2 - sgn * 8, y: B.y});
-          const p = revealProgress(t - (Math.max(born[a], born[b]) + lab), arr, ease.camera);
+          const p = revealProgress(t - (Math.max(born[a], born[b]) + lab + Math.round(arr * 0.3)), arr, ease.camera);
           const up = look[a];
           const down = look[b];
           const done = up.s === 'success' ? up.q : 0;
           const hot = done > 0 && (down.s === 'running' || down.s === 'retry');
-          const col = up.s === 'failed' ? mix(C.ink3, C.crit, up.q * 0.7) : mix(C.ink3, C.ok, done);
+          const col = up.s === 'failed' ? mix(C.ink3, C.crit, up.q) : mix(C.ink3, C.ok, done);
+          const wash = up.s === 'failed' ? up.q * (0.55 + 0.45 * up.flash) : 0;
           return (
             <Wire
               key={k}
               c={c}
               p={p}
               color={col}
-              width={2.5 * geo.s}
+              width={(wash > 0 ? 3.4 : 3) * geo.s}
               arrow
-              glowPx={done > 0 ? ctx.fx.glowInner * done : 0}
+              arrowK={1.4}
+              glowPx={wash > 0 ? ctx.fx.glowInner * (1 + wash) : done > 0 ? ctx.fx.glowInner * done : 0}
               dash={up.s === 'skipped' || up.s === 'failed'}
               pulses={hot ? march(t, period, 2) : undefined}
               pulseR={4 * geo.s}
@@ -136,7 +196,7 @@ export const DagRunView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         <Chip
           id={`${ctx.id}:schedule`}
           text={props.schedule as string}
-          x={rtl ? geo.sched.x1 - geo.sched.w / 2 : geo.sched.x0 + geo.sched.w / 2}
+          x={geo.sched.x}
           y={geo.sched.y}
           w={geo.sched.w}
           h={geo.sched.h}
@@ -169,7 +229,7 @@ export const DagRunView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               fs={geo.fs}
               color={L.col}
               glowK={L.glowK}
-              fill={L.s === 'queued' || L.s === 'skipped' ? 0 : 0.12 * L.q}
+              fill={L.s === 'queued' || L.s === 'skipped' ? 0 : L.s === 'failed' ? 0.14 * L.q + 0.3 * L.flash : 0.12 * L.q}
               fx={ctx.fx}
               dashed={L.s === 'skipped'}
               textColor={L.s === 'skipped' || L.s === 'queued' ? C.ink2 : C.ink}

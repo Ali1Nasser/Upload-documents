@@ -2,12 +2,12 @@
  "v": 2,
  "name": "DagRun",
  "composition": "Demo-DagRun",
- "at": "2026-10-15T21:52:10Z",
+ "at": "2026-10-16T05:49:07Z",
  "frames": [
   0,
   11,
-  107,
-  215
+  124,
+  249
  ],
  "thresholds": {
   "scale": 0.5,
@@ -26,34 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1100 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1100 px"
   },
   {
    "tag": "p50",
-   "frame": 107,
+   "frame": 124,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "mismatch_px": 0,
-   "pass": true
+   "determinism_diff_px": 1100,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1100 px"
   },
   {
    "tag": "p100",
-   "frame": 215,
+   "frame": 249,
    "why": "100 %",
-   "mismatch_px": 0,
-   "pass": true
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1100 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
- "pass": true
+ "approve": true,
+ "approve_refused": [
+  "determinism 1100 px"
+ ],
+ "pass": false
 }
