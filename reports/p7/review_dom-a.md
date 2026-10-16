@@ -405,3 +405,25 @@ None.
 2. p50 and p100, rails (x 640-680, y 100-410): thin 1-2 px lines far from the bars; thicken and add rung crossbars that reach into the bar rows so the climb reads as a ladder.
 3. p50 and p100, x10 chips (x 320-580, y 425-440): about 14 px at 960; raise size and contrast, and label the first tick "150 ms".
 4. p50 and p100, composition: top 90 px empty; shift the ladder box down about 15 px.
+
+---
+
+# PermissionLocks — round 1 (fourth read, same day)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Component, demo, registry and baselines unchanged since c8b41f3. Verdict: APPROVED, 7/10. No blocking issue. meta.json already holds approved-critic (score 7, 2026-10-16); not rewritten.
+
+## What was checked
+- p0, a1 (frame 11, rows still staggering in), p50 (84), p100 (169) at full size (lite, 960x540).
+- Re-confirmed: p50 deploy.key column is all open violet (777); p100 closes group and other to "---" (700); index.html 644 and backup.sql 600 as sourced.
+
+## Scores
+Legibility 8, palette 8, depth and light 6, visual verb 8, Arabic 9, bullet-list look 7, motion intent 6, legacy none, unsourced numbers none. Mean about 7.5, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. Baselines, whole grid (x 120-700, y 88-466): add frames at grant+3f (about 67) and deny+3f (about 117) so flash, ring and shake are regression-tested. All four stills are settled or empty states.
+2. p50 and p100, tile matrix: one flat plane; add row z-stagger and let active pools spill onto the floor grid (y 470-540).
+3. p100, "---" tags (x 380-440, 575-635, y 297-460): raise contrast to about 55 percent alpha.
+4. p50 and p100, role ticks (x 705-725): hairline, about 80 px from tile edge; extend or tint.
