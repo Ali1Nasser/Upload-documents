@@ -21,7 +21,7 @@ import type {Rect} from '../../type/safe';
 import {whenSettled} from '../../type/settle';
 import type {DcComponent, DcProps} from '../../spec/types';
 import {abs, beat, exitK} from '../_fx-a/kit';
-import {OBJECTS, objectKey, pickPoints, sampleOutline, seededOrder, type Pt} from '../_fx-a/shapes';
+import {BODY, OBJECTS, objectKey, pickPoints, sampleOutline, seededOrder, type Pt} from '../_fx-a/shapes';
 import type {Props} from './schema';
 
 const STAGGER = 0.35; // share of the morph beat spent on the reading-order stagger
@@ -72,7 +72,7 @@ export const pairParticles = (src: Pt[], dst: Pt[], rtl: boolean, seed: string, 
       dst: reverse ? t : o,
       order: n > 1 ? i / (n - 1) : 0,
       curl: random(`${seed}:c:${i}`) * 2 - 1,
-      size: 1.6 + random(`${seed}:s:${i}`) * 1.2,
+      size: 1.8 + random(`${seed}:s:${i}`) * 1.4,
       phase: random(`${seed}:p:${i}`) * Math.PI * 2,
       scatter: [o[0] + Math.cos(a) * r, o[1] + Math.sin(a) * r * 0.7],
       cls: i % 8,
@@ -83,6 +83,7 @@ export const pairParticles = (src: Pt[], dst: Pt[], rtl: boolean, seed: string, 
 /** Morph progress u (0 at the source form, 1 at the target) of the particle with reading-order rank `order`, `tau` = beats since ms. */
 export const morphU = (tau: number, order: number): number => ease.camera(clamp01((tau - STAGGER * order) / (1 - STAGGER)));
 
+const warned = new Set<string>();
 const sampleCache = new Map<string, Pt[]>();
 /** Candidate pixels of `text` (relative to its centre), rendered by the browser with the DOM text's own face. */
 const textPixels = (text: string, font: string, rtl: boolean, w: number, h: number, want: number, seed: string): Pt[] => {
@@ -142,7 +143,11 @@ const paint = (p: PaintIn) => {
   if (t < 0) return;
   const toObj = props.direction === 'text_to_object';
   const rtl = isArabic(props.text);
-  const {key} = objectKey(props.object);
+  const {key, known} = objectKey(props.object);
+  if (!known && !warned.has(props.object)) {
+    warned.add(props.object);
+    console.log(`DC_OBJECT unknown object "${props.object}" -> orb`);
+  }
   const R = Math.min(300, Math.min(w, h) * 0.46);
   const oc: Pt = [w / 2, h / 2];
   const polys = OBJECTS[key];
@@ -154,19 +159,68 @@ const paint = (p: PaintIn) => {
     parts = pairParticles(toObj ? tp : outline, toObj ? outline : tp, rtl, p.seed, !toObj);
   }
   const tau = (p.frame - tt.ms) / tt.B; // beats since the morph started
-  // ---- outline strokes (the object reads even with few particles)
-  const lineA = toObj ? 0.4 * smooth(0.55, 1, tau) : 0.4 * (1 - smooth(0, 0.35, tau)) * revealProgress(t, tt.arrive, ease.arrive);
+  // ---- the object as a lit glass body (ADR-003 LK-F: key light from the upper right, rim on the top / right edges, a floor shadow)
+  const e0 = revealProgress(t, tt.arrive, ease.arrive);
+  const formed = toObj ? smooth(0.7, 1.4, tau) : (1 - smooth(0, 0.5, tau)) * e0; // how present the body is
+  const lineA = toObj ? 0.75 * smooth(0.55, 1, tau) : 0.75 * (1 - smooth(0, 0.35, tau)) * e0;
+  const bob = Math.sin(((p.frame * 24) / p.fps / 48) * Math.PI * 2) * 3 * (toObj ? smooth(0.9, 1.6, tau) : (1 - smooth(0, 0.4, tau)) * e0);
+  if (formed > 0.01) {
+    g.save();
+    g.translate(oc[0], oc[1] + R * 1.12);
+    g.scale(1, 0.15);
+    const fl = g.createRadialGradient(0, 0, 0, 0, 0, R * 0.9);
+    fl.addColorStop(0, `${C.signal}${hex(0.32 * formed)}`);
+    fl.addColorStop(1, `${C.signal}${hex(0)}`);
+    g.fillStyle = fl;
+    g.beginPath();
+    g.arc(0, 0, R * 0.9, 0, Math.PI * 2);
+    g.fill();
+    g.restore();
+  }
+  g.save();
+  g.translate(0, bob);
+  const lit = (a0: number, a1: number, a2: number, k: number) => {
+    const gr = g.createLinearGradient(oc[0] + R * 0.8, oc[1] - R, oc[0] - R * 0.8, oc[1] + R);
+    gr.addColorStop(0, `${C.ink}${hex(a0 * k)}`);
+    gr.addColorStop(0.4, `${C.signal}${hex(a1 * k)}`);
+    gr.addColorStop(1, `${C.violet}${hex(a2 * k)}`);
+    return gr;
+  };
+  const trace = (poly: Pt[]) => {
+    g.beginPath();
+    poly.forEach((q, i) => {
+      const [x, y] = scaleP(q);
+      if (i) g.lineTo(x, y);
+      else g.moveTo(x, y);
+    });
+  };
+  if (formed > 0.01) {
+    const closed = (q: Pt[]) => q.length > 3 && q[0][0] === q[q.length - 1][0] && q[0][1] === q[q.length - 1][1];
+    const body = BODY[key] ?? polys.filter(closed);
+    g.fillStyle = lit(0.16, 0.2, 0.05, formed);
+    for (const poly of body) {
+      trace(poly);
+      g.closePath();
+      g.fill();
+    }
+  }
   if (lineA > 0.01) {
-    g.strokeStyle = `${C.signal}${hex(lineA)}`;
-    g.lineWidth = 1.5;
     g.lineJoin = 'round';
+    g.lineCap = 'round';
+    if (p.litePlus) {
+      g.globalCompositeOperation = 'lighter';
+      g.strokeStyle = lit(0.5, 0.5, 0.2, lineA * 0.3);
+      g.lineWidth = 7;
+      for (const poly of polys) {
+        trace(poly);
+        g.stroke();
+      }
+      g.globalCompositeOperation = 'source-over';
+    }
+    g.strokeStyle = lit(1, 0.9, 0.55, lineA);
+    g.lineWidth = 2;
     for (const poly of polys) {
-      g.beginPath();
-      poly.forEach((q, i) => {
-        const [x, y] = scaleP(q);
-        if (i) g.lineTo(x, y);
-        else g.moveTo(x, y);
-      });
+      trace(poly);
       g.stroke();
     }
   }
@@ -224,6 +278,7 @@ const paint = (p: PaintIn) => {
     g.arc(s.x, s.y, s.r, 0, Math.PI * 2);
     g.fill();
   }
+  g.restore();
 };
 
 export const MorphTextToObjectView: React.FC<DcProps<Props>> = ({props, ctx}) => {
