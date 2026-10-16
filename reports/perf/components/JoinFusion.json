@@ -2,7 +2,7 @@
  "v": 2,
  "name": "JoinFusion",
  "composition": "Demo-JoinFusion",
- "at": "2026-10-15T17:50:56Z",
+ "at": "2026-10-16T06:08:24Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,31 +21,31 @@
  "tiers": {
   "lite": {
    "frames": 170,
-   "wall_s": 31.21,
-   "box_s_per_frame": 0.1836,
-   "slot_s_per_frame": 0.5508,
+   "wall_s": 12.91,
+   "box_s_per_frame": 0.0759,
+   "slot_s_per_frame": 0.2277,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.63,
-    6.59
+    6.11,
+    5.93
    ],
    "queue": {
     "running": 1,
-    "queued": 6
+    "queued": 5
    },
    "other_jobs_running": 0
   },
   "standard": {
    "frames": 170,
-   "wall_s": 30.25,
-   "box_s_per_frame": 0.1779,
-   "slot_s_per_frame": 0.5337,
+   "wall_s": 15.83,
+   "box_s_per_frame": 0.0931,
+   "slot_s_per_frame": 0.2793,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.3,
-    6.53
+    5.93,
+    5.77
    ],
    "queue": {
     "running": 1,
@@ -55,18 +55,18 @@
   },
   "hero": {
    "frames": 170,
-   "wall_s": 26.38,
-   "box_s_per_frame": 0.1551,
-   "slot_s_per_frame": 0.4653,
+   "wall_s": 16.02,
+   "box_s_per_frame": 0.0942,
+   "slot_s_per_frame": 0.2826,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    6.33,
-    6.35
+    5.77,
+    5.47
    ],
    "queue": {
     "running": 1,
-    "queued": 7
+    "queued": 6
    },
    "other_jobs_running": 0
   }

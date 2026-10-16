@@ -7,12 +7,12 @@
 // full (+ unmatched rows with hollow dashed NULL cells), semi (left rows with a match, once each), anti (left rows without), cross
 // (every pair). Dropped rows fade crit; rows multiplied by fan-out carry a warn edge; the move lands on the action word end.
 // `showUnmatched` (state change) rings the unmatched rows of a side in crit. `result_rows` (a Num with ref) rolls up at the fuse;
-// the component never prints a count of its own abstract rows.
+// the component never prints a count of its own abstract rows. An Arabic unit sits on the reading-start side of the number (critic round 1, fix 3).
 import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {ColorToken} from '../../tokens';
 import type {Props} from './schema';
-import {C, Chip, Lbl, NumText, Plate, SIZE, Shell, acts, ease, flashAt, fmtNum, landOf, lastAct, probeLabels, prog, revealProgress, presetFrames, roll, stag, tint, useFitProbe} from '../_data/kit';
+import {C, Chip, Lbl, isArabic, NumText, Plate, SIZE, Shell, acts, ease, flashAt, fmtNum, landOf, lastAct, probeLabels, prog, revealProgress, presetFrames, roll, stag, tint, useFitProbe} from '../_data/kit';
 
 // key swatches are decorative: warn / crit / ok keep their semantic meaning (fan-out edge, dropped rows, seam)
 const KEYC: ColorToken[] = ['signal', 'violet', 'ok', 'ink2', 'paper', 'paperShade'];
@@ -195,6 +195,8 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       <div key={`slab${side}`} style={{position: 'absolute', left: x0, top: slabTop, width: tableW + 20, height: slabH, opacity: head * slabIn, borderRadius: 16, background: `linear-gradient(180deg, ${tint(C.signal, 0.1)} 0%, ${tint(C.panel, 0.55)} 14%, ${tint(C.panel, 0.2)} 100%)`, borderTop: `2px solid ${tint(C.signal, 0.55)}`, boxShadow: `0 -${Math.round(ctx.fx.glowInner * 0.5)}px ${Math.round(ctx.fx.glowInner * 1.6)}px ${tint(C.signal, 0.12)}`}} />
     );
   };
+  const bx0 = Math.round(xLpre + cw / 2 - 26); // the beam layer covers only the gap between the tables (a full-frame SVG layer made raster tiles non-deterministic)
+  const bw = Math.round(xRpre - cw / 2 + 26 - bx0);
   const beamsQ = prog(ctx, ctx.at + stag(ctx, 5, 2), 'morph') * Math.max(0, 1 - e * 2.2);
   const beams: React.ReactNode[] = [];
   if (beamsQ > 0.01) {
@@ -224,14 +226,14 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           };
         });
         beams.push(
-          <g key={`bm${l}.${r}`} opacity={beamsQ}>
-            <path d={d} stroke={tint(bc, 0.16)} strokeWidth={12} fill="none" strokeLinecap="round" />
-            <path d={d} stroke={tint(bc, 0.7)} strokeWidth={4} fill="none" strokeLinecap="round" />
+          <g key={`bm${l}.${r}`}>
+            <path d={d} stroke={tint(bc, 0.16 * beamsQ)} strokeWidth={12} fill="none" strokeLinecap="round" />
+            <path d={d} stroke={tint(bc, 0.7 * beamsQ)} strokeWidth={4} fill="none" strokeLinecap="round" />
             {trail.map((p) => (
-              <circle key={p.k} cx={p.x} cy={p.y} r={11 - p.k * 1.8} fill={tint(bc, 0.5 - p.k * 0.1)} />
+              <circle key={p.k} cx={p.x} cy={p.y} r={11 - p.k * 1.8} fill={tint(bc, (0.5 - p.k * 0.1) * beamsQ)} />
             ))}
-            <circle cx={bx} cy={by} r={22} fill={tint(bc, 0.18)} />
-            <circle cx={bx} cy={by} r={11} fill={bc} opacity={0.95} />
+            <circle cx={bx} cy={by} r={22} fill={tint(bc, 0.18 * beamsQ)} />
+            <circle cx={bx} cy={by} r={11} fill={tint(bc, 0.95 * beamsQ)} />
           </g>,
         );
       }),
@@ -245,12 +247,12 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   // second plane (depth): a faint perspective floor grid that fills the margins and sells the slabs standing on it
   const gy = slabTop + slabH;
   const floor = (
-    <svg key="floor" width={W} height={H} style={{position: 'absolute', left: 0, top: 0, opacity: head * 0.5}}>
+    <svg key="floor" width={W} height={H} style={{position: 'absolute', left: 0, top: 0}}>
       {[0, 1, 2, 3, 4, 5].map((i) => (
-        <line key={`fh${i}`} x1={0} x2={W} y1={gy + 2 + i * i * 4} y2={gy + 2 + i * i * 4} stroke={tint(C.signal, 0.1 - i * 0.012)} strokeWidth={1.5} />
+        <line key={`fh${i}`} x1={0} x2={W} y1={gy + 2 + i * i * 4} y2={gy + 2 + i * i * 4} stroke={tint(C.signal, (0.1 - i * 0.012) * head * 0.5)} strokeWidth={1.5} />
       ))}
       {[-6, -4, -2, 0, 2, 4, 6].map((i) => (
-        <line key={`fv${i}`} x1={W / 2 + i * W * 0.04} x2={W / 2 + i * W * 0.11} y1={gy} y2={H} stroke={tint(C.signal, 0.08)} strokeWidth={1.5} />
+        <line key={`fv${i}`} x1={W / 2 + i * W * 0.04} x2={W / 2 + i * W * 0.11} y1={gy} y2={H} stroke={tint(C.signal, 0.08 * head * 0.5)} strokeWidth={1.5} />
       ))}
     </svg>
   );
@@ -278,7 +280,7 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {slab('l')}
       {slab('r')}
       {beams.length ? (
-        <svg width={W} height={H} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        <svg width={bw} height={H} viewBox={`${bx0} 0 ${bw} ${H}`} style={{position: 'absolute', left: bx0, top: 0}}>
           {beams}
         </svg>
       ) : null}
@@ -305,10 +307,10 @@ export const JoinFusionView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {ghosts}
       {seams}
       {rr ? (
-        <div style={{position: 'absolute', left: 0, width: W, bottom: pad, display: 'flex', justifyContent: 'center', alignItems: 'baseline', opacity: e > 0 ? 1 : 0}}>
+        <div style={{position: 'absolute', left: 0, width: W, bottom: pad, display: 'flex', justifyContent: 'center', alignItems: 'baseline', flexDirection: rr.unit && isArabic(rr.unit) ? 'row-reverse' : 'row', opacity: e > 0 ? 1 : 0}}>
           <NumText id={`${ctx.id}:rows`} text={fmtNum(rr, roll(t, fu ? fu.at : ctx.at, fu ? landOf(ctx, fu) : ctx.at, 0, rr.value))} size={cntFs} color={C.ok} fx={ctx.fx} glowK={0.4 + fl} ca />
           {rr.unit ? (
-            <div style={{marginLeft: 14, alignSelf: 'flex-end'}}>
+            <div style={{[rr.unit && isArabic(rr.unit) ? 'marginRight' : 'marginLeft']: 14, alignSelf: 'flex-end'}}>
               <Lbl id={`${ctx.id}:unit`} text={rr.unit} size={Math.max(SIZE.labelMin, Math.round(cntFs * 0.55))} color={C.ink2} />
             </div>
           ) : null}
