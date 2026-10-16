@@ -37,6 +37,7 @@
   "date": "2026-10-15",
   "round": 2,
   "reviewer": "critic",
-  "notes": "Lite regression baselines (p0 bare backdrop, a1 title settled, p50/p100 counter settled), far grid raised to ink3 and now readable. Depth verb confirmed on the standard evidence strip (reports/p7/evidence/fx-b/DepthLayers_parallax.jpg), not on the lite stills alone. Non-blocking carry-overs: near plane (NilePay) smaller than mid (400 EGP); hard-edged scrim rectangle behind counter; counter label small/low contrast; DOF off (CR-017); a lite-tier baseline cannot show bokeh/haze, so any future change to the standard backdrop must be checked against the strip."
+  "notes": "Lite regression baselines (p0 bare backdrop, a1 title settled, p50/p100 counter settled), far grid raised to ink3 and now readable. Depth verb confirmed on the standard evidence strip (reports/p7/evidence/fx-b/DepthLayers_parallax.jpg), not on the lite stills alone. Non-blocking carry-overs: near plane (NilePay) smaller than mid (400 EGP); hard-edged scrim rectangle behind counter; counter label small/low contrast; DOF off (CR-017); a lite-tier baseline cannot show bokeh/haze, so any future change to the standard backdrop must be checked against the strip. Re-verified 2026-10-16 (round 3, no code change): stills and standard strip re-read, score unchanged 7.0.",
+  "reverified": "2026-10-16"
  }
 }

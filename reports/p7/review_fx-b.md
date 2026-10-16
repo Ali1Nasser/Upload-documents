@@ -139,3 +139,19 @@ Non-blocking, fix before the next re-baseline (items 3-5 carried from round 1, u
 5. p50, p100 (x 400-500, y 305-320): counter label about 18 px at 960 wide, low contrast. Raise to the secondary token.
 6. Standard strip, bokeh and fg dust are very faint (almost invisible at 974 px strip width). Raise bokeh alpha one step or the foreground dust size so the fg plane reads against the mid plane. DOF remains off (CR-017); show it on a hero baseline once decided.
 7. The onion panel is pure yellow and cyan (off-palette), acceptable as evidence only. The DOF difference panel needs a caption saying the copy is intentionally unblurred.
+
+## DepthLayers — re-verification (round 3, 2026-10-16)
+
+Reviewer: critic (not the author). Code unchanged since round 2; snap re-run PASS (0 px on p0/a1/p50/p100), perf not re-run (kept 2026-10-15 numbers). Read at full size: baselines p0, a1, p50, p100 (960x540 lite) and reports/p7/evidence/fx-b/DepthLayers_parallax.jpg.
+Verdict: APPROVED, score 7.0/10 (unchanged). meta.json stays approved-critic. No blocking issue.
+
+Rubric (1-10): legibility 7, token/palette 8, depth and light 6 on lite stills (7 on the standard strip), visual verb without narration 7, Arabic 9 (الإجمالي الناجح joined, correct), no bullet look 9, legacy frames 10, sourced numbers 9 (400 EGP is d:5.2:8), motion intent 7 (strip: far 0.4 < mid 1 < near 1.3 < fg 1.6).
+
+Blocking: none.
+
+Non-blocking, still open (unchanged from round 2, fix at next re-baseline):
+1. p50, p100 (x 350-540, y 95-125 vs x 350-580, y 225-290): near word NilePay is smaller than mid 400 EGP, so near does not read nearer. Use size 'title' or overlap.
+2. p50, p100 (x 350-600, y 225-335): faint hard-edged scrim rectangle behind counter. Feather it.
+3. p50, p100 (x 400-500, y 305-320): Arabic label about 18 px at 960 wide, low contrast. Raise to the secondary token.
+4. Standard strip: bokeh and foreground dust very faint; raise bokeh alpha one step so fg reads against mid. The lite stills alone prove geometry and parallax only (the grid is the only strong depth cue).
+5. DOF off (CR-017); show it on a hero baseline once decided. Evidence-only panels (yellow onion, near-black DOF diff) need a caption: off-palette / copy intentionally unblurred.
