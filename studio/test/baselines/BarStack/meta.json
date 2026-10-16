@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T18:46:27Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "by": "critic",
+  "score": 7.0,
+  "date": "2026-10-16",
+  "round": 1,
+  "notes": "No blocking issue. Non-blocking: composition small (slab ~58% w x 33% h), MAE unit ~20px at 1080, depth faint at lite, p0 blank, stacked/vertical/sort paths unseen, no motion strip."
+ }
 }

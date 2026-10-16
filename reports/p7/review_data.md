@@ -188,3 +188,21 @@ Non-blocking (carry forward):
 4. Still table-like at rest (2x6 grid with labels); lean on the highlight lens and push_in in the scene spec.
 
 Not seen: standard and hero tiers, sweep wave front, ghost cells, diverging scale, showVals false path.
+
+## BarStack — round 1
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.0/10. Verdict: approved-critic (no blocking issue).
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite) and reports/p7/snap/BarStack.jpg (same four frames, not a motion strip); code and demo read. Demo 65.50 vs 7.33 MAE matches d:6.16:1 in corpus/canon/data_contract.json (numbers [7.33, 65.5]); the grow counter at a1 (62.99, 6.70) is an interpolation of the sourced values, settling to them at p50.
+
+Scores: legibility 7 (Arabic labels about 24 px and values about 26 px at 1080; the MAE unit is about 10 px at 960, roughly 20 px at 1080, and is the weakest text; the dimmed 65.50 at p100 is low contrast but intentional) · palette discipline 8.5 (warn amber for baseline, ok green for model, ink greys, nothing stray) · depth and light 6.5 (the raised bar edge highlight and floor pools read but are soft; the slab rim is faint; no particles at lite) · verb without narration 8.5 (a long amber bar against a small green block with a dashed reference at the longest bar: the 9x gap reads silent; the green lens at p100 is a clear point) · Arabic correct 8.5 (خط الأساس and النموذج shaped and joined, labels at the right reading start, bars grow leftward in RTL, numerals and MAE stay LTR) · no bullet-list look 7 (two bars in a card; the glass bars and lens save it, but it is near a minimal chart) · no legacy 10 · no unsourced numbers 9 · motion intent 6.5 (the grow is almost complete by a1, frame 11, so the sweep is not visible in any still; the highlight dim/lens step is evidenced).
+
+Blocking issues: none.
+
+Non-blocking (by impact):
+1. Composition is small: the slab spans about x 182-743 (58 percent) and y 181-358 (33 percent) at p50 and p100, and the 7.33 bar is a block about 30 px wide at 960 (x 587-618, y 290-323). Enlarge the row height (about 1.4x for 2 series) or have the scene pair it with push_in and a second plane; the lower 55 percent of the frame is empty.
+2. The MAE unit (p50 x 303-322, y 232-243; x 557-577, y 305-316) is about 20 px at 1080: raise to the label size, or drop it to a single caption under the slab.
+3. Depth: floor pools under the bars (p50 y 255-270 and y 325-340) and the slab rim are faint at lite. Confirm bloom and the rim at the standard tier before the pilot.
+4. p0 is a blank field and guards nothing: rebake at frame 6 to 8 with --approve. Grow finishes within about 8 frames of the anchor; render an 8-frame strip (frames 6 to 20) to evidence the easing before a scene depends on it.
+5. Stacked, vertical (orientation v), sort and overflow paths are in the code but in no still. Bake one stacked demo before a scene uses them.
+
+Not seen: standard and hero tiers, grain and particles, stacked and vertical variants, the grow strip.
