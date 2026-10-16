@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T11:01:48Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "notes": "No blocking issue. Non-blocking: composition fills only the sides, no motion strip, no motes/bloom, unlabelled threshold, p0 empty. See reports/p7/review_dom-c.md."
+ }
 }
