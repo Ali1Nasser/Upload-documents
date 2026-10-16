@@ -152,3 +152,19 @@ Re-read a1, p50, p100 at full size (960x540, lite). Confirms 7.0, no blocking is
 - p100, region x 670-780 / y 275-350: rack A holds 9 chips and fills its grid; the green copies are only distinguishable by a thin green outline at 960 px. Add a faint green glow or a "+" tick so the re-created copies read at a glance on mobile-size playback.
 - p50 / p100, region x 0-960 / y 362-420: the floor grid sits under rack labels at about 3% luminance; the racks still do not touch it (same as items 2 and 5 above).
 - Motion strip still owed (flight arcs, failNode sparks, rereplicate flights); motion intent is inferred only (6.5).
+
+### RequestJourney — round 1 (2026-10-16)
+
+Read p0, a1, p50, p100 at full size (960x540, lite). Score 7.3, no blocking issue; meta.json set to approved-critic.
+
+Scores: legibility 1080p 7.5 (labels about 13 px at 960, latency mono readable); token/palette discipline 8 (cyan carrier, red fail, amber settled latency); depth and light 7 (glass discs on pedestals with light pools; floor grid weak); visual verb 8 (capsule hops, rail draws, db turns red with cracked capsule at p50, re-forms cyan at p100); Arabic 8 (RTL order: client at right, rail runs right to left; "الـ" prefix isolated from Latin terms correctly); no bullet look 8; no legacy frames 10; unsourced numbers 8 (1160 ms = d:6.6:4 verified in graph, from iu:01541); motion intent 6.5 (no strip, inferred from stills).
+
+Blocking issues: none.
+
+Non-blocking, ordered by impact
+1. p100 / p50, region x 175-780 / y 345-440: perspective floor is about 3-5% luminance and the discs barely sit on it; raise grid to 8-10% with a horizon glow and contact reflections.
+2. All states, region x 0-960 / y 0-130 and 440-540: about 50% of the frame is empty; scale the arrangement about 1.25x or lower it to centre.
+3. p50 / p100, region x 80-170 / y 380-400: "1160 ms" has no thousands separator and no "p95" tag, while the spoken line is "p95 wait exceeds 1,160 ms". It is also a queue wait attached to the db hop in the demo; keep the demo, but add a "p95" chip and format 1,160 (graph label is "1 160 ms").
+4. p100, region x 100-140 / y 312-335: the capsule is about 35 px wide and the pill at the db hop is the only carrier cue; enlarge x1.4 so the retry re-form reads. The author says retry re-forms at the previous hop; the settled frame shows it at db, so the intermediate state is not demonstrated.
+5. p50, region x 60-180 / y 225-360: shockwave and shards are not visible in the settled failure frame; supply a strip across the fail anchor (frames about 126-150) so shake and impact can be judged (motion 6.5).
+6. p0 is an empty vignette (no regression signal); baseline a frame after the first hop lands instead.
