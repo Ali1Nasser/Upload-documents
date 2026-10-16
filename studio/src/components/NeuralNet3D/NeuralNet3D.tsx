@@ -182,7 +182,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.fill();
       if (heat > 0 || isHl) {
         g.globalCompositeOperation = 'lighter';
-        g.fillStyle = rgba(isHl && heat <= 0 ? C.signal : hc, (0.24 * heat + (isHl ? 0.08 * hlK : 0)) * e);
+        g.fillStyle = rgba(isHl && heat <= 0 ? C.signal : hc, (0.11 * heat + (isHl ? 0.08 * hlK : 0)) * e);
         g.fill();
         g.globalCompositeOperation = 'source-over';
       }
@@ -244,6 +244,12 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const u = s.back ? 1 - s.u : s.u;
           const x = lerp(a.x, b.x, u);
           const y = lerp(a.y, b.y, u);
+          for (let tr = 1; tr <= 3; tr++) {
+            // short trail behind the head so the wave reads as one elongated front
+            const ut = Math.max(0, s.u - 0.05 * tr);
+            const uu = s.back ? 1 - ut : ut;
+            blit(g, sprite(s.c, 'core'), lerp(a.x, b.x, uu), lerp(a.y, b.y, uu), (9 + 6 * ln.w) * (1 - 0.2 * tr), 0.5 * (1 - 0.28 * tr) * e);
+          }
           blit(g, sprite(C.ink, 'core'), x, y, 5 + 3 * ln.w, 0.95 * e);
           blit(g, sprite(s.c, 'core'), x, y, 9 + 6 * ln.w, 0.95 * e);
           if (glow) blit(g, sprite(s.c, 'glow'), x, y, 26, 0.35 * e * glow);
@@ -279,7 +285,7 @@ export const NeuralNet3DView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       g.arc(p.x, p.y, r, -1.35, -0.15); // the rim on the upper-right
       g.stroke();
       g.globalCompositeOperation = 'lighter';
-      blit(g, sprite(heat > 0 ? c : av > 0.5 ? C.signal : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * ((0.2 + 0.5 * av) * fa + 0.5 * heat));
+      blit(g, sprite(heat > 0 ? c : av > 0.5 ? C.signal : C.ink2, 'dot'), p.x, p.y, r * 0.75, e * ((0.2 + 0.5 * av) * fa + 0.5 * heat + (isHl && heat <= 0 ? 0.4 * hlK : 0)));
       if (glow && heat <= 0 && av > 0.7) blit(g, sprite(C.signal, 'glow'), p.x, p.y, r * 2.6, e * fa * glow * 0.35 * av);
       if (glow && (heat > 0 || isHl)) blit(g, sprite(heat > 0 ? c : C.signal, 'glow'), p.x, p.y, r * 4, e * glow * Math.max(heat, isHl ? 0.5 * hlK : 0));
     }

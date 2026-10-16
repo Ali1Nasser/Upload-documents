@@ -2,7 +2,7 @@
  "v": 2,
  "name": "NeuralNet3D",
  "composition": "Demo-NeuralNet3D",
- "at": "2026-10-16T06:05:06Z",
+ "at": "2026-10-16T11:07:31Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,54 +21,54 @@
  "tiers": {
   "lite": {
    "frames": 144,
-   "wall_s": 16.41,
-   "box_s_per_frame": 0.114,
-   "slot_s_per_frame": 0.342,
+   "wall_s": 10.93,
+   "box_s_per_frame": 0.0759,
+   "slot_s_per_frame": 0.2277,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    6.99,
-    7.85
+    4.9,
+    4.76
    ],
    "queue": {
-    "running": 3,
-    "queued": 2
+    "running": 1,
+    "queued": 8
    },
-   "other_jobs_running": 2
+   "other_jobs_running": 0
   },
   "standard": {
    "frames": 144,
-   "wall_s": 26.79,
-   "box_s_per_frame": 0.1861,
-   "slot_s_per_frame": 0.5583,
+   "wall_s": 18.96,
+   "box_s_per_frame": 0.1317,
+   "slot_s_per_frame": 0.3951,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    7.94,
-    8.63
+    4.45,
+    4.59
    ],
    "queue": {
-    "running": 3,
-    "queued": 2
+    "running": 1,
+    "queued": 8
    },
-   "other_jobs_running": 2
+   "other_jobs_running": 0
   },
   "hero": {
    "frames": 144,
-   "wall_s": 28.62,
-   "box_s_per_frame": 0.1987,
-   "slot_s_per_frame": 0.5961,
+   "wall_s": 19.54,
+   "box_s_per_frame": 0.1357,
+   "slot_s_per_frame": 0.4071,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    9.87,
-    9.55
+    4.47,
+    4.78
    ],
    "queue": {
-    "running": 3,
-    "queued": 3
+    "running": 1,
+    "queued": 8
    },
-   "other_jobs_running": 2
+   "other_jobs_running": 0
   }
  },
  "within_budget": true,

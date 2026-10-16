@@ -2,8 +2,8 @@
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
   "a1": "25e2e5b465cff9ce0c5a7f4146db2a7323fa355c13ebfa985002f8659ea3704e",
-  "p50": "7e74bbfeaa4da8ae30232999726ef74afb5715ff3fef971020b013bbc8696e77",
-  "p100": "084a8603a23889e09d1208d691a5aa35eca7f0589fd8683f662e786e18c1ccf4"
+  "p50": "e53b267d0c86a5a21cd4d7a60d4f6a1527491d742da4e6ecf8bf6c4e221d4eaa",
+  "p100": "d57bf75bd1b716d698b9e680af0ec57110ffdaf38f2c7cb42385319e63fbb484"
  },
  "v": 2,
  "name": "NeuralNet3D",
@@ -27,15 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T05:50:50Z",
+ "written_at": "2026-10-16T11:01:38Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7.6,
-  "date": "2026-10-16",
-  "by": "critic",
-  "notes": "Round 1 re-review after CF1-5 (1df664b). Warn backprop wave visible at p50, panes and weak links fixed. No blocking. Carry forward: amber flood of hidden pane loses neuron tint (p50), dark cores under highlight (p100), wave trail, forward/backprop strip and standard/hero stills before lock."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
