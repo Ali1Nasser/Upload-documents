@@ -268,3 +268,20 @@ Non-blocking additions to rounds above
 3. Still open from rounds above: ghost "P23" under the title's left end (x 140-360 / y 255-355), faint haze and floor pool (depth/light 6), motion intent unverified from stills (strip required at G8), 48-char worst-case baseline.
 
 Scores: legibility 8, palette 9, depth/light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Overall 7.
+
+## PredictionTimer — round 1, independent re-read (critic, 2026-10-16)
+
+Verdict: **approved-critic** stands, **7/10**, no blocking issue. Re-read p0, a1, p50, p100 at full size (960x540); the earlier round-1 findings above reproduce.
+
+- p0 (f0): ground and vignette only, no residue. Clean entry.
+- a1 (f13): tag, question and ring-with-`?` hub on screen; options not yet in, so no bullet-list look. Ring is small (about 115 px diameter at half scale) against the frame.
+- p50 (f59): arc is exactly half drained with the comet head at the bottom. One card is lit (middle) and the others sit back, so the scan reads. Arabic RTL order, colon at the left end and Latin runs are correct. Palette is signal cyan, ink, panel and ground only.
+- p100 (f119): blurred recede, whole block fades together; clean hand-off.
+
+Blocking issues: none.
+
+Non-blocking, unchanged and still the best fixes (CH-11 demo question):
+1. No baseline shows warn warm-up (about f90) or the burst and shockwave (about f99). Strip requested at G8.
+2. p50, dial interior (x 425-535 / y 245-350): sector and far orbit faint; depth reads flat (depth and light 6).
+3. p50, dead band y 430-540 below the cards; dial and cards are modest against the frame.
+4. p50, lit card (x 455-607 / y 375-418) differs from its neighbours only by a thin border; raise it one step.

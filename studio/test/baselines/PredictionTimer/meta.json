@@ -35,6 +35,6 @@
  "critic": {
   "score": 7,
   "date": "2026-10-16",
-  "notes": "No blocking. Motion intent (scan pulse, warn warm-up, burst+recede) unverified from stills; strip requested at G8 plus baselines in last quarter (~f90) and burst (~f99); sector fill and floor pool faint; dial/cards modest vs frame with dead band below cards; add 3-line/short-question baselines. See reports/p7/review_typeui.md."
+  "notes": "No blocking. Motion intent (scan pulse, warn warm-up, burst+recede) unverified from stills; strip requested at G8 plus baselines in last quarter (~f90) and burst (~f99); sector fill and floor pool faint; dial/cards modest vs frame with dead band below cards; add 3-line/short-question baselines. See reports/p7/review_typeui.md. Independent re-read 2026-10-16 confirmed 7/10, no blocking."
  }
 }
