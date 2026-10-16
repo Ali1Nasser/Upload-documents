@@ -93,3 +93,21 @@ Non-blocking (fix before pilot use):
 3. p100 (x 248-465 / y 333-378): the skipped card is nearly the same grey as the backdrop and its label is low contrast at 960. Raise label ink one step.
 4. All stills: the diagram is about 85 % of width but about 40-45 % of height with empty bands above and below; the grid and motes help but it is still a compact flowchart. Allow fit scale-up when n <= 5.
 5. a1 (x 258-440 / y 232-375): three cards are scattered with no wires yet, which reads as unordered boxes for the first beat; stagger so the root and its wire appear together.
+
+## PipelineStations — round 1 (2026-10-16, critic, fresh read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5 and the author's retimed demo; no new renders, no strip supplied)
+
+Verdict: APPROVED (score 7.5, no blocking issue; previous 7.2). meta.json set to approved-critic (baselines had been re-pending after the fixes).
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8.5, mechanism visible 8 (gate ring, X on fail, dashed crit track ahead of the failed gate marching away, dashed green track behind, reason chip with tether), look parity 7, typography 8.5 (Arabic shaped; "نشر Production", "نشر Staging", "بناء الـ Image" order correct in RTL; chip text legible), camera and depth 6.5 (shafts, floor shadows, back-plane grid, motes; still no parallax), legibility 8 (gates about 100 px, labels about 40-48 px at 1080, 7 px dashes survive 1080p), accuracy 9 (no numerals), tokens 9 (cyan/ok/crit/ink only), polish 7.5, no bullet-list look 7, no legacy frames 10.
+
+Round-1 items: 1 (barred track) fixed, p50 x 262-340 / y 235-245 is a bold red glowing dash; 2 (fix ring + gate pulse) NOT judgeable, frames 230-236 are not in the baselines or the snap, accepted on author's note only; 3 (scale) fixed in substance, gates and labels larger, grid and floor shadows added; 4 (capsule pool) not visible in any baseline, unverified; 5 (tether) fixed, p50 x 388 / y 172-200 is a visible thin line; 6 fixed by retiming, p50 = the ETL fail; 7 (12 fps flash/shake strip) NOT done; 8 (motes) p0 still shows two motes at x 736 / y 241 and x 795 / y 250 ahead of the gates, minor.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. Strip needed (item 7 plus fix ring): 12 fps strip of f104-f120 (flash, shake) and f228-f240 (fix ring 2-5 px, green gate flash) at the next pass; I could not confirm the flash lasts 2-3 frames, the shake decays within 10 frames, or that the ring reads at 960.
+2. Snap list: add one fix frame (about f232) and one CI/CD fail frame (about f322); at present nothing guards the fix beat or the last-gate fail.
+3. All stills, y 0-95 and y 430-540: bands above and below remain empty and the whole reads as a compact stepper; p100 is fully green with nothing but a chip. Allow a further scale-up or a soft hero element (capsule glow trail) when n <= 5.
+4. p100 (x 48-235 / y 145-200): the "إصدار جديد" chip sits 48 px (5 %) from the left edge, tight against the title-safe margin, and its tether is about 8 px long. Shift the chip inward or anchor it above the gate.
+5. p50 (x 240-540 / y 100-175 and x 270-510 / y 378-430): two chips in the same frame compete with the crit gate; the top chip is larger than the labels. Reduce the top chip about 15 % so the X gate stays the focal point.
+6. p0 (x 736 / y 241): two motes appear before any gate; fade them in with the first gate.

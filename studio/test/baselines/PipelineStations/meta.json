@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T06:05:13Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.5,
+  "date": "2026-10-16",
+  "round": 2,
+  "notes": "Round-1 items 1-5 and 8 verified in stills: 7 px crit glow dashes ahead of the failed gate (p50) are clearly visible, gates and labels scaled up (about 100 px gate, labels about 40-48 px at 1080), back-plane grid and floor shadows add depth, p50 now captures the ETL fail with crit X, crit chip and reason chip. Arabic shaped, mixed-script labels order correct, tokens only, no numerals. Non-blocking: fix ring 230-236 and gate flash/shake not judged (no strip), still reads close to a CI stepper (bands above/below empty), no parallax, snap list lacks a CI/CD fail frame, reason chip crowds the top-left safe margin at p100."
+ }
 }
