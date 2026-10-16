@@ -222,3 +222,14 @@ Non-blocking, by impact:
 4. a1 vs p50, left slab: column count changes 11 to 10 as the slot eases in, so the tiles reflow. Compute layout from the final box.
 5. p50/p100, counter (bottom centre): a faint dark plate is visible behind the number. Soften its edge or drop it.
 6. Process: demo strip (frames 0, 11, 40, 101, 150, 203) and 1080p baselines are still needed before the pilot. Motion judged from stills and code only.
+
+### AppliedSteps — round 1 re-verification (2026-10-16, critic, not the author)
+
+Independent read of p0, a1, p50, p100 (960x540 lite) and reports/p7/snap/AppliedSteps.jpg. Verdict: APPROVED, 7.2/10, no blocking issue; it agrees with the 2026-10-15 section above. meta.json already carries approved-critic (7.2, 2026-10-15) and is unchanged.
+Stills confirm: p50 beam fans from the lit DEDUPE row to the table, whose red duplicate rows have shrunk from three (a1) to two; p100 table is all grey with a green rim and a GROUP column highlight; Arabic labels are correct and connected; palette is tokenised; no digits drawn; not a bullet slide.
+Non-blocking, by impact:
+1. All stills, composition: the two plates occupy only the middle ~60 % of the frame, so margins are dead; scale the pair by about 1.25 at 1080p.
+2. p50/p100, strip region: rows are still separated only by dashed lines and read as a list; draw frame cells with gaps and brighten the sprocket holes next to the lit row.
+3. p50, upcoming rows (FILTER, GROUP): dim text is about 3:1 against the plate; lift opacity a little so the steps ahead stay legible at 1080p.
+4. p0: still an empty vignette; move the baseline past the first entrance.
+5. Process: no motion strip (frames 0, 11, 40, 83, 120, 167) and no 1080p baselines yet; both needed before the pilot.
