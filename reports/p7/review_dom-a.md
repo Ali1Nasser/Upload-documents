@@ -292,3 +292,38 @@ None.
 3. p100, decade axis (x 270-645, y 405-440): the x10 chips are about 14 px at 960 and low contrast; raise to ink2 and about 17 px. The ticks carry no absolute value (they are 150 ms times 10^k from the first tip); fine as relative steps, but name the first tick (for example "150 ms") so the scale is anchored.
 4. p50 and p100, bottom 20 percent (y 440-540): floor grid only, and the top 90 px is empty; shift the ladder box down about 15 px or enlarge the floor pool for a balanced composition.
 5. a1: the 5 s and 57 s rows are empty during the stagger; fine, but the scene should not cut here.
+
+---
+
+# PermissionLocks — round 1 (demo change: real 777)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Commit reviewed: c8b41f3. Verdict: APPROVED, score 7/10. No blocking issue. meta.json set to approved-critic (score 7).
+
+## What was checked
+- Baselines p0, a1 (frame 11), p50 (84), p100 (169) at full size (lite, 960x540), and reports/p7/snap/PermissionLocks.jpg (4-frame strip).
+- Demo in studio/src/demos/dom-a.tsx: two grants and two denies on the same word anchors (الجروب and الباقي on deploy.key).
+
+## Change verification
+- p50, deploy.key column (x 515-695, y 92-462): all three cells open and violet, tags rwx / rwx / rwx = 777. The earlier 707 reading (group cell closed) is fixed.
+- p100, same column: owner rwx, group and other closed "---" = 700; both denies landed on the same word. Octal cross-check of the other columns: index.html rw- r-- r-- = 644, backup.sql rw- --- --- = 600. All modes are the sourced ones (s:S4:P03:0026-0027); no invented numbers.
+
+## Scores
+- Legibility at 1080p: 8. File names about 36-40 px mono, role labels about 40 px whole words, tags about 34 px. Margins respected.
+- Token and palette discipline: 8. Green write, cyan read, violet admin, steel grey none; no stray colors.
+- Depth and light: 6. Rim-lit tiles, floor pools, floor grid, push-in; but one flat plane, and the floor grid is a thin strip (y 470-540).
+- Visual verb without narration: 8-9. In p50 the whole key column opens, which is the "everyone can do everything" disaster; p100 closes it again.
+- Arabic: 9. Whole-word RTL role labels right-aligned, LTR mono resources, no clipping.
+- Bullet-list or slide look: 7. A 3x3 tile matrix is close to a permissions table, but the lock objects carry the scene.
+- Motion intent: 6. Stills show end states only; no baseline at grant+3f or deny+3f (flash, ring, shake).
+- Legacy frames: none. Unsourced numbers: none.
+- Mean about 7.5, min 6.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. Baselines: add frames at about 67 (grant+3f) and about 117 (deny+3f) so the flash, pulse ring and shake are regression-tested. p50 and p100 are both settled states.
+2. p50 and p100, tile matrix (x 120-700, y 88-466): mild perspective or z-stagger of rows, and let the active tile's floor pool spill onto the grid, so it does not read as a flat table.
+3. p50 and p100, role ticks (x 705-725, y 150-410): about 80 px from the tile edge and hairline; extend to the tile edge or tint with row color.
+4. p50 and p100, "---" tags (x 380-440 and 575-635): raise contrast to about 55 percent alpha.
+5. The spoken 700 / 777 are not rendered by the component; the shot spec should pair a NumberCounter or label with those words.
