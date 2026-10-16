@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T11:33:54Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.2,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1: no blocking issue. Text-free, palette-clean backplate; parallax visible a1 vs p100; fail-hard missing plate verified in code. Weak: slice-edge doubled outlines on bars at a1/p100 (lite, 3 slices); work canvas upscaled (hero 1280 px over ~2150 px box); p0 empty by design; no motion strip."
 }

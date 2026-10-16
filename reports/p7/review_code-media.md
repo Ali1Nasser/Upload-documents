@@ -134,3 +134,29 @@ Non-blocking, by impact:
 3. p0: near black by design (fade-in begins at the anchor); keep the first anchor within 0.5 s in specs so the plate is already present when the first word lands.
 4. Still wanted: a motion strip (frames 0-119 every 12 f) demonstrating the loop wrap at the 10 s seam on a real plate, once a P10 plate exists.
 5. Spec guidance: use `blend: screen` with opacity 0.6-0.8 on dark plates; avoid `add` over bright diagrams.
+
+## AIPlate — round 1
+
+Reviewed: studio/test/baselines/AIPlate/{p0,a1,p50,p100}.png at full size (960x540 lite), reports/p7/snap/AIPlate.{jpg,json}, AIPlate.tsx, media.tsx (missingMedia), the demo spec (Demo-AIPlate, KineticWord الـdepth over the plate). Author: motion-engineer (not the critic). No motion strip exists; motion read from a1 vs p50 vs p100 (left/right edge panels and bars shift, drift passes through zero at p50) plus the pure-function drift in code.
+
+Score: 7.2 / 10. Verdict: approved-critic. Blocking issues: none.
+
+| Criterion | Score | Note |
+|---|---|---|
+| Legibility at 1080p | 7.5 | Plate is dark and low-contrast; the term (kinetic, upper third) reads cleanly at p50/p100. |
+| Token / palette discipline | 8 | Teal grid and bars plus indigo edge panels on void; no stray hues. |
+| Depth and light | 7 | Horizon glow, perspective grid, particles and two planes give real depth; peak luminance is low and the key light is weak. |
+| Visual verb without narration | 6.5 | A backplate by design; the demo stand-in reads as a "glass hall" with parallax, meaning is carried by the type on top. |
+| Arabic | 8 | الـdepth joined and correct (KineticWord); plate has no text; QA pass. |
+| No bullet-list look | 9 | Full-bleed environment. |
+| No legacy frames / unsourced numbers | 9 | Procedural fixture, no numbers. Missing plate: marked placeholder in preview, throw in final (media.tsx:52). |
+| Motion intent | 7 | Slow camera-eased drift with a visible lateral shift between a1 and p100; fade-in p0 to a1 matches the morph preset. Strip would confirm the seam-free pass through p50. |
+
+Blocking: none.
+
+Non-blocking, by impact:
+1. Work resolution (AIPlate.tsx WORK table): hero canvas 1280 px is stretched over a ~2150 px box (1.7x), standard 2.2x, lite 3.4x. At final the plate will look soft against sharp type. Raise hero/final work width to about 1920 or measure that a P10 plate survives; log in corpus/specs/_component_requests.jsonl if the perf budget blocks it.
+2. a1 (bars at x 430-497, y 230-510 and x 738-838, y 215-515) and p100 (bars at x 100-195): doubled outlines where a near slice is offset from the farther fill. At a1 the offset is already at its maximum because the drift starts at +x. Soften slice edges (feather 1-2 px in depth threshold) or start the drift from zero offset at the anchor.
+3. a1 / p50 / p100 whole frame: plate luminance is low (brightest glow about 25 % teal at x 380-580, y 60-300). Real P10 plates need a clear key and a rim colour so the type separates in depth.
+4. p0: near-empty haze (fade-in), keep the first anchor within 0.5 s of the shot start in specs.
+5. Still wanted: motion strip (frames 0-119 every 12 f) on a real P10 plate; check the drift through the pivot and the exit fade.
