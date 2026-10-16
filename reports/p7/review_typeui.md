@@ -285,3 +285,16 @@ Non-blocking, unchanged and still the best fixes (CH-11 demo question):
 2. p50, dial interior (x 425-535 / y 245-350): sector and far orbit faint; depth reads flat (depth and light 6).
 3. p50, dead band y 430-540 below the cards; dial and cards are modest against the frame.
 4. p50, lit card (x 455-607 / y 375-418) differs from its neighbours only by a thin border; raise it one step.
+
+## CalloutArrow — round 1 (independent re-read, critic, 2026-10-16)
+
+Verdict: **approved-critic** stands, **7/10**, no blocking issue. Re-read p0, a1, p50, p100 at full size (960x540). Stored snap not re-run; no code change since e24b533. The round-1 findings above reproduce.
+
+- p0: ground and vignette only, clean entry.
+- a1 (f11): the green pill, ribbon and arrowhead are in; the landing ring, arrowhead tip and the top-left bracket of the "4" stack at x 265-305 / y 215-265, so the ring reads as a stray circle (non-blocking 2 above).
+- p50/p100: pill, ribbon, notched head and four-corner brackets read as "look here" without narration. Arabic ("العمليات الناجحة", "نسبة النجاح") shaped and ordered correctly. Palette is signal green and cyan on ink and ground only. The demo "4 / 6 = 66.67 %" is arithmetic, not a claimed figure.
+- Additional observation: the pills are small against the frame (about 160x36 px at half scale) and the ribbons are hairline; at 1080p this is fine for a pointer but the callout is a secondary element, so it must not carry a stressed word alone. Depth and light stays at 6 to 7.
+
+Blocking issues: none. Still open for G8: strip (anchor-2, 0, +2, +4, +8, +16), baselines near f4 and f20, long-label and RTL-flip baselines.
+
+Scores: legibility 8, palette 9, depth/light 6, visual verb 8, Arabic 9, not a slide 8, no legacy/unsourced 10, motion intent 6 (unverified), polish 7. Overall 7.
