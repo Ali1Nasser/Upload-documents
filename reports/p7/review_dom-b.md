@@ -274,3 +274,9 @@ Non-blocking, by impact:
 3. All stills, background: motes and floor reflection near invisible; light and depth is the weakest axis (6.5).
 4. p0: empty vignette; move the baseline past the first entrance.
 5. Process: 1080p baselines before the pilot.
+
+### SampleScoop — round 1 re-verification (2026-10-16, critic, independent re-read, not the author)
+
+Verdict: APPROVED, 7.3/10 unchanged, no blocking issue. meta.json already carries approved-critic (7.3); left unchanged. Re-read p0, a1, p50, p100 at full size (960x540 lite); no motion strip exists, so lift arc and mean-drop line are still judged from code plus stills. Snap re-run (diff 0/0/0/0) matches the stills.
+Confirmed: a1 shows the empty beaker, a sliver of liquid and two blocks on the base; p50 shows cyan lit dots in the dish and a filling beaker; p100 shows rings at the origin positions, dots in the beaker and a 2-high bin. The `5 000 طلب` label is correct RTL (digits LTR, unit to the left). The population value is a prop with a ref (CR-009 / D2 ruling 2: dots decorative). Palette is tokenised, no legacy frames, not a bullet slide.
+Non-blocking, unchanged and still open: (1) all stills, lower-left: dead band between beaker and histogram; (2) p50/p100, histogram: blocks and base slab are small and low-contrast; (3) all stills: no motes or parallax, depth is the weakest axis; (4) p0: empty vignette, move past entrance; (5) mean-drop line not visible in any still, so add a strip (11, 30, 50, 75, 107, 150, 215) and 1080p baselines before the pilot.
