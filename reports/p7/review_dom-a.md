@@ -119,6 +119,12 @@ Date: 2026-10-15. Reviewer: critic (did not author). Commit reviewed: 1529318. V
 ## Next review
 No resubmission is needed. Re-review only if fixes 1 to 3 change the baselines.
 
+## Re-confirmation (2026-10-16, independent re-read)
+
+Reviewer: critic. Baselines p0, a1, p50, p100 and reports/p7/snap/LegendOrbs.jpg re-read at full size; the component, schema and demo are unchanged since 1529318. Verdict unchanged: APPROVED, 8/10, no blocking issue. meta.json already holds status approved-critic (score 8, 2026-10-15); not rewritten.
+- Confirmed in stills: item 0 (cyan) on the right in a1/p50/p100; whole-phrase Arabic labels, no letter splitting or clipping; six token hues only; rim light, back glow and floor pools give depth; the focused orb swells with an ink label and tone bar while the others dim (p50 green, p100 red).
+- Still non-blocking, same as round 1: no baseline at focus word +4f (frames 56 and 102); satellites and unfocused orbit ellipses are faint at 960 px; bottom-row labels (x 100-550, y 458-495) sit near the safe-margin edge; a1 bottom row is empty during the stagger.
+
 ---
 
 # LatencyLadder — round 1
