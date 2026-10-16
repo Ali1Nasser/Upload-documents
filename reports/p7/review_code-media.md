@@ -160,3 +160,15 @@ Non-blocking, by impact:
 3. a1 / p50 / p100 whole frame: plate luminance is low (brightest glow about 25 % teal at x 380-580, y 60-300). Real P10 plates need a clear key and a rim colour so the type separates in depth.
 4. p0: near-empty haze (fade-in), keep the first anchor within 0.5 s of the shot start in specs.
 5. Still wanted: motion strip (frames 0-119 every 12 f) on a real P10 plate; check the drift through the pivot and the exit fade.
+
+## CodeTrace — round 1 re-check (2026-10-16)
+
+Independent second read of studio/test/baselines/CodeTrace/{p0,a1,p50,p100}.png at full size (960x540 lite). No code changes since 2c82975; snap PASS (0 px diff, det 0) per author. The e78d0ce verdict stands: 7.2 / 10 (rounded 7.3 in meta), approved-critic, blocking issues: none. meta.json left unchanged (already status approved-critic).
+
+Confirmed from the stills: whole-row windows at p50 (rows 2-8) and p100 (rows 2-8) with no half-cut rows; band, edge bar and header pips agree on the active rows; Arabic footers are whole joined phrases and the brightest text in the plate; palette is ink/signal only; all six amounts and the 400 total trace to d:5.2.
+
+Residual non-blocking items (unchanged, still open for the CH-27 spec pass):
+1. p100 row 8 "# 400" (x 428-477, y 327-347): dimmest token on the active row; lift to ink-bright or pair with NumberCounter.
+2. p50/p100 whole plate (x 265-692, y 137-405): no running state (total counter, ghosted failed rows T3/T6); the verb reads as a highlighter, not a computation.
+3. Frame-level depth: plate is about 44 % of frame width on an empty field; spec needs a camera push 4-6 % or a data plate beside it.
+4. Motion strip (frames 0-149 every 6 f) still not supplied; scroll and band travel remain inferred from code.
