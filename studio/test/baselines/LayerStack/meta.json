@@ -1,9 +1,9 @@
 {
  "sha256": {
-  "p0": "4bb5400caa8c0dc2a79043693ec16d0aa4ec9494f04c3ef4fd16d6f2c6ce81c4",
-  "a1": "9b0b0a7c865805acbddbe5b506da1eea2d75a70fc5e729e4b124e81c577f933d",
-  "p50": "5f4fe2fb717422a25fe85d94af493f75c5b4b486cc97e3c2ed9daadd467d309b",
-  "p100": "8b480075ca15b3ab991346856536089ac3ddd97c773cf3c22e2573414b91a8a5"
+  "p0": "4fd8634ea4fa2ed51c8ad06120ed76250663ee53611716a665fd97d1411f6403",
+  "a1": "c51d54547fe3d0189c15112b4149ce873d21399f079d78f4e8a03f533445facc",
+  "p50": "538edf0ecaf109623e8ecdb7109198511cfaf2a515888fcd4cef1817971dd42a",
+  "p100": "eddc680352fbb9d02e72acb796c15a9f1ede8a4af3174dd74c7c44886a98dd40"
  },
  "v": 2,
  "name": "LayerStack",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-16T11:17:34Z",
+ "written_at": "2026-10-16T11:30:42Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

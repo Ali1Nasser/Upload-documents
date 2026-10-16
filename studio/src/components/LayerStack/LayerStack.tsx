@@ -10,10 +10,11 @@
 //   rebuildFrom -> the cascade: the slab at `index` and every slab above flash crit (cache busted) in an upward wave, then rebuild
 //                  one by one (warn progress bar across the face, then a fresh signal edge); slabs below pulse ok (cache hits).
 // The stack auto-fits ctx.box (labels >= 28 px, SIZE.labelMin), else DC_QA overflow (snapshot fails).
-import React, {useMemo} from 'react';
+import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import {C, FONT, SIZE} from '../../tokens';
 import {MixedText} from '../../type/Text';
-import {isArabic} from '../../type/arabic';
+import {reportQa} from '../../type/qa';
+import {arabicFace, isArabic} from '../../type/arabic';
 import {ease, flashFrames, presetFrames, revealProgress, revealStyle} from '../../type/reveal';
 import {glow, halo} from '../../fx/look';
 import type {DcComponent, DcProps} from '../../spec/types';
@@ -22,6 +23,8 @@ import {formatValue} from '../NumberCounter/NumberCounter';
 import {GlyphIcon, acts, alpha, bornAt, dirOf, exitStyle, fitScale, mix, useMeasure, type Glyph} from '../_struct-a/kit';
 
 type Ctx = DcProps<Props>['ctx'];
+/** Minimum clear padding between a label's ink and its slab border, in px at 1080 (critic round 2). */
+const SLAB_PAD_MIN = 24;
 const sizeText = (s: NonNullable<Props['layers'][number]['size']>) => `${formatValue(s.value, 'decimal', s.decimals ?? 0)}${s.unit ? ` ${s.unit}` : ''}`;
 
 type SlabSt = {inv: number; invSince: number; build: number; built: boolean; hit: number};
@@ -61,7 +64,16 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const fs0 = n <= 6 ? SIZE.body : SIZE.label;
   const docker = props.variant === 'docker';
   const sizes = props.layers.map((l) => (l.size ? sizeText(l.size) : ''));
-  const items = [...props.layers.map((l) => ({text: l.label, size: fs0, role: isArabic(l.label) ? ('sentence' as const) : ('code' as const)})), ...sizes.map((s) => ({text: s || '0', size: fs0, role: 'data' as const}))];
+  const maxUp = n <= 4 ? 1.7 : 1.35;
+  // Labels are measured at two sizes: the Arabic face switches at FONT.arDisplay.minPx (Alexandria 700 is wider than IBM Plex 600),
+  // so a stack that fits at 40 px and renders at 68 px would be wider than measured (critic round 2: the ADS label hit the border).
+  const fsBig = Math.max(Math.round(fs0 * maxUp), FONT.arDisplay.minPx);
+  const lrole = (l: string) => (isArabic(l) ? ('sentence' as const) : ('code' as const));
+  const items = [
+    ...props.layers.map((l) => ({text: l.label, size: fs0, role: lrole(l.label)})),
+    ...sizes.map((s) => ({text: s || '0', size: fs0, role: 'data' as const})),
+    ...props.layers.map((l) => ({text: l.label, size: fsBig, role: lrole(l.label)})),
+  ];
   const m = useMeasure(ctx.id, items);
   const dir = dirOf(props.layers.map((l) => l.label));
   const rtl = dir === 'rtl';
@@ -69,6 +81,9 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const geo = useMemo(() => {
     if (!m.w) return null;
     const w = m.w as number[];
+    // nominal (fs0) label widths for the small face, and for the display face (measured at fsBig, scaled linearly to fs0)
+    const wSmall = w.slice(0, n);
+    const wBig = w.slice(2 * n, 3 * n).map((x) => (x * fs0) / fsBig);
     const hF = Math.round(fs0 * 2.0);
     const depth = Math.round(hF * 0.7);
     // the top face (dy) of a slab sits in the gap above it: the gap is dy + the highlight lift + a margin, so no face ever crosses the
@@ -78,9 +93,29 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const icon = Math.round(hF * 0.55);
     const hasSize = sizes.some(Boolean);
     const sizeW = hasSize ? Math.max(...sizes.map((s, i) => (s ? w[n + i] : 0))) + fs0 * 1.2 : 0;
-    const W0 = Math.max(...w.slice(0, n)) + fs0 * 1.6 + icon + fs0 * 0.6 + sizeW;
-    const nat = {w: W0 + depth * 0.9, h: n * hF + (n - 1) * gap + depth * 0.55 + lift};
-    const fit = fitScale(ctx.id, nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, n <= 4 ? 1.7 : 1.35);
+    const layout = (wl: number[]) => {
+      const W0 = Math.max(...wl) + fs0 * 1.6 + icon + fs0 * 0.6 + sizeW + fs0 * 0.3;
+      return {W0, nat: {w: W0 + depth * 0.9, h: n * hF + (n - 1) * gap + depth * 0.55 + lift}};
+    };
+    const fitFor = (L: ReturnType<typeof layout>) => fitScale(ctx.id, L.nat, {w: ctx.box.w, h: ctx.box.h}, fs0, SIZE.labelMin, maxUp);
+    // the face depends on the rendered size, which depends on the fit: fit with the small face; if that lands on the display face,
+    // refit with the display widths; if that drops back below the switch, stay just under it on the small face
+    const aA = fitFor(layout(wSmall));
+    let L0 = layout(wSmall);
+    let fit = aA;
+    if (arabicFace(aA.fs).family !== arabicFace(fs0).family) {
+      const lb = layout(wBig);
+      const fb = fitFor(lb);
+      if (arabicFace(fb.fs).family === arabicFace(aA.fs).family) {
+        L0 = lb;
+        fit = fb;
+      } else {
+        const cap = (FONT.arDisplay.minPx - 0.5) / fs0;
+        const sc = Math.min(aA.s, cap);
+        fit = {s: sc, fs: fs0 * sc, overflow: aA.overflow};
+      }
+    }
+    const {W0, nat} = L0;
     const s = fit.s;
     const ox = (ctx.box.w - nat.w * s) / 2;
     const oy = (ctx.box.h - nat.h * s) / 2 + (depth * 0.55 + lift) * s;
@@ -89,6 +124,24 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     return {s, fs: fit.fs, overflow: fit.overflow, ox, ys, W: W0 * s, hF: hF * s, dx: depth * 0.9 * s, dy: depth * 0.55 * s, icon: icon * s, sizeW: sizeW * s, lift: lift * s};
   }, [m.w, props.layers, n, ctx.box.w, ctx.box.h, ctx.id, fs0]);
 
+  // Overflow lint (critic: ADS label touched the slab border): after layout, every label's ink box must keep >= SLAB_PAD_MIN px (at
+  // 1080) of clear padding inside its slab, measured in layout px (the camera transform is divided out). A violation is a
+  // DC_QA overflow finding, so snapshot tests and spec renders fail on it.
+  const root = useRef<HTMLDivElement>(null);
+  useLayoutEffect(() => {
+    const el = root.current;
+    if (!el || !geo) return;
+    el.querySelectorAll<HTMLElement>('[data-ls-slab]').forEach((sl, k) => {
+      const tx = sl.querySelector<HTMLElement>('[data-ls-label] [data-dc-text]');
+      if (!tx || !sl.offsetWidth) return;
+      const a = sl.getBoundingClientRect();
+      const b = tx.getBoundingClientRect();
+      const u = a.width / sl.offsetWidth;
+      const left = (b.left - a.left) / u;
+      const right = (a.right - b.right) / u;
+      if (left < SLAB_PAD_MIN - 0.5 || right < SLAB_PAD_MIN - 0.5) reportQa('overflow', `${ctx.id}:slab${sl.dataset.lsSlab || k}`, {slab: 'label pad', left: Math.round(left), right: Math.round(right), min: SLAB_PAD_MIN});
+    });
+  });
   if (!geo) return <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y}}>{m.node}</div>;
 
   const t = ctx.frame;
@@ -129,7 +182,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     return {i, L, c, q, cached, fresh, col: dm(col), dm, dmInk, y: geo.ys[i] - hl[i] * geo.lift - (1 - q) * 18 * geo.s};
   });
   return (
-    <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
+    <div ref={root} style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
       {m.node}
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         <defs>
@@ -163,10 +216,11 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const ar = isArabic(L.label);
         const sz = sizes[i];
         const rv = revealStyle(t - born[i], fps, 'label', ar ? 'rtl' : 'ltr').style;
-        const pad = 0.8 * geo.fs;
+        const pad = Math.max(0.8 * geo.fs, SLAB_PAD_MIN);
         return (
           <div
             key={i}
+            data-ls-slab={i}
             style={{
               position: 'absolute',
               left: x,
@@ -195,6 +249,7 @@ export const LayerStackView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               <GlyphIcon g={g} color={col} turn={c.built ? c.build : 0} />
             </div>
             <div
+              data-ls-label=""
               style={{
                 flex: 1,
                 display: 'flex',
