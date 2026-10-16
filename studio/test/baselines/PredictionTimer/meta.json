@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "3b85815b151733f7d6aeecd16c9fe77c1c01cbdca4c453ca485db2eba33844ce",
-  "p50": "716e9970075c98c7ae7e92450d0876defbcdb6c64bde3b32fc9c5a271047e8b9",
-  "p100": "394dbed8b36c57850a4fd14fdb61ea55084c5ec1477c474216c691cf8ee60674"
+  "a1": "8d6edc8d0cd2398d68570214de839c178f93d2bf2d722c2fa653231b70abe0f4",
+  "p50": "77acea9fd670f77cb7f43d2dd0616bd2047d251801d3161fca340d58c819a81f",
+  "p100": "80a96469c2e2f3a5626d8167c067fa680105ed2a22cb496b36d7e9e865c2f0b1"
  },
  "v": 2,
  "name": "PredictionTimer",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-16T06:21:45Z",
+ "written_at": "2026-10-16T11:08:56Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

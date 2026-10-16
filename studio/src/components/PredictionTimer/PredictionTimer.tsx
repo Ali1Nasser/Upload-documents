@@ -75,7 +75,7 @@ export const PredictionTimerView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const scanP = thinking ? 0.5 - 0.5 * Math.cos(2 * Math.PI * (clk % 1)) : 0;
   const breath = thinking ? 0.5 + 0.5 * Math.sin(2 * Math.PI * clk) : 0.35;
   const warm = tr < 0 && thinking ? 1 - interpolate(drain, [0.16, 0.28], [0, 1], clamp) : 0; // last quarter: signal -> warn
-  const R = Math.round(fs * 1.55);
+  const R = Math.round(fs * 2.0);
   const SW = Math.max(3, Math.round(fs * 0.085));
   const Rt = R + Math.round(SW * 3.4); // outer edge of the tick ring
   const D = 2 * Rt;
@@ -201,7 +201,7 @@ const textRect = (p: Props, box: Rect): Rect => {
   const lines = questionLines(p.question_ar);
   const longest = Math.max(...lines.map(visLen), ...(p.options ?? []).map((o) => visLen(o) * OPT_K * 1.6));
   const w = Math.min(box.w, fs * 0.6 * longest + fs * 1.6);
-  const h = Math.min(box.h, fs * 1.6 * lines.length + fs * 5.4 + SIZE.label * 1.6 + (p.options ? SIZE.body * 2.6 : 0));
+  const h = Math.min(box.h, fs * 1.6 * lines.length + fs * 6.2 + SIZE.label * 1.6 + (p.options ? SIZE.body * 2.6 : 0));
   return {x: box.x + (box.w - w) / 2, y: box.y + (box.h - h) / 2, w, h};
 };
 
