@@ -246,3 +246,20 @@ Blocking: none. Non-blocking, ordered by impact:
 5. Look: a rectangle outline reads slightly as a UI highlight box. At hero tier let the swell bloom wider than the rim, with a wider falloff.
 
 Scores (1-10): legibility 7.5, token discipline 9, depth and light 7.5, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 9, motion intent 7.5. Mean 8.4, min 7.5; overall 7.0.
+
+### Shake — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p0/a1/p50/p100 (PNG sha256 equal to meta.json) at 960x540 and reports/p7/snap/Shake.jpg (4 tiles, standard). Snap, perf and Arabic QA not re-run (reports show pass, Arabic OCR 1.0, perf within budget).
+
+Verdict: APPROVED, 7.0/10, no blocking issue. meta.json: approved-critic, score 7.0.
+
+Seen: p50 (f47, one frame into the jolt) shows the receipts card thrown about 3 px left (about 6 px at 1080p) while a crit hairline rest outline with outer swell stays at the rest position, and the red-tinted FAILED rows (T3, T6) plus the lower-third "العملية فشل" (mid-reveal) stay still. p100 shows the card settled and the label complete as "العملية فشلت". Palette is crit red on near-black glass only, no bullets, no legacy frames, EGP values are demo fixture data from TableGrid, nothing invented.
+
+Blocking: none. Non-blocking, ordered by impact:
+1. Motion intent, p50, card x 330-628, y 126-413: a single still shows a roughly 3 px (half-scale) displacement, so the jolt is carried almost entirely by the rest outline. The decay over 400 ms is not demonstrable from the four tiles. Add a strip anchor..anchor+9 (f46-55) and make it a baseline.
+2. Baselines: a1 (f11) is the intact card before any shake and p100 near-duplicates it, so the anchor frame (f46) is not regression-protected. Replace a1 with f46 and add f50 (mid decay).
+3. p50, card edge x 330-345, y 126-413: the rest outline sits only about 4 px outside the plate, so with a 3-6 px throw it reads as a doubled edge rather than a thrown card. At amplitude <= 12 px consider a wider outline pad or a faint ghost of the rest plate.
+4. p50, label x 395-580, y 415-445: the label is clipped mid-reveal ("فشل" without the final taa); that is KineticWord timing, not Shake, but pair the demo word to land the label complete at the anchor.
+5. Whole-frame shake (no `to`) has no baseline; add a demo so its title-safe clamp is covered.
+
+Scores (1-10): legibility 7.5, token discipline 9, depth and light 7, verb reads 7, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 9, motion intent 6.5 (no strip). Mean 8.1, min 6.5; overall 7.0.
