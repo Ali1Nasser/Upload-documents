@@ -17,7 +17,7 @@ import type {Props} from './schema';
 import {Floor, Lbl, NumText, acts, apportion, born, boxStyle, clamp01, f24, mix, pf, prog, pulse, shell, shuffle} from '../_dom-c/kit';
 
 export const CARDS = 50;
-const PILE_COLORS = [C.signal, C.violet, C.ink, C.ember] as const;
+const PILE_COLORS = [C.signal, C.violet, C.ok, C.ember] as const;
 export const dealPlan = (p: Props): {counts: number[]; left: number; seq: number[]} => {
   const sum = p.splits.reduce((a, s) => a + Math.max(0, s.share.value), 0);
   const pct = (p.splits[0].share.unit ?? '%') === '%';
@@ -36,7 +36,7 @@ type Geo = {W: number; H: number; n: number; cw: number; chh: number; spacing: n
 export const geo = (props: Props, W: number, H: number): Geo => {
   const n = props.splits.length;
   const spacing = Math.min((W * 0.92) / n, 440);
-  const cw = Math.min(190, spacing * 0.42);
+  const cw = Math.min(250, spacing * 0.5);
   const chh = cw * 1.38;
   const px = props.splits.map((_, i) => W / 2 + ((n - 1) / 2 - i) * spacing);
   const pileY = H * 0.6;
@@ -191,7 +191,7 @@ export const SplitDeckView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         return (
           <div key={`l${i}`} style={{position: 'absolute', left: px[i] - spacing / 2, width: spacing, top: g.labelTop, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, opacity: e, transform: `translateY(${((1 - e) * 6).toFixed(2)}px)`}}>
             <Lbl id={`${ctx.id}:sp${i}`} text={s.label} maxW={spacing - 50} maxH={SIZE.body * 1.8} size={SIZE.body} fps={ctx.fps} color={PILE_COLORS[i % PILE_COLORS.length]} weight={FONT.label.strong} />
-            <NumText id={`${ctx.id}:sh${i}`} value={s.share.value} target={s.share.value} decimals={s.share.decimals} unit={s.share.unit ?? '%'} maxW={spacing - 50} size={SIZE.sub} />
+            <NumText id={`${ctx.id}:sh${i}`} value={s.share.value} target={s.share.value} decimals={s.share.decimals} unit={s.share.unit ?? '%'} maxW={spacing - 50} size={SIZE.sub} unitScale={0.7} />
           </div>
         );
       })}

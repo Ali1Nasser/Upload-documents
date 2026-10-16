@@ -2,7 +2,7 @@
  "v": 2,
  "name": "OlapCube",
  "composition": "Demo-OlapCube",
- "at": "2026-10-16T18:17:24Z",
+ "at": "2026-10-16T23:08:53Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 851 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 851 px"
   },
   {
    "tag": "p50",
    "frame": 131,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "baseline": "written"
+   "determinism_diff_px": 851,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 851 px"
   },
   {
    "tag": "p100",
    "frame": 263,
    "why": "100 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 851 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "pass": true
+ "approve_refused": [
+  "determinism 851 px"
+ ],
+ "pass": false
 }

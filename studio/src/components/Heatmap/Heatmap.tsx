@@ -51,17 +51,17 @@ export const HeatmapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const gid = `hm${String(ctx.id).replace(/[^a-zA-Z0-9]/g, '')}`;
 
   // ---- fits ----
-  const legH = Math.round(SIZE.labelMin * 1.5 + 22);
+  const legH = Math.round(SIZE.label * 1.5 + 30);
   const fY = useFitProbe(`${ctx.id}:y`, SIZE.label, W * 0.24, (fs) => probeLabels(props.y, fs), props.y.join('|'), {maxH: H * 0.8});
   const yW = Math.min(W * 0.26, Math.max(...props.y.map((s) => monoW(s, fY.size) * 0.7)) + GAP * 0.5);
-  const gridW = W - 2 * pad - yW - 16;
+  const gridW = W - 2 * pad - yW - 32;
   const cellW = gridW / nx;
   const fX = useFitProbe(`${ctx.id}:x`, SIZE.label, Math.max(40, cellW - 12), (fs) => probeLabels(props.x, fs), props.x.join('|'));
   const headH = Math.round(fX.size * 1.8);
   const gridH = H - 2 * pad - headH - 8 - legH;
-  const cellH = Math.min(gridH / ny, cellW * 1.2);
+  const cellH = Math.min(gridH / ny, cellW * 1.5);
   const gh = cellH * ny;
-  const gx = rtl ? pad : pad + yW + 16; // grid left edge
+  const gx = rtl ? pad : pad + yW + 32; // grid left edge (20 px air between rim and row label)
   const gy = pad + headH + 8 + (gridH - gh) / 2;
   const colX = (j: number) => gx + (rtl ? nx - 1 - j : j) * cellW;
   const cellFs = Math.max(LABEL_MIN, Math.min(SIZE.label, Math.floor(cellH * 0.5)));
@@ -73,11 +73,12 @@ export const HeatmapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const waveLen = presetFrames('label', ctx.fps) * 2;
   const gap = 3;
   const hv = hl ? props.values[hy]?.[hx] : undefined;
-  const dim = 1 - 0.5 * hq; // everything but the highlighted row / column / cell steps back
+  const dim = 1 - 0.5 * hq; // tiles off the highlighted row / column step back
+  const dimL = 1 - 0.35 * hq; // labels step back less (contrast floor)
   const legW = Math.min(W * 0.42, 460);
   const legTexts = diverging ? [fmt(-sym, dec), '0', fmt(sym, dec)] : [fmt(lo, dec), fmt(hi, dec)];
-  const fLeg = useFitProbe(`${ctx.id}:leg`, SIZE.labelMin, W * 0.2, (fs) => probeNums(legTexts, fs), legTexts.join('|'));
-  const legY = gy + gh + 16;
+  const fLeg = useFitProbe(`${ctx.id}:leg`, SIZE.label, W * 0.2, (fs) => probeNums(legTexts, fs), legTexts.join('|'));
+  const legY = gy + gh + 28;
   const slab = {x: gx - 12, y: gy - 12, w: gridW + 24, h: gh + 24};
   const lensR = Math.min(12, cellH * 0.2);
 
@@ -133,20 +134,20 @@ export const HeatmapView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         <NumText id={`${ctx.id}:lmax`} text={legTexts[legTexts.length - 1]} size={fLeg.size} color={C.ink2} />
       </div>
       {props.x.map((l, j) => (
-        <div key={`x${j}`} style={{position: 'absolute', left: colX(j), width: cellW, top: pad, display: 'flex', justifyContent: 'center', opacity: prog(ctx, ctx.at + Math.round((j * sweep) / diag), 'label') * (j === hx ? 1 : dim)}}>
+        <div key={`x${j}`} style={{position: 'absolute', left: colX(j), width: cellW, top: pad, display: 'flex', justifyContent: 'center', opacity: prog(ctx, ctx.at + Math.round((j * sweep) / diag), 'label') * (j === hx ? 1 : dimL)}}>
           <Lbl id={`${ctx.id}:x${j}`} text={l} size={fX.size} color={j === hx ? C.ink : C.ink2} weight={j === hx ? FONT.label.strong : undefined} overflow={fX.overflow} glowK={j === hx ? 0.5 + fl : 0} fx={ctx.fx} />
         </div>
       ))}
       {props.y.map((l, i) => (
-        <div key={`y${i}`} style={{position: 'absolute', [rtl ? 'right' : 'left']: pad, width: yW, top: gy + i * cellH, height: cellH, display: 'flex', alignItems: 'center', justifyContent: rtl ? 'flex-start' : 'flex-end', opacity: prog(ctx, ctx.at + Math.round((i * sweep) / diag), 'label') * (i === hy ? 1 : dim)}}>
+        <div key={`y${i}`} style={{position: 'absolute', [rtl ? 'right' : 'left']: pad, width: yW, top: gy + i * cellH, height: cellH, display: 'flex', alignItems: 'center', justifyContent: rtl ? 'flex-start' : 'flex-end', opacity: prog(ctx, ctx.at + Math.round((i * sweep) / diag), 'label') * (i === hy ? 1 : dimL)}}>
           <Lbl id={`${ctx.id}:y${i}`} text={l} size={fY.size} color={i === hy ? C.ink : C.ink2} weight={i === hy ? FONT.label.strong : undefined} overflow={fY.overflow} glowK={i === hy ? 0.5 + fl : 0} fx={ctx.fx} />
         </div>
       ))}
       {/* row / column light shafts of the highlighted cell */}
       {hl ? (
         <>
-          <div style={{position: 'absolute', left: gx, width: gridW, top: gy + hy * cellH, height: cellH, background: `linear-gradient(${rtl ? 270 : 90}deg, ${tint(C.ember, 0.16 * hq)} 0%, ${tint(C.ember, 0.05 * hq)} 100%)`, borderTop: `1px solid ${tint(C.ember, 0.4 * hq)}`, borderBottom: `1px solid ${tint(C.ember, 0.4 * hq)}`}} />
-          <div style={{position: 'absolute', left: colX(hx), width: cellW, top: gy, height: gh, background: `linear-gradient(180deg, ${tint(C.ember, 0.16 * hq)} 0%, ${tint(C.ember, 0.05 * hq)} 100%)`, borderLeft: `1px solid ${tint(C.ember, 0.4 * hq)}`, borderRight: `1px solid ${tint(C.ember, 0.4 * hq)}`}} />
+          <div style={{position: 'absolute', left: gx, width: gridW, top: gy + hy * cellH, height: cellH, background: `linear-gradient(${rtl ? 270 : 90}deg, ${tint(C.ember, 0.26 * hq)} 0%, ${tint(C.ember, 0.08 * hq)} 100%)`, borderTop: `1px solid ${tint(C.ember, 0.4 * hq)}`, borderBottom: `1px solid ${tint(C.ember, 0.4 * hq)}`}} />
+          <div style={{position: 'absolute', left: colX(hx), width: cellW, top: pad - 4, height: gh + (gy - pad + 4), background: `linear-gradient(180deg, ${tint(C.ember, 0.26 * hq)} 0%, ${tint(C.ember, 0.08 * hq)} 100%)`, borderLeft: `1px solid ${tint(C.ember, 0.4 * hq)}`, borderRight: `1px solid ${tint(C.ember, 0.4 * hq)}`}} />
         </>
       ) : null}
       {props.y.map((_, i) =>

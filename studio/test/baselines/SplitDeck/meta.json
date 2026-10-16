@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "487b223a80ccffaa2874101594f6fdbb8974102b47005b4107224717aeab85e9",
-  "p50": "f9cb176388869e5b4a5966f73b4341cb44699173da006361f6363339300b1f86",
-  "p100": "b1e8fa2d8a72cab910c0d1b6966a414e50adf6e90640a64df914d7586b1a3205"
+  "a1": "15717a93274762f7b4df99d5272b2f672c04c6272f275d3765573194957ab07e",
+  "p50": "2bf253b4579ca293eb9ad8cded88cf539313b5896371d1ff04fd31d064f61c28",
+  "p100": "d2eb51bfa8125856a0f5fe0a82ac2f7d8468076c05c8cb87c0b716726733ecfc"
  },
  "v": 2,
  "name": "SplitDeck",
@@ -27,12 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T18:23:20Z",
+ "written_at": "2026-10-16T23:09:18Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "score": 7.4,
- "date": "2026-10-16",
- "notes": "Critic round 1: approved 7.4, no blocking. Non-blocking: no motion strip, cards only ~9% of frame width with empty corners, % unit glyph tiny, p0/a1 protect little (no piles/labels), pile counts (17/12/10/5, deck 5) not on screen. See reports/p7/review_dom-c.md."
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

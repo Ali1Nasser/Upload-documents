@@ -12,7 +12,7 @@ import {hex} from '../../fx/look';
 import {ease, presetFrames} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {Stage, Svg, actsOf, bez, dPath, f24, glowBox, lerp, prog, progN, rim, stag, type Pt} from '../_dom-b/kit';
+import {Stage, Svg, actsOf, dPath, f24, glowBox, lerp, prog, progN, rim, stag, type Pt} from '../_dom-b/kit';
 
 const PALETTE = [C.signal, C.violet, C.ink2] as const;
 
@@ -22,6 +22,25 @@ export const tangledPerm = (n: number, seed: number): number[] => {
   const p = new Array<number>(n);
   order.forEach((o, j) => (p[o.i] = order[(j + 1) % n].i)); // a single cycle: no fixed points
   return p;
+};
+
+/** Uniform Catmull-Rom through the points, `per` samples per segment (first and last points are kept exactly). */
+const spline = (P: Pt[], per: number): Pt[] => {
+  const out: Pt[] = [];
+  for (let s = 0; s < P.length - 1; s++) {
+    const p0 = P[Math.max(0, s - 1)];
+    const p1 = P[s];
+    const p2 = P[s + 1];
+    const p3 = P[Math.min(P.length - 1, s + 2)];
+    for (let m = s === 0 ? 0 : 1; m <= per; m++) {
+      const u = m / per;
+      const u2 = u * u;
+      const u3 = u2 * u;
+      const f = (a: number, b: number, c: number, d: number) => 0.5 * (2 * b + (-a + c) * u + (2 * a - 5 * b + 4 * c - d) * u2 + (-a + 3 * b - 3 * c + d) * u3);
+      out.push({x: f(p0.x, p1.x, p2.x, p3.x), y: f(p0.y, p1.y, p2.y, p3.y)});
+    }
+  }
+  return out;
 };
 
 const smooth = (x: number) => {
@@ -58,15 +77,14 @@ export const WireTangleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const xe = termW; // wire end (left terminal's inner edge)
   const portY = (i: number) => ty0 + termH * 0.1 + ((i + 0.5) * termH * 0.8) / n;
   const perm = tangledPerm(n, props.seed);
-  const wob = (i: number, k: string) => (random(`wt:${props.seed}:${k}:${i}`) - 0.5) * 2;
-  // timeline
+    // timeline
   const act = actsOf(ctx, 'untangle')[0];
   const dur = presetFrames('morph', fps, true) + f24(8, fps); // a gentle, readable morph
   const startClean = props.state === 'untangled';
   const q = startClean ? 1 : act ? progN(ctx, act.at, dur, ease.camera) : 0;
   const clean = q >= 1;
   const tie = startClean ? prog(ctx, ctx.at + f24(12, fps), 'label') : act ? progN(ctx, act.at + dur - 1, presetFrames('label', fps)) : 0;
-  const lw = Math.max(4, Math.round(SIZE.label * 0.13));
+  const lw = Math.max(5, Math.round(SIZE.label * 0.19));
   const ent = prog(ctx, ctx.at, 'label');
   const pitch = Math.min(lw * 2.8, (termH * 0.5) / n); // a bundle is tighter than the port pitch: a ribbon in the middle
   const bundleY = (i: number) => H / 2 + (i - (n - 1) / 2) * pitch;
@@ -75,12 +93,15 @@ export const WireTangleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const a: Pt = {x: xs, y: portY(i)};
     const bT: Pt = {x: xe, y: portY(j)};
     const sway = Math.sin(((t - ctx.at) * 0.12 + i * 1.7) % (Math.PI * 2)) * 7 * (1 - q); // a restless tangle: seeded phase, deterministic
-    const c1: Pt = {x: xs - (xs - xe) * (0.15 + 0.35 * Math.abs(wob(i, 'a'))), y: a.y + wob(i, 'oa') * H * 0.55 + sway};
-    const c2: Pt = {x: xe + (xs - xe) * (0.15 + 0.35 * Math.abs(wob(i, 'b'))), y: bT.y + wob(i, 'ob') * H * 0.55 - sway};
-    const tangled = bez(a, c1, c2, bT, 48);
+    // a knotted run: two seeded waypoints anywhere in the terminal span (x may overlap, so wires double back and loop over
+    // each other), joined to the ports by a Catmull-Rom spline that leaves and enters each port horizontally
+    const dx = xs - xe;
+    const m1: Pt = {x: xs - dx * (0.25 + 0.35 * random(`wt:${props.seed}:m1x:${i}`)), y: ty0 + termH * (0.06 + 0.88 * random(`wt:${props.seed}:m1y:${i}`)) + sway};
+    const m2: Pt = {x: xs - dx * (0.4 + 0.35 * random(`wt:${props.seed}:m2x:${i}`)), y: ty0 + termH * (0.06 + 0.88 * random(`wt:${props.seed}:m2y:${i}`)) - sway};
+    const tangled = spline([a, {x: xs - dx * 0.07, y: a.y}, m1, m2, {x: xe + dx * 0.07, y: bT.y}, bT], 10);
     // the clean harness: port -> smooth fan-in -> a straight parallel run -> fan-out to port i
     const cleanPts: Pt[] = tangled.map((_, m) => {
-      const u = m / 48;
+      const u = m / (tangled.length - 1);
       const wgt = smooth(Math.min(u, 1 - u) / 0.3);
       return {x: lerp(xs, xe, u), y: lerp(portY(i), bundleY(i), wgt)};
     });
@@ -94,13 +115,13 @@ export const WireTangleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <Stage ctx={ctx}>
       <Svg w={W} h={H}>
         {wires.map((w) => {
-          const e = prog(ctx, ctx.at + stag(w.i, fps, 1), 'arrive');
+          const e = prog(ctx, ctx.at + stag(w.i, fps, 0.25), 'label');
           const cut = w.pts.slice(0, Math.max(2, Math.round(e * (w.pts.length - 1)) + 1));
-          return e > 0 ? <Cable key={w.i} pts={cut} color={w.col} w={lw} k={lite ? 0.35 : 0.5 + ctx.mod.glow} spec={!lite} /> : null;
+          return e > 0 ? <Cable key={w.i} pts={cut} color={w.col} w={lw} k={0.35} spec={false} /> : null;
         })}
         {/* plugs: the cable ends seat in the terminal faces (they slide to their own port while untangling) */}
         {wires.map((w) => {
-          const e = prog(ctx, ctx.at + stag(w.i, fps, 1), 'arrive');
+          const e = prog(ctx, ctx.at + stag(w.i, fps, 0.25), 'label');
           if (e < 1) return null;
           const ends = [w.pts[0], w.pts[w.pts.length - 1]];
           return ends.map((p, k) => <rect key={`${w.i}:${k}`} x={p.x - lw * 1.3 + (k === 0 ? lw * 0.9 : -lw * 0.9)} y={p.y - lw * 1.2} width={lw * 2.6} height={lw * 2.4} rx={lw * 0.7} fill={C.void} stroke={w.col} strokeWidth={Math.max(2, lw * 0.5)} />);

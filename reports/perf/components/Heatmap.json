@@ -2,7 +2,7 @@
  "v": 2,
  "name": "Heatmap",
  "composition": "Demo-Heatmap",
- "at": "2026-10-16T11:40:06Z",
+ "at": "2026-10-16T23:15:54Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,14 +21,14 @@
  "tiers": {
   "lite": {
    "frames": 130,
-   "wall_s": 10.14,
-   "box_s_per_frame": 0.078,
-   "slot_s_per_frame": 0.234,
+   "wall_s": 18.15,
+   "box_s_per_frame": 0.1396,
+   "slot_s_per_frame": 0.4188,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    3.75,
-    4.14
+    4.19,
+    4.85
    ],
    "queue": {
     "running": 1,
@@ -38,14 +38,14 @@
   },
   "standard": {
    "frames": 130,
-   "wall_s": 12.77,
-   "box_s_per_frame": 0.0982,
-   "slot_s_per_frame": 0.2946,
+   "wall_s": 12.6,
+   "box_s_per_frame": 0.0969,
+   "slot_s_per_frame": 0.2907,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    4.21,
-    4.99
+    4.78,
+    4.89
    ],
    "queue": {
     "running": 1,
@@ -55,14 +55,14 @@
   },
   "hero": {
    "frames": 130,
-   "wall_s": 13.16,
-   "box_s_per_frame": 0.1012,
-   "slot_s_per_frame": 0.3036,
+   "wall_s": 12.07,
+   "box_s_per_frame": 0.0929,
+   "slot_s_per_frame": 0.2787,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    4.99,
-    5.36
+    5.14,
+    5.19
    ],
    "queue": {
     "running": 1,

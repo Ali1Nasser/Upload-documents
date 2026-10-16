@@ -7,7 +7,7 @@
 //  - fit contain | cover inside ctx.box (the slot inside title-safe, already shrunk by the camera envelope);
 //  - stage light (ADR-003 LK-F, 04 section 1.2): a Manim clip is a flat drawing, so the insert carries its own light. A signal pool sits
 //    under the drawn area (a static radial gradient, no per-frame filter) and warms with the clip's progress, so the picture reads as
-//    lit rather than pasted; alpha false puts the clip on a glass card lit by the same pool. Light and clip fade in over the morph
+//    lit rather than pasted (standard / hero add a tighter key light over the drawing; ctx.mod.glow rides the pool); alpha false puts the clip on a glass card lit by the same pool. Light and clip fade in over the morph
 //    preset from the anchor (RV1: the anchor frame has ink even when the clip's own frame 0 is empty);
 //  - exit: fades out over the exit preset at `until`;
 //  - the clip is a picture: text inside a Manim clip is Latin / maths only (Arabic is always typeset by the type engine on top);
@@ -47,7 +47,9 @@ export const ManimInsertView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const r = fitRect(ctx.box, side.width, side.height, props.fit);
   const video = <ClipFrame src={mediaUrl('manim', `${props.clip}.${ext}`)} idx={idx} clipFps={side.fps} fps={ctx.fps} transparent={props.alpha} style={{width: '100%', height: '100%', objectFit: props.fit}} />;
   // light pool: ellipse under the drawn area, slightly wider than it; warms from 0.55 to 1 over the clip
-  const pool = (0.55 + 0.45 * prog) * inn;
+  const pool = Math.min(1.4, 0.55 + 0.45 * prog + ctx.mod.glow) * inn;
+  // standard and hero add a tighter key light over the drawn area (static gradient, no filter: FX2 / RT5); hero's is hotter (bloomGL)
+  const key = ctx.fx.id === 'lite' ? 0 : (0.09 + 0.05 * ctx.fx.bloomGL) * pool;
   return (
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, opacity: out}} data-dc-manim={props.clip}>
       <div
@@ -61,6 +63,19 @@ export const ManimInsertView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           background: `radial-gradient(ellipse 50% 50% at 50% 55%, ${C.signal}${hex(0.2 * pool)} 0%, ${C.signal}${hex(0.07 * pool)} 48%, ${C.signal}00 100%)`,
         }}
       />
+      {key > 0 && (
+        <div
+          data-dc-light="manim-key"
+          style={{
+            position: 'absolute',
+            left: r.x + r.w * 0.2,
+            top: r.y + r.h * 0.12,
+            width: r.w * 0.6,
+            height: r.h * 0.7,
+            background: `radial-gradient(ellipse 50% 50% at 50% 55%, ${C.signal}${hex(key)} 0%, ${C.signal}00 100%)`,
+          }}
+        />
+      )}
       <div style={{position: 'absolute', inset: 0, opacity: inn}}>
         {props.alpha ? video : <Glass accent={C.signal} style={{width: '100%', height: '100%', overflow: 'hidden', background: C.void}}>{video}</Glass>}
       </div>

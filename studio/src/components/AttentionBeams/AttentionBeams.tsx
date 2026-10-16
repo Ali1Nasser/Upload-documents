@@ -64,7 +64,7 @@ export const layoutTokens = (widths: number[], size: number, box: {x: number; y:
   const pos = ws.map((w, i): Pos => {
     const cx = rtl ? box.x + box.w - pitch * (i + 0.5) : box.x + pitch * (i + 0.5);
     const lower = rows === 2 && i % 2 === 1;
-    return {x: cx - w / 2, y: box.y + box.h * 0.72 - rowH * rows - (rows === 2 ? 10 : 0) + (lower ? rowH + 10 : 0), w, h: hs[i]};
+    return {x: cx - w / 2, y: box.y + box.h * 0.8 - rowH * rows - (rows === 2 ? 10 : 0) + (lower ? rowH + 10 : 0), w, h: hs[i]};
   });
   return {pos, rows, ok};
 };
@@ -89,7 +89,7 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   useOverflow(ctx.id, fit.overflow, {tokens: n, size: fit.size});
   const lay = m ? layoutTokens(m.w, fit.size, box, rtl, hsAt(fit.size)) : null;
   const bloom = bloomOf(ctx.fx);
-  const arcTop = box.y + 20;
+  const arcTop = box.y + Math.round(box.h * 0.12); // the arcs are the hero: they rise into the upper third
 
   const anchorOf = (i: number, raise: boolean): {x: number; y: number} | null => {
     if (!lay) return null;
@@ -98,7 +98,7 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   };
   const curve = (a: {x: number; y: number}, b: {x: number; y: number}) => {
     const dx = Math.abs(b.x - a.x);
-    const lift = Math.min(a.y - arcTop, 60 + dx * 0.5);
+    const lift = Math.min(2 * (a.y - arcTop), 120 + dx * 0.72); // control-point lift; the curve peaks at half of it
     return {cx: (a.x + b.x) / 2, cy: Math.min(a.y, b.y) - lift};
   };
   const pt = (a: {x: number; y: number}, c: {cx: number; cy: number}, b: {x: number; y: number}, u: number) => ({
@@ -163,7 +163,7 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           }
           g.stroke();
         };
-        if (bloom) draw(ctx.fx.glowInner * (0.6 + rel), 0.12 * rel * bloom, C.signal);
+        if (bloom && rel > 0.3) draw(ctx.fx.glowInner * (0.6 + rel), 0.12 * rel * bloom, C.signal);
         draw(2 + 9 * rel, 0.3 + 0.7 * rel, C.signal);
         if (ctx.fx.id !== 'lite') draw(1.2, 0.8 * rel, C.white);
         // receiver node: a solid dot where the beam lands, sized by the weight (also in lite)
@@ -226,6 +226,10 @@ export const AttentionBeamsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             return (
               <React.Fragment key={i}>
                 <Chip ctx={ctx} id={`${ctx.id}:t${i}`} text={t} size={fit.size} x={p.x} y={p.y} t0={ctx.at + ff(1 + i, ctx.fps)} accent={isFocus ? C.signal : undefined} color={dim ? C.ink3 : C.ink} overflow={fit.overflow} alpha={k} />
+                {isFocus ? (
+                  // focus plate (read before the arcs draw): a signal tint and a 2 px signal edge over the chip plate
+                  <div style={{position: 'absolute', left: p.x, top: p.y, width: p.w, height: p.h, boxSizing: 'border-box', borderRadius: 14, background: rgba(C.signal, 0.16), border: `2px solid ${rgba(C.signal, 0.9)}`, opacity: k * moveK(ctx, ctx.at + ff(1 + i, ctx.fps), 8), pointerEvents: 'none'}} />
+                ) : null}
                 {showNums && hit && props.weights ? (
                   <Chip ctx={ctx} id={`${ctx.id}:w${i}`} text={fmtNum(hit.w, 2)} size={NUM_SIZE} x={p.x + p.w / 2 - 52} y={p.y - NUM_H - 4} t0={cur.t0 + hit.rank * ff(2, ctx.fps) + ff(4, ctx.fps)} color={C.signal} mono plate={false} alpha={k} />
                 ) : null}

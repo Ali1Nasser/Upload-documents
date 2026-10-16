@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "574ae19a7423f5e7a5be3634031ce7cf187ee22cf159e24714dddb7f1e374e48",
-  "p50": "7b5c68a9b2ebdbad0a4b32d834ccfd805cccffca46a4b8e6409b5f0a8c1f1eac",
-  "p100": "8be519bc7790ea00920060ac52fe04da0bfb023c7cf35cd18e02881fa7cffc07"
+  "a1": "c7ee77be380509b716a0072bebb5084640b88d7cef692b9506ee8412b7450ff5",
+  "p50": "2b0b3039510c9433f4a390d3c7b90ed4cf0ad604c4e4ab9306bcc5b45057edcc",
+  "p100": "6d9d3e35015533fddd3285fa31c7a67e84891c572e4b49449c2383ca9fa815cb"
  },
  "v": 2,
  "name": "WireTangle",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-16T18:17:09Z",
+ "written_at": "2026-10-16T23:00:17Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."

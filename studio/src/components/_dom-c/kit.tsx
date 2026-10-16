@@ -155,7 +155,7 @@ export const Lbl: React.FC<LblProps> = (p) => {
 export const fmtNum = (v: number, decimals?: number, src?: number): string =>
   formatValue(v, 'decimal', decimals ?? (src === undefined || Number.isInteger(src) ? 0 : (String(src).split('.')[1] ?? '').length));
 
-export type NumTextProps = {id: string; value: number; target: number; decimals?: number; unit?: string; maxW: number; size?: number; color?: string; glow?: string};
+export type NumTextProps = {id: string; value: number; target: number; decimals?: number; unit?: string; maxW: number; size?: number; color?: string; glow?: string; unitScale?: number};
 /** A number readout (mono tabular, unit after the number in the same LTR isolate). `target` sizes the box (no jitter). */
 export const NumText: React.FC<NumTextProps> = (p) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -171,7 +171,7 @@ export const NumText: React.FC<NumTextProps> = (p) => {
         style={{fontFamily: `'${FONT.mono.family}'`, fontWeight: FONT.mono.weight, fontSize: fit.size, lineHeight: 1.1, color: p.color ?? C.ink, fontFeatureSettings: '"tnum" 1, "zero" 0', textShadow: p.glow ? `${halo}, ${p.glow}` : halo}}
       >
         <span style={{display: 'inline-block', minWidth: `${Math.max(s.length, wide.length)}ch`, textAlign: 'center'}}>{s}</span>
-        {p.unit ? <span style={{fontSize: '0.5em', color: C.ink2, marginLeft: '0.3em'}}>{p.unit}</span> : null}
+        {p.unit ? <span style={{fontSize: `${p.unitScale ?? 0.5}em`, color: C.ink2, marginLeft: '0.3em'}}>{p.unit}</span> : null}
       </bdi>
     </div>
   );

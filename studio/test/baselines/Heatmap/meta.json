@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "f68798d0a6e327638255784760f73916d7b6579b5a47647573f0b7a9bec23d35",
-  "p50": "cee19fb2c7120e63ac01bd111c08edefcbb1a8a447cf546b44e07b2afb84ab74",
-  "p100": "300bb569811c9336fe4b16ae320eb0fb2045db1417cfed26989bdfd2f308a989"
+  "a1": "c70605d14dd74d8b9d270478b684fab9d0be8aa2273398fc6680728b80028334",
+  "p50": "cc5e14352d4cc87db6c69fd0713f9b7ecbc3aa32611411248a350afb3e7aa09d",
+  "p100": "ef3093c341695e01a00bf990499be9e0e1b65a0398cf65f15588ee55d9e39524"
  },
  "v": 2,
  "name": "Heatmap",
@@ -27,12 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T11:36:28Z",
+ "written_at": "2026-10-16T23:09:19Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "score": 7.2,
- "date": "2026-10-16",
- "notes": "Critic round 1: approved 7.2, no blocking. Non-blocking: row labels touch the slab rim, dimmed labels low contrast, ghost cells / diverging scale / diagonal sweep unproven (no short-row demo, no strip), light shafts faint, matrix ~62% of frame, p0 blank. See reports/p7/review_data.md."
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

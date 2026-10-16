@@ -2,7 +2,7 @@
  "v": 2,
  "name": "Heatmap",
  "composition": "Demo-Heatmap",
- "at": "2026-10-16T18:18:18Z",
+ "at": "2026-10-16T23:09:19Z",
  "frames": [
   0,
   11,
@@ -26,34 +26,30 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   },
   {
    "tag": "p50",
    "frame": 64,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   },
   {
    "tag": "p100",
    "frame": 129,
    "why": "100 %",
-   "mismatch_px": 0,
-   "pass": true
+   "baseline": "written"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": false,
+ "approve": true,
  "pass": true
 }

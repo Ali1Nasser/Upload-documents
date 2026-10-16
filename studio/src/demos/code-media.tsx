@@ -147,9 +147,9 @@ const demos: DemoModule = {
         fx_tier: 'standard',
         camera: {move: 'push_in', intensity: 0.3},
         layers: [
-          {component: 'ManimInsert', props: {id: 'insert', clip: 'demo-normal-95', alpha: true, fit: 'contain', slot: 'full', depth: 'mid'}, at: {word: MI(1), lead_frames: 2}},
+          {component: 'ManimInsert', props: {id: 'insert', clip: 'demo-normal-95', alpha: true, fit: 'contain', slot: 'center', depth: 'mid'}, at: {word: MI(1), lead_frames: 2}},
           {component: 'KineticWord', props: {id: 'kw', text: 'التوزيع الطبيعي', slot: 'upper-third', size: 'kinetic'}, at: {word: MI(2), lead_frames: 2}},
-          {component: 'NumberCounter', props: {id: 'cnt', to: {value: 0.975, ref: 'd:6.12:5', decimals: 3}, format: 'decimal', label: 'المساحة حتى 1.96', slot: 'start'}, at: {word: MI(3), lead_frames: 2}},
+          {component: 'NumberCounter', props: {id: 'cnt', to: {value: 0.975, ref: 'd:6.12:5', decimals: 3}, format: 'decimal', label: 'المساحة حتى 1.96', size: 'sub', slot: 'lower-third'}, at: {word: MI(3), lead_frames: 2}},
         ],
       },
     },

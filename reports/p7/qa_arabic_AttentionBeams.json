@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-16T11:15:57Z",
+ "created": "2026-10-16T23:14:53Z",
  "label": "AttentionBeams",
  "thresholds": {
   "ocr_min": 0.9,

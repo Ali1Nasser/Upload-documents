@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ManimInsert",
  "composition": "Demo-ManimInsert",
- "at": "2026-10-16T18:45:04Z",
+ "at": "2026-10-16T23:14:40Z",
  "frames": [
   0,
   15,
@@ -33,7 +33,7 @@
    "tag": "a1",
    "frame": 15,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "mismatch_px": 3063,
+   "mismatch_px": 1559,
    "pass": false
   },
   {
@@ -41,14 +41,14 @@
    "frame": 64,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "mismatch_px": 69135,
+   "mismatch_px": 61006,
    "pass": false
   },
   {
    "tag": "p100",
    "frame": 129,
    "why": "100 %",
-   "mismatch_px": 71166,
+   "mismatch_px": 63051,
    "pass": false
   }
  ],

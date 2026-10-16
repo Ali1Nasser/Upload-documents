@@ -2,7 +2,7 @@
  "v": 2,
  "name": "PipelineStations",
  "composition": "Demo-PipelineStations",
- "at": "2026-10-16T06:05:13Z",
+ "at": "2026-10-16T22:51:23Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p50",
    "frame": 215,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p100",
    "frame": 431,
    "why": "100 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
+ "approve": false,
  "pass": true
 }

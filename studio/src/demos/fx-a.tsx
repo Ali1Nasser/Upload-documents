@@ -179,8 +179,8 @@ const demos: DemoModule = {
         fx_tier: 'standard',
         camera: cam,
         layers: [
-          {component: 'NumberCounter', props: {id: 'total', to: {value: 400, ref: 'd:5.2:8', unit: 'EGP', decimals: 0}, format: 'currency', label: 'الإجمالي الناجح', slot: 'center'}, at: {word: W('Spin', 1), lead_frames: 0}},
-          {component: 'Spin', props: {to: 'total', turns: 1, axis: 'y'}, at: {word: W('Spin', 2), lead_frames: 2}},
+          table('Spin'),
+          {component: 'Spin', props: {to: 'receipts', turns: 1, axis: 'z'}, at: {word: W('Spin', 2), lead_frames: 2}},
         ],
       },
     },

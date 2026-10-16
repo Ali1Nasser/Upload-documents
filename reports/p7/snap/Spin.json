@@ -2,7 +2,7 @@
  "v": 2,
  "name": "Spin",
  "composition": "Demo-Spin",
- "at": "2026-10-14T08:27:41Z",
+ "at": "2026-10-16T23:08:52Z",
  "frames": [
   0,
   13,
@@ -27,36 +27,33 @@
    "frame": 0,
    "why": "0 %",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 1108 px"
+   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
   },
   {
    "tag": "a1",
    "frame": 13,
    "why": "first anchor settled (anchor + 6 + 1 f)",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 1108 px"
+   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
   },
   {
    "tag": "p50",
    "frame": 47,
    "why": "50 %",
-   "determinism_diff_px": 1108,
+   "determinism_diff_px": 0,
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 1108 px"
+   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
   },
   {
    "tag": "p100",
    "frame": 95,
    "why": "100 %",
    "pass": false,
-   "error": "not approved (baseline untouched): determinism 1108 px"
+   "error": "no approved baseline (run with --approve, then ask the critic to approve it)"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
- "approve_refused": [
-  "determinism 1108 px"
- ],
+ "approve": false,
  "pass": false
 }

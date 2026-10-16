@@ -36,7 +36,7 @@ const PITCH = -0.42; // negative: seen from above (the top face is visible)
 const DIST = 3.4 * L;
 const PULL = 0.22; // slice lift along the layer's normal (x: right, y: up, z: toward the viewer), fraction of the axis length; small, so the slab never covers a tick or a title
 const CAP = [1.5, 1.7, 1.9]; // longest an axis may grow with 1, 2, 3 tick rows
-const GHOST = 0.13;
+const GHOST = 0.2; // unfocused cells stay readable under a slice / dice (critic r1: ~1.5x)
 const DRIFT = 0.05; // rad, idle yaw drift amplitude
 const TAU = Math.PI * 2;
 
@@ -129,7 +129,7 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const hL = Math.round(fs0 * 1.5);
     const hT = Math.round(ft0 * 1.5);
     const gapMin = 40; // AT-4: labels on one baseline are >= 40 px apart
-    const off = 24;
+    const off = [14, 24, 34]; // per axis: axis 0 hugs the floor edge (hairline leaders tie it), axis 2 keeps clear of a lifted slab
     const maxW = mw.map((r) => Math.max(...r));
     const P = (p: P3, yaw = YAW0) => project(p, {yaw, pitch: PITCH, dist: DIST}, DIST);
     const tickPts = (a: number, Lv: number[]) =>
@@ -138,7 +138,7 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         const c = -Lv[a] / 2 + ((l + 0.5) * Lv[a]) / n[a];
         return a === 0 ? P({x: c, y: -Lv[1] / 2, z: -Lv[2] / 2}) : a === 1 ? P({x: -Lv[0] / 2, y: c, z: -Lv[2] / 2}) : P({x: Lv[0] / 2, y: -Lv[1] / 2, z: c});
       });
-    const boxes = (a: number, pts: {x: number; y: number}[], rows: number) => pts.map((p, i) => tickBox(a, p, mw[a][i], i % rows, hL, off, maxW[a], gapMin));
+    const boxes = (a: number, pts: {x: number; y: number}[], rows: number) => pts.map((p, i) => tickBox(a, p, mw[a][i], i % rows, hL, off[a], maxW[a], gapMin));
     const hit = (A: Box, B: Box) => A.x0 < B.x1 + gapMin && B.x0 < A.x1 + gapMin && A.y0 < B.y1 + 6 && B.y0 < A.y1 + 6;
     const clashes = (R: Box[]) => R.some((A, i) => R.some((B, j) => j > i && hit(A, B)));
     const Lv = [L, L, L];
@@ -313,7 +313,7 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               pts: f.pts.map((p) => corner(p[0], p[1], p[2])).join(' '),
               fill,
               stroke: mix(mix(C.ink3, C.violet, 0.3), C.signal, hot),
-              so: Math.max(alphaCell, ghost > 0 ? GHOST * 1.9 * a3 : 0) * (0.55 + 0.45 * hot),
+              so: Math.max(alphaCell, ghost > 0 ? GHOST * 2.2 * a3 : 0) * (0.55 + 0.45 * hot),
               fo: alphaCell * 0.93,
               sw: (1.4 + 1.6 * hot) * s,
               halo: hot > 0.3,
@@ -345,8 +345,11 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   };
   const bornLab = ctx.at + Math.round(14 * (fps / 24)) + presetFrames('label', fps);
   const hLs = geo.hL * s;
-  const tickBoxes = [0, 1, 2].map((a) => ax[a].members.map((_, i) => tickBox(a, tickAnchor(a, i), geo.mw[a][i] * s, i % geo.rows[a], hLs, geo.off * s, geo.maxW[a] * s, geo.gapMin * s)));
+  const tickBoxes = [0, 1, 2].map((a) => ax[a].members.map((_, i) => tickBox(a, tickAnchor(a, i), geo.mw[a][i] * s, i % geo.rows[a], hLs, geo.off[a] * s, geo.maxW[a] * s, geo.gapMin * s)));
   const titleB = titleBoxes((p3) => P(p3), Lv, tickBoxes[0], geo.tw.map((v) => v * s), geo.hT * s);
+  const selNow = (cur ? pc : 0) + (prev ? 1 - pc : 0);
+  const spill = cur ? Math.min(1, selNow) : prev ? 1 - pc : 0;
+  const floorC = P({x: 0, y: -Lv[1] / 2, z: 0});
   const sigma = (cx: number, cy: number, r: number, q: number) => (
     <path
       d={`M${cx + r * 0.55},${cy - r} H${cx - r * 0.55} L${cx + r * 0.1},${cy} L${cx - r * 0.55},${cy + r} H${cx + r * 0.6}`}
@@ -363,6 +366,11 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <div style={{position: 'absolute', left: ctx.box.x, top: ctx.box.y, width: ctx.box.w, height: ctx.box.h, ...exitStyle(ctx, dir)}}>
       {m.node}
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
+        {spill > 0.01
+          ? [1, 0.8, 0.62, 0.46, 0.32, 0.2].map((r, i) => (
+              <ellipse key={`sp${i}`} cx={floorC.x} cy={floorC.y + 6 * s} rx={Lv[0] * 0.95 * s * r} ry={Lv[0] * 0.95 * s * r * 0.38} fill={C.signal} fillOpacity={0.028 * spill} />
+            ))
+          : null}
         {cells.map((c) => (
           <g key={c.key}>
             {c.faces.map((f, i) => (
@@ -373,6 +381,17 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             ))}
           </g>
         ))}
+        {[0, 1, 2].flatMap((a) =>
+          ax[a].members.map((mm, i) => {
+            if (i % geo.rows[a] !== 0) return null;
+            const p0 = tickAnchor(a, i);
+            const B = tickBoxes[a][i];
+            const rv = revealStyle(t - bornLab - Math.round((i * 2 * fps) / 24), fps, 'label', dirOf([mm]));
+            const vis = (1 - roll[a]) * (typeof rv.style.opacity === 'number' ? rv.style.opacity : 1);
+            const q = a === 0 ? {x: p0.x, y: B.y0 - 2 * s} : a === 1 ? {x: B.x1 + 2 * s, y: p0.y} : {x: B.x0 - 2 * s, y: p0.y};
+            return <line key={`ld${a}:${i}`} x1={p0.x} y1={p0.y} x2={q.x} y2={q.y} stroke={C.ink3} strokeWidth={Math.max(1.5, 2 * s)} strokeLinecap="round" strokeOpacity={0.8 * vis} />;
+          }),
+        )}
         {[0, 1, 2].map((a) =>
           roll[a] > 0.05 ? (
             <g key={`sg${a}`}>{sigma(titleB[a].x1 + 26 * s, (titleB[a].y0 + titleB[a].y1) / 2, 16 * s, roll[a])}</g>
@@ -394,7 +413,7 @@ export const OlapCubeView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       )}
       {[0, 1, 2].map((a) => {
         const B = titleB[a];
-        const rv = revealStyle(t - bornLab, fps, 'label', dirOf([ax[a].label]));
+        const rv = revealStyle(t - ctx.at, fps, 'label', dirOf([ax[a].label]));
         return (
           <div key={`title${a}`} style={{position: 'absolute', left: B.x0, top: B.y0, height: B.y1 - B.y0, display: 'flex', alignItems: 'center', fontSize: fsA, color: C.ink, lineHeight: lineHeightFor(ax[a].label), whiteSpace: 'nowrap', textShadow: halo, outline: geo.overflow ? `2px dashed ${C.crit}` : undefined, ...rv.style}}>
             <MixedText id={`${ctx.id}:title${a}`} text={ax[a].label} size={fsA} weight={FONT.label.strong} role={roleOf(ax[a].label)} />

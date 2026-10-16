@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "41fe713c52b565435054b9c2bc434c1eecd3435cab235a6573adbda45f3b5e5e",
-  "a1": "a87d487517b563a919f2b5ef5e617734007c8b1ae2c94006c8870c9216c9e352",
-  "p50": "c1ffa49870ddb2dcf21a0815e38ab940aecb0b2de4232a5ad2f4f4d52787889f",
-  "p100": "958a3ed57f2b8b03e3ca2d32dfeeedeafc40903905d37f4e0a55979de298a84d"
+  "a1": "04a534a9ee52fd7cdb3522f1ddee1b5329196e81096ae448026ffe5933d9078b",
+  "p50": "b0a6eec098167ab3a2aef309a2dfe307798abbbbe8ff7323359c939a65ed051a",
+  "p100": "b1f43faebe1702e41f413936706d3ecbe5e5e4172c4d11f0d17db8219b340285"
  },
  "v": 2,
  "name": "AttentionBeams",
@@ -27,15 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-16T06:16:54Z",
+ "written_at": "2026-10-16T23:14:40Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7.3,
-  "date": "2026-10-16",
-  "reviewer": "critic",
-  "notes": "Lite stills only (hashes match meta). Verb reads: focus chip left, arcs to attended tokens, weight drives width/brightness, attend moves focus and dims outside tokens. No blocking items. Flat lite lighting, composition small in lower band, retract motion unproven. Standard/hero stills and an attend strip required before final lock."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }
