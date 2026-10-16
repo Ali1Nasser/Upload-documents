@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "AttentionMatrix",
+ "composition": "Demo-AttentionMatrix",
+ "at": "2026-10-16T11:30:25Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 120,
+   "wall_s": 8.79,
+   "box_s_per_frame": 0.0733,
+   "slot_s_per_frame": 0.2199,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.46,
+    4.61
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 3
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 120,
+   "wall_s": 22.93,
+   "box_s_per_frame": 0.1911,
+   "slot_s_per_frame": 0.5733,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.61,
+    4.25
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 120,
+   "wall_s": 21.51,
+   "box_s_per_frame": 0.1793,
+   "slot_s_per_frame": 0.5379,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.25,
+    4.76
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 4
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

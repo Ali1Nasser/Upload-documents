@@ -7,7 +7,8 @@
 //   the data-contract id / sentence that carries the figures. Without `matrix` a seeded row-normalised matrix is drawn as a pure
 //   picture (visual only, no figures).
 // highlightRow {index}: on its word that row takes a signal outline and its label, the others dim (latest wins).
-// Tiers: lite flat cells; standard + glow on the brightest cells; hero + bloom. Cell figures are copy: the glow canvas is text-safe masked.
+// Depth and light (ADR-003 LK-F): the grid lies on a rim-lit glass panel (top and left rim, contact shadow); cells are bevelled, masked cells are
+//   recessed voids with a faint edge. Tiers: lite flat bevelled cells; standard + signal light pool under the panel and glow on the brightest cells; hero + bloom. Cell figures are copy: the glow canvas is text-safe masked.
 import React from 'react';
 import {random} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
@@ -78,6 +79,50 @@ export const AttentionMatrixView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const drawCells = (g: CanvasRenderingContext2D) => {
     if (!L || k <= 0) return;
     const {cs, x0, y0} = L;
+    const gw = cs * n;
+    const PAD = 10;
+    const std = ctx.fx.id !== 'lite';
+    // glass panel under the grid: the matrix is an object lying in the scene (key light from the upper left, rim on top, contact shadow below)
+    const px = x0 - PAD;
+    const py = y0 - PAD;
+    const pw = gw + 2 * PAD;
+    const ph = gw + 2 * PAD;
+    const pk = enterK(ctx, 'arrive') * exitK(ctx);
+    const sh = g.createLinearGradient(0, py + ph, 0, py + ph + 56);
+    sh.addColorStop(0, rgba(C.void, 0.7 * pk));
+    sh.addColorStop(1, rgba(C.void, 0));
+    g.fillStyle = sh;
+    g.fillRect(px + 6, py + ph - 2, pw - 12, 58);
+    if (std) {
+      // soft elliptical light pool on the floor below the panel (a squashed radial, never a hard-edged bar)
+      const R = pw * 0.6;
+      g.save();
+      g.translate(px + pw / 2, py + ph + 6);
+      g.scale(1, 0.14);
+      const pool = g.createRadialGradient(0, 0, 0, 0, 0, R);
+      pool.addColorStop(0, rgba(C.signal, 0.2 * pk));
+      pool.addColorStop(0.5, rgba(C.signal, 0.07 * pk));
+      pool.addColorStop(1, rgba(C.signal, 0));
+      g.fillStyle = pool;
+      g.fillRect(-R, -R, 2 * R, 2 * R);
+      g.restore();
+    }
+    const body = g.createLinearGradient(px, py, px + pw * 0.4, py + ph);
+    body.addColorStop(0, rgba(mix(C.panel, C.ink3, 0.12), 0.94 * pk));
+    body.addColorStop(1, rgba(C.ground, 0.94 * pk));
+    g.fillStyle = body;
+    g.fillRect(px, py, pw, ph);
+    g.fillStyle = rgba(C.ink2, 0.5 * pk);
+    g.fillRect(px, py, pw, 2); // top rim
+    g.fillStyle = rgba(C.ink3, 0.28 * pk);
+    g.fillRect(px, py, 2, ph); // left rim
+    g.fillStyle = rgba(C.void, 0.55 * pk);
+    g.fillRect(px, py + ph - 2, pw, 2);
+    // the highlighted row lies in a lit channel
+    if (hrIdx >= 0 && hrK > 0) {
+      g.fillStyle = rgba(C.signal, 0.12 * hrK * k);
+      g.fillRect(px, y0 + hrIdx * cs - 2, pw, cs + 4);
+    }
     for (let i = 0; i < n; i++)
       for (let j = 0; j < n; j++) {
         const v = m[i][j];
@@ -85,15 +130,38 @@ export const AttentionMatrixView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         if (a <= 0.004) continue;
         const x = x0 + j * cs + GAP / 2;
         const y = y0 + i * cs + GAP / 2;
+        const w = cs - GAP;
         g.globalAlpha = 1;
-        g.fillStyle = v <= 0 ? rgba(C.grid, 0.35 * a) : rgba(mix(C.panel, C.signal, Math.min(1, v ** 0.7)), (0.55 + 0.45 * Math.min(1, v ** 0.5)) * a);
-        g.fillRect(x, y, cs - GAP, cs - GAP);
+        if (v <= 0) {
+          // masked cell: a recessed void with a faint edge, so the lower-triangular mask reads as a mask and not as missing data
+          g.fillStyle = rgba(C.void, 0.55 * a);
+          g.fillRect(x, y, w, w);
+          g.strokeStyle = rgba(C.grid, 0.9 * a);
+          g.lineWidth = 1;
+          g.strokeRect(x + 0.5, y + 0.5, w - 1, w - 1);
+          continue;
+        }
+        const t = Math.min(1, v ** 0.55);
+        g.fillStyle = rgba(mix(C.panel, C.signal, t), (0.62 + 0.38 * t) * a);
+        g.fillRect(x, y, w, w);
+        // bevel: lit top and left edges, shaded bottom and right edges (strong cells catch more light)
+        g.fillStyle = rgba(C.white, (0.1 + 0.3 * t) * a);
+        g.fillRect(x, y, w, 2);
+        g.fillRect(x, y, 2, w);
+        g.fillStyle = rgba(C.void, 0.35 * a);
+        g.fillRect(x, y + w - 2, w, 2);
+        g.fillRect(x + w - 2, y, 2, w);
+        if (v >= 0.35) {
+          g.strokeStyle = rgba(C.signal, Math.min(1, (v - 0.2) * 1.4) * a);
+          g.lineWidth = 2;
+          g.strokeRect(x + 1, y + 1, w - 2, w - 2);
+        }
       }
     if (hrIdx >= 0 && hrK > 0) {
       g.globalAlpha = 1;
       g.strokeStyle = rgba(C.signal, 0.95 * hrK * k);
       g.lineWidth = 4;
-      g.strokeRect(x0 - 3, y0 + hrIdx * cs - 3, cs * n + 6, cs + 6);
+      g.strokeRect(x0 - 3, y0 + hrIdx * cs - 3, gw + 6, cs + 6);
     }
   };
   const drawGlow = (g: CanvasRenderingContext2D) => {
