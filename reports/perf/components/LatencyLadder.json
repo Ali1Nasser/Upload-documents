@@ -2,7 +2,7 @@
  "v": 2,
  "name": "LatencyLadder",
  "composition": "Demo-LatencyLadder",
- "at": "2026-10-15T22:03:54Z",
+ "at": "2026-10-16T11:19:25Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,54 +21,54 @@
  "tiers": {
   "lite": {
    "frames": 160,
-   "wall_s": 13.55,
-   "box_s_per_frame": 0.0847,
-   "slot_s_per_frame": 0.2541,
+   "wall_s": 24.07,
+   "box_s_per_frame": 0.1504,
+   "slot_s_per_frame": 0.4512,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.41,
-    5.82
+    9.4,
+    10.77
    ],
    "queue": {
-    "running": 1,
-    "queued": 4
+    "running": 3,
+    "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 2
   },
   "standard": {
    "frames": 160,
-   "wall_s": 13.83,
-   "box_s_per_frame": 0.0864,
-   "slot_s_per_frame": 0.2592,
+   "wall_s": 28.52,
+   "box_s_per_frame": 0.1782,
+   "slot_s_per_frame": 0.5346,
    "budget_box_s_per_frame": 0.201,
    "within_budget": true,
    "loadavg1": [
-    5.59,
-    4.96
+    10.63,
+    11.52
    ],
    "queue": {
-    "running": 1,
-    "queued": 4
+    "running": 2,
+    "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 1
   },
   "hero": {
    "frames": 160,
-   "wall_s": 13.8,
-   "box_s_per_frame": 0.0863,
-   "slot_s_per_frame": 0.2589,
+   "wall_s": 30.53,
+   "box_s_per_frame": 0.1908,
+   "slot_s_per_frame": 0.5724,
    "budget_box_s_per_frame": 1.038,
    "within_budget": true,
    "loadavg1": [
-    4.64,
-    4.87
+    12.36,
+    12.18
    ],
    "queue": {
-    "running": 1,
-    "queued": 4
+    "running": 2,
+    "queued": 3
    },
-   "other_jobs_running": 0
+   "other_jobs_running": 1
   }
  },
  "within_budget": true,

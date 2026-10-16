@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "04cba53675cdac89db1b5ede797b6c76db9a21c48c21b9f10e1d58a4e42355d3",
-  "p50": "f4ad693d6194e5eca56bd59f204f459daf0a5d240664df427aaa737ae7139a5f",
-  "p100": "9066893fa4d9a8e8c700478378011b62d5533b2a638c4d6fd2079dbba705ee4a"
+  "a1": "5c516f6ff5b035c63d62ee95a9b58820ef84bec78c66d19e304007cef165db1b",
+  "p50": "ce14ae10737441035f7e17e2f3c995e4d28e3a08043ace29538ecf41f645ead7",
+  "p100": "e0236be4f52baf46876602abec5da57610cc674571cee1b4392c58725575ebc2"
  },
  "v": 2,
  "name": "LatencyLadder",
@@ -27,15 +27,8 @@
    1
   ]
  },
- "written_at": "2026-10-15T22:01:27Z",
+ "written_at": "2026-10-16T11:15:02Z",
  "written_by": "motion-engineer",
- "approval": "approved-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
- "status": "approved-critic",
- "critic": {
-  "score": 7,
-  "date": "2026-10-15",
-  "reviewer": "critic",
-  "notes": "Log scale and RTL labels correct, amber ramp reads, rim-lit bars. Weak perspective (reads as flat bar chart), faint decade gridlines, no still holds the reach flash or puls. Non-blocking fixes in reports/p7/review_dom-a.md."
- }
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
 }

@@ -70,8 +70,8 @@ const latencyLadder: DemoDef = {
   frames: 160,
   words: [
     [W('LatencyLadder', 1), 6, 24],
-    [W('LatencyLadder', 2), 56, 72],
-    [W('LatencyLadder', 3), 104, 124],
+    [W('LatencyLadder', 2), 40, 56],
+    [W('LatencyLadder', 3), 76, 96],
   ],
   shot: {
     fx_tier: 'standard',
