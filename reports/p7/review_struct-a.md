@@ -297,3 +297,18 @@ Non-blocking (fix before pilot use):
 3. p100 (x 48-235 / y 146-198): release chip about 48 px from the left edge at 960 (96 px at 1920), close to the safe margin; keep it clear with longer chips when the last gate is leftmost.
 4. Motion unjudged: fix ring, green gate flash, capsule hop and gate shake appear in no baseline; supply a 12 fps strip (fail and fix) and add a fix snap.
 5. All frames: no camera drift or parallax between gate planes; add a slight drift for pilot use.
+
+## LayerStack — round 1 (fourth read, requested re-verification) (2026-10-16, critic, fresh full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders; snap PASS 0 px / det 0 / qa 0 taken from author note)
+
+Verdict: APPROVED (score 7.0, no blocking issue). meta.json already approved-critic; critic block refreshed to this read.
+
+Scores: subject clarity 8 (Docker layer stack with ok / active / crit slabs, and the ODS-DW-ADS-Marts warehouse stack, read without narration), mechanism visible 7 (p50: green cached layers, cyan active slab with progress fill and "5 s" timer, red X on the top CMD slab; p100: single cyan-lit Marts slab out of four), look parity 6.5, typography 8 (Arabic shaped and RTL; "ODS - بيانات خام" keeps Latin term and dash in order; ADS label now about 40 px inside slab edge, fix from 35d2a8a confirmed; labels about 26 px at 960 = 52 px at 1080), camera and depth 6 (extruded slabs with top and side faces, but no floor spill, no parallax), legibility 8, accuracy 9 (5 s is demo content, no claimed figure), tokens 8.5 (ok / crit / cyan / neutral; active slab fill reads olive), polish 7, no bullet-list look 7 (stacked slabs, but p100 is close to a four-row list), no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. p50 (x 195-650 / y 145-220): active "COPY src" slab fill is olive/brown, off the palette feel against cyan edge; use a cyan-tinted progress fill.
+2. p0 (y 0-320) and a1 (y 0-140): upper half is empty backdrop; move the first snap to about f6 and add a soft floor spill under the stack.
+3. p100 (x 230-685 / y 45-495): three of four slabs are near-neutral grey at about 3:1 to the backdrop; raise dim edge alpha about 1.3x so the stack survives under the highlight.
+4. Motion unjudged: layer push, cache-hit flash and crit break are in no baseline; supply a 12 fps strip over one build cascade (about f60-f200) before pilot use.
+5. All frames: no camera drift or parallax; add a slight orbit for pilot use.
