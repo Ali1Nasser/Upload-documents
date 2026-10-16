@@ -3,7 +3,7 @@
   "p0": "72bc0df3367a043957ca1eb572eb9a6e281e429fba3de78b87a2cfeccc6e6147",
   "a1": "ff72a147cd4b2156c5cc8ae6039385aaef1bf3fb235581ce57802257108e915c",
   "p50": "f30c1f55377ca3946e6664d8118600f6faa1fb69be53798741edef8123e5faaa",
-  "p100": "b68f1feff9fc5ffcc41c98e444b77514718e914f3f7dc0b43872963976726324"
+  "p100": "3e5116b4ebf121ad109e33ee2009550bce612461f9eeab6c02b217fea6006010"
  },
  "v": 2,
  "name": "KAnonBlur",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-16T11:40:38Z",
+ "written_at": "2026-10-16T17:50:18Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
