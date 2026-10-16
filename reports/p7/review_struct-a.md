@@ -157,3 +157,18 @@ Non-blocking (fix before pilot use):
 3. p100 (x 48-235 / y 145-200): chip is 5 % from the left edge, tight to the title-safe margin; shift inward.
 4. p0 is an empty backdrop with two motes (x 736 / y 241); move the first snap frame to about f6.
 5. p0/a1/p50/p100: still a compact stepper with no parallax; add a depth cue (capsule glow trail, slight camera drift) for pilot use.
+
+## LayerStack — round 1 (polish re-read of cc6b018) (2026-10-16, critic, fresh read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5, p100 ADS crop zoomed x4; no strip supplied, no new renders)
+
+Verdict: NOT APPROVED (score 6.8, one blocking issue). meta.json left at pending-critic; the earlier 7.0 approval was for the pre-polish baselines.
+
+Polish check: lift gap fixed (p50 gaps about 12 px, no overlap), dimmed ink brighter and legible (p0, a1, p100), "5 s" now full ink (a1 x 650-695 / y 185-205), p0 now carries two slabs (not empty), floor shadow and n<=4 scale-up applied (p100 stack about 48 % of width, was 38 %), five-slab p50 fills the frame. Look parity 7, typography 7 (see blocking), mechanism 7, depth 6.5 (3D slab faces, no parallax), tokens 9 (ok/signal/crit/warn/ink), legibility 8, accuracy 9, no bullet look 7, no legacy frames 10.
+
+Blocking:
+1. p100 (x 250-460 / y 335-365): the ADS slab label "ADS - جاهز للتقارير" overflows the left padding. The final ر of "للتقارير" touches or crosses the slab's left border (x 250), while DW starts at x 266 and Marts at x 272. Arabic text must never reach the slab edge; this will recur with any real label longer than the demo. Fix: measure label width in the slab and shrink-to-fit (or widen the slab / reduce font) with a minimum left padding of about 24 px at 1080; add a lint/spec metric for label overflow.
+
+Non-blocking (fix before pilot use):
+1. p50 (x 198-725 / y 165-220): the active COPY src slab fill is a muddy olive-brown (warn progress blended over cyan); the cyan edge and warn progress fight. Use a clean warn bar on a cool base, or a narrower progress strip.
+2. Motion still unjudged: rebuildFrom cascade (crit wave, warn bar, signal edge, ok pulse, and the new highlight fade) is not in any baseline. Supply a 12 fps strip and add two snap frames (mid-cascade, mid-rebuild).
+3. p50 CMD app slab (x 198-760 / y 52-130): crit slab has no label beyond "CMD app" and no stage cue showing that it is invalidated; consider a faint "x" chip or crack on the edge for reading without narration.
+4. All frames: flat dark ground, no camera drift or parallax between slabs; add slight camera orbit for pilot use.
