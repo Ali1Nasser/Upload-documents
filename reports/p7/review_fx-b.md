@@ -155,3 +155,23 @@ Non-blocking, still open (unchanged from round 2, fix at next re-baseline):
 3. p50, p100 (x 400-500, y 305-320): Arabic label about 18 px at 960 wide, low contrast. Raise to the secondary token.
 4. Standard strip: bokeh and foreground dust very faint; raise bokeh alpha one step so fg reads against mid. The lite stills alone prove geometry and parallax only (the grid is the only strong depth cue).
 5. DOF off (CR-017); show it on a hero baseline once decided. Evidence-only panels (yellow onion, near-black DOF diff) need a caption: off-palette / copy intentionally unblurred.
+
+## FXTier — round 1
+
+Date: 2026-10-16. Reviewer: critic (not the author). Read at full size: baselines p0, a1, p50, p100 (960x540, lite), reports/p7/snap/FXTier.jpg and reports/p7/evidence/fx-b/FXTier_tiers.jpg (lite / standard / hero triptych, |standard-lite| x4, impact flash row f33).
+Verdict: APPROVED, score 7.0/10. meta.json set to approved-critic. No blocking issue.
+
+Earlier blockers (fx-b round 1, B2 and the "two unconnected objects" note):
+- B2 (tier look invisible): PARTLY FIXED. The lite stills still show no tier look, which is expected and correct for lite. The triptych now shows standard bokeh, haze and glow against lite, and the difference panel proves the delta. Condition: the tier look is proven by the triptych alone, not by the baselines.
+- Unconnected objects: FIXED in content. A sourced 200 EGP (T3 receipt, d:5.2:3) with FAILED landing under it reads as one idea (the amount that failed) and the coral crit token links them. The two are still about 250 px apart (y 150-175 vs y 385-435).
+
+Rubric (1-10): legibility 7, token/palette 8 (cyan, coral crit, ink2 only), depth and light 6 (lite stills flat, FAILED glow clean), visual verb without narration 6 (the tier change is subtle, hero vs standard is nearly identical in the triptych), Arabic 8 (إيصال T3 correct, RTL order right, Latin and digits set correctly), no bullet look 9, legacy frames 10, sourced numbers 9, motion intent 7 (a1 shows 178 counting to 200, p0 to a1 to p50 shows FAILED landing). Mean about 7.8, capped to 7.0 for the weak tier verb in stills.
+
+Blocking: none.
+
+Non-blocking, fix at the next re-baseline:
+1. p50, p100 (x 345-615, y 350-440): hard-edged darker scrim rectangle behind FAILED. Feather it.
+2. a1, p50, p100 (x 445-512, y 165-182): the Arabic label with T3 is about 16 px at 960 wide. Raise size or contrast to the secondary token.
+3. p50, p100 (y 150-385): large dead gap between the amount and FAILED. Close it (slot 'center' for the amount or move FAILED up) so the idea reads as one object at thumbnail size.
+4. Triptych: add a |hero - standard| panel (or a hero-only bokeh and CA close-up), since hero and standard look identical at this size. The yellow, cyan, near-black difference panels are evidence only and need a caption saying so.
+5. p0 is an empty gradient, a wasted baseline slot (same note as CameraRig).

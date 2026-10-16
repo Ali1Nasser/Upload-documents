@@ -29,6 +29,14 @@
  },
  "written_at": "2026-10-15T22:21:56Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "round": 1,
+  "notes": "Approved at 7.0, no blocking issue. Lite stills prove the demo (sourced 200 EGP d:5.2:3 with FAILED on impact) and not the tier look; the tier look is proven only by reports/p7/evidence/fx-b/FXTier_tiers.jpg. Non-blocking: feather the FAILED scrim, enlarge the Arabic label, close the 250 px gap between amount and FAILED, show hero vs standard difference."
+ }
 }
