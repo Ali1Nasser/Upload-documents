@@ -8,7 +8,7 @@
 // order, then the target-only entries) in crit on both sides. A mismatch never needs the reconcile sweep to show.
 // Depth + light (ADR-003 LK-F, 04 section 1.2): each ledger is a slab with a rim-lit top edge and a lit thickness strip standing on a
 // perspective floor; matched rows are joined by light bridges across the gap (ok beam, a spark travelling with a deterministic phase),
-// mismatched rows by a broken crit bridge with a gap. After the sweep a shaft of light and a floor pool fall on the verdict: ok when the
+// mismatched rows by a broken bridge with a gap (warn for an amount difference, crit for an orphan: the mismatch classes). After the sweep a shaft of light and a floor pool fall on the verdict: ok when the
 // totals are equal, crit when they are not. Plain CSS + SVG (no filter blur, no WebGL): the same render at every tier.
 import React from 'react';
 import type {DcComponent, DcProps} from '../../spec/types';
@@ -99,7 +99,7 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const recBad = rec && t >= markAt(i) && rw.state !== 'match';
           const y = rowY(i); // plate-relative
           if (!e)
-            return <div key={i} style={{position: 'absolute', left: pad, right: pad, top: y, height: rowH - 8, borderRadius: 10, border: `2px dashed ${tint(bad || recBad ? C.crit : C.ink3, 0.7)}`, opacity: q}} />;
+            return <div key={i} style={{position: 'absolute', left: pad, right: pad, top: y, height: rowH - 8, borderRadius: 10, border: `2px dashed ${tint(bad ? C.crit : recBad ? C.crit : C.ink3, 0.7)}`, opacity: q}} />;
           return (
             <div
               key={i}
@@ -107,7 +107,7 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
               style={{position: 'absolute', left: pad, right: pad, top: y, height: rowH - 8, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 20px', borderRadius: 10, opacity: q, background: bad ? tint(C.crit, 0.12 + 0.14 * mq) : i % 2 ? tint(C.ink, 0.03) : 'transparent', border: bad ? `2px solid ${tint(C.crit, 0.9)}` : '2px solid transparent', boxShadow: bad ? `0 0 ${(ctx.fx.glowPx * 0.5 * mq).toFixed(1)}px ${tint(C.crit, 0.5)}` : undefined}}
             >
               <Lbl id={`${ctx.id}:e${side}${i}`} text={e.label} size={sz} color={bad ? C.ink : C.ink2} overflow={fLab.overflow} />
-              <NumText id={`${ctx.id}:a${side}${i}`} text={fmtNum(e.amount)} unit={e.amount.unit} size={sz} color={bad || recBad ? C.crit : C.ink} fx={ctx.fx} glowK={bad ? 0.5 * mq : 0} style={fAmt.overflow ? {outline: `2px dashed ${C.crit}`} : undefined} />
+              <NumText id={`${ctx.id}:a${side}${i}`} text={fmtNum(e.amount)} unit={e.amount.unit} size={sz} color={bad ? C.crit : recBad ? (rw.state === 'diff' ? C.warn : C.crit) : C.ink} fx={ctx.fx} glowK={bad ? 0.5 * mq : 0} style={fAmt.overflow ? {outline: `2px dashed ${C.crit}`} : undefined} />
             </div>
           );
         })}
@@ -148,7 +148,7 @@ export const LedgerPairView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const k = rec ? revealProgress(t - markAt(i), presetFrames('label', ctx.fps), ease.arrive) : 0;
           if (k <= 0) return null;
           const ok = rw.state === 'match';
-          const col = ok ? C.ok : C.crit;
+          const col = ok ? C.ok : rw.state === 'diff' ? C.warn : C.crit; // mismatch classes: amount difference = warn, orphan (no partner) = crit
           return (
             <g key={i} opacity={k}>
               {ok ? (
