@@ -200,3 +200,34 @@ Reviewer: critic. Baselines p0, a1, p50, p100 re-read at full size and reports/p
 - Octal cross-check at p100: index.html = rw- r-- r-- = 644, backup.sql = rw- --- --- = 600, deploy.key = rwx --- --- = 700. All three are the sourced modes (s:S4:P03:0026-0027); no invented numbers.
 - New non-blocking observation, p50 (deploy.key column, bottom-right tile x 515-695, y 345-462): the demo's grant opens only the "الباقي" cell, so the column reads rwx --- rwx (707), which is not 777 and not a real mode, while the demo comment promises the 777 disaster. Either grant group too (two grant actions) or have the caller show the octal on screen. The component renders only rwx tags, never 700/600/644/777, so the spoken numbers need a NumberCounter or label from the shot spec to meet "every spoken number on screen".
 - Still open from round 1: no grant+3f / deny+3f baseline (flash, ring, shake untested); flat single plane; role ticks (x 705-720) weak and about 80 px from the tiles; "---" tags low contrast; a1 shows only 2 of 3 rows (stagger), p0 empty.
+
+---
+
+# Heartbeat — round 1
+
+Date: 2026-10-16. Reviewer: critic (did not author). Commit reviewed: 8a86b48. Verdict: APPROVED, score 7/10. No blocking issue.
+
+## What was checked
+- Baselines p0, a1, p50, p100 (lite, 960x540) at full size, and reports/p7/snap/Heartbeat.jpg (4-frame strip).
+- Demo props in studio/src/demos/dom-a.tsx: three DataNodes, interval 630 s citing s:S4:P18:0036 (the only number, shown as "10 min 30 s", the way it is spoken). No unsourced numbers.
+
+## Scores
+- Legibility at 1080p: 7. Node labels about 36 px whole words, interval chip about 34 px mono. SUSPECT tag is about 22 px and weakest.
+- Token and palette discipline: 8. Green ok, amber warn, steel ink; nothing stray.
+- Depth and light: 6. Rim-lit acrylic rows, spherical cores, soft green or amber floor pool under the stack, faded older beats. All rows sit in one flat plane.
+- Visual verb without narration: 8. A beating trace versus a dashed flatline with ghost spikes where beats should have been, hollow core, amber tag, then beats resuming (p100 row 2, ring pulse on core), reads as "alive, stopped, back".
+- Arabic: 8. "الـDataNode N" renders RTL, right-aligned, whole label, no clipping; term kept LTR inside the label.
+- Bullet-list or slide look: 6-7. Not a list, but three equal horizontal bars with a header chip read close to a monitoring dashboard.
+- Motion intent: 7. The strip shows traveling beats and the flatline; the miss flash and recover ring are not isolated in any baseline.
+- Legacy frames: none.
+
+## Blocking issues
+None.
+
+## Non-blocking fixes, in order of impact
+1. p50 and p100, all rows (x 48-910, y 145-435): add depth. Stagger rows in z or give the stack a mild perspective tilt so it is less of a flat dashboard; let the suspect row's amber pool spill on the floor.
+2. p50 and p100, interval chip (x 515-675, y 38-65): it floats detached above the middle of the stack and never changes. Anchor it to the suspect row (or draw a bracket across the flat gap) and let the elapsed-time counter run toward 10 min 30 s, so the spoken number is tied to the failure.
+3. Add baselines at miss+3f (about frame 65) and recover+3f (about frame 143): the warn flash, flatline start and radar ring are untested; a1 trace is nearly empty (only one spike).
+4. p50 row 2 (x 805-885, y 295-318): SUSPECT tag is about 22 px at 1080p; raise to about 28 px and add an Arabic equivalent or glyph in the shot spec, since English-only tags clash with the Egyptian-Arabic captions.
+5. p50 row 2, dashed flatline (x 390-605): thin and low-contrast against the dark row; thicken about 1.5x and raise the alpha so the failure survives 720p compression.
+6. p0: empty (nothing before the first word); acceptable for the entrance.

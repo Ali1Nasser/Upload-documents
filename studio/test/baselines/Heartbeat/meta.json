@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T05:49:31Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 1: no blocking issue. Rim-lit ECG rows read as liveness without narration: seeded PQRST beats travel left and fade, row 2 flatlines in warn (dashed trace, ghost beats where beats failed to come, hollow brown core, SUSPECT tag), then p100 shows beats resumed with ring pulse. Whole-label RTL Arabic names correct; only number is the sourced 10 min 30 s (s:S4:P18:0036). Weak: three equal rows read close to a monitoring dashboard; flat single plane; interval chip floats detached above the rows and never counts; no baseline at miss+3f / recover+3f for the flash and radar ring; a1 trace is mostly empty; SUSPECT/OK tags small and English-only."
 }
