@@ -143,3 +143,42 @@ None. Approved at 7.2 for the lite tier, with the carry-forwards below required 
 
 ### Calibration
 9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token with flat panes or one unproven motion verb (this component). 5 = labels over the key mark.
+
+## NeuralNet3D — round 1 (re-review after carry-forwards 1-5, commit 1df664b)
+Reviewed: studio/test/baselines/NeuralNet3D/{p0,a1,p50,p100}.png (960x540, lite, hashes match meta.json) and Arabic QA (pass). Standard/hero tiers not viewed.
+
+### Verified carry-forwards
+- CF1 backprop: p50 now shows amber warn packets travelling in the hidden-to-input gap (x 680-720, y 55-320) with the hidden pane tinted warn. The wave is visible and directional (output to input). Closed for stills.
+- CF2 panes: rims and fill read in the unhighlighted state (a1, all three panes). Depth is better, though still flat glass without a floor reflection.
+- CF3 links: weak links are fainter, strong weights stand out, and hidden neurons are readable in the middle (a1, x 200-740). Closed.
+- CF4 wave head: p50 packets are brighter than the amber cores. Closed, though the head reads as a dot cluster rather than a distinct spark.
+- CF5 labels: closer to the layers, a smaller dead band at y 400-430.
+
+### Scores (1-10)
+| Criterion | Score |
+|---|---|
+| Legible at 1080p (labels about 28 px) | 8 |
+| Token / palette discipline (cyan, amber warn) | 9 |
+| Depth and light | 7 |
+| Visual verb reads without narration | 8.5 |
+| Arabic correct | 9 |
+| Not a slide / bullet look | 8 |
+| No legacy frames | 10 |
+| No unsourced numbers | 10 |
+| Motion intent visible (stills only) | 7 |
+| Polish | 7 |
+Mean 8.3, min 7. Overall 7.6.
+
+### Blocking
+None.
+
+### Non-blocking, carry forward
+1. p50, hidden pane (x 495-560, y 30-385): the whole pane is flooded amber, so the activation tint on neurons is lost. Tint only the rim or half of the fill.
+2. p100, hidden neurons (x 500-560): cores are dark against the cyan highlight, so the activation tint is lost under highlightLayer. Keep the core tint under highlight.
+3. p50, packets (x 680-720): the wave is a clustered dot swarm. A single elongated head with a trail would read as a wave. Add a short trail.
+4. The labels' floor glow (y 400-440) is a dim smear and does not read as a reflection.
+5. Still not evidenced: a 6-frame strip of one forward and one backprop pass, and standard and hero stills. Required before the final lock.
+6. p0 is empty by design. Rely on a1 for the opening.
+
+### Calibration
+9 = rim-lit scene, clear metaphor, no collision. 7 = correct and on-token, with a clear verb but flat lighting or unproven motion (this component). 5 = labels over the key mark.
