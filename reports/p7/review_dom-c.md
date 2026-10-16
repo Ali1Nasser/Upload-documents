@@ -130,3 +130,35 @@ Mean 7.6 by criterion, held to 7.0 overall for the flat composition and unseen m
 5. p100, threshold tick (x 258-270, y 36-70 and x 690-700, y 36-70): the 5 px tick and its flag are the only gate cue, with no label. With a free label slot per contract, a future spec should pass a callout for the threshold value (e.g. via CalloutArrow, d:6.11:1) so the gate value is on screen when it is spoken.
 6. p100, contact shadows (x 180-345 and 610-775, y 238-258): the dark ellipses are lighter-footprint than the dial and look detached at 540p; tighten rx to ~0.9 r and raise opacity.
 7. p0 baseline is an empty dark frame and protects nothing; rewrite at frame ~6 when baselines are next regenerated.
+
+## IdempotentStamp — round 1 (critic, 2026-10-16)
+
+Looked at: baselines p0, a1, p50, p100 (960x540, lite, full size), reports/p7/snap/IdempotentStamp.jpg. No motion strip exists; the stamp strike, contact shadow, ring pulse, ghost dissolve and rebound were judged from the p50 mid-state and not seen live.
+
+### Scores (06 section 3.2 plus component acceptance)
+| Criterion | Score |
+|---|---|
+| Composition | 6 |
+| Palette and token discipline (cyan active, green ok seal, amber warn ring and pips) | 9 |
+| Light and depth (contact shadow, glow under the seal, lit page rim; no motes) | 7 |
+| Legibility at 1080p (chip about 30 px; key glyph on envelopes about 24 px) | 6 |
+| Visual verb without narration (outbox to ledger, one stamp, repeats absorbed) | 7 |
+| Arabic (no Arabic strings; the only text is the Latin literal key chip, LTR mono, correct) | 8 |
+| Not a bullet slide, no legacy frames | 9 |
+| Numbers (none shown; nothing invented) | 9 |
+| Motion intent (p50 mid-state only) | 6 |
+| AI-Unpacked parity | 6 |
+Overall 7.0 (mean 7.3, held down for flat composition and unseen motion). Approved-critic, no blocking issue.
+
+### What works
+- a1 to p100: stamp over the first envelope, then a green seal with check, one filled green ledger row, and the later duplicate stopping at the seal with a faint amber ring and a dashed ghost row that is gone by p100. "Same key, one effect" reads.
+- Metaphor is concrete (envelope, ledger, rubber stamp), not a table or bullets. Palette is token-only.
+
+### Non-blocking issues, ordered by impact
+1. p50 and p100, whole frame: the page plus outbox hug x 110-885 and y 135-425 with the key chip above; the bottom band and the gap between page and outbox are empty. Enlarge the page and envelopes about 1.25x or move the outbox closer.
+2. p50, seal and envelope (x 265-555, y 280-430): the big seal ring overlaps the arriving envelope and its ghost, so the rebound reads as clutter. Stop the envelope short of the ring, or draw the ring behind it with lower opacity.
+3. Stamp visibility (p50, p100): the rubber stamp is only visible at a1; at p50 and p100 the seal appears with no stamp. Add a strike strip (frames at press, press+1, press+3, lift) to reports/p7/ so the impact is seen.
+4. a1, envelope key glyph (x 358-388, y 338-360): about 24 px at 1080p, too small to carry "the same key". Enlarge the glyph or let the envelope show the key text in mono.
+5. a1 to p100, outbox (x 750-885, y 270-415): the left arrow in an empty dashed box reads as "back", not "outbox". Use an envelope stack or tray icon, and show a pending count only if ref-bound.
+6. p100, ledger rows (x 150-515, y 160-235): two grey bars are blank and the pips (x 295-370, y 445-465) have no legend; the second pip is amber with nothing saying duplicate. Add a ref-bound callout via CalloutArrow when specs use it.
+7. p0 baseline is empty and protects nothing; rewrite at frame ~6 when baselines are regenerated.
