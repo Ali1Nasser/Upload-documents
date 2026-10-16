@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T06:16:38Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.0,
+  "date": "2026-10-16",
+  "by": "critic",
+  "notes": "Round 1: approved, no blocking. Lit-top/dark-side acrylic slabs, ok check+glow on cached, highlight lift+dim read well; Arabic correct (RTL labels, Latin terms LTR). Cascade crit wave and warn progress bar not captured in any baseline; request strip. Dimmed-slab ink low contrast; empty p0."
+ }
 }

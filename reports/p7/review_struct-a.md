@@ -111,3 +111,19 @@ Non-blocking (fix before pilot use):
 4. p100 (x 48-235 / y 145-200): the "إصدار جديد" chip sits 48 px (5 %) from the left edge, tight against the title-safe margin, and its tether is about 8 px long. Shift the chip inward or anchor it above the gate.
 5. p50 (x 240-540 / y 100-175 and x 270-510 / y 378-430): two chips in the same frame compete with the crit gate; the top chip is larger than the labels. Reduce the top chip about 15 % so the X gate stays the focal point.
 6. p0 (x 736 / y 241): two motes appear before any gate; fade them in with the first gate.
+
+## LayerStack — round 1 (2026-10-16, critic, fresh read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5 and reports/p7/snap/LayerStack.jpg; no new renders, no strip supplied)
+
+Verdict: APPROVED (score 7.0, no blocking issue). meta.json set to approved-critic.
+
+Scores (06 section 3.2/3.3 + component acceptance): subject clarity 8 (a Docker layer stack and a warehouse tier stack both read as stacked slabs), mechanism visible 7 (cached slabs get a green check and edge, the lifted slab glows cyan and the rest dim; the cascade itself is not in any still), look parity 7 (acrylic slabs with lit top and dark side faces, glow edges; flat dark ground), typography 8 (Docker labels in mono LTR, Arabic "ODS - بيانات خام" shaped and RTL, Latin terms keep order), camera and depth 6.5 (3D slab faces give depth, no parallax or camera drift visible), legibility 7.5 (slab labels about 36-40 px at 1080, "5 s" readable), accuracy 9 ("5 s" is d:6.7:1 from the data contract), tokens 9 (ok/signal/crit/warn/ink via C.*), polish 7, no bullet-list look 7.5 (slabs have mass and a lifted state, but a stack of rows is still list-adjacent), no legacy frames 10.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. The rebuildFrom beat (crit wave upward, then warn progress bar, then fresh signal edge, ok pulse below) is the component's key verb and is absent from all four baselines. p50 shows cyan CMD app and COPY src over three dimmed green slabs, which reads as "highlight", not "rebuild". Supply a 12 fps strip of the cascade and add two snap frames (crit wave about mid-cascade, warn bar mid-rebuild) so it is regression-guarded.
+2. p50 (x 198-760 / y 60-220): the lifted COPY src top face overlaps the bottom edge of CMD app (about y 140-145), and the gap to RUN pip install is uneven. Raise inter-slab spacing for the lifted slab or lift less.
+3. p50 (x 198-725 / y 250-490): dimmed slab labels (ink on dark green) are low contrast at 960; raise dimmed ink one step. Same for ADS/DW/ODS in p100 (x 296-626 / y 120-340).
+4. p0: a fully empty frame, the baseline guards nothing. Move the first snap frame to the first slab entry (about f4-6).
+5. p100 (x 296-662 / y 105-435): stack is about 38 % of width; allow scale-up when n <= 4, and add a soft floor reflection or shadow under the bottom slab for grounding.
+6. a1 (x 205-750 / y 150-480): the top slab (grey, dot) next to green cached slabs is clear, but its "5 s" sits in the same grey as the dot, so the number does not read as the payoff; give it ink at full strength.
