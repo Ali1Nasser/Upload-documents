@@ -61,3 +61,26 @@ Verdict: APPROVED, 7/10, no blocking issue. meta.json status and approval set to
 
 ### Scores (1-10)
 Legibility 8, token discipline 9, depth and light 6, verb reads without narration 7, Arabic 8 (alef clipped by frame), no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 7. Mean about 8.1, min 6, capped to 7 overall by the alef overlap and modest depth.
+
+## FixSettle — round 1 (r3 re-review)
+
+Date: 2026-10-16. Reviewer: critic (did not author). Scope: baselines p100 at full size plus a 8x crop of the title corner (x 560-640, y 150-240), reports/p7/snap/FixSettle_beat.jpg (standard f37-41,43; hero f39). Commit under review 7fddc26.
+
+Verdict: APPROVED, 7.5/10, no blocking issue. meta.json status and approval set to approved-critic.
+
+### Previous non-blocking items
+1. Hamza clipping: RESOLVED. p100 crop shows the bracket frame and L-corner at x about 616, 4-5 px right of the "إ" of "إيصالات"; the outer rim is clear of the card. Nothing touches the copy.
+2. Ring and motes visibility: IMPROVED. The 3 px ring with glow reads clearly at 960 px in the strip; motes (6-10 px) land visibly at +3/+4 and hero.
+3. Verb reads: the card drops, ring converges, brackets close, sweep crosses, T3 flips FAILED to OK and the highlight lands on it; chip agrees with the end state.
+
+### Blocking
+None.
+
+### Non-blocking (next re-baseline)
+- Lite baselines p50/p100 (whole card, x 330-630, y 158-450) hold only brackets and chip; add a standard-tier a1 at f39 so ring, glow and motes are regression-covered.
+- Depth and light: held state is still a quiet outlined card; stronger glow bloom on the ring at hero would help.
+- Strip tiles crop the ring top (tile 2, y 0-20) and the chip bottom; frame the tiles larger in the next strip so no clipping is mistaken for a component defect. T6 half-cut at +2/+3 is the row sliding in, acceptable.
+- p0 is the empty gradient (sha 84797c...).
+
+### Scores (1-10)
+Legibility 8, token discipline 9, depth and light 7, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 8. Mean about 8.5, min 7; overall 7.5 given modest depth and lite-only baselines.

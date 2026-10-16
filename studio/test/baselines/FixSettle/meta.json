@@ -29,6 +29,11 @@
  },
  "written_at": "2026-10-16T05:48:28Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.5,
+ "date": "2026-10-16",
+ "approved_by": "critic",
+ "notes": "Round 3 (commit 7fddc26): no blocking issue. Rim/brackets padded 32 px; hamza of إيصالات clear (zoom p100, ~5 px gap). Ring 3 px and motes 6-10 px now visible in beat strip (standard f37-41,43 + hero f39); T3 FAILED->OK lands the settle; chip matches end state. Open non-blocking: lite baselines carry no ring/glow/motes (add standard a1 at f39); depth/light still modest; strip tiles crop the ring top and chip bottom; p0 empty gradient."
 }
