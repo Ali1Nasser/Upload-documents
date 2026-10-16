@@ -204,3 +204,18 @@ Non-blocking (fix before pilot use):
 3. p100 (x 120-840 / y 448-456): the dashed leaf chain is faint violet, arrowheads sit under the leaf gaps; raise opacity one step.
 4. Motion unjudged: supply 12 fps strips for fs expand (f300-345) and btree search descent (f440-470).
 5. All frames: no camera drift or parallax between levels; add a slight drift for pilot use.
+
+## PipelineStations — round 1 (2026-10-16, critic, independent full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders)
+
+Verdict: APPROVED (score 7.4, no blocking issue). meta.json already carries approved-critic (7.5, round 2); the independent read confirms it, so it was left unchanged.
+
+Scores: subject clarity 8, mechanism visible 7.5 (p50: two green gates, crit X gate, 7 px crit dashes ahead, payload chip over the failed gate, reason chip below; p100: all-green five-gate run with release chip over the last gate), look parity 6.5, typography 8 (Arabic shaped and RTL, first station on the right, "نشر Production" and "بناء الـ Image" keep Latin order, labels about 40-48 px at 1080), camera and depth 6.5 (light shafts, floor shadows, back-plane grid, motes; no parallax), legibility 8, accuracy 9 (no numerals), tokens 9 (crit/ok/cyan only), polish 7.5, no bullet-list look 7.5, no legacy frames 10. Arabic QA: 13/13 strings pass, OCR min 0.933, tofu 0.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. a1 (x 160-800 / y 120-300): three idle grey gates on a faint track; reads as a CI stepper with empty bands above and below (y 0-110, y 350-540). No capsule is visible, so the hop verb is not shown in any still.
+2. p0 (whole frame): near-empty backdrop (two motes); move the first snap to about f6 so it guards the track build-in.
+3. p100 (x 48-235 / y 146-198): release chip sits about 48 px from the left edge at 960 (96 px at 1920), close to the 68 px safe margin of the 1080 spec; keep it clear when the last gate is leftmost with longer chips.
+4. Motion unjudged: fix ring and green gate flash, capsule hop and gate shake appear in no baseline; supply a 12 fps strip (fail and fix) and add a fix snap.
+5. All frames: no camera drift or parallax between gate planes; add a slight drift for pilot use.
