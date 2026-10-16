@@ -35,5 +35,5 @@
  "score": 7.0,
  "date": "2026-10-16",
  "approved_by": "critic",
- "notes": "Independent re-check of round 1 (stills p0/a1/p50/p100 + beat strip viewed): approved 7.0, no blocking. 16 DOM-clone blocks cut in word/row gaps, no split word, Arabic header intact, tokens only. Non-blocking: displacement small (reads as tiling not shatter), no debris/dust, rims fade so hold is flat dark glass, two empty top-left tiles read dead, group ~36% of frame width, NilePay/header blocks overlap in strip tile 4, no burst-frame baseline; p50/p100 near duplicates."
+ "notes": "Third independent read (a1/p50/p100 full size + 9-tile beat strip; PNG sha256 equal to meta): approved 7.0, no blocking. 16 DOM-clone blocks cut in word/row gaps, no split word, Arabic header intact, tokens only, no bullets/legacy/unsourced numbers. Non-blocking: displacement 6-14 px reads as tiling not shatter, no debris/impact flare, rims fade so hold is flat dark glass, two empty top-left tiles read dead, group ~36% of frame width, top-right blocks overlap mid-flight, no burst-frame baseline, p50/p100 near duplicates."
 }

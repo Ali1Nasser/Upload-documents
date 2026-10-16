@@ -211,3 +211,21 @@ Non-blocking, ordered by impact:
 5. Sparks in tile 6 cluster at the top-left corner of the rim only; spread around the perimeter.
 
 Scores (1-10): Legibility 7.5, token discipline 9, depth and light 8, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 9 (demo values), motion intent visible 7.5 (6-tile strip good; lite stills thin). Mean 8.4, min 7.5; overall 7.0.
+
+### ShatterToBlocks — round 1, third read
+
+Date: 2026-10-16. Reviewer: critic (did not author; did not rely on earlier approvals). Scope: baselines a1/p50/p100 at 960x540 (PNG sha256 equal to meta.json) and reports/p7/snap/ShatterToBlocks_beat.jpg (9 tiles).
+
+Verdict: APPROVED, 7.0/10, no blocking issue. meta.json: approved-critic, score 7.0.
+
+Seen: a1 is the intact receipts card; strip tiles 2-9 show 16 cyan-rimmed cells cut along row/column gaps, staggered outBack burst with tilt and growing shadows, then a settle to dark glass blocks (tile 9). "إيصالات", "NilePay", "الحالة", "المشغل", "الإيصال" each whole in their own cell, Arabic correct, tokens only, no bullets, no legacy, no invented numbers (EGP values from the demo fixture).
+
+Blocking: none. Non-blocking, ordered by impact (unchanged from the re-check, still valid):
+1. p50/p100, group x 312-660, y 105-437: displacement 6-14 px; reads as tiles drifting, not a shatter; no debris or impact flare. Hero tier: spread x2, add motes and a short flare at the anchor.
+2. p50/p100, same region: rims gone at hold; keep a faint cyan rim and deeper drop shadow.
+3. p50/p100, top-left two cells (x 315-490, y 105-168): empty tiles read as dead; merge or drop.
+4. Strip tile 4, top-right (NilePay vs header cell): overlap mid-flight; add stagger or collision margin.
+5. Group about 36% of frame width; enlarge about 1.3x at standard.
+6. Baselines: add a burst frame (f39-41, standard); p50/p100 near duplicates.
+
+Scores (1-10): Legibility 8, token discipline 9, depth and light 6.5, verb reads 7, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent 8 (strip). Mean 8.4, min 6.5; overall 7.0.
