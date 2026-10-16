@@ -250,3 +250,16 @@ Non-blocking, by impact:
 3. All stills, background: motes and floor reflection are very faint under the plates; raise mote opacity slightly or add a second parallax layer.
 4. p0: still an empty vignette; move this baseline past the first entrance.
 5. Process: write 1080p baselines before the pilot.
+
+### ABSplit — round 1 (2026-10-16, critic, not the author)
+
+Verdict: APPROVED, 7.0/10, no blocking issue. Read p0, a1, p50, p100 at full size (960x540 lite) and reports/p7/snap/ABSplit.jpg. No motion strip exists, so the stream drift, die roll and bar growth were judged from stills and code only. meta.json set to approved-critic (7.0).
+Confirmed in stills: the flow reads right to left in RTL order (tank on the right, violet die, two lane cards). a1 shows both bars empty, p50/p100 show A partial cyan and B full ok-green with a check ring and green floor glow. Arabic "النسخة A / B" shapes correctly with Latin letter in the right BiDi position. No digits are drawn (D1 respected). No hardcoded hex or rgb in ABSplit.tsx, so palette is tokenised. Not a bullet slide; no legacy frames.
+Scores: composition 6.5, palette and tokens 8, light and depth 7, Arabic 8.5, legibility 7.5, visual verb 7.5, not a bullet slide 8.5, numbers 10 (none drawn), motion intent 6.5 (stills only), parity 6.5.
+Non-blocking, by impact:
+1. p50/p100, bar region of both cards: the bars carry no metric word, so nothing says what is being compared; add a small Arabic caption chip (for example the rate name from the spec) at the bar start, and a faint ordinal tick at the bar end.
+2. a1/p50/p100, composition: all content sits in the left 85 % and the tank is only about 85x185 px; cards are tall with a large empty band between label and bar. Reduce card height or grow the tank, scale the set by about 1.2 at 1080p, and rebalance margins.
+3. a1/p50, tank region (right): the cyan dots do not read as "users"; a few tiny avatar glyphs or head-and-shoulders motes would make the source concrete without text.
+4. p50/p100, stream into the cards: particles thin out and the trails are about 2 px at 960 px; thicken the lanes and make the loser lane visibly dimmer after reveal.
+5. p50/p100, loser card A: it stays fully lit, so the winner contrast comes from the green only; dim A to about 70 %.
+6. p0: empty vignette; move the baseline past first entrance. Process: no motion strip (frames 0, 11, 40, 83, 125, 167) and no 1080p baselines yet; both needed before the pilot. CR-010 (optional rate/users) is still open and needs a Council ADR before film use.
