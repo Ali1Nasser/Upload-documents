@@ -144,3 +144,11 @@ Re-read p0, a1, p50, p100 at full size (960x540). Confirms the earlier approval:
 - p100, region x 110-460 / y 180-400: the heap capsule and its twin refs read clearly, but the whole scene fills about 45% of the width and the top 30% is empty; scale the arrangement about 1.25x.
 - p100, region x 395-410 / y 335-365: the ref pulse dots sit mid-curve and are the only motion cue in the stills; a strip (push g(y), ref draw, aliasing ring, collect sparks) is still owed to judge easing and impacts (motion 6.5).
 - p50 / p100, region x 60-900 / y 400-490: floor grid and "heap"/"stack" labels are faint, as in the first read (items 4-5).
+
+### BlockReplication — round 1, independent re-read (2026-10-16)
+
+Re-read a1, p50, p100 at full size (960x540, lite). Confirms 7.0, no blocking issue; meta.json stays approved-critic. Replication reads without narration: file bar, then each block landing 3x across five racks, rack C going red and hollow, and six green re-created copies (b3 b2 b8 b7 in A, b1 in E, b6 in D) matching the six lost chips. Arabic labels "سيرفر A..E" are correct (RTL, Latin letter isolated). No bullet look, no legacy frames, no unsourced numbers. Extra non-blocking observations:
+- a1, region x 425-770 / y 250-360: only three racks have entered, all right-aligned, so the frame is lopsided (left half empty). Fine as a transitional state, but a1 is a weak regression frame; consider baselining a frame after all five racks land.
+- p100, region x 670-780 / y 275-350: rack A holds 9 chips and fills its grid; the green copies are only distinguishable by a thin green outline at 960 px. Add a faint green glow or a "+" tick so the re-created copies read at a glance on mobile-size playback.
+- p50 / p100, region x 0-960 / y 362-420: the floor grid sits under rack labels at about 3% luminance; the racks still do not touch it (same as items 2 and 5 above).
+- Motion strip still owed (flight arcs, failNode sparks, rereplicate flights); motion intent is inferred only (6.5).
