@@ -151,3 +151,23 @@ Non-blocking fixes (ordered by impact):
 6. p0 is a blank field and guards nothing; rebake at frame 6 to 8 with --approve and a fresh critic pass.
 
 Not seen: standard and hero tiers, grain and particles, the bridge draw animation.
+
+## Heatmap — round 1
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.2/10. Verdict: approved-critic (no blocking issue).
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite) and the reports/p7/snap/Heatmap.jpg strip (4 frames, not a motion strip); code read for the ghost, diverging and highlight paths. Demo data 120/80/50/150/200/100 is a single `ref` (d:6.19:5), no derived number shown.
+
+Scores: legibility 7.5 (values about 32 px, T-labels about 30 px and Arabic labels about 32 px at 1080; the "0" cells in grey on slate and the dimmed ناجح label at p100 are the weakest) · palette discipline 8.5 (signal/ink/grid sequential mix, ember only for the highlight, no stray hues) · depth and light 6.5 (the raised tiles, top-edge highlight and cyan rim on the slab read; the hot-tile glow and floor pool are faint, no particles or bokeh at lite) · verb without narration 8 (hot vs cold tiles and the legend bar read silent; the ember lens on 200 at T3 is a clear point) · Arabic correct 8 (ناجح / فاشل shape and join, sit at the reading start, T1 is on the right as the RTL rule demands, numerals stay LTR) · no bullet-list look 7.5 (a 2x6 grid with row labels is close to TableGrid; the colour ramp and glass tiles save it) · no legacy 10 · no unsourced numbers 8.5 · motion intent 6 (not evidenced: the diagonal wave front is only partly visible at a1 x 458-715; ghosts and diverging never rendered).
+
+Blocking issues: none.
+
+Non-blocking (by impact):
+1. Ghost cells (dashed hollow, the guide's short-row rule) and the `diverging` scale are in the code but in no still. Add a second demo or a spec with one short row and diverging values, and bake one frame before a scene depends on either. No still shows the empty left region of a1 (x 197-455, y 175-365) as anything but a flat teal field: confirm that is the sweep stagger and not a missing ghost.
+2. Row labels crowd the slab rim: ناجح at p100 x 727-757 starts about 2 px after the rim at x 725 (p50 x 724 vs rim 721). Give yW a gap of about 16 px at 1080 between rim and label.
+3. Highlight state steps the unlit row label (ناجح, p100 x 727-757, y 212-230) and non-line tiles to about 50 percent; the label drops under comfortable contrast at 960. Floor dim at 0.65 for labels, keep the 0.5 for tiles.
+4. Row and column shafts are barely visible at p100 (the ember wash is at most 16 percent alpha over T3 column x 457-543, y 175-365 and the فاشل row). Raise to about 24 percent and carry the column shaft above the grid into the T3 header.
+5. Composition: the slab fills about 62 percent of the width and 45 percent of the height (x 178-780, y 125-415). Enlarge the cell height cap (cellW x 1.2) for 2-row matrices or pair with the push_in plus a second plane.
+6. Legend sits about 8 px under the slab rim (p100 y 375-390) and its numerals are the smallest text (about 26 px at 1080): enlarge to the label size and add 8 px gap.
+7. p0 is a blank field and guards nothing; rebake at frame 6 to 8 with --approve and a fresh critic pass. No motion strip exists: render 8 frames from 0 to 18 before a scene relies on the sweep timing.
+
+Not seen: standard and hero tiers, the sweep wave front, ghost cells, the diverging scale, the value chip path (showVals false).

@@ -29,6 +29,10 @@
  },
  "written_at": "2026-10-16T11:36:28Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "score": 7.2,
+ "date": "2026-10-16",
+ "notes": "Critic round 1: approved 7.2, no blocking. Non-blocking: row labels touch the slab rim, dimmed labels low contrast, ghost cells / diverging scale / diagonal sweep unproven (no short-row demo, no strip), light shafts faint, matrix ~62% of frame, p0 blank. See reports/p7/review_data.md."
 }
