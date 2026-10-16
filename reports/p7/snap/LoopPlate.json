@@ -2,7 +2,7 @@
  "v": 2,
  "name": "LoopPlate",
  "composition": "Demo-LoopPlate",
- "at": "2026-10-16T05:57:41Z",
+ "at": "2026-10-16T18:41:43Z",
  "frames": [
   0,
   7,
@@ -26,30 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 7,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p50",
    "frame": 59,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p100",
    "frame": 119,
    "why": "100 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
+ "approve": false,
  "pass": true
 }
