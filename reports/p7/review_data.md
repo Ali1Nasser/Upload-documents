@@ -114,3 +114,21 @@ Non-blocking fixes (ordered by impact):
 7. The p50 to p100 panels shift about 8 px (push_in); this is fine, but the cyan rim on the left panel is clipped near x 48 at p100, so check the safe margin (68 px at 1080 is 34 px at 960).
 
 Not seen: standard and hero tiers; grain, bokeh and particles; the bridge draw animation.
+
+## WindowFrame — round 3 (347a2d4, determinism-fix re-review)
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.4/10. Verdict: approved-critic (no blocking issue). Rounds 1 and 2 above already cover this component; this round only checks that swapping Glass for a plain gradient plate did not regress the look.
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite); sha256 equals meta.json (0 px diff). No motion strip exists.
+
+Scores: legibility 7.5 · palette discipline 8 · depth and light 6.5 (the plate now reads as a flat dark slab with a 1 px top highlight; the loss of the Glass shadow is not visible at 960, and the violet slab, ember lens and rim light carry the depth) · verb without narration 8 · Arabic correct 8 (الإيصال shapes and joins, own chip beside ORDER BY) · no bullet look 8 · no legacy 10 · no unsourced numbers 8.5 (120, 200, 300 are sums of the listed receipts) · motion intent 6.5 (not evidenced).
+
+Blocking issues: none.
+
+Non-blocking (by impact):
+1. Floor pool and shaft are hard-clipped to the strip: straight vertical edges at a1 x about 262 (y 312-340) and p100 x about 703 (y 312-340) cut the pool, so the glow looks like a rectangle, not light. Fade the clip with a horizontal gradient mask or widen the clip by the pool radius.
+2. No motion strip: ghost trail and SUM roll (p50 x 262-345, y 212-318) still unproven; render a1-to-p50 at 8 frames before a scene relies on timing.
+3. Light modest overall; no grain or particles at lite. Check standard and hero tiers.
+4. Panel fills about 60 percent of the frame (x 180-780, y 125-415); pair with push_in or a second plane.
+5. p0 is a blank field and guards nothing; rebake at frame 6 to 8 (needs --approve and a fresh critic pass).
+
+Not seen: standard and hero tiers; groups and range frame kinds.

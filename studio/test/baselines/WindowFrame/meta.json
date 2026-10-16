@@ -33,9 +33,9 @@
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "status": "approved-critic",
  "critic": {
-  "score": 7.5,
+  "score": 7.4,
   "date": "2026-10-16",
   "reviewer": "critic",
-  "notes": "Round 2 (post-fix) lite stills only (hashes match meta). Verb reads: lens slides over ordered receipts, SUM rolls 120/200/300 (checks). Arabic chip correct and separate from ORDER BY. Floor pool now clipped; dimmed cells readable. Weak: faint shaft, panel about 60 percent of frame, p0 blank, no motion strip (ghost trail unproven), no standard/hero stills."
+  "notes": "Round 3 (post determinism fix 347a2d4, plain gradient plate; stills hashes match meta, 0 px). Verb reads: ember lens slides over ordered receipts, SUM 120/200/300 checks with d: refs; Arabic chip correct and separate from ORDER BY. Plate change costs no depth (panel still reads as a dark glass slab). Weak: floor pool/shaft is hard-clipped to the strip (visible straight edges a1 x~262, p100 x~703, y 320-340), faint light, panel about 60 percent of frame, p0 blank, no motion strip (ghost trail unproven), no standard/hero stills."
  }
 }
