@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T11:15:23Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "status": "approved-critic",
+ "critic": {
+  "score": 7.5,
+  "date": "2026-10-16",
+  "reviewer": "critic",
+  "notes": "Round 2 (post-fix) lite stills only (hashes match meta). Verb reads: lens slides over ordered receipts, SUM rolls 120/200/300 (checks). Arabic chip correct and separate from ORDER BY. Floor pool now clipped; dimmed cells readable. Weak: faint shaft, panel about 60 percent of frame, p0 blank, no motion strip (ghost trail unproven), no standard/hero stills."
+ }
 }

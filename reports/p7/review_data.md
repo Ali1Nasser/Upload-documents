@@ -74,3 +74,23 @@ Non-blocking fixes (ordered by impact):
 6. The p0 baseline is a blank field and guards nothing; replace it with frame 6 to 8 (partial reveal) at the next re-bake.
 
 Not seen: standard and hero tiers; grain, bokeh and particles; groups and range frame kinds (only rows demo).
+
+## WindowFrame — round 2 (382002d, post-fix re-review)
+
+Critic: critic (not the author). Date 2026-10-16. Score 7.5/10. Verdict: approved-critic (no blocking issue).
+Evidence: baselines p0/a1/p50/p100 at full size (960x540, lite). No motion strip exists; motion is judged from the stills' frame positions only.
+
+Fix verification: floor pool now ends inside the partition panel at p100 (x about 700) and is taller, so the earlier overrun is gone. Dimmed out-of-frame cells (p100 120/80/200, x 265-470, y 225-305) are readable at 960. The Arabic column chip (الإيصال, a1/p50/p100 x 290-340, y 147-168) shapes and joins correctly (lam-alef, hamza-under alef) and sits as its own chip beside the LTR ORDER BY chip, so there is no bidi reversal. The Arabic QA report is no longer vacuous.
+
+Scores: legibility 7.5 (Arabic chip text about 14 px at 960, about 28 px at 1080; adequate) · palette discipline 8 · depth and light 6.5 · verb without narration 8 · Arabic correct 8 · no bullet look 8 · no legacy 10 · no unsourced numbers 8.5 (120/200/300 are sums of d: receipts) · motion intent 6.5.
+
+Blocking issues: none.
+
+Non-blocking (by impact):
+1. No motion strip: ghost trail and SUM roll (p50 x 262-345, y 212-318) are unproven. Render an 8-frame a1-to-p50 strip before a scene relies on timing.
+2. Light still modest: shaft under the frame is faint (a1/p50 y 315-335) and no particles or grain are visible at lite. Check standard and hero tiers.
+3. Panel fills about 60 percent of the frame (x 180-780, y 125-415); pair with push_in or a second plane.
+4. p0 is a blank field and guards nothing; rebake at frame 6 to 8.
+5. Arabic chip is small beside the ORDER BY chip (x 290-340); consider matching its cap height to the Latin chip.
+
+Not seen: standard and hero tiers; groups and range frame kinds.
