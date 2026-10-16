@@ -158,3 +158,23 @@ Non-blocking (next re-baseline):
 - Strip has only 4 tiles, one of them mid-draw; request an 8-tile strip at standard for the next round to judge the comet and sparks.
 
 Scores (1-10): Legibility 7, token discipline 9, depth and light 6.5, verb reads 8, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 6.5 (strip is thin). Mean 8.1, min 6.5; overall 7.0.
+
+### ShatterToBlocks — round 1, independent re-check
+
+Date: 2026-10-16. Reviewer: critic (did not author; re-read stills and beat strip rather than relying on the earlier approval). Scope: baselines a1/p50/p100 at 960x540 and reports/p7/snap/ShatterToBlocks_beat.jpg (9 tiles).
+
+Verdict: APPROVED, 7.0/10, no blocking issue (earlier 7.5 lowered by 0.5 for depth/light and the weak "shatter" verb). meta.json: approved-critic, score 7.0.
+
+Seen: a1 is the intact receipts card. The strip shows the card cutting into 16 cyan-rimmed cells along column/row gaps, a staggered outBack burst with 2D tilt, then a settle into dark glass blocks. Real pixels, no word split ("إيصالات", "NilePay", "الحالة", "المشغل" each whole), Arabic correct, tokens only, no bullets, no legacy, no invented numbers (EGP values from demo table).
+
+Blocking: none.
+
+Non-blocking (next re-baseline, ordered by impact):
+1. p50/p100, whole group (x 312-660, y 105-437): displacement is 6-14 px, so it reads as tiles drifting apart, not a shatter; no debris, dust or light flash at the impact point. Hero tier: spread x2, add a few small fragments/motes and a brief impact flare.
+2. p50/p100, same region: rims have faded, so the held state is flat dark glass with weak depth/light; keep a faint cyan rim plus deeper drop shadow at hold.
+3. p50/p100, top-left two cells (x 315-490, y 105-168): empty chunks read as dead tiles; merge into the title cell or drop from the seed.
+4. Strip tile 4 (NilePay cell vs header cell, x ~1405-1475): the two top-right blocks overlap mid-flight; add a small stagger or collision margin.
+5. Group is about 36% of frame width (text about 24 px at 1080p): enlarge about 1.3x at standard.
+6. Baselines: add a burst-frame baseline (f39-41, standard); p50/p100 are near duplicates; p0 is the empty gradient.
+
+Scores (1-10): Legibility 8, token discipline 9, depth and light 6.5, verb reads 7, Arabic 9, no bullet look 8, no legacy 10, no unsourced numbers 10, motion intent visible 8 (strip). Mean 8.4, min 6.5; overall 7.0. Score 6.5 items: p50/p100 whole group, fix per items 1-2 above.

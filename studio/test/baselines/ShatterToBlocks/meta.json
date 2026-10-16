@@ -32,8 +32,8 @@
  "approval": "approved-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
  "status": "approved-critic",
- "score": 7.5,
+ "score": 7.0,
  "date": "2026-10-16",
  "approved_by": "critic",
- "notes": "Round 1 (commit eb29cee): no blocking issue. Table breaks into 16 DOM-clone blocks (real pixels, cuts in word gaps, no split word); cyan key-light rims and burst shadows read in the beat strip; Arabic header intact. Non-blocking: rims fade by p50/p100 so the held state is flat dark glass; two empty top-left chunks read as dead tiles; p50 and p100 nearly identical and no baseline covers the burst; piece offsets small."
+ "notes": "Independent re-check of round 1 (stills p0/a1/p50/p100 + beat strip viewed): approved 7.0, no blocking. 16 DOM-clone blocks cut in word/row gaps, no split word, Arabic header intact, tokens only. Non-blocking: displacement small (reads as tiling not shatter), no debris/dust, rims fade so hold is flat dark glass, two empty top-left tiles read dead, group ~36% of frame width, NilePay/header blocks overlap in strip tile 4, no burst-frame baseline; p50/p100 near duplicates."
 }
