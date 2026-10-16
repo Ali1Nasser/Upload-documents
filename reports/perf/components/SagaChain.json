@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "SagaChain",
+ "composition": "Demo-SagaChain",
+ "at": "2026-10-16T05:54:12Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 190,
+   "wall_s": 12.8,
+   "box_s_per_frame": 0.0673,
+   "slot_s_per_frame": 0.2019,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    7.53,
+    7.22
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 190,
+   "wall_s": 33.25,
+   "box_s_per_frame": 0.175,
+   "slot_s_per_frame": 0.525,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    7.22,
+    6.34
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 6
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 190,
+   "wall_s": 16.97,
+   "box_s_per_frame": 0.0893,
+   "slot_s_per_frame": 0.2679,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    6.15,
+    5.76
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 7
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}
