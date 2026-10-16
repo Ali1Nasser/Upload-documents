@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-16T18:39:36Z",
+ "created": "2026-10-16T23:21:36Z",
  "label": "BarStack",
  "thresholds": {
   "ocr_min": 0.9,
@@ -80,8 +80,11 @@
   {
    "id": "s000",
    "text": "خط الأساس",
-   "size": 28,
-   "render_size": 28,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -90,12 +93,13 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "overflow": {
-    "ink_w": 131,
-    "ink_h": 31,
+    "ink_w": 159,
+    "ink_h": 38,
     "container_w": 1784,
     "lines": 1
    },
@@ -108,15 +112,22 @@
     "scale": 100,
     "got": "خط الأساس",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   },
   {
    "id": "s001",
    "text": "النموذج",
-   "size": 28,
-   "render_size": 28,
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
    "kind": "label",
    "sources": [],
    "problems": [],
@@ -125,13 +136,14 @@
    "tofu": {
     "missing": [],
     "faces": [
+     "ar-display",
      "ar-text"
     ]
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 83,
-    "ink_h": 30,
+    "ink_w": 100,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -144,7 +156,11 @@
     "scale": 100,
     "got": "قسم النموذج",
     "join_junk": "",
-    "pass": true
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
    },
    "status": "pass"
   }

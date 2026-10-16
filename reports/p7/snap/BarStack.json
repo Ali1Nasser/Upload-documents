@@ -2,7 +2,7 @@
  "v": 2,
  "name": "BarStack",
  "composition": "Demo-BarStack",
- "at": "2026-10-16T18:46:27Z",
+ "at": "2026-10-16T23:19:16Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,34 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p50",
    "frame": 64,
    "why": "50 %",
    "determinism_diff_px": 0,
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   },
   {
    "tag": "p100",
    "frame": 129,
    "why": "100 %",
-   "baseline": "written"
+   "mismatch_px": 0,
+   "pass": true
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
- "approve": true,
+ "approve": false,
  "pass": true
 }
