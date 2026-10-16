@@ -235,3 +235,19 @@ Non-blocking (fix before pilot use):
 4. Stack direction differs between demos (FROM at the bottom in p50, ODS at the top in p100); fine if spec-driven, but name the direction in the guide so storyboards do not mix them.
 5. Motion unjudged: rebuildFrom cascade (crit wave, warn bar, ok pulse) is in no baseline; supply a 12 fps strip and two snaps (mid-cascade, mid-rebuild).
 6. All frames: no camera drift or parallax between slabs; add a slight orbit for pilot use.
+
+## StarSchema3D — round 1 (2026-10-16, critic, independent full-size read of baselines p0/a1/p50/p100 at 960x540 lite scale 0.5; no strip supplied, no new renders)
+
+Verdict: APPROVED (score 7.2, no blocking issue). meta.json set to approved-critic.
+
+Scores: subject clarity 8 (one fact plate, dimension plates around it: a star schema reads without narration), mechanism visible 7 (p50/p100: focused dimension drops to the front, larger and cyan-edged, others dim; FK wire fact-to-dimension), look parity 6.5, typography 8 (Arabic titles shaped and RTL, Latin columns in mono, titles about 40 px at 1080), camera and depth 7 (perspective ring, back plates smaller and higher, lit top and shaded side faces; no parallax), legibility 7.5 (dimmed back plates about 4:1, still readable), accuracy 9 (no numerals, demo names only), tokens 9 (cyan fact/focus, violet dimensions), polish 7, no bullet-list look 8, no legacy frames 10. Arabic QA: 7/7 pass, OCR min 1.0, tofu 0, overflow 0.
+
+Blocking: none.
+
+Non-blocking (fix before pilot use):
+1. p50 / p100 (x 395-585 / y 312-345): focused front plate sits about 35 px under the fact plate; the FK wire is a stub only, so the relationship verb is weak. Push the focus slot lower or shrink the front plate about 10 percent.
+2. a1 (x 548-640 / y 180-315): the travelling pulse is a single 2 px dot; make pulses about 2x larger with a short comet trail so the FK flow reads at 960 px.
+3. All wires: no key label (for example an id chip at the wire midpoint), so "foreign key" is implied, not shown.
+4. p0 (whole frame): empty backdrop, guards nothing; move the first snap to about f6 to catch the build-in.
+5. a1 vs p50 (ring x 140-810 / y 95-415): floor ring and rings are very faint; raise ring stroke or add floor sheen under the plates for more depth.
+6. Motion unjudged: the focusDim orbit turn and plate size/dim transition appear in no baseline; supply a 12 fps strip over the turn. No camera drift or parallax.

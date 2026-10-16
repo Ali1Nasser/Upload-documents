@@ -29,6 +29,12 @@
  },
  "written_at": "2026-10-16T18:08:04Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.2,
+  "date": "2026-10-16",
+  "round": 1,
+  "notes": "Independent full-size read of p0/a1/p50/p100 (960x540 lite), no strip. Fact plate cyan at centre of a perspective floor ring, dimension plates as billboards with lit top and shaded side faces, back plates smaller and higher, focused front plate larger with cyan edge; Arabic shaped RTL, Latin columns in mono, no numerals, tokens only. Non-blocking: FK pulses nearly invisible in stills, wire to front plate is a ~35 px stub, no FK key labels on wires, floor ring faint, p0 empty backdrop, no parallax, orbit motion unjudged (no strip)."
+ }
 }
