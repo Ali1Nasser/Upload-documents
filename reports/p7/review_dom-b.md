@@ -233,3 +233,20 @@ Non-blocking, by impact:
 3. p50, upcoming rows (FILTER, GROUP): dim text is about 3:1 against the plate; lift opacity a little so the steps ahead stay legible at 1080p.
 4. p0: still an empty vignette; move the baseline past the first entrance.
 5. Process: no motion strip (frames 0, 11, 40, 83, 120, 167) and no 1080p baselines yet; both needed before the pilot.
+
+### AppliedSteps — round 2 polish review (2026-10-16, critic, not the author)
+
+Verdict: APPROVED, 7.5/10 (was 7.2), no blocking issue. meta.json set to approved-critic (7.5). Read p0, a1, p50, p100 at full size (960x540 lite). No motion strip exists, so the ok sweep, bar start on step 0, motes and floor reflection were judged from code plus stills, not seen live.
+Round-2 items confirmed in stills:
+- Frame cells: p50/p100 strip rows are now separate rounded cells with gaps; the list read is much reduced.
+- Sprockets: p50 and p100 show cyan-lit holes beside the lit frame (right and left edges), dark elsewhere.
+- Upcoming rows (p50 FILTER, GROUP): 0.72 opacity, Arabic now clearly legible.
+- Lit bar: p50 and p100 sit on the correct row; a1 shows none over the APPLIED STEPS chip.
+- Group step: p100 table rows are paired and folded, the group column is boxed, with a green rim. The payoff reads as "merged" and not only highlighted.
+Scores: composition 7, palette and tokens 8, light and depth 6.5, Arabic 8, legibility 7.5, visual verb 8.5, not a bullet slide 8, numbers 10 (none drawn), motion intent 7, parity 6.5.
+Non-blocking, by impact:
+1. All stills, composition: the pair still fills about 60 % of the frame width and about 45 % of the height; margins are dead. Scale the pair by about 1.25 at 1080p.
+2. p100, table region: the ok-green sweep is not visible at frame 167, and a still with a mid-sweep frame (about 150) is needed to prove it. Add a strip with frames 0, 11, 40, 83, 120, 150, 167.
+3. All stills, background: motes and floor reflection are very faint under the plates; raise mote opacity slightly or add a second parallax layer.
+4. p0: still an empty vignette; move this baseline past the first entrance.
+5. Process: write 1080p baselines before the pilot.

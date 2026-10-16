@@ -29,6 +29,13 @@
  },
  "written_at": "2026-10-16T17:49:35Z",
  "written_by": "motion-engineer",
- "approval": "pending-critic",
- "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+ "approval": "approved-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule).",
+ "critic": {
+  "score": 7.5,
+  "date": "2026-10-16",
+  "by": "critic",
+  "round": "round-2 polish review",
+  "notes": "Frame cells with gaps, glowing sprockets by the lit frame, upcoming rows at 0.72, folded group rows all read in stills. No blocking issue. Non-blocking: pair fills ~60% of frame, p0 empty, ok sweep and motes not visible in stills, no motion strip or 1080p baselines yet."
+ }
 }
