@@ -1472,32 +1472,32 @@
       "exit": "1"
     },
     "0": {
-      "label": "render-snap-StackHeap",
-      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render snap StackHeap",
+      "label": "verify-transfer",
+      "cmd": "bash /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/verify/run_verify.sh",
       "tsp_id": 0,
       "status": "done",
-      "mem_gb": 3.0,
+      "mem_gb": 1.0,
       "expected_gb": 0.2,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-16T22:48:43Z",
+      "submitted": "2026-10-17T06:59:57Z",
       "slots": 1,
-      "updated": "2026-10-16T22:50:04Z",
-      "exit": "0"
+      "exit": "0",
+      "updated": "2026-10-17T07:21:55Z"
     },
     "1": {
-      "label": "render-snap-LowerThird",
-      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render snap LowerThird",
+      "label": "verify-transfer-compare",
+      "cmd": "python3 -I /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/verify/integrity/compare_integrity.py /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/verify/integrity/members.tsv /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/xfer/out/filelist.txt /home/user/Upload-documents /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/verify/integrity/compare.json /tmp/claude-0/-home-user-Upload-documents/8d44d46c-8542-5a82-961e-ef96bddd883b/scratchpad/verify/integrity/local.tsv",
       "tsp_id": 1,
       "status": "done",
-      "mem_gb": 3.0,
-      "expected_gb": 0.2,
+      "mem_gb": 1.0,
+      "expected_gb": 0.05,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-16T22:48:43Z",
+      "submitted": "2026-10-17T07:22:12Z",
       "slots": 1,
-      "updated": "2026-10-16T22:50:05Z",
-      "exit": "0"
+      "exit": "0",
+      "updated": "2026-10-17T07:22:19Z"
     },
     "2": {
       "label": "render-snap-SagaChain",
