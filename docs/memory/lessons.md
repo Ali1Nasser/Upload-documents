@@ -121,3 +121,9 @@ P3b-7. The G3 two-aligner clause names S5 (English): a gate-side substitute (cue
 - The account hit the weekly cap for the Opus tier, which resets 2026-10-16 12:00 UTC. Agents defined as `model: opus` (motion-engineer, council-chair, scene-director, story-editor, graph-engineer) fail immediately. Sonnet and Haiku still run.
 - Decision (lead, operational): the P7 build, fix and integration steps run motion-engineer with a `model: 'sonnet'` override. Every quality gate stays the same: an independent critic approves every baseline, snapshots, perf budgets and Arabic QA apply, and an independent verifier checks G6b. No threshold changes.
 - Council-chair rulings that are needed before the reset wait for it, or go to the user if they block.
+
+## 2026-10-17: Moving data/ to the desktop: temp.sh refused large files, x0.at GET works again, and the repo is public
+- temp.sh's size limit kept dropping during the morning: 100 MB uploaded on 2026-10-16, but on 2026-10-17 05:47–05:52 UTC it answered HTTP 500 for 95, 50, 32, 16 and 8 MiB, and only 4 MiB still worked. This looks like the host running out of space. Never plan a multi-GB transfer on temp.sh without a fresh size probe, and do not count on it for P14 without re-testing.
+- x0.at: GET from this container works again (the 2026-10-09 IP ban is gone). Uploads of 100 MiB verify. 900 MiB returns 413 even though the stated limit is 1024 MiB. For P14 volumes, probe the real limit before choosing a volume size.
+- x0.at gives 4-character IDs by default. Always pass `-F id_length=24`. Identical content gets the same URL (it deduplicates).
+- The GitHub repo is **public**. Anything committed, including upload links, is public. The data transfer is therefore AES-256 encrypted (openssl, PBKDF2-SHA256, 600k iterations). The passphrase is given to the user in chat only, and the repo holds only ciphertext links and checksums (`docs/transfer/`).

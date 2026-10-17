@@ -37,3 +37,4 @@ harness/state/*.lock
 *.tmp
 logs/*.out
 reports/perf/setup_partial.txt
+.transfer_parts/
