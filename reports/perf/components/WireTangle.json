@@ -2,7 +2,7 @@
  "v": 2,
  "name": "WireTangle",
  "composition": "Demo-WireTangle",
- "at": "2026-10-16T23:10:14Z",
+ "at": "2026-10-16T23:36:22Z",
  "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
  "resolution": "1920x1080",
  "gl": "swiftshader",
@@ -21,22 +21,22 @@
  "tiers": {
   "standard": {
    "frames": 144,
-   "wall_s": 35.82,
-   "box_s_per_frame": 0.2488,
-   "slot_s_per_frame": 0.7464,
+   "wall_s": 11.87,
+   "box_s_per_frame": 0.0824,
+   "slot_s_per_frame": 0.2472,
    "budget_box_s_per_frame": 0.201,
-   "within_budget": false,
+   "within_budget": true,
    "loadavg1": [
-    4.48,
-    3.36
+    3.52,
+    3.78
    ],
    "queue": {
     "running": 1,
-    "queued": 3
+    "queued": 2
    },
    "other_jobs_running": 0
   }
  },
- "within_budget": false,
+ "within_budget": true,
  "qa_findings": []
 }

@@ -15,7 +15,7 @@ import {hex} from '../../fx/look';
 import {isArabic} from '../../type/arabic';
 import type {DcComponent, DcProps, LayerCtx} from '../../spec/types';
 import type {Props} from './schema';
-import {FitText, Place, Tag, acrylic, actsOf, clamp, ff, flashAt, layerStyle, mix, prog, stateAt, type Ev} from '../_dom-a/kit';
+import {FitText, Floor, Place, Tag, acrylic, actsOf, clamp, ff, flashAt, layerStyle, mix, prog, stateAt, type Ev} from '../_dom-a/kit';
 
 type St = 'pending' | 'running' | 'pass' | 'fail' | 'skip';
 type Gate = 'ci' | 'blocked' | 'open';
@@ -117,6 +117,9 @@ export const TestGateView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const leaf = (gw - 24) / 2;
   return (
     <div style={{position: 'absolute', inset: 0, ...layerStyle(ctx, rtl)}}>
+      <Floor x={box.x} y={gy + gh / 2} w={box.w} h={Math.round(box.h * 0.22)} opacity={0.45 * entGate} />
+      {/* back glow of the gate: key light colour follows the verdict */}
+      <div style={{position: 'absolute', left: gx - gw * 0.9, top: gy - gh * 0.65, width: gw * 1.8, height: gh * 1.3, opacity: entGate, background: `radial-gradient(ellipse 50% 50% at 50% 50%, ${gTone}${hex(Math.min(0.5, (0.13 + 0.2 * open + 0.25 * gFl) * glowK))} 0%, transparent 100%)`}} />
       {/* feed rail from the rows to the gate */}
       <div style={{position: 'absolute', left: gx + gw / 2, top: gy - 1, width: listX - gx - gw / 2, height: 2, background: `linear-gradient(270deg, ${C.ink3}${hex(0.5)}, ${gTone}${hex(0.7)})`, opacity: entGate}} />
       {props.tests.map((tst, i) => {
@@ -145,6 +148,7 @@ export const TestGateView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       {/* merge gate: arch + two leaves that slide apart */}
       <div style={{position: 'absolute', left: gx - gw / 2 + gShake, top: gy - gh / 2, width: gw, height: gh, opacity: entGate, ...acrylic(gTone, ctx.fx, Math.min(1.6, (0.4 + 0.5 * open + 0.9 * gFl) * glowK), 0), borderRadius: `${gw / 2}px ${gw / 2}px 12px 12px`, borderWidth: 3, overflow: 'hidden'}}>
         <div style={{position: 'absolute', inset: 0, background: `radial-gradient(ellipse 70% 60% at 50% 55%, ${gTone}${hex(0.1 + 0.3 * open + 0.2 * gFl)} 0%, transparent 100%)`}} />
+        <div style={{position: 'absolute', top: -gh * 0.1, right: gw * 0.14, width: gw * 0.09, height: gh * 1.2, transform: 'rotate(18deg)', background: `linear-gradient(180deg, ${C.ink}${hex(0.0)}, ${C.ink}${hex(0.3)} 35%, ${C.ink}${hex(0.0)})`, opacity: 1 - 0.7 * open}} />
         {[0, 1].map((side) => (
           <div key={side} style={{position: 'absolute', top: 12, bottom: 12, width: leaf, [side === 0 ? 'left' : 'right']: 12, transform: `translateX(${((side === 0 ? -1 : 1) * open * (leaf + 6)).toFixed(1)}px)`, borderRadius: side === 0 ? `${gw / 2}px 6px 6px 8px` : `6px ${gw / 2}px 8px 6px`, background: `linear-gradient(${side === 0 ? 100 : 260}deg, ${C.panel}F2, ${C.ground}F2)`, border: `2px solid ${gTone}${hex(0.55)}`, boxShadow: `inset 0 0 18px ${gTone}${hex(0.18)}`} as React.CSSProperties} />
         ))}

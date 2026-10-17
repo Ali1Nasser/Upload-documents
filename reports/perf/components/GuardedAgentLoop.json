@@ -1,0 +1,76 @@
+{
+ "v": 2,
+ "name": "GuardedAgentLoop",
+ "composition": "Demo-GuardedAgentLoop",
+ "at": "2026-10-16T23:37:35Z",
+ "unit": "box s/frame = wall / frames at 1920x1080, concurrency 3 (production), swiftshader, JPEG q80",
+ "resolution": "1920x1080",
+ "gl": "swiftshader",
+ "concurrency": 3,
+ "image": "jpeg q80",
+ "host": {
+  "cpus": 4,
+  "mem_gb": 15.7
+ },
+ "budgets_box_s_per_frame": {
+  "lite": 0.201,
+  "standard": 0.201,
+  "hero": 1.038
+ },
+ "budget_basis": "ADR-002: standard <= 0.201 box s/frame (R5, S-hi + 10 %); hero <= 1.038 (H band top); lite held to 0.201",
+ "tiers": {
+  "lite": {
+   "frames": 190,
+   "wall_s": 14.19,
+   "box_s_per_frame": 0.0747,
+   "slot_s_per_frame": 0.2241,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    3.69,
+    4.45
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  },
+  "standard": {
+   "frames": 190,
+   "wall_s": 17.93,
+   "box_s_per_frame": 0.0944,
+   "slot_s_per_frame": 0.2832,
+   "budget_box_s_per_frame": 0.201,
+   "within_budget": true,
+   "loadavg1": [
+    4.33,
+    4.33
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  },
+  "hero": {
+   "frames": 190,
+   "wall_s": 17.43,
+   "box_s_per_frame": 0.0917,
+   "slot_s_per_frame": 0.2751,
+   "budget_box_s_per_frame": 1.038,
+   "within_budget": true,
+   "loadavg1": [
+    4.31,
+    4.52
+   ],
+   "queue": {
+    "running": 1,
+    "queued": 2
+   },
+   "other_jobs_running": 0
+  }
+ },
+ "within_budget": true,
+ "qa_findings": []
+}

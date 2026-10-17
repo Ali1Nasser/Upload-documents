@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ScatterField",
  "composition": "Demo-ScatterField",
- "at": "2026-10-14T08:29:06Z",
+ "at": "2026-10-16T23:38:00Z",
  "frames": [
   0,
   11,
@@ -26,30 +26,37 @@
    "tag": "p0",
    "frame": 0,
    "why": "0 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1325 px"
   },
   {
    "tag": "a1",
    "frame": 11,
    "why": "first anchor settled (anchor + 6 + 1 f)",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1325 px"
   },
   {
    "tag": "p50",
    "frame": 74,
    "why": "50 %",
-   "determinism_diff_px": 0,
-   "baseline": "written"
+   "determinism_diff_px": 1325,
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1325 px"
   },
   {
    "tag": "p100",
    "frame": 149,
    "why": "100 %",
-   "baseline": "written"
+   "pass": false,
+   "error": "not approved (baseline untouched): determinism 1325 px"
   }
  ],
  "qa_findings": [],
  "registry_problems": [],
  "approve": true,
- "pass": true
+ "approve_refused": [
+  "determinism 1325 px"
+ ],
+ "pass": false
 }
