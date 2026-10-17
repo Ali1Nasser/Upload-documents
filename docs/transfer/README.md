@@ -1,6 +1,6 @@
 # Moving the workspace to your desktop
 
-The repo (code, specs, decisions, reports, approved components) lives on GitHub. `data/` is git-ignored and was transferred separately, as an **encrypted** tar stream split into 100 MiB parts on x0.at. Each part was re-downloaded and SHA-256 verified after upload; the parts are listed in `data_parts.tsv`.
+The repo (code, specs, decisions, reports, approved components) lives on GitHub. `data/` is git-ignored and was transferred separately, as an **encrypted** tar stream: 8,151 files (7.46 GB) in 72 parts on x0.at (71 × 100 MiB plus one of 31 MB, 7,476,019,232 bytes in all), uploaded 2026-10-17 05:56–06:52 UTC. Each part was re-downloaded and SHA-256 verified after upload; the parts are listed in `data_parts.tsv`.
 
 This repo is public, so the parts are AES-256 ciphertext. The passphrase was given to you in the Claude chat and is not stored in the repo; keep it somewhere safe. (temp.sh refused files over about 4 MiB on 2026-10-17, so x0.at was used. Its 100 MiB files stay online for about 82 days.)
 
