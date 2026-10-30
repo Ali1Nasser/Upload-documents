@@ -2,7 +2,7 @@
  "v": 2,
  "name": "KpiPanel",
  "composition": "Demo-KpiPanel",
- "at": "2026-10-30T04:55:43Z",
+ "at": "2026-10-30T04:59:18Z",
  "frames": [
   0,
   11,
@@ -40,7 +40,7 @@
    "tag": "p50",
    "frame": 74,
    "why": "50 %",
-   "determinism_diff_px": 1422,
+   "determinism_diff_px": 0,
    "mismatch_px": 0,
    "pass": true
   },
@@ -55,5 +55,5 @@
  "qa_findings": [],
  "registry_problems": [],
  "approve": false,
- "pass": false
+ "pass": true
 }

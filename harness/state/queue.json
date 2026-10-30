@@ -257,13 +257,14 @@
       "label": "render-perf-ArtifactChain",
       "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render perf ArtifactChain",
       "tsp_id": 27,
-      "status": "queued",
+      "status": "running",
       "mem_gb": 3.0,
       "expected_gb": 0.2,
       "engine": "",
       "attempts": 1,
       "submitted": "2026-10-30T04:55:21Z",
-      "slots": 3
+      "slots": 3,
+      "updated": "2026-10-30T04:59:19Z"
     },
     "28": {
       "label": "render-snap-LowerThird",
@@ -505,14 +506,15 @@
       "label": "render-snap-KpiPanel",
       "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render snap KpiPanel",
       "tsp_id": 45,
-      "status": "running",
+      "status": "done",
       "mem_gb": 3.0,
       "expected_gb": 0.2,
       "engine": "",
       "attempts": 1,
       "submitted": "2026-10-30T04:58:57Z",
       "slots": 1,
-      "updated": "2026-10-30T04:58:58Z"
+      "updated": "2026-10-30T04:59:18Z",
+      "exit": "0"
     },
     "46": {
       "label": "render-perf-InferenceCore",
@@ -530,42 +532,39 @@
       "label": "render-snap-ComplexityRace",
       "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render snap ComplexityRace",
       "tsp_id": 47,
-      "status": "running",
+      "status": "failed",
       "mem_gb": 3.0,
       "expected_gb": 0.2,
       "engine": "",
       "attempts": 1,
       "submitted": "2026-10-30T04:59:00Z",
       "slots": 1,
-      "updated": "2026-10-30T04:59:00Z"
+      "updated": "2026-10-30T04:59:19Z",
+      "exit": "1"
     },
     "48": {
-      "label": "render-perf-OlapCube",
-      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render perf OlapCube",
+      "label": "render-snap-ModuleClusters",
+      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render snap ModuleClusters",
       "tsp_id": 48,
-      "status": "done",
+      "status": "queued",
       "mem_gb": 3.0,
       "expected_gb": 0.2,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-16T23:19:21Z",
-      "slots": 3,
-      "updated": "2026-10-16T23:23:01Z",
-      "exit": "0"
+      "submitted": "2026-10-30T04:59:19Z",
+      "slots": 1
     },
     "49": {
-      "label": "render-perf-Spin",
-      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render perf Spin",
+      "label": "render-snap-Distribution",
+      "cmd": "/usr/bin/python3 /home/user/Upload-documents/tools/dc.py render snap Distribution",
       "tsp_id": 49,
-      "status": "done",
+      "status": "queued",
       "mem_gb": 3.0,
       "expected_gb": 0.2,
       "engine": "",
       "attempts": 1,
-      "submitted": "2026-10-16T23:19:47Z",
-      "slots": 3,
-      "updated": "2026-10-16T23:23:48Z",
-      "exit": "0"
+      "submitted": "2026-10-30T04:59:23Z",
+      "slots": 1
     },
     "50": {
       "label": "am-evidence",
