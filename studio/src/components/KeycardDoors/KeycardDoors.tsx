@@ -112,9 +112,15 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     <Stage ctx={ctx}>
       <Svg w={W} h={H}>
         <defs>
-          <linearGradient id={`${ctx.id}-floor`} x1={0} y1={0} x2={0} y2={1}>
-            <stop offset="0" stopColor={C.signal} stopOpacity={0.07} />
+          <radialGradient id={`${ctx.id}-floor`} cx="50%" cy="0%" r="50%" gradientTransform="translate(0.25 0) scale(0.5 1)">
+            <stop offset="0" stopColor={C.signal} stopOpacity={0.08} />
             <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+          </radialGradient>
+          <linearGradient id={`${ctx.id}-horizon`} x1={0} y1={0} x2={1} y2={0}>
+            <stop offset="0" stopColor={C.grid} stopOpacity={0} />
+            <stop offset="0.2" stopColor={C.grid} stopOpacity={1} />
+            <stop offset="0.8" stopColor={C.grid} stopOpacity={1} />
+            <stop offset="1" stopColor={C.grid} stopOpacity={0} />
           </linearGradient>
           <linearGradient id={`${ctx.id}-leafL`} x1={0} y1={0} x2={1} y2={0.2}>
             <stop offset="0" stopColor={C.panel} />
@@ -129,10 +135,6 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <stop offset="0.7" stopColor={C.ok} stopOpacity={0.5} />
             <stop offset="1" stopColor={C.ok} stopOpacity={0.75} />
           </linearGradient>
-          <linearGradient id={`${ctx.id}-refl`} x1={0} y1={0} x2={0} y2={1}>
-            <stop offset="0" stopColor={C.ink} stopOpacity={0.07} />
-            <stop offset="1" stopColor={C.ink} stopOpacity={0} />
-          </linearGradient>
           {[C.ok, C.crit].map((col, k) => (
             <radialGradient key={k} id={`${ctx.id}-pool${k}`} cx="50%" cy="50%" r="50%">
               <stop offset="0" stopColor={col} stopOpacity={0.42} />
@@ -146,8 +148,8 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         </defs>
         {/* floor plane: a faint lit band and the horizon line the doors stand on */}
         <g opacity={prog(ctx, ctx.at, 'label')}>
-          <rect x={0} y={floorY} width={W} height={Math.max(0, H - floorY)} fill={`url(#${ctx.id}-floor)`} />
-          <line x1={W * 0.02} x2={W * 0.98} y1={floorY} y2={floorY} stroke={C.grid} strokeWidth={2} />
+          <rect x={-W * 0.5} y={floorY} width={W * 2} height={Math.max(0, H - floorY)} fill={`url(#${ctx.id}-floor)`} />
+          <rect x={0} y={floorY - 1} width={W} height={2} fill={`url(#${ctx.id}-horizon)`} />
         </g>
         {/* dust motes drifting in the corridor air (seeded; never over a doorway) */}
         {Array.from({length: MOTES}, (_, m) => {
@@ -175,8 +177,6 @@ export const KeycardDoorsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
                 </>
               ) : null}
               {denied ? <ellipse cx={cx(i)} cy={floorY + dh * 0.04} rx={dw * 0.8} ry={dh * 0.055} fill={`url(#${ctx.id}-pool1)`} opacity={0.4 + 0.6 * flash} /> : null}
-              {/* reflection of the door on the floor */}
-              <rect x={x} y={floorY + 4} width={dw} height={dh * 0.22} fill={`url(#${ctx.id}-refl)`} />
               {/* frame glow (status only) */}
               {tone ? (
                 <>

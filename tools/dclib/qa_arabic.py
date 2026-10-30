@@ -354,8 +354,9 @@ def ar_face_for(size):
     return "ar-display" if size >= DISPLAY_MIN_PX else "ar-text"
 
 
-def render_line(line, size, kind="label", gap=None, pad=None):
-    """Render one line in RTL flow as the Mix component lays it out. Returns (L image white-on-black, ink bbox, advance width)."""
+def render_line(line, size, kind="label", gap=None, pad=None, spans=None):
+    """Render one line in RTL flow as the Mix component lays it out. Returns (L image white-on-black, ink bbox, advance width).
+    `spans` (optional list) receives (is_ltr, x_left, x_right) per script run in layout pixels, for the script-run OCR fallback."""
     from PIL import Image, ImageDraw
     pad = pad if pad is not None else int(size * 0.6)
     role = label_role(line)
@@ -381,6 +382,8 @@ def render_line(line, size, kind="label", gap=None, pad=None):
     for t, ltr, w, gp in parts:
         x -= gp
         x0 = x - w
+        if spans is not None:
+            spans.append((ltr, int(x0), int(x0 + w)))
         if t.strip():
             # word-spacing: draw word by word so the extra 0.08 em shows; Raqm handles shaping inside each word
             words = re.split(r"(\s+)", t)
@@ -405,7 +408,7 @@ def render_line(line, size, kind="label", gap=None, pad=None):
     return im, bb, total
 
 
-def render_text(item, gap=None):
+def render_text(item, gap=None, spans=None):
     """Render all lines of an item stacked (RTL right aligned). Returns (image, ink bbox, widest line advance, lines)."""
     from PIL import Image
     size = item.get("size") or DEFAULT_SIZE.get(item["kind"], 32)
@@ -413,7 +416,7 @@ def render_text(item, gap=None):
     lines = text.split("\n") if "\n" in text else [text]
     if len(lines) == 1:
         lines = break_caption(text)[0] if (" | " in text) else lines
-    imgs = [render_line(l.replace(" | ", " "), size, item["kind"], gap) for l in lines]
+    imgs = [render_line(l.replace(" | ", " "), size, item["kind"], gap, spans=spans if len(lines) == 1 else None) for l in lines]
     lh = int(size * (1.6 if TASHKEEL.search(text) else 1.3))
     from PIL import Image as I
     W = max(i[0].width for i in imgs)
@@ -431,11 +434,13 @@ def find_ocr(cmd=None):
     """Returns a callable (image_path, psm) -> text, or None. Order: --ocr-cmd / $DC_OCR_CMD, tesseract binary."""
     cmd = cmd or os.environ.get("DC_OCR_CMD")
     if cmd:
-        return lambda f, psm: subprocess.run(shlex.split(cmd) + [str(f), str(psm)], capture_output=True, text=True, timeout=120).stdout.strip()
+        return lambda f, psm, lang=None: subprocess.run(shlex.split(cmd) + [str(f), str(psm)], capture_output=True, text=True, timeout=120).stdout.strip()
     tb = shutil.which("tesseract")
     if tb:
         env = dict(os.environ, OMP_THREAD_LIMIT="1")
-        return lambda f, psm: subprocess.run([tb, str(f), "-", "-l", "ara+eng", "--psm", str(psm)], capture_output=True, text=True, timeout=120, env=env).stdout.strip()
+        fn = lambda f, psm, lang=None: subprocess.run([tb, str(f), "-", "-l", lang or "ara+eng", "--psm", str(psm)], capture_output=True, text=True, timeout=120, env=env).stdout.strip()
+        fn.per_language = True  # the script-run fallback needs to pick the language model; a custom --ocr-cmd cannot, so it never gets the fallback
+        return fn
     return None
 
 
@@ -527,6 +532,41 @@ def do_ocr(ocr, make_img, multiline):
             make_img(tg).save(f)
             for psm in ((6, 4) if multiline else (7, 13)):
                 yield psm, tg, ocr(f, psm)
+
+
+def script_run_ocr(ocr, rim, spans, size, want, min_score):
+    """Script-run fallback for a mixed Arabic+Latin line that failed the single-pass read (tesseract's script detection hands Latin `ODS` to the
+    Arabic model as `5`, or Arabic `بناء الـ` to the Latin one as `I] clu`). The SAME render is read twice with the right language model each:
+    Latin runs blanked out and `-l ara`, Arabic runs blanked out and `-l eng`; the Arabic stream of the first and the Latin stream of the second
+    are scored against the want streams exactly as in the single pass (same normalisation, same threshold). Nothing is re-rendered, so shaping,
+    join gap and tofu are judged on the identical pixels; wrong shaping, per-letter forms and broken joins still fail the Arabic read, and the
+    caller only offers this path when the full-line read showed no join junk (see qa_item_core). Returns the best dict or None."""
+    from PIL import Image
+    ar_im, lat_im = rim.copy(), rim.copy()
+    for ltr, x0, x1 in spans:
+        (lat_im if not ltr else ar_im).paste(0, (max(0, x0 - 1), 0, min(rim.width, x1 + 1), rim.height))
+    wa, wl = streams(want).split("|", 1)
+    best = None
+    with tempfile.TemporaryDirectory() as td:
+        f = Path(td) / "x.png"
+        for tg in SCALES:
+            ims = {}
+            for k, im in (("ara", ar_im), ("eng", lat_im)):
+                ims[k] = prep_isolated(im, size, tg)
+            for psm in (7, 13):
+                got = {}
+                for k in ("ara", "eng"):
+                    ims[k].save(f)
+                    got[k] = ocr(f, psm, k)
+                ga = streams(got["ara"]).split("|", 1)[0]
+                gl = streams(got["eng"]).split("|", 1)[1]
+                sc = round(difflib.SequenceMatcher(None, ga + "|" + gl, wa + "|" + wl).ratio(), 3)
+                if best is None or sc > best["score"]:
+                    best = {"score": sc, "exact": ga == wa and gl == wl, "psm": psm, "scale": tg, "got": f"{got['ara']} // {got['eng']}",
+                            "method": "script-runs (ara model on Arabic runs, eng model on Latin runs)", "join_junk": ""}
+                if sc >= min_score:
+                    return best
+    return best
 
 
 # ---------------------------------------------------------------- static checks
@@ -715,6 +755,7 @@ def qa_item_core(it, ocr, args, gap):
         P.append(f"TOFU {len(miss)} codepoint(s) without a glyph: {' '.join(miss)}")
     # --- render + overflow + OCR
     im, evidence, box = None, None, None
+    rim, rspans = None, []
     ocr_text = text
     multiline = "\n" in text.replace("\\n", "\n") or " | " in text or len(break_caption(text)[0]) > 1
     try:
@@ -734,14 +775,16 @@ def qa_item_core(it, ocr, args, gap):
             if args.no_render:
                 pre = None
             else:
-                rim, bb, adv, lines = render_text({**it, "text": text}, gap)
+                rspans = []
+                rim, bb, adv, lines = render_text({**it, "text": text}, gap, rspans)
                 evidence = "pil-raqm-isolated"
                 if len(AR_CORE.findall(text)) < CARRIER_BELOW:
                     # tesseract cannot reliably read a short Arabic stream out of context (`الـAI` -> `Al JI`): OCR it behind a neutral carrier word
                     # laid out by the same code (same faces, same join gap); the carrier is in the want string too
                     res["carrier"] = CARRIER
                     ocr_text = f"{CARRIER} {text}"
-                    rim = render_text({**it, "text": ocr_text}, gap)[0]
+                    rspans = []
+                    rim = render_text({**it, "text": ocr_text}, gap, rspans)[0]
                 pre = lambda tg: prep_isolated(rim, size or DEFAULT_SIZE[kind], tg)
                 w_px = bb[2] - bb[0]
                 cont_w = it.get("container", {}).get("w") if isinstance(it.get("container"), dict) else None
@@ -782,6 +825,17 @@ def qa_item_core(it, ocr, args, gap):
             if rank[0]:
                 break
         best.pop("rank")
+        if (best["score"] < args.min_score and not best.get("join_junk") and evidence == "pil-raqm-isolated" and rim is not None and not multiline
+                and getattr(ocr, "per_language", False) and any(l for l, _, _ in rspans) and any(not l for l, _, _ in rspans)
+                and (not res["join"] or best.get("join_region_ok"))):
+            # mixed-script line that the single pass misread without join junk (join strings: only when the Latin term was read intact next to the
+            # tatweel, i.e. positive evidence that the join is clean). Re-read the same pixels run by run with the matching language model.
+            alt = script_run_ocr(ocr, rim, rspans, size or DEFAULT_SIZE[kind], want_visual(ocr_text.replace(" | ", " ").replace("\\n", " ")), args.min_score)
+            if alt and alt["score"] > best["score"]:
+                alt["full_line"] = {"score": best["score"], "got": best["got"], "psm": best["psm"], "scale": best["scale"]}
+                if res["join"]:
+                    alt["join_region_ok"] = best.get("join_region_ok")
+                best = alt
         best["pass"] = best["score"] >= args.min_score and not best.get("join_junk")
         res["ocr"] = best
         if (not best["pass"] and res["join"] and evidence == "pil-raqm-isolated"

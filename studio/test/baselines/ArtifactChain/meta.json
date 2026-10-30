@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "6070a4e009c47cb92fcc3169994341c8f869fe25c83c428d0fc1adf5eb5a51ff",
+  "p50": "dfc36f671343ac95a8d7eccf47697e85349714ae75429426fe369e76f1b5dcfe",
+  "p100": "43373a3ab7a50f1aeb08600a9a91f9cc8f0de819a3be901cf6043ba84dc9c9ea"
+ },
+ "v": 2,
+ "name": "ArtifactChain",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 94,
+  "p100": 189
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-30T04:55:20Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

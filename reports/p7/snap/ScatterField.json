@@ -2,7 +2,7 @@
  "v": 2,
  "name": "ScatterField",
  "composition": "Demo-ScatterField",
- "at": "2026-10-30T04:53:17Z",
+ "at": "2026-10-30T04:54:56Z",
  "frames": [
   0,
   11,
@@ -40,7 +40,7 @@
    "tag": "p50",
    "frame": 74,
    "why": "50 %",
-   "determinism_diff_px": 0,
+   "determinism_diff_px": 1325,
    "mismatch_px": 19302,
    "pass": false
   },
@@ -48,7 +48,7 @@
    "tag": "p100",
    "frame": 149,
    "why": "100 %",
-   "mismatch_px": 24935,
+   "mismatch_px": 24934,
    "pass": false
   }
  ],

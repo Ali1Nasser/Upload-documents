@@ -2,7 +2,7 @@
  "v": 2,
  "name": "TestGate",
  "composition": "Demo-TestGate",
- "at": "2026-10-30T04:52:57Z",
+ "at": "2026-10-30T04:54:59Z",
  "frames": [
   0,
   11,
@@ -40,7 +40,7 @@
    "tag": "p50",
    "frame": 99,
    "why": "50 %",
-   "determinism_diff_px": 629,
+   "determinism_diff_px": 0,
    "mismatch_px": 0,
    "pass": true
   },
@@ -55,5 +55,5 @@
  "qa_findings": [],
  "registry_problems": [],
  "approve": false,
- "pass": false
+ "pass": true
 }

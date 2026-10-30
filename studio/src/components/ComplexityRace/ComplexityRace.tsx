@@ -11,7 +11,7 @@ import {glow, halo, hex} from '../../fx/look';
 import {ease} from '../../type/reveal';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
-import {At, Chip, FitLabel, GlowLine, Stage, Svg, actsOf, f24, fmtCount, glowBox, lerp, prog, progN, rim, stag, type Pt} from '../_dom-b/kit';
+import {At, Chip, FitLabel, GlowLine, Stage, Svg, actsOf, dPath, f24, fmtCount, glowBox, lerp, prog, progN, rim, stag, type Pt} from '../_dom-b/kit';
 
 type BigO = Props['racers'][number]['big_o'];
 const XMAX = 12; // the n range of the picture (a shape, never labelled)
@@ -38,7 +38,7 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const H = box.h;
   const legW = Math.min(W * 0.3, 520);
   const px0 = SIZE.label * 1.4; // chart left (y axis)
-  const px1 = W - legW - 30;
+  const px1 = W - legW - SIZE.label * 2.4;
   const py1 = SIZE.label * 1.6; // chart top
   const py0 = H - SIZE.label * 2.4; // axis line
   const X = (x: number) => lerp(px0, px1, x);
@@ -53,9 +53,40 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const rowH = Math.min((H - 40) / racers.length, SIZE.label * 3.6);
   const legY0 = (H - rowH * racers.length) / 2;
   const nTxt = props.n ? `${fmtCount(props.n.value, props.n.decimals ?? 0)}${props.n.unit ? ` ${props.n.unit}` : ''}` : null;
+  const plate = {x: px0 - SIZE.label * 0.9, y: py1 - SIZE.label * 1.3, w: px1 + 18 + SIZE.label * 0.9 - (px0 - SIZE.label * 0.9), h: py0 + SIZE.label * 2 - (py1 - SIZE.label * 1.3)};
+  const lite = fx.id === 'lite';
   return (
     <Stage ctx={ctx}>
       <Svg w={W} h={H}>
+        <defs>
+          <linearGradient id={`${ctx.id}-plate`} x1={0} y1={0} x2={0.35} y2={1}>
+            <stop offset="0" stopColor={C.panel} stopOpacity={0.72} />
+            <stop offset="1" stopColor={C.ground} stopOpacity={0.55} />
+          </linearGradient>
+          <linearGradient id={`${ctx.id}-refl`} x1={0} y1={0} x2={0} y2={1}>
+            <stop offset="0" stopColor={C.signal} stopOpacity={0.06} />
+            <stop offset="1" stopColor={C.signal} stopOpacity={0} />
+          </linearGradient>
+          <linearGradient id={`${ctx.id}-burst`} x1={0} y1={1} x2={0} y2={0}>
+            <stop offset="0" stopColor={C.crit} stopOpacity={0} />
+            <stop offset="1" stopColor={C.crit} stopOpacity={0.4} />
+          </linearGradient>
+          {racers.map((r) => {
+            const col = r.big_o === 'O(n^2)' || r.big_o === 'O(2^n)' ? C.crit : TONE[r.big_o];
+            return (
+              <linearGradient key={r.i} id={`${ctx.id}-wash${r.i}`} x1={0} y1={0} x2={0} y2={1}>
+                <stop offset="0" stopColor={col} stopOpacity={0.16} />
+                <stop offset="1" stopColor={col} stopOpacity={0} />
+              </linearGradient>
+            );
+          })}
+        </defs>
+        {/* the chart stands on a lit glass plate (rim light upper right, floor reflection below) */}
+        <g opacity={ent}>
+          <rect x={plate.x} y={plate.y + plate.h + 8} width={plate.w} height={Math.min(SIZE.label * 2.2, Math.max(0, H - plate.y - plate.h - 8))} rx={18} fill={`url(#${ctx.id}-refl)`} />
+          <rect x={plate.x} y={plate.y} width={plate.w} height={plate.h} rx={22} fill={`url(#${ctx.id}-plate)`} stroke={C.grid} strokeWidth={1.5} />
+          <path d={`M${plate.x + 22} ${plate.y + 1} L${plate.x + plate.w - 22} ${plate.y + 1} Q${plate.x + plate.w - 1} ${plate.y + 1} ${plate.x + plate.w - 1} ${plate.y + 22} L${plate.x + plate.w - 1} ${plate.y + plate.h * 0.5}`} fill="none" stroke={C.ink} strokeOpacity={0.2} strokeWidth={1.5} />
+        </g>
         {/* axes (LTR, math convention) */}
         <g opacity={ent}>
           <GlowLine pts={[{x: px0, y: py0}, {x: px1 + 18, y: py0}]} color={C.ink3} w={2} fx={fx} k={0.1} arrow />
@@ -63,6 +94,8 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           {[0.25, 0.5, 0.75].map((g) => (
             <line key={g} x1={px0} x2={px1} y1={Y(g)} y2={Y(g)} stroke={C.grid} strokeWidth={1} strokeDasharray="3 9" />
           ))}
+          {/* the chart's top edge: where a curve leaves the picture */}
+          <line x1={px0} x2={px1} y1={Y(1)} y2={Y(1)} stroke={C.crit} strokeOpacity={0.25} strokeWidth={1.5} strokeDasharray="10 8" />
         </g>
         {racers.map((r) => {
           const col = r.big_o === 'O(n^2)' || r.big_o === 'O(2^n)' ? C.crit : TONE[r.big_o];
@@ -89,8 +122,14 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           if (q <= 0 || t < tR) return null;
           const head = pts[pts.length - 1];
           const tone = off ? C.crit : col;
+          const wash = `${dPath(pts)} L${head.x.toFixed(1)} ${py0.toFixed(1)} L${pts[0].x.toFixed(1)} ${py0.toFixed(1)} Z`;
+          const burst = off ? Math.max(0, 1 - (q - offAt) * 2.2) : 0;
           return (
             <g key={r.i}>
+              <path d={wash} fill={`url(#${ctx.id}-wash${r.i})`} />
+              {!off ? <line x1={head.x} x2={head.x} y1={head.y + lw * 3} y2={py0} stroke={tone} strokeOpacity={0.35} strokeWidth={1.5} strokeDasharray="4 6" /> : null}
+              {off && burst > 0 ? <rect x={head.x - SIZE.label * 2.2} y={Y(1)} width={SIZE.label * 4.4} height={(py0 - py1) * 0.35} fill={`url(#${ctx.id}-burst)`} opacity={(0.5 + 0.5 * burst).toFixed(3)} /> : null}
+              {off && !lite ? <ellipse cx={head.x} cy={Y(1)} rx={SIZE.label * 1.6} ry={SIZE.label * 0.45} fill={C.crit} opacity={(0.12 + 0.2 * burst).toFixed(3)} /> : null}
               <GlowLine pts={pts} color={tone} w={lw} fx={fx} k={0.5 + (off ? 0.5 : 0) + ctx.mod.glow} />
               <circle cx={head.x} cy={head.y} r={lw * 2.3} fill={tone} />
               <circle cx={head.x} cy={head.y} r={lw * 4.6} fill={tone} opacity={0.2} />
