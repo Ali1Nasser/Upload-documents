@@ -6,7 +6,7 @@
 // dependencies stay. RV1: the first visible step is on the anchor frame. Cluster names and module labels are whole words,
 // set by the type engine. No digits.
 import React from 'react';
-import {interpolate} from 'remotion';
+import {interpolate, random} from 'remotion';
 import {C, FONT, SIZE} from '../../tokens';
 import {hex} from '../../fx/look';
 import {ease, flashFrames, presetFrames} from '../../type/reveal';
@@ -101,15 +101,62 @@ export const ModuleClustersView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ent = prog(ctx, ctx.at, 'label');
   const flashing = t >= tD && t < tCut + ff * 2;
   const flashK = t >= tD ? interpolate(t, [tD, tD + ff, tCut + ff * 2], [0, 1, 0.5], clamp) : 0;
+  const done = act ? progN(ctx, tCut + presetFrames('morph', fps, true), presetFrames('label', fps)) : 0; // cohesive: hulls turn ok
+  const lite = fx.id === 'lite';
   return (
     <Stage ctx={ctx}>
+      {/* hulls: lit glass plates on the floor (floor pool, rim light upper right); they turn ok once the coupling is cut */}
+      <Svg w={W} h={H}>
+        <defs>
+          {cl.map((c, k) => {
+            const col = HULL[k % HULL.length];
+            return (
+              <React.Fragment key={k}>
+                <linearGradient id={`${ctx.id}-hull${k}`} x1={0} y1={0} x2={0.4} y2={1}>
+                  <stop offset="0" stopColor={col} stopOpacity={0.1} />
+                  <stop offset="1" stopColor={C.void} stopOpacity={0.45} />
+                </linearGradient>
+                <radialGradient id={`${ctx.id}-pool${k}`} cx="50%" cy="50%" r="50%">
+                  <stop offset="0" stopColor={col} stopOpacity={0.16} />
+                  <stop offset="1" stopColor={col} stopOpacity={0} />
+                </radialGradient>
+              </React.Fragment>
+            );
+          })}
+          <radialGradient id={`${ctx.id}-poolok`} cx="50%" cy="50%" r="50%">
+            <stop offset="0" stopColor={C.ok} stopOpacity={0.22} />
+            <stop offset="1" stopColor={C.ok} stopOpacity={0} />
+          </radialGradient>
+        </defs>
+        {cl.map((c, k) => {
+          const col = HULL[k % HULL.length];
+          const e = prog(ctx, ctx.at + stag(k, fps, 3), 'label');
+          const {x, y, w, h} = c.cell;
+          const edge = done > 0 ? C.ok : col;
+          return (
+            <g key={c.name} opacity={e}>
+              <ellipse cx={x + w / 2} cy={y + h + 14} rx={w * 0.55} ry={Math.max(10, h * 0.09)} fill={`url(#${ctx.id}-pool${k})`} />
+              {done > 0 ? <ellipse cx={x + w / 2} cy={y + h + 14} rx={w * 0.55} ry={Math.max(10, h * 0.09)} fill={`url(#${ctx.id}-poolok)`} opacity={done} /> : null}
+              <rect x={x} y={y} width={w} height={h} rx={26} fill={`url(#${ctx.id}-hull${k})`} />
+              <rect x={x - fx.glowInner * 0.4} y={y - fx.glowInner * 0.4} width={w + fx.glowInner * 0.8} height={h + fx.glowInner * 0.8} rx={26 + fx.glowInner * 0.4} fill="none" stroke={edge} strokeOpacity={0.12 + 0.18 * apart + 0.12 * done} strokeWidth={fx.glowInner * 1.2} />
+              <rect x={x} y={y} width={w} height={h} rx={26} fill="none" stroke={edge} strokeOpacity={0.75} strokeWidth={2} />
+              <path d={`M${x + 26} ${y + 1.5} L${x + w - 26} ${y + 1.5} Q${x + w - 1.5} ${y + 1.5} ${x + w - 1.5} ${y + 26} L${x + w - 1.5} ${y + h * 0.5}`} fill="none" stroke={C.ink} strokeOpacity={0.22} strokeWidth={1.5} />
+              {!lite
+                ? Array.from({length: 6}, (_, m) => {
+                    const mx = x + w * (0.1 + 0.8 * random(`mc:mx:${ctx.id}:${k}:${m}`));
+                    const my = y + h + 18 + ((random(`mc:my:${ctx.id}:${k}:${m}`) * 40 + (t - ctx.at) * 0.15) % 40);
+                    return my < H ? <circle key={m} cx={mx.toFixed(1)} cy={my.toFixed(1)} r={1.5} fill={col} opacity={0.25} /> : null;
+                  })
+                : null}
+            </g>
+          );
+        })}
+      </Svg>
       {cl.map((c, k) => {
         const col = HULL[k % HULL.length];
         return (
-          <div key={c.name} style={{position: 'absolute', left: c.cell.x, top: c.cell.y, width: c.cell.w, height: c.cell.h, borderRadius: 26, border: `2px solid ${col}${hex(0.7)}`, background: `linear-gradient(160deg, ${col}${hex(0.07)} 0%, ${C.void}${hex(0.35)} 100%)`, boxShadow: `${rim(0.14)}, ${glowBox(col, fx, 0.18 + 0.25 * apart)}`, opacity: prog(ctx, ctx.at + stag(k, fps, 3), 'label')}}>
-            <div style={{position: 'absolute', right: 20, top: 8}}>
-              <FitLabel id={`${ctx.id}:cl${k}`} text={c.name} maxW={c.cell.w - 44} color={col} weight={FONT.label.strong} />
-            </div>
+          <div key={c.name} style={{position: 'absolute', left: c.cell.x + c.cell.w - 20, top: c.cell.y + 8, transform: 'translateX(-100%)', opacity: prog(ctx, ctx.at + stag(k, fps, 3), 'label')}}>
+            <FitLabel id={`${ctx.id}:cl${k}`} text={c.name} maxW={c.cell.w - 44} color={done > 0 ? C.ok : col} weight={FONT.label.strong} />
           </div>
         );
       })}
@@ -136,8 +183,12 @@ export const ModuleClustersView: React.FC<DcProps<Props>> = ({props, ctx}) => {
           const mid = Math.floor(pts.length / 2);
           const first = pts.slice(0, mid + 1);
           const second = pts.slice(mid).reverse();
+          const spark = interpolate(t - tCut, [0, ff, ff * 4], [1, 1, 0], clamp);
+          const m = pts[mid];
           return (
             <g key={d.k} opacity={Math.min(1, r * 1.6)}>
+              {spark > 0 ? <circle cx={m.x} cy={m.y} r={lw * (3 + 5 * (1 - spark))} fill={C.crit} opacity={0.6 * spark} /> : null}
+              {spark > 0 ? <circle cx={m.x} cy={m.y} r={lw * (6 + 10 * (1 - spark))} fill="none" stroke={C.crit} strokeOpacity={0.5 * spark} strokeWidth={2} /> : null}
               <GlowLine pts={half(first, 0.5 * r + 0.0001)} color={C.crit} w={lw} fx={fx} k={0.4} />
               <GlowLine pts={half(second, 0.5 * r + 0.0001)} color={C.crit} w={lw} fx={fx} k={0.4} />
             </g>

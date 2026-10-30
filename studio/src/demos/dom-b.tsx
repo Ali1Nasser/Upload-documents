@@ -172,7 +172,7 @@ const modules: DemoDef = {
   frames: 192,
   words: words('ModuleClusters', [
     [6, 18],
-    [80, 94],
+    [118, 132],
   ]),
   shot: {
     fx_tier: 'standard',

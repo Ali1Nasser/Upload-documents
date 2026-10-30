@@ -118,9 +118,16 @@ else:
     check(r["ocr"]["pass"] or "control" in r["ocr"], f"AI join case carries a control: {r['ocr']}")
     # the zero-gap render reproduces the r3 B2 defect: junk next to the Latin term, or a failing score
     zero = {b: {"caps": 0.0, "latin": 0.0} for b in ("display", "text")}
-    for t, sz in (("قسم الـroadmap", 34), ("الترتيب داخل الـpartition", 92)):
+    for t, sz in (("قسم الـroadmap", 34), ("الترتيب داخل الـpartition", 92), ("بناء الـImage", 34), ("بناء الـImage", 92)):
         r = Q.qa_item_core({"id": "t", "text": t, "size": sz, "kind": "label", "sources": []}, OCR, ARGS, zero)
         check(r["status"] == "fail" and any(p.startswith("OCR") for p in r["problems"]), f"no join gap is caught: {t} -> {r['ocr']}")
+    # script-run OCR fallback (struct-a s189 / s197): mixed lines that the single pass misreads as script confusion (`ODS` -> `5`, `بناء الـ` -> `I] clu`)
+    # pass with the right language model per run, on the shipped gap; the same render with a zero gap never gets the fallback.
+    for t, sz in (("ODS — بيانات خام", 34), ("ODS — بيانات خام", 92), ("بناء الـImage", 34), ("بناء الـImage", 92)):
+        r = Q.qa_item_core({"id": "t", "text": t, "size": sz, "kind": "label", "sources": []}, OCR, ARGS, None)
+        check(r["status"] == "pass" and r["ocr"]["score"] >= 0.9, f"mixed-script line passes (script-run fallback allowed): {t} {sz}px {r['ocr']}")
+    r = Q.qa_item_core({"id": "t", "text": "بناء الـImage", "size": 92, "kind": "label", "sources": []}, OCR, ARGS, zero)
+    check("method" not in r["ocr"], f"zero gap is not eligible for the script-run fallback: {r['ocr']}")
     # r3 stills fixtures (frame crops)
     fx = Q.load_items(os.path.join(FIX, "r3_stills.json"))
     res = {}

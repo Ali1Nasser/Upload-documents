@@ -534,6 +534,14 @@ def do_ocr(ocr, make_img, multiline):
                 yield psm, tg, ocr(f, psm)
 
 
+def join_gap_ok(gap):
+    """True when the join gap used for the render is the shipped JOIN_GAP or wider (None = shipped). The script-run fallback masks one script at
+    a time, so it cannot detect Arabic fused to Latin; it is offered to join strings only when the layout itself guarantees the ADR-010 gap."""
+    if gap is None:
+        return True
+    return all(gap[b][k] >= JOIN_GAP[b][k] for b in ("display", "text") for k in ("caps", "latin"))
+
+
 def script_run_ocr(ocr, rim, spans, size, want, min_score):
     """Script-run fallback for a mixed Arabic+Latin line that failed the single-pass read (tesseract's script detection hands Latin `ODS` to the
     Arabic model as `5`, or Arabic `بناء الـ` to the Latin one as `I] clu`). The SAME render is read twice with the right language model each:
@@ -827,9 +835,10 @@ def qa_item_core(it, ocr, args, gap):
         best.pop("rank")
         if (best["score"] < args.min_score and not best.get("join_junk") and evidence == "pil-raqm-isolated" and rim is not None and not multiline
                 and getattr(ocr, "per_language", False) and any(l for l, _, _ in rspans) and any(not l for l, _, _ in rspans)
-                and (not res["join"] or best.get("join_region_ok"))):
-            # mixed-script line that the single pass misread without join junk (join strings: only when the Latin term was read intact next to the
-            # tatweel, i.e. positive evidence that the join is clean). Re-read the same pixels run by run with the matching language model.
+                and (not res["join"] or (best.get("join_region_ok") and join_gap_ok(gap)))):
+            # mixed-script line that the single pass misread without join junk. Join strings qualify only when the render carries the shipped
+            # join gap or wider (join_gap_ok: a zero or B2 gap fuses Arabic and Latin and must keep failing, the fallback blanks the other script
+            # and so cannot see a fusion) and the Latin term was read intact. Re-read the same pixels run by run with the matching language model.
             alt = script_run_ocr(ocr, rim, rspans, size or DEFAULT_SIZE[kind], want_visual(ocr_text.replace(" | ", " ").replace("\\n", " ")), args.min_score)
             if alt and alt["score"] > best["score"]:
                 alt["full_line"] = {"score": best["score"], "got": best["got"], "psm": best["psm"], "scale": best["scale"]}

@@ -67,7 +67,7 @@ export const StatusStampView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const splats = Array.from({length: 9}, (_, i) => {
     const a = random(`stamp:${ctx.id}:sp${i}:a`) * Math.PI * 2;
     const d = 0.56 + 0.16 * random(`stamp:${ctx.id}:sp${i}:d`);
-    return {x: cx + Math.cos(a) * estW * d, y: cy + Math.sin(a) * estH * d * 0.9, r: 2 + 4 * random(`stamp:${ctx.id}:sp${i}:r`)};
+    return {x: cx + Math.cos(a) * estW * d, y: cy + Math.sin(a) * estH * d * 0.9, r: 3 + 5 * random(`stamp:${ctx.id}:sp${i}:r`)};
   });
   const bw = Math.max(4, Math.round(fs * 0.07));
   return (
@@ -75,7 +75,7 @@ export const StatusStampView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       <svg width={ctx.box.w} height={ctx.box.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
         <defs>
           <radialGradient id={`${ctx.id}-bloom`} cx="50%" cy="50%" r="50%">
-            <stop offset="0" stopColor={tone} stopOpacity={0.3} />
+            <stop offset="0" stopColor={tone} stopOpacity={0.42} />
             <stop offset="1" stopColor={tone} stopOpacity={0} />
           </radialGradient>
           <radialGradient id={`${ctx.id}-shadow`} cx="50%" cy="50%" r="50%">

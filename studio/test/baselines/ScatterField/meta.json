@@ -1,9 +1,9 @@
 {
  "sha256": {
   "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
-  "a1": "65dde4f72d09fed2177a0646564540b79e520550cc63ed22fcac202183773814",
-  "p50": "e9ebb75193ef31a2d912e7b4e2c538086b44589c128bec7d91c0e228970f2b2b",
-  "p100": "b5fdb05b39e0e2a527d7455e3ed2f18494a9e46c6d1b4b98b951ecfc4ce82f52"
+  "a1": "7bf44ca7b4bd1e936cf10942ad9bb4a6b4898c3618b760f06923a88738277e52",
+  "p50": "6bda71da624bdc6b244db2c0c1b4ca906b9c6521d849b697757652206b94d565",
+  "p100": "2424e0835f91f3d39a20464deb60f9d7d2a07f028b3b8aebfc224c5ecb100816"
  },
  "v": 2,
  "name": "ScatterField",
@@ -27,7 +27,7 @@
    1
   ]
  },
- "written_at": "2026-10-14T08:29:06Z",
+ "written_at": "2026-10-30T04:57:57Z",
  "written_by": "motion-engineer",
  "approval": "pending-critic",
  "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
