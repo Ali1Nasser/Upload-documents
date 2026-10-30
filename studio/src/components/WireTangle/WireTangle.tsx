@@ -114,8 +114,7 @@ export const WireTangleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   return (
     <Stage ctx={ctx}>
       <Svg w={W} h={H}>
-        {false ? null : null}
-        {[].map((w: any) => {
+        {wires.map((w) => {
           const e = prog(ctx, ctx.at + stag(w.i, fps, 0.25), 'label');
           const cut = w.pts.slice(0, Math.max(2, Math.round(e * (w.pts.length - 1)) + 1));
           return e > 0 ? <Cable key={w.i} pts={cut} color={w.col} w={lw} k={0.35} spec={false} /> : null;
@@ -140,7 +139,7 @@ export const WireTangleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             })
           : null}
       </Svg>
-      {[].map((side: number) => {
+      {[0, 1].map((side) => {
         const x = side === 0 ? W - termW : 0;
         return (
           <div key={side} style={{position: 'absolute', left: x, top: ty0, width: termW, height: termH, borderRadius: 18, border: `2px solid ${clean ? C.ok : C.ink3}`, background: `linear-gradient(${side ? 100 : 260}deg, ${C.panel} 0%, ${C.ground} 100%)`, boxShadow: `${rim(0.2)}${clean ? `, 0 0 ${(fx.glowInner * (0.4 + 0.5 * tie)).toFixed(1)}px ${C.ok}${hex(0.5)}` : ''}`, opacity: ent}}>
@@ -157,4 +156,4 @@ export const WireTangleView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   );
 };
 
-export const WireTangle: DcComponent<Props> = {name: 'WireTangle', Component: WireTangleView, slot: 'full', text: true};
+export const WireTangle: DcComponent<Props> = {name: 'WireTangle', Component: WireTangleView, slot: 'full'};

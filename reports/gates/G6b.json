@@ -1,0 +1,32 @@
+{
+  "gate": "G6b",
+  "pass": false,
+  "checks": [
+    {
+      "name": "catalog_status",
+      "pass": false,
+      "detail": "104 catalog components: {'implemented': 66, 'mapped': 3, 'deferred': 6}; no row KineticWord, KineticPhrase, NumberCounter, TableGrid, ScatterField, Distribution (+23 more); duplicate rows ; unknown status ; mapped/deferred without a note "
+    },
+    {
+      "name": "snapshot_tests",
+      "pass": false,
+      "detail": "27/67 pass (implemented + _selftest); failing TermChip (stale), EquationLine (stale), LowerThird (stale), ChapterCard (stale), DeepDiveCard (stale), PredictionTimer (stale), CalloutArrow (stale), RowFunnel (stale), JoinFusion (stale), DagRun (fail, det 1100 px, stale) (+30 more)"
+    },
+    {
+      "name": "perf_budgets",
+      "pass": false,
+      "detail": "66 implemented; aggregate present; failing TermChip (not in aggregate), EquationLine (not in aggregate), LowerThird (not in aggregate), ChapterCard (not in aggregate), DeepDiveCard (not in aggregate), PredictionTimer (not in aggregate), CalloutArrow (not in aggregate), Spotlight (not in aggregate), RowFunnel (not in aggregate), JoinFusion (not in aggregate) (+56 more)"
+    },
+    {
+      "name": "arabic_type_suite",
+      "pass": false,
+      "detail": "no reports/qa/arabic/g6b.json (dc qa arabic --src studio/src/components --src studio/src/demos --label g6b)"
+    },
+    {
+      "name": "compiler_demo_anchors",
+      "pass": true,
+      "detail": "34/34 anchors resolved on _demo"
+    }
+  ],
+  "created": "2026-10-30T04:46:41Z"
+}

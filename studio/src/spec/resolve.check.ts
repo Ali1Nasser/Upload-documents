@@ -2,11 +2,11 @@
 // Run: bash studio/scripts/check_p7.sh (esbuild bundle -> node; reads corpus/ read-only).
 import fs from 'node:fs';
 import path from 'node:path';
-import {CUT_LEAD, PREVIEW_FPS, playSpan, resolveSpec, WINDOW_PAD} from './resolve';
+import {CUT_LEAD, layerRect, PREVIEW_FPS, playSpan, resolveSpec, WINDOW_PAD} from './resolve';
 import {cameraAt, cameraSafeBox, PUSH_TOTAL_CAP, pushTotal, transitionState} from './rig';
 import {PREVIEW} from '../tokens';
 import {safeRect, slotRect} from '../type/safe';
-import type {Spec, SpecInput, WordRow} from './types';
+import type {ResolvedLayer, ResolvedShot, Spec, SpecInput, WordRow} from './types';
 
 const ROOT = process.env.DC_ROOT || path.resolve(process.cwd(), '..');
 let fails = 0;
@@ -152,6 +152,49 @@ eq('push total: 04 rate for short shots, capped for long, never below the 04 flo
 eq('hold (static) keeps no camera push (04 section 2)', cameraAt({move: 'static', ease: 'inOutCubic', intensity: 1, nudges: []}, 200, 240, 24).s, 1);
 const r24box = r24.shots.flatMap((sh) => sh.layers.map((l) => l.box)).every((b) => b.x >= ts.x && b.y >= ts.y && b.x + b.w <= ts.x + ts.w && b.y + b.h <= ts.y + ts.h);
 eq('resolved layer boxes lie inside title-safe', r24box, true);
+
+// CR-011: LayerCtx.rectOf(id) = layerRect(shot, layer, id, fps): another layer's slot in this layer's space (its plane, the same
+// camera-envelope shrink as its own box). Self = own box; a same-plane copy target = the target's own box; unknown id = undefined.
+{
+  const rt = resolveSpec(input, {fps: 24, preview: false});
+  let self = 0;
+  let selfN = 0;
+  let same = 0;
+  let sameN = 0;
+  for (const sh of rt.shots)
+    for (const a of sh.layers) {
+      selfN++;
+      if (JSON.stringify(layerRect(sh, a, a.id, rt.fps)) === JSON.stringify(a.box)) self++;
+      for (const b of sh.layers)
+        if (b !== a && b.envelope && a.envelope && b.parallax === a.parallax) {
+          sameN++;
+          if (JSON.stringify(layerRect(sh, a, b.id, rt.fps)) === JSON.stringify(b.box)) same++;
+        }
+    }
+  eq(`rectOf: own id = own box (${selfN} layers of _demo @24)`, self, selfN);
+  eq(`rectOf: same-plane copy target = its box (${sameN} pairs)`, same, sameN);
+  const sh0 = rt.shots.find((s) => s.layers.length)!;
+  eq('rectOf: unknown layer id = undefined', layerRect(sh0, sh0.layers[0], '__no_such_layer__', rt.fps), undefined);
+  // synthetic shot: copy stamp on the near plane (1.3) targets a copy layer on mid (1) and a non-copy diagram on far (0.4),
+  // camera push at full intensity, 10 s @ 24 fps, dissolve out (tail 14)
+  const cam = {move: 'push_in', ease: 'inOutCubic', intensity: 1, nudges: []};
+  const L = (id: string, slot: 'start' | 'end' | 'full' | 'lower-third', parallax: number, envelope: boolean): ResolvedLayer => {
+    const raw = slotRect(slot);
+    return {li: 0, id, component: 'X', props: {}, at: 0, atEnd: 0, box: envelope ? cameraSafeBox(cam, 240, 14, 24, parallax, raw) : raw, slotBox: raw, envelope, depth: 'mid', parallax, blur: 0, actions: [], implemented: true};
+  };
+  const stamp = L('stamp', 'lower-third', 1.3, true);
+  const card = L('card', 'start', 1, true);
+  const dia = L('dia', 'end', 0.4, false);
+  const shot: ResolvedShot = {shot_id: 'T', from: 0, dur: 240, tier: 'lite', camera: cam, layers: [stamp, card, dia], mods: [], transition: {type: 'dissolve', frames: 14}, envTail: 14};
+  const onStamp = layerRect(shot, stamp, 'card', 24)!;
+  eq('rectOf: cross-plane target = its slot shrunk on the CALLER plane', JSON.stringify(onStamp), JSON.stringify(cameraSafeBox(cam, 240, 14, 24, 1.3, slotRect('start'))));
+  eq('rectOf: non-copy target from a copy layer is shrunk too (never the raw slot)', JSON.stringify(layerRect(shot, stamp, 'dia', 24)), JSON.stringify(cameraSafeBox(cam, 240, 14, 24, 1.3, slotRect('end'))));
+  eq('rectOf: from a non-copy layer = the raw target slot (same space as its own unshrunk box)', JSON.stringify(layerRect(shot, dia, 'stamp', 24)), JSON.stringify(slotRect('lower-third')));
+  eq('rectOf: copy laid out on rectOf from a near-plane stamp stays title-safe on every frame', inside(cam, 240, 1.3, 'start') && onStamp.w > 0 && onStamp.h > 0, true);
+  const fresh = layerRect(shot, stamp, 'card', 24)!;
+  fresh.x = -1;
+  eq('rectOf: returns a fresh rect (callers cannot mutate a layer box)', [card.box.x !== -1, layerRect(shot, stamp, 'stamp', 24) !== stamp.box], [true, true]);
+}
 
 // M5: copy is never faded in by a dissolve (its own reveal shows it); the outgoing copy fades out over the tail
 const dis = {type: 'dissolve', frames: 14};

@@ -6,7 +6,9 @@
 //   sparks: rising embers with a flicker life cycle;
 //   snow:   slow fall with sway, neutral ink.
 // Count = min(count, FX[tier].particles) (lite 300, standard / hero 1,500 on swiftshader, ADR-002). Text-safe (ADR-002): every
-// visible copy box on screen (+ tier padding) is cut out of the field on the settled frame (_space3d useTextSafe).
+// visible copy box on screen (+ tier padding) is cut out of the field on the settled frame, INSIDE the canvas (_space3d knockout:
+// useForeignText + destination-out holes). The earlier CSS mask (useTextSafe) used PNG data-URL hole images whose async decode
+// nothing awaited, so the same frame rendered with and without its holes (snap determinism 1563 px, 2026-10-14; CR-012 class).
 // Tiers: lite = flat dots at half resolution; standard = + halos on the nearer half; hero = + brighter bloom sprites.
 // Enter: unanchored -> present from the shot start; anchored -> arrive fade from the anchor frame (RV1). Exit after `until`.
 import React, {useMemo} from 'react';
@@ -15,6 +17,7 @@ import {C} from '../../tokens';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {FULL, SpaceCanvas, blit, bloomOf, enterK, exitK, gauss, secs, sprite, wrap} from '../_space3d/kit';
+import {Origin, knockOut, useForeignText} from '../_space3d/knockout';
 
 type P = {x: number; y: number; z: number; ph: number; sp: number; tint: boolean; br: number};
 const field = (n: number, seed: number): P[] =>
@@ -40,6 +43,8 @@ export const ParticleFieldView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const glow = bloomOf(ctx.fx);
   const bokehMax = ctx.fx.bokeh; // near discs only where the tier has bokeh
   const boost = 1 + 0.8 * ctx.mod.particles + 0.4 * ctx.mod.glow;
+  // the field owns no copy: every visible [data-dc-text] box on screen is a hole (the prefix matches no text id)
+  const [oref, holes] = useForeignText('\u0000', ctx.fx, ctx.frame);
   const draw = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
     g.globalCompositeOperation = 'lighter';
@@ -89,8 +94,14 @@ export const ParticleFieldView: React.FC<DcProps<Props>> = ({props, ctx}) => {
       blit(g, sprite(c, 'dot'), X, Y, r * 1.6, A);
       if (glow && p.z > 0.55) blit(g, sprite(c, 'glow'), X, Y, r * 5, A * 0.35 * glow);
     }
+    knockOut(g, holes, ctx.fx);
   };
-  return <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, n, props.kind, props.color, ctx.fx.id, boost]} textSafe />;
+  return (
+    <>
+      <Origin oref={oref} />
+      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, n, props.kind, props.color, ctx.fx.id, boost, holes]} />
+    </>
+  );
 };
 
 export const ParticleField: DcComponent<Props> = {name: 'ParticleField', Component: ParticleFieldView, slot: 'full'};

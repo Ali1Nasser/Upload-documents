@@ -300,6 +300,8 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
         atEnd: endOf(ly.at) ?? at ?? 0,
         until: untilF,
         box,
+        slotBox: box,
+        envelope: false,
         depth,
         parallax: pl?.parallax ?? PLANE[depth].parallax,
         blur: pl?.blur ?? PLANE[depth].blur,
@@ -316,8 +318,13 @@ export const resolveSpec = (input: SpecInput, o: ResolveOpts): Resolved => {
     for (const s of sh.sfx ?? []) frameOf(s.at, `sfx.${s.cue}`, 'sfx');
     // B3: copy boxes shrink by the camera envelope so that, at the peak of the push / truck / roll on their plane, the slot
     // still maps inside title-safe. The incoming transition (whip travel, match scale) is excluded on purpose.
-    for (const l of layers) if (!o.textOf || o.textOf(l.component)) l.box = cameraSafeBox(camera, dur, tailFrames(transition), fps, l.parallax, l.box);
-    return {shot_id: sh.shot_id, from, dur, tier, camera, layers, mods, transition};
+    const envTail = tailFrames(transition);
+    for (const l of layers)
+      if (!o.textOf || o.textOf(l.component)) {
+        l.box = cameraSafeBox(camera, dur, envTail, fps, l.parallax, l.box);
+        l.envelope = true;
+      }
+    return {shot_id: sh.shot_id, from, dur, tier, camera, layers, mods, transition, envTail};
   });
 
   const report: ResolverReport = {
@@ -356,3 +363,20 @@ export const modAt = (shot: ResolvedShot, layerId: string, curves: Record<string
 
 /** Tier object for a resolved shot. */
 export const fxOf = (shot: ResolvedShot) => FX[shot.tier];
+
+/**
+ * CR-011: the rect of layer `targetId` as seen from layer `from` of the same shot, in the space of `from.box`: the target's slot
+ * on `from`'s depth plane (its parallax), shrunk by the shot's camera envelope exactly as the resolver shrank `from.box` (same
+ * camera, length, envelope tail and fps), so copy laid out against it stays title-safe at the peak of the move. A copy target on
+ * the same plane returns its own box; a layer without the envelope (non-copy) gets the raw slot, as its own box is. `fps` = the
+ * composition fps the shot was resolved at. Undefined when no layer of the shot has that id. Pure; returns a fresh object.
+ */
+export const layerRect = (shot: ResolvedShot, from: ResolvedLayer, targetId: string, fps: number): Rect | undefined => {
+  const tgt = shot.layers.find((l) => l.id === targetId);
+  if (!tgt) return undefined;
+  if (tgt === from) return {...from.box};
+  const raw = tgt.slotBox ?? tgt.box;
+  if (!from.envelope) return {...raw};
+  if (tgt.envelope && tgt.parallax === from.parallax) return {...tgt.box};
+  return cameraSafeBox(shot.camera, shot.dur, shot.envTail ?? tailFrames(shot.transition), fps, from.parallax, raw);
+};

@@ -14,7 +14,7 @@ import {presetFrames} from '../type/reveal';
 import {safeRect, type Rect} from '../type/safe';
 import {checkWhenSettled} from '../type/settle';
 import {getComponent, getDemo, isImplemented, isText, slotOf} from './registry';
-import {PREVIEW_FPS, modAt, resolveSpec, walkStrings} from './resolve';
+import {PREVIEW_FPS, layerRect, modAt, resolveSpec, walkStrings} from './resolve';
 import {cameraAt, dollyCounter, planeStyle, streakAt, tailFrames, transitionState} from './rig';
 import type {Anchor, DemoDef, LayerCtx, Resolved, ResolvedLayer, ResolvedShot, SpecInput} from './types';
 
@@ -103,6 +103,14 @@ const Shot: React.FC<{shot: ResolvedShot; prev: ResolvedShot | null; r: Resolved
   const streak = dbg.nofx ? null : streakAt(t, shot.dur, shot.transition, fx);
   const tr = transitionState(t, shot.dur, prev?.transition ?? null, shot.transition);
   const fade = (op: number): React.CSSProperties => (op < 1 ? {opacity: op} : {});
+  // CR-011: other layers' rects in this layer's space (memoised per shot; cameraSafeBox walks the shot once per pair)
+  const rects = useMemo(() => new Map<string, Rect | undefined>(), [shot, r.fps]);
+  const rectOfFor = (l: ResolvedLayer) => (id: string): Rect | undefined => {
+    const key = `${l.li}>${id}`;
+    if (!rects.has(key)) rects.set(key, layerRect(shot, l, id, r.fps));
+    const v = rects.get(key);
+    return v ? {...v} : undefined;
+  };
   return (
     <AbsoluteFill style={tr.wrap} data-dc-transit={tr.transit ? 1 : undefined}>
       {dbg.nofx ? null : (
@@ -129,6 +137,7 @@ const Shot: React.FC<{shot: ResolvedShot; prev: ResolvedShot | null; r: Resolved
                 until: l.until,
                 shotDur: shot.dur,
                 box: l.box,
+                rectOf: rectOfFor(l),
                 frameOf,
                 endOf,
                 actions: l.actions,

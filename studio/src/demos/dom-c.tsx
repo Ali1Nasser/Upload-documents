@@ -228,14 +228,16 @@ const guardedAgentLoop: DemoDef = {
   },
 };
 
-// ArtifactChain: each chapter's artefact joins the chain (04 section 6 "Evidence, portfolio, branches").
+// ArtifactChain: the evidence chain of the finale (s:S4:P25:0010..0014): a lineage from the raw file to the cleaned file, the seed,
+// the queries feeding the model, the Reports Pack, the tests and the README (8 of the 13 artefacts named); "change one cell in the
+// raw file and the whole chain must move, one after another" (s:S4:P25:0014). No number is shown, so no ref is needed.
 const artifactChain: DemoDef = {
   name: 'ArtifactChain',
-  frames: 170,
+  frames: 190,
   words: [
     [W('ArtifactChain', 1), 6, 22],
-    [W('ArtifactChain', 2), 64, 82],
-    [W('ArtifactChain', 3), 108, 126],
+    [W('ArtifactChain', 2), 70, 86],
+    [W('ArtifactChain', 3), 116, 136],
   ],
   shot: {
     fx_tier: 'standard',
@@ -246,21 +248,26 @@ const artifactChain: DemoDef = {
         props: {
           id: 'chain',
           artifacts: [
-            {label: 'سكربت التنضيف', kind: 'code'},
-            {label: 'جدول نظيف', kind: 'data'},
-            {label: 'نموذج التوقع', kind: 'model'},
-            {label: 'تقرير النتائج', kind: 'report'},
+            {label: 'الملف الخام', kind: 'data'},
+            {label: 'الملف المتنظف', kind: 'data'},
+            {label: 'seed البيانات', kind: 'data'},
+            {label: 'الـqueries', kind: 'code'},
+            {label: 'الـmodel', kind: 'model'},
+            {label: 'Reports Pack', kind: 'report'},
+            {label: 'الـtests', kind: 'code'},
+            {label: 'README', kind: 'report'},
           ],
         },
         at: A('ArtifactChain', 1),
       },
       {component: 'ArtifactChain.link', props: {target: 'chain', from: 0, to: 1}, at: A('ArtifactChain', 2)},
-      {component: 'ArtifactChain.link', props: {target: 'chain', from: 1, to: 3}, at: A('ArtifactChain', 3)},
+      {component: 'ArtifactChain.link', props: {target: 'chain', from: 1, to: 7}, at: A('ArtifactChain', 3)},
     ],
   },
 };
 
-// BranchPaths: a question forks into outcomes (idempotency, CH-21 "DAG, retries").
+// BranchPaths: the retry fork of the DAG chapter (s:S1:ar-natural:0331..0336): the task failed after writing half its rows; no
+// retry leaves half the rows, a plain retry doubles them, a retry on an idempotent task gives the same result as one run.
 const branchPaths: DemoDef = {
   name: 'BranchPaths',
   frames: 170,
@@ -276,16 +283,16 @@ const branchPaths: DemoDef = {
         component: 'BranchPaths',
         props: {
           id: 'fork',
-          question: 'إيه اللي يحصل لما الـjob يتكرر؟',
+          question: 'task فشلت بعد ما كتبت نص صفوفها',
           branches: [
-            {label: 'من غير key', outcome: 'صفوف مكررة', status: 'fail'},
-            {label: 'مع ⟦idempotency key⟧', outcome: 'تأثير واحد بس', status: 'ok'},
-            {label: 'بـtimeout', outcome: 'تحميل ناقص', status: 'warn'},
+            {label: 'من غير retry', outcome: 'نص الصفوف بس', status: 'warn'},
+            {label: 'retry على طول', outcome: 'عدد الصفوف بقى الضعف', status: 'fail'},
+            {label: 'retry مع idempotency', outcome: 'نفس نتيجة مرة واحدة', status: 'ok'},
           ],
         },
         at: A('BranchPaths', 1),
       },
-      {component: 'BranchPaths.choose', props: {target: 'fork', index: 1}, at: A('BranchPaths', 2)},
+      {component: 'BranchPaths.choose', props: {target: 'fork', index: 2}, at: A('BranchPaths', 2)},
     ],
   },
 };

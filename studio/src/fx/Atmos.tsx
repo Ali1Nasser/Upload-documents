@@ -1,10 +1,45 @@
 // FX tier atmosphere (P7): backdrop, haze, grain, vignette, text-safe masks (ADR-002 FX2 + text-safe ON). Seeded only.
 import React, {useMemo} from 'react';
-import {AbsoluteFill, random, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, continueRender, delayRender, random, useCurrentFrame} from 'remotion';
 import {C, type Fx} from '../tokens';
 import type {Rect} from '../type/safe';
 import {hex} from './look';
 
+// ---------- sprite decode hold (CR-012) ----------
+// The text-safe holes (and the grain tile) are canvas-drawn PNG data URLs used as CSS images. CSS never waits for an image to
+// decode: under load the compositor rasterised some tiles of the masked haze band before the hole sprite had decoded, so a
+// frame was captured with or without its hole (+/-1 level seams, ~600-1500 px, CR-012). Every sprite URL is therefore decoded
+// once per page through an <img> on the same URL (img.decode() puts the decoded bitmap in the shared image cache) while a
+// delayRender holds the frame; the frame is released one animation frame after the decode. Taken synchronously in the call
+// that first hands the URL to a style, so every caller (Backdrop, Bokeh, Grain, group kits calling textSafeMask from a
+// settle callback) holds the frame before its own handle is released. The settled pixels are unchanged: the hole was always
+// meant to be there; only the capture of an undecoded sprite is ruled out. Decoded <img>s are kept for the page lifetime.
+const decoded = new Map<string, HTMLImageElement>();
+const nextFrame = (): Promise<void> =>
+  new Promise((res) => {
+    let done = false;
+    const go = () => {
+      if (!done) {
+        done = true;
+        res();
+      }
+    };
+    if (typeof requestAnimationFrame === 'function') requestAnimationFrame(() => requestAnimationFrame(go));
+    setTimeout(go, 100); // rAF can be throttled in a hidden page; never hang the frame on it
+  });
+export const holdUntilDecoded = (url: string, what: string): void => {
+  if (!url || decoded.has(url) || typeof document === 'undefined' || typeof Image === 'undefined') return;
+  const img = new Image();
+  decoded.set(url, img);
+  const h = delayRender(`dc sprite decode ${what}`);
+  const loaded = new Promise<void>((res) => {
+    img.onload = () => res();
+    img.onerror = () => res();
+  });
+  img.src = url;
+  const dec = typeof img.decode === 'function' ? img.decode().catch(() => loaded) : loaded;
+  dec.then(nextFrame).then(() => continueRender(h));
+};
 // ---------- text-safe masks (ADR-002): haze / particles / bokeh / bloom are removed from text boxes + tier padding ----------
 const FEATHER = {core: 0.25, out: 2.5, scale: 0.5} as const; // look-dev r3 feather (critic r2 #2)
 const holeCache = new Map<string, string>();
@@ -37,6 +72,7 @@ export const textSafeMask = (rects: Rect[], fx: Fx): React.CSSProperties => {
   const E = pad * FEATHER.out;
   const holes = rects.map((r) => ({url: holeSprite(r.w, r.h, pad), r}));
   if (holes.some((h) => !h.url)) return {};
+  for (const h of holes) holdUntilDecoded(h.url, `hole ${Math.round(h.r.w)}x${Math.round(h.r.h)}`); // CR-012
   return {
     maskImage: ['linear-gradient(#000, #000)', ...holes.map((h) => `url("${h.url}")`)].join(', '),
     maskComposite: ['subtract', ...holes.map(() => 'add')].join(', '),
@@ -101,6 +137,7 @@ export const Grain: React.FC<{fx: Fx}> = ({fx}) => {
     return cv.toDataURL('image/png');
   }, [fx.grain]);
   if (!fx.grain || !url) return null;
+  holdUntilDecoded(url, 'grain'); // CR-012: never capture a frame before the grain tile has decoded
   const ox = Math.floor(random(`gx${frame}`) * 256);
   const oy = Math.floor(random(`gy${frame}`) * 256);
   return <AbsoluteFill style={{backgroundImage: `url(${url})`, backgroundPosition: `${ox}px ${oy}px`, mixBlendMode: 'overlay', opacity: fx.grain * 8, pointerEvents: 'none'}} />;

@@ -8,13 +8,17 @@
 // `load` (0..1) lights that fraction of the 48-segment ring; no figure is printed (a number would need a ref).
 // setState {state}: on its word (RV1) the core crossfades from the current state to the new one over the morph length; every
 //   angle is blended from per-state integrals so a change never jumps. `label` is one chip under the ring (whole string).
-// Tiers: lite flat; standard + glow halos; hero + bloom. Glow is masked out of the label (text-safe). AudioReactive: mod.glow / mod.scale.
+// Tiers: lite flat; standard + glow halos; hero + bloom. Text-safe (ADR-002): the glow and the streaming bars are drawn first and every
+// visible copy box on screen (own label + other layers, settled frame) is knocked out of them INSIDE the canvas (_space3d knockout);
+// the solid core, ring and orbits are drawn after, so a hole never eats the subject. (The earlier CSS mask, useTextSafe, used PNG
+// data-URL hole images whose decode nothing awaited: snap determinism 1358 px on 2026-10-14, CR-012 class.) AudioReactive: mod.glow / mod.scale.
 import React from 'react';
 import {random} from 'remotion';
 import {C, IMPACT, SIZE} from '../../tokens';
 import type {DcComponent, DcProps} from '../../spec/types';
 import type {Props} from './schema';
 import {Chip, Measure, MLabel, SpaceCanvas, actionsOf, blit, bloomOf, chipH, chipW, enterK, exitK, ff, fitTo, lerp, mix, moveK, rgba, secs, sprite, useMeasure, useOverflow} from '../_space3d/kit';
+import {Origin, knockOut, useForeignText} from '../_space3d/knockout';
 
 type St = Props['state'];
 type Look = {col: string; spin: number; breathe: number; ring: number; orbit: number; stream: number; crack: number; bright: number};
@@ -56,6 +60,12 @@ export const InferenceCoreView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const sy = shakeAmp * (random(`ic${ctx.frame}y`) - 0.5) * 2;
   const fit = m && props.label ? fitTo(SIZE.label, m.w[0], box.w * 0.7, SIZE.labelMin) : {size: SIZE.label, overflow: false};
   useOverflow(ctx.id, fit.overflow, {label: props.label});
+  // copy boxes of OTHER layers, measured on the settled frame; the own label chip is added analytically once it is on screen
+  const [oref, foreign] = useForeignText(`${ctx.id}:`, ctx.fx, ctx.frame);
+  const w = props.label && m ? chipW(m.w[0], SIZE.label, fit.size) : 0;
+  const labelT0 = ctx.at + ff(3, ctx.fps);
+  const labelBox = {x: cx - w / 2, y: cy + R * 1.55 + 40, w, h: props.label ? chipH(props.label, fit.size) : 0};
+  const holes = w > 0 && ctx.frame >= labelT0 && k > 0.02 ? [labelBox, ...foreign] : foreign;
 
   const draw = (g: CanvasRenderingContext2D) => {
     if (k <= 0) return;
@@ -70,6 +80,24 @@ export const InferenceCoreView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     g.globalCompositeOperation = 'lighter';
     if (bloom) blit(g, sprite(col, 'glow'), x0, y0, r * 3.2, 0.5 * bright * k * bloom);
     else if (ctx.fx.id !== 'lite') blit(g, sprite(col, 'glow'), x0, y0, r * 2.4, 0.35 * bright * k);
+    g.globalCompositeOperation = 'source-over';
+    // streaming: bars leave the core along the reading direction (left); marching flow, linear drift allowed
+    const st = bl((l) => l.stream);
+    if (st > 0.02) {
+      const n = Math.min(ctx.fx.particles, 36);
+      for (let i = 0; i < n; i++) {
+        const sp = 0.6 + random(`icst${i}s`);
+        const u = (((t * 0.55 * sp + random(`icst${i}o`)) % 1) + 1) % 1;
+        const lane = (Math.floor(random(`icst${i}l`) * 5) - 2) * 18;
+        const x = x0 - r * 0.9 - u * (cx - box.x - r * 0.9);
+        const a = Math.sin(Math.PI * Math.min(1, u * 1.15)) * st * k;
+        g.fillStyle = rgba(i % 5 === 0 ? C.ink : col, 0.9 * a);
+        g.fillRect(x - 10 - 12 * sp, y0 + lane - 3, 14 + 18 * sp, 6);
+        if (bloom && i % 3 === 0) blit(g, sprite(col, 'glow'), x, y0 + lane, 22, 0.3 * a * bloom);
+      }
+    }
+    // text-safe: holes in the glow + bars only (drawn so far); the solid subject below is never cut
+    knockOut(g, holes, ctx.fx);
     g.globalCompositeOperation = 'source-over';
     // load ring: 48 segments, lit fraction = load; error leaves gaps
     const lit = Math.round(props.load * SEG);
@@ -144,31 +172,16 @@ export const InferenceCoreView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         g.stroke();
       }
     }
-    // streaming: bars leave the core along the reading direction (left); marching flow, linear drift allowed
-    const st = bl((l) => l.stream);
-    if (st > 0.02) {
-      const n = Math.min(ctx.fx.particles, 36);
-      for (let i = 0; i < n; i++) {
-        const sp = 0.6 + random(`icst${i}s`);
-        const u = (((t * 0.55 * sp + random(`icst${i}o`)) % 1) + 1) % 1;
-        const lane = (Math.floor(random(`icst${i}l`) * 5) - 2) * 18;
-        const x = x0 - r * 0.9 - u * (cx - box.x - r * 0.9);
-        const a = Math.sin(Math.PI * Math.min(1, u * 1.15)) * st * k;
-        g.fillStyle = rgba(i % 5 === 0 ? C.ink : col, 0.9 * a);
-        g.fillRect(x - 10 - 12 * sp, y0 + lane - 3, 14 + 18 * sp, 6);
-        if (bloom && i % 3 === 0) blit(g, sprite(col, 'glow'), x, y0 + lane, 22, 0.3 * a * bloom);
-      }
-    }
   };
-  const w = props.label && m ? chipW(m.w[0], SIZE.label, fit.size) : 0;
   return (
     <>
-      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, props.load, props.state, ctx.fx.id, mod.glow, mod.scale, R]} textSafe />
+      <Origin oref={oref} />
+      <SpaceCanvas fx={ctx.fx} frame={ctx.frame} draw={draw} deps={[ctx.frame, k, props.load, props.state, ctx.fx.id, mod.glow, mod.scale, R, w, k > 0.02 && ctx.frame >= labelT0, foreign]} />
       <Measure mref={mref} size={SIZE.label}>
         <MLabel text={props.label ?? '-'} size={SIZE.label} />
       </Measure>
       {props.label && m ? (
-        <Chip ctx={ctx} id={`${ctx.id}:label`} text={props.label} size={fit.size} x={cx - w / 2} y={cy + R * 1.55 + 40} t0={ctx.at + ff(3, ctx.fps)} accent={col} overflow={fit.overflow} alpha={k} />
+        <Chip ctx={ctx} id={`${ctx.id}:label`} text={props.label} size={fit.size} x={labelBox.x} y={labelBox.y} t0={labelT0} accent={col} overflow={fit.overflow} alpha={k} />
       ) : null}
     </>
   );

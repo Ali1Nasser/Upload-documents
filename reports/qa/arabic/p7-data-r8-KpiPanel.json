@@ -1,0 +1,237 @@
+{
+ "v": 1,
+ "tool": "dc qa arabic",
+ "created": "2026-10-30T04:48:20Z",
+ "label": "p7-data-r8-KpiPanel",
+ "thresholds": {
+  "ocr_min": 0.9,
+  "kinetic_max_words": 6,
+  "max_chars_line": 32,
+  "max_lines": 2,
+  "size_floor_px": 18,
+  "safe_margin_px": [
+   68,
+   38
+  ]
+ },
+ "verdict": "fail",
+ "metrics": {
+  "strings": 4,
+  "failed": 1,
+  "negative_fixtures": 0,
+  "negative_caught": 0,
+  "ocr_scored": 4,
+  "ocr_pass": 3,
+  "ocr_min": 0.88,
+  "ocr_exact": 2,
+  "tofu_codepoints": 0,
+  "overflow": 0,
+  "bidi": 0,
+  "digits": 0,
+  "joins": 0,
+  "copy": 0,
+  "join_strings": 1,
+  "join_min": 0.88,
+  "join_below_min": [
+   "kp-1"
+  ],
+  "rt_010_2": [
+   "kp-1"
+  ],
+  "join_script_ambiguous": [],
+  "per_letter_hits": 0,
+  "evidence": {
+   "pil-raqm-isolated": 4
+  }
+ },
+ "join_policy": {
+  "code_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "basis": "docs/decisions/ADR-010-join-gap-amendment.md",
+  "reference_join_gap": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.25
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.3
+   }
+  },
+  "code_matches_basis": true,
+  "adr009_b2": {
+   "display": {
+    "caps": 0.2,
+    "latin": 0.14
+   },
+   "text": {
+    "caps": 0.25,
+    "latin": 0.1
+   }
+  },
+  "note": null
+ },
+ "per_letter": [],
+ "items": [
+  {
+   "id": "kp-0",
+   "text": "تعديل سطر كود",
+   "size": 40,
+   "render_size": 40,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 246,
+    "ink_h": 40,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "تعديل سطركود",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "kp-1",
+   "text": "سعة الـpool",
+   "size": 40,
+   "render_size": 40,
+   "kind": "label",
+   "sources": [],
+   "problems": [
+    "OCR score 0.88 < 0.9 (pil-raqm-isolated); got 'pool J] \\u200fقسم سعة\\u200e'"
+   ],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 191,
+    "ink_h": 37,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 179
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.88,
+    "exact": false,
+    "psm": 13,
+    "scale": 100,
+    "got": "pool J] ‏قسم سعة‎",
+    "join_junk": "j]",
+    "join_region_ok": false,
+    "pass": false
+   },
+   "status": "fail"
+  },
+  {
+   "id": "kp-2",
+   "text": "زمن p95",
+   "size": 40,
+   "render_size": 40,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 139,
+    "ink_h": 36,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.9,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم زمن 95م",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "kp-3",
+   "text": "نجاح الإيصالات",
+   "size": 40,
+   "render_size": 40,
+   "kind": "label",
+   "sources": [],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 229,
+    "ink_h": 42,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "نجاح الإيصالات",
+    "join_junk": "",
+    "pass": true
+   },
+   "status": "pass"
+  }
+ ],
+ "open_bidi_not_automatable": [
+  "mirrored ؟ under the RTL wipe (frame-time check)",
+  "Latin isolate wrapping across a 2-line break in the browser (static check covers ⟦⟧ only)"
+ ]
+}

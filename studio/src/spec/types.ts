@@ -46,6 +46,9 @@ export type ResolvedLayer = {
   atEnd: number; // shot-local end frame of the arrival word
   until?: number;
   box: Rect;
+  /** The raw slot rect (title-safe) before the camera-envelope shrink; `envelope` = `box` was shrunk (a copy layer). CR-011. */
+  slotBox?: Rect;
+  envelope?: boolean;
   depth: 'far' | 'mid' | 'near' | 'fg';
   parallax: number;
   blur: number;
@@ -61,6 +64,8 @@ export type ResolvedShot = {
   layers: ResolvedLayer[];
   mods: ModSpec[];
   transition: {type: string; frames: number};
+  /** Tail frames the camera envelope was computed over (the outgoing transition at resolve time). CR-011 rectOf. */
+  envTail?: number;
 };
 export type Unresolved = {shot: string; where: string; word?: string; why: string};
 export type ResolverReport = {
@@ -108,6 +113,10 @@ export type LayerCtx = {
   until?: number;
   shotDur: number;
   box: Rect;
+  /** CR-011: the box of another layer of this shot (by layer id) in the same space as `box`: its slot on THIS layer's depth
+   * plane, shrunk by the camera envelope exactly as `box` is (a copy layer's own box when both share the plane). Undefined
+   * for an id that is not a layer of this shot. Optional so that harnesses building a ctx by hand stay valid. */
+  rectOf?: (layerId: string) => Rect | undefined;
   frameOf: (a?: Anchor) => number | undefined;
   endOf: (a?: Anchor) => number | undefined;
   actions: ResolvedAction[];
