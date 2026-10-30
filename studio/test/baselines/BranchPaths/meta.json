@@ -1,0 +1,34 @@
+{
+ "sha256": {
+  "p0": "84797cf4f2c848102c9cbaaa80b24d91d04a825d86c608db0e36dfc33a1508d6",
+  "a1": "a17232be0acd0d5902bbd324e76afe005d482d88518488f89e65754134e42910",
+  "p50": "729f428f61040436585cabc8f042d2dcf9dc5baa89363b864cbddf856571cd89",
+  "p100": "c3541b3cbe326e337d71734e34a97b62150bcb3c08680274a4464379b2c9b3b4"
+ },
+ "v": 2,
+ "name": "BranchPaths",
+ "frames": {
+  "p0": 0,
+  "a1": 11,
+  "p50": 84,
+  "p100": 169
+ },
+ "scale": 0.5,
+ "tier": "lite",
+ "thresholds": {
+  "scale": 0.5,
+  "tier": "lite",
+  "pixelThreshold": 0.1,
+  "includeAA": true,
+  "maxDiffPx": 16,
+  "frames": [
+   0,
+   0.5,
+   1
+  ]
+ },
+ "written_at": "2026-10-30T05:04:17Z",
+ "written_by": "motion-engineer",
+ "approval": "pending-critic",
+ "note": "Baselines are regression references. A visual change re-writes them with --approve and needs critic approval (system rule)."
+}

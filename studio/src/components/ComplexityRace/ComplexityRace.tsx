@@ -36,7 +36,7 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const t = ctx.frame;
   const W = box.w;
   const H = box.h;
-  const legW = Math.min(W * 0.3, 520);
+  const legW = Math.min(W * 0.32, 580);
   const px0 = SIZE.label * 1.4; // chart left (y axis)
   const px1 = W - legW - SIZE.label * 2.4;
   const py1 = SIZE.label * 1.6; // chart top
@@ -50,7 +50,7 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const ent = prog(ctx, ctx.at, 'label');
   const racers = props.racers.map((r, i) => ({...r, i})).sort((a, b) => ORDER.indexOf(a.big_o) - ORDER.indexOf(b.big_o) || a.i - b.i);
   const lw = Math.max(3, Math.round(SIZE.label * 0.11));
-  const rowH = Math.min((H - 40) / racers.length, SIZE.label * 3.6);
+  const rowH = Math.min((H - 40) / racers.length, SIZE.body * 2.9);
   const legY0 = (H - rowH * racers.length) / 2;
   const nTxt = props.n ? `${fmtCount(props.n.value, props.n.decimals ?? 0)}${props.n.unit ? ` ${props.n.unit}` : ''}` : null;
   const plate = {x: px0 - SIZE.label * 0.9, y: py1 - SIZE.label * 1.3, w: px1 + 18 + SIZE.label * 0.9 - (px0 - SIZE.label * 0.9), h: py0 + SIZE.label * 2 - (py1 - SIZE.label * 1.3)};
@@ -67,10 +67,10 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <stop offset="0" stopColor={C.signal} stopOpacity={0.06} />
             <stop offset="1" stopColor={C.signal} stopOpacity={0} />
           </linearGradient>
-          <linearGradient id={`${ctx.id}-burst`} x1={0} y1={1} x2={0} y2={0}>
-            <stop offset="0" stopColor={C.crit} stopOpacity={0} />
-            <stop offset="1" stopColor={C.crit} stopOpacity={0.4} />
-          </linearGradient>
+          <radialGradient id={`${ctx.id}-burst`} cx="50%" cy="50%" r="50%">
+            <stop offset="0" stopColor={C.crit} stopOpacity={0.5} />
+            <stop offset="1" stopColor={C.crit} stopOpacity={0} />
+          </radialGradient>
           {racers.map((r) => {
             const col = r.big_o === 'O(n^2)' || r.big_o === 'O(2^n)' ? C.crit : TONE[r.big_o];
             return (
@@ -128,8 +128,8 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
             <g key={r.i}>
               <path d={wash} fill={`url(#${ctx.id}-wash${r.i})`} />
               {!off ? <line x1={head.x} x2={head.x} y1={head.y + lw * 3} y2={py0} stroke={tone} strokeOpacity={0.35} strokeWidth={1.5} strokeDasharray="4 6" /> : null}
-              {off && burst > 0 ? <rect x={head.x - SIZE.label * 2.2} y={Y(1)} width={SIZE.label * 4.4} height={(py0 - py1) * 0.35} fill={`url(#${ctx.id}-burst)`} opacity={(0.5 + 0.5 * burst).toFixed(3)} /> : null}
-              {off && !lite ? <ellipse cx={head.x} cy={Y(1)} rx={SIZE.label * 1.6} ry={SIZE.label * 0.45} fill={C.crit} opacity={(0.12 + 0.2 * burst).toFixed(3)} /> : null}
+              {off ? <ellipse cx={head.x} cy={Y(1)} rx={SIZE.label * (2.6 + 1.4 * burst)} ry={SIZE.label * (1.5 + 0.8 * burst)} fill={`url(#${ctx.id}-burst)`} opacity={(0.3 + 0.7 * burst).toFixed(3)} /> : null}
+              {off && !lite ? <ellipse cx={head.x} cy={Y(1)} rx={SIZE.label * 1.2} ry={SIZE.label * 0.3} fill={C.crit} opacity={(0.1 + 0.2 * burst).toFixed(3)} /> : null}
               <GlowLine pts={pts} color={tone} w={lw} fx={fx} k={0.5 + (off ? 0.5 : 0) + ctx.mod.glow} />
               <circle cx={head.x} cy={head.y} r={lw * 2.3} fill={tone} />
               <circle cx={head.x} cy={head.y} r={lw * 4.6} fill={tone} opacity={0.2} />
@@ -156,7 +156,7 @@ export const ComplexityRaceView: React.FC<DcProps<Props>> = ({props, ctx}) => {
         return (
           <div key={r.i} style={{position: 'absolute', left: W - legW, top: y - rowH / 2 + 4, width: legW, height: rowH - 8, opacity: e, transform: `translateY(${((1 - e) * 6).toFixed(2)}px)`, borderRadius: 16, border: `1.5px solid ${col}${hex(0.6)}`, background: `linear-gradient(135deg, ${C.panel}${hex(0.85)} 0%, ${C.ground}${hex(0.85)} 100%)`, boxShadow: `${rim(0.16)}, ${glowBox(col, fx, 0.15)}`, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row-reverse', padding: '0 18px', gap: 12}}>
             <div style={{width: lw * 4, alignSelf: 'stretch', margin: '12px 0', borderRadius: lw * 2, background: col, boxShadow: `0 0 10px ${col}${hex(0.5)}`, flex: 'none'}} />
-            <FitLabel id={`${ctx.id}:r${r.i}`} text={r.label} maxW={legW - 36 - lw * 4 - 150} color={C.ink} weight={FONT.label.strong} />
+            <FitLabel id={`${ctx.id}:r${r.i}`} text={r.label} maxW={legW - 36 - lw * 4 - SIZE.label * 5.2} size={SIZE.body} color={C.ink} weight={FONT.label.strong} />
             <div style={{flex: 'none', textShadow: `${halo}, ${glow(col, fx, 0.3)}`}}>
               <Chip id={`${ctx.id}:b${r.i}`} text={bigOText(r.big_o)} color={col} size={SIZE.label} />
             </div>

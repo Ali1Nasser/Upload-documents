@@ -69,11 +69,13 @@ export const HashBucketsView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const chipH = keySize * 1.5;
   const rowOf = (i: number) => Math.floor(i / perRow);
   const binCx = (i: number) => regionW - binPitch * ((i % perRow) + 0.5); // RTL: bucket 0 nearest the core
-  const binTop = (i: number) => rowOf(i) * band + band * (rowsN === 1 ? 0.16 : 0.08);
-  const binBot = (i: number) => (rowOf(i) + 1) * band - tileH - band * 0.06;
-  const binH = (i: number) => binBot(i) - binTop(i);
   const padB = Math.max(10, chipH * 0.3);
   const pitch0 = chipH + keySize * 0.7;
+  const binBot = (i: number) => (rowOf(i) + 1) * band - tileH - band * 0.06;
+  // a bin is as tall as its deepest chain needs (plus head room), never the whole band: an empty glass column reads as a table row
+  const needH = padB * 2 + chipH + (Math.max(2, maxDepth) - 1 + 0.9) * pitch0;
+  const binTop = (i: number) => Math.max(rowOf(i) * band + band * (rowsN === 1 ? 0.16 : 0.08), binBot(i) - needH);
+  const binH = (i: number) => binBot(i) - binTop(i);
   const pitch = Math.min(pitch0, maxDepth > 1 ? (binH(0) - padB * 2 - chipH) / (maxDepth - 1) : pitch0);
   const slot = (i: number, k: number): Pt => ({x: binCx(i), y: binBot(i) - padB - chipH / 2 - k * pitch});
   const hopN = presetFrames('morph', fps);

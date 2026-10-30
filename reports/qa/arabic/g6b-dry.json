@@ -1,7 +1,7 @@
 {
  "v": 1,
  "tool": "dc qa arabic",
- "created": "2026-10-30T04:47:50Z",
+ "created": "2026-10-30T04:59:03Z",
  "label": "g6b-dry",
  "thresholds": {
   "ocr_min": 0.9,
@@ -14,32 +14,30 @@
    38
   ]
  },
- "verdict": "fail",
+ "verdict": "pass",
  "metrics": {
-  "strings": 241,
-  "failed": 2,
+  "strings": 243,
+  "failed": 0,
   "negative_fixtures": 0,
   "negative_caught": 0,
-  "ocr_scored": 241,
-  "ocr_pass": 239,
-  "ocr_min": 0.643,
-  "ocr_exact": 220,
+  "ocr_scored": 243,
+  "ocr_pass": 243,
+  "ocr_min": 0.9,
+  "ocr_exact": 224,
   "tofu_codepoints": 0,
   "overflow": 0,
   "bidi": 0,
   "digits": 0,
   "joins": 0,
   "copy": 0,
-  "join_strings": 36,
-  "join_min": 0.643,
-  "join_below_min": [
-   "s189"
-  ],
+  "join_strings": 37,
+  "join_min": 0.933,
+  "join_below_min": [],
   "rt_010_2": [],
   "join_script_ambiguous": [],
   "per_letter_hits": 0,
   "evidence": {
-   "pil-raqm-isolated": 241
+   "pil-raqm-isolated": 243
   }
  },
  "join_policy": {
@@ -4083,9 +4081,7 @@
     "studio/src/demos/dom-b.tsx:231"
    ],
    "problems": [],
-   "warnings": [
-    "OCR-BAND OCR score 0.667 < 0.9 (pil-raqm-isolated); got 'set \\u200fال\\u200e aud'"
-   ],
+   "warnings": [],
    "join": true,
    "tofu": {
     "missing": [],
@@ -4110,12 +4106,19 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "قسم ال ‎set‏",
+    "got": "قسم ال // set",
+    "method": "script-runs (ara model on Arabic runs, eng model on Latin runs)",
     "join_junk": "",
+    "full_line": {
+     "score": 0.667,
+     "got": "set ‏ال‎ aud",
+     "psm": 7,
+     "scale": 100
+    },
     "join_region_ok": true,
     "pass": true,
     "bands": {
-     "34": 0.667,
+     "34": 1.0,
      "92": 1.0
     }
    },
@@ -5534,97 +5537,7 @@
   },
   {
    "id": "s118",
-   "text": "سكربت التنضيف",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/dom-c.tsx:249"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text"
-    ]
-   },
-   "overflow": {
-    "ink_w": 223,
-    "ink_h": 33,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "سكربت التنضيف",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 1.0,
-     "92": 0.923
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s119",
-   "text": "جدول نظيف",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/dom-c.tsx:250"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text"
-    ]
-   },
-   "overflow": {
-    "ink_w": 171,
-    "ink_h": 33,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "جدول نظيف",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 1.0,
-     "92": 1.0
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s120",
-   "text": "نموذج التوقع",
+   "text": "الملف الخام",
    "size": null,
    "render_size": [
     34,
@@ -5645,8 +5558,8 @@
     ]
    },
    "overflow": {
-    "ink_w": 175,
-    "ink_h": 37,
+    "ink_w": 161,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -5657,7 +5570,7 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "نموذج التوقع",
+    "got": "الملف الخام",
     "join_junk": "",
     "pass": true,
     "bands": {
@@ -5668,8 +5581,8 @@
    "status": "pass"
   },
   {
-   "id": "s121",
-   "text": "تقرير النتائج",
+   "id": "s119",
+   "text": "الملف المتنظف",
    "size": null,
    "render_size": [
     34,
@@ -5690,8 +5603,8 @@
     ]
    },
    "overflow": {
-    "ink_w": 154,
-    "ink_h": 35,
+    "ink_w": 210,
+    "ink_h": 25,
     "container_w": 1784,
     "lines": 1
    },
@@ -5702,7 +5615,53 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "تقرير النتائج",
+    "got": "الملف المتنظف",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 0.923
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s120",
+   "text": "seed البيانات",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/dom-c.tsx:253"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "overflow": {
+    "ink_w": 177,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "‎seed‏ البيانات",
     "join_junk": "",
     "pass": true,
     "bands": {
@@ -5713,8 +5672,8 @@
    "status": "pass"
   },
   {
-   "id": "s122",
-   "text": "إيه اللي يحصل لما الـjob يتكرر؟",
+   "id": "s121",
+   "text": "الـqueries",
    "size": null,
    "render_size": [
     34,
@@ -5722,7 +5681,7 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/dom-c.tsx:279"
+    "studio/src/demos/dom-c.tsx:254"
    ],
    "problems": [],
    "warnings": [],
@@ -5735,12 +5694,62 @@
      "lat"
     ]
    },
+   "carrier": "قسم",
    "overflow": {
-    "ink_w": 420,
-    "ink_h": 41,
+    "ink_w": 137,
+    "ink_h": 31,
     "container_w": 1784,
     "lines": 1,
-    "ink_w_without_gap": 410
+    "ink_w_without_gap": 126
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
+    "scale": 100,
+    "got": "قسم ال ‎queries‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s122",
+   "text": "الـmodel",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/dom-c.tsx:255"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 118,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 108
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
@@ -5749,12 +5758,12 @@
     "exact": true,
     "psm": 13,
     "scale": 100,
-    "got": "إيه اللي يحصل لما ال ‎job‏ يتكرر؟",
+    "got": "قسم ال ‎model‏",
     "join_junk": "",
     "join_region_ok": true,
     "pass": true,
     "bands": {
-     "34": 0.98,
+     "34": 1.0,
      "92": 1.0
     }
    },
@@ -5762,7 +5771,7 @@
   },
   {
    "id": "s123",
-   "text": "من غير key",
+   "text": "الـtests",
    "size": null,
    "render_size": [
     34,
@@ -5770,7 +5779,56 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/dom-c.tsx:281"
+    "studio/src/demos/dom-c.tsx:257"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": true,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 102,
+    "ink_h": 25,
+    "container_w": 1784,
+    "lines": 1,
+    "ink_w_without_gap": 92
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 140,
+    "got": "قسم ال ‎tests‏",
+    "join_junk": "",
+    "join_region_ok": true,
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s124",
+   "text": "task فشلت بعد ما كتبت نص صفوفها",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/dom-c.tsx:286"
    ],
    "problems": [],
    "warnings": [],
@@ -5783,55 +5841,9 @@
      "lat"
     ]
    },
-   "carrier": "قسم",
    "overflow": {
-    "ink_w": 152,
-    "ink_h": 32,
-    "container_w": 1784,
-    "lines": 1
-   },
-   "evidence": "pil-raqm-isolated",
-   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
-   "ocr": {
-    "score": 1.0,
-    "exact": true,
-    "psm": 7,
-    "scale": 100,
-    "got": "قسم من غير ‎key‏",
-    "join_junk": "",
-    "pass": true,
-    "bands": {
-     "34": 1.0,
-     "92": 1.0
-    }
-   },
-   "status": "pass"
-  },
-  {
-   "id": "s124",
-   "text": "صفوف مكررة",
-   "size": null,
-   "render_size": [
-    34,
-    92
-   ],
-   "kind": "label",
-   "sources": [
-    "studio/src/demos/dom-c.tsx:281"
-   ],
-   "problems": [],
-   "warnings": [],
-   "join": false,
-   "tofu": {
-    "missing": [],
-    "faces": [
-     "ar-display",
-     "ar-text"
-    ]
-   },
-   "overflow": {
-    "ink_w": 175,
-    "ink_h": 35,
+    "ink_w": 512,
+    "ink_h": 36,
     "container_w": 1784,
     "lines": 1
    },
@@ -5842,7 +5854,7 @@
     "exact": true,
     "psm": 13,
     "scale": 100,
-    "got": "صفوف مكررة ‏",
+    "got": ". ‏فشلت بعد ما كتبت نص صفوفها‎ task",
     "join_junk": "",
     "pass": true,
     "bands": {
@@ -5854,7 +5866,7 @@
   },
   {
    "id": "s125",
-   "text": "مع ⟦idempotency key⟧",
+   "text": "من غير retry",
    "size": null,
    "render_size": [
     34,
@@ -5862,7 +5874,7 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/dom-c.tsx:282"
+    "studio/src/demos/dom-c.tsx:288"
    ],
    "problems": [],
    "warnings": [],
@@ -5877,8 +5889,8 @@
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 296,
-    "ink_h": 34,
+    "ink_w": 170,
+    "ink_h": 32,
     "container_w": 1784,
     "lines": 1
    },
@@ -5889,11 +5901,11 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "idempotency key ‏قسم مع‎",
+    "got": "قسم من غير ‎retry‏",
     "join_junk": "",
     "pass": true,
     "bands": {
-     "34": 0.9,
+     "34": 1.0,
      "92": 1.0
     }
    },
@@ -5901,7 +5913,7 @@
   },
   {
    "id": "s126",
-   "text": "تأثير واحد بس",
+   "text": "نص الصفوف بس",
    "size": null,
    "render_size": [
     34,
@@ -5909,10 +5921,12 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/dom-c.tsx:282"
+    "studio/src/demos/dom-c.tsx:288"
    ],
    "problems": [],
-   "warnings": [],
+   "warnings": [
+    "OCR-BAND OCR score 0.818 < 0.9 (pil-raqm-isolated); got 'نص الصفوف \\u200eyw\\u200f'"
+   ],
    "join": false,
    "tofu": {
     "missing": [],
@@ -5922,8 +5936,8 @@
     ]
    },
    "overflow": {
-    "ink_w": 188,
-    "ink_h": 39,
+    "ink_w": 238,
+    "ink_h": 35,
     "container_w": 1784,
     "lines": 1
    },
@@ -5932,21 +5946,21 @@
    "ocr": {
     "score": 1.0,
     "exact": true,
-    "psm": 7,
+    "psm": 13,
     "scale": 100,
-    "got": "تأثير واحد بس",
+    "got": "نص الصفوف بس",
     "join_junk": "",
     "pass": true,
     "bands": {
-     "34": 1.0,
-     "92": 0.917
+     "34": 0.818,
+     "92": 1.0
     }
    },
    "status": "pass"
   },
   {
    "id": "s127",
-   "text": "بـtimeout",
+   "text": "retry على طول",
    "size": null,
    "render_size": [
     34,
@@ -5954,11 +5968,11 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/dom-c.tsx:283"
+    "studio/src/demos/dom-c.tsx:289"
    ],
    "problems": [],
    "warnings": [],
-   "join": true,
+   "join": false,
    "tofu": {
     "missing": [],
     "faces": [
@@ -5969,11 +5983,10 @@
    },
    "carrier": "قسم",
    "overflow": {
-    "ink_w": 135,
-    "ink_h": 32,
+    "ink_w": 206,
+    "ink_h": 33,
     "container_w": 1784,
-    "lines": 1,
-    "ink_w_without_gap": 125
+    "lines": 1
    },
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
@@ -5981,10 +5994,9 @@
     "score": 1.0,
     "exact": true,
     "psm": 7,
-    "scale": 100,
-    "got": "قسم ب ‎timeout‏",
+    "scale": 140,
+    "got": "قسم ‎retry‏ على طول",
     "join_junk": "",
-    "join_region_ok": true,
     "pass": true,
     "bands": {
      "34": 1.0,
@@ -5995,7 +6007,7 @@
   },
   {
    "id": "s128",
-   "text": "تحميل ناقص",
+   "text": "عدد الصفوف بقى الضعف",
    "size": null,
    "render_size": [
     34,
@@ -6003,7 +6015,7 @@
    ],
    "kind": "label",
    "sources": [
-    "studio/src/demos/dom-c.tsx:283"
+    "studio/src/demos/dom-c.tsx:289"
    ],
    "problems": [],
    "warnings": [],
@@ -6016,7 +6028,7 @@
     ]
    },
    "overflow": {
-    "ink_w": 178,
+    "ink_w": 349,
     "ink_h": 35,
     "container_w": 1784,
     "lines": 1
@@ -6028,7 +6040,7 @@
     "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "تحميل ناقص",
+    "got": "عدد الصفوف بقى الضعف",
     "join_junk": "",
     "pass": true,
     "bands": {
@@ -6040,6 +6052,98 @@
   },
   {
    "id": "s129",
+   "text": "retry مع idempotency",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/dom-c.tsx:290"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text",
+     "lat"
+    ]
+   },
+   "carrier": "قسم",
+   "overflow": {
+    "ink_w": 317,
+    "ink_h": 34,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 0.909,
+    "exact": false,
+    "psm": 7,
+    "scale": 100,
+    "got": "idempotency ‏مع‎ retry ‏قسم‎",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 0.909,
+     "92": 0.909
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s130",
+   "text": "نفس نتيجة مرة واحدة",
+   "size": null,
+   "render_size": [
+    34,
+    92
+   ],
+   "kind": "label",
+   "sources": [
+    "studio/src/demos/dom-c.tsx:290"
+   ],
+   "problems": [],
+   "warnings": [],
+   "join": false,
+   "tofu": {
+    "missing": [],
+    "faces": [
+     "ar-display",
+     "ar-text"
+    ]
+   },
+   "overflow": {
+    "ink_w": 296,
+    "ink_h": 33,
+    "container_w": 1784,
+    "lines": 1
+   },
+   "evidence": "pil-raqm-isolated",
+   "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
+   "ocr": {
+    "score": 1.0,
+    "exact": true,
+    "psm": 13,
+    "scale": 100,
+    "got": "نفس نتيجة مرة واحدة .",
+    "join_junk": "",
+    "pass": true,
+    "bands": {
+     "34": 1.0,
+     "92": 1.0
+    }
+   },
+   "status": "pass"
+  },
+  {
+   "id": "s131",
    "text": "نسبة النجاح",
    "size": null,
    "render_size": [
@@ -6087,7 +6191,7 @@
    "status": "pass"
   },
   {
-   "id": "s130",
+   "id": "s132",
    "text": "العملية فشلت",
    "size": null,
    "render_size": [
@@ -6133,7 +6237,7 @@
    "status": "pass"
   },
   {
-   "id": "s131",
+   "id": "s133",
    "text": "اتصلحت والعملية نجحت",
    "size": null,
    "render_size": [
@@ -6178,7 +6282,7 @@
    "status": "pass"
   },
   {
-   "id": "s132",
+   "id": "s134",
    "text": "البيانات",
    "size": null,
    "render_size": [
@@ -6223,7 +6327,7 @@
    "status": "pass"
   },
   {
-   "id": "s133",
+   "id": "s135",
    "text": "مسار الدفع",
    "size": null,
    "render_size": [
@@ -6270,7 +6374,7 @@
    "status": "pass"
   },
   {
-   "id": "s134",
+   "id": "s136",
    "text": "الإجمالي الناجح",
    "size": null,
    "render_size": [
@@ -6317,7 +6421,7 @@
    "status": "pass"
   },
   {
-   "id": "s135",
+   "id": "s137",
    "text": "إيصال T3",
    "size": null,
    "render_size": [
@@ -6364,7 +6468,7 @@
    "status": "pass"
   },
   {
-   "id": "s136",
+   "id": "s138",
    "text": "قسم الـidempotency",
    "size": null,
    "render_size": [
@@ -6415,7 +6519,7 @@
    "status": "pass"
   },
   {
-   "id": "s137",
+   "id": "s139",
    "text": "قسم الـroadmap",
    "size": null,
    "render_size": [
@@ -6464,7 +6568,7 @@
    "status": "pass"
   },
   {
-   "id": "s138",
+   "id": "s140",
    "text": "الـ⟦keyword search⟧",
    "size": null,
    "render_size": [
@@ -6513,7 +6617,7 @@
    "status": "pass"
   },
   {
-   "id": "s139",
+   "id": "s141",
    "text": "الـembeddings",
    "size": null,
    "render_size": [
@@ -6562,7 +6666,7 @@
    "status": "pass"
   },
   {
-   "id": "s140",
+   "id": "s142",
    "text": "تحمّل نفس الصفوف مرتين",
    "size": null,
    "render_size": [
@@ -6607,7 +6711,7 @@
    "status": "pass"
   },
   {
-   "id": "s141",
+   "id": "s143",
    "text": "الـembedding",
    "size": null,
    "render_size": [
@@ -6656,7 +6760,7 @@
    "status": "pass"
   },
   {
-   "id": "s142",
+   "id": "s144",
    "text": "العميل",
    "size": null,
    "render_size": [
@@ -6706,7 +6810,7 @@
    "status": "pass"
   },
   {
-   "id": "s143",
+   "id": "s145",
    "text": "ضغط",
    "size": null,
    "render_size": [
@@ -6756,7 +6860,7 @@
    "status": "pass"
   },
   {
-   "id": "s144",
+   "id": "s146",
    "text": "الدفع",
    "size": null,
    "render_size": [
@@ -6804,7 +6908,7 @@
    "status": "pass"
   },
   {
-   "id": "s145",
+   "id": "s147",
    "text": "مرتين",
    "size": null,
    "render_size": [
@@ -6852,7 +6956,7 @@
    "status": "pass"
   },
   {
-   "id": "s146",
+   "id": "s148",
    "text": "الـAPI",
    "size": null,
    "render_size": [
@@ -6903,7 +7007,7 @@
    "status": "pass"
   },
   {
-   "id": "s147",
+   "id": "s149",
    "text": "رفض",
    "size": null,
    "render_size": [
@@ -6950,7 +7054,7 @@
    "status": "pass"
   },
   {
-   "id": "s148",
+   "id": "s150",
    "text": "تعليمات النظام",
    "size": null,
    "render_size": [
@@ -6995,7 +7099,7 @@
    "status": "pass"
   },
   {
-   "id": "s149",
+   "id": "s151",
    "text": "سؤال العميل",
    "size": null,
    "render_size": [
@@ -7040,7 +7144,7 @@
    "status": "pass"
   },
   {
-   "id": "s150",
+   "id": "s152",
    "text": "نتيجة الـAPI",
    "size": null,
    "render_size": [
@@ -7088,7 +7192,7 @@
    "status": "pass"
   },
   {
-   "id": "s151",
+   "id": "s153",
    "text": "الإجابة",
    "size": null,
    "render_size": [
@@ -7134,7 +7238,7 @@
    "status": "pass"
   },
   {
-   "id": "s152",
+   "id": "s154",
    "text": "سؤال تاني",
    "size": null,
    "render_size": [
@@ -7179,7 +7283,7 @@
    "status": "pass"
   },
   {
-   "id": "s153",
+   "id": "s155",
    "text": "الموديل بيفكر",
    "size": null,
    "render_size": [
@@ -7224,7 +7328,7 @@
    "status": "pass"
   },
   {
-   "id": "s154",
+   "id": "s156",
    "text": "المرتجعات",
    "size": null,
    "render_size": [
@@ -7269,7 +7373,7 @@
    "status": "pass"
   },
   {
-   "id": "s155",
+   "id": "s157",
    "text": "المدخلات",
    "size": null,
    "render_size": [
@@ -7314,7 +7418,7 @@
    "status": "pass"
   },
   {
-   "id": "s156",
+   "id": "s158",
    "text": "الطبقة المخفية",
    "size": null,
    "render_size": [
@@ -7359,7 +7463,7 @@
    "status": "pass"
   },
   {
-   "id": "s157",
+   "id": "s159",
    "text": "المخرجات",
    "size": null,
    "render_size": [
@@ -7404,7 +7508,7 @@
    "status": "pass"
   },
   {
-   "id": "s158",
+   "id": "s160",
    "text": "الـNameNode",
    "size": null,
    "render_size": [
@@ -7453,7 +7557,7 @@
    "status": "pass"
   },
   {
-   "id": "s159",
+   "id": "s161",
    "text": "الرف الأول",
    "size": null,
    "render_size": [
@@ -7499,7 +7603,7 @@
    "status": "pass"
   },
   {
-   "id": "s160",
+   "id": "s162",
    "text": "الرف التاني",
    "size": null,
    "render_size": [
@@ -7545,7 +7649,7 @@
    "status": "pass"
   },
   {
-   "id": "s161",
+   "id": "s163",
    "text": "خدمة الدفع",
    "size": null,
    "render_size": [
@@ -7590,7 +7694,7 @@
    "status": "pass"
   },
   {
-   "id": "s162",
+   "id": "s164",
    "text": "المحفظة",
    "size": null,
    "render_size": [
@@ -7636,7 +7740,7 @@
    "status": "pass"
   },
   {
-   "id": "s163",
+   "id": "s165",
    "text": "البنك",
    "size": null,
    "render_size": [
@@ -7682,7 +7786,7 @@
    "status": "pass"
   },
   {
-   "id": "s164",
+   "id": "s166",
    "text": "الـKafka",
    "size": null,
    "render_size": [
@@ -7733,7 +7837,7 @@
    "status": "pass"
   },
   {
-   "id": "s165",
+   "id": "s167",
    "text": "قاعدة البيانات",
    "size": null,
    "render_size": [
@@ -7778,7 +7882,7 @@
    "status": "pass"
   },
   {
-   "id": "s166",
+   "id": "s168",
    "text": "استخراج الإيصالات",
    "size": null,
    "render_size": [
@@ -7823,7 +7927,7 @@
    "status": "pass"
   },
   {
-   "id": "s167",
+   "id": "s169",
    "text": "تنقية البيانات",
    "size": null,
    "render_size": [
@@ -7868,7 +7972,7 @@
    "status": "pass"
   },
   {
-   "id": "s168",
+   "id": "s170",
    "text": "فحص الجودة",
    "size": null,
    "render_size": [
@@ -7913,7 +8017,7 @@
    "status": "pass"
   },
   {
-   "id": "s169",
+   "id": "s171",
    "text": "تجهيز الـWarehouse",
    "size": null,
    "render_size": [
@@ -7961,7 +8065,7 @@
    "status": "pass"
   },
   {
-   "id": "s170",
+   "id": "s172",
    "text": "تقرير الصباح",
    "size": null,
    "render_size": [
@@ -8006,7 +8110,7 @@
    "status": "pass"
   },
   {
-   "id": "s171",
+   "id": "s173",
    "text": "أول صف واحد",
    "size": null,
    "render_size": [
@@ -8051,7 +8155,7 @@
    "status": "pass"
   },
   {
-   "id": "s172",
+   "id": "s174",
    "text": "ترتيب",
    "size": null,
    "render_size": [
@@ -8097,7 +8201,7 @@
    "status": "pass"
   },
   {
-   "id": "s173",
+   "id": "s175",
    "text": "تجميع بالشريحة",
    "size": null,
    "render_size": [
@@ -8142,7 +8246,7 @@
    "status": "pass"
   },
   {
-   "id": "s174",
+   "id": "s176",
    "text": "ربط",
    "size": null,
    "render_size": [
@@ -8188,7 +8292,7 @@
    "status": "pass"
   },
   {
-   "id": "s175",
+   "id": "s177",
    "text": "تصفية delivered",
    "size": null,
    "render_size": [
@@ -8235,7 +8339,7 @@
    "status": "pass"
   },
   {
-   "id": "s176",
+   "id": "s178",
    "text": "فيه Deny صريح؟",
    "size": null,
    "render_size": [
@@ -8282,7 +8386,7 @@
    "status": "pass"
   },
   {
-   "id": "s177",
+   "id": "s179",
    "text": "أيوه: مرفوض",
    "size": null,
    "render_size": [
@@ -8327,7 +8431,7 @@
    "status": "pass"
   },
   {
-   "id": "s178",
+   "id": "s180",
    "text": "لأ: فيه Allow؟",
    "size": null,
    "render_size": [
@@ -8374,7 +8478,7 @@
    "status": "pass"
   },
   {
-   "id": "s179",
+   "id": "s181",
    "text": "أيوه: مسموح",
    "size": null,
    "render_size": [
@@ -8419,7 +8523,7 @@
    "status": "pass"
   },
   {
-   "id": "s180",
+   "id": "s182",
    "text": "لأ: مرفوض ضمنًا",
    "size": null,
    "render_size": [
@@ -8464,7 +8568,7 @@
    "status": "pass"
   },
   {
-   "id": "s181",
+   "id": "s183",
    "text": "الجذر",
    "size": null,
    "render_size": [
@@ -8510,7 +8614,7 @@
    "status": "pass"
   },
   {
-   "id": "s182",
+   "id": "s184",
    "text": "صفحة وسيطة",
    "size": null,
    "render_size": [
@@ -8556,7 +8660,7 @@
    "status": "pass"
   },
   {
-   "id": "s183",
+   "id": "s185",
    "text": "ملف الإيصالات",
    "size": null,
    "render_size": [
@@ -8601,7 +8705,7 @@
    "status": "pass"
   },
   {
-   "id": "s184",
+   "id": "s186",
    "text": "استخراج",
    "size": null,
    "render_size": [
@@ -8647,7 +8751,7 @@
    "status": "pass"
   },
   {
-   "id": "s185",
+   "id": "s187",
    "text": "تنقية",
    "size": null,
    "render_size": [
@@ -8693,7 +8797,7 @@
    "status": "pass"
   },
   {
-   "id": "s186",
+   "id": "s188",
    "text": "تحويل",
    "size": null,
    "render_size": [
@@ -8739,7 +8843,7 @@
    "status": "pass"
   },
   {
-   "id": "s187",
+   "id": "s189",
    "text": "تحميل",
    "size": null,
    "render_size": [
@@ -8785,7 +8889,7 @@
    "status": "pass"
   },
   {
-   "id": "s188",
+   "id": "s190",
    "text": "إصدار جديد",
    "size": null,
    "render_size": [
@@ -8830,7 +8934,7 @@
    "status": "pass"
   },
   {
-   "id": "s189",
+   "id": "s191",
    "text": "بناء الـImage",
    "size": null,
    "render_size": [
@@ -8841,9 +8945,7 @@
    "sources": [
     "studio/src/demos/struct-a.tsx:315"
    ],
-   "problems": [
-    "OCR score 0.643 < 0.9 (pil-raqm-isolated); got 'Image I] clu \\u200fقسم\\u200e'"
-   ],
+   "problems": [],
    "warnings": [],
    "join": true,
    "tofu": {
@@ -8865,23 +8967,30 @@
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 0.643,
-    "exact": false,
-    "psm": 13,
+    "score": 1.0,
+    "exact": true,
+    "psm": 7,
     "scale": 100,
-    "got": "Image I] clu ‏قسم‎",
+    "got": "قسم بناء ال // Image",
+    "method": "script-runs (ara model on Arabic runs, eng model on Latin runs)",
     "join_junk": "",
+    "full_line": {
+     "score": 0.621,
+     "got": "Image JI cli ‏قسم‎",
+     "psm": 13,
+     "scale": 100
+    },
     "join_region_ok": true,
-    "pass": false,
+    "pass": true,
     "bands": {
-     "34": 0.621,
-     "92": 0.643
+     "34": 1.0,
+     "92": 1.0
     }
    },
-   "status": "fail"
+   "status": "pass"
   },
   {
-   "id": "s190",
+   "id": "s192",
    "text": "اختبار",
    "size": null,
    "render_size": [
@@ -8927,7 +9036,7 @@
    "status": "pass"
   },
   {
-   "id": "s191",
+   "id": "s193",
    "text": "فحص أمني",
    "size": null,
    "render_size": [
@@ -8975,7 +9084,7 @@
    "status": "pass"
   },
   {
-   "id": "s192",
+   "id": "s194",
    "text": "نشر Staging",
    "size": null,
    "render_size": [
@@ -9022,7 +9131,7 @@
    "status": "pass"
   },
   {
-   "id": "s193",
+   "id": "s195",
    "text": "نشر Production",
    "size": null,
    "render_size": [
@@ -9034,9 +9143,7 @@
     "studio/src/demos/struct-a.tsx:319"
    ],
    "problems": [],
-   "warnings": [
-    "OCR-BAND OCR score 0.824 < 0.9 (pil-raqm-isolated); got 'Production pid \\u200fقسم\\u200e'"
-   ],
+   "warnings": [],
    "join": false,
    "tofu": {
     "missing": [],
@@ -9056,22 +9163,29 @@
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 0.941,
-    "exact": false,
+    "score": 1.0,
+    "exact": true,
     "psm": 7,
-    "scale": 70,
-    "got": "قسم نشم ‎Production‏",
+    "scale": 100,
+    "got": "قسم نشر // Production",
+    "method": "script-runs (ara model on Arabic runs, eng model on Latin runs)",
     "join_junk": "",
+    "full_line": {
+     "score": 0.824,
+     "got": "Production pid ‏قسم‎",
+     "psm": 13,
+     "scale": 100
+    },
     "pass": true,
     "bands": {
-     "34": 0.824,
+     "34": 1.0,
      "92": 0.941
     }
    },
    "status": "pass"
   },
   {
-   "id": "s194",
+   "id": "s196",
    "text": "Marts — لكل فريق",
    "size": null,
    "render_size": [
@@ -9118,7 +9232,7 @@
    "status": "pass"
   },
   {
-   "id": "s195",
+   "id": "s197",
    "text": "ADS — جاهز للتقارير",
    "size": null,
    "render_size": [
@@ -9164,7 +9278,7 @@
    "status": "pass"
   },
   {
-   "id": "s196",
+   "id": "s198",
    "text": "DW — مخزن موحّد",
    "size": null,
    "render_size": [
@@ -9210,7 +9324,7 @@
    "status": "pass"
   },
   {
-   "id": "s197",
+   "id": "s199",
    "text": "ODS — بيانات خام",
    "size": null,
    "render_size": [
@@ -9221,9 +9335,7 @@
    "sources": [
     "studio/src/demos/struct-a.tsx:383"
    ],
-   "problems": [
-    "OCR score 0.833 < 0.9 (pil-raqm-isolated); got '5 - بيانات خام'"
-   ],
+   "problems": [],
    "warnings": [],
    "join": false,
    "tofu": {
@@ -9243,22 +9355,29 @@
    "evidence": "pil-raqm-isolated",
    "renderer": "PIL/Raqm (HarfBuzz) + frozen faces + J1 gap",
    "ocr": {
-    "score": 0.833,
-    "exact": false,
+    "score": 1.0,
+    "exact": true,
     "psm": 7,
     "scale": 100,
-    "got": "5 - بيانات خام",
+    "got": "- بيانات خام // ODS",
+    "method": "script-runs (ara model on Arabic runs, eng model on Latin runs)",
     "join_junk": "",
-    "pass": false,
+    "full_line": {
+     "score": 0.833,
+     "got": "5 - بيانات خام",
+     "psm": 7,
+     "scale": 100
+    },
+    "pass": true,
     "bands": {
-     "34": 0.833,
-     "92": 0.833
+     "34": 1.0,
+     "92": 1.0
     }
    },
-   "status": "fail"
+   "status": "pass"
   },
   {
-   "id": "s198",
+   "id": "s200",
    "text": "التاريخ",
    "size": null,
    "render_size": [
@@ -9305,7 +9424,7 @@
    "status": "pass"
   },
   {
-   "id": "s199",
+   "id": "s201",
    "text": "المنتج",
    "size": null,
    "render_size": [
@@ -9351,7 +9470,7 @@
    "status": "pass"
   },
   {
-   "id": "s200",
+   "id": "s202",
    "text": "حالة الطلب",
    "size": null,
    "render_size": [
@@ -9396,7 +9515,7 @@
    "status": "pass"
   },
   {
-   "id": "s201",
+   "id": "s203",
    "text": "الشريحة",
    "size": null,
    "render_size": [
@@ -9442,7 +9561,7 @@
    "status": "pass"
   },
   {
-   "id": "s202",
+   "id": "s204",
    "text": "نسخة سليمة · ⟦355 ms⟧",
    "size": null,
    "render_size": [
@@ -9488,7 +9607,7 @@
    "status": "pass"
   },
   {
-   "id": "s203",
+   "id": "s205",
    "text": "الـgate · ⟦500 ms⟧",
    "size": null,
    "render_size": [
@@ -9539,7 +9658,7 @@
    "status": "pass"
   },
   {
-   "id": "s204",
+   "id": "s206",
    "text": "الـregression · ⟦675 ms⟧",
    "size": null,
    "render_size": [
@@ -9588,7 +9707,7 @@
    "status": "pass"
   },
   {
-   "id": "s205",
+   "id": "s207",
    "text": "الـgate رفض النسخة",
    "size": null,
    "render_size": [
@@ -9636,7 +9755,7 @@
    "status": "pass"
   },
   {
-   "id": "s206",
+   "id": "s208",
    "text": "رجوع للنسخة القديمة",
    "size": null,
    "render_size": [
@@ -9681,7 +9800,7 @@
    "status": "pass"
   },
   {
-   "id": "s207",
+   "id": "s209",
    "text": "أول نسخة",
    "size": null,
    "render_size": [
@@ -9727,7 +9846,7 @@
    "status": "pass"
   },
   {
-   "id": "s208",
+   "id": "s210",
    "text": "نظام الدفع",
    "size": null,
    "render_size": [
@@ -9772,7 +9891,7 @@
    "status": "pass"
   },
   {
-   "id": "s209",
+   "id": "s211",
    "text": "إضافة الـretry",
    "size": null,
    "render_size": [
@@ -9820,7 +9939,7 @@
    "status": "pass"
   },
   {
-   "id": "s210",
+   "id": "s212",
    "text": "الـtest نجح",
    "size": null,
    "render_size": [
@@ -9869,7 +9988,7 @@
    "status": "pass"
   },
   {
-   "id": "s211",
+   "id": "s213",
    "text": "نفس الـobject",
    "size": null,
    "render_size": [
@@ -9918,7 +10037,7 @@
    "status": "pass"
   },
   {
-   "id": "s212",
+   "id": "s214",
    "text": "قايمة مؤقتة",
    "size": null,
    "render_size": [
@@ -9963,7 +10082,7 @@
    "status": "pass"
   },
   {
-   "id": "s213",
+   "id": "s215",
    "text": "سيرفر A",
    "size": null,
    "render_size": [
@@ -10010,7 +10129,7 @@
    "status": "pass"
   },
   {
-   "id": "s214",
+   "id": "s216",
    "text": "سيرفر B",
    "size": null,
    "render_size": [
@@ -10057,7 +10176,7 @@
    "status": "pass"
   },
   {
-   "id": "s215",
+   "id": "s217",
    "text": "سيرفر C",
    "size": null,
    "render_size": [
@@ -10104,7 +10223,7 @@
    "status": "pass"
   },
   {
-   "id": "s216",
+   "id": "s218",
    "text": "سيرفر D",
    "size": null,
    "render_size": [
@@ -10151,7 +10270,7 @@
    "status": "pass"
   },
   {
-   "id": "s217",
+   "id": "s219",
    "text": "سيرفر E",
    "size": null,
    "render_size": [
@@ -10198,7 +10317,7 @@
    "status": "pass"
   },
   {
-   "id": "s218",
+   "id": "s220",
    "text": "الموبايل",
    "size": null,
    "render_size": [
@@ -10244,7 +10363,7 @@
    "status": "pass"
   },
   {
-   "id": "s219",
+   "id": "s221",
    "text": "الـ⟦load balancer⟧",
    "size": null,
    "render_size": [
@@ -10293,7 +10412,7 @@
    "status": "pass"
   },
   {
-   "id": "s220",
+   "id": "s222",
    "text": "الـdatabase",
    "size": null,
    "render_size": [
@@ -10342,7 +10461,7 @@
    "status": "pass"
   },
   {
-   "id": "s221",
+   "id": "s223",
    "text": "الـcore",
    "size": null,
    "render_size": [
@@ -10391,7 +10510,7 @@
    "status": "pass"
   },
   {
-   "id": "s222",
+   "id": "s224",
    "text": "الـpartition",
    "size": null,
    "render_size": [
@@ -10440,7 +10559,7 @@
    "status": "pass"
   },
   {
-   "id": "s223",
+   "id": "s225",
    "text": "ثوانٍ",
    "size": null,
    "render_size": [
@@ -10486,7 +10605,7 @@
    "status": "pass"
   },
   {
-   "id": "s224",
+   "id": "s226",
    "text": "الإجمالي",
    "size": null,
    "render_size": [
@@ -10531,7 +10650,7 @@
    "status": "pass"
   },
   {
-   "id": "s225",
+   "id": "s227",
    "text": "الـconstraints",
    "size": null,
    "render_size": [
@@ -10580,7 +10699,7 @@
    "status": "pass"
   },
   {
-   "id": "s226",
+   "id": "s228",
    "text": "قواعد",
    "size": null,
    "render_size": [
@@ -10626,7 +10745,7 @@
    "status": "pass"
   },
   {
-   "id": "s227",
+   "id": "s229",
    "text": "الشغل",
    "size": null,
    "render_size": [
@@ -10672,7 +10791,7 @@
    "status": "pass"
   },
   {
-   "id": "s228",
+   "id": "s230",
    "text": "متحوّلة",
    "size": null,
    "render_size": [
@@ -10718,7 +10837,7 @@
    "status": "pass"
   },
   {
-   "id": "s229",
+   "id": "s231",
    "text": "لحيطان",
    "size": null,
    "render_size": [
@@ -10764,7 +10883,7 @@
    "status": "pass"
   },
   {
-   "id": "s230",
+   "id": "s232",
    "text": "إن تكرار نفس الطلب ما يعملش أثر زيادة",
    "size": null,
    "render_size": [
@@ -10809,7 +10928,7 @@
    "status": "pass"
   },
   {
-   "id": "s231",
+   "id": "s233",
    "text": "الهدف المتفق عليه لمستوى الخدمة",
    "size": null,
    "render_size": [
@@ -10854,7 +10973,7 @@
    "status": "pass"
   },
   {
-   "id": "s232",
+   "id": "s234",
    "text": "تجميع الصفوف حسب القسم",
    "size": null,
    "render_size": [
@@ -10899,7 +11018,7 @@
    "status": "pass"
   },
   {
-   "id": "s233",
+   "id": "s235",
    "text": "زمن الاستجابة للطلبات البطيئة",
    "size": null,
    "render_size": [
@@ -10944,7 +11063,7 @@
    "status": "pass"
   },
   {
-   "id": "s234",
+   "id": "s236",
    "text": "الـgrain",
    "size": null,
    "render_size": [
@@ -10993,7 +11112,7 @@
    "status": "pass"
   },
   {
-   "id": "s235",
+   "id": "s237",
    "text": "الصف الواحد بيمثّل إيه بالظبط",
    "size": null,
    "render_size": [
@@ -11040,7 +11159,7 @@
    "status": "pass"
   },
   {
-   "id": "s236",
+   "id": "s238",
    "text": "قبل ما تكتب سطر واحد، جاوب: صف واحد لكل إيه؟",
    "size": null,
    "render_size": [
@@ -11087,7 +11206,7 @@
    "status": "pass"
   },
   {
-   "id": "s237",
+   "id": "s239",
    "text": "لكل order",
    "size": null,
    "render_size": [
@@ -11134,7 +11253,7 @@
    "status": "pass"
   },
   {
-   "id": "s238",
+   "id": "s240",
    "text": "لكل customer",
    "size": null,
    "render_size": [
@@ -11181,7 +11300,7 @@
    "status": "pass"
   },
   {
-   "id": "s239",
+   "id": "s241",
    "text": "لكل customer في اليوم",
    "size": null,
    "render_size": [
@@ -11227,7 +11346,7 @@
    "status": "pass"
   },
   {
-   "id": "s240",
+   "id": "s242",
    "text": "العمليات الناجحة",
    "size": null,
    "render_size": [

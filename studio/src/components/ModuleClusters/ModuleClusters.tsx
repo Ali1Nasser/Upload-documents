@@ -45,7 +45,7 @@ export const ModuleClustersView: React.FC<DcProps<Props>> = ({props, ctx}) => {
   const shrink = lerp(0.97, 0.84, apart);
   const headH = SIZE.label * 1.9;
   const CHIP_H = SIZE.label * 2.9; // chips are objects with a label: tall enough for body-size copy
-  const ROW = CHIP_H + 16;
+  const ROW = CHIP_H * 1.55; // room between rows for the intra-cluster arrows
   // chips per hull: the column count that gives the widest chips whose rows still fit the row height
   const colsOf = (m: number, iw: number, ih: number) => {
     let best = {mc: 0, cwid: 0};
@@ -80,7 +80,7 @@ export const ModuleClustersView: React.FC<DcProps<Props>> = ({props, ctx}) => {
     const mc = mcOf.get(c.name) as number;
     const mr = Math.ceil(m / mc);
     const chipW = iw / mc - 14;
-    const chipH = Math.min(CHIP_H, rowH - 12);
+    const chipH = Math.min(CHIP_H, rowH * 0.66);
     c.mods.forEach((mi, j) => {
       const col = j % mc;
       const row = Math.floor(j / mc);
